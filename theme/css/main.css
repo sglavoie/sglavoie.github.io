@@ -1,0 +1,86 @@
+/*
+	Name: blueidea
+	Date: Oct 2013
+	Description: A Pelican theme inspired by the default theme notmyidea 
+	Version: 1.0
+	License: MIT <http://opensource.org/licenses/MIT>
+	Licensed by: Smashing Media GmbH <http://www.smashingmagazine.com/>
+	Original author: Enrique Ramírez <http://enrique-ramirez.com/>
+	Customized by : Nassim Kacha <http://www.blueicefield.com/>
+*/
+
+/* Imports */
+@import url("reset.css");
+@import url("pygment.css");
+@import url("typogrify.css");
+@import url(//fonts.googleapis.com/css?family=Yanone+Kaffeesatz&subset=latin);
+
+/***** Global *****/
+/* HTML5 tags */
+header, section, footer,
+aside, nav, article, figure {
+	display: block;
+}
+
+html {
+    background-color: #00272f;
+}
+
+.jumbotron {
+    margin-bottom: 0;
+}
+
+@media (min-width: 576px)
+.jumbotron {
+    padding: 6rem 2rem;
+}
+
+.container {
+    padding-top: 40px;
+}
+
+#footer-copyright {
+  background-color: #00272f;
+}
+
+.w3-white,.w3-hover-white:hover{color:#000!important;background-color:#ececec!important}
+
+.w3-card{border:1px solid #cacaca}
+
+.w3-center{text-align:center!important}
+
+.w3-small{font-size:12px!important}
+
+.w3-text-grey,.w3-hover-text-grey:hover,.w3-text-gray,.w3-hover-text-gray:hover{color:#e2e2e2!important}
+
+.w3-padding-48{padding-top:48px!important;padding-bottom:48px!important}
+
+a {
+    color: #008ca2;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #00b4d6;
+}
+
+a:visited {
+    color: #007bff;
+}
+
+.footerlink, .footerlink:hover {
+    color: #23dcff;
+}
+
+.footerlink:visited {
+    color: #6a94c1;
+}
+
+.footerdistance {
+    margin-top: 20px;
+}
+
+
+.articles {
+    margin-top: 3rem;
+}
