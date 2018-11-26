@@ -36,9 +36,9 @@
 
 <nav id="bg-darker" class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="brand-link" href="/">
-          <img class="brand-logo" src="/theme/images/sglavoie.svg" alt="sglavoie.svg">
+          <img class="brand-logo hover-img" src="/theme/images/sglavoie.svg" alt="sglavoie.svg">
       </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sglavoie-menu" aria-controls="sglavoie-menu" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler hover-img" type="button" data-toggle="collapse" data-target="#sglavoie-menu" aria-controls="sglavoie-menu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     Main Menu
   </button>
@@ -48,10 +48,13 @@
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
     <li class="nav-item active">
-        <a class="nav-link" href="/">home</a>
+        <a class="nav-link" href="/"><i class="fas fa-home"></i> home</a>
     </li>
     <li class="nav-item ">
-        <a class="nav-link" href="/tags.html">tags</a>
+        <a class="nav-link" href="/tags.html"><i class="fas fa-hashtag"></i> tags</a>
+    </li>
+    <li class="nav-item ">
+        <a class="nav-link" href="/about.html"><i class="fas fa-info"></i> about</a>
     </li>
 
           </ul>
@@ -61,7 +64,7 @@
 
 <nav id="menu" class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sglavoie-menu-second" aria-controls="sglavoie-menu-second" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler hover-img" type="button" data-toggle="collapse" data-target="#sglavoie-menu-second" aria-controls="sglavoie-menu-second" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     Categories
   </button>
@@ -87,7 +90,7 @@
         <!-- /#menu -->
 
 <section id="content" class="jumbotron body">
-<h2 class="display-4 uppercase-title">All articles</h2>
+<h2 class="display-4 uppercase-title"><i class="far fa-newspaper"></i> All articles</h2>
 
 <div class="card">
 <ol id="post-list">
@@ -96,20 +99,20 @@
             <header> <h2 class="card-title"><a href="./posts/2018/11/19/tmux-integration-with-vim-neovim-first-steps/" rel="bookmark" title="Permalink to tmux integration with Vim/Neovim — First steps">tmux integration with Vim/Neovim — First steps</a></h2> </header>
             <footer class="post-info card-subtitle mb-2 text-muted">
 
-                    Category: <div class="category-article emphasis post-info-space extra-space"><a href="./category/workflow.html">workflow</a></div>
+                    <i class="fas fa-tags"></i> Category: <div class="category-article emphasis post-info-space extra-space"><a href="./category/workflow.html">workflow</a></div>
 
 
             <div class="tags">
-                Tags:
+                <i class="fas fa-hashtag"></i> Tags:
                 <a class="category-article emphasis post-info-space extra-space" href="./tag/vim.html">vim</a>
                 <a class="category-article emphasis post-info-space extra-space" href="./tag/neovim.html">neovim</a>
                 <a class="category-article emphasis post-info-space extra-space" href="./tag/tmux.html">tmux</a>
             </div>
 
-                <time class="published" datetime="2018-11-19T20:31:00-06:00"> November 19, 2018 </time>
+                <i class="fas fa-calendar-alt"></i> <time class="published" datetime="2018-11-19T20:31:00-06:00"> November 19, 2018 </time>
             </footer><!-- /.post-info -->
             <div class="entry-content card-text"> <p>This is a short introduction that shows a possible workflow with tmux and Vim/Neovim.</p> </div>
-            <div class="position-comments-count"><a class="badge badge-dark" href="./posts/2018/11/19/tmux-integration-with-vim-neovim-first-steps/#disqus_thread">(article comments)</a></div><!-- /.entry-content -->
+            <div class="position-comments-count"><a class="badge badge-dark" href="./posts/2018/11/19/tmux-integration-with-vim-neovim-first-steps/#disqus_thread"><i class="fas fa-comments" style="padding-right:5px"></i> (article comments)</a></div><!-- /.entry-content -->
         </article></li>
 </div>
   <hr class="my-4">
@@ -119,13 +122,15 @@
 <!-- /#posts-list -->
 </section><!-- /#content -->
         <div class="footer-borders">
-            <footer id="contentinfo" class="body bg-border">
+            <footer id="contentinfo" class="body bg-border hover-footer-bg">
 
         <address class="footer-icons">
-        <a href="https://github.com/sglavoie"><img src="/theme/images/footer/github.png" height="32px" width="32px" style="margin-left:5px; margin-right:5px"></a>
-        <a href="https://www.facebook.com/sgdlavoie"><img src="/theme/images/footer/facebook.png" height="32px" width="32px" style="margin-left:5px; margin-right:5px"></a>
-        <a href="https://www.twitter.com/sgdlavoie"><img src="/theme/images/footer/twitter.png" height="32px" width="32px" style="margin-left:5px; margin-right:5px"></a>
-        <a href="https://www.hackerrank.com/sglavoie"><img src="/theme/images/footer/hackerrank.svg" height="32px" width="32px" style="margin-left:5px; margin-right:5px"></a>
+
+            <div class="get-in-touch-icons">
+        <div class="hover-img"><a href="https://github.com/sglavoie"><img src="/theme/images/footer/github.png" height="32px" width="32px" style="margin-left:5px; margin-right:5px"></a></div>
+        <div class="hover-img"><a href="https://www.facebook.com/sgdlavoie"><img src="/theme/images/footer/facebook.png" height="32px" width="32px" style="margin-left:5px; margin-right:5px"></a></div>
+        <div class="hover-img"><a href="https://www.twitter.com/sgdlavoie"><img src="/theme/images/footer/twitter.png" height="32px" width="32px" style="margin-left:5px; margin-right:5px"></a></div>
+        <div class="hover-img"><a href="https://www.hackerrank.com/sglavoie"><img src="/theme/images/footer/hackerrank.svg" height="32px" width="32px" style="margin-left:5px; margin-right:5px"></a></div>
 <script type="text/javascript" language="javascript">
 <!--
 // Email obfuscator script 2.1 by Tim Williams, University of Arizona
@@ -146,17 +151,28 @@
       link += (key.charAt(ltr))
     }
   }
-document.write("<a href='mailto:"+link+"'>"+'<img src="/theme/images/footer/gmail.svg" height="32px" width="32px" style="margin-left:5px; margin-right:5px">'+"</a>")
+    document.write("<div class='hover-img'><a href='mailto:"+link+"'>"+'<img src="/theme/images/footer/gmail.svg" height="32px" width="32px" style="margin-left:5px; margin-right:5px">'+"</a></div>")
 }
 //-->
 </script><noscript>Sorry, you need Javascript on to email me.</noscript>
 
+        </div>
+
       </address>
 
       <address id="about" class="vcard body">
-                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                    which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
+          Proudly powered by <a href="http://getpelican.com/">Pelican<img class="footer-bottom-icon" src="/theme/images/footer/pelican.svg"></a>,
+          which takes great advantage of <a href="http://python.org">Python<img class="footer-bottom-icon" src="/theme/images/footer/python.svg"></a> .
+
+      <div id="author-footer">
+                Copyright <i class="far fa-copyright"></i> 2018 | Sébastien Lavoie
+      </div>
+      <div id="version-footer">
+                v0.2.0
+      </div>
+                </address>
+                
+                <!-- /#about -->
             </footer>
 
         </div>
