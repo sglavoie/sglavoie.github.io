@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-          <title>tmux integration with Vim/Neovim — First steps | sglavoie.com</title>
+          <title>Using Vimwiki for note-taking | sglavoie.com</title>
 
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="180x180" href="/theme/images/apple-touch-icon.png">
@@ -36,7 +36,8 @@
 
     <meta name="tags" content="vim" />
     <meta name="tags" content="neovim" />
-    <meta name="tags" content="tmux" />
+    <meta name="tags" content="vimwiki" />
+    <meta name="tags" content="note-taking" />
 
 </head>
 
@@ -101,13 +102,13 @@
     <section id="content" class="jumbotron body">
         <header>
             <h2 class="display-4">
-                <a href="/posts/2018/11/19/tmux-integration-with-vim-neovim-first-steps/" rel="bookmark"
-                    title="Permalink to tmux integration with Vim/Neovim — First steps">tmux integration with Vim/Neovim — First steps</a></h2>
+                <a href="/posts/2018/12/03/using-vimwiki-for-note-taking/" rel="bookmark"
+                    title="Permalink to Using Vimwiki for note-taking">Using Vimwiki for note-taking</a></h2>
             
         </header>
         <footer class="post-info">
-            <i class="fas fa-calendar-alt"></i> <time class="published" datetime="2018-11-19T20:31:00-06:00">
-                November 19, 2018
+            <i class="fas fa-calendar-alt"></i> <time class="published" datetime="2018-12-03T13:26:00-06:00">
+                December 03, 2018
             </time>
             <address class="vcard author">
             </address>
@@ -118,160 +119,58 @@
                 <i class="fas fa-hashtag"></i> Tags:
                 <a class="emphasis post-info-space" href="/tag/vim.html">vim</a>
                 <a class="emphasis post-info-space" href="/tag/neovim.html">neovim</a>
-                <a class="emphasis post-info-space" href="/tag/tmux.html">tmux</a>
+                <a class="emphasis post-info-space" href="/tag/vimwiki.html">vimwiki</a>
+                <a class="emphasis post-info-space" href="/tag/note-taking.html">note-taking</a>
             </div>
         </footer><!-- /.post-info -->
   <hr class="my-4">
   <div class="card">
       <div class="card-body entry-content">
-          <h1>tmux integration</h1>
-<p><a href="https://github.com/tmux/tmux">tmux</a> offers many advantages in the context of remote access to another machine, but it also shines on a local setup! Here is how I currently like to set it up.</p>
+          <h1>What is Vimwiki?</h1>
+<p>From the <a href="https://vimwiki.github.io/">official website</a>:</p>
+<blockquote>
+<p>Vimwiki is a personal wiki for Vim – interlinked, plain text files written in a markup language.</p>
+</blockquote>
+<p>As this relies upon Vim's power to write content in a simple format, this quickly became a viable option to organize more and more notes!</p>
 <hr>
-<h2>Configuration file: ~/.tmux.conf</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># split panes using | and -</span>
-<span class="nb">bind</span> <span class="p">|</span> split-window -h
-<span class="nb">bind</span> - split-window -v
-unbind <span class="s1">&#39;&quot;&#39;</span>
-unbind %
-
-<span class="c1"># switch panes using Alt-arrow without prefix</span>
-<span class="nb">bind</span> -n M-Left <span class="k">select</span>-pane -L
-<span class="nb">bind</span> -n M-Right <span class="k">select</span>-pane -R
-<span class="nb">bind</span> -n M-Up <span class="k">select</span>-pane -U
-<span class="nb">bind</span> -n M-Down <span class="k">select</span>-pane -D
-
-
-<span class="c1"># Enable mouse mode (tmux 2.1 and above)</span>
-<span class="nb">set</span> -g mouse on
-
-source-file <span class="s2">&quot;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.tmux-themepack/blue.tmuxtheme&quot;</span>
-</pre></div>
-</td></tr></table>
-
-<p>This is all very self-explanatory. <a href="https://github.com/jimeh/tmux-themepack">Many themes can be found here</a>.</p>
+<h1>What were the other options considered?</h1>
+<p>I have used various approaches in the past for different purposes and reasons, including <em>Evernote</em>, <em>Simplenote</em>, <em>Microsoft OneNote</em>, <em>Google Docs</em>, <em>Boostnote</em>, <em>Freeplane</em>/<em>FreeMind</em> (mind-mapping), <em>Workflowy</em> and even plain <code>.txt</code> files. Each has its pros and cons, but I then decided to limit my options based on the following self-imposed requirements:</p>
+<ul>
+<li>It has to be <strong>available on Linux</strong>. Right from the start, this would disqualify many applications such as <em>Notational Velocity</em>, <em>Bear</em>, <em>Quiver</em>, <em>Paper</em>, <em>Ulysses</em> and <em>Squid</em>.</li>
+<li>It has to be <strong>open source</strong> as this is a philosophy that I strongly embrace. Plus, having the ability to freely modify it and contribute to the project is an important additional bonus. Adiós <em>Evernote</em>, <em>Google Docs</em>, <em>Dropbox Paper</em>, <em>Microsoft OneNote</em>, <em>Workflowy</em> and <em>Quip</em>.</li>
+<li>It has to be <strong>fast to use</strong> and it has to make it possible to <strong>express oneself in more than one way</strong>. Say goodbye to <em><a href="https://www.freeplane.org">Freeplane</a></em> (otherwise great for general brainstorming!) and <em>FreeMind</em> (which has been abandoned by its own developers): both are relatively slow on an old machine because they use Java and it is quite a stretch to use them for something other than mind maps. In that same category would disappear <em><a href="https://www.draw.io/">draw.io</a></em>, which is fantastic for making flowcharts and diagrams!</li>
+<li>It has to be versatile enough to handle features such as <strong>including images, links and attached files</strong> and have a way to perform <strong>search and replace</strong>. Ciao <em><a href="https://simplenote.com/">Simplenote</a></em> which is, well, simple. Even though it doesn't fit the bill in this case, it remains a great option as it can synchronize your notes with many different devices (iOS, MacOS, Android, Windows and Linux). It has a feature that allows you to move a slider which acts as a timeline and shows you a different version of your note since its creation with the actual date and time down to the minute for each <em>restore point</em>. You can also use tags and Markdown and it has options to share and collaborate with others. Highly recommended <i class="fas fa-grin-alt"></i>!</li>
+<li>It should have a hefty user base to back it up. This would exclude text editor plugins such as <code>atom-notes</code> for <em>Atom</em> or <code>VSNotes</code> for <em>VS Code</em>, which also lack features for accomplishing all of the above.</li>
+<li>On top of everything else, it has to be <strong>available offline</strong>, in a <strong>portable and readable format</strong>. Now, after discarding most options, we are left with <em>Boostnote</em> which uses CoffeeScript-Object-Notation and <em>Vimwiki</em> which has its own Wiki syntax that's similar in many ways to Markdown*. Those are the strongest contenders that I could think of but of course, if you would like to share your recommendations, please do so in the comments below!</li>
+</ul>
+<p>* <sub>I somehow discredited <strong><a href="https://www.gnu.org/software/emacs">Emacs</a></strong> simply because I started to learn Vim first and since I'm still far from understanding all of its features, I had to postpone the discovery of Emacs <i class="fas fa-grin-beam"></i>.</sub> </p>
 <hr>
-<h3>Automating the launch of a default session: ~/.tmux_default_session.sh</h3>
-<p>This is a small Bash script that I like to have for automatic set up of a development environment with tmux and Vim/Neovim. As my current workflow, I enjoy the following:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-<span class="c1"># var for session name (to avoid repeated occurences)</span>
-<span class="nv">sn</span><span class="o">=</span>dev
-
-tmux new-session -s <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">&quot;</span> -d
-
-<span class="c1"># Create 3 windows</span>
-tmux new-window -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:0&quot;</span> -n <span class="s2">&quot;nvim&quot;</span>
-tmux new-window -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:9&quot;</span> -n <span class="s2">&quot;python&quot;</span>
-tmux new-window -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:8&quot;</span> -n <span class="s2">&quot;terminal&quot;</span>
-
-<span class="c1"># Split terminal window vertically, then split the right pane horizontally,</span>
-<span class="c1"># then switch to the left pane</span>
-<span class="c1"># _________________</span>
-<span class="c1"># |       |       |</span>
-<span class="c1"># |       |       |</span>
-<span class="c1"># | FOCUS |-------|</span>
-<span class="c1"># | HERE  |       |</span>
-<span class="c1"># |       |       |</span>
-<span class="c1"># -----------------</span>
-tmux split-window -h
-tmux split-window -v
-tmux <span class="k">select</span>-pane -L
-
-<span class="c1"># Set up Neovim ready to open files</span>
-tmux send-keys -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:0&quot;</span> C-z <span class="s1">&#39;nvim .&#39;</span> Enter
-
-<span class="c1"># Set up alias for IPython and clear the screen when entering IPython</span>
-tmux send-keys -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:9&quot;</span> C-z <span class="s1">&#39;ipython&#39;</span> Enter
-tmux send-keys -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:9&quot;</span> <span class="s1">&#39;clear&#39;</span> Enter
-
-<span class="c1"># Select window #0 and attach to the session</span>
-tmux <span class="k">select</span>-window -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:0&quot;</span>
-tmux -2 attach-session -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">&quot;</span>
-</pre></div>
-</td></tr></table>
-
+<h1>Why did Vimwiki win in the end?</h1>
+<h2>In short</h2>
+<blockquote>
+<p>The modal nature of Vim makes it very hard to enjoy any other text editor once you get used to it. The learning curve is quite considerable and nearly infinite, but this is also why I think it is worth investing more time to master it as it has proven to be an everlasting piece of trusty software <i class="fas fa-thumbs-up"></i>.</p>
+<p>There is a feature in Boostnote to set the Editor Keymap to <code>vim</code> so that you can edit text in a very similar way, but then you miss out on Vim's <code>Command mode</code> which adds tremendous extensibility.</p>
+</blockquote>
 <hr>
-<h3>Aliases to make use of .tmux_default_session.sh</h3>
-<p>I add the following aliases in <code>~/.bash_aliases</code> to automate a chunk of the workflow:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># This will launch tmux with the desired configuration</span>
-<span class="nb">alias</span> <span class="nv">dev</span><span class="o">=</span><span class="s1">&#39;bash ~/.tmux_default_session.sh&#39;</span>
-
-<span class="c1"># This will kill the tmux server if the need arises. By detaching from the tmux</span>
-<span class="c1"># session, you simply run this command and can reattach easily to the default</span>
-<span class="c1"># session configuration on another project.</span>
-<span class="nb">alias</span> <span class="nv">kdev</span><span class="o">=</span><span class="s1">&#39;pkill tmux&#39;</span>
-
-<span class="c1"># If the session has been detached but the tmux server is still running, I use</span>
-<span class="c1"># the following alias to quickly reattach to the default session named `dev`</span>
-<span class="c1"># in that example.</span>
-<span class="nb">alias</span> <span class="nv">adev</span><span class="o">=</span><span class="s1">&#39;tmux attach-session -t dev&#39;</span>
-</pre></div>
-</td></tr></table>
-
+<h2>Expanded edition</h2>
+<p>Boostnote comes with nice features such as Tags, the ability to set multiple storage locations for notes, a <code>Preferences</code> panel to adjust many options, a feature to add code snippets, real-time preview of Markdown being edited, etc. Make no mistake: this is a great program. But there are many Vim features that are hard or impossible to replicate and everything that you can do in Boostnote can be done in Vim also (ctags, emmet syntax, plugins for Markdown, etc.).</p>
+<ul>
+<li>
+<p>For starters, the terminal integration is obviously unmatched. In Vim, <code>CTRL+Z</code> will <em>stop</em> Vim and gives you access to the terminal to do whatever you want to do. From that point, you can simply switch back to Vim by issuing the command <code>fg</code>. The terminal integration goes even further: you can have full access to the terminal inside Vim buffers since Vim 8.1 and that is a feature that has been available in Neovim for even longer.</p>
+</li>
+<li>
+<p>Even though <code>vim</code> mode can be enabled to edit text, you have to use the mouse to get many tasks done and the editing window can loose the focus. On the other hand, Vim is just one single window by default that you can split however you want, including adding tabs if your heart tells you to.</p>
+</li>
+<li>
+<p>You have to open your notes with Boostnote if you want them to be fully readable out of the box. Vimwiki does almost no processing with the content of the files so that it is very easy to open them with any other text editor. On a related note, it is much easier to export many notes at the same time with Vimwiki. Boostnote does have a few options to export individual notes (<code>.md</code>, <code>.txt</code>, <code>.html</code> and print), but it is not as user-friendly with many notes.</p>
+</li>
+<li>
+<p>Vimwiki makes it easy to link notes together and navigate between them, even within subfolders: highlight text, use <code>Enter</code> to create a link and open a new note, write your note and press <code>Backspace</code> to go back to where you created the link. That's quick and easy!</p>
+</li>
+</ul>
 <hr>
-<h3>tmux demo</h3>
-<p><img src="/images/posts/0001_tmux-integration-with-vim/tmux-demo.gif" class="max-size-img-post"></p>
-<hr>
-<p>The content of this post can be found on <a href="https://github.com/sglavoie/better-vim-experience#tmux-integration">GitHub</a>.</p>
+<h1>Conclusion</h1>
+<p>In the end, it is a matter of taste as those programs are indeed very distinct. Boostnote has a polished interface, is much easier to use and has many settings easily changed. Vim/Neovim, on the contrary, requires a lot of initial effort both to understand and to set up according to your needs, but it does deliver a good dose of productivity... Eventually <i class="fas fa-laugh-beam"></i>!</p>
       </div>
   </div>
         <!-- /.entry-content -->
@@ -282,7 +181,7 @@ tmux -2 attach-session -t <span class="s2">&quot;</span><span class="nv">$sn</sp
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sglavoie'; 
-    var disqus_title = 'tmux integration with Vim/Neovim — First steps';
+    var disqus_title = 'Using Vimwiki for note-taking';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
