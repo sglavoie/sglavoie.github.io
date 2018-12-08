@@ -89,6 +89,10 @@
               </li>
 
               <li class="nav-item">
+            <a class="lowercase-title always-white nav-link-smaller" href="/category/tips-and-tricks.html">tips-and-tricks</a>
+              </li>
+
+              <li class="nav-item">
             <a class="lowercase-title always-white nav-link-smaller" href="/category/workflow.html">workflow</a>
               </li>
           </ul>
@@ -168,40 +172,7 @@ source-file <span class="s2">&quot;</span><span class="si">${</span><span class=
 <hr>
 <h3>Automating the launch of a default session: ~/.tmux_default_session.sh</h3>
 <p>This is a small Bash script that I like to have for automatic set up of a development environment with tmux and Vim/Neovim. As my current workflow, I enjoy the following:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><span class="ch">#!bash</span>
 <span class="c1"># var for session name (to avoid repeated occurences)</span>
 <span class="nv">sn</span><span class="o">=</span>dev
 
@@ -213,13 +184,13 @@ tmux new-window -t <span class="s2">&quot;</span><span class="nv">$sn</span><spa
 tmux new-window -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:8&quot;</span> -n <span class="s2">&quot;terminal&quot;</span>
 
 <span class="c1"># Split terminal window vertically, then split the right pane horizontally,</span>
-<span class="c1"># then switch to the left pane</span>
+<span class="c1"># then switch to the left pane (identified by `FOCUS IS HERE`).</span>
 <span class="c1"># _________________</span>
-<span class="c1"># |       |       |</span>
+<span class="c1"># |&gt;_     |&gt;_     |</span>
 <span class="c1"># |       |       |</span>
 <span class="c1"># | FOCUS |-------|</span>
+<span class="c1"># | IS    |&gt;_     |</span>
 <span class="c1"># | HERE  |       |</span>
-<span class="c1"># |       |       |</span>
 <span class="c1"># -----------------</span>
 tmux split-window -h
 tmux split-window -v
@@ -236,23 +207,12 @@ tmux send-keys -t <span class="s2">&quot;</span><span class="nv">$sn</span><span
 tmux <span class="k">select</span>-window -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:0&quot;</span>
 tmux -2 attach-session -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">&quot;</span>
 </pre></div>
-</td></tr></table>
+
 
 <hr>
 <h3>Aliases to make use of .tmux_default_session.sh</h3>
 <p>I add the following aliases in <code>~/.bash_aliases</code> to automate a chunk of the workflow:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># This will launch tmux with the desired configuration</span>
+<div class="highlight"><pre><span></span><span class="c1"># This will launch tmux with the desired configuration</span>
 <span class="nb">alias</span> <span class="nv">dev</span><span class="o">=</span><span class="s1">&#39;bash ~/.tmux_default_session.sh&#39;</span>
 
 <span class="c1"># This will kill the tmux server if the need arises. By detaching from the tmux</span>
@@ -265,7 +225,7 @@ tmux -2 attach-session -t <span class="s2">&quot;</span><span class="nv">$sn</sp
 <span class="c1"># in that example.</span>
 <span class="nb">alias</span> <span class="nv">adev</span><span class="o">=</span><span class="s1">&#39;tmux attach-session -t dev&#39;</span>
 </pre></div>
-</td></tr></table>
+
 
 <hr>
 <h3>tmux demo</h3>
@@ -350,7 +310,7 @@ tmux -2 attach-session -t <span class="s2">&quot;</span><span class="nv">$sn</sp
 
       </div>
       <div id="version-footer">
-                v0.3.5
+                v0.3.8
       </div>
                 </address>
                 
