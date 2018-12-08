@@ -132,23 +132,7 @@
 <p><a href="https://github.com/tmux/tmux">tmux</a> offers many advantages in the context of remote access to another machine, but it also shines on a local setup! Here is how I currently like to set it up.</p>
 <hr>
 <h2>Configuration file: ~/.tmux.conf</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># split panes using | and -</span>
+<div class="highlight"><pre><span></span><span class="c1"># split panes using | and -</span>
 <span class="nb">bind</span> <span class="p">|</span> split-window -h
 <span class="nb">bind</span> - split-window -v
 unbind <span class="s1">&#39;&quot;&#39;</span>
@@ -166,7 +150,7 @@ unbind %
 
 source-file <span class="s2">&quot;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.tmux-themepack/blue.tmuxtheme&quot;</span>
 </pre></div>
-</td></tr></table>
+
 
 <p>This is all very self-explanatory. <a href="https://github.com/jimeh/tmux-themepack">Many themes can be found here</a>.</p>
 <hr>
@@ -229,7 +213,8 @@ tmux -2 attach-session -t <span class="s2">&quot;</span><span class="nv">$sn</sp
 
 <hr>
 <h3>tmux demo</h3>
-<p><img src="/images/posts/0001_tmux-integration-with-vim/tmux-demo.gif" class="max-size-img-post"></p>
+<p>(click to open image)
+<a href="/images/posts/0001_tmux-integration-with-vim/tmux-demo.gif"><img src="/images/posts/0001_tmux-integration-with-vim/tmux-demo.gif" class="max-size-img-post"></a></p>
 <hr>
 <p>The content of this post can be found on <a href="https://github.com/sglavoie/better-vim-experience#tmux-integration">GitHub</a>.</p>
       </div>
