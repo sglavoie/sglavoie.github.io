@@ -241,8 +241,10 @@ tmux -2 attach-session -t <span class="s2">&quot;</span><span class="nv">$sn</sp
 	<h2 class="display-4"><i class="fas fa-comment-alt"></i> Comments</h2>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'sglavoie'; 
-    var disqus_title = 'tmux integration with Vim/Neovim — First steps';
+    // Substitute single quotation mark (') for double (") to allow
+    // article's title to contain single quotes.
+    var disqus_shortname = "sglavoie"; 
+    var disqus_title = "tmux integration with Vim/Neovim — First steps";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
