@@ -131,7 +131,7 @@
           <h1>tmux integration</h1>
 <p><a href="https://github.com/tmux/tmux">tmux</a> offers many advantages in the context of remote access to another machine, but it also shines on a local setup! Here is how I currently like to set it up.</p>
 <hr>
-<h2>Configuration file: ~/.tmux.conf</h2>
+<h2>Configuration file: <code>~/.tmux.conf</code></h2>
 <div class="highlight"><pre><span></span><span class="c1"># split panes using | and -</span>
 <span class="nb">bind</span> <span class="p">|</span> split-window -h
 <span class="nb">bind</span> - split-window -v
@@ -154,7 +154,7 @@ source-file <span class="s2">&quot;</span><span class="si">${</span><span class=
 
 <p>This is all very self-explanatory. <a href="https://github.com/jimeh/tmux-themepack">Many themes can be found here</a>.</p>
 <hr>
-<h3>Automating the launch of a default session: ~/.tmux_default_session.sh</h3>
+<h3>Automating the launch of a default session: <code>~/.tmux_default_session.sh</code></h3>
 <p>This is a small Bash script that I like to have for automatic set up of a development environment with tmux and Vim/Neovim. As my current workflow, I enjoy the following:</p>
 <div class="highlight"><pre><span></span><span class="ch">#!bash</span>
 <span class="c1"># var for session name (to avoid repeated occurences)</span>
@@ -194,7 +194,7 @@ tmux -2 attach-session -t <span class="s2">&quot;</span><span class="nv">$sn</sp
 
 
 <hr>
-<h3>Aliases to make use of .tmux_default_session.sh</h3>
+<h3>Aliases to make use of <code>.tmux_default_session.sh</code></h3>
 <p>I add the following aliases in <code>~/.bash_aliases</code> to automate a chunk of the workflow:</p>
 <div class="highlight"><pre><span></span><span class="c1"># This will launch tmux with the desired configuration</span>
 <span class="nb">alias</span> <span class="nv">dev</span><span class="o">=</span><span class="s1">&#39;bash ~/.tmux_default_session.sh&#39;</span>
@@ -216,7 +216,7 @@ tmux -2 attach-session -t <span class="s2">&quot;</span><span class="nv">$sn</sp
 <p>(click to open image)
 <a href="/images/posts/0001_tmux-integration-with-vim/tmux-demo.gif"><img src="/images/posts/0001_tmux-integration-with-vim/tmux-demo.gif" class="max-size-img-post"></a></p>
 <hr>
-<p>The content of this post can be found on <a href="https://github.com/sglavoie/better-vim-experience#tmux-integration">GitHub</a>.</p>
+<p>The content of this post can be found on <a href="https://github.com/sglavoie/better-vim-experience#tmux-integration">GitHub</a> <i class="fab fa-github-alt"></i> .</p>
       </div>
   </div>
         <!-- /.entry-content -->
