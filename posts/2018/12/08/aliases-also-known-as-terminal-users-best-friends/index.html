@@ -190,7 +190,7 @@
 </pre></div>
 
 
-<p>In this example, the alias is set up with <a href="https://github.com/junegunn/fzf">fzf</a>, a great fuzzy finder.</p>
+<p>In this example, the alias is set up with <a href="https://github.com/ggreer/the_silver_searcher">ag</a>, a fast code-searching tool and <a href="https://github.com/junegunn/fzf">fzf</a>, a great fuzzy finder.</p>
 <hr>
 <h3>Reboot and shutdown the system</h3>
 <div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">reboot</span><span class="o">=</span><span class="s1">&#39;systemctl reboot&#39;</span>
@@ -205,7 +205,7 @@
 </pre></div>
 
 
-<p>This requires the command <code>tree</code> to be installed. The parameters are:</p>
+<p>This requires the command <code>tree</code> to be installed. The parameters are (descriptions taken from <code>man tree</code>):</p>
 <p><code>-h</code>: Print the size of files in a human readable way.</p>
 <p><code>-D</code>: Print the date of the last modification time.</p>
 <p><code>-F</code>: Append a '<code>/</code>' for directories, a '<code>=</code>' for socket files, a '<code>\*</code>' for executable files, a '<code>&gt;</code>' for doors (Solaris) and a '<code>|</code>' for FIFO's, as per <code>ls -F</code>.</p>
@@ -243,7 +243,7 @@ $ cdgit  <span class="c1"># For all Github repositories</span>
 </pre></div>
 
 
-<p>Different ways to set up the command ls to quickly see the needed files. The parameters are:</p>
+<p>Different ways to set up the command ls to quickly see the needed files. The parameters are (descriptions taken from <code>man ls</code>):</p>
 <p><code>-A</code>: <em>Do not list implied <code>.</code> and <code>..</code>.</em></p>
 <p><code>-C</code>: <em>List entries by columns.</em></p>
 <p><code>-F</code>: <em>Append indicator (one of <code>\*/=&gt;@|</code>) to entries.</em></p>
@@ -259,12 +259,11 @@ $ cdgit  <span class="c1"># For all Github repositories</span>
 
 
 <p>The purpose is to activate a specific virtual environment quickly. The command <code>cd</code> could be added to go to the related project also:</p>
-<div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">gNameOfProject</span><span class="o">=</span><span class="s1">&#39;cd /path/to/project/ &amp;&amp; ./venv/bin/activate&#39;</span>
-<span class="nb">alias</span> <span class="nv">gNameOfProject</span><span class="o">=</span><span class="s1">&#39;cd /path/to/project/ &amp;&amp; ./venv/bin/activate&#39;</span>
+<div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">gNameOfProject</span><span class="o">=</span><span class="s1">&#39;cd /path/to/project/ &amp;&amp; ./.venv/bin/activate&#39;</span>
 </pre></div>
 
 
-<p>Where <code>venv</code> would be the name of the virtual environment.</p>
+<p>Where <code>.venv</code> would be the name of the virtual environment.</p>
 <p>I like to <strong>a</strong>ctivate environments starting aliases with <code>a</code> and <strong>go</strong> and activate at the same time starting aliases with <code>g</code>. This way, it feels like I am speaking the Vim language (<code>cw</code> for <strong>c</strong>hange <strong>w</strong>ord, for example).</p>
 <hr>
 <div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">da</span><span class="o">=</span><span class="s1">&#39;deactivate&#39;</span>
@@ -287,7 +286,7 @@ $ cdgit  <span class="c1"># For all Github repositories</span>
 <p>This will delete recursively all files and directories that match one of the following patterns in their name: <code>__pycache__</code>, <code>.pyc</code> or <code>.pyo</code>.</p>
 <hr>
 <h1>Conclusion</h1>
-<p>I hope you will find at least one alias to improve your productivity. Of course, you are welcome to chime in with your own suggestions <i class="fas fa-smile-wink"></i>!</p>
+<p>I hope you will find at least one alias to improve your productivity. Of course, you are welcome to chime in with your own suggestions <i class="fas fa-smile-wink"></i> !</p>
       </div>
   </div>
         <!-- /.entry-content -->
