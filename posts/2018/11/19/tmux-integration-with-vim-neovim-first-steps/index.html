@@ -134,7 +134,8 @@
           <h1>tmux&nbsp;integration</h1>
 <p><a href="https://github.com/tmux/tmux">tmux</a> offers many advantages in the context of remote access to another machine, but it also shines on a local setup! Here is how I currently like to set it&nbsp;up.</p>
 <hr>
-<h2>Configuration file: <code>~/.tmux.conf</code></h2>
+<h2>Configuration&nbsp;file:</h2>
+<h5><code>~/.tmux.conf</code></h5>
 <div class="highlight"><pre><span></span><span class="c1"># split panes using | and -</span>
 <span class="nb">bind</span> <span class="p">|</span> split-window -h
 <span class="nb">bind</span> - split-window -v
@@ -157,7 +158,8 @@ source-file <span class="s2">&quot;</span><span class="si">${</span><span class=
 
 <p>This is all very self-explanatory. <a href="https://github.com/jimeh/tmux-themepack">Many themes can be found here</a>.</p>
 <hr>
-<h3>Automating the launch of a default session: <code>~/.tmux_default_session.sh</code></h3>
+<h3>Automating the launch of a default&nbsp;session:</h3>
+<h5><code>~/.tmux_default_session.sh</code></h5>
 <p>This is a small Bash script that I like to have for automatic set up of a development environment with tmux and Vim/Neovim. As my current workflow, I enjoy the&nbsp;following:</p>
 <div class="highlight"><pre><span></span><span class="ch">#!bash</span>
 <span class="c1"># var for session name (to avoid repeated occurences)</span>
@@ -197,7 +199,8 @@ tmux -2 attach-session -t <span class="s2">&quot;</span><span class="nv">$sn</sp
 
 
 <hr>
-<h3>Aliases to make use of <code>.tmux_default_session.sh</code></h3>
+<h3>Aliases to make use&nbsp;of:</h3>
+<h5><code>.tmux_default_session.sh</code></h5>
 <p>I add the following aliases in <code>~/.bash_aliases</code> to automate a chunk of the&nbsp;workflow:</p>
 <div class="highlight"><pre><span></span><span class="c1"># This will launch tmux with the desired configuration</span>
 <span class="nb">alias</span> <span class="nv">dev</span><span class="o">=</span><span class="s1">&#39;bash ~/.tmux_default_session.sh&#39;</span>
