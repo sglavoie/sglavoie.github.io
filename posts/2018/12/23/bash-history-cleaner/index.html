@@ -146,7 +146,7 @@
 <li>True, it will be harder to follow the bread crumbs for everything you did, but I haven&#8217;t come across a situation where having access to yet another empty <code>ls</code> or <code>cd</code> has proven necessary and reading <code>.bash_history</code> doesn&#8217;t make for a great narrative story&nbsp;either.</li>
 </ul>
 <hr>
-<h1>Make history in a big&nbsp;way</h1>
+<h2>Make history in a big&nbsp;way</h2>
 <p>I took advantage of the fact that the history can be cleaned with the script you are about to see and set up what is known as an <em>eternal history</em> which, as it sounds like, can grow infinitely big! All you have to do is append the following lines to the file <code>~/.bashrc</code>:</p>
 <div class="highlight"><pre><span></span><span class="c1"># Eternal bash history.</span>
 <span class="c1"># ---------------------</span>
@@ -165,13 +165,13 @@
 
 
 <hr>
-<h1>Bash History&nbsp;Cleaner</h1>
+<h2>Bash History&nbsp;Cleaner</h2>
 <p>And here is the script in question. It comes in two files that need to be in the same&nbsp;directory:</p>
 <ul>
 <li>One is a Python file that needs to be launched from the terminal with Python&nbsp;3.</li>
 <li>The other file, <code>settings.json</code>, is a <span class="caps">JSON</span> file used to store the settings of the script, which will be detailed&nbsp;below.</li>
 </ul>
-<h2><code>bash_history_cleaner.py</code></h2>
+<h5><code>bash_history_cleaner.py</code></h5>
 <div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">Python script that helps to clean the file containing the Bash history</span>
 <span class="sd">commands.</span>
@@ -378,7 +378,7 @@
 </pre></div>
 
 
-<h2><code>settings.json</code></h2>
+<h5><code>settings.json</code></h5>
 <div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;home_directory&quot;</span><span class="p">:</span> <span class="s2">&quot;/home/your_username&quot;</span><span class="p">,</span>
     <span class="nt">&quot;history_file&quot;</span><span class="p">:</span> <span class="s2">&quot;.bash_history&quot;</span><span class="p">,</span>
@@ -423,7 +423,7 @@
 
 
 <hr>
-<h1>Description of available settings in <code>settings.json</code></h1>
+<h2>Description of available settings in <code>settings.json</code></h2>
 <table>
 <thead>
 <tr>
@@ -463,10 +463,10 @@
 </tbody>
 </table>
 <hr>
-<h1>Anecdotal evidence of satisfying&nbsp;performances</h1>
+<h2>Anecdotal evidence of satisfying <span style="white-space: nowrap">performances</span></h2>
 <p>Performance-wise, this scans ~8,300 lines per second on my modest Intel Core i5 laptop with files of over 200,000 lines long. Not that I type so much stuff in the terminal: I just duplicated many lines <i class="fas fa-smile"></i>.</p>
 <hr>
-<h1>Conclusion</h1>
+<h2>Conclusion</h2>
 <p>This is a simple solution to an nonexistent problem, but it was in the end very instructive to me nonetheless. You may even find a use for it! Otherwise, you might use the same functions for other files such as logs! If you would like to take a closer look at the source in a more convenient way, you can find the code <a href="https://github.com/sglavoie/python-utilities/tree/master/bash_history_cleaner">available on Github</a> <i class="fab fa-github-alt"></i>.</p>
       </div>
   </div>

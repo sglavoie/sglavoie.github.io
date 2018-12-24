@@ -135,14 +135,14 @@
   <hr class="my-4">
   <div class="card">
       <div class="card-body entry-content">
-          <h1>Some aliases that I find&nbsp;useful</h1>
+          <h2>Some aliases that I find&nbsp;useful</h2>
 <hr>
 <blockquote>
 <p>In all the following example, the dollar sign <code>$</code> at the beginning of commands represents the prompt, it should not be&nbsp;typed.</p>
 </blockquote>
-<h2>General-purpose</h2>
+<h3>General-purpose</h3>
 <hr>
-<h3>List all&nbsp;aliases</h3>
+<h4>List all&nbsp;aliases</h4>
 <div class="highlight"><pre><span></span>$ <span class="nb">alias</span>
 </pre></div>
 
@@ -153,7 +153,7 @@
 
 
 <hr>
-<h3>Setting an alias in <code>~/.bash_aliases</code></h3>
+<h4>Setting an alias in <code>~/.bash_aliases</code></h4>
 <div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">c</span><span class="o">=</span><span class="s1">&#39;clear&#39;</span>
 </pre></div>
 
@@ -164,42 +164,42 @@
 
 
 <hr>
-<h3>Clear the&nbsp;screen</h3>
+<h4>Clear the&nbsp;screen</h4>
 <div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">c</span><span class="o">=</span><span class="s1">&#39;clear&#39;</span>
 </pre></div>
 
 
 <p>I like being absorbed into the emptiness of the terminal, so this one comes in handy to tidy up the work&nbsp;space.</p>
 <hr>
-<h3>Reset the&nbsp;terminal</h3>
+<h4>Reset the&nbsp;terminal</h4>
 <div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">re</span><span class="o">=</span><span class="s1">&#39;tput reset&#39;</span>
 </pre></div>
 
 
 <p>If for some reasons the terminal displays badly or display funky characters, it can usually be reset this&nbsp;way.</p>
 <hr>
-<h3>Exit from the&nbsp;terminal</h3>
+<h4>Exit from the&nbsp;terminal</h4>
 <div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">q</span><span class="o">=</span><span class="s1">&#39;exit&#39;</span>
 </pre></div>
 
 
 <p>For exiting the terminal as if you were still in&nbsp;Vim!</p>
 <hr>
-<h3>Display all file extensions recursively from the current&nbsp;directory</h3>
+<h4>Display all file extensions recursively from the current&nbsp;directory</h4>
 <div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">allextensions</span><span class="o">=</span><span class="s2">&quot;find . -type f -name &#39;*.*&#39; | sed &#39;s|.*\.||&#39; | sort -u&quot;</span>
 </pre></div>
 
 
 <p>It comes in handy to spot if a file shouldn&#8217;t be there or to check for lower or uppercase&nbsp;extensions.</p>
 <hr>
-<h3>Find text inside files, including&nbsp;filenames</h3>
+<h4>Find text inside files, including&nbsp;filenames</h4>
 <div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">findinfiles</span><span class="o">=</span><span class="s1">&#39;ag --nobreak --nonumbers --noheading . | fzf&#39;</span>
 </pre></div>
 
 
 <p>In this example, the alias is set up with <a href="https://github.com/ggreer/the_silver_searcher">ag</a>, a fast code-searching tool and <a href="https://github.com/junegunn/fzf">fzf</a>, a great fuzzy&nbsp;finder.</p>
 <hr>
-<h3>Reboot and shutdown the&nbsp;system</h3>
+<h4>Reboot and shutdown the&nbsp;system</h4>
 <div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">reboot</span><span class="o">=</span><span class="s1">&#39;systemctl reboot&#39;</span>
 <span class="nb">alias</span> <span class="nv">shutdown</span><span class="o">=</span><span class="s1">&#39;systemctl poweroff&#39;</span>
 </pre></div>
@@ -207,7 +207,7 @@
 
 <p>This will reboot or power off the system without root privileges in most working&nbsp;conditions.</p>
 <hr>
-<h3>List and sort files and directories by modification&nbsp;time</h3>
+<h4>List and sort files and directories by modification&nbsp;time</h4>
 <div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">treeold</span><span class="o">=</span><span class="s1">&#39;tree -hDF | less&#39;</span>
 </pre></div>
 
@@ -217,14 +217,14 @@
 <p><code>-D</code>: Print the date of the last modification&nbsp;time.</p>
 <p><code>-F</code>: Append a &#8216;<code>/</code><span class="quo">&#8216;</span> for directories, a &#8216;<code>=</code><span class="quo">&#8216;</span> for socket files, a &#8216;<code>\*</code><span class="quo">&#8216;</span> for executable files, a &#8216;<code>&gt;</code><span class="quo">&#8216;</span> for doors (Solaris) and a &#8216;<code>|</code><span class="quo">&#8216;</span> for <span class="caps">FIFO</span>&#8217;s, as per <code>ls -F</code>.</p>
 <hr>
-<h3>Open files quickly with default&nbsp;applications</h3>
+<h4>Open files quickly with default&nbsp;applications</h4>
 <div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">o</span><span class="o">=</span><span class="s1">&#39;xdg-open&#39;</span>
 </pre></div>
 
 
 <p>This will open files and URLs specified as argument in the default application&nbsp;detected.</p>
 <hr>
-<h3>Moving&nbsp;around</h3>
+<h4>Moving&nbsp;around</h4>
 <p>If you are going to be working on projects for some time and require to <code>cd</code> into them, I have found the following to be&nbsp;useful:</p>
 <div class="highlight"><pre><span></span>$ cdnameOfProject  <span class="c1"># instead of having to do cd /path/to/project/</span>
 $ <span class="c1"># More examples:</span>
@@ -242,7 +242,7 @@ $ cdgit  <span class="c1"># For all Github repositories</span>
 
 <p>Make it easier to navigate into deep directory structures by basically doing <code>cd .. &amp;&amp; cd ..</code> to go back up two directories at&nbsp;once.</p>
 <hr>
-<h3>Listing&nbsp;files</h3>
+<h4>Listing&nbsp;files</h4>
 <div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">l</span><span class="o">=</span><span class="s1">&#39;ls -CFh&#39;</span>
 <span class="nb">alias</span> <span class="nv">la</span><span class="o">=</span><span class="s1">&#39;ls -Ah&#39;</span>
 <span class="nb">alias</span> <span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;ls -ahlF&#39;</span>
@@ -258,7 +258,7 @@ $ cdgit  <span class="c1"># For all Github repositories</span>
 <p><code>-h</code>: <em>With <code>-l</code> and/or <code>-s</code>, print human readable sizes (e.g., 1K 234M&nbsp;2G).</em></p>
 <p><code>-l</code>: <em>Use a long listing&nbsp;format.</em></p>
 <hr>
-<h2>Python-related</h2>
+<h3>Python-related</h3>
 <hr>
 <div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">aNameOfProject</span><span class="o">=</span><span class="s1">&#39;source /path/to/project/bin/activate&#39;</span>
 <span class="nb">alias</span> <span class="nv">aa</span><span class="o">=</span><span class="s1">&#39;source ~/Programming/anaconda3/bin/activate&#39;</span>  <span class="c1"># Example using Anaconda distribution</span>
@@ -292,7 +292,7 @@ $ cdgit  <span class="c1"># For all Github repositories</span>
 
 <p>This will delete recursively all files and directories that match one of the following patterns in their name: <code>__pycache__</code>, <code>.pyc</code> or <code>.pyo</code>.</p>
 <hr>
-<h1>Conclusion</h1>
+<h2>Conclusion</h2>
 <p>I hope you will find at least one alias to improve your productivity. Of course, you are welcome to chime in with your own suggestions <i class="fas fa-smile-wink"></i>&nbsp;!</p>
       </div>
   </div>
