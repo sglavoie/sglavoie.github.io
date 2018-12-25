@@ -206,12 +206,19 @@
 <span class="sd">                        `history_file`.</span>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span> <span class="nn">argparse</span>
 <span class="kn">import</span> <span class="nn">fileinput</span>
 <span class="kn">import</span> <span class="nn">glob</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">re</span>
+
+
+<span class="k">def</span> <span class="nf">get_current_path</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Returns the current working directory relative to where this script</span>
+<span class="sd">    is being executed.&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 
 <span class="k">def</span> <span class="nf">user_says_yes</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
@@ -251,14 +258,13 @@
             <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Log files deleted.&#39;</span><span class="p">)</span>
             <span class="k">return</span>
 
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Do you want to delete those log files? [y/n] &quot;</span><span class="p">)</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Do you want to delete those log files? [y/n] &quot;</span><span class="p">)</span>
 
-            <span class="k">if</span> <span class="n">user_says_yes</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">):</span>
-                <span class="k">for</span> <span class="n">log_file</span> <span class="ow">in</span> <span class="n">log_files</span><span class="p">:</span>
-                    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">log_file</span><span class="p">)</span>
-                <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Log files deleted.&#39;</span><span class="p">)</span>
-                <span class="k">return</span>
+        <span class="k">if</span> <span class="n">user_says_yes</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">log_file</span> <span class="ow">in</span> <span class="n">log_files</span><span class="p">:</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">log_file</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Log files deleted.&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
 
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Operation aborted.&#39;</span><span class="p">)</span>
     <span class="k">return</span>
@@ -358,7 +364,8 @@
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">SETTINGS</span> <span class="o">=</span> <span class="n">load_settings</span><span class="p">(</span><span class="s1">&#39;settings.json&#39;</span><span class="p">)</span>
+    <span class="n">SETTINGS_FILE_PATH</span> <span class="o">=</span> <span class="n">get_current_path</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;settings.json&#39;</span>
+    <span class="n">SETTINGS</span> <span class="o">=</span> <span class="n">load_settings</span><span class="p">(</span><span class="n">SETTINGS_FILE_PATH</span><span class="p">)</span>
     <span class="n">ALIASES_FILE</span> <span class="o">=</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s1">&#39;home_directory&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s1">&#39;aliases_file&#39;</span><span class="p">]</span>
     <span class="n">HISTORY_FILE</span> <span class="o">=</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s1">&#39;home_directory&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s1">&#39;history_file&#39;</span><span class="p">]</span>
 
@@ -548,7 +555,7 @@
 
       </div>
       <div id="version-footer">
-                v0.3.16
+                v0.3.17
       </div>
                 </address>
                 
