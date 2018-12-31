@@ -121,8 +121,8 @@
             <i class="fas fa-calendar-alt"></i> <time class="published" datetime="2018-12-23T19:35:00-06:00">
                 December 23, 2018
             </time>
-             <time class="modified" datetime="2018-12-25T09:05:00-06:00">
-                <i class="fas fa-angle-double-right"></i> modified on December 25, 2018
+             <time class="modified" datetime="2018-12-29T20:25:00-06:00">
+                <i class="fas fa-angle-double-right"></i> modified on December 29, 2018
             </time>
             <address class="vcard author">
             </address>
@@ -199,6 +199,13 @@
 <span class="sd">    &quot;add_aliases&quot;:      Boolean. If set to True, aliases from `aliases_file`</span>
 <span class="sd">                        will be added to `ignore_patterns`.</span>
 
+<span class="sd">    &quot;aliases_match_greedily&quot;:</span>
+<span class="sd">                        Boolean. If set to True, any line in `history_file`</span>
+<span class="sd">                        starting with an alias in `aliases_file` will be</span>
+<span class="sd">                        deleted. If set to False, delete line if the alias is</span>
+<span class="sd">                        the content of the whole line (with optional space at</span>
+<span class="sd">                        the end): False matches &quot;^alias$&quot; or &quot;^alias $&quot; only.</span>
+
 <span class="sd">    &quot;backup_history&quot;:   Boolean. If set to True, `history_file` will be backed</span>
 <span class="sd">                        up in the same directory with a name ending in .bak</span>
 <span class="sd">                        based on the current date.</span>
@@ -241,7 +248,7 @@
     <span class="k">return</span> <span class="n">choice</span>
 
 
-<span class="k">def</span> <span class="nf">delete_logs</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="n">history_file</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">delete_logs</span><span class="p">(</span><span class="n">settings</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">history_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Delete log files in `home_directory` based on `history_file`.&#39;&#39;&#39;</span>
 
     <span class="c1"># Retrieve a list of all matching log files</span>
@@ -273,7 +280,7 @@
     <span class="k">return</span>
 
 
-<span class="k">def</span> <span class="nf">generate_date_string</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">generate_date_string</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="sd">&#39;&#39;&#39;Return date formatted string to backup a file.&#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">(),</span> <span class="s1">&#39;_%Y%m</span><span class="si">%d</span><span class="s1">_%H%M%S.bak&#39;</span><span class="p">)</span>
 
@@ -285,10 +292,12 @@
     <span class="k">return</span> <span class="n">settings</span>
 
 
-<span class="k">def</span> <span class="nf">get_list_aliases</span><span class="p">(</span><span class="n">bash_aliases_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">get_list_aliases</span><span class="p">(</span><span class="n">bash_aliases_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">settings</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
     <span class="sd">&#39;&#39;&#39;Retrieve the name of all the aliases specified in `bash_aliases_file`.</span>
 
 <span class="sd">    Return aliases as a list of strings formatted as regular expressions.&#39;&#39;&#39;</span>
+
+    <span class="n">match_whole_line</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">settings</span><span class="p">[</span><span class="s1">&#39;aliases_match_greedily&#39;</span><span class="p">])</span>
 
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">bash_aliases_file</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
         <span class="n">content</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>  <span class="c1"># one alias per line</span>
@@ -306,8 +315,13 @@
             <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
                 <span class="k">continue</span>
 
-            <span class="c1"># Reformat as a regular expression</span>
-            <span class="n">alias</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;^{alias}( )?$&#39;</span>
+            <span class="k">if</span> <span class="n">match_whole_line</span><span class="p">:</span>
+                <span class="c1"># Match the whole line if it starts with the alias.</span>
+                <span class="n">alias</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;^{alias}( )?$|^{alias} .*&#39;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Will match only when alias is the whole content of the line,</span>
+                <span class="c1"># followed by optional space.</span>
+                <span class="n">alias</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;^{alias}( )?$&#39;</span>
 
             <span class="c1"># Escape dots in alias</span>
             <span class="n">alias</span> <span class="o">=</span> <span class="n">alias</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">({</span><span class="s2">&quot;.&quot;</span><span class="p">:</span>  <span class="sa">r</span><span class="s2">&quot;\.&quot;</span><span class="p">}))</span>
@@ -353,7 +367,7 @@
     <span class="n">bash_aliases</span> <span class="o">=</span> <span class="bp">None</span>
     <span class="k">if</span> <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;add_aliases&#39;</span><span class="p">]:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">bash_aliases</span> <span class="o">=</span> <span class="n">get_list_aliases</span><span class="p">(</span><span class="n">aliases_file</span><span class="p">)</span>
+            <span class="n">bash_aliases</span> <span class="o">=</span> <span class="n">get_list_aliases</span><span class="p">(</span><span class="n">aliases_file</span><span class="p">,</span> <span class="n">settings</span><span class="p">)</span>
 
             <span class="c1"># add aliases to list of patterns to ignore</span>
             <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;ignore_patterns&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">bash_aliases</span><span class="p">)</span>
@@ -390,10 +404,11 @@
 
 <h5><code>settings.json</code></h5>
 <div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;home_directory&quot;</span><span class="p">:</span> <span class="s2">&quot;/home/your_username&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;history_file&quot;</span><span class="p">:</span> <span class="s2">&quot;.bash_history&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;aliases_file&quot;</span><span class="p">:</span> <span class="s2">&quot;.bash_aliases&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;home_directory&quot;</span><span class="p">:</span> <span class="s2">&quot;/home/sglavoie&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;history_file&quot;</span><span class="p">:</span> <span class="s2">&quot;.bash_eternal_history&quot;</span><span class="p">,</span>
     <span class="nt">&quot;add_aliases&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;aliases_file&quot;</span><span class="p">:</span> <span class="s2">&quot;.bash_aliases&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;aliases_match_greedily&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="nt">&quot;backup_history&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="nt">&quot;delete_logs_without_confirming&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="nt">&quot;ignore_patterns&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -410,9 +425,10 @@
         <span class="s2">&quot;^df( )?&quot;</span><span class="p">,</span>
         <span class="s2">&quot;^du( )?&quot;</span><span class="p">,</span>
         <span class="s2">&quot;^exit$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^git branch&quot;</span><span class="p">,</span>
         <span class="s2">&quot;^git checkout master&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;^git log&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;^git push&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^git log$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^git push$&quot;</span><span class="p">,</span>
         <span class="s2">&quot;^git status$&quot;</span><span class="p">,</span>
         <span class="s2">&quot;^git stauts$&quot;</span><span class="p">,</span>
         <span class="s2">&quot;^kill \\d+.*&quot;</span><span class="p">,</span>
@@ -461,6 +477,10 @@
 <tr>
 <td><code>add_aliases</code></td>
 <td>Boolean. If set to <code>True</code>, aliases from <code>aliases_file</code> will be added to <code>ignore_patterns</code>. (Default: <code>True</code>)</td>
+</tr>
+<tr>
+<td><code>aliases_match_greedily</code></td>
+<td>Boolean. If set to <code>True</code>, any line in <code>history_file</code> starting with an alias in <code>aliases_file</code> will be deleted. If set to <code>False</code>, delete line if the alias is the content of the whole line (with optional space at the end): <code>False</code> matches &#8220;^alias$&#8221; or &#8220;^alias $&#8221; only.</td>
 </tr>
 <tr>
 <td><code>backup_history</code></td>
