@@ -122,8 +122,8 @@
             <i class="fas fa-calendar-alt"></i> <time class="published" datetime="2018-12-23T19:35:00-06:00">
                 December 23, 2018
             </time>
-             <time class="modified" datetime="2018-12-29T20:25:00-06:00">
-                <i class="fas fa-angle-double-right"></i> modified on December 29, 2018
+             <time class="modified" datetime="2019-01-06T14:37:00-06:00">
+                <i class="fas fa-angle-double-right"></i> modified on January 06, 2019
             </time>
             <address class="vcard author">
             </address>
@@ -170,11 +170,12 @@
 
 <hr>
 <h2>Bash History&nbsp;Cleaner</h2>
-<p>And here is the script in question. It comes in two files that need to be in the same&nbsp;directory:</p>
+<p>And here is the script in question *. It comes in two files that need to be in the same&nbsp;directory:</p>
 <ul>
 <li>One is a Python file that needs to be launched from the terminal with Python&nbsp;3.</li>
 <li>The other file, <code>settings.json</code>, is a <span class="caps">JSON</span> file used to store the settings of the script, which will be detailed&nbsp;below.</li>
 </ul>
+<p>* <sub>Improvements to the original script can be found on <a href="https://github.com/sglavoie/python-utilities/tree/master/bash_history_cleaner">Github</a> <i class="fab fa-github-alt"></i>. To keep this article a bit more readable, the original version is shown.</sub> </p>
 <h5><code>bash_history_cleaner.py</code></h5>
 <div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">Python script that helps to clean the file containing the Bash history</span>
@@ -197,22 +198,22 @@
 <span class="sd">                        Each line where a pattern is found will be deleted.</span>
 <span class="sd">                            → Patterns are specified as regular expressions.</span>
 
-<span class="sd">    &quot;add_aliases&quot;:      Boolean. If set to True, aliases from `aliases_file`</span>
+<span class="sd">    &quot;add_aliases&quot;:      Boolean. If set to `true`, aliases from `aliases_file`</span>
 <span class="sd">                        will be added to `ignore_patterns`.</span>
 
 <span class="sd">    &quot;aliases_match_greedily&quot;:</span>
-<span class="sd">                        Boolean. If set to True, any line in `history_file`</span>
+<span class="sd">                        Boolean. If set to `true`, any line in `history_file`</span>
 <span class="sd">                        starting with an alias in `aliases_file` will be</span>
-<span class="sd">                        deleted. If set to False, delete line if the alias is</span>
+<span class="sd">                        deleted. If set to `false`, delete line if the alias is</span>
 <span class="sd">                        the content of the whole line (with optional space at</span>
-<span class="sd">                        the end): False matches &quot;^alias$&quot; or &quot;^alias $&quot; only.</span>
+<span class="sd">                        the end): `false` matches &quot;^alias$&quot; or &quot;^alias $&quot; only.</span>
 
-<span class="sd">    &quot;backup_history&quot;:   Boolean. If set to True, `history_file` will be backed</span>
+<span class="sd">    &quot;backup_history&quot;:   Boolean. If set to `true`, `history_file` will be backed</span>
 <span class="sd">                        up in the same directory with a name ending in .bak</span>
 <span class="sd">                        based on the current date.</span>
 
 <span class="sd">    &quot;delete_logs_without_confirming&quot;:</span>
-<span class="sd">                        Boolean. If set to True, script with flag `-c` will</span>
+<span class="sd">                        Boolean. If set to `true`, script with flag `-c` will</span>
 <span class="sd">                        automatically delete all the backup files found for</span>
 <span class="sd">                        `history_file`.</span>
 <span class="sd">&#39;&#39;&#39;</span>
@@ -477,19 +478,19 @@
 </tr>
 <tr>
 <td><code>add_aliases</code></td>
-<td>Boolean. If set to <code>True</code>, aliases from <code>aliases_file</code> will be added to <code>ignore_patterns</code>. (Default: <code>True</code>)</td>
+<td>Boolean. If set to <code>true</code>, aliases from <code>aliases_file</code> will be added to <code>ignore_patterns</code>. (Default: <code>true</code>)</td>
 </tr>
 <tr>
 <td><code>aliases_match_greedily</code></td>
-<td>Boolean. If set to <code>True</code>, any line in <code>history_file</code> starting with an alias in <code>aliases_file</code> will be deleted. If set to <code>False</code>, delete line if the alias is the content of the whole line (with optional space at the end): <code>False</code> matches &#8220;^alias$&#8221; or &#8220;^alias $&#8221; only.</td>
+<td>Boolean. If set to <code>true</code>, any line in <code>history_file</code> starting with an alias in <code>aliases_file</code> will be deleted. If set to <code>false</code>, delete line if the alias is the content of the whole line (with optional space at the end): <code>false</code> matches &#8220;^alias$&#8221; or &#8220;^alias $&#8221; only.</td>
 </tr>
 <tr>
 <td><code>backup_history</code></td>
-<td>Boolean. If set to <code>True</code>, <code>history_file</code> will be backed up in the same directory with a name ending in .bak based on the current date. (Default: <code>True</code>)</td>
+<td>Boolean. If set to <code>true</code>, <code>history_file</code> will be backed up in the same directory with a name ending in .bak based on the current date. (Default: <code>true</code>)</td>
 </tr>
 <tr>
 <td><code>delete_logs_without_confirming</code></td>
-<td>Boolean. If set to <code>True</code>, script with flag <code>-c</code> will automatically delete all the backup files found for <code>history_file</code>. (Default: <code>False</code>)</td>
+<td>Boolean. If set to <code>true</code>, script with flag <code>-c</code> will automatically delete all the backup files found for <code>history_file</code>. (Default: <code>false</code>)</td>
 </tr>
 </tbody>
 </table>
