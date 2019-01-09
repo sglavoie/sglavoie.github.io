@@ -118,7 +118,10 @@
         </header>
         <footer class="post-info">
             <i class="fas fa-calendar-alt"></i> <time class="published" datetime="2019-01-08T11:12:00-06:00">
-                January 08, 2019
+                January 08, 2019 @ 11:12
+            </time>
+             <time class="modified" datetime="2019-01-08T18:48:00-06:00">
+                <i class="fas fa-angle-double-right"></i> modified on January 08, 2019 @ 18:48
             </time>
             <address class="vcard author">
             </address>
@@ -137,7 +140,7 @@
           <h2>What is&nbsp;i3?</h2>
 <p><a href="https://i3wm.org/">i3</a> is a tiling window manager.  To get to know <code>i3</code> better, it&#8217;s good to situate what desktop environments are in the first&nbsp;place.</p>
 <hr>
-<h3>What are desktop&nbsp;environments?</h3>
+<h3>What are desktop <span style="white-space: nowrap">environments?</span></h3>
 <p>If you are familiar with Linux <i class="fab fa-linux"></i>, you certainly know about desktop environments such as <a href="https://www.gnome.org/"><span class="caps">GNOME</span></a>, <a href="https://www.kde.org/"><span class="caps">KDE</span></a>, <a href="https://www.xfce.org/">Xfce</a>&#8230; and actually many more are available (you can see <a href="https://en.wikipedia.org/wiki/Desktop_environment">this article on Wikipedia</a> <i class="fab fa-wikipedia-w"></i> for an extended selection)! The classic Graphical User Interface (<span class="caps">GUI</span>) on Windows <span class="caps">XP</span> was known as <a href="https://en.wikipedia.org/wiki/Luna_(theme)">Luna</a> <i class="fab fa-wikipedia-w"></i> and is now called Modern on Windows 10. <a href="https://en.wikipedia.org/wiki/Aqua_(user_interface)">Aqua</a> <i class="fab fa-wikipedia-w"></i> is the name of the <span class="caps">GUI</span> on MacOS. Well, every desktop environment comes with a window manager, the main component that makes interactions with windows possible, like moving, resizing, minimizing or closing&nbsp;them.</p>
 <p>Desktop environments are very useful in many&nbsp;ways:</p>
 <ul>
@@ -179,11 +182,12 @@
 <p>Only workspaces that contain windows will appear on the screen at any given time and are automatically created when you access and use&nbsp;them.</p>
 <hr>
 <h2>What does it look like in&nbsp;action?</h2>
-<p>Here is a screenshot of the workspace where this article is being written (click to&nbsp;open):</p>
+<p>Here is a screenshot* of the workspace where this article is being written (click to&nbsp;open):</p>
 <p><a href="https://www.sglavoie.com/images/posts/0005_using-i3-as-window-manager-for-increased-productivity/i3-example.png"><img src="https://www.sglavoie.com/images/posts/0005_using-i3-as-window-manager-for-increased-productivity/i3-example.png" class="max-size-img-post"></a></p>
+<p>* <sub>In this particular scenario, the splits on the right side are intentionally very small as I do not need to read the output, but need quick access to a terminal to enter commands. Moving back and forth between windows is a breeze, so that&#8217;s how I currently handle the situation.</sub> </p>
 <hr>
 <h2>Conclusion</h2>
-<p>I am not trying to convince myself anymore: I really prefer this workflow! If you are looking for a change and would like to maximize both your productivity and your system resources, <code>i3</code> is a great window manager to consider. It doesn&#8217;t seem very intuitive at first, but I swear it quickly becomes easy to use and you also end up learning more about how Linux works and set things up manually (just once!) to your likings. For example, I use Rofi instead of dmenu to have a window pop-up to select applications or switch to any window on any workspace&#8230; which was only one line to modify in the configuration&nbsp;file.</p>
+<p>I am not trying to convince myself anymore: I really prefer this workflow <i class="fas fa-grin-hearts"></i>! If you are looking for a change and would like to maximize both your productivity and your system resources, <code>i3</code> is a great window manager to consider. It doesn&#8217;t seem very intuitive at first, but I swear it quickly becomes easy to use and you also end up learning more about how Linux works and set things up manually (just once!) to your likings. For example, I use Rofi instead of dmenu to have a window pop-up to select applications or switch to any window on any workspace&#8230; which was only one line to modify in the configuration&nbsp;file.</p>
 <p>I have found the following screencasts on YouTube to be quite useful in learning how to configure <code>i3</code> (apart from the official documentation which is very&nbsp;comprehensive):</p>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=j1I63wGcvU4">i3wm: Jump Start&nbsp;(1/3)</a></li>
@@ -270,7 +274,7 @@
 
       </div>
       <div id="version-footer">
-                v0.5.3
+                v0.5.4
       </div>
                 </address>
                 
