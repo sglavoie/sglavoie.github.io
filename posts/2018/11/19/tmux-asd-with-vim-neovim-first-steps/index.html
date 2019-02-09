@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-          <title>Tmux Integration with Vim/Neovim — First&nbsp;Steps | sglavoie.com</title>
+          <title>Testing | sglavoie.com</title>
         <link href="https://www.sglavoie.com/feeds/sglavoie.rss.xml" type="application/rss+xml" rel="alternate" title="sglavoie.com Full RSS Feed" />
 
         <!-- Favicon -->
@@ -94,15 +94,7 @@
               </li>
 
               <li class="nav-item">
-            <a class="lowercase-title always-white nav-link-smaller" href="https://www.sglavoie.com/category/automation.html">automation</a>
-              </li>
-
-              <li class="nav-item">
-            <a class="lowercase-title always-white nav-link-smaller" href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a>
-              </li>
-
-              <li class="nav-item">
-            <a class="lowercase-title always-white nav-link-smaller" href="https://www.sglavoie.com/category/workflow.html">workflow</a>
+            <a class="lowercase-title always-white nav-link-smaller" href="https://www.sglavoie.com/category/products.html">products</a>
               </li>
           </ul>
   </div>
@@ -114,8 +106,8 @@
     <section id="content" class="jumbotron body">
         <header>
             <h2 class="display-4">
-                <a href="https://www.sglavoie.com/posts/2018/11/19/tmux-integration-with-vim-neovim-first-steps/" rel="bookmark"
-                    title="Permalink to Tmux Integration with Vim/Neovim — First Steps">Tmux Integration with Vim/Neovim — First&nbsp;Steps</a></h2>
+                <a href="https://www.sglavoie.com/posts/2018/11/19/tmux-asd-with-vim-neovim-first-steps/" rel="bookmark"
+                    title="Permalink to Testing">Testing</a></h2>
             
         </header>
         <footer class="post-info">
@@ -125,7 +117,7 @@
             <address class="vcard author">
             </address>
             <div class="category">
-                <i class="fas fa-tag"></i> Category: <a class="emphasis post-info-space" href="https://www.sglavoie.com/category/workflow.html">workflow</a>
+                <i class="fas fa-tag"></i> Category: <a class="emphasis post-info-space" href="https://www.sglavoie.com/category/products.html">products</a>
             </div>
             <div class="tags">
                 <i class="fas fa-hashtag"></i> Tags:
@@ -241,7 +233,7 @@ tmux -2 attach-session -t <span class="s2">&quot;</span><span class="nv">$sn</sp
     // Substitute single quotation mark (') for double (") to allow
     // article's title to contain single quotes.
     var disqus_shortname = "sglavoie"; 
-    var disqus_title = "Tmux Integration with Vim/Neovim — First&nbsp;Steps";
+    var disqus_title = "Testing";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -276,9 +268,7 @@ tmux -2 attach-session -t <span class="s2">&quot;</span><span class="nv">$sn</sp
           Proudly powered by <a href="http://getpelican.com/">Pelican 4.0.1<img class="footer-bottom-icon" src="/theme/images/footer/pelican.svg"></a>,
           which takes great advantage of <a href="http://python.org">Python<img class="footer-bottom-icon" src="/theme/images/footer/python.svg"></a> .
 
-
-      <div id="author-footer">
-          <p>Copyleft <span class="copy-left">©</span> 2019 — Sébastien Lavoie 
+          <div>
               <script type="text/javascript" language="javascript">
                   <!--
 // Email obfuscator script 2.1 by Tim Williams, University of Arizona
@@ -300,16 +290,21 @@ tmux -2 attach-session -t <span class="s2">&quot;</span><span class="nv">$sn</sp
         }
     }
     // Adding inline style to 'img' tag as it seems to be more trustworthy inside this script.
-    document.write("<a href='mailto:"+link+"'>"+"<img class='footer-bottom-icon' src='/theme/images/footer/email.svg'>"+"</a>")
+    document.write("<ul class='social-footer'><li><a style='font-weight: normal' href='mailto:"+link+"'>Would you like to email me? "+"<img style='height: 16px; width: auto' src='/theme/images/footer/email.svg'>"+"</a></li></ul>")
 }
 //-->
               </script><noscript>Sorry, you need Javascript on to email me.</noscript>
-          </p>
+          </div>
+
+      <div id="author-footer">
+          Copyleft <span class="copy-left">©</span> 2019 | Sébastien Lavoie 
+
+      </div>
+      <div id="version-footer">
+                v0.9.13
       </div>
                 </address>
                 
-              <div class="version-footer">v0.9.21</div>
-
                 <!-- /#about -->
             </footer>
 
