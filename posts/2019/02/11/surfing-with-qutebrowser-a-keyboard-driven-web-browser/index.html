@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-          <title>Tmux Integration with Vim/Neovim — First&nbsp;Steps | sglavoie.com</title>
+          <title>Surfing with qutebrowser — a Keyboard-Driven Web&nbsp;Browser | sglavoie.com</title>
         <link href="https://www.sglavoie.com/feeds/sglavoie.rss.xml" type="application/rss+xml" rel="alternate" title="sglavoie.com Full RSS Feed" />
 
         <!-- Favicon -->
@@ -37,9 +37,8 @@
 
 
 
-    <meta name="tags" content="neovim" />
-    <meta name="tags" content="tmux" />
-    <meta name="tags" content="vim" />
+    <meta name="tags" content="productivity" />
+    <meta name="tags" content="web" />
 
 </head>
 
@@ -118,121 +117,64 @@
     <section id="content" class="jumbotron body">
         <header>
             <h2 class="display-4">
-                <a href="https://www.sglavoie.com/posts/2018/11/19/tmux-integration-with-vim-neovim-first-steps/" rel="bookmark"
-                    title="Permalink to Tmux Integration with Vim/Neovim — First Steps">Tmux Integration with Vim/Neovim — First&nbsp;Steps</a></h2>
+                <a href="https://www.sglavoie.com/posts/2019/02/11/surfing-with-qutebrowser-a-keyboard-driven-web-browser/" rel="bookmark"
+                    title="Permalink to Surfing with qutebrowser — a Keyboard-Driven Web Browser">Surfing with qutebrowser — a Keyboard-Driven Web&nbsp;Browser</a></h2>
             
         </header>
         <footer class="post-info">
-            <i class="fas fa-calendar-alt"></i> <time class="published" datetime="2018-11-19T20:31:00-06:00">
-                November 19, 2018 @ 20:31
+            <i class="fas fa-calendar-alt"></i> <time class="published" datetime="2019-02-11T14:46:00-06:00">
+                February 11, 2019 @ 14:46
             </time>
             <address class="vcard author">
             </address>
             <div class="category">
-                <i class="fas fa-tag"></i> Category: <a class="emphasis post-info-space" href="https://www.sglavoie.com/category/workflow.html">workflow</a>
+                <i class="fas fa-tag"></i> Category: <a class="emphasis post-info-space" href="https://www.sglavoie.com/category/tools.html">tools</a>
             </div>
             <div class="tags">
                 <i class="fas fa-hashtag"></i> Tags:
-                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/neovim.html">neovim</a>
-                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/tmux.html">tmux</a>
-                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/vim.html">vim</a>
+                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/productivity.html">productivity</a>
+                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/web.html">web</a>
             </div>
         </footer><!-- /.post-info -->
   <hr class="my-4">
   <div class="card">
       <div class="card-body entry-content">
-          <h2>tmux&nbsp;integration</h2>
-<p><a href="https://github.com/tmux/tmux">tmux</a> offers many advantages in the context of remote access to another machine, but it also shines on a local setup! Here is how I currently like to set it&nbsp;up.</p>
+          <h2>What is&nbsp;qutebrowser?</h2>
+<p><a href="https://qutebrowser.org/">qutebrowser</a> is a web browser that makes great use of <code>Vim</code> commands to navigate. From its&nbsp;website:</p>
+<blockquote>
+<p>qutebrowser is a keyboard-focused browser with a minimal <span class="caps">GUI</span>. It’s based on Python and PyQt5 and free software, licensed under the <span class="caps">GPL</span>.
+It was inspired by other browsers/addons like dwb and&nbsp;Vimperator/Pentadactyl.</p>
+</blockquote>
 <hr>
-<h3>Configuration&nbsp;file:</h3>
-<h5><code>~/.tmux.conf</code></h5>
-<div class="highlight"><pre><span></span><span class="c1"># split panes using | and -</span>
-<span class="nb">bind</span> <span class="p">|</span> split-window -h
-<span class="nb">bind</span> - split-window -v
-unbind <span class="s1">&#39;&quot;&#39;</span>
-unbind %
-
-<span class="c1"># switch panes using Alt-arrow without prefix</span>
-<span class="nb">bind</span> -n M-Left <span class="k">select</span>-pane -L
-<span class="nb">bind</span> -n M-Right <span class="k">select</span>-pane -R
-<span class="nb">bind</span> -n M-Up <span class="k">select</span>-pane -U
-<span class="nb">bind</span> -n M-Down <span class="k">select</span>-pane -D
-
-
-<span class="c1"># Enable mouse mode (tmux 2.1 and above)</span>
-<span class="nb">set</span> -g mouse on
-
-source-file <span class="s2">&quot;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.tmux-themepack/blue.tmuxtheme&quot;</span>
-</pre></div>
-
-
-<p>This is all very self-explanatory. <a href="https://github.com/jimeh/tmux-themepack">Many themes can be found here</a>.</p>
+<h3>Why use&nbsp;it?</h3>
+<h4>Perfect companion to any Vim&nbsp;user</h4>
+<p>The first notable feature of <strong>qutebrowser</strong> is obviously how well the use of keyboard shortcuts is integrated with the experience of using the software (there is a useful key binding cheatsheet on the <a href="https://qutebrowser.org/">homepage</a>). Search bindings (<code>/</code>, <code>n</code>/<code>N</code>, <code>?</code>), visual mode (<code>v</code>), tabs (<code>gt</code>, <code>T</code>), copy (<code>yy</code>), open URLs (<code>o</code>/<code>O</code>), <code>J</code> and <code>K</code> for switching tabs, etc. Many key bindings will look familiar to Vim&nbsp;users.</p>
+<p>It even features a <em>command mode</em>, accessible by typing <code>:</code>, just like with Vim. Settings can be set from there directly, help can be accessed by typing <code>:help [command/setting]</code>, the configuration file can be customized on the fly, the position and size of tabs can be set in many ways, history and settings page can be accessed and navigated through like any other page (<code>hjkl</code>, <code>Ctrl + d</code>, <code>Ctrl + u</code>, <code>gg</code>, <code>G</code>),&nbsp;etc.</p>
+<p>Even though it is based on Python which is a &#8220;<em>slow</em>&#8221; language, most of the libraries and the web engine rely on C++ and the end result is a fast and powerful browser that&#8217;s totally customizable&#8230; Not unlike Vim <i class="fas fa-smile-wink"></i>.</p>
+<h4>Minimal interface ⇒ more&nbsp;space</h4>
+<p>Until I upgrade my laptop to a larger screen (≥ 17 inches), my current setup with its 15 diagonal inches benefits tremendously from configuring all applications to use pixels as efficiently as possible — which is why I now use exclusively <a href="/posts/2019/01/08/using-i3-as-a-window-manager-for-increased-productivity/">i3 as a window manager</a>.</p>
+<p><strong>qutebrowser</strong> doesn&#8217;t even have a menu bar. By default, it only displays a small tab bar at the top (which can be moved to another side or removed) and a thin status bar at the bottom to see the <span class="caps">URL</span>, the current position in the page expressed in percentage, the number assigned to the current tab, etc. There is also a fullscreen mode available like in most other web browsers with the key <code>F11</code>, which will remove any window decoration and leave you in a (possibly) productive&nbsp;mode.</p>
+<h4>History, bookmarks and&nbsp;quickmarks</h4>
+<p>The history page (<code>:history</code>), while being minimal like all the rest, loads extremely fast and is a joy to navigate. The bookmarks page (<code>Sb</code>) is equally simple yet useful. The way I like to open a bookmark is in a new tab by typing <code>gB</code> (<strong>g</strong>o <strong>b</strong>ookmark as a mnemonic. Note that usually all uppercase letters open or do some action in a new space, such as a window or a&nbsp;tab).</p>
+<p>Where <strong>qutebrowser</strong> shines in my opinion is with quickmarks. This is a simple but genius way to find what you are looking for: you type <code>b</code> (or <code>B</code> for new tab) to open a list of pages that are defined with a keyword, you type that keyword (or can type anything to search for a page), move around with arrow keys if necessary to select a page, type <code>Enter</code> and there you go. As far as I know, Google Chrome doesn&#8217;t offer the equivalent (only keywords for search engines). Firefox allows to add keywords for any bookmark that you have, but there is no good way to search around for keywords, define them quickly, remove them quickly, etc. <strong>qutebrowser</strong> comes with a set of commands that serve just this purpose (<code>:quickmark-add</code>, <code>quickmark-del</code>, etc.), apart from adding them very quickly by typing <code>m</code> for quickmarks and <code>M</code> for&nbsp;bookmarks.</p>
+<h4>Hinting&nbsp;system</h4>
+<p>You may have tried extensions for other web browsers such as Vimium, Vimperator, or Vimium-<span class="caps">FF</span> that let you navigate with Vim shortcuts. They usually use the letter <code>f</code> for <strong>f</strong>ollowing links. Some text appear on the screen for each visible link and you type the letters that match the link you want to see. The best way to get how it works is just to try it out,&nbsp;really.</p>
+<p><a href="https://www.sglavoie.com/images/posts/0007_surfing-with-qutebrowser/qutebrowser_hints.png"><img src="https://www.sglavoie.com/images/posts/0007_surfing-with-qutebrowser/qutebrowser_hints.png" class="max-size-img-post"></a></p>
+<p>Well, <strong>qutebrowser</strong> takes those features and make them even greater! There is, for example, a <em>rapid hinting mode</em> you can access by typing <code>f</code> followed by <code>Ctrl + r</code> and it will open links in the background for as long as you type any matching <em>hint</em> provided as a letter or combination of two letters when there are many visible links on the page. This is especially useful when doing some research to avoid breaking the rhythm on the current reading while preparing more resources to be&nbsp;available.</p>
 <hr>
-<h3>Automating the launch of a default&nbsp;session:</h3>
-<h5><code>~/.tmux_default_session.sh</code></h5>
-<p>This is a small Bash script that I like to have for automatic set up of a development environment with tmux and Vim/Neovim. As my current workflow, I enjoy the&nbsp;following:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!bash</span>
-<span class="c1"># var for session name (to avoid repeated occurences)</span>
-<span class="nv">sn</span><span class="o">=</span>dev
-
-tmux new-session -s <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">&quot;</span> -d
-
-<span class="c1"># Create 3 windows</span>
-tmux new-window -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:0&quot;</span> -n <span class="s2">&quot;nvim&quot;</span>
-tmux new-window -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:9&quot;</span> -n <span class="s2">&quot;python&quot;</span>
-tmux new-window -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:8&quot;</span> -n <span class="s2">&quot;terminal&quot;</span>
-
-<span class="c1"># Split terminal window vertically, then split the right pane horizontally,</span>
-<span class="c1"># then switch to the left pane (identified by `FOCUS IS HERE`).</span>
-<span class="c1"># _________________</span>
-<span class="c1"># |&gt;_     |&gt;_     |</span>
-<span class="c1"># |       |       |</span>
-<span class="c1"># | FOCUS |-------|</span>
-<span class="c1"># | IS    |&gt;_     |</span>
-<span class="c1"># | HERE  |       |</span>
-<span class="c1"># -----------------</span>
-tmux split-window -h
-tmux split-window -v
-tmux <span class="k">select</span>-pane -L
-
-<span class="c1"># Set up Neovim ready to open files</span>
-tmux send-keys -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:0&quot;</span> C-z <span class="s1">&#39;nvim .&#39;</span> Enter
-
-<span class="c1"># Set up alias for IPython and clear the screen when entering IPython</span>
-tmux send-keys -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:9&quot;</span> C-z <span class="s1">&#39;ipython&#39;</span> Enter
-tmux send-keys -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:9&quot;</span> <span class="s1">&#39;clear&#39;</span> Enter
-
-<span class="c1"># Select window #0 and attach to the session</span>
-tmux <span class="k">select</span>-window -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:0&quot;</span>
-tmux -2 attach-session -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">&quot;</span>
-</pre></div>
-
-
+<h3>What&#8217;s the best place to start learning about&nbsp;it?</h3>
+<p>The <a href="https://qutebrowser.org/doc/help/">help page</a> on the website contains all the information you really need. I did stumble upon the following resources, which I would recommend to read in order of&nbsp;appearance:</p>
+<ol>
+<li><a href="https://qutebrowser.org/doc/quickstart.html">Quickstart Guide</a>.</li>
+<li><a href="https://raw.githubusercontent.com/qutebrowser/qutebrowser/master/doc/img/cheatsheet-big.png">Key bindings cheatsheet</a>.</li>
+<li><a href="https://qutebrowser.org/doc/faq.html"><span class="caps">FAQ</span></a>, which is interesting but not indispensable. It did help me take a step forward in trying out <strong>qutebrowser</strong>&nbsp;though.</li>
+<li><em>Open inside qutebrowser</em>: <a href="qute://help/settings.html#bindings.default">default keybindings</a>.</li>
+<li><em>Open inside qutebrowser</em>: <a href="qute://settings/">settings page</a>.</li>
+<li><a href="https://qutebrowser.org/doc/help/commands.html">List of commands</a>.</li>
+</ol>
 <hr>
-<h3>Aliases to make use&nbsp;of:</h3>
-<h5><code>.tmux_default_session.sh</code></h5>
-<p>I add the following aliases in <code>~/.bash_aliases</code> to automate a chunk of the&nbsp;workflow:</p>
-<div class="highlight"><pre><span></span><span class="c1"># This will launch tmux with the desired configuration</span>
-<span class="nb">alias</span> <span class="nv">dev</span><span class="o">=</span><span class="s1">&#39;bash ~/.tmux_default_session.sh&#39;</span>
-
-<span class="c1"># This will kill the tmux server if the need arises. By detaching from the tmux</span>
-<span class="c1"># session, you simply run this command and can reattach easily to the default</span>
-<span class="c1"># session configuration on another project.</span>
-<span class="nb">alias</span> <span class="nv">kdev</span><span class="o">=</span><span class="s1">&#39;pkill tmux&#39;</span>
-
-<span class="c1"># If the session has been detached but the tmux server is still running, I use</span>
-<span class="c1"># the following alias to quickly reattach to the default session named `dev`</span>
-<span class="c1"># in that example.</span>
-<span class="nb">alias</span> <span class="nv">adev</span><span class="o">=</span><span class="s1">&#39;tmux attach-session -t dev&#39;</span>
-</pre></div>
-
-
-<hr>
-<h3>tmux&nbsp;demo</h3>
-<p>(click to open image)
-<a href="https://www.sglavoie.com/images/posts/0001_tmux-integration-with-vim/tmux-demo.gif"><img src="https://www.sglavoie.com/images/posts/0001_tmux-integration-with-vim/tmux-demo.gif" class="max-size-img-post"></a></p>
-<hr>
-<p>The content of this post can be found on <a href="https://github.com/sglavoie/better-vim-experience#tmux-integration">GitHub</a> <i class="fab fa-github-alt"></i>&nbsp;.</p>
+<h2>Conclusion</h2>
+<p><strong>qutebrowser</strong> has been around for a while and is very stable. It is ideal for any Vim user and is a great option for anyone interested in efficiency and/or in trying out alternatives. Because I am very fond of relying on the keyboard as much as possible and because I love to program in Python, I have grown to like this web browser very quickly. This is clearly a tool designed for a specific type of user in mind and who knows, you might be one of those <i class="fas fa-smile"></i>.</p>
       </div>
   </div>
         <!-- /.entry-content -->
@@ -245,7 +187,7 @@ tmux -2 attach-session -t <span class="s2">&quot;</span><span class="nv">$sn</sp
     // Substitute single quotation mark (') for double (") to allow
     // article's title to contain single quotes.
     var disqus_shortname = "sglavoie"; 
-    var disqus_title = "Tmux Integration with Vim/Neovim — First&nbsp;Steps";
+    var disqus_title = "Surfing with qutebrowser — a Keyboard-Driven Web&nbsp;Browser";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
