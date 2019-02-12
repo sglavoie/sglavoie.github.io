@@ -125,8 +125,8 @@
             <i class="fas fa-calendar-alt"></i> <time class="published" datetime="2019-01-08T11:12:00-06:00">
                 January 08, 2019 @ 11:12
             </time>
-             <time class="modified" datetime="2019-01-08T18:48:00-06:00">
-                <i class="fas fa-angle-double-right"></i> modified January 08, 2019 @ 18:48
+             <time class="modified" datetime="2019-02-12T11:51:00-06:00">
+                <i class="fas fa-angle-double-right"></i> modified February 12, 2019 @ 11:51
             </time>
             <address class="vcard author">
             </address>
@@ -190,7 +190,13 @@
 <p>Here is a screenshot* of the workspace where this article is being written (click to&nbsp;open):</p>
 <p><a href="https://www.sglavoie.com/images/posts/0005_using-i3-as-window-manager-for-increased-productivity/i3-example.png"><img src="https://www.sglavoie.com/images/posts/0005_using-i3-as-window-manager-for-increased-productivity/i3-example.png" class="max-size-img-post"></a></p>
 <p>* <sub>In this particular scenario, the splits on the right side are intentionally very small as I do not need to read the output, but need quick access to a terminal to enter commands. Moving back and forth between windows is a breeze, so that&#8217;s how I currently handle the situation.</sub> </p>
-<p><strong>Note</strong>: With <code>Neovim</code>, there is an embedded terminal, which makes things very easy to handle by avoiding splits altogether. In that case, it is also possible to divide a workflow with tabs inside <code>Neovim</code> instead of physically splitting&nbsp;windows.</p>
+<p><strong>Note</strong>: With <code>Neovim</code>, <a href="/posts/2019/01/16/using-embedded-terminals-inside-neovim/">there is an embedded terminal</a>, which makes things very easy to handle by avoiding splits altogether. In that case, it is also possible to divide a workflow with tabs inside <code>Neovim</code> instead of physically splitting&nbsp;windows.</p>
+<p><strong>Alternatively</strong>, instead of splitting windows, a more convenient solution on smaller screens might be to use <strong>stacking</strong> windows with the shortcut <code>$mod + s</code> in each workspace or, to provide that behavior by default, the following can be added to i3&#8217;s configuration file (defaults in <code>~/.config/i3/config</code>):</p>
+<div class="highlight"><pre><span></span><span class="c1"># Set default container layout</span>
+workspace_layout stacking
+</pre></div>
+
+
 <hr>
 <h2>Conclusion</h2>
 <p>I am not trying to convince myself anymore: I really prefer this workflow <i class="fas fa-grin-hearts"></i>! If you are looking for a change and would like to maximize both your productivity and your system resources, <code>i3</code> is a great window manager to consider. It doesn&#8217;t seem very intuitive at first, but I swear it quickly becomes easy to use and you also end up learning more about how Linux works and set things up manually (just once!) to your likings. For example, I use Rofi instead of dmenu to have a window pop-up to select applications or switch to any window on any workspace&#8230; which was only one line to modify in the configuration&nbsp;file.</p>
