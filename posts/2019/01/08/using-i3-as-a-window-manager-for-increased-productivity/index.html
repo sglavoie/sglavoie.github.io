@@ -83,7 +83,7 @@
 
   <div class="collapse navbar-collapse" id="sglavoie-menu-second">
       <div id="menu-categories-legend-id" class="menu-categories-legend">
-          <a href="/categories.html"><img class="img-categories" src="/theme/images/categories.svg"></a>
+          <a href="/categories.html"><img class="img-categories" src="/theme/images/categories.svg" alt="Categories"></a>
       </div>
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
               <li class="nav-item active">
@@ -185,7 +185,7 @@
 <hr>
 <h2>What does it look like in&nbsp;action?</h2>
 <p>Here is a screenshot* of the workspace where this article is being written (click to&nbsp;open):</p>
-<p><a href="https://www.sglavoie.com/images/posts/0005_using-i3-as-window-manager-for-increased-productivity/i3-example.png"><img src="https://www.sglavoie.com/images/posts/0005_using-i3-as-window-manager-for-increased-productivity/i3-example.png" class="max-size-img-post"></a></p>
+<p><a href="https://www.sglavoie.com/images/posts/0005_using-i3-as-window-manager-for-increased-productivity/i3-example.png"><img src="https://www.sglavoie.com/images/posts/0005_using-i3-as-window-manager-for-increased-productivity/i3-example.png" alt="i3-example" class="max-size-img-post"></a></p>
 <p>* <sub>In this particular scenario, the splits on the right side are intentionally very small as I do not need to read the output, but need quick access to a terminal to enter commands. Moving back and forth between windows is a breeze, so that&#8217;s how I currently handle the situation.</sub> </p>
 <p><strong>Note</strong>: With <code>Neovim</code>, <a href="/posts/2019/01/16/using-embedded-terminals-inside-neovim/">there is an embedded terminal</a>, which makes things very easy to handle by avoiding splits altogether. In that case, it is also possible to divide a workflow with tabs inside <code>Neovim</code> instead of physically splitting&nbsp;windows.</p>
 <p><strong>Alternatively</strong>, instead of splitting windows, a more convenient solution on smaller screens might be to use <strong>stacking</strong> windows with the shortcut <code>$mod + s</code> in each workspace or, to provide that behavior by default, the following can be added to i3&#8217;s configuration file (defaults in <code>~/.config/i3/config</code>):</p>
@@ -236,19 +236,19 @@ workspace_layout stacking
 
             <ul class="social-footer">
 
-        <li><a href="https://github.com/sglavoie"><img src="/theme/images/footer/github.svg"></a></li>
-        <li><a href="https://www.twitter.com/sgdlavoie"><img src="/theme/images/footer/twitter.svg"></a></li>
-        <li><a href="https://www.linkedin.com/in/sglavoie"><img src="/theme/images/footer/linkedin.svg"></a></li>
-        <li><a href="https://www.hackerrank.com/sglavoie"><img src="/theme/images/footer/hackerrank.svg"></a></li>
-        <li><a href="https://stackoverflow.com/users/story/8787680"><img src="/theme/images/footer/stackoverflow.svg"></a></li>
+        <li><a href="https://github.com/sglavoie"><img src="/theme/images/footer/github.svg" alt="GitHub"></a></li>
+        <li><a href="https://www.twitter.com/sgdlavoie"><img src="/theme/images/footer/twitter.svg" alt="Twitter"></a></li>
+        <li><a href="https://www.linkedin.com/in/sglavoie"><img src="/theme/images/footer/linkedin.svg" alt="LinkedIn"></a></li>
+        <li><a href="https://www.hackerrank.com/sglavoie"><img src="/theme/images/footer/hackerrank.svg" alt="HackerRank"></a></li>
+        <li><a href="https://stackoverflow.com/users/story/8787680"><img src="/theme/images/footer/stackoverflow.svg" alt="Stackoverflow"></a></li>
 
         </div>
 
       </address>
 
       <address id="about" class="vcard body">
-          Proudly powered by <a href="http://getpelican.com/">Pelican 4.0.1<img class="footer-bottom-icon" src="/theme/images/footer/pelican.svg"></a>,
-          which takes great advantage of <a href="http://python.org">Python<img class="footer-bottom-icon" src="/theme/images/footer/python.svg"></a> .
+          Proudly powered by <a href="http://getpelican.com/">Pelican 4.0.1<img class="footer-bottom-icon" src="/theme/images/footer/pelican.svg" alt="Pelican"></a>,
+          which takes great advantage of <a href="http://python.org">Python<img class="footer-bottom-icon" src="/theme/images/footer/python.svg" alt="Python"></a> .
 
 
       <div id="author-footer">
@@ -274,7 +274,7 @@ workspace_layout stacking
         }
     }
     // Adding inline style to 'img' tag as it seems to be more trustworthy inside this script.
-    document.write("<a href='mailto:"+link+"'>"+"<img class='footer-bottom-icon' src='/theme/images/footer/email.svg'>"+"</a>")
+    document.write("<a href='mailto:"+link+"'>"+"<img class='footer-bottom-icon' src='/theme/images/footer/email.svg' alt='Email'>"+"</a>")
 }
 //-->
               </script><noscript>Sorry, you need Javascript on to email me.</noscript>
@@ -282,7 +282,7 @@ workspace_layout stacking
       </div>
                 </address>
                 
-              <div class="version-footer">v0.10.2</div>
+              <div class="version-footer">v0.10.4</div>
 
                 <!-- /#about -->
             </footer>
