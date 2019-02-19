@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-          <title>Surfing with qutebrowser — a Keyboard-Driven Web&nbsp;Browser | sglavoie.com</title>
+          <title>Binary to Decimal, Decimal to Binary&nbsp;Converter | sglavoie.com</title>
         <link href="https://www.sglavoie.com/feeds/sglavoie.rss.xml" type="application/rss+xml" rel="alternate" title="sglavoie.com Full RSS Feed" />
 
         <!-- Favicon -->
@@ -38,9 +38,10 @@
 
 
 
-    <meta name="tags" content="productivity" />
-    <meta name="tags" content="software" />
-    <meta name="tags" content="web" />
+    <meta name="tags" content="computer science" />
+    <meta name="tags" content="mathematics" />
+    <meta name="tags" content="python" />
+    <meta name="tags" content="script" />
 
 </head>
 
@@ -116,65 +117,123 @@
     <section id="content" class="jumbotron body">
         <header>
             <h2 class="display-4">
-                <a href="https://www.sglavoie.com/posts/2019/02/11/surfing-with-qutebrowser-a-keyboard-driven-web-browser/" rel="bookmark"
-                    title="Permalink to Surfing with qutebrowser — a Keyboard-Driven Web Browser">Surfing with qutebrowser — a Keyboard-Driven Web&nbsp;Browser</a></h2>
+                <a href="https://www.sglavoie.com/posts/2019/02/18/binary-to-decimal-decimal-to-binary-converter/" rel="bookmark"
+                    title="Permalink to Binary to Decimal, Decimal to Binary Converter">Binary to Decimal, Decimal to Binary&nbsp;Converter</a></h2>
             
         </header>
         <footer class="post-info">
-            <i class="fas fa-calendar-alt"></i> <time class="published" datetime="2019-02-11T14:46:00-06:00">
-                February 11, 2019 @ 14:46
+            <i class="fas fa-calendar-alt"></i> <time class="published" datetime="2019-02-18T21:30:00-06:00">
+                February 18, 2019 @ 21:30
             </time>
             <address class="vcard author">
             </address>
             <div class="category">
-                <i class="fas fa-tag"></i> Category: <a class="emphasis post-info-space" href="https://www.sglavoie.com/category/tools.html">tools</a>
+                <i class="fas fa-tag"></i> Category: <a class="emphasis post-info-space" href="https://www.sglavoie.com/category/automation.html">automation</a>
             </div>
             <div class="tags">
                 <i class="fas fa-hashtag"></i> Tags:
-                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/productivity.html">productivity</a>
-                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/software.html">software</a>
-                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/web.html">web</a>
+                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/computer-science.html">computer science</a>
+                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/mathematics.html">mathematics</a>
+                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/python.html">python</a>
+                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/script.html">script</a>
             </div>
         </footer><!-- /.post-info -->
   <hr class="my-4">
   <div class="card">
       <div class="card-body entry-content">
-          <h2>What is&nbsp;qutebrowser?</h2>
-<p><a href="https://qutebrowser.org/">qutebrowser</a> is a web browser that makes great use of <code>Vim</code> commands to navigate. From its&nbsp;website:</p>
-<blockquote>
-<p>qutebrowser is a keyboard-focused browser with a minimal <span class="caps">GUI</span>. It’s based on Python and PyQt5 and free software, licensed under the <span class="caps">GPL</span>.
-It was inspired by other browsers/addons like dwb and&nbsp;Vimperator/Pentadactyl.</p>
-</blockquote>
+          <p>There is nothing new here in terms of algorithms, but it was interesting to figure out how to apply those concepts with Python. This works for integer numbers, but can be easily adapted to convert&nbsp;fractions.</p>
+<h3>Binary to&nbsp;Decimal</h3>
+<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Converts a binary number to a decimal number.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">bin_to_dec</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Algorithm that converts a binary number to a decimal number.</span>
+
+<span class="sd">    Receives and returns a string.&quot;&quot;&quot;</span>
+
+    <span class="c1"># get the index of power of first digit</span>
+    <span class="c1"># e.g. 1001 → first index power is 3 (2^3)</span>
+    <span class="n">first_power</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># initialize variable to store final result</span>
+
+    <span class="c1"># iterate over each number and if it is &#39;1&#39;, calculate the value</span>
+    <span class="c1"># based on its position and add it to the total</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">char</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">first_power</span> <span class="o">-</span> <span class="n">index</span><span class="p">)</span>
+
+    <span class="c1"># give back the answer to the script</span>
+    <span class="k">return</span> <span class="n">total</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># retrieve binary number from input as string to parse</span>
+    <span class="n">BIN_NUM</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+
+    <span class="c1"># pass binary number to algorithm and store the result</span>
+    <span class="n">RESULT</span> <span class="o">=</span> <span class="n">bin_to_dec</span><span class="p">(</span><span class="n">BIN_NUM</span><span class="p">)</span>
+
+    <span class="c1"># print the solution to the console</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">RESULT</span><span class="p">)</span>
+</pre></div>
+
+
 <hr>
-<h3>Why use&nbsp;it?</h3>
-<h4>Perfect companion to any Vim&nbsp;user</h4>
-<p>The first notable feature of <strong>qutebrowser</strong> is obviously how well the use of keyboard shortcuts is integrated with the experience of using the software (there is a useful key binding cheatsheet on the <a href="https://qutebrowser.org/">homepage</a>). Search bindings (<code>/</code>, <code>n</code>/<code>N</code>, <code>?</code>), visual mode (<code>v</code>), tabs (<code>gt</code>, <code>T</code>), copy (<code>yy</code>), open URLs (<code>o</code>/<code>O</code>), <code>J</code> and <code>K</code> for switching tabs, etc. Many key bindings will look familiar to Vim&nbsp;users.</p>
-<p>It even features a <em>command mode</em>, accessible by typing <code>:</code>, just like with Vim. Settings can be set from there directly, help can be accessed by typing <code>:help [command/setting]</code>, the configuration file can be customized on the fly, the position and size of tabs can be set in many ways, history and settings page can be accessed and navigated through like any other page (<code>hjkl</code>, <code>Ctrl + d</code>, <code>Ctrl + u</code>, <code>gg</code>, <code>G</code>),&nbsp;etc.</p>
-<p>Even though it is based on Python which is a &#8220;<em>slow</em>&#8221; language, most of the libraries and the web engine rely on C++ and the end result is a fast and powerful browser that&#8217;s totally customizable&#8230; Not unlike Vim <i class="fas fa-smile-wink"></i>.</p>
-<h4>Minimal interface ⇒ more&nbsp;space</h4>
-<p>Until I upgrade my laptop to a larger screen (≥ 17 inches), my current setup with its 15 diagonal inches benefits tremendously from configuring all applications to use pixels as efficiently as possible — which is why I now use exclusively <a href="/posts/2019/01/08/using-i3-as-a-window-manager-for-increased-productivity/">i3 as a window manager</a>.</p>
-<p><strong>qutebrowser</strong> doesn&#8217;t even have a menu bar. By default, it only displays a small tab bar at the top (which can be moved to another side or removed) and a thin status bar at the bottom to see the <span class="caps">URL</span>, the current position in the page expressed in percentage, the number assigned to the current tab, etc. There is also a fullscreen mode available like in most other web browsers with the key <code>F11</code>, which will remove any window decoration and leave you in a (possibly) productive&nbsp;mode.</p>
-<h4>History, bookmarks and&nbsp;quickmarks</h4>
-<p>The history page (<code>:history</code>), while being minimal like all the rest, loads extremely fast and is a joy to navigate. The bookmarks page (<code>Sb</code>) is equally simple yet useful. The way I like to open a bookmark is in a new tab by typing <code>gB</code> (<strong>g</strong>o <strong>b</strong>ookmark as a mnemonic. Note that usually all uppercase letters open or do some action in a new space, such as a window or a&nbsp;tab).</p>
-<p>Where <strong>qutebrowser</strong> shines in my opinion is with quickmarks. This is a simple but genius way to find what you are looking for: you type <code>b</code> (or <code>B</code> for new tab) to open a list of pages that are defined with a keyword, you type that keyword (or can type anything to search for a page), move around with arrow keys if necessary to select a page, type <code>Enter</code> and there you go. As far as I know, Google Chrome doesn&#8217;t offer the equivalent (only keywords for search engines). Firefox allows to add keywords for any bookmark that you have, but there is no good way to search around for keywords, define them quickly, remove them quickly, etc. <strong>qutebrowser</strong> comes with a set of commands that serve just this purpose (<code>:quickmark-add</code>, <code>quickmark-del</code>, etc.), apart from adding them very quickly by typing <code>m</code> for quickmarks and <code>M</code> for&nbsp;bookmarks.</p>
-<h4>Hinting&nbsp;system</h4>
-<p>You may have tried extensions for other web browsers such as Vimium, Vimperator, or Vimium-<span class="caps">FF</span> that let you navigate with Vim shortcuts. They usually use the letter <code>f</code> for <strong>f</strong>ollowing links. Some text appear on the screen for each visible link and you type the letters that match the link you want to see. The best way to get how it works is just to try it out,&nbsp;really.</p>
-<p><a href="https://www.sglavoie.com/images/posts/0007_surfing-with-qutebrowser/qutebrowser_hints.png"><img src="https://www.sglavoie.com/images/posts/0007_surfing-with-qutebrowser/qutebrowser_hints.png" alt="qutebrowser-hints" class="max-size-img-post"></a></p>
-<p>Well, <strong>qutebrowser</strong> takes those features and make them even greater! There is, for example, a <em>rapid hinting mode</em> you can access by typing <code>f</code> followed by <code>Ctrl + r</code> and it will open links in the background for as long as you type any matching <em>hint</em> provided as a letter or combination of two letters when there are many visible links on the page. This is especially useful when doing some research to avoid breaking the rhythm on the current reading while preparing more resources to be&nbsp;available.</p>
-<hr>
-<h3>What&#8217;s the best place to start learning about&nbsp;it?</h3>
-<p>The <a href="https://qutebrowser.org/doc/help/">help page</a> on the website contains all the information you really need. I did stumble upon the following resources, which I would recommend to read in order of&nbsp;appearance:</p>
-<ol>
-<li><a href="https://qutebrowser.org/doc/quickstart.html">Quickstart Guide</a>.</li>
-<li><a href="https://raw.githubusercontent.com/qutebrowser/qutebrowser/master/doc/img/cheatsheet-big.png">Key bindings cheatsheet</a>.</li>
-<li><a href="https://qutebrowser.org/doc/faq.html"><span class="caps">FAQ</span></a>, which is interesting but not indispensable. It did help me take a step forward in trying out <strong>qutebrowser</strong>&nbsp;though.</li>
-<li><em>Open inside qutebrowser</em>: <a href="qute://help/settings.html#bindings.default">default keybindings</a>.</li>
-<li><em>Open inside qutebrowser</em>: <a href="qute://settings/">settings page</a>.</li>
-<li><a href="https://qutebrowser.org/doc/help/commands.html">List of commands</a>.</li>
-</ol>
+<h3>Decimal to&nbsp;Binary</h3>
+<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Converts a decimal number to a binary number.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">dec_to_bin</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Algorithm that converts a decimal number to a binary number.</span>
+
+<span class="sd">    Receives an integer and returns a string.&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># if number is &#39;zero&#39;, the answer is &#39;zero&#39;</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+    <span class="n">remainders</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># list that stores the remainders</span>
+
+    <span class="c1"># iterate over the initial given decimal and divide it by two</span>
+    <span class="c1"># until it gets to &#39;zero&#39;. At each step, add the remainder in</span>
+    <span class="c1"># the above list</span>
+    <span class="k">while</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">remainders</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">number</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="n">number</span> <span class="o">//</span> <span class="mi">2</span>
+
+    <span class="c1"># reverse the list of remainders, as the first remainder is the</span>
+    <span class="c1"># right most digit in the answer</span>
+    <span class="n">remainders</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+
+    <span class="c1"># concatenate all the digits from the list of remainders from left</span>
+    <span class="c1"># to right to display the final binary number</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="n">remainders</span><span class="p">:</span>
+        <span class="n">answer</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span>
+
+    <span class="c1"># give the answer back to the script</span>
+    <span class="k">return</span> <span class="n">answer</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># retrieve decimal number from input as integer</span>
+    <span class="n">DEC_NUM</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+    <span class="c1"># pass decimal number to algorithm and store the result</span>
+    <span class="n">RESULT</span> <span class="o">=</span> <span class="n">dec_to_bin</span><span class="p">(</span><span class="n">DEC_NUM</span><span class="p">)</span>
+
+    <span class="c1"># print the solution to the console</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">RESULT</span><span class="p">)</span>
+</pre></div>
+
+
 <hr>
 <h2>Conclusion</h2>
-<p><strong>qutebrowser</strong> has been around for a while and is very stable. It is ideal for any Vim user and is a great option for anyone interested in efficiency and/or in trying out alternatives. Because I am very fond of relying on the keyboard as much as possible and because I love to program in Python, I have grown to like this web browser very quickly. This is clearly a tool designed for a specific type of user in mind and who knows, you might be one of those <i class="fas fa-smile"></i>.</p>
+<p>This was a very quick programming session that&#8217;s been useful to make new concepts stick. The best learning strategies are to <em>test yourself</em> constantly in any way possible and to <em>teach clearly what you know</em>, which is what I tried to do in the end. By the way, I found the course <a href="https://www.coursera.org/learn/learning-how-to-learn/">Learning How to Learn</a> on Coursera to be quite satisfying and I would invite you to have a look if that&#8217;s a topic you&#8217;re interested in <i class="fas fa-smile"></i>!</p>
       </div>
   </div>
         <!-- /.entry-content -->
@@ -187,7 +246,7 @@ It was inspired by other browsers/addons like dwb and&nbsp;Vimperator/Pentadacty
     // Substitute single quotation mark (') for double (") to allow
     // article's title to contain single quotes.
     var disqus_shortname = "sglavoie"; 
-    var disqus_title = "Surfing with qutebrowser — a Keyboard-Driven Web&nbsp;Browser";
+    var disqus_title = "Binary to Decimal, Decimal to Binary&nbsp;Converter";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
