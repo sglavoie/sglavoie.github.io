@@ -142,7 +142,9 @@
   <div class="card">
       <div class="card-body entry-content">
           <h2>tmux&nbsp;integration</h2>
-<p><a href="https://github.com/tmux/tmux">tmux</a> offers many advantages in the context of remote access to another machine, but it also shines on a local setup! Here is how I currently like to set it&nbsp;up.</p>
+<p><a href="https://github.com/tmux/tmux">tmux</a> offers many advantages in the
+context of remote access to another machine, but it also shines on a
+local setup! Here is how I currently like to set it&nbsp;up.</p>
 <hr>
 <h3>Configuration&nbsp;file:</h3>
 <h5><code>~/.tmux.conf</code></h5>
@@ -166,11 +168,14 @@ source-file <span class="s2">&quot;</span><span class="si">${</span><span class=
 </pre></div>
 
 
-<p>This is all very self-explanatory. <a href="https://github.com/jimeh/tmux-themepack">Many themes can be found here</a>.</p>
+<p>This is all very self-explanatory. <a href="https://github.com/jimeh/tmux-themepack">Many themes can be found
+here</a>.</p>
 <hr>
 <h3>Automating the launch of a default&nbsp;session:</h3>
 <h5><code>~/.tmux_default_session.sh</code></h5>
-<p>This is a small Bash script that I like to have for automatic set up of a development environment with tmux and Vim/Neovim. As my current workflow, I enjoy the&nbsp;following:</p>
+<p>This is a small Bash script that I like to have for automatic set up
+of a development environment with tmux and Vim/Neovim. As my current
+workflow, I enjoy the&nbsp;following:</p>
 <div class="highlight"><pre><span></span><span class="ch">#!bash</span>
 <span class="c1"># var for session name (to avoid repeated occurences)</span>
 <span class="nv">sn</span><span class="o">=</span>dev
@@ -182,8 +187,9 @@ tmux new-window -t <span class="s2">&quot;</span><span class="nv">$sn</span><spa
 tmux new-window -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:9&quot;</span> -n <span class="s2">&quot;python&quot;</span>
 tmux new-window -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:8&quot;</span> -n <span class="s2">&quot;terminal&quot;</span>
 
-<span class="c1"># Split terminal window vertically, then split the right pane horizontally,</span>
-<span class="c1"># then switch to the left pane (identified by `FOCUS IS HERE`).</span>
+<span class="c1"># Split terminal window vertically, then split the right pane</span>
+<span class="c1"># horizontally, then switch to the left pane (identified by `FOCUS IS</span>
+<span class="c1"># HERE`).</span>
 <span class="c1"># _________________</span>
 <span class="c1"># |&gt;_     |&gt;_     |</span>
 <span class="c1"># |       |       |</span>
@@ -211,18 +217,19 @@ tmux -2 attach-session -t <span class="s2">&quot;</span><span class="nv">$sn</sp
 <hr>
 <h3>Aliases to make use&nbsp;of:</h3>
 <h5><code>.tmux_default_session.sh</code></h5>
-<p>I add the following aliases in <code>~/.bash_aliases</code> to automate a chunk of the&nbsp;workflow:</p>
+<p>I add the following aliases in <code>~/.bash_aliases</code> to automate a chunk of
+the&nbsp;workflow:</p>
 <div class="highlight"><pre><span></span><span class="c1"># This will launch tmux with the desired configuration</span>
 <span class="nb">alias</span> <span class="nv">dev</span><span class="o">=</span><span class="s1">&#39;bash ~/.tmux_default_session.sh&#39;</span>
 
-<span class="c1"># This will kill the tmux server if the need arises. By detaching from the tmux</span>
-<span class="c1"># session, you simply run this command and can reattach easily to the default</span>
-<span class="c1"># session configuration on another project.</span>
+<span class="c1"># This will kill the tmux server if the need arises. By detaching from</span>
+<span class="c1"># the tmux session, you simply run this command and can reattach easily</span>
+<span class="c1"># to the default session configuration on another project.</span>
 <span class="nb">alias</span> <span class="nv">kdev</span><span class="o">=</span><span class="s1">&#39;pkill tmux&#39;</span>
 
-<span class="c1"># If the session has been detached but the tmux server is still running, I use</span>
-<span class="c1"># the following alias to quickly reattach to the default session named `dev`</span>
-<span class="c1"># in that example.</span>
+<span class="c1"># If the session has been detached but the tmux server is still running,</span>
+<span class="c1"># I use the following alias to quickly reattach to the default session</span>
+<span class="c1"># named `dev` in that example.</span>
 <span class="nb">alias</span> <span class="nv">adev</span><span class="o">=</span><span class="s1">&#39;tmux attach-session -t dev&#39;</span>
 </pre></div>
 
@@ -232,7 +239,9 @@ tmux -2 attach-session -t <span class="s2">&quot;</span><span class="nv">$sn</sp
 <p>(click to open image)
 <a href="https://www.sglavoie.com/images/posts/0001_tmux-integration-with-vim/tmux-demo.gif"><img src="https://www.sglavoie.com/images/posts/0001_tmux-integration-with-vim/tmux-demo.gif" alt="tmux-demo" class="max-size-img-post"></a></p>
 <hr>
-<p>The content of this post can be found on <a href="https://github.com/sglavoie/better-vim-experience#tmux-integration">GitHub</a> <i class="fab fa-github-alt"></i>&nbsp;.</p>
+<p>The content of this post can be found on
+<a href="https://github.com/sglavoie/better-vim-experience#tmux-integrat
+ion">GitHub</a> <i class="fab fa-github-alt"></i>&nbsp;.</p>
       </div>
   </div>
         <!-- /.entry-content -->

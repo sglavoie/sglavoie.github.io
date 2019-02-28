@@ -146,17 +146,31 @@
   <hr class="my-4">
   <div class="card">
       <div class="card-body entry-content">
-          <p>This is a Python 3.6+ script that helps to clean the file containing the Bash history commands. It will remove any line matching a specified regular expression and can also remove any line starting with an&nbsp;alias.</p>
+          <p>This is a Python 3.6+ script that helps to clean the file containing
+the Bash history commands. It will remove any line matching a specified
+regular expression and can also remove any line starting with an&nbsp;alias.</p>
 <p>The idea behind this small utility was&nbsp;simple:</p>
 <ul>
-<li>The Bash history file (usually located in <code>~/.bash_history</code>) contains much of the work one ends up doing in the&nbsp;terminal.</li>
-<li>The history can grow large over time and it becomes more cumbersome to find interesting information in all that clutter, such as a rarely used command with specific&nbsp;flags.</li>
-<li>By removing all superfluous commands that are repeated often and which give no real benefit in certain contexts (such as <code>ls</code>, <code>cd</code>, <code>cat</code>, etc.), the history is much cleaner and easier to navigate and actually becomes much more useful in my&nbsp;opinion.</li>
-<li>True, it will be harder to follow the bread crumbs for everything you did, but I haven&#8217;t come across a situation where having access to yet another empty <code>ls</code> or <code>cd</code> has proven necessary and reading <code>.bash_history</code> doesn&#8217;t make for a great narrative story&nbsp;either.</li>
+<li>The Bash history file (usually located in <code>~/.bash_history</code>) contains
+much of the work one ends up doing in the&nbsp;terminal.</li>
+<li>The history can grow large over time and it becomes more cumbersome to
+find interesting information in all that clutter, such as a rarely used
+command with specific&nbsp;flags.</li>
+<li>By removing all superfluous commands that are repeated often and which
+give no real benefit in certain contexts (such as <code>ls</code>, <code>cd</code>, <code>cat</code>,
+etc.), the history is much cleaner and easier to navigate and actually
+becomes much more useful in my&nbsp;opinion.</li>
+<li>True, it will be harder to follow the bread crumbs for everything
+you did, but I haven&#8217;t come across a situation where having access
+to yet another empty <code>ls</code> or <code>cd</code> has proven necessary and reading
+<code>.bash_history</code> doesn&#8217;t make for a great narrative story&nbsp;either.</li>
 </ul>
 <hr>
 <h2>Make history in a big&nbsp;way</h2>
-<p>I took advantage of the fact that the history can be cleaned with the script you are about to see and set up what is known as an <em>eternal history</em> which, as it sounds like, can grow infinitely big! All you have to do is append the following lines to the file <code>~/.bashrc</code>:</p>
+<p>I took advantage of the fact that the history can be cleaned with the
+script you are about to see and set up what is known as an <em>eternal
+history</em> which, as it sounds like, can grow infinitely big! All you have
+to do is append the following lines to the file <code>~/.bashrc</code>:</p>
 <div class="highlight"><pre><span></span><span class="c1"># Eternal bash history.</span>
 <span class="c1"># ---------------------</span>
 <span class="c1"># Undocumented feature which sets the size to &quot;unlimited&quot;.</span>
@@ -164,7 +178,8 @@
 <span class="nb">export</span> <span class="nv">HISTFILESIZE</span><span class="o">=</span>-1
 <span class="nb">export</span> <span class="nv">HISTSIZE</span><span class="o">=</span>-1
 <span class="nb">export</span> <span class="nv">HISTTIMEFORMAT</span><span class="o">=</span><span class="s2">&quot;[%F %T] &quot;</span>
-<span class="c1"># Change the file location because certain bash sessions truncate .bash_history file upon close.</span>
+<span class="c1"># Change the file location because certain bash sessions truncate</span>
+<span class="c1"># .bash_history file upon close.</span>
 <span class="c1"># http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login</span>
 <span class="nb">export</span> <span class="nv">HISTFILE</span><span class="o">=</span>~/.bash_eternal_history
 <span class="c1"># Force prompt to write history after every command.</span>
@@ -177,10 +192,15 @@
 <h2>Bash History&nbsp;Cleaner</h2>
 <p>And here is the script in question *. It comes in two files that need to be in the same&nbsp;directory:</p>
 <ul>
-<li>One is a Python file that needs to be launched from the terminal with Python&nbsp;3.</li>
-<li>The other file, <code>settings.json</code>, is a <span class="caps">JSON</span> file used to store the settings of the script, which will be detailed&nbsp;below.</li>
+<li>One is a Python file that needs to be launched from the terminal with
+Python&nbsp;3.</li>
+<li>The other file, <code>settings.json</code>, is a <span class="caps">JSON</span> file used to store the
+settings of the script, which will be detailed&nbsp;below.</li>
 </ul>
-<p>* <sub>Improvements to the original script can be found on <a href="https://github.com/sglavoie/python-utilities/tree/master/bash_history_cleaner">Github</a> <i class="fab fa-github-alt"></i>. To keep this article a bit more readable, the original version is shown.</sub> </p>
+<p>* <sub>Improvements to the original script can be found on <a
+href="https://github.com/sglavoie/python-utilities/tree/master/bash_hist
+ory_cleaner">Github</a> <i class="fab fa-github-alt"></i>. To keep this
+article a bit more readable, the original version is shown.</sub></p>
 <h5><code>bash_history_cleaner.py</code></h5>
 <div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">Python script that helps to clean the file containing the Bash history</span>
@@ -188,8 +208,8 @@
 
 <span class="sd">Note: Requires Python 3.6+</span>
 
-<span class="sd">It will remove any line matching a specified regular expression and can also</span>
-<span class="sd">remove any line starting with an alias.</span>
+<span class="sd">It will remove any line matching a specified regular expression and can</span>
+<span class="sd">also remove any line starting with an alias.</span>
 
 <span class="sd">Description of available settings in `settings.json`:</span>
 
@@ -501,10 +521,19 @@
 </table>
 <hr>
 <h2>Anecdotal evidence of satisfying&nbsp;performances</h2>
-<p>Performance-wise, this scans ~8,300 lines per second on my modest Intel Core i5 laptop with files of over 200,000 lines long. Not that I type so much stuff in the terminal: I just duplicated many lines <i class="fas fa-smile"></i>.</p>
+<p>Performance-wise, this scans ~8,300 lines per second on my modest Intel
+Core i5 laptop with files of over 200,000 lines long. Not that I type so
+much stuff in the terminal: I just duplicated many lines <i class="fas
+fa-smile"></i>.</p>
 <hr>
 <h2>Conclusion</h2>
-<p>This is a simple solution to an nonexistent problem, but it was in the end very instructive to me nonetheless. You may even find a use for it! Otherwise, you might use the same functions for other files such as logs! If you would like to take a closer look at the source in a more convenient way, you can find the code <a href="https://github.com/sglavoie/python-utilities/tree/master/bash_history_cleaner">available on Github</a> <i class="fab fa-github-alt"></i>.</p>
+<p>This is a simple solution to an nonexistent problem, but it was
+in the end very instructive to me nonetheless. You may even find
+a use for it! Otherwise, you might use the same functions for
+other files such as logs! If you would like to take a closer look
+at the source in a more convenient way, you can find the code <a
+href="https://github.com/sglavoie/python-utilities/tree/master/bash_hist
+ory_cleaner">available on Github</a> <i class="fab fa-github-alt"></i>.</p>
       </div>
   </div>
         <!-- /.entry-content -->
