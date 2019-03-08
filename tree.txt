@@ -35,8 +35,6 @@
 │   ├── 2018
 │   │   ├── 11
 │   │   │   └── 19
-│   │   │       ├── tmux-asd-with-vim-neovim-first-steps
-│   │   │       │   └── index.html
 │   │   │       └── tmux-integration-with-vim-neovim-first-steps
 │   │   │           └── index.html
 │   │   └── 12
@@ -57,12 +55,16 @@
 │       │   └── 16
 │       │       └── using-embedded-terminals-inside-neovim
 │       │           └── index.html
-│       └── 02
-│           ├── 11
-│           │   └── surfing-with-qutebrowser-a-keyboard-driven-web-browser
-│           │       └── index.html
-│           └── 18
-│               └── binary-to-decimal-decimal-to-binary-converter
+│       ├── 02
+│       │   ├── 11
+│       │   │   └── surfing-with-qutebrowser-a-keyboard-driven-web-browser
+│       │   │       └── index.html
+│       │   └── 18
+│       │       └── binary-to-decimal-decimal-to-binary-converter
+│       │           └── index.html
+│       └── 03
+│           └── 08
+│               └── executing-shell-commands-in-a-python-script
 │                   └── index.html
 ├── stats
 │   ├── activity.html
@@ -163,7 +165,6 @@
 │       ├── footer
 │       │   ├── contributions.svg
 │       │   ├── email.svg
-│       │   ├── facebook.png
 │       │   ├── facebook.svg
 │       │   ├── github.png
 │       │   ├── github.svg
@@ -173,7 +174,6 @@
 │       │   ├── pelican.svg
 │       │   ├── python.svg
 │       │   ├── stackoverflow.svg
-│       │   ├── twitter.png
 │       │   └── twitter.svg
 │       ├── header
 │       │   ├── abstract_path_horizontal.svg
@@ -188,4 +188,4 @@
 │       └── site.webmanifest
 └── tree.txt
 
-43 directories, 145 files
+45 directories, 143 files

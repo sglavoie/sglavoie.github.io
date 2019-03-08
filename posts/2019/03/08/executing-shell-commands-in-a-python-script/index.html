@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-          <title>Binary to Decimal, Decimal to Binary&nbsp;Converter | sglavoie.com</title>
+          <title>Executing shell commands in a Python&nbsp;script | sglavoie.com</title>
         <link href="https://www.sglavoie.com/feeds/sglavoie.rss.xml" type="application/rss+xml" rel="alternate" title="sglavoie.com Full RSS Feed" />
 
         <!-- Favicon -->
@@ -40,8 +40,6 @@
 
 
 
-    <meta name="tags" content="computer science" />
-    <meta name="tags" content="mathematics" />
     <meta name="tags" content="python" />
     <meta name="tags" content="script" />
 
@@ -118,23 +116,21 @@
     <section id="content" class="jumbotron body">
         <header>
             <h2 class="display-4">
-                <a href="https://www.sglavoie.com/posts/2019/02/18/binary-to-decimal-decimal-to-binary-converter/" rel="bookmark"
-                    title="Permalink to Binary to Decimal, Decimal to Binary Converter">Binary to Decimal, Decimal to Binary&nbsp;Converter</a></h2>
+                <a href="https://www.sglavoie.com/posts/2019/03/08/executing-shell-commands-in-a-python-script/" rel="bookmark"
+                    title="Permalink to Executing shell commands in a Python script">Executing shell commands in a Python&nbsp;script</a></h2>
             
         </header>
         <footer class="post-info">
-            <i class="fas fa-calendar-alt"></i> <time class="published" datetime="2019-02-18T21:30:00-06:00">
-                February 18, 2019 @ 21:30 CST
+            <i class="fas fa-calendar-alt"></i> <time class="published" datetime="2019-03-08T14:34:00-06:00">
+                March 08, 2019 @ 14:34 CST
             </time>
             <address class="vcard author">
             </address>
             <div class="category">
-                <i class="fas fa-tag"></i> Category: <a class="emphasis post-info-space" href="https://www.sglavoie.com/category/automation.html">automation</a>
+                <i class="fas fa-tag"></i> Category: <a class="emphasis post-info-space" href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a>
             </div>
             <div class="tags">
                 <i class="fas fa-hashtag"></i> Tags:
-                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/computer-science.html">computer science</a>
-                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/mathematics.html">mathematics</a>
                 <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/python.html">python</a>
                 <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/script.html">script</a>
             </div>
@@ -142,106 +138,87 @@
   <hr class="my-4">
   <div class="card">
       <div class="card-body entry-content">
-          <p>There is nothing new here in terms of algorithms, but it was interesting
-to figure out how to apply those concepts with Python. This works for
-integer numbers, but can be easily adapted to convert&nbsp;fractions.</p>
-<h3>Binary to&nbsp;Decimal</h3>
-<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Converts a binary number to a decimal number.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+          <p>Python is awesome for producing high quality code quickly
+and efficiently, but it is not necessary to reinvent the
+wheel in each project: this is why the third-party library on
+<a href="https://pypi.org/">PyPI</a> is so extensive. There are also occasions when
+it is convenient to execute shell commands available in the terminal,
+either to retrieve its output or to perform some work in the background.
+I have wanted to do both when building this website, so here is one way
+to accomplish&nbsp;this!</p>
+<h3>Retrieve the&nbsp;output</h3>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_tree</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Execute `tree` command and store the output in</span>
+<span class="sd">    `tree.txt`.&#39;&#39;&#39;</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">getoutput</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;tree .&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./tree.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">bin_to_dec</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Algorithm that converts a binary number to a decimal number.</span>
-
-<span class="sd">    Receives and returns a string.&quot;&quot;&quot;</span>
-
-    <span class="c1"># get the index of power of first digit</span>
-    <span class="c1"># e.g. 1001 → first index power is 3 (2^3)</span>
-    <span class="n">first_power</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-
-    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># initialize variable to store final result</span>
-
-    <span class="c1"># iterate over each number and if it is &#39;1&#39;, calculate the value</span>
-    <span class="c1"># based on its position and add it to the total</span>
-    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">char</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
-            <span class="n">total</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">first_power</span> <span class="o">-</span> <span class="n">index</span><span class="p">)</span>
-
-    <span class="c1"># give back the answer to the script</span>
-    <span class="k">return</span> <span class="n">total</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="c1"># retrieve binary number from input as string to parse</span>
-    <span class="n">BIN_NUM</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
-
-    <span class="c1"># pass binary number to algorithm and store the result</span>
-    <span class="n">RESULT</span> <span class="o">=</span> <span class="n">bin_to_dec</span><span class="p">(</span><span class="n">BIN_NUM</span><span class="p">)</span>
-
-    <span class="c1"># print the solution to the console</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">RESULT</span><span class="p">)</span>
+<span class="n">read_tree</span><span class="p">()</span>
 </pre></div>
 
 
-<h3>Decimal to&nbsp;Binary</h3>
-<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Converts a decimal number to a binary number.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<p>In this example, the structure from the current directory is printed
+when executing the code and it is later stored in a file. The output
+could look something like the&nbsp;following:</p>
+<div class="highlight"><pre><span></span>.
+├── database_example
+│   ├── example.sqlite
+│   ├── db_manager.py
+│   ├── review
+│   │   └── sql_queries.txt
+│   └── settings.py
+├── database_sql.py
+├── dump.sql
+├── example.db
+├── example.db.sql
+├── example_info.txt
+├── example_old.db
+├── example_old.db.sql
+├── sample
+│   ├── chinook.db
+│   └── sqlite-sample-database-diagram-color.pdf
+├── test.db
+└── test.sql
 
-
-<span class="k">def</span> <span class="nf">dec_to_bin</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Algorithm that converts a decimal number to a binary number.</span>
-
-<span class="sd">    Receives an integer and returns a string.&quot;&quot;&quot;</span>
-
-    <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># if number is &#39;zero&#39;, the answer is &#39;zero&#39;</span>
-        <span class="k">return</span> <span class="mi">0</span>
-
-    <span class="n">remainders</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># list that stores the remainders</span>
-
-    <span class="c1"># iterate over the initial given decimal and divide it by two</span>
-    <span class="c1"># until it gets to &#39;zero&#39;. At each step, add the remainder in</span>
-    <span class="c1"># the above list</span>
-    <span class="k">while</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">remainders</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">number</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
-        <span class="n">number</span> <span class="o">=</span> <span class="n">number</span> <span class="o">//</span> <span class="mi">2</span>
-
-    <span class="c1"># reverse the list of remainders, as the first remainder is the</span>
-    <span class="c1"># right most digit in the answer</span>
-    <span class="n">remainders</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
-
-    <span class="c1"># concatenate all the digits from the list of remainders from left</span>
-    <span class="c1"># to right to display the final binary number</span>
-    <span class="n">answer</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-    <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="n">remainders</span><span class="p">:</span>
-        <span class="n">answer</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span>
-
-    <span class="c1"># give the answer back to the script</span>
-    <span class="k">return</span> <span class="n">answer</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="c1"># retrieve decimal number from input as integer</span>
-    <span class="n">DEC_NUM</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-
-    <span class="c1"># pass decimal number to algorithm and store the result</span>
-    <span class="n">RESULT</span> <span class="o">=</span> <span class="n">dec_to_bin</span><span class="p">(</span><span class="n">DEC_NUM</span><span class="p">)</span>
-
-    <span class="c1"># print the solution to the console</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">RESULT</span><span class="p">)</span>
+3 directories, 15 files
 </pre></div>
 
 
+<h3>Execute a command in the&nbsp;background</h3>
+<p>There are also instances in which is it useful to execute a program
+from the terminal inside a Python script. This website, for example,
+currently exports daily Git statistics in the <code>output/</code> folder. This
+looks like&nbsp;this:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">daily_stats</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Execute `Gitstats` once a day based on the date found in</span>
+<span class="sd">    `stats_counter.txt`. Very simple with a caveat: it won&#39;t check if</span>
+<span class="sd">    there are new commits on the same day if stats have already been</span>
+<span class="sd">    generated on that day.&#39;&#39;&#39;</span>
+    <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;stats_counter.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">content</span> <span class="o">!=</span> <span class="n">today</span><span class="p">:</span>
+        <span class="n">current_loc</span> <span class="o">=</span> <span class="n">current_path</span><span class="p">()</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;gitstats&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;project_name=&#39;sglavoie.com&#39;&quot;</span><span class="p">,</span>
+               <span class="n">f</span><span class="s2">&quot;{current_loc}&quot;</span><span class="p">,</span> <span class="n">f</span><span class="s2">&quot;{current_loc}/output/stats/&quot;</span><span class="p">]</span>
+        <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;stats_counter.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
+</pre></div>
+
+
+<p>This is an automated process, which is something Python is easy to use
+for. However, it won&#8217;t be necessary to program everything: it all gets
+generated on&nbsp;demand!</p>
 <h2>Conclusion</h2>
-<p>This was a very quick programming session that&#8217;s been useful
-to make new concepts stick. The best learning strategies are
-to <em>test yourself</em> constantly in any way possible and to
-<em>teach clearly what you know</em>, which is what I tried to do
-in the end. By the way, I found the course <a href="https://www.coursera.org/learn/learning-how-to-learn/">Learning How to
-Learn</a> on
-Coursera to be quite satisfying and I would invite you to have a look if
-that&#8217;s a topic you&#8217;re interested in <i class="fas fa-smile"></i>!</p>
+<p>I am always amazed at how easy it can be to automate simple tasks like
+those mentioned above. Programming can be very rewarding regardless of
+initial abilities. Just beyond the most basic stuff, suddenly there is a
+world that opens up to those that stay curious long enough <i class="fas
+fa-smile"></i>.</p>
       </div>
   </div>
         <!-- /.entry-content -->
@@ -254,7 +231,7 @@ that&#8217;s a topic you&#8217;re interested in <i class="fas fa-smile"></i>!</p
     // Substitute single quotation mark (') for double (") to allow
     // article's title to contain single quotes.
     var disqus_shortname = "sglavoie"; 
-    var disqus_title = "Binary to Decimal, Decimal to Binary&nbsp;Converter";
+    var disqus_title = "Executing shell commands in a Python&nbsp;script";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
