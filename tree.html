@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>About 0.3.0: website structure | sglavoie.com</title>
+        <link href="https://www.sglavoie.com/feeds/sglavoie.rss.xml" type="application/rss+xml" rel="alternate" title="sglavoie.com Full RSS Feed" />
+
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/theme/images/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/theme/images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/theme/images/favicon-16x16.png">
+        <link rel="manifest" href="/theme/images/site.webmanifest">
+        <link rel="mask-icon" href="/theme/images/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="/theme/images/favicon.ico">
+        <meta name="msapplication-TileColor" content="#2d89ef">
+        <meta name="msapplication-TileImage" content="/theme/images/mstile-144x144.png">
+        <meta name="msapplication-config" content="/theme/images/browserconfig.xml">
+        <meta name="theme-color" content="#000000">
+        <meta name="msapplication-config" content="/theme/images/browserconfig.xml">
+        <meta name="theme-color" content="#000000">
+
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="Description" content="Provide useful information while documenting my journey as a learner in technology-related matters. Tech journal with the specific goal of explaining the challenges that I will inevitably face while trying to become a better student and most importantly, it will be a reference to the solutions that I found along the way so that it can benefit others too.">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+        <!-- Custom CSS -->
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link href='/theme/css/base.css' rel='stylesheet' type='text/css'>
+        <link href='/theme/css/pygment.css' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body id="index" class="home">
+
+<nav id="bg-darker" class="navbar navbar-expand-lg navbar-dark">
+      <a class="brand-link" href="/">
+          <img class="brand-logo hover-img" src="/theme/images/sglavoie.svg" alt="sglavoie.svg">
+      </a>
+  <button class="navbar-toggler hover-img" type="button" data-toggle="collapse" data-target="#sglavoie-menu" aria-controls="sglavoie-menu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    Main Menu
+  </button>
+
+  <div class="collapse navbar-collapse" id="sglavoie-menu">
+      <div class="to-the-right">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+    <li class="nav-item ">
+        <a class="nav-link " href="/index.html"><i class="fas fa-home"></i> home</a>
+    </li>
+    <li class="nav-item ">
+        <a class="nav-link " href="/tags.html"><i class="fas fa-hashtag"></i> tags</a>
+    </li>
+    <li class="nav-item ">
+        <a class="nav-link " href="/learning-progress.html"><i class="fas fa-graduation-cap"></i> learning</a>
+    </li>
+    <li class="nav-item ">
+        <a class="nav-link " href="/about.html"><i class="fas fa-info"></i> about</a>
+    </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+<nav id="menu" class="navbar navbar-expand-lg navbar-dark">
+
+  <button class="navbar-toggler hover-img" type="button" data-toggle="collapse" data-target="#sglavoie-menu-second" aria-controls="sglavoie-menu-second" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    Categories
+  </button>
+
+  <div class="collapse navbar-collapse" id="sglavoie-menu-second">
+      <div id="menu-categories-legend-id" class="menu-categories-legend">
+          <a href="/categories.html"><img class="img-categories" src="/theme/images/categories.svg" alt="Categories"></a>
+      </div>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li class="nav-item active">
+              </li>
+
+              <li class="nav-item">
+            <a class="lowercase-title always-white nav-link-smaller" href="https://www.sglavoie.com/category/automation.html">automation</a>
+              </li>
+
+              <li class="nav-item">
+            <a class="lowercase-title always-white nav-link-smaller" href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a>
+              </li>
+
+              <li class="nav-item">
+            <a class="lowercase-title always-white nav-link-smaller" href="https://www.sglavoie.com/category/tools.html">tools</a>
+              </li>
+
+              <li class="nav-item">
+            <a class="lowercase-title always-white nav-link-smaller" href="https://www.sglavoie.com/category/workflow.html">workflow</a>
+              </li>
+          </ul>
+  </div>
+</nav>
+        <!-- /#menu -->
+
+
+    <section id="content" class="jumbotron body">
+        <header>
+            <h2 class="display-4 uppercase-title"><i class="fas fa-info"></i> About 0.3.0: website structure</h2>
+        </header>
+  <hr class="my-4">
+  <div class="card">
+      <div class="card-body entry-content">
+
+	<h1>Directory Tree</h1><p>
+	<a class="NORM" href=".">.</a><br>
+	├── <a class="NORM" href="./404.md">404.md</a><br>
+	├── <a class="NORM" href="./about.html">about.html</a><br>
+	├── <a class="NORM" href="./archives.html">archives.html</a><br>
+	├── <a class="DIR" href="./author/">author</a><br>
+	│   ├── <a class="NORM" href="./author/sebastien-lavoie2.html">sebastien-lavoie2.html</a><br>
+	│   └── <a class="NORM" href="./author/sebastien-lavoie.html">sebastien-lavoie.html</a><br>
+	├── <a class="NORM" href="./authors.html">authors.html</a><br>
+	├── <a class="NORM" href="./categories.html">categories.html</a><br>
+	├── <a class="DIR" href="./category/">category</a><br>
+	│   ├── <a class="NORM" href="./category/automation.html">automation.html</a><br>
+	│   ├── <a class="NORM" href="./category/products.html">products.html</a><br>
+	│   ├── <a class="NORM" href="./category/tips-and-tricks.html">tips-and-tricks.html</a><br>
+	│   ├── <a class="NORM" href="./category/tools.html">tools.html</a><br>
+	│   └── <a class="NORM" href="./category/workflow.html">workflow.html</a><br>
+	├── <a class="DIR" href="./drafts/">drafts</a><br>
+	├── <a class="DIR" href="./feeds/">feeds</a><br>
+	│   └── <a class="NORM" href="./feeds/sglavoie.rss.xml">sglavoie.rss.xml</a><br>
+	├── <a class="DIR" href="./images/">images</a><br>
+	│   └── <a class="DIR" href="./images/posts/">posts</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="DIR" href="./images/posts/0001_tmux-integration-with-vim/">0001_tmux-integration-with-vim</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   └── <a class="NORM" href="./images/posts/0001_tmux-integration-with-vim/tmux-demo.gif">tmux-demo.gif</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="DIR" href="./images/posts/0005_using-i3-as-window-manager-for-increased-productivity/">0005_using-i3-as-window-manager-for-increased-productivity</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   └── <a class="NORM" href="./images/posts/0005_using-i3-as-window-manager-for-increased-productivity/i3-example.png">i3-example.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="DIR" href="./images/posts/0006_using-embedded-terminals-inside-neovim/">0006_using-embedded-terminals-inside-neovim</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   ├── <a class="NORM" href="./images/posts/0006_using-embedded-terminals-inside-neovim/terminal_buffers.png">terminal_buffers.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   └── <a class="NORM" href="./images/posts/0006_using-embedded-terminals-inside-neovim/work_on_article.png">work_on_article.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; └── <a class="DIR" href="./images/posts/0007_surfing-with-qutebrowser/">0007_surfing-with-qutebrowser</a><br>
+	│   &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; └── <a class="NORM" href="./images/posts/0007_surfing-with-qutebrowser/qutebrowser_hints.png">qutebrowser_hints.png</a><br>
+	├── <a class="NORM" href="./index2.html">index2.html</a><br>
+	├── <a class="NORM" href="./index.html">index.html</a><br>
+	├── <a class="NORM" href="./learning-progress.html">learning-progress.html</a><br>
+	├── <a class="DIR" href="./pages/">pages</a><br>
+	├── <a class="DIR" href="./posts/">posts</a><br>
+	│   ├── <a class="DIR" href="./posts/2018/">2018</a><br>
+	│   │   ├── <a class="DIR" href="./posts/2018/11/">11</a><br>
+	│   │   │   └── <a class="DIR" href="./posts/2018/11/19/">19</a><br>
+	│   │   │   &nbsp;&nbsp;&nbsp; └── <a class="DIR" href="./posts/2018/11/19/tmux-integration-with-vim-neovim-first-steps/">tmux-integration-with-vim-neovim-first-steps</a><br>
+	│   │   │   &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; └── <a class="NORM" href="./posts/2018/11/19/tmux-integration-with-vim-neovim-first-steps/index.html">index.html</a><br>
+	│   │   └── <a class="DIR" href="./posts/2018/12/">12</a><br>
+	│   │   &nbsp;&nbsp;&nbsp; ├── <a class="DIR" href="./posts/2018/12/03/">03</a><br>
+	│   │   &nbsp;&nbsp;&nbsp; │   └── <a class="DIR" href="./posts/2018/12/03/using-vimwiki-for-note-taking/">using-vimwiki-for-note-taking</a><br>
+	│   │   &nbsp;&nbsp;&nbsp; │   &nbsp;&nbsp;&nbsp; └── <a class="NORM" href="./posts/2018/12/03/using-vimwiki-for-note-taking/index.html">index.html</a><br>
+	│   │   &nbsp;&nbsp;&nbsp; ├── <a class="DIR" href="./posts/2018/12/08/">08</a><br>
+	│   │   &nbsp;&nbsp;&nbsp; │   └── <a class="DIR" href="./posts/2018/12/08/aliases-also-known-as-terminal-users-best-friends/">aliases-also-known-as-terminal-users-best-friends</a><br>
+	│   │   &nbsp;&nbsp;&nbsp; │   &nbsp;&nbsp;&nbsp; └── <a class="NORM" href="./posts/2018/12/08/aliases-also-known-as-terminal-users-best-friends/index.html">index.html</a><br>
+	│   │   &nbsp;&nbsp;&nbsp; └── <a class="DIR" href="./posts/2018/12/23/">23</a><br>
+	│   │   &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; └── <a class="DIR" href="./posts/2018/12/23/bash-history-cleaner/">bash-history-cleaner</a><br>
+	│   │   &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; └── <a class="NORM" href="./posts/2018/12/23/bash-history-cleaner/index.html">index.html</a><br>
+	│   └── <a class="DIR" href="./posts/2019/">2019</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="DIR" href="./posts/2019/01/">01</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   ├── <a class="DIR" href="./posts/2019/01/08/">08</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   │   └── <a class="DIR" href="./posts/2019/01/08/using-i3-as-a-window-manager-for-increased-productivity/">using-i3-as-a-window-manager-for-increased-productivity</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   │   &nbsp;&nbsp;&nbsp; └── <a class="NORM" href="./posts/2019/01/08/using-i3-as-a-window-manager-for-increased-productivity/index.html">index.html</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   └── <a class="DIR" href="./posts/2019/01/16/">16</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   &nbsp;&nbsp;&nbsp; └── <a class="DIR" href="./posts/2019/01/16/using-embedded-terminals-inside-neovim/">using-embedded-terminals-inside-neovim</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; └── <a class="NORM" href="./posts/2019/01/16/using-embedded-terminals-inside-neovim/index.html">index.html</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="DIR" href="./posts/2019/02/">02</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   ├── <a class="DIR" href="./posts/2019/02/11/">11</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   │   └── <a class="DIR" href="./posts/2019/02/11/surfing-with-qutebrowser-a-keyboard-driven-web-browser/">surfing-with-qutebrowser-a-keyboard-driven-web-browser</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   │   &nbsp;&nbsp;&nbsp; └── <a class="NORM" href="./posts/2019/02/11/surfing-with-qutebrowser-a-keyboard-driven-web-browser/index.html">index.html</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   └── <a class="DIR" href="./posts/2019/02/18/">18</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   &nbsp;&nbsp;&nbsp; └── <a class="DIR" href="./posts/2019/02/18/binary-to-decimal-decimal-to-binary-converter/">binary-to-decimal-decimal-to-binary-converter</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; └── <a class="NORM" href="./posts/2019/02/18/binary-to-decimal-decimal-to-binary-converter/index.html">index.html</a><br>
+	│   &nbsp;&nbsp;&nbsp; └── <a class="DIR" href="./posts/2019/03/">03</a><br>
+	│   &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; └── <a class="DIR" href="./posts/2019/03/08/">08</a><br>
+	│   &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; └── <a class="DIR" href="./posts/2019/03/08/executing-shell-commands-in-a-python-script/">executing-shell-commands-in-a-python-script</a><br>
+	│   &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; └── <a class="NORM" href="./posts/2019/03/08/executing-shell-commands-in-a-python-script/index.html">index.html</a><br>
+	├── <a class="DIR" href="./stats/">stats</a><br>
+	│   ├── <a class="NORM" href="./stats/activity.html">activity.html</a><br>
+	│   ├── <a class="NORM" href="./stats/arrow-down.gif">arrow-down.gif</a><br>
+	│   ├── <a class="NORM" href="./stats/arrow-none.gif">arrow-none.gif</a><br>
+	│   ├── <a class="NORM" href="./stats/arrow-up.gif">arrow-up.gif</a><br>
+	│   ├── <a class="NORM" href="./stats/authors.html">authors.html</a><br>
+	│   ├── <a class="NORM" href="./stats/commits_by_author.dat">commits_by_author.dat</a><br>
+	│   ├── <a class="NORM" href="./stats/commits_by_author.plot">commits_by_author.plot</a><br>
+	│   ├── <a class="NORM" href="./stats/commits_by_author.png">commits_by_author.png</a><br>
+	│   ├── <a class="NORM" href="./stats/commits_by_year.dat">commits_by_year.dat</a><br>
+	│   ├── <a class="NORM" href="./stats/commits_by_year_month.dat">commits_by_year_month.dat</a><br>
+	│   ├── <a class="NORM" href="./stats/commits_by_year_month.plot">commits_by_year_month.plot</a><br>
+	│   ├── <a class="NORM" href="./stats/commits_by_year_month.png">commits_by_year_month.png</a><br>
+	│   ├── <a class="NORM" href="./stats/commits_by_year.plot">commits_by_year.plot</a><br>
+	│   ├── <a class="NORM" href="./stats/commits_by_year.png">commits_by_year.png</a><br>
+	│   ├── <a class="NORM" href="./stats/day_of_week.dat">day_of_week.dat</a><br>
+	│   ├── <a class="NORM" href="./stats/day_of_week.plot">day_of_week.plot</a><br>
+	│   ├── <a class="NORM" href="./stats/day_of_week.png">day_of_week.png</a><br>
+	│   ├── <a class="NORM" href="./stats/domains.dat">domains.dat</a><br>
+	│   ├── <a class="NORM" href="./stats/domains.plot">domains.plot</a><br>
+	│   ├── <a class="NORM" href="./stats/domains.png">domains.png</a><br>
+	│   ├── <a class="NORM" href="./stats/files_by_date.dat">files_by_date.dat</a><br>
+	│   ├── <a class="NORM" href="./stats/files_by_date.plot">files_by_date.plot</a><br>
+	│   ├── <a class="NORM" href="./stats/files_by_date.png">files_by_date.png</a><br>
+	│   ├── <a class="NORM" href="./stats/files.html">files.html</a><br>
+	│   ├── <a class="NORM" href="./stats/gitstats.cache">gitstats.cache</a><br>
+	│   ├── <a class="NORM" href="./stats/gitstats.css">gitstats.css</a><br>
+	│   ├── <a class="NORM" href="./stats/hour_of_day.dat">hour_of_day.dat</a><br>
+	│   ├── <a class="NORM" href="./stats/hour_of_day.plot">hour_of_day.plot</a><br>
+	│   ├── <a class="NORM" href="./stats/hour_of_day.png">hour_of_day.png</a><br>
+	│   ├── <a class="NORM" href="./stats/index.html">index.html</a><br>
+	│   ├── <a class="NORM" href="./stats/lines.html">lines.html</a><br>
+	│   ├── <a class="NORM" href="./stats/lines_of_code_by_author.dat">lines_of_code_by_author.dat</a><br>
+	│   ├── <a class="NORM" href="./stats/lines_of_code_by_author.plot">lines_of_code_by_author.plot</a><br>
+	│   ├── <a class="NORM" href="./stats/lines_of_code_by_author.png">lines_of_code_by_author.png</a><br>
+	│   ├── <a class="NORM" href="./stats/lines_of_code.dat">lines_of_code.dat</a><br>
+	│   ├── <a class="NORM" href="./stats/lines_of_code.plot">lines_of_code.plot</a><br>
+	│   ├── <a class="NORM" href="./stats/lines_of_code.png">lines_of_code.png</a><br>
+	│   ├── <a class="NORM" href="./stats/month_of_year.dat">month_of_year.dat</a><br>
+	│   ├── <a class="NORM" href="./stats/month_of_year.plot">month_of_year.plot</a><br>
+	│   ├── <a class="NORM" href="./stats/month_of_year.png">month_of_year.png</a><br>
+	│   ├── <a class="NORM" href="./stats/old.css">old.css</a><br>
+	│   ├── <a class="NORM" href="./stats/sortable.js">sortable.js</a><br>
+	│   └── <a class="NORM" href="./stats/tags.html">tags.html</a><br>
+	├── <a class="DIR" href="./tag/">tag</a><br>
+	│   ├── <a class="NORM" href="./tag/aliases.html">aliases.html</a><br>
+	│   ├── <a class="NORM" href="./tag/bash.html">bash.html</a><br>
+	│   ├── <a class="NORM" href="./tag/computer-science.html">computer-science.html</a><br>
+	│   ├── <a class="NORM" href="./tag/mathematics.html">mathematics.html</a><br>
+	│   ├── <a class="NORM" href="./tag/neovim.html">neovim.html</a><br>
+	│   ├── <a class="NORM" href="./tag/note-taking.html">note-taking.html</a><br>
+	│   ├── <a class="NORM" href="./tag/productivity.html">productivity.html</a><br>
+	│   ├── <a class="NORM" href="./tag/python.html">python.html</a><br>
+	│   ├── <a class="NORM" href="./tag/regex.html">regex.html</a><br>
+	│   ├── <a class="NORM" href="./tag/script.html">script.html</a><br>
+	│   ├── <a class="NORM" href="./tag/software.html">software.html</a><br>
+	│   ├── <a class="NORM" href="./tag/terminal.html">terminal.html</a><br>
+	│   ├── <a class="NORM" href="./tag/tips-and-tricks.html">tips-and-tricks.html</a><br>
+	│   ├── <a class="NORM" href="./tag/tmux.html">tmux.html</a><br>
+	│   ├── <a class="NORM" href="./tag/vim.html">vim.html</a><br>
+	│   ├── <a class="NORM" href="./tag/vimwiki.html">vimwiki.html</a><br>
+	│   ├── <a class="NORM" href="./tag/web.html">web.html</a><br>
+	│   └── <a class="NORM" href="./tag/window-manager.html">window-manager.html</a><br>
+	├── <a class="NORM" href="./tags.html">tags.html</a><br>
+	├── <a class="NORM" href="./test.html">test.html</a><br>
+	├── <a class="DIR" href="./theme/">theme</a><br>
+	│   ├── <a class="DIR" href="./theme/css/">css</a><br>
+	│   │   ├── <a class="NORM" href="./theme/css/base.css">base.css</a><br>
+	│   │   ├── <a class="NORM" href="./theme/css/font-awesome.css">font-awesome.css</a><br>
+	│   │   ├── <a class="NORM" href="./theme/css/font-awesome.css.map">font-awesome.css.map</a><br>
+	│   │   ├── <a class="NORM" href="./theme/css/font-awesome.min.css">font-awesome.min.css</a><br>
+	│   │   └── <a class="NORM" href="./theme/css/pygment.css">pygment.css</a><br>
+	│   ├── <a class="DIR" href="./theme/fonts/">fonts</a><br>
+	│   │   ├── <a class="NORM" href="./theme/fonts/FontAwesome.otf">FontAwesome.otf</a><br>
+	│   │   ├── <a class="NORM" href="./theme/fonts/fontawesome-webfont.eot">fontawesome-webfont.eot</a><br>
+	│   │   ├── <a class="NORM" href="./theme/fonts/fontawesome-webfont.svg">fontawesome-webfont.svg</a><br>
+	│   │   ├── <a class="NORM" href="./theme/fonts/fontawesome-webfont.ttf">fontawesome-webfont.ttf</a><br>
+	│   │   ├── <a class="NORM" href="./theme/fonts/fontawesome-webfont.woff">fontawesome-webfont.woff</a><br>
+	│   │   └── <a class="NORM" href="./theme/fonts/fontawesome-webfont.woff2">fontawesome-webfont.woff2</a><br>
+	│   └── <a class="DIR" href="./theme/images/">images</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/android-chrome-192x192.png">android-chrome-192x192.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/android-chrome-512x512.png">android-chrome-512x512.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/apple-touch-icon-114x114.png">apple-touch-icon-114x114.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/apple-touch-icon-120x120.png">apple-touch-icon-120x120.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/apple-touch-icon-144x144.png">apple-touch-icon-144x144.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/apple-touch-icon-152x152.png">apple-touch-icon-152x152.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/apple-touch-icon-180x180.png">apple-touch-icon-180x180.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/apple-touch-icon-57x57.png">apple-touch-icon-57x57.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/apple-touch-icon-60x60.png">apple-touch-icon-60x60.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/apple-touch-icon-72x72.png">apple-touch-icon-72x72.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/apple-touch-icon-76x76.png">apple-touch-icon-76x76.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/apple-touch-icon.png">apple-touch-icon.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/browserconfig.xml">browserconfig.xml</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/categories.svg">categories.svg</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/favicon-16x16.png">favicon-16x16.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/favicon-32x32.png">favicon-32x32.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/favicon.ico">favicon.ico</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="DIR" href="./theme/images/footer/">footer</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   ├── <a class="NORM" href="./theme/images/footer/contributions.svg">contributions.svg</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   ├── <a class="NORM" href="./theme/images/footer/email.svg">email.svg</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   ├── <a class="NORM" href="./theme/images/footer/facebook.svg">facebook.svg</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   ├── <a class="NORM" href="./theme/images/footer/github.png">github.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   ├── <a class="NORM" href="./theme/images/footer/github.svg">github.svg</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   ├── <a class="NORM" href="./theme/images/footer/gmail.svg">gmail.svg</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   ├── <a class="NORM" href="./theme/images/footer/hackerrank.svg">hackerrank.svg</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   ├── <a class="NORM" href="./theme/images/footer/linkedin.svg">linkedin.svg</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   ├── <a class="NORM" href="./theme/images/footer/pelican.svg">pelican.svg</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   ├── <a class="NORM" href="./theme/images/footer/python.svg">python.svg</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   ├── <a class="NORM" href="./theme/images/footer/stackoverflow.svg">stackoverflow.svg</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   └── <a class="NORM" href="./theme/images/footer/twitter.svg">twitter.svg</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="DIR" href="./theme/images/header/">header</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   ├── <a class="NORM" href="./theme/images/header/abstract_path_horizontal.svg">abstract_path_horizontal.svg</a><br>
+	│   &nbsp;&nbsp;&nbsp; │   └── <a class="NORM" href="./theme/images/header/abstract_path.svg">abstract_path.svg</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/mstile-144x144.png">mstile-144x144.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/mstile-150x150.png">mstile-150x150.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/mstile-310x150.png">mstile-310x150.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/mstile-310x310.png">mstile-310x310.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/mstile-70x70.png">mstile-70x70.png</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/safari-pinned-tab.svg">safari-pinned-tab.svg</a><br>
+	│   &nbsp;&nbsp;&nbsp; ├── <a class="NORM" href="./theme/images/sglavoie.svg">sglavoie.svg</a><br>
+	│   &nbsp;&nbsp;&nbsp; └── <a class="NORM" href="./theme/images/site.webmanifest">site.webmanifest</a><br>
+	└── <a class="NORM" href="./tree.html">tree.html</a><br>
+	<br><br>
+	</p>
+	<p>
+
+45 directories, 144 files
+	<br><br>
+	</p>
+	<hr>
+	<p class="VERSION">
+		 tree v1.7.0 © 1996 - 2014 by Steve Baker and Thomas Moore <br>
+		 HTML output hacked and copyleft © 1998 by Francesc Rocher <br>
+		 JSON output hacked and copyleft © 2014 by Florian Sesser <br>
+		 Charsets / OS/2 support © 2001 by Kyosuke Tokoro
+	</p>
+      </div>
+  </div>
+        <!-- /.entry-content -->
+    </section>
+
+        <div class="footer-borders">
+            <footer id="contentinfo" class="body bg-border hover-footer-bg">
+
+        <address class="footer-icons">
+
+            <div class="get-in-touch-icons">
+
+            <ul class="social-footer">
+
+        <li><a href="https://github.com/sglavoie"><img src="/theme/images/footer/github.svg" alt="GitHub"></a></li>
+        <li><a href="https://www.twitter.com/sgdlavoie"><img src="/theme/images/footer/twitter.svg" alt="Twitter"></a></li>
+        <li><a href="https://www.linkedin.com/in/sglavoie"><img src="/theme/images/footer/linkedin.svg" alt="LinkedIn"></a></li>
+        <li><a href="https://www.hackerrank.com/sglavoie"><img src="/theme/images/footer/hackerrank.svg" alt="HackerRank"></a></li>
+        <li><a href="https://stackoverflow.com/users/story/8787680"><img src="/theme/images/footer/stackoverflow.svg" alt="Stackoverflow"></a></li>
+
+        </div>
+
+      </address>
+
+      <address id="about" class="vcard body">
+          Proudly powered by <a href="http://getpelican.com/">Pelican 4.0.1<img class="footer-bottom-icon" src="/theme/images/footer/pelican.svg" alt="Pelican"></a>,
+          which takes great advantage of <a href="http://python.org">Python<img class="footer-bottom-icon" src="/theme/images/footer/python.svg" alt="Python"></a> .
+
+
+      <div id="author-footer">
+          <p>Copyleft <span class="copy-left">©</span> 2019 — Sébastien Lavoie 
+              <script type="text/javascript" language="javascript">
+                  <!--
+// Email obfuscator script 2.1 by Tim Williams, University of Arizona
+// Random encryption key feature coded by Andrew Moulden
+// This code is freeware provided these four comment lines remain intact
+// A wizard to generate this code is at http://www.jottings.com/obfuscator/
+{ coded = "Efp9ExWfz@EoU9R5Wf.45D"
+    key = "RXmOLk0xFelpj9ihYV4PZ5AGDB3wsKdfUn12WHJgvqNIrCytS8EbQa6zuMc7To"
+    shift=coded.length
+    link=""
+    for (i=0; i<coded.length; i++) {
+        if (key.indexOf(coded.charAt(i))==-1) {
+            ltr = coded.charAt(i)
+            link += (ltr)
+        }
+        else {     
+            ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
+            link += (key.charAt(ltr))
+        }
+    }
+    // Adding inline style to 'img' tag as it seems to be more trustworthy inside this script.
+    document.write("<a href='mailto:"+link+"'>"+"<img class='footer-bottom-icon' src='/theme/images/footer/email.svg' alt='Email'>"+"</a>")
+}
+//-->
+              </script><noscript>Sorry, you need Javascript on to email me.</noscript>
+          </p>
+      </div>
+                </address>
+                
+              <div class="version-footer">v0.11.0</div>
+
+                <!-- /#about -->
+            </footer>
+
+        </div>
+        <!-- /#contentinfo -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+    <!-- Disqus comment counts for each article -->
+<script id="dsq-count-scr" src="https://sglavoie.disqus.com/count.js" async></script>
+</body>
+</html>
