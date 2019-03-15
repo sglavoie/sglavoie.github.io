@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <title>Number of paths in a grid&#8230; or in&nbsp;life | sglavoie.com</title>
+        <link href="https://www.sglavoie.com/feeds/sglavoie.rss.xml" type="application/rss+xml" rel="alternate" title="sglavoie.com Full RSS Feed" />
+
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/theme/images/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/theme/images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/theme/images/favicon-16x16.png">
+        <link rel="manifest" href="/theme/images/site.webmanifest">
+        <link rel="mask-icon" href="/theme/images/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="/theme/images/favicon.ico">
+        <meta name="msapplication-TileColor" content="#2d89ef">
+        <meta name="msapplication-TileImage" content="/theme/images/mstile-144x144.png">
+        <meta name="msapplication-config" content="/theme/images/browserconfig.xml">
+        <meta name="theme-color" content="#000000">
+        <meta name="msapplication-config" content="/theme/images/browserconfig.xml">
+        <meta name="theme-color" content="#000000">
+
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="Description" content="Provide useful information while documenting my journey as a learner in technology-related matters. Tech journal with the specific goal of explaining the challenges that I will inevitably face while trying to become a better student and most importantly, it will be a reference to the solutions that I found along the way so that it can benefit others too.">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+        <!-- Custom CSS -->
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link href='/theme/css/base.css?cache_id=7e426c82d6d8eb91536029c51ea92b5c' rel='stylesheet' type='text/css'>
+        <link href='/theme/css/pygment.css?cache_id=503914e4e79f274778eabccca9bcd1f9' rel='stylesheet' type='text/css'>
+
+
+
+
+
+    <meta name="tags" content="computer science" />
+    <meta name="tags" content="mathematics" />
+    <meta name="tags" content="python" />
+    <meta name="tags" content="script" />
+
+</head>
+
+<body id="index" class="home">
+
+<nav id="bg-darker" class="navbar navbar-expand-lg navbar-dark">
+      <a class="brand-link" href="/">
+          <img class="brand-logo hover-img" src="/theme/images/sglavoie.svg" alt="sglavoie.svg">
+      </a>
+  <button class="navbar-toggler hover-img" type="button" data-toggle="collapse" data-target="#sglavoie-menu" aria-controls="sglavoie-menu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    Main Menu
+  </button>
+
+  <div class="collapse navbar-collapse" id="sglavoie-menu">
+      <div class="to-the-right">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+    <li class="nav-item ">
+        <a class="nav-link " href="/index.html"><i class="fas fa-home"></i> home</a>
+    </li>
+    <li class="nav-item ">
+        <a class="nav-link " href="/tags.html"><i class="fas fa-hashtag"></i> tags</a>
+    </li>
+    <li class="nav-item ">
+        <a class="nav-link " href="/learning-progress.html"><i class="fas fa-graduation-cap"></i> learning</a>
+    </li>
+    <li class="nav-item ">
+        <a class="nav-link " href="/about.html"><i class="fas fa-info"></i> about</a>
+    </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+<nav id="menu" class="navbar navbar-expand-lg navbar-dark">
+
+  <button class="navbar-toggler hover-img" type="button" data-toggle="collapse" data-target="#sglavoie-menu-second" aria-controls="sglavoie-menu-second" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    Categories
+  </button>
+
+  <div class="collapse navbar-collapse" id="sglavoie-menu-second">
+      <div id="menu-categories-legend-id" class="menu-categories-legend">
+          <a href="/categories.html"><img class="img-categories" src="/theme/images/categories.svg" alt="Categories"></a>
+      </div>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li class="nav-item active">
+              </li>
+
+              <li class="nav-item">
+            <a class="lowercase-title always-white nav-link-smaller" href="https://www.sglavoie.com/category/automation.html">automation</a>
+              </li>
+
+              <li class="nav-item">
+            <a class="lowercase-title always-white nav-link-smaller" href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a>
+              </li>
+
+              <li class="nav-item">
+            <a class="lowercase-title always-white nav-link-smaller" href="https://www.sglavoie.com/category/tools.html">tools</a>
+              </li>
+
+              <li class="nav-item">
+            <a class="lowercase-title always-white nav-link-smaller" href="https://www.sglavoie.com/category/workflow.html">workflow</a>
+              </li>
+          </ul>
+  </div>
+</nav>
+        <!-- /#menu -->
+
+
+    <section id="content" class="jumbotron body">
+        <header>
+            <h2 class="display-4">
+                <a href="https://www.sglavoie.com/posts/2019/03/14/number-of-paths-in-a-grid-or-in-life/" rel="bookmark"
+                    title="Permalink to Number of paths in a grid… or in life">Number of paths in a grid&#8230; or in&nbsp;life</a></h2>
+            
+        </header>
+        <footer class="post-info">
+            <i class="fas fa-calendar-alt"></i> <time class="published" datetime="2019-03-14T20:38:00-06:00">
+                March 14, 2019 @ 20:38 CST
+            </time>
+            <address class="vcard author">
+            </address>
+            <div class="category">
+                <i class="fas fa-tag"></i> Category: <a class="emphasis post-info-space" href="https://www.sglavoie.com/category/automation.html">automation</a>
+            </div>
+            <div class="tags">
+                <i class="fas fa-hashtag"></i> Tags:
+                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/computer-science.html">computer science</a>
+                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/mathematics.html">mathematics</a>
+                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/python.html">python</a>
+                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/script.html">script</a>
+            </div>
+        </footer><!-- /.post-info -->
+  <hr class="my-4">
+  <div class="card">
+      <div class="card-body entry-content">
+          <p>How would you go about determining the number of possible paths in a grid of size <em>n</em> if your initial position is at the top left corner and your destination is the bottom right corner, knowing you can only go right or down at each move? Let&#8217;s look at a grid of size <code>3 × 3</code>:</p>
+<p><a href="https://www.sglavoie.com/images/posts/0010_number-of-paths-in-a-grid/3x3_grid_paths_demo.png"><img src="https://www.sglavoie.com/images/posts/0010_number-of-paths-in-a-grid/3x3_grid_paths_demo.png" alt="3x3_grid_paths_demo" class="max-size-img-post"></a></p>
+<p>Even at such a small size, one needs some concentration. Sure, it can be done on paper, but there must be a better&nbsp;way&#8230;</p>
+<h3>Python to the&nbsp;rescue</h3>
+<p>Once again, programming comes in handy! Life is complicated, but there are aspects of it that can be solved more easily than previously thought when we use the right tools <i class="fas fa-smile"></i>. Knowing that this particular situation corresponds to values from <a href="https://en.wikipedia.org/wiki/Pascal%27s_triangle">Pascal&#8217;s Triangle</a> might help, but it sure is more fun to come up with a different solution. Here is how it occurred to me in&nbsp;Python:</p>
+<div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">This approach consists in getting the number of possible paths for each</span>
+<span class="sd">position where we stop in a grid. We know that once we reach the bottom</span>
+<span class="sd">or the right of the grid, there is only one path possible from there,</span>
+<span class="sd">so we take advantage of this fact and calculate the total number of</span>
+<span class="sd">possible paths starting from the bottom right corner. A 2x2 grid would</span>
+<span class="sd">have 9 indices starting at 0:</span>
+<span class="sd">012</span>
+<span class="sd">345</span>
+<span class="sd">678</span>
+
+<span class="sd">We start at index 8 and will calculate the number of possible paths for</span>
+<span class="sd">all previous positions. From index 8, we calculate that index 4 must</span>
+<span class="sd">have 2 possible paths to reach index 8 (4&gt;7&gt;8 and 4&gt;5&gt;8). We then find</span>
+<span class="sd">that index 3 has 3 possible paths since from there we can go right to</span>
+<span class="sd">index 4 (2 paths) or down to index 6 (1 path). We continue by checking</span>
+<span class="sd">index 1, which would be the sum of the number of paths at index 4 and</span>
+<span class="sd">index 2, which is 3 possible paths from there. Now, we are left at the</span>
+<span class="sd">beginning and the total number of possible paths is index 3 + index 1</span>
+<span class="sd">(3 + 3 = 6).</span>
+
+<span class="sd">The values used would then be tweaked a little depending on the size</span>
+<span class="sd">of the grid, but the algorithm remains the same. Here is how it works</span>
+<span class="sd">concretely:</span>
+
+<span class="sd">- Get the number of positions in the grid. 2x2 means 9 positions by</span>
+<span class="sd">counting all intersections. With a 2x2 starting at index 0, we have the</span>
+<span class="sd">following positions:</span>
+<span class="sd">012</span>
+<span class="sd">345</span>
+<span class="sd">678</span>
+
+<span class="sd">- Generate a list corresponding to the length of previously found number</span>
+<span class="sd">  of positions and give a value of 1 to each position. For a 2x2, it is</span>
+<span class="sd">  [1,1,1,1,1,1,1,1,1]</span>
+<span class="sd">- Determine the multiple to be used to check if an index falls in the</span>
+<span class="sd">  first column (grid_size + 1). The indices in the first column are 0, 3</span>
+<span class="sd">  and 6, so multiple = 3.</span>
+<span class="sd">- Start from the bottom right corner of the grid (index 8). Get the</span>
+<span class="sd">  index of that position starting at zero (length of positions - 1).</span>
+<span class="sd">- Start a while loop:</span>
+<span class="sd">    - Check if current position is equal to grid size, meaning we got to</span>
+<span class="sd">      the last position to evaluate. Return the value of the first index if</span>
+<span class="sd">      this is the case.</span>
+<span class="sd">    - Check if current position is a multiple of 3 in that example.</span>
+<span class="sd">      If so, we skip and go back one index. For instance, if index was 6</span>
+<span class="sd">      (multiple of 3), go back to index 5.</span>
+<span class="sd">    - Determine the index of position to the left of current position</span>
+<span class="sd">      and the index of position above current position. Sum the two together</span>
+<span class="sd">      and give that value to the index that corresponds to one step left</span>
+<span class="sd">      and one step up in the grid. Starting at 8, we sum index 7 and index</span>
+<span class="sd">      5 (result = 2) and set that value for index 4, which is the number of</span>
+<span class="sd">      possible paths from that index number.</span>
+<span class="sd">    - Decrement current position by one and repeat the process until we</span>
+<span class="sd">      break out of the loop.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="n">GRID_SIZE</span> <span class="o">=</span> <span class="mi">100</span>
+
+
+<span class="k">def</span> <span class="nf">num_paths</span><span class="p">(</span><span class="n">grid_size</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Return the number of possible paths in a grid of size `grid_size`</span>
+<span class="sd">    when going only right and down as an integer.&#39;&#39;&#39;</span>
+    <span class="n">num_points</span> <span class="o">=</span> <span class="p">(</span><span class="n">grid_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">path_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">num_points</span>
+    <span class="n">multiple</span> <span class="o">=</span> <span class="n">grid_size</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># Indices of first column match this multiple</span>
+
+    <span class="c1"># Last index in list</span>
+    <span class="n">starting_point</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">path_list</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">starting_point</span> <span class="o">==</span> <span class="n">grid_size</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">path_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">starting_point</span> <span class="o">%</span> <span class="n">multiple</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">starting_point</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">previous</span> <span class="o">=</span> <span class="n">starting_point</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="n">previous2</span> <span class="o">=</span> <span class="n">starting_point</span> <span class="o">-</span> <span class="n">multiple</span>
+            <span class="n">left_up_index</span> <span class="o">=</span> <span class="n">previous2</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="n">left_up_value</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">path_list</span><span class="p">[</span><span class="n">previous</span><span class="p">],</span> <span class="n">path_list</span><span class="p">[</span><span class="n">previous2</span><span class="p">]])</span>
+            <span class="n">path_list</span><span class="p">[</span><span class="n">left_up_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">left_up_value</span>
+            <span class="n">starting_point</span> <span class="o">-=</span> <span class="mi">1</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">num_paths</span><span class="p">(</span><span class="n">GRID_SIZE</span><span class="p">))</span>
+</pre></div>
+
+
+<p>In the end, the idea was to find the number of possible paths that correspond to each possible move, starting from the destination and reverse engineering the number of possibilities until we get to the starting&nbsp;point.</p>
+<h2>Conclusion</h2>
+<p>As it turns out, this strategy of reverse engineering things works pretty well when applied to real-life examples. When setting a goal, for instance loosing 10 kilograms in one year, it can sound a lot less daunting to find out what this represents by month (0.83 kg) or even by week (0.19 kg) instead of fixating on the big gap from your current situation. For short-term goals, this can be reduced to daily or even hourly&nbsp;outcomes.</p>
+<p>This goes hand in hand with the advice found in <a href="https://amzn.to/2Y0QGis">Atomic Habits</a>, an excellent book written by James&nbsp;Clear:</p>
+<blockquote>
+<p>A 1% daily improvement leads to a version of yourself that&#8217;s <em>37</em> times better in one&nbsp;year.</p>
+</blockquote>
+<p>If that&#8217;s not motivating enough to start taking little steps with consistency towards your dreams, I don&#8217;t know what is <i class="fas fa-laugh-beam"></i>.</p>
+      </div>
+  </div>
+        <!-- /.entry-content -->
+
+	<hr>
+
+	<h2 class="display-4"><i class="fas fa-comment-alt"></i> Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    // Substitute single quotation mark (') for double (") to allow
+    // article's title to contain single quotes.
+    var disqus_shortname = "sglavoie"; 
+    var disqus_title = "Number of paths in a grid&#8230; or in&nbsp;life";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+    </section>
+        <div class="footer-borders">
+            <footer id="contentinfo" class="body bg-border hover-footer-bg">
+
+        <address class="footer-icons">
+
+            <div class="get-in-touch-icons">
+
+            <ul class="social-footer">
+
+        <li><a href="https://github.com/sglavoie"><img src="/theme/images/footer/github.svg" alt="GitHub"></a></li>
+        <li><a href="https://www.twitter.com/sgdlavoie"><img src="/theme/images/footer/twitter.svg" alt="Twitter"></a></li>
+        <li><a href="https://www.linkedin.com/in/sglavoie"><img src="/theme/images/footer/linkedin.svg" alt="LinkedIn"></a></li>
+        <li><a href="https://www.hackerrank.com/sglavoie"><img src="/theme/images/footer/hackerrank.svg" alt="HackerRank"></a></li>
+        <li><a href="https://stackoverflow.com/users/story/8787680"><img src="/theme/images/footer/stackoverflow.svg" alt="Stackoverflow"></a></li>
+
+        </div>
+
+      </address>
+
+      <address id="about" class="vcard body">
+          Proudly powered by <a href="http://getpelican.com/">Pelican 4.0.1<img class="footer-bottom-icon" src="/theme/images/footer/pelican.svg" alt="Pelican"></a>,
+          which takes great advantage of <a href="http://python.org">Python<img class="footer-bottom-icon" src="/theme/images/footer/python.svg" alt="Python"></a> .
+
+
+      <div id="author-footer">
+          <p>Copyleft <span class="copy-left">©</span> 2019 — Sébastien Lavoie 
+              <script type="text/javascript" language="javascript">
+                  <!--
+// Email obfuscator script 2.1 by Tim Williams, University of Arizona
+// Random encryption key feature coded by Andrew Moulden
+// This code is freeware provided these four comment lines remain intact
+// A wizard to generate this code is at http://www.jottings.com/obfuscator/
+{ coded = "Efp9ExWfz@EoU9R5Wf.45D"
+    key = "RXmOLk0xFelpj9ihYV4PZ5AGDB3wsKdfUn12WHJgvqNIrCytS8EbQa6zuMc7To"
+    shift=coded.length
+    link=""
+    for (i=0; i<coded.length; i++) {
+        if (key.indexOf(coded.charAt(i))==-1) {
+            ltr = coded.charAt(i)
+            link += (ltr)
+        }
+        else {     
+            ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
+            link += (key.charAt(ltr))
+        }
+    }
+    // Adding inline style to 'img' tag as it seems to be more trustworthy inside this script.
+    document.write("<a href='mailto:"+link+"'>"+"<img class='footer-bottom-icon' src='/theme/images/footer/email.svg' alt='Email'>"+"</a>")
+}
+//-->
+              </script><noscript>Sorry, you need Javascript on to email me.</noscript>
+          </p>
+      </div>
+                </address>
+                
+              <div class="version-footer">v0.13.0</div>
+
+                <!-- /#about -->
+            </footer>
+
+        </div>
+        <!-- /#contentinfo -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+    <!-- Disqus comment counts for each article -->
+<script id="dsq-count-scr" src="https://sglavoie.disqus.com/count.js" async></script>
+</body>
+</html>
