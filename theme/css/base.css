@@ -162,7 +162,7 @@ nav i {
 i {
     color: #002e5f;
     margin-left: 0.2em;
-    margin-right: 0.1em;
+    margin-right: 0.3em;
 }
 
 #bg-darker {
@@ -175,6 +175,13 @@ i {
     display: none;
 }
 
+dd {
+    margin-bottom: 2em;
+}
+
+dl {
+    line-height: 1.25;
+}
 /* end BASE TEMPLATE */
 
 /* SCROLLBAR */
@@ -623,15 +630,19 @@ a:visited.btn {
 }
 
 a {
-    -webkit-transition: 0.3s color ease;
+    -webkit-transition: color 0.3s;
     color: #007bff;
     font-weight: bold;
     text-decoration: none;
-    transition: 0.3s color ease;
+    transition: color 0.3s;
 }
 
 a:visited {
+    -webkit-transition: color 0.3s;
     color: #7d00a2;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
 a:hover {
