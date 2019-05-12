@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-          <title>Executing Shell Commands in a Python&nbsp;Script | sglavoie.com</title>
+          <title>Suckless: Minimalist Tools That Work&nbsp;Great | sglavoie.com</title>
         <link href="https://www.sglavoie.com/feeds/sglavoie.rss.xml" type="application/rss+xml" rel="alternate" title="sglavoie.com Full RSS Feed" />
 
         <!-- Favicon -->
@@ -40,8 +40,9 @@
 
 
 
-    <meta name="tags" content="python" />
-    <meta name="tags" content="script" />
+    <meta name="tags" content="productivity" />
+    <meta name="tags" content="software" />
+    <meta name="tags" content="web" />
 
 </head>
 
@@ -116,109 +117,47 @@
     <section id="content" class="jumbotron body">
         <header>
             <h2 class="display-4">
-                <a href="https://www.sglavoie.com/posts/2019/03/08/executing-shell-commands-in-a-python-script/" rel="bookmark"
-                    title="Permalink to Executing Shell Commands in a Python Script">Executing Shell Commands in a Python&nbsp;Script</a></h2>
+                <a href="https://www.sglavoie.com/drafts/suckless-minimalist-tools-that-work-great.html" rel="bookmark"
+                    title="Permalink to Suckless: Minimalist Tools That Work Great">Suckless: Minimalist Tools That Work&nbsp;Great</a></h2>
             
         </header>
         <footer class="post-info">
-            <i class="fas fa-calendar-alt"></i> <time class="published" datetime="2019-03-08T14:34:00-06:00">
-                March 08, 2019
+            <i class="fas fa-calendar-alt"></i> <time class="published" datetime="2019-05-07T14:46:00-05:00">
+                May 07, 2019
             </time>
             <address class="vcard author">
             </address>
             <div class="category">
-                <i class="fas fa-tag"></i> Category: <a class="emphasis post-info-space" href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a>
+                <i class="fas fa-tag"></i> Category: <a class="emphasis post-info-space" href="https://www.sglavoie.com/category/tools.html">tools</a>
             </div>
             <div class="tags">
                 <i class="fas fa-hashtag"></i> Tags:
-                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/python.html">python</a>
-                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/script.html">script</a>
+                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/productivity.html">productivity</a>
+                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/software.html">software</a>
+                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/web.html">web</a>
             </div>
         </footer><!-- /.post-info -->
   <hr class="my-4">
   <div class="card">
       <div class="card-body entry-content">
-          <p>Python is awesome for producing high-quality code quickly
-and efficiently, but it is not necessary to reinvent the
-wheel in each project: this is why the third-party library on
-<a href="https://pypi.org/">PyPI</a> is so extensive. There are also occasions when
-it is convenient to execute shell commands available in the terminal,
-either to retrieve its output or to perform some work in the background.
-I have wanted to do both when building this website, so here is one way
-to accomplish&nbsp;this!</p>
-<h3>Retrieve the&nbsp;output</h3>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_tree</span><span class="p">():</span>
-    <span class="sd">&#39;&#39;&#39;Execute `tree` command and store the output in</span>
-<span class="sd">    `tree.txt`.&#39;&#39;&#39;</span>
-    <span class="n">tree</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">getoutput</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;tree .&#39;</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./tree.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
-
-
-<span class="n">read_tree</span><span class="p">()</span>
-</pre></div>
-
-
-<p>In this example, the structure from the current directory is printed
-when executing the code and it is later stored in a file. The output
-could look something like the&nbsp;following:</p>
-<div class="highlight"><pre><span></span>.
-├── database_example
-│   ├── example.sqlite
-│   ├── db_manager.py
-│   ├── review
-│   │   └── sql_queries.txt
-│   └── settings.py
-├── database_sql.py
-├── dump.sql
-├── example.db
-├── example.db.sql
-├── example_info.txt
-├── example_old.db
-├── example_old.db.sql
-├── sample
-│   ├── chinook.db
-│   └── sqlite-sample-database-diagram-color.pdf
-├── test.db
-└── test.sql
-
-3 directories, 15 files
-</pre></div>
-
-
-<h3>Execute a command in the&nbsp;background</h3>
-<p>There are also instances in which is it useful to execute a program
-from the terminal inside a Python script. This website, for example,
-currently exports daily Git statistics in the <code>output/</code> folder. This
-looks like&nbsp;this:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">daily_stats</span><span class="p">():</span>
-    <span class="sd">&#39;&#39;&#39;Execute `Gitstats` once a day based on the date found in</span>
-<span class="sd">    `stats_counter.txt`. Very simple with a caveat: it won&#39;t check if</span>
-<span class="sd">    there are new commits on the same day if stats have already been</span>
-<span class="sd">    generated on that day.&#39;&#39;&#39;</span>
-    <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;stats_counter.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">content</span> <span class="o">!=</span> <span class="n">today</span><span class="p">:</span>
-        <span class="n">current_loc</span> <span class="o">=</span> <span class="n">current_path</span><span class="p">()</span>
-        <span class="n">cmd</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;gitstats&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;project_name=&#39;sglavoie.com&#39;&quot;</span><span class="p">,</span>
-               <span class="n">f</span><span class="s2">&quot;{current_loc}&quot;</span><span class="p">,</span> <span class="n">f</span><span class="s2">&quot;{current_loc}/output/stats/&quot;</span><span class="p">]</span>
-        <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;stats_counter.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
-</pre></div>
-
-
-<p>This is an automated process, which is something Python is easy to use
-for. However, it won&#8217;t be necessary to program everything: it all gets
-generated on&nbsp;demand!</p>
+          <h2>What are Suckless&nbsp;tools?</h2>
+<p>From the <a href="https://suckless.org/">official website</a>:</p>
+<blockquote>
+<p>Home of <a href="https://dwm.suckless.org/">dwm</a>,
+<a href="https://tools.suckless.org/dmenu">dmenu</a> and other quality software
+with a focus on simplicity, clarity, and&nbsp;frugality.</p>
+</blockquote>
+<p>There are also other incredible pieces of software that are worth
+mentioning, including <a href="https://st.suckless.org/">st</a>.</p>
+<p>Here, I will only go over the tools I use frequently, but keep in mind
+that everything from Suckless&#8230; Sucks less
+<i class="fas fa-smile-wink"></i>.</p>
+<hr>
+<h2>st — Simple&nbsp;Terminal</h2>
+<h2>dmenu</h2>
+<h2>slock</h2>
+<hr>
 <h2>Conclusion</h2>
-<p>I am always amazed at how easy it can be to automate simple tasks like
-those mentioned above. Programming can be very rewarding regardless of
-initial abilities. Just beyond the most basic stuff, suddenly there is a
-world that opens up to those that stay curious long enough <i class="fas
-fa-smile"></i>.</p>
       </div>
   </div>
         <!-- /.entry-content -->
@@ -231,7 +170,7 @@ fa-smile"></i>.</p>
     // Substitute single quotation mark (') for double (") to allow
     // article's title to contain single quotes.
     var disqus_shortname = "sglavoie"; 
-    var disqus_title = "Executing Shell Commands in a Python&nbsp;Script";
+    var disqus_title = "Suckless: Minimalist Tools That Work&nbsp;Great";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
