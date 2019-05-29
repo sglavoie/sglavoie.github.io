@@ -190,6 +190,11 @@ i {
 #bg-darker {
     background-color: #000000;
     text-shadow: 0 0 1px black;
+    background-image: url("/theme/images/header/abstract_path.svg");
+    background-position-x: 0;
+    background-position-y: 100px;
+    background-repeat: no-repeat;
+    background-size: 40%;
 }
 
 
@@ -238,12 +243,14 @@ body::-webkit-scrollbar-thumb {
 }
 
 #contentinfo {
-    background-color: #0A2431;
-    color: #E0E4E5;
+    background-color: #000000;
+    border-bottom: 1px solid #cedbd9;
+    border-top: 1px solid #cedbd9;
+    color: #CEDBD9;
     display: table;
     font-size: 0.8rem;
     margin: 10px 0 10px 0;
-    padding: 50px 0 50px 0;
+    padding: 25px 0 25px 0;
     position: relative;
     text-align: center;
     width: 100%;
@@ -295,17 +302,17 @@ address {
 }
 
 .version-footer {
-    position: absolute;
-    bottom: 0;
-    font-size: 0.7rem;
-    right: 0;
-    color: #ffffff;
-    padding: 0.25rem;
-    background-color: #002e5f;
-    border-top: 1px black solid;
-    border-left: 1px black solid;
-    letter-spacing: 0.10rem;
+    background-color: #fff;
+    border: 1px #cedbd9 solid;
+    bottom: 0.25em;
+    color: #000;
     font-family: monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.10rem;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    position: absolute;
+    right: 0.25em;
 }
 
 .mini-icon {
@@ -361,6 +368,13 @@ div#author-footer {
     margin-left: auto;
     margin-right: auto;
     max-width: 90%;
+}
+
+.max-size-img-profile {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 60%;
 }
 
 #contentinfo a {
@@ -835,6 +849,10 @@ h6,
 
 @media (min-width: 576px) {
 
+#bg-darker {
+    background-size: 30%;
+}
+
     #content {
         margin: 1em;
     }
@@ -854,6 +872,15 @@ h6,
 }
 
 @media (min-width: 700px) {
+
+#bg-darker {
+    background-size: 25%;
+}
+
+.max-size-img-profile {
+    max-width: 80%;
+}
+
 
     body::-webkit-scrollbar {
         width: 0.75rem;
@@ -908,6 +935,7 @@ h6,
     #bg-darker {
         background-image: url("/theme/images/header/abstract_path_horizontal.svg");
         background-position-x: 100%;
+        background-position-y: 0;
         background-repeat: no-repeat;
         background-size: 50%;
     }
@@ -935,6 +963,33 @@ h6,
 
     #submenu-categories-legend {
         display: none;
+    }
+}
+
+@media (min-width: 1400px) {
+
+    #bg-darker {
+        background-size: 40%;
+    }
+}
+
+@media (min-width: 1800px) {
+
+    #bg-darker {
+        background-size: 35%;
+    }
+}
+
+@media (min-width: 2500px) {
+
+    #bg-darker {
+        background-size: 25%;
+    }
+
+@media (min-width: 3200px) {
+
+    #bg-darker {
+        background-size: 20%;
     }
 }
 
