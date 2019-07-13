@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+          <title>Black: A Python Formatter to Brighten Your&nbsp;Workflow | sglavoie.com</title>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="I document my journey as a learner in technology-related matters, explaining the challenges that I face while trying to become a better student. I teach the solutions that I find along the way so that it can benefit others too.">
+
+<link href="https://www.sglavoie.com/feeds/sglavoie.rss.xml" type="application/rss+xml" rel="alternate" title="sglavoie.com Full RSS Feed" />
+
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/theme/images/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/theme/images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/theme/images/favicon-16x16.png">
+        <link rel="manifest" href="/theme/images/site.webmanifest">
+        <link rel="mask-icon" href="/theme/images/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="/theme/images/favicon.ico">
+        <meta name="msapplication-TileColor" content="#2d89ef">
+        <meta name="msapplication-TileImage" content="/theme/images/mstile-144x144.png">
+        <meta name="msapplication-config" content="/theme/images/browserconfig.xml">
+        <meta name="theme-color" content="#000000">
+        <meta name="msapplication-config" content="/theme/images/browserconfig.xml">
+        <meta name="theme-color" content="#000000">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+        <!-- Custom CSS -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet"> 
+        <link href='/theme/css/base.css?cache_id=7b5e58f2181ed49b4f9a43ab00b00abe' rel='stylesheet' type='text/css'>
+        <link href='/theme/css/pygment.css?cache_id=df82538fb8839d464f35265aa54ee132' rel='stylesheet' type='text/css'>
+
+
+
+<!-- Open graph for social networks -->
+    <meta name="og:title" property="og:title" content="Meet Black, a superb Python code formatter that will automatically reformat your code in accordance to PEP-8 standards.">
+
+    <meta name="tags" content="neovim" />
+    <meta name="tags" content="plugin" />
+    <meta name="tags" content="productivity" />
+    <meta name="tags" content="terminal" />
+    <meta name="tags" content="vim" />
+
+    </head>
+
+    <body id="index" class="home">
+
+        <nav id="bg-darker" class="navbar navbar-expand-lg navbar-dark">
+            <a class="brand-link" href="/">
+
+                <!-- SVG Logo with 5px padding -->
+                <div class="brand-logo hover-img">
+                    <svg width="24.348mm" height="24.348mm" version="1.1" viewBox="0 0 24.348095 24.347754" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                        <metadata>
+                        <rdf:RDF>
+                        <cc:Work rdf:about="">
+                        <dc:format>image/svg+xml</dc:format>
+                        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+                        <dc:title/>
+                        </cc:Work>
+                        </rdf:RDF>
+                        </metadata>
+                        <g transform="translate(81.397 -84.454)">
+                        <path d="m-57.049 105.9v2.9029h-11.173v-2.9029z" fill="#c0c0c0">
+                        <animate attributeName="fill" values="white;grey;white" dur="2s" repeatCount="indefinite" />
+                        </path>
+                        <path d="m-72.272 98.481-9.1246 5.7598v-3.548l5.8658-3.5019v-0.09215l-5.8658-3.5019v-3.548l9.1246 5.7598z" fill="#c0c0c0"/>
+                        <path transform="scale(.26458)" d="m-273.15 319.2-27.588 14.77 8.498 5.3613 19.09-12.049zm15.309 25.67v44.412h8.8672v-35.635h33.361v-8.7773h-33.783zm25.336 24.66v8.7774h8.0254v10.975h8.8672v-19.752z" fill="#007bff"/>
+                        </g>
+                    </svg>
+                </div>
+
+
+            </a>
+            <button class="navbar-toggler hover-img" type="button" data-toggle="collapse" data-target="#sglavoie-menu" aria-controls="sglavoie-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="sglavoie-menu">
+                <div class="to-the-right">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/index.html"><i class="fas fa-home"></i> home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/tags.html"><i class="fas fa-hashtag"></i> tags</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/learning-progress-2019.html"><i class="fas fa-graduation-cap"></i> learning</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about.html"><i class="fas fa-info"></i> about</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <nav id="menu" class="navbar navbar-expand-lg navbar-dark">
+
+            <button class="navbar-toggler hover-img" type="button" data-toggle="collapse" data-target="#sglavoie-menu-second" aria-controls="sglavoie-menu-second" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                Categories
+            </button>
+
+            <div class="collapse navbar-collapse" id="sglavoie-menu-second">
+                <div id="menu-categories-legend-id" class="menu-categories-legend categories-align">
+                    <i class="fas fa-angle-left i-categories-align"></i><a class="lowercase-title always-white-no-margin nav-link-smaller" href="/categories.html">categories</a><i class="fas fa-angle-right i-categories-align"></i>
+                </div>
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+
+
+                    <li class="nav-item">
+                        <a class="lowercase-title always-white nav-link-smaller" href="https://www.sglavoie.com/category/automation.html">automation</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="lowercase-title always-white nav-link-smaller" href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="lowercase-title always-white nav-link-smaller" href="https://www.sglavoie.com/category/tools.html">tools</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="lowercase-title always-white nav-link-smaller" href="https://www.sglavoie.com/category/workflow.html">workflow</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <!-- /#menu -->
+
+
+    <section id="content" class="jumbotron body">
+        <header>
+            <h2 class="display-4">
+                <a href="https://www.sglavoie.com/posts/2019/07/13/black-a-python-formatter-to-brighten-your-workflow/" rel="bookmark"
+                    title="Permalink to Black: A Python Formatter to Brighten Your Workflow">Black: A Python Formatter to Brighten Your&nbsp;Workflow</a></h2>
+            
+        </header>
+        <footer class="post-info">
+            <i class="fas fa-calendar-alt"></i> <time class="published" datetime="2019-07-13T13:10:00-05:00">
+                July 13, 2019
+            </time>
+            <address class="vcard author">
+            </address>
+            <div class="category">
+                <i class="fas fa-tag"></i> Category: <a class="emphasis post-info-space" href="https://www.sglavoie.com/category/workflow.html">workflow</a>
+            </div>
+            <div class="tags">
+                <i class="fas fa-hashtag"></i> Tags:
+                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/neovim.html">neovim</a>
+                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/plugin.html">plugin</a>
+                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/productivity.html">productivity</a>
+                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/terminal.html">terminal</a>
+                <a class="emphasis post-info-space" href="https://www.sglavoie.com/tag/vim.html">vim</a>
+            </div>
+        </footer><!-- /.post-info -->
+  <hr class="my-4">
+  <div class="card">
+      <article class="card-body entry-content">
+          <h2>What is&nbsp;Black?</h2>
+<p>From its <i class="fab fa-github-alt"></i> <a href="https://github.com/python/black">GitHub repository</a>:</p>
+<blockquote>
+<p>Black is the uncompromising Python code formatter. By using it, you agree to cede control over minutiae of hand-formatting. In return, Black gives you speed, determinism, and freedom from pycodestyle nagging about formatting. You will save time and mental energy for more important&nbsp;matters.</p>
+</blockquote>
+<p><strong>Black</strong> will take less than ideal code and will automatically reformat it according to the <a href="https://www.python.org/dev/peps/pep-0008/"><span class="caps">PEP</span>-8 style guide</a>. It will take care of many things, including the following (taken in that order from <code>README.md</code> in <strong>Black</strong>&#8216;s&nbsp;repo):</p>
+<ul>
+<li>Wrapping lines properly by shortening as much as possible single&nbsp;statements;</li>
+<li>Break long&nbsp;lines;</li>
+<li>Remove superfluous empty&nbsp;lines;</li>
+<li>Take care of adding trailing commas where&nbsp;necessary;</li>
+<li>Convert single quotes (<code>'</code>) to double quotes (<code>"</code>);</li>
+<li>Convert numeric literals to lowercase (<code>0XAB</code> to <code>0xAB</code>);</li>
+<li>Superfluous parentheses are&nbsp;removed;</li>
+<li>Split call chains on different&nbsp;lines;</li>
+<li>Works from the terminal and support many code editor integrations (Emacs, Vim, <span class="caps">VS</span> Code, Sublime,&nbsp;etc.).</li>
+</ul>
+<p>Now that it&#8217;s clear <em>why</em> it can be a good idea to use it, let&#8217;s see how it works with Vim and the&nbsp;terminal.</p>
+<hr>
+<h2>How to use&nbsp;it?</h2>
+<p>First, we need to install it using Python&nbsp;3.6.0+:</p>
+<div class="highlight"><pre><span></span>$ pip install black
+</pre></div>
+
+
+<p>That&#8217;s&nbsp;it!</p>
+<h3>Use it from the&nbsp;terminal</h3>
+<p>In its simplest invocation, we can use <strong>Black</strong> by specifying a file or a directory by&nbsp;typing:</p>
+<div class="highlight"><pre><span></span>$ black path_to_file_or_directory
+</pre></div>
+
+
+<p>It doesn&#8217;t come with many options as its goal is to automatically format code consistently, but you can find out more about this tool in the following&nbsp;way:</p>
+<div class="highlight"><pre><span></span>$ black --help
+</pre></div>
+
+
+<h3>Use it with&nbsp;Vim</h3>
+<p>Using <strong>Black</strong> as part of your workflow in a code editor is where I believe it really shines, because you can see almost in real-time when you make a formatting mistake, which will help down the road in committing less sins <i class="fas fa-smile-wink"></i>.</p>
+<p>Integrating <strong>Black</strong> with Vim or Neovim is quick and painless, adding a simple line in your <code>.vimrc</code> or <code>init.vim</code> file. You can also proceed to do a manual installation without a plugin manager as explained in the GitHub&nbsp;repository.</p>
+<p>With <i class="fab fa-github-alt"></i> <a href="https://github.com/junegunn/vim-plug">vim-plug</a>:</p>
+<div class="highlight"><pre><span></span>Plug <span class="s1">&#39;python/black&#39;</span>
+</pre></div>
+
+
+<p>With <i class="fab fa-github-alt"></i> <a href="https://github.com/VundleVim/Vundle.vim">Vundle</a>:</p>
+<div class="highlight"><pre><span></span>Plugin <span class="s1">&#39;python/black&#39;</span>
+</pre></div>
+
+
+<p>Once the plugin is installed, it may well be convenient to automatically format Python files when saving the buffer, which can be accomplished by adding the following line to the configuration&nbsp;file:</p>
+<div class="highlight"><pre><span></span>autocmd <span class="nb">BufWritePre</span> *.<span class="k">py</span> execute <span class="s1">&#39;:Black&#39;</span>
+</pre></div>
+
+
+<p>By default, <strong>Black</strong> works surprisingly well on its own. I only went ahead and changed the default line length from 88 to 79 characters by also adding this&nbsp;line:</p>
+<div class="highlight"><pre><span></span><span class="k">let</span> <span class="k">g</span>:black_linelength <span class="p">=</span> <span class="m">79</span>  <span class="c">&quot; default is 88</span>
+</pre></div>
+
+
+<p>Finally, it&#8217;s worth noting you can update <strong>Black</strong> at any point from the terminal with <code>pip</code> and you can also do it directly from within Vim/Neovim with this&nbsp;command:</p>
+<div class="highlight"><pre><span></span><span class="p">:</span>BlackUpgrade
+</pre></div>
+
+
+<p>Vim will then output something along those&nbsp;lines:</p>
+<blockquote>
+<p>Upgrading Black with&nbsp;pip&#8230;</p>
+<p><span class="caps">DONE</span>! You are all set, thanks for&nbsp;waiting</p>
+</blockquote>
+<h2>Any&nbsp;example?</h2>
+<p>Taking a random Python 3.6+ code sample, we could originally have something like this (hopefully&nbsp;not):</p>
+<div class="highlight"><pre><span></span>    <span class="k">for</span> <span class="n">source</span> <span class="ow">in</span>  <span class="n">data_sources</span> <span class="p">:</span>
+
+
+        <span class="c1"># Retrieve a list of all matching log files in `source`</span>
+        <span class="n">log_files</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span> <span class="n">f</span><span class="s1">&#39;{source}/{LOG_NAME}*&#39;</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="n">log_files</span>  <span class="o">==</span>  <span class="p">[</span> <span class="p">]:</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">There is no log file to delete in {source}.&#39;</span><span class="p">)</span>
+                <span class="k">continue</span>
+        <span class="k">else</span>    <span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Log files in {source}:&#39;</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">log_file</span> <span class="ow">in</span> <span class="n">log_files</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">ARGUMENTS</span><span class="o">.</span><span class="n">remind</span><span class="p">):</span> <span class="n">REMINDER_IS_SET</span> <span class="o">=</span> <span class="bp">True</span>
+                    <span class="k">print</span><span class="p">(</span>
+                            <span class="n">log_file</span>
+                    <span class="p">)</span>
+                <span class="n">message</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Do you want to delete log files &#39;</span> <span class="s1">&#39;for this source? (y/n) &#39;</span>
+                <span class="p">)</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">user_says_yes</span><span class="p">(</span> <span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="p">))</span> <span class="p">:</span>
+                    <span class="k">for</span> <span class="n">log_file</span> <span class="ow">in</span> <span class="n">log_files</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">log_file</span><span class="p">)</span>
+                    <span class="k">print</span><span class="p">(</span>
+                            <span class="s1">&#39;Log files deleted.&#39;</span>
+                            <span class="p">)</span>
+                    <span class="k">continue</span>
+                <span class="k">else</span> <span class="p">:</span> <span class="k">continue</span>
+        <span class="k">print</span><span class="p">(</span> <span class="s1">&#39;Exiting script...&#39;</span> <span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span> <span class="nb">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Running <strong>Black</strong>, we will get something that&#8217;s quite a bit more&nbsp;palatable:</p>
+<div class="highlight"><pre><span></span>    <span class="k">for</span> <span class="n">source</span> <span class="ow">in</span> <span class="n">data_sources</span><span class="p">:</span>
+
+        <span class="c1"># Retrieve a list of all matching log files in `source`</span>
+        <span class="n">log_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;{source}/{LOG_NAME}*&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">log_files</span> <span class="o">==</span> <span class="p">[]:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">There is no log file to delete in {source}.&quot;</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Log files in {source}:&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">log_file</span> <span class="ow">in</span> <span class="n">log_files</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">ARGUMENTS</span><span class="o">.</span><span class="n">remind</span><span class="p">:</span>
+                    <span class="n">REMINDER_IS_SET</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">log_file</span><span class="p">)</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Do you want to delete log files &quot;</span> <span class="s2">&quot;for this source? (y/n) &quot;</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">user_says_yes</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">log_file</span> <span class="ow">in</span> <span class="n">log_files</span><span class="p">:</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">log_file</span><span class="p">)</span>
+                <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Log files deleted.&quot;</span><span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">continue</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Exiting script...&quot;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+
+<hr>
+<h2>Conclusion</h2>
+<p>I think the results speak for themselves: enforcing a style with a tool like <strong>Black</strong> is definitely useful to avoid arguments about conflicting coding styles. It lets you focus on what matters instead: being productive while providing value to the world <i class="fas fa-smile"></i>.</p>
+      </article>
+  </div>
+        <!-- /.entry-content -->
+
+	<hr>
+
+	<h2 class="display-4"><i class="fas fa-comment-alt"></i> Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    // Substitute single quotation mark (') for double (") to allow
+    // article's title to contain single quotes.
+    var disqus_shortname = "sglavoie"; 
+    var disqus_title = "Black: A Python Formatter to Brighten Your&nbsp;Workflow";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+    </section>
+
+        <div class="footer-borders">
+            <footer id="contentinfo" class="body bg-border hover-footer-bg">
+
+                <address class="footer-icons">
+
+                    <div class="get-in-touch-icons">
+                        <ul class="social-footer">
+
+                            <li><a href="https://github.com/sglavoie"><img src="/theme/images/footer/github.svg" alt="GitHub"></a></li>
+                            <li><a href="https://www.twitter.com/sgdlavoie"><img src="/theme/images/footer/twitter.svg" alt="Twitter"></a></li>
+                            <li><a href="https://www.linkedin.com/in/sglavoie"><img src="/theme/images/footer/linkedin.svg" alt="LinkedIn"></a></li>
+                            <li><a href="https://www.hackerrank.com/sglavoie"><img src="/theme/images/footer/hackerrank.svg" alt="HackerRank"></a></li>
+                            <li><a href="https://stackoverflow.com/users/story/8787680"><img src="/theme/images/footer/stackoverflow.svg" alt="Stackoverflow"></a></li>
+                        </ul>
+
+                    </div>
+
+                </address>
+
+                <address id="about" class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican 4.0.1<img class="mini-icon" src="/theme/images/footer/pelican.svg" alt="Pelican"></a>,
+                    which takes great advantage of <a href="http://python.org">Python<img class="mini-icon" src="/theme/images/footer/python.svg" alt="Python"></a> .
+
+                    <div id="author-footer">
+                        <p class="smaller-p-padding">Copyleft <span class="copy-left">©</span> 2019 — Sébastien Lavoie
+                        <script>
+                            <!--
+// Email obfuscator script 2.1 by Tim Williams, University of Arizona
+// Random encryption key feature coded by Andrew Moulden
+// This code is freeware provided these four comment lines remain intact
+// A wizard to generate this code is at http://www.jottings.com/obfuscator/
+{ coded = "Efp9ExWfz@EoU9R5Wf.45D"
+    key = "RXmOLk0xFelpj9ihYV4PZ5AGDB3wsKdfUn12WHJgvqNIrCytS8EbQa6zuMc7To"
+    shift=coded.length
+    link=""
+    for (i=0; i<coded.length; i++) {
+        if (key.indexOf(coded.charAt(i))==-1) {
+            ltr = coded.charAt(i)
+            link += (ltr)
+        }
+        else {
+            ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
+            link += (key.charAt(ltr))
+        }
+    }
+    // Adding inline style to 'img' tag as it seems to be more trustworthy inside this script.
+    document.write("<a href='mailto:"+link+"'>"+"<img class='mini-icon' src='/theme/images/footer/email.svg' alt='Email'>"+"</a>")
+}
+//-->
+                        </script><noscript>Sorry, you need Javascript on to email me.</noscript>
+                        </p>
+                    </div>
+                </address>
+
+                <div class="version-footer">v0.19.1</div>
+
+                <!-- /#about -->
+            </footer>
+
+        </div>
+        <!-- /#contentinfo -->
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+        <!-- Disqus comment counts for each article -->
+        <script id="dsq-count-scr" src="https://sglavoie.disqus.com/count.js" async></script>
+    </body>
+</html>
