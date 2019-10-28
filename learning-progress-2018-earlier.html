@@ -1,1421 +1,698 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-          <title>Learning&nbsp;Progress | sglavoie.com</title>
 
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="I document my journey as a learner in technology-related matters, explaining the challenges that I face while trying to become a better student. I teach the solutions that I find along the way so that it can benefit others too.">
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="https://www.sglavoie.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="https://www.sglavoie.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://www.sglavoie.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
-<link href="https://www.sglavoie.com/feeds/sglavoie.rss.xml" type="application/rss+xml" rel="alternate" title="sglavoie.com Full RSS Feed" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Sébastien Lavoie">
+  <meta name="description" content="Posts and writings by Sébastien Lavoie">
 
-        <!-- Favicon -->
-        <link rel="apple-touch-icon" sizes="180x180" href="/theme/images/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/theme/images/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/theme/images/favicon-16x16.png">
-        <link rel="manifest" href="/theme/images/site.webmanifest">
-        <link rel="mask-icon" href="/theme/images/safari-pinned-tab.svg" color="#5bbad5">
-        <link rel="shortcut icon" href="/theme/images/favicon.ico">
-        <meta name="msapplication-TileColor" content="#2d89ef">
-        <meta name="msapplication-TileImage" content="/theme/images/mstile-144x144.png">
-        <meta name="msapplication-config" content="/theme/images/browserconfig.xml">
-        <meta name="theme-color" content="#000000">
-        <meta name="msapplication-config" content="/theme/images/browserconfig.xml">
-        <meta name="theme-color" content="#000000">
-
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-        <!-- Font Awesome Icons -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-
-        <!-- Custom CSS -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet"> 
-        <link href='/theme/css/base.css?cache_id=7b5e58f2181ed49b4f9a43ab00b00abe' rel='stylesheet' type='text/css'>
-        <link href='/theme/css/pygment.css?cache_id=df82538fb8839d464f35265aa54ee132' rel='stylesheet' type='text/css'>
+  <link href="https://www.sglavoie.com/feeds/sglavoie.rss.xml" type="application/rss+xml" rel="alternate" title="sglavoie.com RSS" />
 
 
+  <title>
+    sglavoie.com
+&ndash; Learning Progress&nbsp;2018  </title>
 
-    </head>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-150998392-1']);
+  _gaq.push(['_trackPageview']);
 
-    <body id="index" class="home">
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
 
-        <nav id="bg-darker" class="navbar navbar-expand-lg navbar-dark">
-            <a class="brand-link" href="/">
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="https://www.sglavoie.com">
+        <img src="https://www.sglavoie.com/theme/images/logo.png" alt="logo">
+      </a>
+      <h2><a href="https://www.sglavoie.com">sglavoie.com</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="https://www.sglavoie.com/category/automation.html">automation</a></li>
+        <li><a href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a></li>
+        <li><a href="https://www.sglavoie.com/category/tools.html">tools</a></li>
+        <li><a href="https://www.sglavoie.com/category/workflow.html">workflow</a></li>
+      </ul>
+    </div>
+  </aside>
 
-                <!-- SVG Logo with 5px padding -->
-                <div class="brand-logo hover-img">
-                    <svg width="24.348mm" height="24.348mm" version="1.1" viewBox="0 0 24.348095 24.347754" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-                        <metadata>
-                        <rdf:RDF>
-                        <cc:Work rdf:about="">
-                        <dc:format>image/svg+xml</dc:format>
-                        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-                        <dc:title/>
-                        </cc:Work>
-                        </rdf:RDF>
-                        </metadata>
-                        <g transform="translate(81.397 -84.454)">
-                        <path d="m-57.049 105.9v2.9029h-11.173v-2.9029z" fill="#c0c0c0">
-                        <animate attributeName="fill" values="white;grey;white" dur="2s" repeatCount="indefinite" />
-                        </path>
-                        <path d="m-72.272 98.481-9.1246 5.7598v-3.548l5.8658-3.5019v-0.09215l-5.8658-3.5019v-3.548l9.1246 5.7598z" fill="#c0c0c0"/>
-                        <path transform="scale(.26458)" d="m-273.15 319.2-27.588 14.77 8.498 5.3613 19.09-12.049zm15.309 25.67v44.412h8.8672v-35.635h33.361v-8.7773h-33.783zm25.336 24.66v8.7774h8.0254v10.975h8.8672v-19.752z" fill="#007bff"/>
-                        </g>
-                    </svg>
-                </div>
-
-
-            </a>
-            <button class="navbar-toggler hover-img" type="button" data-toggle="collapse" data-target="#sglavoie-menu" aria-controls="sglavoie-menu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                Menu
-            </button>
-
-            <div class="collapse navbar-collapse" id="sglavoie-menu">
-                <div class="to-the-right">
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/index.html"><i class="fas fa-home"></i> home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/tags.html"><i class="fas fa-hashtag"></i> tags</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/learning-progress-2019.html"><i class="fas fa-graduation-cap"></i> learning</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about.html"><i class="fas fa-info"></i> about</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <nav id="menu" class="navbar navbar-expand-lg navbar-dark">
-
-            <button class="navbar-toggler hover-img" type="button" data-toggle="collapse" data-target="#sglavoie-menu-second" aria-controls="sglavoie-menu-second" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                Categories
-            </button>
-
-            <div class="collapse navbar-collapse" id="sglavoie-menu-second">
-                <div id="menu-categories-legend-id" class="menu-categories-legend categories-align">
-                    <i class="fas fa-angle-left i-categories-align"></i><a class="lowercase-title always-white-no-margin nav-link-smaller" href="/categories.html">categories</a><i class="fas fa-angle-right i-categories-align"></i>
-                </div>
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
-
-
-                    <li class="nav-item">
-                        <a class="lowercase-title always-white nav-link-smaller" href="https://www.sglavoie.com/category/automation.html">automation</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="lowercase-title always-white nav-link-smaller" href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="lowercase-title always-white nav-link-smaller" href="https://www.sglavoie.com/category/tools.html">tools</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="lowercase-title always-white nav-link-smaller" href="https://www.sglavoie.com/category/workflow.html">workflow</a>
-                    </li>
-
-                </ul>
-            </div>
-        </nav>
-        <!-- /#menu -->
-
-    <section id="content" class="jumbotron body">
-        <header>
-            <h2 class=".h2">
- <i class="fas fa-graduation-cap"></i>            Learning&nbsp;Progress
-            </h2>
+  <main>
+    <header>
+      <p>
+      <a href="https://www.sglavoie.com">Index</a> &brvbar; <a href="https://www.sglavoie.com/archives.html">Archives</a>
+&brvbar; <a href="https://www.sglavoie.com/tags.html">Tags</a>
+&brvbar; <a href="https://www.sglavoie.com/learning-progress-2019.html">Learning Progress</a>
+      &brvbar; <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS</a>
+      </p>
     </header>
 
-  <hr class="my-4">
-
-  <div class="card">
-      <div class="card-body entry-content">
-            <div class="learning-year"><a href="./learning-progress-2019.html">2019</a></div>
-
-<hr>
-<div class="learning-year">2018</div>
-
-<div id="year2018" class="container no-padding">
-<div class="panel">
-
-<div class="row justify-content-center" role="button" data-toggle="collapse" data-parent="#year2018" href="#dec18" aria-expanded="false" aria-controls="dec18">
-<div class="learning-month">December</div>
-</div>
-<div id="dec18" class="container collapse">
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">31</div>
-<div class="col-12 col-md-10 blue-content">
+<article>
+  <div class="article_title">
+    <h1><a href="https://www.sglavoie.com/">Learning Progress&nbsp;2018</a></h1>
+  </div>
+  <div class="article_text">
+    <h2>December</h2>
+<h3>31</h3>
 <ul>
 <li>Managing configuration in <a href="https://ranger.github.io/">ranger</a>.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">30</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>30</h3>
 <ul>
-<li><i class="fab fa-youtube"></i> <a href="https://www.youtube.com/watch?v=DSq9uGs_z0E">DiSSS technique</a>, from <a href="https://tim.blog/">Tim Ferriss</a>.</li>
-<li>Binary trees implementations in Python <i class="fab fa-python"></i>.</li>
+<li><a href="https://www.youtube.com/watch?v=DSq9uGs_z0E">DiSSS technique</a>, from <a href="https://tim.blog/">Tim Ferriss</a>.</li>
+<li>Binary trees implementations in&nbsp;Python.</li>
 <li>Managing builds in Travis <span class="caps">CI</span>.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">29</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>29</h3>
 <ul>
 <li>Using <a href="https://clickup.com">ClickUp</a> for task and project&nbsp;management.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">28</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>28</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em> <i class="fas fa-university"></i></li>
-<ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li>Managing resources on cloud services, platform services (servers <span class="amp">&amp;</span> databases), directory services, centralized&nbsp;management.</li>
 </ul>
-</ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">27</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>27</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em> <i class="fas fa-university"></i></li>
-<ul>
-<li>Print services, <span class="caps">NFS</span> servers, chat communication services (<span class="caps">XMPP</span>, <span class="caps">IRC</span>,&nbsp;etc.)</li>
-</ul>
-
-<li>Configure locales on Linux <i class="fab fa-linux"></i>.</li>
+<li><em>Google <span class="caps">IT</span></em></li>
+<li>
+<p>Print services, <span class="caps">NFS</span> servers, chat communication services (<span class="caps">XMPP</span>, <span class="caps">IRC</span>,&nbsp;etc.)</p>
+</li>
+<li>
+<p>Configure locales on&nbsp;Linux.</p>
+</li>
 <li>Using <a href="https://joplin.cozic.net">Joplin</a> <span class="amp">&amp;</span> <a href="https://todoist.com/">Todoist</a>.</li>
 <li>Setting up <a href="https://github.com/tobi-wan-kenobi/bumblebee-status">bumblebee-status</a> with <a href="https://i3wm.org/">i3</a>.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">26</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>26</h3>
 <ul>
 <li>i3wm configuration: status bar, workspaces, themes,&nbsp;modules.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">25</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>25</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em> <i class="fas fa-university"></i></li>
-<ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li>Physical infrastructure&nbsp;services.</li>
 <li>Configuring network&nbsp;services.</li>
-</ul>
 <li>i3wm setup <span class="amp">&amp;</span>&nbsp;configuration.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">23</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>23</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em> <i class="fas fa-university"></i></li>
-<ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li><span class="caps">IT</span> infrastructure&nbsp;services.</li>
+<li>Regular expressions in&nbsp;Python.</li>
+<li>Working with <span class="caps">JSON</span> files in&nbsp;Python.</li>
 </ul>
-<li>Regular expressions in Python <i class="fab fa-python"></i>.</li>
-<li>Working with <span class="caps">JSON</span> files in Python <i class="fab fa-python"></i>.</li>
-</ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">22</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>22</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em> <i class="fas fa-university"></i></li>
-<ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li>System administration <span class="amp">&amp;</span>&nbsp;tasks.</li>
+<li>Regular expressions in&nbsp;Python.</li>
 </ul>
-<li>Regular expressions in Python <i class="fab fa-python"></i>.</li>
-</ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">21</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>21</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em> <i class="fas fa-university"></i></li>
-<ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li>Operating Systems: Filesystems, Process management, Remote access, Virtualization,&nbsp;Logging.</li>
 </ul>
-</ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">20</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>20</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em> <i class="fas fa-university"></i></li>
-<ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li>Operating Systems: file and text manipulation, users <span class="amp">&amp;</span> permissions, package <span class="amp">&amp;</span> software&nbsp;management.</li>
 </ul>
-</ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">19</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>19</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em> <i class="fas fa-university"></i></li>
-<ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li>Networking services: VPNs,&nbsp;proxies.</li>
 <li>Connecting to Internet: Dial-up, broadband, wireless,&nbsp;WANs.</li>
 <li>Troubleshooting: verifying connectivity, digging into <span class="caps">DNS</span>, cloud,&nbsp;IPv6.</li>
 <li>Operating systems: basic commands (PowerShell <span class="amp">&amp;</span>&nbsp;Bash).</li>
 </ul>
-</ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">18</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>18</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em> <i class="fas fa-university"></i></li>
-<ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li>Networking services: name resolution, <span class="caps">DNS</span>, <span class="caps">DHCP</span>, <span class="caps">NAT</span>.</li>
+<li>Implementing linked lists in&nbsp;Python.</li>
 </ul>
-<li>Implementing linked lists in Python <i class="fab fa-python"></i>.</li>
-</ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">17</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>17</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em> <i class="fas fa-university"></i></li>
-<ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li>Routing (tables, protocols,&nbsp;addresses).</li>
 <li>Transport layer, application&nbsp;layer.</li>
 </ul>
-</ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">16</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>16</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em> <i class="fas fa-university"></i></li>
-<ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li>Introduction to Computer Networking:&nbsp;Subnetting.</li>
 </ul>
-</ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">15</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>15</h3>
 <ul>
 <li>Test Driven Development: Pytest, Unittest, Doctest, test doubles, test&nbsp;coverage.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">14</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>14</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em> <i class="fas fa-university"></i></li>
-<ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li>Introduction to Computer Networking: <span class="caps">TCP</span>/<span class="caps">IP</span> five-Layer model, basics of networking&nbsp;devices.</li>
 </ul>
-</ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">13</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>13</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em> <i class="fas fa-university"></i></li>
-<ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li>Operating System: Installing Windows/Linux/Mac, virtual machines, Chrome <span class="caps">OS</span>.</li>
 <li>Networking: <span class="caps">TCP</span>/<span class="caps">IP</span>, history, limitations, impact, security,&nbsp;privacy.</li>
 <li>Software: abstractions, types of software, interacting with&nbsp;software.</li>
 <li>Troubleshooting: best practices, customer service, documentation <span class="amp">&amp;</span> writing effective documentation, technical&nbsp;interview.</li>
 </ul>
-</ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">12</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>12</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em> <i class="fas fa-university"></i></li>
-<ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li>Hardware: <span class="caps">CPU</span> <span class="amp">&amp;</span> other components, overclocking, <span class="caps">BIOS</span>, computer&nbsp;assembly.</li>
 <li>Operating System: file systems, kernel, logs, user space, boot&nbsp;process.</li>
 </ul>
-</ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">11</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>11</h3>
 <ul>
 <li>Add plugins to Pelican (static site generator): plugin <code>tag_cloud</code>.</li>
-<li><i class="fas fa-graduation-cap"></i> Enrolled in <em><a href="https://www.coursera.org/specializations/google-it-support">Google <span class="caps">IT</span> Support Professional Certificate</a></em> on&nbsp;Coursera.</li>
-<ul>
+<li>Enrolled in <em><a href="https://www.coursera.org/specializations/google-it-support">Google <span class="caps">IT</span> Support Professional Certificate</a></em> on&nbsp;Coursera.</li>
 <li>Introduction to <span class="caps">IT</span> support, history of computing, digital logic, computer architecture&nbsp;layer.</li>
 </ul>
-</ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">10</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>10</h3>
 <ul>
 <li>Bootstrap (web framework):&nbsp;Tables.</li>
 <li>Pelican (static site generator): Use <em>Pages</em> in theme; Integrate menu items; Add a custom 404 error&nbsp;page.</li>
-<li>Read <em><a href="https://amzn.to/2O8JAnS">The Complete Software Developer&#8217;s Career Guide</a></em> <i class="fas fa-book"></i>, by <a href="https://simpleprogrammer.com/">John Sonmez</a>: Section 3 (What you need to know about software development) <span class="amp">&amp;</span> Section 4 (Working as a developer). Section 4 contained the inspiration I needed to write about this <em>Learning Progress</em>.</li>
+<li>Read <em><a href="https://amzn.to/2O8JAnS">The Complete Software Developer&#8217;s Career Guide</a></em>, by <a href="https://simpleprogrammer.com/">John Sonmez</a>: Section 3 (What you need to know about software development) <span class="amp">&amp;</span> Section 4 (Working as a developer). Section 4 contained the inspiration I needed to write about this <em>Learning Progress</em>.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">9</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>9</h3>
 <ul>
-<li>Manage Python <i class="fab fa-python"></i> dictionary with <code>(x, y)</code> coordinates (Advent of Code, day&nbsp;3).</li>
+<li>Manage Python dictionary with <code>(x, y)</code> coordinates (Advent of Code, day&nbsp;3).</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">8</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>8</h3>
 <ul>
-<li>Use fenced code blocks in Markdown <i class="fab fa-markdown"></i>.</li>
+<li>Use fenced code blocks in&nbsp;Markdown.</li>
 <li>Add Markdown extensions in&nbsp;Pelican.</li>
 <li>Emmet syntax with Vim plugin <code>emmet-vim</code>.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">7</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>7</h3>
 <ul>
 <li>Compare strings that differ by one character (Advent of Code, day&nbsp;2).</li>
 <li>Get common letters from two strings (Advent of Code, day&nbsp;2).</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">6</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>6</h3>
 <ul>
-<li>Customize scrollbar in <span class="caps">CSS</span> <i class="fab fa-css3"></i>.</li>
-<li>Modify code blocks in <span class="caps">CSS</span> <i class="fab fa-css3"></i> with&nbsp;Pygments.</li>
-<li><i class="fab fa-youtube"></i> Module <code>asyncio</code> in Python <i class="fab fa-python"></i> (including <a href="https://www.youtube.com/user/sentdex">sentdex</a> tutorials on&nbsp;YouTube).</li>
+<li>Customize scrollbar in <span class="caps">CSS</span>.</li>
+<li>Modify code blocks in <span class="caps">CSS</span> with&nbsp;Pygments.</li>
+<li>Module <code>asyncio</code> in Python (including <a href="https://www.youtube.com/user/sentdex">sentdex</a> tutorials on&nbsp;YouTube).</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">5</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>5</h3>
 <ul>
 <li>Use <code>markdown-preview</code> plugin for&nbsp;Neovim.</li>
-<li>Storing Python <i class="fab fa-python"></i> dictionaries into files <span class="amp">&amp;</span> retrieving&nbsp;them.</li>
+<li>Storing Python dictionaries into files <span class="amp">&amp;</span> retrieving&nbsp;them.</li>
 <li>Convert list of strings to&nbsp;integers.</li>
-<li><i class="fas fa-calculator"></i> <a href="https://projecteuler.net/problem=9">Special Pythagorean triplet</a>, Project&nbsp;Euler.</li>
+<li><a href="https://projecteuler.net/problem=9">Special Pythagorean triplet</a>, Project&nbsp;Euler.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">4</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>4</h3>
 <ul>
-<li>Apply text transformations in <span class="caps">CSS</span> <i class="fab fa-css3"></i> (example with Copyleft symbol instead of&nbsp;Copyright).</li>
+<li>Apply text transformations in <span class="caps">CSS</span> (example with Copyleft symbol instead of&nbsp;Copyright).</li>
 <li><code>p5.js</code> library: Simple themes like shapes, colors <span class="amp">&amp;</span>&nbsp;text.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">3</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>3</h3>
 <ul>
 <li>Use Vimwiki for&nbsp;note-taking.</li>
-<li>Arithmetic in JavaScript <i class="fab fa-js"></i>.</li>
+<li>Arithmetic in&nbsp;JavaScript.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">2</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>2</h3>
 <ul>
 <li>Set <code>fzf</code> with <code>ag</code> in&nbsp;Neovim.</li>
 <li>Remove all buffers except current one in&nbsp;Neovim.</li>
 <li>Use MathJax&nbsp;syntax.</li>
-<li>Conditionals in JavaScript <i class="fab fa-js"></i>.</li>
+<li>Conditionals in&nbsp;JavaScript.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">1</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>1</h3>
 <ul>
 <li>Vim&#8217;s location&nbsp;list.</li>
 <li><code>fzf</code> behavior with <code>.gitignore</code> <span class="amp">&amp;</span> <code>.ignore</code> files.</li>
-<li>Functions in JavaScript <i class="fab fa-js"></i>.</li>
-<li>Swap partitions in Linux <i class="fab fa-linux"></i>.</li>
-<li>Use Calcurse in terminal <i class="fas fa-terminal"></i>.</li>
+<li>Functions in&nbsp;JavaScript.</li>
+<li>Swap partitions in&nbsp;Linux.</li>
+<li>Use Calcurse in&nbsp;terminal.</li>
 </ul>
-
-</div>
-</div>
-
-</div>
-
-
-
-<div class="row justify-content-center" role="button" data-toggle="collapse" data-parent="#year2018" href="#nov18" aria-expanded="false" aria-controls="nov18">
-<div class="learning-month">November</div>
-</div>
-<div id="nov18" class="container collapse">
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">29</div>
-<div class="col-12 col-md-10 blue-content">
+<h2>November</h2>
+<h3>29</h3>
 <ul>
-<li>Implement linked list in Python <i class="fab fa-python"></i>.</li>
+<li>Implement linked list in&nbsp;Python.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">27</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>27</h3>
 <ul>
-<li><span class="caps">SVG</span> icon transparency in <span class="caps">CSS</span> <i class="fab fa-css3"></i>.</li>
-<li>Make better use of <code>display</code> properties in <span class="caps">CSS</span> <i class="fab fa-css3"></i>.</li>
+<li><span class="caps">SVG</span> icon transparency in <span class="caps">CSS</span>.</li>
+<li>Make better use of <code>display</code> properties in <span class="caps">CSS</span>.</li>
 <li><span class="caps">SVG</span> rendering of <span class="caps">PNG</span> images with&nbsp;Inkscape.</li>
 <li><span class="caps">SVG</span> support in modern web&nbsp;browsers.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">26</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>26</h3>
 <ul>
-<li>Use of <span class="caps">HTML</span> <i class="fab fa-html5"></i> tag <code>&lt;li&gt;</code> in footer for&nbsp;images.</li>
-<li><i class="fab fa-stack-overflow"></i> Get the Pelican version number from a template (<a href="https://stackoverflow.com/a/53474870/8787680">answered on stackoverflow</a>).</li>
-<li><i class="fab fa-stack-overflow"></i> Create direct templates in theme (<a href="https://stackoverflow.com/a/53474144/8787680">answered on stackoverflow</a>).</li>
+<li>Use of <span class="caps">HTML</span> tag <code>&amp;lt;li&amp;gt;</code> in footer for&nbsp;images.</li>
+<li>Get the Pelican version number from a template (<a href="https://stackoverflow.com/a/53474870/8787680">answered on stackoverflow</a>).</li>
+<li>Create direct templates in theme (<a href="https://stackoverflow.com/a/53474144/8787680">answered on stackoverflow</a>).</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">25</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>25</h3>
 <ul>
 <li>Use Font&nbsp;Awesome.</li>
 <li>Disqus integration with comment&nbsp;counts.</li>
-<li>Correctly set Python <i class="fab fa-python"></i> host in&nbsp;Neovim.</li>
+<li>Correctly set Python host in&nbsp;Neovim.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">24</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>24</h3>
 <ul>
-<li>Link selectors in <span class="caps">CSS</span> <i class="fab fa-css3"></i>.</li>
+<li>Link selectors in <span class="caps">CSS</span>.</li>
 <li>Security measures to take with <span class="caps">VPN</span> (Virtual Private&nbsp;Networks).</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">23</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>23</h3>
 <ul>
 <li>Generate favicon for different devices and&nbsp;platforms.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">22</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>22</h3>
 <ul>
-<li>Make more responsive design in <span class="caps">HTML5</span> <i class="fab fa-html5"></i> <span class="amp">&amp;</span> <span class="caps">CSS3</span> <i class="fab fa-css3"></i>.</li>
+<li>Make more responsive design in <span class="caps">HTML5</span> <span class="amp">&amp;</span> <span class="caps">CSS3</span>.</li>
 <li>Manage bookmarks on the command-line with&nbsp;Buku.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">22</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>22</h3>
 <ul>
 <li>Disqus website&nbsp;integration.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">19</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>19</h3>
 <ul>
 <li>Horizontal scrollable elements with&nbsp;Bootstrap.</li>
 <li>Jinja2&nbsp;syntax.</li>
 <li>Linear gradients with transparency in <span class="caps">SVG</span>&nbsp;images.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">18</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>18</h3>
 <ul>
 <li>Gradient mask with transparency in&nbsp;Inkscape.</li>
-<li><code>@media</code> queries in <span class="caps">CSS</span> <i class="fab fa-css3"></i>.</li>
+<li><code>@media</code> queries in <span class="caps">CSS</span>.</li>
 <li>Navigation bar togglers in&nbsp;Bootstrap.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">17</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>17</h3>
 <ul>
 <li>tmux color schemes and powerline&nbsp;settings.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">16</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>16</h3>
 <ul>
-<li><span class="caps">HTML</span> <i class="fab fa-html5"></i> Fundamentals (<a href="https://www.sololearn.com/Certificate/1014-6555674/pdf/">certificate</a>).</li>
-<li>Use third-party fonts in <span class="caps">HTML</span> <i class="fab fa-html5"></i>.</li>
-<li>Build a simple landing page in <span class="caps">HTML5</span> <i class="fab fa-html5"></i> <span class="amp">&amp;</span> <span class="caps">CSS3</span> <i class="fab fa-css3"></i>.</li>
+<li><span class="caps">HTML</span> Fundamentals (<a href="https://www.sololearn.com/Certificate/1014-6555674/pdf/">certificate</a>).</li>
+<li>Use third-party fonts in <span class="caps">HTML</span>.</li>
+<li>Build a simple landing page in <span class="caps">HTML5</span> <span class="amp">&amp;</span> <span class="caps">CSS3</span>.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">15</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>15</h3>
 <ul>
-<li>Draggable <span class="caps">JS</span> <i class="fab fa-js"></i>.</li>
+<li>Draggable <span class="caps">JS</span>.</li>
 <li>Set up <span class="caps">SSH</span> tunnel in MySQL Workbench <span class="amp">&amp;</span>&nbsp;DBeaver.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">14</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>14</h3>
 <ul>
 <li>Customize forms in Flask micro-framework with&nbsp;WTForms.</li>
 <li>Manage pylint&nbsp;settings.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">13</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>13</h3>
 <ul>
 <li>SQLAlchemy in Flask&nbsp;micro-framework.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">12</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>12</h3>
 <ul>
 <li><a href="https://www.maketecheasier.com/kde-plasma-tips-tricks-improve-productivity/">Productivity tricks</a> in <span class="caps">KDE</span> (Kool Desktop&nbsp;Environment).</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">11</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>11</h3>
 <ul>
 <li>Manage notifications in Bash for terminated commands with <a href="https://github.com/kaustubhhiware/NotiFyre">NotiFyre</a>.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">10</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>10</h3>
 <ul>
-<li><i class="fas fa-history"></i> Review how to mount exFat filesystem on Linux <i class="fab fa-linux"></i>.</li>
-<li>Installing fonts on a per-user basis on Linux <i class="fab fa-linux"></i> (Ubuntu&nbsp;derivatives).</li>
+<li>Review how to mount exFat filesystem on&nbsp;Linux.</li>
+<li>Installing fonts on a per-user basis on Linux (Ubuntu&nbsp;derivatives).</li>
 <li>Set <a href="https://github.com/magicmonty/bash-git-prompt">Bash git prompt</a>.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">9</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>9</h3>
 <ul>
 <li>Concept and application of inheritance in Jinja2&nbsp;templates.</li>
 <li>Add Flask Babel to Flask&nbsp;projects.</li>
-<li>Set up <code>pylint</code> with Python <i class="fab fa-python"></i>&nbsp;project.</li>
+<li>Set up <code>pylint</code> with Python&nbsp;project.</li>
 <li>Validators in WTForms with&nbsp;Flask.</li>
-<li><i class="fab fa-youtube"></i> Finishing <em>Python <i class="fab fa-python"></i> Flask Tutorial</em> with <a href="https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g">Corey Schafer</a> on YouTube (including blueprints, sending emails, forms and user input, user authentication and  managing&nbsp;database).</li>
+<li>Finishing <em>Python Flask Tutorial</em> with <a href="https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g">Corey Schafer</a> on YouTube (including blueprints, sending emails, forms and user input, user authentication and  managing&nbsp;database).</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">8</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>8</h3>
 <ul>
-<li><i class="fab fa-youtube"></i> TicTacToe tutorial serie with <a href="https://www.youtube.com/user/sentdex">sentdex</a> on&nbsp;YouTube.</li>
+<li>TicTacToe tutorial serie with <a href="https://www.youtube.com/user/sentdex">sentdex</a> on&nbsp;YouTube.</li>
 <li>Building a Flask application with SQLAlchemy to manage&nbsp;database.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">7</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>7</h3>
 <ul>
 <li>Integrate user accounts in Flask&nbsp;application.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">6</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>6</h3>
 <ul>
 <li>Structuring Flask application in&nbsp;packages.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">5</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>5</h3>
 <ul>
 <li>Use <a href="https://www.draw.io/">draw.io</a> to make&nbsp;flowcharts.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">4</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>4</h3>
 <ul>
 <li>Plot in Matplotlib and export to <span class="caps">PDF</span> files automatically from input&nbsp;files.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">3</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>3</h3>
 <ul>
-<li>Error handling in Python 3 <i class="fab fa-python"></i>.</li>
+<li>Error handling in Python&nbsp;3.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">2</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>2</h3>
 <ul>
 <li>Modify appearance of <em>folds</em> in&nbsp;Neovim.</li>
 <li>Integrate tmux with&nbsp;Neovim.</li>
 <li>Convert videos to <span class="caps">GIF</span>&nbsp;images.</li>
-<li><i class="fas fa-history"></i> Review concept of mutability in Python <i class="fab fa-python"></i>.</li>
+<li>Review concept of mutability in&nbsp;Python.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">1</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>1</h3>
 <ul>
 <li>Configure&nbsp;tmux.</li>
 </ul>
-</div>
-</div>
-
-</div>
-
-<div class="row justify-content-center" role="button" data-toggle="collapse" data-parent="#year2018" href="#oct18" aria-expanded="false" aria-controls="oct18">
-<div class="learning-month">October</div>
-</div>
-<div id="oct18" class="container collapse">
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">31</div>
-<div class="col-12 col-md-10 blue-content">
+<h2>October</h2>
+<h3>31</h3>
 <ul>
-<li>Use compose key in Linux <i class="fab fa-linux"></i>.</li>
+<li>Use compose key in&nbsp;Linux.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">30</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>30</h3>
 <ul>
 <li>Use of algorithms for <a href="http://fotoforensics.com/">forensic analysis of pictures</a>.</li>
-<li><i class="fas fa-history"></i> Review basics of Python 3 <i class="fab fa-python"></i> (built-in functions, indexes and slices in&nbsp;lists).</li>
+<li>Review basics of Python 3 (built-in functions, indexes and slices in&nbsp;lists).</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">28</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>28</h3>
 <ul>
-<li><i class="fas fa-history"></i> Review tuples, strings and loops in Python <i class="fab fa-python"></i>.</li>
-<li><code>breakpoint()</code> function in Python 3.7 <i class="fab fa-python"></i>.</li>
+<li>Review tuples, strings and loops in&nbsp;Python.</li>
+<li><code>breakpoint()</code> function in Python&nbsp;3.7.</li>
 <li>Integrate plugins in&nbsp;WordPress.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">27</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>27</h3>
 <ul>
-<li><i class="fas fa-history"></i> Review Vim&nbsp;macros.</li>
+<li>Review Vim&nbsp;macros.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">26</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>26</h3>
 <ul>
 <li>Use and modify dictionary autocompletion in&nbsp;Neovim.</li>
 <li>Use mappings in Neovim that toggle one&nbsp;command.</li>
 <li>Create scatter plots, subplots, annotations and trendlines with&nbsp;Matplotlib.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">25</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>25</h3>
 <ul>
 <li>Regex examples in&nbsp;Vim.</li>
 <li>Use <code>pandas</code> <span class="amp">&amp;</span> <code>numpy</code> modules to manage data from <span class="caps">CSV</span> files to generate plots with&nbsp;Matplotlib.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">24</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>24</h3>
 <ul>
-<li>Iterators and iterables in Python <i class="fab fa-python"></i>.</li>
+<li>Iterators and iterables in&nbsp;Python.</li>
 <li>Selenium module in python and XPath&nbsp;selections.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">23</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>23</h3>
 <ul>
 <li>Arithmetic in <span class="caps">SQL</span>.</li>
 <li><code>yaml</code> logging <span class="amp">&amp;</span> configuration&nbsp;format.</li>
-<li>Logging in Python <i class="fab fa-python"></i> with <code>logging</code> module.</li>
+<li>Logging in Python with <code>logging</code> module.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">22</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>22</h3>
 <ul>
 <li>Apply circular text transformations in <span class="caps">GIMP</span>.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">21</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>21</h3>
 <ul>
 <li>Use quickfix list in&nbsp;Vim.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">20</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>20</h3>
 <ul>
 <li>Redraw the screen in Neovim and clear highlighted&nbsp;selection.</li>
-<li>Threading in Python <i class="fab fa-python"></i>.</li>
-<li>Incorporate log files automatically with Python <i class="fab fa-python"></i>&nbsp;script.</li>
-<li>Use <code>argparse</code> Python <i class="fab fa-python"></i>&nbsp;module.</li>
+<li>Threading in&nbsp;Python.</li>
+<li>Incorporate log files automatically with Python&nbsp;script.</li>
+<li>Use <code>argparse</code> Python&nbsp;module.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">19</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>19</h3>
 <ul>
 <li>Configure MySQL/MariaDB server&nbsp;locally.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">18</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>18</h3>
 <ul>
 <li>Learn about <code>pipenv</code>.</li>
-<li>Set Python <i class="fab fa-python"></i> <span class="caps">PATH</span> with different versions installed from&nbsp;source.</li>
-<li>Improve workflow of virtual environments in Python <i class="fab fa-python"></i>.</li>
+<li>Set Python <span class="caps">PATH</span> with different versions installed from&nbsp;source.</li>
+<li>Improve workflow of virtual environments in&nbsp;Python.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">17</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>17</h3>
 <ul>
 <li>Manage dashboard in&nbsp;Conekta.</li>
-<li>Functions to find elements in Python <i class="fab fa-python"></i> module <code>selenium</code>.</li>
+<li>Functions to find elements in Python module <code>selenium</code>.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">16</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>16</h3>
 <ul>
-<li>Use <code>urllib.request</code> in Python <i class="fab fa-python"></i> to get the <span class="caps">HTTP</span> status of web pages&nbsp;programmatically.</li>
+<li>Use <code>urllib.request</code> in Python to get the <span class="caps">HTTP</span> status of web pages&nbsp;programmatically.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">15</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>15</h3>
 <ul>
-<li>Options in <code>rsync</code> command to build backup script in Python <i class="fab fa-python"></i>.</li>
+<li>Options in <code>rsync</code> command to build backup script in&nbsp;Python.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">14</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>14</h3>
 <ul>
 <li>Applications of blockchain&nbsp;technology.</li>
-<li><code>coverage.py</code> to test all Python <i class="fab fa-python"></i>&nbsp;code.</li>
-<li>Simple algorithms in Python <i class="fab fa-python"></i> to count (reverse,&nbsp;consecutive).</li>
+<li><code>coverage.py</code> to test all Python&nbsp;code.</li>
+<li>Simple algorithms in Python to count (reverse,&nbsp;consecutive).</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">12</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>12</h3>
 <ul>
-<li><i class="fas fa-history"></i> Review concept of&nbsp;recursion.</li>
-<li><i class="fas fa-history"></i> Review conversion of numbers from different bases (mainly binary <span class="amp">&amp;</span>&nbsp;octal).</li>
+<li>Review concept of&nbsp;recursion.</li>
+<li>Review conversion of numbers from different bases (mainly binary <span class="amp">&amp;</span>&nbsp;octal).</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">11</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>11</h3>
 <ul>
 <li>Themes in Pelican (static site&nbsp;generator).</li>
 <li>Set aliases for domain name to get <span class="caps">HTTPS</span>&nbsp;everywhere.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">10</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>10</h3>
 <ul>
-<li><i class="fas fa-history"></i> Review rounding in Python <i class="fab fa-python"></i> (built-in functions <span class="amp">&amp;</span> <code>math</code> module).</li>
+<li>Review rounding in Python (built-in functions <span class="amp">&amp;</span> <code>math</code> module).</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">9</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>9</h3>
 <ul>
-<li>Make a website on <a href="https://pages.github.com/">GitHub Pages <i class="fab fa-github"></i></a>.</li>
-<li>Git <i class="fab fa-git"></i> commands (submodule, branch, merge, revert, show,&nbsp;log).</li>
+<li>Make a website on <a href="https://pages.github.com/">GitHub Pages</a>.</li>
+<li>Git commands (submodule, branch, merge, revert, show,&nbsp;log).</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">8</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>8</h3>
 <ul>
 <li>Use linters with <code>ALE</code> (Vim&nbsp;plugin).</li>
-<li>Use <span class="caps">JSON</span> in Python <i class="fab fa-python"></i>.</li>
+<li>Use <span class="caps">JSON</span> in&nbsp;Python.</li>
 <li>Use Twilio&nbsp;dashboard.</li>
 <li>Webhooks (reverse&nbsp;APIs).</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">7</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>7</h3>
 <ul>
-<li>Use <code>argparse</code> module in Python <i class="fab fa-python"></i>&nbsp;scripts.</li>
-<li>Threading in Python <i class="fab fa-python"></i> (<code>threading</code> module).</li>
-<li>Install latest Python <i class="fab fa-python"></i> version from source (<a href="https://realpython.com/installing-python/">article on Real Python</a>).</li>
+<li>Use <code>argparse</code> module in Python&nbsp;scripts.</li>
+<li>Threading in Python (<code>threading</code> module).</li>
+<li>Install latest Python version from source (<a href="https://realpython.com/installing-python/">article on Real Python</a>).</li>
 <li>Enable fonts with ligatures in&nbsp;Neovim.</li>
 <li><code>rsync</code> command <span class="amp">&amp;</span> graphical interfaces (including&nbsp;Grsync).</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">6</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>6</h3>
 <ul>
-<li><i class="fas fa-history"></i> Review Vim basics (editing, modes, word commands, search features, find and replace&nbsp;commands).</li>
+<li>Review Vim basics (editing, modes, word commands, search features, find and replace&nbsp;commands).</li>
 <li>Basic features in <a href="https://krita.org/">Krita</a> (digital&nbsp;painting).</li>
 <li>Use applications packaged with&nbsp;flatpak.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">5</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>5</h3>
 <ul>
-<li>Options in Terminator (terminal <i class="fas fa-terminal"></i>&nbsp;emulator).</li>
+<li>Options in Terminator (terminal&nbsp;emulator).</li>
 <li>Basics of restoring files with <code>extundelete</code> command.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">4</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>4</h3>
 <ul>
 <li>Set up account and website configuration in&nbsp;Disqus.</li>
 <li>Basics of restoring files with <code>extundelete</code> command.</li>
 <li>Manage Flask messages&nbsp;(errors).</li>
-<li>Set up custom domain on <a href="https://www.pythonanywhere.com/">Pythonanywere</a> (superb platform to use Python <i class="fab fa-python"></i> in the&nbsp;cloud).</li>
+<li>Set up custom domain on <a href="https://www.pythonanywhere.com/">Pythonanywere</a> (superb platform to use Python in the&nbsp;cloud).</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">3</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>3</h3>
 <ul>
 <li>Modal popups in&nbsp;Bootstrap.</li>
 <li>Concept of using <span class="caps">AJAX</span> to avoid page&nbsp;refresh.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">2</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>2</h3>
 <ul>
 <li>Fields validation in Flask&nbsp;WTForms.</li>
 <li>Capture and use arguments in <span class="caps">URL</span> within Flask&nbsp;application.</li>
 <li>Basic inner workings of Blockchain&nbsp;technology.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">1</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>1</h3>
 <ul>
 <li>Find duplicates in Vim and highlight them with&nbsp;macro.</li>
-<li>More on <span class="caps">POST</span> requests in Python <i class="fab fa-python"></i> with Flask&nbsp;application.</li>
+<li>More on <span class="caps">POST</span> requests in Python with Flask&nbsp;application.</li>
 </ul>
-</div>
-</div>
-
-</div>
-
-<div class="row justify-content-center" role="button" data-toggle="collapse" data-parent="#year2018" href="#sep18" aria-expanded="false" aria-controls="sep18">
-<div class="learning-month">September</div>
-</div>
-<div id="sep18" class="container collapse">
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">30</div>
-<div class="col-12 col-md-10 blue-content">
+<hr>
+<h2>September</h2>
+<h3>30</h3>
 <ul>
-<li>Logging in multiple files in Python <i class="fab fa-python"></i>.</li>
+<li>Logging in multiple files in&nbsp;Python.</li>
 <li>Manage errors in&nbsp;pylint.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">29</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>29</h3>
 <ul>
-<li>Use <span class="caps">CSS</span> <i class="fab fa-css3"></i> grids with&nbsp;Bootstrap.</li>
+<li>Use <span class="caps">CSS</span> grids with&nbsp;Bootstrap.</li>
 <li>Convert images from <span class="caps">PNG</span> to <span class="caps">SVG</span>.</li>
-<li>String encryption in JavaScript <i class="fab fa-js"></i>.</li>
+<li>String encryption in&nbsp;JavaScript.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">28</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>28</h3>
 <ul>
 <li>Connect to <span class="caps">AWS</span> database instance through <span class="caps">SSH</span>.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">27</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>27</h3>
 <ul>
 <li>Set <span class="caps">CNAME</span> and other records for domain&nbsp;name.</li>
-<li>Deploy a website to GitHub <i class="fab fa-github"></i>.</li>
+<li>Deploy a website to&nbsp;GitHub.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">26</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>26</h3>
 <ul>
-<li>Manage downloaded files with <code>selenium</code> module in Python <i class="fab fa-python"></i>.</li>
+<li>Manage downloaded files with <code>selenium</code> module in&nbsp;Python.</li>
 <li>Quickly clean big chunks of data in Vim with regular&nbsp;expressions.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">25</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>25</h3>
 <ul>
-<li>Working with invisible elements with <code>selenium</code> Python <i class="fab fa-python"></i>&nbsp;module.</li>
-<li>Manage Python <i class="fab fa-python"></i> requests to login forms with hidden&nbsp;token.</li>
+<li>Working with invisible elements with <code>selenium</code> Python&nbsp;module.</li>
+<li>Manage Python requests to login forms with hidden&nbsp;token.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">24</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>24</h3>
 <ul>
 <li>Regex to set more complicated mappings in&nbsp;Neovim.</li>
 <li>Set up xmodmap to remap all&nbsp;keys.</li>
 <li>Use <em>diff</em> mode in&nbsp;Neovim.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">23</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>23</h3>
 <ul>
-<li>Basics on Python <i class="fab fa-python"></i> web scraping with <em>Beautiful Soup</em>.</li>
+<li>Basics on Python web scraping with <em>Beautiful Soup</em>.</li>
 <li>Check/change <span class="caps">DNS</span> settings and&nbsp;speed.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">22</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>22</h3>
 <ul>
 <li>Start to use Silver&nbsp;Searcher.</li>
 <li>Buffer navigation with more mappings in&nbsp;Neovim.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">21</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>21</h3>
 <ul>
-<li><i class="fab fa-youtube"></i> Watch <a href="https://www.youtube.com/watch?v=LRQGAnPtNdM">short introduction</a> on Neovim, by Nick&nbsp;Nisi.</li>
-<li>More options in <code>glances</code> terminal <i class="fas fa-terminal"></i>&nbsp;application.</li>
+<li>Watch <a href="https://www.youtube.com/watch?v=LRQGAnPtNdM">short introduction</a> on Neovim, by Nick&nbsp;Nisi.</li>
+<li>More options in <code>glances</code> terminal&nbsp;application.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">20</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>20</h3>
 <ul>
 <li>Spreadsheets graphs in&nbsp;LibreOffice.</li>
-<li>Sort dictionaries in Python <i class="fab fa-python"></i>.</li>
+<li>Sort dictionaries in&nbsp;Python.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">19</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>19</h3>
 <ul>
 <li>Integrate custom functions in Vim (with <a href="https://github.com/ggreer/the_silver_searcher">ag</a>, <a href="https://github.com/junegunn/fzf">fzf</a> <span class="amp">&amp;</span> <a href="https://github.com/davidhalter/jedi">jedi</a>).</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">18</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>18</h3>
 <ul>
 <li>Vim <span class="amp">&amp;</span> Neovim differences to better adjust&nbsp;configuration.</li>
-<li>Extract frames from videos in terminal <i class="fas fa-terminal"></i> with <code>ffmpeg</code>.</li>
+<li>Extract frames from videos in terminal with <code>ffmpeg</code>.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">17</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>17</h3>
 <ul>
 <li>Run Vim commands to affect all buffers with <code>:bufdo</code> <span class="amp">&amp;</span> <code>:argdo</code>.</li>
-<li>Configure Git <i class="fab fa-git"></i> to authenticate with <span class="caps">SSH</span>.</li>
+<li>Configure Git to authenticate with <span class="caps">SSH</span>.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">16</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>16</h3>
 <ul>
-<li>Finish reading <em><a href="https://amzn.to/2XXOh8p">Practical Vim, Second Edition</a></em> <i class="fas fa-book"></i>, by <a href="http://drewneil.com/">Drew Neil</a>. I love this&nbsp;book!</li>
+<li>Finish reading <em><a href="https://amzn.to/2XXOh8p">Practical Vim, Second Edition</a></em>, by <a href="http://drewneil.com/">Drew Neil</a>. I love this&nbsp;book!</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">15</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>15</h3>
 <ul>
-<li>Use Chrome with <code>selenium</code> module in Python <i class="fab fa-python"></i>.</li>
+<li>Use Chrome with <code>selenium</code> module in&nbsp;Python.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">14</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>14</h3>
 <ul>
 <li>Use <span class="caps">ADB</span> <span class="amp">&amp;</span> Fastboot to access Android phone from&nbsp;computer.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">13</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>13</h3>
 <ul>
-<li>Make use of <code>fzf</code> in terminal <i class="fas fa-terminal"></i> <span class="amp">&amp;</span>&nbsp;Neovim.</li>
+<li>Make use of <code>fzf</code> in terminal <span class="amp">&amp;</span>&nbsp;Neovim.</li>
 <li>Configure Neovim from&nbsp;scratch.</li>
 <li>Discover <a href="https://github.com/onivim/oni">Oni</a>, text editor powered by&nbsp;Neovim.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">12</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>12</h3>
 <ul>
-<li><i class="fab fa-youtube"></i> <code>urllib</code> Python <i class="fab fa-python"></i> module by watching <a href="https://www.youtube.com/channel/UCW6TXMZ5Pq6yL6_k5NZ2e0Q">Socratica</a> on&nbsp;YouTube.</li>
+<li><code>urllib</code> Python module by watching <a href="https://www.youtube.com/channel/UCW6TXMZ5Pq6yL6_k5NZ2e0Q">Socratica</a> on&nbsp;YouTube.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">11</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>11</h3>
 <ul>
-<li><i class="fas fa-history"></i> Review table joins in <span class="caps">SQL</span>.</li>
-<li>Set environment variables from terminal <i class="fas fa-terminal"></i>.</li>
+<li>Review table joins in <span class="caps">SQL</span>.</li>
+<li>Set environment variables from&nbsp;terminal.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">10</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>10</h3>
 <ul>
 <li>Set and release clips in Inkscape to cut from&nbsp;objects.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">9</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>9</h3>
 <ul>
 <li>List all file types recursively in&nbsp;Bash.</li>
 <li>Sign <span class="caps">SSL</span> certificates on <a href="https://www.pythonanywhere.com/">Pythonanywhere</a>.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">8</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>8</h3>
 <ul>
 <li>Internet domains (top-level, generic, country&nbsp;code).</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">7</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>7</h3>
 <ul>
 <li>Set up <a href="https://github.com/pallets/flask">Flask</a> application on Pythonanywhere with custom <span class="caps">URL</span>.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">6</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>6</h3>
 <ul>
-<li>Use <code>yaml</code> configuration files with Python <i class="fab fa-python"></i>.</li>
+<li>Use <code>yaml</code> configuration files with&nbsp;Python.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">5</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>5</h3>
 <ul>
 <li>Set up project with <a href="https://github.com/pallets/click">Click</a> (command line interface&nbsp;toolkit).</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">3</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>3</h3>
 <ul>
-<li>Dictionaries being ordered in Python 3.7 <i class="fab fa-python"></i>.</li>
+<li>Dictionaries being ordered in Python&nbsp;3.7.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 grey-day">2</div>
-<div class="col-12 col-md-10 grey-content">
+<h3>2</h3>
 <ul>
-<li>Python <i class="fab fa-python"></i> <code>timeit</code> module <span class="amp">&amp;</span> use of <code>__init__.py</code> files.</li>
-<li><i class="fab fa-youtube"></i> Django tutorial serie with <a href="https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g">Corey Schafer</a> on&nbsp;YouTube.</li>
+<li>Python <code>timeit</code> module <span class="amp">&amp;</span> use of <code>__init__.py</code> files.</li>
+<li>Django tutorial serie with <a href="https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g">Corey Schafer</a> on&nbsp;YouTube.</li>
 </ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12 col-md-2 blue-day">1</div>
-<div class="col-12 col-md-10 blue-content">
+<h3>1</h3>
 <ul>
-<li>Python <i class="fab fa-python"></i> <code>selenium</code> module: deal with page load time <span class="amp">&amp;</span>&nbsp;XPath.</li>
+<li>Python <code>selenium</code> module: deal with page load time <span class="amp">&amp;</span>&nbsp;XPath.</li>
 </ul>
-</div>
-</div>
-
-</div>
-</div>
-</div>
-
 <hr>
-<div id="earlier2018" class="container no-padding">
-<div class="panel">
-
-<div class="row justify-content-center" role="button" data-toggle="collapse" data-parent="#earlier2018" href="#early18" aria-expanded="false" aria-controls="early18">
-<div class="learning-year collapsible">Earlier in 2018</div>
-</div>
-<div id="early18" class="container collapse">
-
-<strong>Git <i class="fab fa-git"></i> <span class="amp">&amp;</span> GitHub <i class="fab fa-github"></i></strong>
+<h1>Earlier in&nbsp;2018</h1>
+<p><strong>Git <span class="amp">&amp;</span>&nbsp;GitHub</strong></p>
 <ul>
 <li>Contribute a pull request and get&nbsp;feedback.</li>
 <li>Make use of forks and public/private&nbsp;repositories.</li>
-<li>Use <a href="https://github.com/">GitHub</a> <i class="fab fa-github"></i> from terminal <i class="fas fa-terminal"></i>.</li>
-</ul>
-<strong>Python</strong>
-<ul>
-<li>Algorithms <span class="amp">&amp;</span> Data Structures on <a href="https://www.hackerrank.com/">HackerRank.com</a>, <a href="http://www.codeabbey.com/">Code Abbey</a>, <a href="https://projecteuler.net/">Project Euler <i class="fas fa-calculator"></i></a>,&nbsp;etc.</li>
+<li>Use <a href="https://github.com/">GitHub</a> from terminal.
+<strong>Python</strong></li>
+<li>Algorithms <span class="amp">&amp;</span> Data Structures on <a href="https://www.hackerrank.com/">HackerRank.com</a>, <a href="http://www.codeabbey.com/">Code Abbey</a>, <a href="https://projecteuler.net/">Project Euler</a>,&nbsp;etc.</li>
 <li>Finish <em>Complete Python Masterclass</em> on Udemy, by Tim&nbsp;Buchalka.</li>
 <li>Jupyter&nbsp;Notebooks.</li>
 <li>Build a <span class="caps">CLI</span> with <a href="https://github.com/pallets/click">Click</a>.</li>
 <li>Use <a href="https://www.anaconda.com">Anaconda distribution</a> with scientific&nbsp;libraries.</li>
-<li><code>subprocess</code> module in Python <i class="fab fa-python"></i>.</li>
+<li><code>subprocess</code> module in&nbsp;Python.</li>
 </ul>
-
-<strong><span class="caps">SQL</span></strong>
+<p><strong><span class="caps">SQL</span></strong></p>
 <ul>
 <li>[Basic] Certificate of Completion of <em>Database for Developers</em>, by&nbsp;Oracle.</li>
 </ul>
-
-<strong>Vim/Neovim <span class="amp">&amp;</span> other text editors</strong>
+<p><strong>Vim/Neovim <span class="amp">&amp;</span> other text&nbsp;editors</strong></p>
 <ul>
 <li>Clear variables and registers in Neovim to improve mappings&nbsp;efficiency.</li>
 <li>Completion with <code>Ctrl + x</code> in&nbsp;Neovim.</li>
@@ -1433,120 +710,32 @@
 <li>Use <code>vim-fugitive</code> to visualize differences between files in split&nbsp;windows.</li>
 <li>Use setting <code>wildignore</code> in&nbsp;Neovim.</li>
 <li>Vim script&nbsp;language.</li>
-</ul>
-<ul>
 <li>Use <span class="caps">VS</span> Code, Atom <span class="amp">&amp;</span> nano&nbsp;(mainly).</li>
 </ul>
-
-
-</div>
-
-</div>
-</div>
-
 <hr>
-<div id="earlier2017" class="container no-padding">
-<div class="panel">
-
-<div class="row justify-content-center" role="button" data-toggle="collapse" data-parent="#earlier2017" href="#early17" aria-expanded="false" aria-controls="early17">
-<div class="learning-year collapsible">2017 <span class="amp">&amp;</span> earlier</div>
-</div>
-<div id="early17" class="container collapse">
-
-<strong>Linux <i class="fab fa-linux"></i></strong>
+<h1>Earlier</h1>
+<p><strong>Linux</strong></p>
 <ul>
 <li>Bash&nbsp;scripting.</li>
 <li>Disk encryption with&nbsp;cryptsetup.</li>
-<li>Use Bash terminal <i class="fas fa-terminal"></i>.</li>
-<li>Use distributions, including <a href="https://kubuntu.org/">Kubuntu</a>, <a href="https://www.debian.org/">Debian</a>, <a href="https://getfedora.org/">Fedora</a>, <a href="https://www.ubuntu.com/">Ubuntu</a>, <a href="https://linuxmint.com/">Linux Mint</a>, <a href="https://www.openmandriva.org/">Mandrake, Mandriva</a> and <a href="https://www.suse.com/">SuSE</a>.</li>
+<li>Use Bash&nbsp;terminal.</li>
+<li>Use distributions, including <a href="https://kubuntu.org/">Kubuntu</a>, <a href="https://www.debian.org/">Debian</a>, <a href="https://getfedora.org/">Fedora</a>, <a href="https://www.ubuntu.com/">Ubuntu</a>, <a href="https://linuxmint.com/">Linux Mint</a>, <a href="https://www.openmandriva.org/">Mandrake, Mandriva</a> and <a href="https://www.suse.com/">SuSE</a>.
+<strong>Basics&nbsp;of&#8230;</strong></li>
+<li>Python: Get <a href="https://www.sololearn.com/Certificate/1073-6555674/pdf/">certificate</a> for Python 3 Tutorial on <a href="https://www.sololearn.com/">SoloLearn</a>.</li>
+<li><span class="caps">HTML</span>, <span class="caps">CSS</span>, JavaScript, <span class="caps">SQL</span>, Visual Basic, Pascal, Scribus, LibreOffice, <span class="caps">GIMP</span>, Audacity, Inkscape, Blender, <span class="caps">XAMPP</span> (Apache distribution), Wordpress, Freeplane (mind mapping&nbsp;software).</li>
 </ul>
-<strong>Basics of&#8230;</strong>
-<ul>
-<li>Python <i class="fab fa-python"></i>: Get <i class="fas fa-graduation-cap"></i> <a href="https://www.sololearn.com/Certificate/1073-6555674/pdf/">certificate</a> for Python 3 Tutorial on <a href="https://www.sololearn.com/">SoloLearn</a>.</li>
-<li><span class="caps">HTML</span> <i class="fab fa-html5"></i>, <span class="caps">CSS</span> <i class="fab fa-css3"></i>, JavaScript <i class="fab fa-js"></i>, <span class="caps">SQL</span>, Visual Basic, Pascal, Scribus, LibreOffice, <span class="caps">GIMP</span>, Audacity, Inkscape, Blender, <span class="caps">XAMPP</span> (Apache distribution), Wordpress, Freeplane (mind mapping&nbsp;software).</li>
-</ul>
-
-</div>
-
-</div>
-</div>
-      </div>
   </div>
-        <!-- /.entry-content -->
+  <div class="article_meta">
+    <p>Updated on: Wed 15 May 2019</p>
+  </div>
+</article>
 
-	<hr>
 
-    </section>
-
-        <div class="footer-borders">
-            <footer id="contentinfo" class="body bg-border hover-footer-bg">
-
-                <address class="footer-icons">
-
-                    <div class="get-in-touch-icons">
-                        <ul class="social-footer">
-
-                            <li><a href="https://github.com/sglavoie"><img src="/theme/images/footer/github.svg" alt="GitHub"></a></li>
-                            <li><a href="https://www.twitter.com/sgdlavoie"><img src="/theme/images/footer/twitter.svg" alt="Twitter"></a></li>
-                            <li><a href="https://www.linkedin.com/in/sglavoie"><img src="/theme/images/footer/linkedin.svg" alt="LinkedIn"></a></li>
-                            <li><a href="https://www.hackerrank.com/sglavoie"><img src="/theme/images/footer/hackerrank.svg" alt="HackerRank"></a></li>
-                            <li><a href="https://stackoverflow.com/users/story/8787680"><img src="/theme/images/footer/stackoverflow.svg" alt="Stackoverflow"></a></li>
-                        </ul>
-
-                    </div>
-
-                </address>
-
-                <address id="about" class="vcard body">
-                    Proudly powered by <a href="http://getpelican.com/">Pelican 4.2.0<img class="mini-icon" src="/theme/images/footer/pelican.svg" alt="Pelican"></a>,
-                    which takes great advantage of <a href="http://python.org">Python<img class="mini-icon" src="/theme/images/footer/python.svg" alt="Python"></a> .
-
-                    <div id="author-footer">
-                        <p class="smaller-p-padding">Copyleft <span class="copy-left">©</span> 2019 — Sébastien Lavoie
-                        <script>
-                            <!--
-// Email obfuscator script 2.1 by Tim Williams, University of Arizona
-// Random encryption key feature coded by Andrew Moulden
-// This code is freeware provided these four comment lines remain intact
-// A wizard to generate this code is at http://www.jottings.com/obfuscator/
-{ coded = "Efp9ExWfz@EoU9R5Wf.45D"
-    key = "RXmOLk0xFelpj9ihYV4PZ5AGDB3wsKdfUn12WHJgvqNIrCytS8EbQa6zuMc7To"
-    shift=coded.length
-    link=""
-    for (i=0; i<coded.length; i++) {
-        if (key.indexOf(coded.charAt(i))==-1) {
-            ltr = coded.charAt(i)
-            link += (ltr)
-        }
-        else {
-            ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
-            link += (key.charAt(ltr))
-        }
-    }
-    // Adding inline style to 'img' tag as it seems to be more trustworthy inside this script.
-    document.write("<a href='mailto:"+link+"'>"+"<img class='mini-icon' src='/theme/images/footer/email.svg' alt='Email'>"+"</a>")
-}
-//-->
-                        </script><noscript>Sorry, you need Javascript on to email me.</noscript>
-                        </p>
-                    </div>
-                </address>
-
-                <div class="version-footer">v0.20.0</div>
-
-                <!-- /#about -->
-            </footer>
-
-        </div>
-        <!-- /#contentinfo -->
-
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-        <!-- Disqus comment counts for each article -->
-        <script id="dsq-count-scr" src="https://sglavoie.disqus.com/count.js" async></script>
-    </body>
+    <div id="ending_message">
+       <h3>Subscribe to the Newsletter</h3>
+       <form style="border:1px solid #ccc;padding:3px;text-align:center;" action="https://tinyletter.com/sglavoie" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/sglavoie', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"><p><label for="tlemail">Enter your email address</label></p><p><input type="text" style="width:140px" name="email" id="tlemail" /></p><input type="hidden" value="1" name="embed"/><input type="submit" value="Subscribe" /><p><a href="https://tinyletter.com" target="_blank">powered by TinyLetter</a></p></form>
+      <p>&copy; Sébastien Lavoie. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>.</p>
+    </div>
+  </main>
+</body>
 </html>
