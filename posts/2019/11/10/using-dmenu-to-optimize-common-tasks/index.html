@@ -30,7 +30,7 @@
       <meta name="keywords" content="bash, dmenu, i3, linux, productivity, script">
 
       <!-- Open graph for social networks -->
-      <meta name="og:title" property="og:title" content="Description.">
+      <meta name="og:title" property="og:title" content="If remembering dozens of keyboard shortcuts isn't your forte, let dmenu come to the rescue! With this awesome tool, you will be able to create menus from plain text files swiftly and effortlessly (almost).">
 
       <title>
         sglavoie.com
@@ -78,14 +78,14 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="https://www.sglavoie.com/drafts/using-dmenu-to-optimize-common-tasks.html">Using dmenu to Optimize Common&nbsp;Tasks</a></h1>
+    <h1><a href="https://www.sglavoie.com/posts/2019/11/10/using-dmenu-to-optimize-common-tasks/">Using dmenu to Optimize Common&nbsp;Tasks</a></h1>
   </div>
   <div class="article_readtime">
-    <p>Estimated read time: 10 minutes</p>
+    <p>Estimated read time: 11 minutes</p>
   </div>
   <div class="article_text">
     <h1>Introduction</h1>
-<p><a href="https://tools.suckless.org/dmenu">dmenu</a> is one of those tools that look a little unimpressive at first but can accomplish so much! It&#8217;s a program that you can use to receive any output redirected from other programs (through pipes in the terminal, the symbol <code>|</code>) and treat that output so that it can pop up within a simple menu to make it available for execution. If you want to know more about other fantastic tools from <a href="https://suckless.org">suckless.org</a>, I&#8217;ve <a href="https://www.sglavoie.com/posts/2019/05/12/suckless-minimalist-tools-that-work-great">discussed other tools before</a>, such as the <code>st</code> terminal and <code>slock</code>, a dead simple screen&nbsp;locker.</p>
+<p><a href="https://tools.suckless.org/dmenu">dmenu</a> is one of those tools that look a little unimpressive at first but can accomplish so much! It&#8217;s a program that you can use to receive any output redirected from other programs (through pipes in the terminal, the symbol <code>|</code>) and treat that output so that it can pop up within a simple menu to make it available for execution. If you want to know more about other fantastic tools from <a href="https://suckless.org">suckless.org</a>, I <a href="https://www.sglavoie.com/posts/2019/05/12/suckless-minimalist-tools-that-work-great">went over some of them before</a>, such as the <code>st</code> terminal and <code>slock</code>, a dead simple screen&nbsp;locker.</p>
 <hr>
 <h1>Any Simple&nbsp;Example?</h1>
 <p>You bet! Before diving in with how to install it and some more concrete examples, you could give <code>dmenu</code> a go with a simple command such as the following (assuming the program is installed on your&nbsp;machine).</p>
@@ -104,7 +104,7 @@
 
 
 <p>This is now a fully functional example, albeit its practicality is debatable. What will happen,&nbsp;exactly?</p>
-<p>First, <code>ls</code> will output a list of directories in the current working directory. That is, the following will be printed in the terminal in this&nbsp;case:</p>
+<p>First, <code>ls</code> will output a list of directories in the current working directory. That is, the following would be printed in the terminal without any&nbsp;piping:</p>
 <div class="highlight"><pre><span></span>Desktop    Downloads  Learning  Pictures     Public   Templates  virtualbox_vms
 Documents  Dropbox    Music     Programming  SortOut  Videos
 </pre></div>
@@ -112,8 +112,8 @@ Documents  Dropbox    Music     Programming  SortOut  Videos
 
 <p>When we <em>pipe</em> this into <code>dmenu</code>, we will get a menu with all that output nicely formatted vertically, which is what the <code>-l 5</code> options does (here, we want only <strong>5</strong> lines to show). We will see a maximum of <strong>5</strong> items as this is the value we passed to the <code>-l</code> option:</p>
 <p><a href="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_ls_command_vertical_5_items.png"><img src="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_ls_command_vertical_5_items.png" alt="dmenu_ls_command_vertical_5_items" class="max-size-img-post"></a></p>
-<p>We can still start typing a word that doesn&#8217;t show up in this list like <code>Mu</code> and we will see that this list is filtered to only include the matching directory <code>Music</code> even though we couldn&#8217;t see it before since we limited our results to <strong>5</strong> items. We could also use the same technique with <code>Ctrl + n</code> and <code>Ctrl + p</code> to cycle between the different&nbsp;elements.</p>
-<p>Up to this point, we are getting our selection outputted to the terminal. Next, we pipe it into <code>xargs</code>, which will allow us to specify a command to which we will pass our result (what is printed to the terminal) as an argument (we could make use of more arguments depending on the output we get, but let&#8217;s start simple). The <code>-I {}</code> option will make it possible to &#8220;quote&#8221; our result so it is read as a single argument. Otherwise, if we have spaces or other special characters in the argument (such as a folder called <code>My Music</code>), it would try to pass each word as a new argument to <code>pcmanfm</code>, trying to open both <code>My</code> and <code>Music</code> directories at&nbsp;once.</p>
+<p>We can still start typing a word that doesn&#8217;t show up in this list like <code>Mu</code> and we will see that this list is filtered to only include the matching directory <code>Music</code> even though we couldn&#8217;t see it before since we limited our results to <strong>5</strong> items. We could also use the same technique with <code>Ctrl + n</code> and <code>Ctrl + p</code> to cycle between the&nbsp;elements.</p>
+<p>Up to this point, we are getting our selection outputted to the terminal. Next, we pipe it into <code>xargs</code>, which will allow us to specify a command to which we will pass our result (what is printed to the terminal) as an argument (we could make use of more arguments depending on the output we get, but let&#8217;s start simple). The <code>-I {}</code> option will make it possible to &#8220;quote&#8221; our result so it is read as a single argument and properly <em>escaped</em>. This means that without this option, if we have spaces or other special characters in the argument (such as a folder called <code>My Music</code>), it would try to pass each word as a new argument to <code>pcmanfm</code>, trying to open both <code>My</code> and <code>Music</code> directories at&nbsp;once.</p>
 <p>We are representing our output as <code>{}</code> and when we quote it with <code>pcmanfm "{}"</code>, spaces are interpreted without any trouble. If we wanted to use various arguments instead, we could try something like&nbsp;this:</p>
 <div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;file1.txt file2.txt\nfile3.txt file4.txt&quot;</span> <span class="p">|</span> dmenu -l <span class="m">2</span> <span class="p">|</span> xargs cat
 </pre></div>
@@ -153,14 +153,14 @@ file3.txt file4.txt
 <li>documents <span class="amp">&amp;</span> books I read at the&nbsp;university;</li>
 <li>custom scripts I want to run in the&nbsp;background.</li>
 </ul>
-<p>Here are a few screenshots of how it currently looks like in my daily usage so you get a better&nbsp;idea:</p>
+<p>Here are a few screenshots of how it currently looks like in my daily usage so you get a better&nbsp;idea.</p>
 <h2>Cheat&nbsp;sheets</h2>
 <p><a href="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_cheat_sheets.png"><img src="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_cheat_sheets.png" alt="dmenu_cheat_sheets" class="max-size-img-post"></a></p>
 <h2>University&nbsp;shortcuts</h2>
 <p><a href="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_university_shortcuts.png"><img src="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_university_shortcuts.png" alt="dmenu_university_shortcuts" class="max-size-img-post"></a></p>
 <h2>File manager&nbsp;shortcuts</h2>
 <p><a href="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_file_manager_shortcuts.png"><img src="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_file_manager_shortcuts.png" alt="dmenu_file_manager_shortcuts" class="max-size-img-post"></a></p>
-<p>So, how does that all work? As a starting point, all of those menus are launched through a specific keyboard shortcut that uses a mnemonic for each&nbsp;one:</p>
+<p>So, how does that all work? As a starting point, all of those menus are launched through a specific keyboard shortcut that uses a mnemonic for each one (<code>mod</code> being the &#8220;modifier&#8221; key on <strong>i3</strong>, which is set to <code>Super/Windows</code>):</p>
 <ul>
 <li><code>mod + Alt + c</code>: <strong>c</strong>heat&nbsp;sheets;</li>
 <li><code>mod + Alt + d</code>: <strong>d</strong>ocuments;</li>
@@ -171,7 +171,7 @@ file3.txt file4.txt
 <p>Let&#8217;s take the cheat sheets example, which is a bit more interesting since it launches different&nbsp;applications.</p>
 <h2>Setting Up a Custom&nbsp;Command</h2>
 <h3>Configuration for i3 (bind a keyboard&nbsp;shortcut)</h3>
-<p>Here, I&#8217;m using <a href="https://i3wm.org">i3</a> to set a keyboard shortcut to run a specific command, but this will be a similar idea for other window managers and desktop&nbsp;environments.</p>
+<p>Here, I&#8217;m using <a href="https://i3wm.org">i3</a> to set a keyboard shortcut to run a specific command, but this will be a similar experience on other window managers and desktop&nbsp;environments.</p>
 <div class="highlight"><pre><span></span># i3config file
 # The backslash at the end of the line allows us
 # to split the line to increase readability
@@ -203,13 +203,24 @@ cat ~/.custom/dmenu/cheatsheets.conf <span class="se">\</span>
 </pre></div>
 
 
-<p>Here, we have set a maximum of <strong>30</strong> lines to be displayed (<code>-l 30</code>). What follows after an element has been selected with <strong>dmenu</strong> allows us to parse the content of the file and retrieve only the command we are interested in with <code>sed</code> before passing that filtered content around to <code>sh</code> to execute it as a shell command. With more complex commands requiring multiples arguments to be received, we could add one more pipe between <code>sed</code> and <code>sh</code> like this (or with <code>xargs -I {}</code> to avoid problems with&nbsp;spaces):</p>
+<p>Here, we have set a maximum of <strong>30</strong> lines to be displayed (<code>-l 30</code>). What follows after an element has been selected with <strong>dmenu</strong> allows us to parse the content of the line and retrieve only the command we are interested in with <code>sed</code> before passing that filtered content around to <code>sh</code> to execute it as a shell command. With more complex commands requiring multiples arguments to be received, we could add one more pipe between <code>sed</code> and <code>sh</code> like this (or with <code>xargs -I {}</code> to avoid problems with&nbsp;spaces):</p>
 <div class="highlight"><pre><span></span>cat ~/.custom/dmenu/cheatsheets.conf <span class="se">\</span>
 <span class="p">|</span> dmenu -l <span class="m">30</span> <span class="p">|</span> sed <span class="s1">&#39;s/.*    \+//&#39;</span> <span class="p">|</span> xargs -r <span class="p">|</span> sh
 </pre></div>
 
 
-<p>What&#8217;s nice with the way pipes work in a Unix-like system is that we can chain harmless commands until the very end so they will simply be printed to the terminal. In this example, if we want to see how to filter our files before running a command, we can do so as&nbsp;follow.</p>
+<p>If the line we want to run only includes a path to a file as&nbsp;in:</p>
+<div class="highlight"><pre><span></span>myshortcut       ~/path/to/a/file.pdf
+</pre></div>
+
+
+<p>We could instead pipe it into an external command of choice if the same program applies to all items presented in the menu, say&nbsp;Firefox:</p>
+<div class="highlight"><pre><span></span>cat ~/.custom/dmenu/pdf-and-docs.conf <span class="se">\</span>
+<span class="p">|</span> dmenu -l <span class="m">30</span> <span class="p">|</span> sed <span class="s1">&#39;s/.*    \+//&#39;</span> <span class="p">|</span> xargs -I <span class="o">{}</span> firefox <span class="s2">&quot;{}&quot;</span>
+</pre></div>
+
+
+<p>What&#8217;s nice with the way pipes work in a Unix-like system is that we can chain harmless commands until the very end so they will simply be printed to the terminal. In this example, if we want to see how to filter our lines before running a command, we can do so as&nbsp;follow.</p>
 <h4>Pipe&nbsp;1</h4>
 <div class="highlight"><pre><span></span>cat ~/.custom/dmenu/cheatsheets.conf <span class="se">\</span>
 <span class="p">|</span> dmenu -l <span class="m">30</span>
@@ -221,7 +232,8 @@ cat ~/.custom/dmenu/cheatsheets.conf <span class="se">\</span>
 </pre></div>
 
 
-<p>What <code>sed</code> does here is to cut everything from the beginning of the line up to where the command starts (that&#8217;s where we find <code>zathura</code>, which is a document viewer), because we need to isolate that part of the line so it looks like a shell command we could run on its own. We could have used other tools to parse the string like <code>awk</code>, <code>grep</code>, <code>cut</code>, etc. Let&#8217;s add a new pipe to our command and see what <code>sed</code> does with&nbsp;it.</p>
+<p>What <code>sed</code> does here is to cut everything from the beginning of the line up to where the command starts (that&#8217;s where we find <a href="https://pwmt.org/projects/zathura/">zathura</a>, which is a powerful document viewer), because we need to isolate that part of the line so it looks like a shell command we could run on its own. Let&#8217;s add a new pipe to our command and see what <code>sed</code> does with&nbsp;it*.</p>
+<p>* <sub>We could have used other tools to parse the string like <code>awk</code>, <code>grep</code>, <code>cut</code>, etc.</sub></p>
 <h4>Pipe&nbsp;2</h4>
 <div class="highlight"><pre><span></span>cat ~/.custom/dmenu/cheatsheets.conf <span class="se">\</span>
 <span class="p">|</span> dmenu -l <span class="m">30</span> <span class="p">|</span> sed <span class="s1">&#39;s/.*    \+//&#39;</span>
@@ -233,7 +245,7 @@ cat ~/.custom/dmenu/cheatsheets.conf <span class="se">\</span>
 </pre></div>
 
 
-<p>If we were to type this in the terminal (assuming the file exists!), that would do the trick and it would open with the specified document viewer. <strong>Pipe 2</strong> and subsequent pipes before we execute something is where the filtering magic happen. In&nbsp;short:</p>
+<p>If we were to type this in the terminal (assuming the file exists and <strong>zathura</strong> is installed!), that would do the trick and it would open with the specified document viewer. <strong>Pipe 2</strong> and subsequent pipes before we execute something is where the filtering magic happen. In&nbsp;short:</p>
 <ul>
 <li>Everything <strong>before</strong> <code>| dmenu</code> is how our input will look like when we run <code>dmenu</code>;</li>
 <li>Everything <strong>after</strong> <code>| dmenu [options here] |</code> is what we need to do to our input so that it is converted into a working shell&nbsp;command;</li>
@@ -246,7 +258,7 @@ cat ~/.custom/dmenu/cheatsheets.conf <span class="se">\</span>
 </pre></div>
 
 
-<p>There we go, the command is launched. If we keep the same simple syntax in all of our <code>.conf</code> files where the content of our menus is stored in plain text, we can quickly and painlessly create keyboard shortcuts to run custom lists of commands that can be edited on the fly. Once our shortcuts are active, it&#8217;s only a matter of editing one of those <code>.conf</code> files and automatically our lists will be up-to-date when we type the shortcut&nbsp;again.</p>
+<p>There we go, the command is launched. If we keep the same simple syntax in all of our <code>.conf</code> files —or whatever extension we choose— where the content of our menus is stored in plain text, we can quickly and painlessly create keyboard shortcuts to run custom lists of commands that can be edited on the fly. Once our shortcuts are active, it&#8217;s only a matter of editing one of those <code>.conf</code> files and automatically our lists will be up-to-date when we trigger the shortcut&nbsp;again.</p>
 <h2>Running a Custom&nbsp;Script</h2>
 <p>If we want to run custom scripts, we need to indicate a command that would work in the terminal, such as <code>python myscrypt.py</code> or <code>./myscript.sh</code>. When it comes to shell scripts, we have to make sure they are executable. We can do so through a file manager or within the terminal like&nbsp;this:</p>
 <div class="highlight"><pre><span></span>chmod +x ~/path/to/script.sh
@@ -259,10 +271,10 @@ myscript           ~/scripts/script.sh
 </pre></div>
 
 
-<p>And that&#8217;s all there is to know to get piping with <code>dmenu</code>! You may also find <a href="https://www.youtube.com/watch?v=R9m723tAurA">this video from Luke Smith</a> on YouTube to be quite helpful as well, which is where the inspiration for this post came&nbsp;from.</p>
+<p>And that&#8217;s all there is to know to get piping with <code>dmenu</code>! You may also find <a href="https://www.youtube.com/watch?v=8E8sUNHdzG8">this video from Luke Smith</a> on YouTube to be quite helpful as well, which is where the inspiration for this post came from. He also <a href="https://www.youtube.com/watch?v=R9m723tAurA">posted a complementary video</a> about adding prompts to your commands which is a nice way to add interactivity to your&nbsp;scripts!</p>
 <hr>
 <h1>Customize the Look of&nbsp;dmenu</h1>
-<p>As they say, &#8220;<em>beauty is in the eye of the beholder</em>&#8220;. If you would rather make some changes to how dmenu look, you can. <strong>dmenu</strong> will be searching for the configuration file located at <code>~/.dmenurc</code>, which could contain something like that (with this configuration, it will look like the screenshots shown&nbsp;previously):</p>
+<p>As they say, <em>&#8220;beauty is in the eye of the beholder&#8221;</em>. If you would rather make some changes to how dmenu look, you can. <strong>dmenu</strong> will be searching for the configuration file located at <code>~/.dmenurc</code>, which could contain something as put below (with this configuration, it will look like the screenshots shown&nbsp;previously):</p>
 <div class="highlight"><pre><span></span>#
 # ~/.dmenurc
 #
@@ -291,11 +303,11 @@ DMENU_OPTIONS=&quot;-fn $DMENU_FN -nb $DMENU_NB -nf $DMENU_NF -sf $DMENU_SF -sb 
 
 
 <h1>Conclusion</h1>
-<p>Hopefully this introduction to what <strong>dmenu</strong> has to offer gave you some ideas. I hope you&#8217;ll find many ways to adapt the examples so you can benefit from this awesome tool. You can find more configuration details in my <a href="https://github.com/sglavoie/dotfiles/tree/master/config">dotfiles on GitHub</a> for anything related to <strong>i3</strong>, <strong>dmenu</strong>, <strong>zathura</strong>, <strong>st</strong>, <strong>slock</strong> and many more useful&nbsp;programs.</p>
+<p>Hopefully this introduction to what <strong>dmenu</strong> has to offer gave you some ideas. I hope you&#8217;ll find many ways to adapt the examples so you can benefit from this amazing tool. You can find more configuration details in my <a href="https://github.com/sglavoie/dotfiles/tree/master/config">dotfiles on GitHub</a> for anything related to <strong>i3</strong>, <strong>dmenu</strong>, <strong>zathura</strong>, <strong>st</strong>, <strong>slock</strong> and many more useful&nbsp;programs.</p>
 <p>Have a good time automating your digital&nbsp;life!</p>
   </div>
   <div class="article_meta">
-    <p>Posted on: Fri 08 November 2019</p>
+    <p>Posted on: Sun 10 November 2019</p>
     <p>Category: <a href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a>
  &ndash; Tags:
       <a href="https://www.sglavoie.com/tag/bash.html">bash</a>,      <a href="https://www.sglavoie.com/tag/dmenu.html">dmenu</a>,      <a href="https://www.sglavoie.com/tag/i3.html">i3</a>,      <a href="https://www.sglavoie.com/tag/linux.html">linux</a>,      <a href="https://www.sglavoie.com/tag/productivity.html">productivity</a>,      <a href="https://www.sglavoie.com/tag/script.html">script</a>    </p>
@@ -304,7 +316,7 @@ DMENU_OPTIONS=&quot;-fn $DMENU_FN -nb $DMENU_NB -nf $DMENU_NF -sf $DMENU_SF -sb 
   <div id="article_comments">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
-        var disqus_identifier = "drafts/using-dmenu-to-optimize-common-tasks.html";
+        var disqus_identifier = "posts/2019/11/10/using-dmenu-to-optimize-common-tasks/";
         (function() {
              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
              dsq.src = '//sglavoie.disqus.com/embed.js';
