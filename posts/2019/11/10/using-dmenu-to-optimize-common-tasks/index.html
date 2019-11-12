@@ -169,18 +169,19 @@ file3.txt file4.txt
 <li><code>mod + Alt + u</code>: <strong>u</strong>niversity.</li>
 </ul>
 <p>Let&#8217;s take the cheat sheets example, which is a bit more interesting since it launches different&nbsp;applications.</p>
+<hr>
 <h2>Setting Up a Custom&nbsp;Command</h2>
 <h3>Configuration for i3 (bind a keyboard&nbsp;shortcut)</h3>
 <p>Here, I&#8217;m using <a href="https://i3wm.org">i3</a> to set a keyboard shortcut to run a specific command, but this will be a similar experience on other window managers and desktop&nbsp;environments.</p>
-<div class="highlight"><pre><span></span># i3config file
-# The backslash at the end of the line allows us
-# to split the line to increase readability
+<div class="highlight"><pre><span></span><span class="c1"># i3config file</span>
+<span class="c1"># The backslash at the end of the line allows us</span>
+<span class="c1"># to split the line to increase readability</span>
 
-## Cheatsheets
+<span class="c1">## Cheatsheets</span>
 
-bindsym $mod+Mod1+c exec --no-startup-id \
-cat ~/.custom/dmenu/cheatsheets.conf \
-| dmenu -l 30 | sed &#39;s/.*    \+//&#39; | sh
+bindsym <span class="nv">$mod</span>+Mod1+c <span class="nb">exec</span> --no-startup-id <span class="se">\</span>
+cat path/to/cheatsheets.conf <span class="se">\</span>
+<span class="p">|</span> dmenu -l <span class="m">30</span> <span class="p">|</span> sed <span class="s1">&#39;s/.*    \+//&#39;</span> <span class="p">|</span> sh
 </pre></div>
 
 
@@ -188,7 +189,7 @@ cat ~/.custom/dmenu/cheatsheets.conf \
 <div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 
 <span class="c1">## Cheatsheets</span>
-cat ~/.custom/dmenu/cheatsheets.conf <span class="se">\</span>
+cat path/to/cheatsheets.conf <span class="se">\</span>
 <span class="p">|</span> dmenu -l <span class="m">30</span> <span class="p">|</span> sed <span class="s1">&#39;s/.*    \+//&#39;</span> <span class="p">|</span> sh
 </pre></div>
 
@@ -196,52 +197,52 @@ cat ~/.custom/dmenu/cheatsheets.conf <span class="se">\</span>
 <p>As far as <strong>i3</strong> is concerned, that&#8217;s all you need to do. You would need to reload the configuration file (by default: <em>i3config</em>) where the previous <code>bindsym</code> command has been set up to apply the changes (default shortcut to reload: <code>mod + Shift + c</code>).</p>
 <h3>Configuration for&nbsp;cheatsheets.conf</h3>
 <p>The content of this file is literally what will be shown when <strong>dmenu</strong> opens it. An&nbsp;excerpt:</p>
-<div class="highlight"><pre><span></span><span class="o">#</span><span class="c1">---------- Cheat Sheets -------------------------------------------------------</span>
-<span class="n">bash</span>          <span class="n">st</span> <span class="o">-</span><span class="n">e</span> <span class="n">nvim</span> <span class="o">~/</span><span class="n">Dropbox</span><span class="o">/</span><span class="n">Programming</span><span class="o">/</span><span class="n">cheatsheets</span><span class="o">/</span><span class="n">bash</span><span class="p">.</span><span class="n">sh</span>
-<span class="n">git</span>           <span class="n">zathura</span> <span class="o">~/</span><span class="n">Dropbox</span><span class="o">/</span><span class="n">Programming</span><span class="o">/</span><span class="n">cheatsheets</span><span class="o">/</span><span class="n">github</span><span class="o">-</span><span class="n">git</span><span class="p">.</span><span class="n">pdf</span>
-<span class="n">vimwiki</span>       <span class="n">firefox</span> <span class="o">~/</span><span class="n">Dropbox</span><span class="o">/</span><span class="n">Programming</span><span class="o">/</span><span class="n">cheatsheets</span><span class="o">/</span><span class="n">vimwiki</span><span class="p">.</span><span class="n">html</span>
+<div class="highlight"><pre><span></span>#---------- Cheat Sheets -------------------------------------------------------
+bash         st -e nvim path/to/bash.sh
+git          zathura path/to/github.pdf
+vimwiki      firefox path/to/vimwiki.html
 </pre></div>
 
 
 <p>Here, we have set a maximum of <strong>30</strong> lines to be displayed (<code>-l 30</code>). What follows after an element has been selected with <strong>dmenu</strong> allows us to parse the content of the line and retrieve only the command we are interested in with <code>sed</code> before passing that filtered content around to <code>sh</code> to execute it as a shell command. With more complex commands requiring multiples arguments to be received, we could add one more pipe between <code>sed</code> and <code>sh</code> like this (or with <code>xargs -I {}</code> to avoid problems with&nbsp;spaces):</p>
-<div class="highlight"><pre><span></span>cat ~/.custom/dmenu/cheatsheets.conf <span class="se">\</span>
+<div class="highlight"><pre><span></span>cat path/to/cheatsheets.conf <span class="se">\</span>
 <span class="p">|</span> dmenu -l <span class="m">30</span> <span class="p">|</span> sed <span class="s1">&#39;s/.*    \+//&#39;</span> <span class="p">|</span> xargs -r <span class="p">|</span> sh
 </pre></div>
 
 
 <p>If the line we want to run only includes a path to a file as&nbsp;in:</p>
-<div class="highlight"><pre><span></span>myshortcut       ~/path/to/a/file.pdf
+<div class="highlight"><pre><span></span>myshortcut      path/to/file.pdf
 </pre></div>
 
 
 <p>We could instead pipe it into an external command of choice if the same program applies to all items presented in the menu, say&nbsp;Firefox:</p>
-<div class="highlight"><pre><span></span>cat ~/.custom/dmenu/pdf-and-docs.conf <span class="se">\</span>
+<div class="highlight"><pre><span></span>cat path/to/file.conf <span class="se">\</span>
 <span class="p">|</span> dmenu -l <span class="m">30</span> <span class="p">|</span> sed <span class="s1">&#39;s/.*    \+//&#39;</span> <span class="p">|</span> xargs -I <span class="o">{}</span> firefox <span class="s2">&quot;{}&quot;</span>
 </pre></div>
 
 
 <p>What&#8217;s nice with the way pipes work in a Unix-like system is that we can chain harmless commands until the very end so they will simply be printed to the terminal. In this example, if we want to see how to filter our lines before running a command, we can do so as&nbsp;follow.</p>
 <h4>Pipe&nbsp;1</h4>
-<div class="highlight"><pre><span></span>cat ~/.custom/dmenu/cheatsheets.conf <span class="se">\</span>
+<div class="highlight"><pre><span></span>cat path/to/cheatsheets.conf <span class="se">\</span>
 <span class="p">|</span> dmenu -l <span class="m">30</span>
 </pre></div>
 
 
 <p>If you remember from the menu we saw earlier, there&#8217;s a shortcut to open a cheat sheet for Git. Let&#8217;s say we selected that one with <strong>dmenu</strong>. Because our command isn&#8217;t doing anything with the result, it will be outputted to the terminal like so (just like in the excerpt of <code>cheatsheets.conf</code>):</p>
-<div class="highlight"><pre><span></span>git           zathura ~/Dropbox/Programming/cheatsheets/github-git.pdf
+<div class="highlight"><pre><span></span>git      zathura path/to/github.pdf
 </pre></div>
 
 
 <p>What <code>sed</code> does here is to cut everything from the beginning of the line up to where the command starts (that&#8217;s where we find <a href="https://pwmt.org/projects/zathura/">zathura</a>, which is a powerful document viewer), because we need to isolate that part of the line so it looks like a shell command we could run on its own. Let&#8217;s add a new pipe to our command and see what <code>sed</code> does with&nbsp;it*.</p>
 <p>* <sub>We could have used other tools to parse the string like <code>awk</code>, <code>grep</code>, <code>cut</code>, etc.</sub></p>
 <h4>Pipe&nbsp;2</h4>
-<div class="highlight"><pre><span></span>cat ~/.custom/dmenu/cheatsheets.conf <span class="se">\</span>
+<div class="highlight"><pre><span></span>cat path/to/cheatsheets.conf <span class="se">\</span>
 <span class="p">|</span> dmenu -l <span class="m">30</span> <span class="p">|</span> sed <span class="s1">&#39;s/.*    \+//&#39;</span>
 </pre></div>
 
 
 <p>If we select the same item as before with <strong>dmenu</strong> to illustrate more clearly what this new addition does, we will get this&nbsp;output:</p>
-<div class="highlight"><pre><span></span>zathura ~/Dropbox/Programming/cheatsheets/github-git.pdf
+<div class="highlight"><pre><span></span>zathura path/to/github.pdf
 </pre></div>
 
 
@@ -253,21 +254,22 @@ cat ~/.custom/dmenu/cheatsheets.conf <span class="se">\</span>
 </ul>
 <p>Once we are visually satisfied with how our command is supposed to look like (it has to be something that works when typed directly in the terminal), the next step is to pipe it again so it can be&nbsp;executed.</p>
 <h4>Pipe&nbsp;3</h4>
-<div class="highlight"><pre><span></span>cat ~/.custom/dmenu/cheatsheets.conf <span class="se">\</span>
+<div class="highlight"><pre><span></span>cat path/to/cheatsheets.conf <span class="se">\</span>
 <span class="p">|</span> dmenu -l <span class="m">30</span> <span class="p">|</span> sed <span class="s1">&#39;s/.*    \+//&#39;</span> <span class="p">|</span> sh
 </pre></div>
 
 
 <p>There we go, the command is launched. If we keep the same simple syntax in all of our <code>.conf</code> files —or whatever extension we choose— where the content of our menus is stored in plain text, we can quickly and painlessly create keyboard shortcuts to run custom lists of commands that can be edited on the fly. Once our shortcuts are active, it&#8217;s only a matter of editing one of those <code>.conf</code> files and automatically our lists will be up-to-date when we trigger the shortcut&nbsp;again.</p>
+<hr>
 <h2>Running a Custom&nbsp;Script</h2>
 <p>If we want to run custom scripts, we need to indicate a command that would work in the terminal, such as <code>python myscrypt.py</code> or <code>./myscript.sh</code>. When it comes to shell scripts, we have to make sure they are executable. We can do so through a file manager or within the terminal like&nbsp;this:</p>
-<div class="highlight"><pre><span></span>chmod +x ~/path/to/script.sh
+<div class="highlight"><pre><span></span>chmod +x path/to/script.sh
 </pre></div>
 
 
 <p>This will add the necessary permissions for the user to execute the script. As we already know, we would then need to add a keyboard shortcut to launch our custom menu and store our command in a file like <code>scripts.conf</code> that would contain the&nbsp;following:</p>
-<div class="highlight"><pre><span></span><span class="c1">#---------- scripts.conf -------------------------------------------------------</span>
-myscript           ~/scripts/script.sh
+<div class="highlight"><pre><span></span>#---------- scripts.conf -------------------------------------------------------
+myscript      script.sh
 </pre></div>
 
 
@@ -275,39 +277,43 @@ myscript           ~/scripts/script.sh
 <hr>
 <h1>Customize the Look of&nbsp;dmenu</h1>
 <p>As they say, <em>&#8220;beauty is in the eye of the beholder&#8221;</em>. If you would rather make some changes to how dmenu look, you can. <strong>dmenu</strong> will be searching for the configuration file located at <code>~/.dmenurc</code>, which could contain something as put below (with this configuration, it will look like the screenshots shown&nbsp;previously):</p>
-<div class="highlight"><pre><span></span>#
-# ~/.dmenurc
-#
+<div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="c1"># ~/.dmenurc</span>
+<span class="c1">#</span>
 
-## define the font for dmenu to be used
-DMENU_FN=&quot;NotoSans-10.5&quot;
+<span class="c1"># define the font for dmenu to be used</span>
+<span class="nv">DMENU_FN</span><span class="o">=</span><span class="s2">&quot;NotoSans-10.5&quot;</span>
 
-## background colour for unselected menu-items
-DMENU_NB=&quot;#161925&quot;
+<span class="c1"># background colour for unselected menu-items</span>
+<span class="nv">DMENU_NB</span><span class="o">=</span><span class="s2">&quot;#161925&quot;</span>
 
-## textcolour for unselected menu-items
-DMENU_NF=&quot;#fdfffc&quot;
+<span class="c1"># textcolour for unselected menu-items</span>
+<span class="nv">DMENU_NF</span><span class="o">=</span><span class="s2">&quot;#fdfffc&quot;</span>
 
-## background colour for selected menu-items
-DMENU_SB=&quot;#235789&quot;
+<span class="c1"># background colour for selected menu-items</span>
+<span class="nv">DMENU_SB</span><span class="o">=</span><span class="s2">&quot;#235789&quot;</span>
 
-## textcolour for selected menu-items
-DMENU_SF=&quot;#fdfffc&quot;
+<span class="c1"># textcolour for selected menu-items</span>
+<span class="nv">DMENU_SF</span><span class="o">=</span><span class="s2">&quot;#fdfffc&quot;</span>
 
-## command for the terminal application to be used:
-TERMINAL_CMD=&quot;st -e&quot;
+<span class="c1"># command for the terminal application to be used:</span>
+<span class="nv">TERMINAL_CMD</span><span class="o">=</span><span class="s2">&quot;st -e&quot;</span>
 
-## export our variables
-DMENU_OPTIONS=&quot;-fn $DMENU_FN -nb $DMENU_NB -nf $DMENU_NF -sf $DMENU_SF -sb $DMENU_SB&quot;
+<span class="c1"># export our variables</span>
+<span class="nv">DMENU_OPTIONS</span><span class="o">=</span><span class="s2">&quot;-fn </span><span class="nv">$DMENU_FN</span><span class="s2"> -nb </span><span class="nv">$DMENU_NB</span><span class="s2"> -nf </span><span class="nv">$DMENU_NF</span><span class="s2"> -sf </span><span class="nv">$DMENU_SF</span><span class="s2"> -sb </span><span class="nv">$DMENU_SB</span><span class="s2">&quot;</span>
 </pre></div>
 
 
+<hr>
 <h1>Conclusion</h1>
 <p>Hopefully this introduction to what <strong>dmenu</strong> has to offer gave you some ideas. I hope you&#8217;ll find many ways to adapt the examples so you can benefit from this amazing tool. You can find more configuration details in my <a href="https://github.com/sglavoie/dotfiles/tree/master/config">dotfiles on GitHub</a> for anything related to <strong>i3</strong>, <strong>dmenu</strong>, <strong>zathura</strong>, <strong>st</strong>, <strong>slock</strong> and many more useful&nbsp;programs.</p>
 <p>Have a good time automating your digital&nbsp;life!</p>
   </div>
   <div class="article_meta">
     <p>Posted on: Sun 10 November 2019</p>
+     <time class="modified" datetime="2019-11-11T10:56:00-06:00">
+      Modified on: Mon 11 November 2019
+    </time>
     <p>Category: <a href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a>
  &ndash; Tags:
       <a href="https://www.sglavoie.com/tag/bash.html">bash</a>,      <a href="https://www.sglavoie.com/tag/dmenu.html">dmenu</a>,      <a href="https://www.sglavoie.com/tag/i3.html">i3</a>,      <a href="https://www.sglavoie.com/tag/linux.html">linux</a>,      <a href="https://www.sglavoie.com/tag/productivity.html">productivity</a>,      <a href="https://www.sglavoie.com/tag/script.html">script</a>    </p>
@@ -329,9 +335,7 @@ DMENU_OPTIONS=&quot;-fn $DMENU_FN -nb $DMENU_NB -nf $DMENU_NF -sf $DMENU_SF -sb 
 
 
       <div id="ending_message">
-        <h3>Subscribe to the Newsletter</h3>
-        <form style="border:1px solid #ccc;padding:3px;text-align:center;" action="https://tinyletter.com/sglavoie" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/sglavoie', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"><p><label for="tlemail">Enter your email address</label></p><p><input type="text" style="width:140px" name="email" id="tlemail" /></p><input type="hidden" value="1" name="embed"/><input type="submit" value="Subscribe" /><p><a href="https://tinyletter.com" target="_blank">powered by TinyLetter</a></p></form>
-        <p>&copy; Sébastien Lavoie. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>.</p>
+        <p>&copy; Sébastien Lavoie. Built in <a href="https://www.python.org/" target="_blank">Python</a> using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">GitHub</a>.</p>
       </div>
     </main>
   </body>
