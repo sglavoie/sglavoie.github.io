@@ -103,7 +103,7 @@ ones you could normally use in the Python&nbsp;interpreter.</p>
     <span class="sd">&quot;&quot;&quot;Take `b` and return the binary equivalent in a list of remainders.&quot;&quot;&quot;</span>
     <span class="n">remainders</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">quotient</span> <span class="o">=</span> <span class="n">num_b</span>
-    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="n">prev_quotient</span> <span class="o">=</span> <span class="n">quotient</span>
         <span class="n">quotient</span> <span class="o">//=</span> <span class="mi">2</span>
         <span class="n">remainder</span> <span class="o">=</span> <span class="n">prev_quotient</span> <span class="o">%</span> <span class="mi">2</span>
@@ -115,11 +115,11 @@ ones you could normally use in the Python&nbsp;interpreter.</p>
     <span class="k">return</span> <span class="n">remainders</span>
 
 
-<span class="k">def</span> <span class="nf">powers_of_two</span><span class="p">(</span><span class="n">remainders</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">powers_of_two</span><span class="p">(</span><span class="n">remainders</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Return a list of the value of powers of two that form the</span>
 <span class="sd">    exponent`b`.&quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">remainders</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">None</span>
+    <span class="k">if</span> <span class="n">remainders</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
 
     <span class="n">powers</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">remainder</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">remainders</span><span class="p">):</span>
@@ -129,11 +129,11 @@ ones you could normally use in the Python&nbsp;interpreter.</p>
     <span class="k">return</span> <span class="n">powers</span>
 
 
-<span class="k">def</span> <span class="nf">compute_intermediate_congruences</span><span class="p">(</span><span class="n">num_a</span><span class="p">,</span> <span class="n">num_k</span><span class="p">,</span> <span class="n">powers</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">compute_intermediate_congruences</span><span class="p">(</span><span class="n">num_a</span><span class="p">,</span> <span class="n">num_k</span><span class="p">,</span> <span class="n">powers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Compute all necessary intermediate results of congruence in `mod k` for</span>
 <span class="sd">    powers of 2 in `powers` to form the number `b`.&quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">powers</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">None</span>
+    <span class="k">if</span> <span class="n">powers</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
 
     <span class="n">go_up_to</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">powers</span><span class="p">)</span>
 
@@ -149,12 +149,12 @@ ones you could normally use in the Python&nbsp;interpreter.</p>
     <span class="k">return</span> <span class="n">intermediate_results</span>
 
 
-<span class="k">def</span> <span class="nf">compute_final_congruence</span><span class="p">(</span><span class="n">num_k</span><span class="p">,</span> <span class="n">powers</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">intermediate_results</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">compute_final_congruence</span><span class="p">(</span><span class="n">num_k</span><span class="p">,</span> <span class="n">powers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">intermediate_results</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Take all relevant values from `intermediate_results` matching powers in</span>
 <span class="sd">    `powers`, multiply them together and calculate this number `mod k` to get</span>
 <span class="sd">    the final result.&quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">intermediate_results</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">powers</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">None</span>
+    <span class="k">if</span> <span class="n">intermediate_results</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">powers</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
 
     <span class="c1"># store all required values from `intermediate_results`</span>
     <span class="n">congruent_results</span> <span class="o">=</span> <span class="p">[]</span>
@@ -192,13 +192,13 @@ ones you could normally use in the Python&nbsp;interpreter.</p>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;We will calculate a^b (mod k). Enter only integers.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We will calculate a^b (mod k). Enter only integers.&quot;</span><span class="p">)</span>
     <span class="n">NUM_A</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Provide `a`: &quot;</span><span class="p">))</span>
     <span class="n">NUM_B</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Provide `b`: &quot;</span><span class="p">))</span>
     <span class="n">NUM_K</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Provide `k`: &quot;</span><span class="p">))</span>
 
     <span class="n">FINAL_RESULT</span> <span class="o">=</span> <span class="n">compute_congruence</span><span class="p">(</span><span class="n">NUM_A</span><span class="p">,</span> <span class="n">NUM_B</span><span class="p">,</span> <span class="n">NUM_K</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">FINAL_RESULT</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">FINAL_RESULT</span><span class="p">)</span>
 </pre></div>
 
 

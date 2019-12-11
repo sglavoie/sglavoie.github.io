@@ -199,16 +199,16 @@ article a bit more readable, the original version is shown.</sub></p>
 <span class="k">def</span> <span class="nf">user_says_yes</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Check if user input is either &#39;y&#39; or &#39;n&#39;. Returns a boolean.&#39;&#39;&#39;</span>
 
-    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">message</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span>
-            <span class="n">choice</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">choice</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="k">break</span>
         <span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span>
-            <span class="n">choice</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="n">choice</span> <span class="o">=</span> <span class="kc">False</span>
             <span class="k">break</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Please enter either &#39;y&#39; or &#39;n&#39;.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please enter either &#39;y&#39; or &#39;n&#39;.&quot;</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">choice</span>
 
@@ -217,20 +217,20 @@ article a bit more readable, the original version is shown.</sub></p>
     <span class="sd">&#39;&#39;&#39;Delete log files in `home_directory` based on `history_file`.&#39;&#39;&#39;</span>
 
     <span class="c1"># Retrieve a list of all matching log files</span>
-    <span class="n">log_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{history_file}_*.bak&#39;</span><span class="p">)</span>
+    <span class="n">log_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{history_file}</span><span class="s1">_*.bak&#39;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">log_files</span> <span class="o">==</span> <span class="p">[]:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;There is no log file to delete.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There is no log file to delete.&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Log files found in {settings[&quot;home_directory&quot;]}:&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Log files found in </span><span class="si">{settings[&quot;home_directory&quot;]}</span><span class="s1">:&#39;</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">log_file</span> <span class="ow">in</span> <span class="n">log_files</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="n">log_file</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">log_file</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;delete_logs_without_confirming&#39;</span><span class="p">]:</span>
             <span class="k">for</span> <span class="n">log_file</span> <span class="ow">in</span> <span class="n">log_files</span><span class="p">:</span>
                 <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">log_file</span><span class="p">)</span>
-            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Log files deleted.&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Log files deleted.&#39;</span><span class="p">)</span>
             <span class="k">return</span>
 
         <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Do you want to delete those log files? [y/n] &quot;</span><span class="p">)</span>
@@ -238,10 +238,10 @@ article a bit more readable, the original version is shown.</sub></p>
         <span class="k">if</span> <span class="n">user_says_yes</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">log_file</span> <span class="ow">in</span> <span class="n">log_files</span><span class="p">:</span>
                 <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">log_file</span><span class="p">)</span>
-            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Log files deleted.&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Log files deleted.&#39;</span><span class="p">)</span>
             <span class="k">return</span>
 
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Operation aborted.&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Operation aborted.&#39;</span><span class="p">)</span>
     <span class="k">return</span>
 
 
@@ -264,8 +264,8 @@ article a bit more readable, the original version is shown.</sub></p>
 
     <span class="n">match_whole_line</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">settings</span><span class="p">[</span><span class="s1">&#39;aliases_match_greedily&#39;</span><span class="p">])</span>
 
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">bash_aliases_file</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
-        <span class="n">content</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>  <span class="c1"># one alias per line</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">bash_aliases_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>  <span class="c1"># one alias per line</span>
         <span class="n">aliases_list</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">content</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
@@ -282,11 +282,11 @@ article a bit more readable, the original version is shown.</sub></p>
 
             <span class="k">if</span> <span class="n">match_whole_line</span><span class="p">:</span>
                 <span class="c1"># Match the whole line if it starts with the alias.</span>
-                <span class="n">alias</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;^{alias}( )?$|^{alias} .*&#39;</span>
+                <span class="n">alias</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;^</span><span class="si">{alias}</span><span class="s1">( )?$|^</span><span class="si">{alias}</span><span class="s1"> .*&#39;</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="c1"># Will match only when alias is the whole content of the line,</span>
                 <span class="c1"># followed by optional space.</span>
-                <span class="n">alias</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;^{alias}( )?$&#39;</span>
+                <span class="n">alias</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;^</span><span class="si">{alias}</span><span class="s1">( )?$&#39;</span>
 
             <span class="c1"># Escape dots in alias</span>
             <span class="n">alias</span> <span class="o">=</span> <span class="n">alias</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">({</span><span class="s2">&quot;.&quot;</span><span class="p">:</span>  <span class="sa">r</span><span class="s2">&quot;\.&quot;</span><span class="p">}))</span>
@@ -306,43 +306,43 @@ article a bit more readable, the original version is shown.</sub></p>
     <span class="k">if</span> <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;backup_history&#39;</span><span class="p">]:</span>
         <span class="n">backup_str</span> <span class="o">=</span> <span class="n">generate_date_string</span><span class="p">()</span>
         <span class="n">file_input</span> <span class="o">=</span> <span class="n">fileinput</span><span class="o">.</span><span class="n">FileInput</span><span class="p">(</span><span class="n">history_file</span><span class="p">,</span>
-                                         <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                         <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                                          <span class="n">backup</span><span class="o">=</span><span class="n">backup_str</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">file_input</span> <span class="o">=</span> <span class="n">fileinput</span><span class="o">.</span><span class="n">FileInput</span><span class="p">(</span><span class="n">history_file</span><span class="p">,</span>
-                                         <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                                         <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-    <span class="k">with</span> <span class="n">file_input</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">file</span><span class="p">:</span>
-            <span class="n">has_match</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">with</span> <span class="n">file_input</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">has_match</span> <span class="o">=</span> <span class="kc">False</span>
             <span class="k">for</span> <span class="n">pattern</span> <span class="ow">in</span> <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;ignore_patterns&#39;</span><span class="p">]:</span>
                 <span class="n">matched</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span><span class="o">.</span><span class="n">search</span>
                 <span class="k">if</span> <span class="n">matched</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
-                    <span class="n">has_match</span> <span class="o">=</span> <span class="bp">True</span>
+                    <span class="n">has_match</span> <span class="o">=</span> <span class="kc">True</span>
                     <span class="k">break</span>
             <span class="c1"># If no match is found (nothing to ignore), print the line</span>
             <span class="c1"># back into the file. Otherwise, it will be empty.</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">has_match</span><span class="p">:</span>
-                <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>  <span class="c1"># Line already has carriage return</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>  <span class="c1"># Line already has carriage return</span>
 
 
 <span class="k">def</span> <span class="nf">launch_cleanup</span><span class="p">(</span><span class="n">settings</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">history_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">aliases_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Main function that launches the cleanup process.&#39;&#39;&#39;</span>
 
-    <span class="n">bash_aliases</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">bash_aliases</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">if</span> <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;add_aliases&#39;</span><span class="p">]:</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">bash_aliases</span> <span class="o">=</span> <span class="n">get_list_aliases</span><span class="p">(</span><span class="n">aliases_file</span><span class="p">,</span> <span class="n">settings</span><span class="p">)</span>
 
             <span class="c1"># add aliases to list of patterns to ignore</span>
             <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;ignore_patterns&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">bash_aliases</span><span class="p">)</span>
-        <span class="k">except</span> <span class="n">FileNotFoundError</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;File not found: {aliases_file}&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File not found: </span><span class="si">{aliases_file}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="n">quit</span><span class="p">()</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">clean_bash_history</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="n">history_file</span><span class="p">)</span>
-    <span class="k">except</span> <span class="n">FileNotFoundError</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;File not found: {history_file}&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File not found: </span><span class="si">{history_file}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>

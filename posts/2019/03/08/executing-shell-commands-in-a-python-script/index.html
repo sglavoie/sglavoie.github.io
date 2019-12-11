@@ -96,8 +96,8 @@ to accomplish&nbsp;this!</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_tree</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Execute `tree` command and store the output in</span>
 <span class="sd">    `tree.txt`.&#39;&#39;&#39;</span>
-    <span class="n">tree</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">getoutput</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;tree .&#39;</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">getoutput</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;tree .&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./tree.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
 
@@ -149,7 +149,7 @@ looks like&nbsp;this:</p>
     <span class="k">if</span> <span class="n">content</span> <span class="o">!=</span> <span class="n">today</span><span class="p">:</span>
         <span class="n">current_loc</span> <span class="o">=</span> <span class="n">current_path</span><span class="p">()</span>
         <span class="n">cmd</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;gitstats&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;project_name=&#39;sglavoie.com&#39;&quot;</span><span class="p">,</span>
-               <span class="n">f</span><span class="s2">&quot;{current_loc}&quot;</span><span class="p">,</span> <span class="n">f</span><span class="s2">&quot;{current_loc}/output/stats/&quot;</span><span class="p">]</span>
+               <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{current_loc}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{current_loc}</span><span class="s2">/output/stats/&quot;</span><span class="p">]</span>
         <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;stats_counter.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>

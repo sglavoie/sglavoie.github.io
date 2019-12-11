@@ -160,15 +160,15 @@
 
 
         <span class="c1"># Retrieve a list of all matching log files in `source`</span>
-        <span class="n">log_files</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span> <span class="n">f</span><span class="s1">&#39;{source}/{LOG_NAME}*&#39;</span> <span class="p">)</span>
+        <span class="n">log_files</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{source}</span><span class="s1">/</span><span class="si">{LOG_NAME}</span><span class="s1">*&#39;</span> <span class="p">)</span>
         <span class="k">if</span> <span class="n">log_files</span>  <span class="o">==</span>  <span class="p">[</span> <span class="p">]:</span>
-                <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">There is no log file to delete in {source}.&#39;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">There is no log file to delete in </span><span class="si">{source}</span><span class="s1">.&#39;</span><span class="p">)</span>
                 <span class="k">continue</span>
         <span class="k">else</span>    <span class="p">:</span>
-                <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Log files in {source}:&#39;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Log files in </span><span class="si">{source}</span><span class="s1">:&#39;</span><span class="p">)</span>
                 <span class="k">for</span> <span class="n">log_file</span> <span class="ow">in</span> <span class="n">log_files</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="p">(</span><span class="n">ARGUMENTS</span><span class="o">.</span><span class="n">remind</span><span class="p">):</span> <span class="n">REMINDER_IS_SET</span> <span class="o">=</span> <span class="bp">True</span>
-                    <span class="k">print</span><span class="p">(</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">ARGUMENTS</span><span class="o">.</span><span class="n">remind</span><span class="p">):</span> <span class="n">REMINDER_IS_SET</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="nb">print</span><span class="p">(</span>
                             <span class="n">log_file</span>
                     <span class="p">)</span>
                 <span class="n">message</span> <span class="o">=</span> <span class="p">(</span>
@@ -176,13 +176,13 @@
                 <span class="p">)</span>
                 <span class="k">if</span> <span class="p">(</span><span class="n">user_says_yes</span><span class="p">(</span> <span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="p">))</span> <span class="p">:</span>
                     <span class="k">for</span> <span class="n">log_file</span> <span class="ow">in</span> <span class="n">log_files</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">log_file</span><span class="p">)</span>
-                    <span class="k">print</span><span class="p">(</span>
+                    <span class="nb">print</span><span class="p">(</span>
                             <span class="s1">&#39;Log files deleted.&#39;</span>
                             <span class="p">)</span>
                     <span class="k">continue</span>
                 <span class="k">else</span> <span class="p">:</span> <span class="k">continue</span>
-        <span class="k">print</span><span class="p">(</span> <span class="s1">&#39;Exiting script...&#39;</span> <span class="p">)</span>
-        <span class="n">sys</span><span class="o">.</span> <span class="nb">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;Exiting script...&#39;</span> <span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span> <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
 
@@ -190,27 +190,27 @@
 <div class="highlight"><pre><span></span>    <span class="k">for</span> <span class="n">source</span> <span class="ow">in</span> <span class="n">data_sources</span><span class="p">:</span>
 
         <span class="c1"># Retrieve a list of all matching log files in `source`</span>
-        <span class="n">log_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;{source}/{LOG_NAME}*&quot;</span><span class="p">)</span>
+        <span class="n">log_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{source}</span><span class="s2">/</span><span class="si">{LOG_NAME}</span><span class="s2">*&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">log_files</span> <span class="o">==</span> <span class="p">[]:</span>
-            <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">There is no log file to delete in {source}.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">There is no log file to delete in </span><span class="si">{source}</span><span class="s2">.&quot;</span><span class="p">)</span>
             <span class="k">continue</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Log files in {source}:&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Log files in </span><span class="si">{source}</span><span class="s2">:&quot;</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">log_file</span> <span class="ow">in</span> <span class="n">log_files</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">ARGUMENTS</span><span class="o">.</span><span class="n">remind</span><span class="p">:</span>
-                    <span class="n">REMINDER_IS_SET</span> <span class="o">=</span> <span class="bp">True</span>
-                <span class="k">print</span><span class="p">(</span><span class="n">log_file</span><span class="p">)</span>
+                    <span class="n">REMINDER_IS_SET</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">log_file</span><span class="p">)</span>
             <span class="n">message</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Do you want to delete log files &quot;</span> <span class="s2">&quot;for this source? (y/n) &quot;</span>
             <span class="p">)</span>
             <span class="k">if</span> <span class="n">user_says_yes</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">):</span>
                 <span class="k">for</span> <span class="n">log_file</span> <span class="ow">in</span> <span class="n">log_files</span><span class="p">:</span>
                     <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">log_file</span><span class="p">)</span>
-                <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Log files deleted.&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Log files deleted.&quot;</span><span class="p">)</span>
                 <span class="k">continue</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">continue</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Exiting script...&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exiting script...&quot;</span><span class="p">)</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
