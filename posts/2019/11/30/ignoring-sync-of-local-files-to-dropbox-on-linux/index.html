@@ -1,67 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-      <link rel="stylesheet" type="text/css" href="https://www.sglavoie.com/theme/css/style.css">
-      <link rel="stylesheet" type="text/css" href="https://www.sglavoie.com/theme/css/pygments.css">
-      <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://www.sglavoie.com/theme/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://www.sglavoie.com/theme/css/pygments.css"
+    />
 
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="author" content="Sébastien Lavoie">
-      <meta name="description" content="Posts and writings by Sébastien Lavoie">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Sébastien Lavoie" />
+    <meta name="description" content="Posts and writings by Sébastien Lavoie" />
 
-      <link href="https://www.sglavoie.com/feeds/sglavoie.rss.xml" type="application/rss+xml" rel="alternate" title="sglavoie.com RSS" />
+     <link
+      href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
+      type="application/rss+xml"
+      rel="alternate"
+      title="sglavoie.com RSS"
+    />
 
-      <!-- Favicon -->
-      <link rel="apple-touch-icon" sizes="180x180" href="/theme/favicon/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="/theme/favicon/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="/theme/favicon/favicon-16x16.png">
-      <link rel="manifest" href="/theme/favicon/site.webmanifest">
-      <link rel="mask-icon" href="/theme/favicon/safari-pinned-tab.svg" color="#5bbad5">
-      <link rel="shortcut icon" href="/theme/favicon/favicon.ico">
-      <meta name="msapplication-TileColor" content="#2d89ef">
-      <meta name="msapplication-TileImage" content="/theme/favicon/mstile-144x144.png">
-      <meta name="msapplication-config" content="/theme/favicon/browserconfig.xml">
-      <meta name="theme-color" content="#000000">
-      <meta name="msapplication-config" content="/theme/favicon/browserconfig.xml">
-      <meta name="theme-color" content="#000000">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="/theme/favicon/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/theme/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/theme/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/theme/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/theme/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="/theme/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#2d89ef" />
+    <meta
+      name="msapplication-TileImage"
+      content="/theme/favicon/mstile-144x144.png"
+    />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#000000" />
 
       <meta name="keywords" content="aliases, linux, shell, terminal">
 
       <!-- Open graph for social networks -->
       <meta name="og:title" property="og:title" content="To make the most of Dropbox, it can make sense to backup the files you care the most about and skip the ones that simply take too long to upload and eat up all your space. Such candidates could be hidden .git/ folders and node_modules/, but how do you exclude them locally? Let's find out.">
 
-      <title>
-        sglavoie.com
-&ndash; Ignoring Sync of Local Files to Dropbox on&nbsp;Linux      </title>
+    <title>
+      sglavoie.com &ndash; Ignoring Sync of Local Files to Dropbox on&nbsp;Linux    </title>
   </head>
 
   <body>
     <aside>
       <div id="user_meta">
         <a href="https://www.sglavoie.com">
-          <img src="https://www.sglavoie.com/theme/images/logo.png" alt="logo">
+          <img
+            src="https://www.sglavoie.com/theme/images/logo.png"
+            alt="logo"          />
         </a>
         <h2><a href="https://www.sglavoie.com">sglavoie.com</a></h2>
         <p></p>
         <ul>
-          <li><a href="https://www.sglavoie.com/category/automation.html">automation</a></li>
+            <li><a href="https://www.sglavoie.com/category/automation.html">automation</a></li>
           <li><a href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a></li>
           <li><a href="https://www.sglavoie.com/category/tools.html">tools</a></li>
           <li><a href="https://www.sglavoie.com/category/workflow.html">workflow</a></li>
-        </ul>
+          </ul>
       </div>
     </aside>
 
     <main>
       <header>
         <p>
-        <a href="https://www.sglavoie.com">Index</a> &brvbar; <a href="https://www.sglavoie.com/archives.html">Archives</a>
-        &brvbar; <a href="https://www.sglavoie.com/tags.html">Tags</a>
-        &brvbar; <a href="https://www.sglavoie.com/learning-progress-2020.html">Learning Progress</a>
-        &brvbar; <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS</a>
-        </p>
+          <a href="https://www.sglavoie.com">Index</a> &brvbar;
+          <a href="https://www.sglavoie.com/archives.html">Archives</a> &brvbar;
+          <a href="https://www.sglavoie.com/tags.html">Tags</a> &brvbar;
+          <a href="https://www.sglavoie.com/learning-progress-2020.html"
+            >Learning Progress</a
+          >
+ &brvbar;
+          <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS</a>
+          </p>
       </header>
 
 <article>
@@ -181,10 +220,30 @@ dropbox-sync d .git
   </div>
 
 </article>
-
-
+  
       <div id="ending_message">
-        <p>&copy; Sébastien Lavoie. Built in <a href="https://www.python.org/" target="_blank">Python</a> using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme adapted from Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">GitHub</a>.</p>
+        <p>
+          &copy; Sébastien Lavoie. Built in
+          <a
+            href="https://www.python.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Python</a
+          >
+          using
+          <a
+            href="http://getpelican.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Pelican</a
+          >. Theme adapted from Giulio Fidente on
+          <a
+            href="https://github.com/gfidente/pelican-svbhack"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >.
+        </p>
       </div>
     </main>
   </body>
