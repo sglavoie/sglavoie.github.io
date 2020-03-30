@@ -17,7 +17,7 @@
     <meta name="author" content="Sébastien Lavoie" />
     <meta name="description" content="Posts and writings by Sébastien Lavoie" />
 
-     <link
+    <link
       href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
       type="application/rss+xml"
       rel="alternate"
@@ -67,7 +67,7 @@
       <meta name="og:title" property="og:title" content="Even for simple tasks, it is often worth basing one's work on existing solutions when it is an appropriate option... And such can be the case when writing Python scripts!">
 
     <title>
-      sglavoie.com &ndash; Executing Shell Commands in a Python&nbsp;Script    </title>
+      sglavoie.com&ndash; Executing Shell Commands in a Python&nbsp;Script    </title>
   </head>
 
   <body>
@@ -81,11 +81,11 @@
         <h2><a href="https://www.sglavoie.com">sglavoie.com</a></h2>
         <p></p>
         <ul>
-            <li><a href="https://www.sglavoie.com/category/automation.html">automation</a></li>
+          <li><a href="https://www.sglavoie.com/category/automation.html">automation</a></li>
           <li><a href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a></li>
           <li><a href="https://www.sglavoie.com/category/tools.html">tools</a></li>
           <li><a href="https://www.sglavoie.com/category/workflow.html">workflow</a></li>
-          </ul>
+        </ul>
       </div>
     </aside>
 
@@ -100,7 +100,7 @@
           >
  &brvbar;
           <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS</a>
-          </p>
+        </p>
       </header>
 
 <article>
@@ -120,7 +120,7 @@ either to retrieve its output or to perform some work in the background.
 I have wanted to do both when building this website, so here is one way
 to accomplish&nbsp;this!</p>
 <h3>Retrieve the&nbsp;output</h3>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_tree</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">read_tree</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Execute `tree` command and store the output in</span>
 <span class="sd">    `tree.txt`.&#39;&#39;&#39;</span>
     <span class="n">tree</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">getoutput</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;tree .&#39;</span><span class="p">)</span>
@@ -130,13 +130,13 @@ to accomplish&nbsp;this!</p>
 
 
 <span class="n">read_tree</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>In this example, the structure from the current directory is printed
 when executing the code and it is later stored in a file. The output
 could look something like the&nbsp;following:</p>
-<div class="highlight"><pre><span></span><span class="p">.</span>
+<div class="highlight"><pre><span></span><code><span class="p">.</span>
 <span class="err">├──</span> <span class="n">database_example</span>
 <span class="err">│</span>   <span class="err">├──</span> <span class="n">example</span><span class="p">.</span><span class="n">sqlite</span>
 <span class="err">│</span>   <span class="err">├──</span> <span class="n">db_manager</span><span class="p">.</span><span class="n">py</span>
@@ -157,7 +157,7 @@ could look something like the&nbsp;following:</p>
 <span class="err">└──</span> <span class="n">test</span><span class="p">.</span><span class="k">sql</span>
 
 <span class="mi">3</span> <span class="n">directories</span><span class="p">,</span> <span class="mi">15</span> <span class="n">files</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3>Execute a command in the&nbsp;background</h3>
@@ -165,7 +165,7 @@ could look something like the&nbsp;following:</p>
 from the terminal inside a Python script. This website, for example,
 currently exports daily Git statistics in the <code>output/</code> folder. This
 looks like&nbsp;this:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">daily_stats</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">daily_stats</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Execute `Gitstats` once a day based on the date found in</span>
 <span class="sd">    `stats_counter.txt`. Very simple with a caveat: it won&#39;t check if</span>
 <span class="sd">    there are new commits on the same day if stats have already been</span>
@@ -176,11 +176,11 @@ looks like&nbsp;this:</p>
     <span class="k">if</span> <span class="n">content</span> <span class="o">!=</span> <span class="n">today</span><span class="p">:</span>
         <span class="n">current_loc</span> <span class="o">=</span> <span class="n">current_path</span><span class="p">()</span>
         <span class="n">cmd</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;gitstats&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;project_name=&#39;sglavoie.com&#39;&quot;</span><span class="p">,</span>
-               <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{current_loc}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{current_loc}</span><span class="s2">/output/stats/&quot;</span><span class="p">]</span>
+               <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_loc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_loc</span><span class="si">}</span><span class="s2">/output/stats/&quot;</span><span class="p">]</span>
         <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;stats_counter.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>This is an automated process, which is something Python is easy to use
@@ -212,7 +212,7 @@ world that opens up to those that stay curious long&nbsp;enough.</p>
   </div>
 
 </article>
-  
+
       <div id="ending_message">
         <p>
           &copy; Sébastien Lavoie. Built in

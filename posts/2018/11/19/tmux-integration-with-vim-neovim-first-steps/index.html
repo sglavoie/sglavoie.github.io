@@ -17,7 +17,7 @@
     <meta name="author" content="Sébastien Lavoie" />
     <meta name="description" content="Posts and writings by Sébastien Lavoie" />
 
-     <link
+    <link
       href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
       type="application/rss+xml"
       rel="alternate"
@@ -67,7 +67,7 @@
       <meta name="og:title" property="og:title" content="This is a short introduction that shows a possible workflow with tmux and Vim/Neovim.">
 
     <title>
-      sglavoie.com &ndash; Tmux Integration with Vim/Neovim — First&nbsp;Steps    </title>
+      sglavoie.com&ndash; Tmux Integration with Vim/Neovim — First&nbsp;Steps    </title>
   </head>
 
   <body>
@@ -81,11 +81,11 @@
         <h2><a href="https://www.sglavoie.com">sglavoie.com</a></h2>
         <p></p>
         <ul>
-            <li><a href="https://www.sglavoie.com/category/automation.html">automation</a></li>
+          <li><a href="https://www.sglavoie.com/category/automation.html">automation</a></li>
           <li><a href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a></li>
           <li><a href="https://www.sglavoie.com/category/tools.html">tools</a></li>
           <li><a href="https://www.sglavoie.com/category/workflow.html">workflow</a></li>
-          </ul>
+        </ul>
       </div>
     </aside>
 
@@ -100,7 +100,7 @@
           >
  &brvbar;
           <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS</a>
-          </p>
+        </p>
       </header>
 
 <article>
@@ -118,7 +118,7 @@ local setup! Here is how I currently like to set it&nbsp;up.</p>
 <hr>
 <h3>Configuration&nbsp;file:</h3>
 <h5><code>~/.tmux.conf</code></h5>
-<div class="highlight"><pre><span></span><span class="c1"># split panes using | and -</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># split panes using | and -</span>
 <span class="nb">bind</span> <span class="p">|</span> split-window -h
 <span class="nb">bind</span> - split-window -v
 unbind <span class="s1">&#39;&quot;&#39;</span>
@@ -135,7 +135,7 @@ unbind %
 <span class="nb">set</span> -g mouse on
 
 source-file <span class="s2">&quot;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.tmux-themepack/blue.tmuxtheme&quot;</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>This is all very self-explanatory. <a href="https://github.com/jimeh/tmux-themepack">Many themes can be found
@@ -146,7 +146,7 @@ here</a>.</p>
 <p>This is a small Bash script that I like to have for automatic set up
 of a development environment with tmux and Vim/Neovim. As my current
 workflow, I enjoy the&nbsp;following:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!bash</span>
 <span class="c1"># var for session name (to avoid repeated occurences)</span>
 <span class="nv">sn</span><span class="o">=</span>dev
 
@@ -181,7 +181,7 @@ tmux send-keys -t <span class="s2">&quot;</span><span class="nv">$sn</span><span
 <span class="c1"># Select window #0 and attach to the session</span>
 tmux <span class="k">select</span>-window -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:0&quot;</span>
 tmux -2 attach-session -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">&quot;</span>
-</pre></div>
+</code></pre></div>
 
 
 <hr>
@@ -189,7 +189,7 @@ tmux -2 attach-session -t <span class="s2">&quot;</span><span class="nv">$sn</sp
 <h5><code>.tmux_default_session.sh</code></h5>
 <p>I add the following aliases in <code>~/.bash_aliases</code> to automate a chunk of
 the&nbsp;workflow:</p>
-<div class="highlight"><pre><span></span><span class="c1"># This will launch tmux with the desired configuration</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># This will launch tmux with the desired configuration</span>
 <span class="nb">alias</span> <span class="nv">dev</span><span class="o">=</span><span class="s1">&#39;bash ~/.tmux_default_session.sh&#39;</span>
 
 <span class="c1"># This will kill the tmux server if the need arises. By detaching from</span>
@@ -201,7 +201,7 @@ the&nbsp;workflow:</p>
 <span class="c1"># I use the following alias to quickly reattach to the default session</span>
 <span class="c1"># named `dev` in that example.</span>
 <span class="nb">alias</span> <span class="nv">adev</span><span class="o">=</span><span class="s1">&#39;tmux attach-session -t dev&#39;</span>
-</pre></div>
+</code></pre></div>
 
 
 <hr>
@@ -233,7 +233,7 @@ ion">GitHub</a>.</p>
   </div>
 
 </article>
-  
+
       <div id="ending_message">
         <p>
           &copy; Sébastien Lavoie. Built in

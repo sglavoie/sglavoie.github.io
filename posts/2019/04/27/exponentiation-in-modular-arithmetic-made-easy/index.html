@@ -17,7 +17,7 @@
     <meta name="author" content="Sébastien Lavoie" />
     <meta name="description" content="Posts and writings by Sébastien Lavoie" />
 
-     <link
+    <link
       href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
       type="application/rss+xml"
       rel="alternate"
@@ -67,7 +67,7 @@
       <meta name="og:title" property="og:title" content="While playing around in the Python interpreter to validate answers to mathematical questions, I quickly found out that very large exponents are dealt with very inefficiently by default as they are simply evaluated as is. That's where Python came to its own rescue.">
 
     <title>
-      sglavoie.com &ndash; Exponentiation in Modular Arithmetic Made&nbsp;Easy    </title>
+      sglavoie.com&ndash; Exponentiation in Modular Arithmetic Made&nbsp;Easy    </title>
   </head>
 
   <body>
@@ -81,11 +81,11 @@
         <h2><a href="https://www.sglavoie.com">sglavoie.com</a></h2>
         <p></p>
         <ul>
-            <li><a href="https://www.sglavoie.com/category/automation.html">automation</a></li>
+          <li><a href="https://www.sglavoie.com/category/automation.html">automation</a></li>
           <li><a href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a></li>
           <li><a href="https://www.sglavoie.com/category/tools.html">tools</a></li>
           <li><a href="https://www.sglavoie.com/category/workflow.html">workflow</a></li>
-          </ul>
+        </ul>
       </div>
     </aside>
 
@@ -100,7 +100,7 @@
           >
  &brvbar;
           <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS</a>
-          </p>
+        </p>
       </header>
 
 <article>
@@ -119,7 +119,7 @@ a simple technique about reducing the size of an exponent in modular
 arithmetic can bring you closer to using much larger numbers than the
 ones you could normally use in the Python&nbsp;interpreter.</p>
 <h2>The script in&nbsp;action</h2>
-<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Compute the result of a^b (mod k) by using the exponentiation technique.</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;Compute the result of a^b (mod k) by using the exponentiation technique.</span>
 <span class="sd">The goal here is not efficiency, even though the program is actually pretty</span>
 <span class="sd">fast: the algorithm is applied manually for demonstration purposes.</span>
 <span class="sd">Testing on a modest Intel Core i5, having `a` and `b` each set to a random</span>
@@ -226,7 +226,7 @@ ones you could normally use in the Python&nbsp;interpreter.</p>
 
     <span class="n">FINAL_RESULT</span> <span class="o">=</span> <span class="n">compute_congruence</span><span class="p">(</span><span class="n">NUM_A</span><span class="p">,</span> <span class="n">NUM_B</span><span class="p">,</span> <span class="n">NUM_K</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">FINAL_RESULT</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>Conclusion</h2>
@@ -258,7 +258,7 @@ results for seemingly quite large&nbsp;numbers.</p>
   </div>
 
 </article>
-  
+
       <div id="ending_message">
         <p>
           &copy; Sébastien Lavoie. Built in

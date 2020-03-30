@@ -17,7 +17,7 @@
     <meta name="author" content="Sébastien Lavoie" />
     <meta name="description" content="Posts and writings by Sébastien Lavoie" />
 
-     <link
+    <link
       href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
       type="application/rss+xml"
       rel="alternate"
@@ -67,7 +67,7 @@
       <meta name="og:title" property="og:title" content="I have been using a few different tools from suckless.org for a while and I must say that once everything is configured properly, they are a joy to use. Some tools, like dmenu and slock, seem simple on the surface, but they allow to simplify your workflow by quite a bit. Another one, st, is a truly fantastic and lightweight terminal!">
 
     <title>
-      sglavoie.com &ndash; Suckless: Minimalist Tools That Work&nbsp;Great    </title>
+      sglavoie.com&ndash; Suckless: Minimalist Tools That Work&nbsp;Great    </title>
   </head>
 
   <body>
@@ -81,11 +81,11 @@
         <h2><a href="https://www.sglavoie.com">sglavoie.com</a></h2>
         <p></p>
         <ul>
-            <li><a href="https://www.sglavoie.com/category/automation.html">automation</a></li>
+          <li><a href="https://www.sglavoie.com/category/automation.html">automation</a></li>
           <li><a href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a></li>
           <li><a href="https://www.sglavoie.com/category/tools.html">tools</a></li>
           <li><a href="https://www.sglavoie.com/category/workflow.html">workflow</a></li>
-          </ul>
+        </ul>
       </div>
     </aside>
 
@@ -100,7 +100,7 @@
           >
  &brvbar;
           <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS</a>
-          </p>
+        </p>
       </header>
 
 <article>
@@ -128,7 +128,7 @@ that everything from Suckless&#8230; Sucks&nbsp;less.</p>
 <p>I have experienced rendering issues when scaling the text with other terminals (including Konsole), where some weird flickering would happen at certain font sizes. <a href="https://st.suckless.org/">Simple Terminal</a> just works without hassle. It doesn&#8217;t have much bells and whistles out of the box, but it can be <em>patched</em> to extend its functionality if you know what you are doing. I don&#8217;t, so my compiled version remains pretty basic although I must say I like the simplicity of it very&nbsp;much.</p>
 <h3>Configuration</h3>
 <p>I didn&#8217;t have to adapt the configuration file very much. I ended up changing mainly the following&nbsp;lines:</p>
-<div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="n">font</span> <span class="o">=</span> <span class="s">&quot;Consolas:pixelsize=18:antialias=true:autohint=true&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="n">font</span> <span class="o">=</span> <span class="s">&quot;Consolas:pixelsize=18:antialias=true:autohint=true&quot;</span><span class="p">;</span>
 
 <span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="n">shell</span> <span class="o">=</span> <span class="s">&quot;/bin/zsh&quot;</span><span class="p">;</span>
 
@@ -192,14 +192,14 @@ that everything from Suckless&#8230; Sucks&nbsp;less.</p>
 
 <span class="k">static</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">cols</span> <span class="o">=</span> <span class="mi">80</span><span class="p">;</span>
 <span class="k">static</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">rows</span> <span class="o">=</span> <span class="mi">24</span><span class="p">;</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>dmenu</h2>
 <p><a href="https://tools.suckless.org/dmenu/">dmenu</a> can be configured in the same way as Simple Terminal by editing a text file and compiling the software. I like to use many keyboard shortcuts, but I find that for launching applications I don&#8217;t use that often or to launch custom Bash or Python scripts on the fly, nothing beats the simplicity of <strong>dmenu</strong>.</p>
 <h3>Configuration</h3>
 <p>This one is very easy to configure and doesn&#8217;t really require any attention at all besides defining where you want it to appear on the screen and what colors you prefer. Here are some smalls changes I made to the configuration in <code>config.h</code> before compiling&nbsp;it:</p>
-<div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">int</span> <span class="n">topbar</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>                      <span class="cm">/* -b  option; if 0, dmenu appears at bottom     */</span>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="kt">int</span> <span class="n">topbar</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>                      <span class="cm">/* -b  option; if 0, dmenu appears at bottom     */</span>
 <span class="cm">/* -fn option overrides fonts[0]; default X11 font or font set */</span>
 <span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fonts</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">&quot;Consolas:size=12&quot;</span>
@@ -219,7 +219,7 @@ that everything from Suckless&#8230; Sucks&nbsp;less.</p>
 <span class="cm"> * for example: &quot; /?\&quot;&amp;[]&quot;</span>
 <span class="cm"> */</span>
 <span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">worddelimiters</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot; &quot;</span><span class="p">;</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>slock</h2>
@@ -253,7 +253,7 @@ that everything from Suckless&#8230; Sucks&nbsp;less.</p>
   </div>
 
 </article>
-  
+
       <div id="ending_message">
         <p>
           &copy; Sébastien Lavoie. Built in

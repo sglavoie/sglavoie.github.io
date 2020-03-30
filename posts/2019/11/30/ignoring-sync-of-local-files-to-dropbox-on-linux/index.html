@@ -17,7 +17,7 @@
     <meta name="author" content="Sébastien Lavoie" />
     <meta name="description" content="Posts and writings by Sébastien Lavoie" />
 
-     <link
+    <link
       href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
       type="application/rss+xml"
       rel="alternate"
@@ -67,7 +67,7 @@
       <meta name="og:title" property="og:title" content="To make the most of Dropbox, it can make sense to backup the files you care the most about and skip the ones that simply take too long to upload and eat up all your space. Such candidates could be hidden .git/ folders and node_modules/, but how do you exclude them locally? Let's find out.">
 
     <title>
-      sglavoie.com &ndash; Ignoring Sync of Local Files to Dropbox on&nbsp;Linux    </title>
+      sglavoie.com&ndash; Ignoring Sync of Local Files to Dropbox on&nbsp;Linux    </title>
   </head>
 
   <body>
@@ -81,11 +81,11 @@
         <h2><a href="https://www.sglavoie.com">sglavoie.com</a></h2>
         <p></p>
         <ul>
-            <li><a href="https://www.sglavoie.com/category/automation.html">automation</a></li>
+          <li><a href="https://www.sglavoie.com/category/automation.html">automation</a></li>
           <li><a href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a></li>
           <li><a href="https://www.sglavoie.com/category/tools.html">tools</a></li>
           <li><a href="https://www.sglavoie.com/category/workflow.html">workflow</a></li>
-          </ul>
+        </ul>
       </div>
     </aside>
 
@@ -100,7 +100,7 @@
           >
  &brvbar;
           <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS</a>
-          </p>
+        </p>
       </header>
 
 <article>
@@ -128,32 +128,32 @@
 <hr>
 <h1>Any simple&nbsp;example?</h1>
 <p>Getting started is quick and painless. To ignore a file within your Dropbox folder, you only need to use the <code>attr</code> command to <strong>set</strong> (<code>-s</code>) the special attribute <code>com.dropbox.ignored</code> to give it a <strong>value</strong> of <code>1</code> (<code>-V 1</code>) so it ignores a file (<code>file.txt</code> in this example) as&nbsp;follow:</p>
-<div class="highlight"><pre><span></span><span class="nb">cd</span> /path/to/file/in/Dropbox/folder
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> /path/to/file/in/Dropbox/folder
 
 attr -s com.dropbox.ignored -V <span class="m">1</span> file.txt
-</pre></div>
+</code></pre></div>
 
 
 <h2>Ignore all .git and node_modules&nbsp;folders</h2>
 <p>Things get <strong>really</strong> interesting when we can do that automatically by matching a specific pattern (it depends who you ask, anyways). How about exploring recursively the whole directory tree to exclude only hidden <code>.git</code> folders? Suppose you store your Git projects in <code>~/Dropbox/git/</code>. You would then do something like&nbsp;this:</p>
-<div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Dropbox/git/
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/Dropbox/git/
 
 find . -type d -name <span class="s2">&quot;.git&quot;</span> <span class="p">|</span>
     xargs -I <span class="o">{}</span> attr -s com.dropbox.ignored -V <span class="m">1</span> <span class="s2">&quot;{}&quot;</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>In an instant, you will start getting some feedback printed to the terminal for each <code>.git</code> folder that is being&nbsp;found:</p>
-<div class="highlight"><pre><span></span>Attribute &quot;com.dropbox.ignored&quot; set to a 1 byte value for ./path/to/.git:
+<div class="highlight"><pre><span></span><code>Attribute &quot;com.dropbox.ignored&quot; set to a 1 byte value for ./path/to/.git:
 1
-</pre></div>
+</code></pre></div>
 
 
 <p>Dealing with <code>node_modules</code> folders is equally easy. Because a message will be printed to the console every time a file attribute is changed, you could want to delete the output (preferably once you are sure you are modifying only the targeted files!) by redirecting it to <code>/dev/null</code>, a <em>null device</em> that discards all data it receives. We can always split a long command onto multiple lines with a backslash character <code>\</code> like so (it&#8217;s not required right after the pipe <code>|</code> symbol):</p>
-<div class="highlight"><pre><span></span>find . -type d -name <span class="s2">&quot;node_modules&quot;</span> <span class="p">|</span>
+<div class="highlight"><pre><span></span><code>find . -type d -name <span class="s2">&quot;node_modules&quot;</span> <span class="p">|</span>
     xargs -I <span class="o">{}</span> attr -s com.dropbox.ignored -V <span class="m">1</span> <span class="se">\</span>
     <span class="s2">&quot;{}&quot;</span> &gt; /dev/null
-</pre></div>
+</code></pre></div>
 
 
 <hr>
@@ -161,7 +161,7 @@ find . -type d -name <span class="s2">&quot;.git&quot;</span> <span class="p">|<
 <p>Yes we can! An <code>alias</code> might be a bit hard to manage, but we can definitely create a set of functions that will be accessible from anywhere in the terminal. It suffices to add them to your shell configuration file, which could be located in <code>~/.profile</code>, <code>~/.bash_profile</code>, <code>~/.zshrc</code> or something else depending on your&nbsp;shell.</p>
 <p>One solution that I see fit for this purpose is to have two distinct functions that have antagonistic effects so that we can revert our changes in a pinch. Basically, setting a value of <code>1</code> for the attribute <code>com.dropbox.ignored</code> ignores a file while setting it back to <code>0</code> tells Dropbox to sync it again. Our functions could be conveniently called <code>dropbox-ignore</code> and <code>dropbox-sync</code>.</p>
 <p>Now, the following functions could become quite a bit more complicated to take into account various scenarios and custom behaviors, but let&#8217;s keep things simple and assume that the user knows what is going to happen. We could have our two functions as&nbsp;follow:</p>
-<div class="highlight"><pre><span></span><span class="c1"># Ignore specific files/directories in Dropbox</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ignore specific files/directories in Dropbox</span>
 dropbox-ignore<span class="o">(){</span>
   <span class="nv">arg1</span><span class="o">=</span><span class="nv">$1</span>
   <span class="nv">arg2</span><span class="o">=</span><span class="nv">$2</span>
@@ -177,14 +177,14 @@ dropbox-sync<span class="o">(){</span>
   find . -type <span class="nv">$arg1</span> -name <span class="s2">&quot;</span><span class="nv">$arg2</span><span class="s2">&quot;</span> <span class="p">|</span>
       xargs -I <span class="o">{}</span> attr -s com.dropbox.ignored -V <span class="m">0</span> <span class="s2">&quot;{}&quot;</span>
 <span class="o">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>How do you use those&nbsp;functions?</h2>
 <p>Our commands will be accessible by typing <code>dropbox-ignore</code> and <code>dropbox-sync</code> the next time we open a terminal window. Both functions do exactly the same thing, but <code>dropbox-ignore</code> sets the attribute value to <code>1</code> to ignore files and <code>dropbox-sync</code> sets the attribute to <code>0</code> to allow syncing to&nbsp;happen.</p>
 <p><sub>Note: For simplicity and practicality, keep in mind that those commands will search <strong>recursively from the current working directory</strong>. It&#8217;s also good to know that if you set an attribute value to <code>1</code> then back to <code>0</code> again, Dropbox will need to re-sync the affected files and directories.</sub></p>
 <p>We need to pass them two arguments: the first is the type of search to perform (pass <code>f</code> for <strong>files</strong> and <code>d</code> for <strong>directories</strong>) and the second is the pattern to match in the name (<code>node_modules</code> or <code>.git</code> would fit here, no need to use quotes). Concretely, that will look like&nbsp;this:</p>
-<div class="highlight"><pre><span></span><span class="c1"># To ignore a file matching the pattern `myfile`</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># To ignore a file matching the pattern `myfile`</span>
 dropbox-ignore f myfile
 
 <span class="c1"># To avoid syncing node_modules/ directory</span>
@@ -192,7 +192,7 @@ dropbox-ignore d node_modules
 
 <span class="c1"># Te re-add a .git/ folder to Dropbox</span>
 dropbox-sync d .git
-</pre></div>
+</code></pre></div>
 
 
 <hr>
@@ -220,7 +220,7 @@ dropbox-sync d .git
   </div>
 
 </article>
-  
+
       <div id="ending_message">
         <p>
           &copy; Sébastien Lavoie. Built in

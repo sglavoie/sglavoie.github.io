@@ -17,7 +17,7 @@
     <meta name="author" content="Sébastien Lavoie" />
     <meta name="description" content="Posts and writings by Sébastien Lavoie" />
 
-     <link
+    <link
       href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
       type="application/rss+xml"
       rel="alternate"
@@ -67,7 +67,7 @@
       <meta name="og:title" property="og:title" content="If you ever wanted to automatically clean your Bash history file, here is a working solution written in Python that uses regular expressions to set any kind of pattern you might be looking for.">
 
     <title>
-      sglavoie.com &ndash; Bash History&nbsp;Cleaner    </title>
+      sglavoie.com&ndash; Bash History&nbsp;Cleaner    </title>
   </head>
 
   <body>
@@ -81,11 +81,11 @@
         <h2><a href="https://www.sglavoie.com">sglavoie.com</a></h2>
         <p></p>
         <ul>
-            <li><a href="https://www.sglavoie.com/category/automation.html">automation</a></li>
+          <li><a href="https://www.sglavoie.com/category/automation.html">automation</a></li>
           <li><a href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a></li>
           <li><a href="https://www.sglavoie.com/category/tools.html">tools</a></li>
           <li><a href="https://www.sglavoie.com/category/workflow.html">workflow</a></li>
-          </ul>
+        </ul>
       </div>
     </aside>
 
@@ -100,7 +100,7 @@
           >
  &brvbar;
           <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS</a>
-          </p>
+        </p>
       </header>
 
 <article>
@@ -136,7 +136,7 @@ to yet another empty <code>ls</code> or <code>cd</code> has proven necessary and
 script you are about to see and set up what is known as an <em>eternal
 history</em> which, as it sounds like, can grow infinitely big! All you have
 to do is append the following lines to the file <code>~/.bashrc</code>:</p>
-<div class="highlight"><pre><span></span><span class="c1"># Eternal bash history.</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Eternal bash history.</span>
 <span class="c1"># ---------------------</span>
 <span class="c1"># Undocumented feature which sets the size to &quot;unlimited&quot;.</span>
 <span class="c1"># http://stackoverflow.com/questions/9457233/unlimited-bash-history</span>
@@ -150,7 +150,7 @@ to do is append the following lines to the file <code>~/.bashrc</code>:</p>
 <span class="c1"># Force prompt to write history after every command.</span>
 <span class="c1"># http://superuser.com/questions/20900/bash-history-loss</span>
 <span class="nv">PROMPT_COMMAND</span><span class="o">=</span><span class="s2">&quot;history -a; </span><span class="nv">$PROMPT_COMMAND</span><span class="s2">&quot;</span>
-</pre></div>
+</code></pre></div>
 
 
 <hr>
@@ -167,7 +167,7 @@ href="https://github.com/sglavoie/python-utilities/tree/master/bash_hist
 ory_cleaner">Github</a>. To keep this
 article a bit more readable, the original version is shown.</sub></p>
 <h5><code>bash_history_cleaner.py</code></h5>
-<div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">Python script that helps to clean the file containing the Bash history</span>
 <span class="sd">commands.</span>
 
@@ -244,12 +244,12 @@ article a bit more readable, the original version is shown.</sub></p>
     <span class="sd">&#39;&#39;&#39;Delete log files in `home_directory` based on `history_file`.&#39;&#39;&#39;</span>
 
     <span class="c1"># Retrieve a list of all matching log files</span>
-    <span class="n">log_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{history_file}</span><span class="s1">_*.bak&#39;</span><span class="p">)</span>
+    <span class="n">log_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">history_file</span><span class="si">}</span><span class="s1">_*.bak&#39;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">log_files</span> <span class="o">==</span> <span class="p">[]:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There is no log file to delete.&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Log files found in </span><span class="si">{settings[&quot;home_directory&quot;]}</span><span class="s1">:&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Log files found in </span><span class="si">{</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;home_directory&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">:&#39;</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">log_file</span> <span class="ow">in</span> <span class="n">log_files</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">log_file</span><span class="p">)</span>
@@ -309,11 +309,11 @@ article a bit more readable, the original version is shown.</sub></p>
 
             <span class="k">if</span> <span class="n">match_whole_line</span><span class="p">:</span>
                 <span class="c1"># Match the whole line if it starts with the alias.</span>
-                <span class="n">alias</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;^</span><span class="si">{alias}</span><span class="s1">( )?$|^</span><span class="si">{alias}</span><span class="s1"> .*&#39;</span>
+                <span class="n">alias</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;^</span><span class="si">{</span><span class="n">alias</span><span class="si">}</span><span class="s1">( )?$|^</span><span class="si">{</span><span class="n">alias</span><span class="si">}</span><span class="s1"> .*&#39;</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="c1"># Will match only when alias is the whole content of the line,</span>
                 <span class="c1"># followed by optional space.</span>
-                <span class="n">alias</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;^</span><span class="si">{alias}</span><span class="s1">( )?$&#39;</span>
+                <span class="n">alias</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;^</span><span class="si">{</span><span class="n">alias</span><span class="si">}</span><span class="s1">( )?$&#39;</span>
 
             <span class="c1"># Escape dots in alias</span>
             <span class="n">alias</span> <span class="o">=</span> <span class="n">alias</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">({</span><span class="s2">&quot;.&quot;</span><span class="p">:</span>  <span class="sa">r</span><span class="s2">&quot;\.&quot;</span><span class="p">}))</span>
@@ -364,12 +364,12 @@ article a bit more readable, the original version is shown.</sub></p>
             <span class="c1"># add aliases to list of patterns to ignore</span>
             <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;ignore_patterns&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">bash_aliases</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File not found: </span><span class="si">{aliases_file}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File not found: </span><span class="si">{</span><span class="n">aliases_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="n">quit</span><span class="p">()</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">clean_bash_history</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="n">history_file</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File not found: </span><span class="si">{history_file}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File not found: </span><span class="si">{</span><span class="n">history_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
@@ -391,11 +391,11 @@ article a bit more readable, the original version is shown.</sub></p>
         <span class="n">quit</span><span class="p">()</span>
 
     <span class="n">launch_cleanup</span><span class="p">(</span><span class="n">SETTINGS</span><span class="p">,</span> <span class="n">HISTORY_FILE</span><span class="p">,</span> <span class="n">ALIASES_FILE</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <h5><code>settings.json</code></h5>
-<div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;home_directory&quot;</span><span class="p">:</span> <span class="s2">&quot;/home/sglavoie&quot;</span><span class="p">,</span>
     <span class="nt">&quot;history_file&quot;</span><span class="p">:</span> <span class="s2">&quot;.bash_eternal_history&quot;</span><span class="p">,</span>
     <span class="nt">&quot;add_aliases&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -437,7 +437,7 @@ article a bit more readable, the original version is shown.</sub></p>
         <span class="s2">&quot;^which &quot;</span>
     <span class="p">]</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <hr>
@@ -522,7 +522,7 @@ ory_cleaner">available on Github</a>.</p>
   </div>
 
 </article>
-  
+
       <div id="ending_message">
         <p>
           &copy; Sébastien Lavoie. Built in

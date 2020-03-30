@@ -17,7 +17,7 @@
     <meta name="author" content="Sébastien Lavoie" />
     <meta name="description" content="Posts and writings by Sébastien Lavoie" />
 
-     <link
+    <link
       href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
       type="application/rss+xml"
       rel="alternate"
@@ -67,7 +67,7 @@
       <meta name="og:title" property="og:title" content="Search and, most importantly, finally find what you are looking for on your machine. If you rely on the terminal a lot, fzf may well be capable of speeding up your productivity!">
 
     <title>
-      sglavoie.com &ndash; fzf - A Fuzzy Finder to Accomplish&nbsp;Anything    </title>
+      sglavoie.com&ndash; fzf - A Fuzzy Finder to Accomplish&nbsp;Anything    </title>
   </head>
 
   <body>
@@ -81,11 +81,11 @@
         <h2><a href="https://www.sglavoie.com">sglavoie.com</a></h2>
         <p></p>
         <ul>
-            <li><a href="https://www.sglavoie.com/category/automation.html">automation</a></li>
+          <li><a href="https://www.sglavoie.com/category/automation.html">automation</a></li>
           <li><a href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a></li>
           <li><a href="https://www.sglavoie.com/category/tools.html">tools</a></li>
           <li><a href="https://www.sglavoie.com/category/workflow.html">workflow</a></li>
-          </ul>
+        </ul>
       </div>
     </aside>
 
@@ -100,7 +100,7 @@
           >
  &brvbar;
           <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS</a>
-          </p>
+        </p>
       </header>
 
 <article>
@@ -127,7 +127,7 @@ files, command history, processes, hostnames, bookmarks, git commits,&nbsp;etc.<
 to use, it can be combined with all kinds of commands with the help
 of pipes (<code>|</code>) to bend it to your desires. Here are some aliases I am
 currently using that undoubtedly improve my terminal&nbsp;workflow.</p>
-<div class="highlight"><pre><span></span><span class="c1">##### Functions</span>
+<div class="highlight"><pre><span></span><code><span class="c1">##### Functions</span>
 
 <span class="c1"># Select a configuration file with fzf and open it with Neovim</span>
 conf<span class="o">()</span> <span class="o">{</span> du -a ~/.dotfiles/* ~/.config/* <span class="p">|</span> awk <span class="s1">&#39;{print $2}&#39;</span> <span class="p">|</span> fzf <span class="p">|</span> xargs -r nvim <span class="p">;</span><span class="o">}</span>
@@ -137,7 +137,7 @@ se<span class="o">()</span> <span class="o">{</span> du -a ./* <span class="p">|
 
 <span class="c1"># Select a file recursively from university folder with fzf and open it with default app</span>
 sc<span class="o">()</span> <span class="o">{</span> du -a ~/Dropbox/university/* <span class="p">|</span> awk <span class="s1">&#39;{print $2}&#39;</span> <span class="p">|</span> fzf <span class="p">|</span> xargs -r xdg-open <span class="p">;</span><span class="o">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>The first alias, <code>conf</code> (short for <em>configuration</em>), allows to search
@@ -165,7 +165,7 @@ system and install it if it&#8217;s not. Then, we install the <code>fzf.vim</cod
 to integrate fzf in Vim and optionally, we may configure more options so
 that <code>fzf</code> can be used more optimally, which can be found on the <a href="https://github.com/junegunn/fzf.vim">GitHub
 plugin page</a>.</p>
-<div class="highlight"><pre><span></span>Plug <span class="s1">&#39;junegunn/fzf&#39;</span><span class="p">,</span> { <span class="s1">&#39;dir&#39;</span>: $HOME . <span class="s1">&#39;/.fzf&#39;</span><span class="p">,</span> <span class="s1">&#39;do&#39;</span>: <span class="s1">&#39;./install --all&#39;</span> }
+<div class="highlight"><pre><span></span><code>Plug <span class="s1">&#39;junegunn/fzf&#39;</span><span class="p">,</span> { <span class="s1">&#39;dir&#39;</span>: $HOME . <span class="s1">&#39;/.fzf&#39;</span><span class="p">,</span> <span class="s1">&#39;do&#39;</span>: <span class="s1">&#39;./install --all&#39;</span> }
 Plug <span class="s1">&#39;junegunn/fzf.vim&#39;</span>
 
 <span class="c">&quot;&quot;&quot;&quot;&quot; [ FZF ]</span>
@@ -190,7 +190,7 @@ imap <span class="p">&lt;</span><span class="k">c</span><span class="p">-</span>
 <span class="c">&quot; Make use of fzf command instead of CtrlP</span>
 map <span class="p">&lt;</span>C<span class="p">-</span><span class="k">p</span><span class="p">&gt;</span> :FZF<span class="p">&lt;</span><span class="k">cr</span><span class="p">&gt;</span>
 <span class="c">&quot;&quot;&quot; [ / FZF ]</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3>Working with&nbsp;Neovim</h3>
@@ -201,15 +201,15 @@ which deserves its own article. It
 integrates with core functionality of Vim and makes it easy to find what
 you are looking&nbsp;for.</p>
 <p>From the above configuration, for&nbsp;instance:</p>
-<div class="highlight"><pre><span></span>nmap <span class="p">&lt;</span>leader<span class="p">&gt;&lt;</span><span class="k">tab</span><span class="p">&gt;</span> <span class="p">&lt;</span>plug<span class="p">&gt;(</span>fzf<span class="p">-</span>maps<span class="p">-</span><span class="k">n</span><span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>nmap <span class="p">&lt;</span>leader<span class="p">&gt;&lt;</span><span class="k">tab</span><span class="p">&gt;</span> <span class="p">&lt;</span>plug<span class="p">&gt;(</span>fzf<span class="p">-</span>maps<span class="p">-</span><span class="k">n</span><span class="p">)</span>
+</code></pre></div>
 
 
 <p>This allows to search for existing mappings and commands, which can be
 faster than diving in the help pages when looking for a quick&nbsp;reference.</p>
 <p>This one in insert mode is very&nbsp;handy:</p>
-<div class="highlight"><pre><span></span>imap <span class="p">&lt;</span><span class="k">c</span><span class="p">-</span><span class="k">x</span><span class="p">&gt;&lt;</span><span class="k">c</span><span class="p">-</span><span class="k">k</span><span class="p">&gt;</span> <span class="p">&lt;</span>plug<span class="p">&gt;(</span>fzf<span class="p">-</span><span class="nb">complete</span><span class="p">-</span>word<span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>imap <span class="p">&lt;</span><span class="k">c</span><span class="p">-</span><span class="k">x</span><span class="p">&gt;&lt;</span><span class="k">c</span><span class="p">-</span><span class="k">k</span><span class="p">&gt;</span> <span class="p">&lt;</span>plug<span class="p">&gt;(</span>fzf<span class="p">-</span><span class="nb">complete</span><span class="p">-</span>word<span class="p">)</span>
+</code></pre></div>
 
 
 <p>Without affecting keyword completion with <code>CTRL + n</code> and <code>CTRL + p</code>
@@ -217,8 +217,8 @@ faster than diving in the help pages when looking for a quick&nbsp;reference.</p
 complete words from a custom dictionary of your choice with <code>CTRL + x
 CTRL + k</code>. The window that appears can be moved and resized, which is
 what is happening&nbsp;here:</p>
-<div class="highlight"><pre><span></span><span class="nb">inoremap</span> <span class="p">&lt;</span>expr<span class="p">&gt;</span> <span class="p">&lt;</span><span class="k">c</span><span class="p">-</span><span class="k">x</span><span class="p">&gt;&lt;</span><span class="k">c</span><span class="p">-</span><span class="k">k</span><span class="p">&gt;</span> fzf#<span class="k">vim</span>#<span class="nb">complete</span>#word<span class="p">(</span>{<span class="s1">&#39;left&#39;</span>: <span class="s1">&#39;20%&#39;</span>}<span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">inoremap</span> <span class="p">&lt;</span>expr<span class="p">&gt;</span> <span class="p">&lt;</span><span class="k">c</span><span class="p">-</span><span class="k">x</span><span class="p">&gt;&lt;</span><span class="k">c</span><span class="p">-</span><span class="k">k</span><span class="p">&gt;</span> fzf#<span class="k">vim</span>#<span class="nb">complete</span>#word<span class="p">(</span>{<span class="s1">&#39;left&#39;</span>: <span class="s1">&#39;20%&#39;</span>}<span class="p">)</span>
+</code></pre></div>
 
 
 <p>In the same way, file paths can be completed from the current working
@@ -261,7 +261,7 @@ that I described succinctly in
   </div>
 
 </article>
-  
+
       <div id="ending_message">
         <p>
           &copy; Sébastien Lavoie. Built in
