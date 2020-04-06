@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://www.sglavoie.com/theme/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://www.sglavoie.com/theme/css/pygments.css"
+    />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Sébastien Lavoie" />
+    <meta name="description" content="Posts and writings by Sébastien Lavoie" />
+
+    <link
+      href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
+      type="application/rss+xml"
+      rel="alternate"
+      title="sglavoie.com RSS"
+    />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="/theme/favicon/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/theme/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/theme/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/theme/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/theme/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="/theme/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#2d89ef" />
+    <meta
+      name="msapplication-TileImage"
+      content="/theme/favicon/mstile-144x144.png"
+    />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#000000" />
+
+      <meta name="keywords" content="debian, linux, stability, xfce">
+
+      <!-- Open graph for social networks -->
+      <meta name="og:title" property="og:title" content="Desperate times call for the best Linux experience possible... And in my experience so far, the Debian distribution with the Xfce desktop environment makes for a very smooth ride.">
+
+    <title>
+      sglavoie.com&ndash; Tip the Scales in Times of Instability With the Rock-Solid Debian&nbsp;Xfce    </title>
+  </head>
+
+  <body>
+    <aside>
+      <div id="user_meta">
+        <a href="https://www.sglavoie.com">
+          <img
+            src="https://www.sglavoie.com/theme/images/logo.png"
+            alt="logo"          />
+        </a>
+        <h2><a href="https://www.sglavoie.com">sglavoie.com</a></h2>
+        <p></p>
+        <ul>
+          <li><a href="https://www.sglavoie.com/category/automation.html">automation</a></li>
+          <li><a href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a></li>
+          <li><a href="https://www.sglavoie.com/category/tools.html">tools</a></li>
+          <li><a href="https://www.sglavoie.com/category/workflow.html">workflow</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main>
+      <header>
+        <p>
+          <a href="https://www.sglavoie.com">Index</a> &brvbar;
+          <a href="https://www.sglavoie.com/archives.html">Archives</a> &brvbar;
+          <a href="https://www.sglavoie.com/tags.html">Tags</a> &brvbar;
+          <a href="https://www.sglavoie.com/learning-progress-2020.html"
+            >Learning Progress</a
+          >
+ &brvbar;
+          <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS</a>
+        </p>
+      </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="https://www.sglavoie.com/posts/2020/04/05/tip-the-scales-in-times-of-instability-with-the-rock-solid-debian-xfce/">Tip the Scales in Times of Instability With the Rock-Solid Debian&nbsp;Xfce</a></h1>
+  </div>
+  <div class="article_readtime">
+    <p>Estimated read time: 9 minutes</p>
+  </div>
+  <div class="article_text">
+    <h1>Introduction</h1>
+<p>I&#8217;m familiar with Linux distribution hopping, having tried out many options over the years, starting around the time Mandrake 9.2 was popular back in 2003, then switching to a few others including Ubuntu, <span class="caps">KNOPPIX</span>, Fedora, Xubuntu, openSUSE, Kubuntu, Mint, Manjaro, Mandriva&#8230; And of course Debian along the way, which undoubtedly used to be relatively harder to get started&nbsp;with.</p>
+<p>My heart has also been stirred by different desktop environments and window managers, from more user-friendly/feature-rich solutions such as <span class="caps">KDE</span>, <span class="caps">GNOME</span> (along with Unity when it was still a thing), Xfce and Cinnamon to an arguably more obscure selection comprising Openbox, Fluxbox, Enlightenment, Awesome <span class="caps">WM</span>, dwm, i3 and&nbsp;bspwm.</p>
+<p>I haven&#8217;t tried everything that&#8217;s out there (XMonad being one such <em>esoteric</em> possibility), but I&#8217;ve come to realize that what matters most to me is a great balance of stability and usability, allowing to be more focused on any given task at end and therefore leading to increased productivity. For this reason, I recently turned back to a fantastic combo: Debian with&nbsp;Xfce.</p>
+<hr>
+<h2>Why Debian&nbsp;Xfce?</h2>
+<h3>Stability and&nbsp;Reliability</h3>
+<p>Debian has always been to me the father figure of stability in the Linux world. Countless servers have run on Debian and continue to do so for good reason: it just works once it is properly set up. I have had some bad luck with other Debian-based distributions like Ubuntu and Linux Mint which strive to be easier to use but remain easier to break, being a bit more bleeding edge and sometimes bloated too with tons of software I don&#8217;t really need. Fedora, although I like its philosophy and style very much, has always lead to hardware issues on my apparently less-than-ideal machines. Manjaro has been pleasant and easy to use, but Arch feels like the <em>right</em> choice if one is to build a custom system from scratch. It does take a good amount of time to get things going on such a distribution and usually a good dose of maintenance too, which brought me to seek less time-consuming options. For stability and reliability, Debian is hard to beat in my&nbsp;experience.</p>
+<h3>Marvelous Package&nbsp;Manager</h3>
+<p>I have always found the package manager on Debian (and derivatives) to be easier to use than alternatives like <code>yum</code>, <code>DNF</code> or <code>urpmi</code> for <span class="caps">RPM</span> packages. The <code>pacman</code> package manager available on Arch-based systems is truly excellent and powerful, but I simply find <code>apt</code> to be more intuitive after using it for a lot&nbsp;longer.</p>
+<h3>It Just Won&#8217;t&nbsp;Break</h3>
+<p>Sitting on the bleeding edge is fun and sometimes even rewarding when things finally work as expected, but I have seen that it doesn&#8217;t stay that way forever. Big updates, sometimes relatively frequent ones, can leave the system in an unusable state. It&#8217;s often a minor annoyance to fix, but that just doesn&#8217;t happen on Debian, where packages are vetted mainly for their legendary stability before releasing them. They are indeed quite a bit older than what can be found on other distributions. It&#8217;s the price to pay, but I came to the conclusion that it&#8217;s worth it if you&#8217;re looking to get things done in the long&nbsp;run.</p>
+<figure>
+    <a href="https://www.sglavoie.com/images/posts/0020_stable_system_debian_xfce/debian_xfce.png"><img src="https://www.sglavoie.com/images/posts/0020_stable_system_debian_xfce/debian_xfce.png" alt="debian_xfce" class="max-size-img-post"></a>
+    <figcaption>Debian Xfce in its glorious simplicity.</figcaption>
+</figure>
+
+<h3>Xfce Is Minimalist Enough and&nbsp;Hassle-Free</h3>
+<p>It&#8217;s also about the combination of <strong>Debian + Xfce</strong>: while Debian makes sure the system remains functional as a whole, Xfce is the solution for interacting with applications and windows without glitches. Debian itself keeps old packages around by choice and Xfce has a <em>very</em> slow release cycle yet also provides stability out of the box. This means that installing Xfce on Debian <strong>has</strong> to work because bugs have been evened out over <strong>years</strong> of effort from both&nbsp;teams.</p>
+<h4>Xfce vs <span class="caps">KDE</span></h4>
+<p>One of the main appeals of desktop environments like <span class="caps">KDE</span> and <span class="caps">GNOME</span> is that they have more features and add them more often. They do use more resources and even though they have gone through substantial optimizations over the years, they still feel less snappy on older systems compared to simpler window managers or even Xfce. Recently, <span class="caps">KDE</span> caught up with Xfce in terms of resources utilization, but there&#8217;s one major reason I just can&#8217;t rely on it on a production machine: in every single release I have tried (from <span class="caps">KDE</span> 2.x in the early 2000s to Plasma 5.x), I was confronted with numerous bugs within minutes of delving into it. I have always been faced with some minor troubles on <span class="caps">GNOME</span> too (versions 2 and 3), but it&#8217;s never been as severe as with <span class="caps">KDE</span>. <span class="caps">KDE</span> has plenty of cool ideas and is fully customizable, but that&#8217;s to a fault in my&nbsp;view.</p>
+<h4>Xfce vs <span class="caps">GNOME</span></h4>
+<p>On the other hand, <span class="caps">GNOME</span> does consume at least twice as much <span class="caps">RAM</span> and <span class="caps">CPU</span> compared with Xfce even with no extensions enabled on <span class="caps">GNOME</span> and a couple of plugins activated on Xfce. I enjoy how <span class="caps">GNOME</span> deals with virtual desktops and think this can be a great productivity enhancement, but once I&#8217;ve configured Xfce to be mainly keyboard-driven, I prefer keeping it simpler with less transition effects and other nice visual additions. On the graphical side of things, <span class="caps">GNOME</span> with Wayland has never worked as well for me as with Xorg, so that&#8217;s something else to watch&nbsp;for.</p>
+<h4>Xfce vs&nbsp;i3</h4>
+<p>Well, <code>i3</code> is a different beast in its own right and has taken a special place in my heart. It uses less memory and <span class="caps">CPU</span> than any desktop environment out there and can be used with minimalistic software, like the <code>st</code> terminal and the dynamic menu <code>dmenu</code> (read the article about <a href="https://www.sglavoie.com/posts/2019/05/12/suckless-minimalist-tools-that-work-great/">suckless tools</a> if that resonates with your style!). But there are still a few things that I didn&#8217;t like very much about it, such as the way windows are managed in fullscreen mode, the default lack of a convenient master/slave tiling layout (similar to <code>dwm</code> and <code>bspwm</code>) and the way one interacts with external monitor(s), where workspaces use the same numbering across multiple&nbsp;screens.</p>
+<p>I find that maximizing windows works like what you would expect in Xfce, covering everything but the menu bar. There&#8217;s also the fact that Xfce makes it very convenient to add and remove virtual desktops on the fly instead of having a bunch of those at all time. With minimal Bash scripting, windows in Xfce can be moved around from one monitor to the other, replicating a useful feature available in <code>i3</code>. Xfce, having only <em>floating</em> windows, behaves better with applications like VirtualBox and <span class="caps">GIMP</span> by default. And there&#8217;s also some common ground with the &#8220;pseudo tiling&#8221; available in Xfce which makes <code>i3</code> much less&nbsp;unique.</p>
+<p>In the department of customization, <code>i3</code> is very good, but having to edit a configuration file manually each time a little change is desired can become tiresome. Xfce has a wonderful settings manager which makes it easy to adjust many system settings as well as those related only to the window manager. <code>i3</code> requires initially quite a bit more effort to work and will incur a few additional dependencies if one wants to make it look better. Xfce strikes a very good balance: it&#8217;s highly customizable; pretty much bug-free in my experience and is usable right away without any&nbsp;surprise.</p>
+<h4>Xfce vs Other Window&nbsp;Managers</h4>
+<p>Now, there is an endless stream of other options to explore and I don&#8217;t know enough about many of those to dare to comment. But from those I tried, I can certainly say that I preferred the ease of use of Xfce over other more minimalistic approaches like Openbox, Enlightenment and Fluxbox. Xfce offers all you need out of the box, but not much more, which is what I&#8217;m looking for at this moment. On the other hand, making <code>dwm</code> work in one precise way can be tricky and requires many tweaks before the configuration can remain untouched for a while. I do not like the necessity of recompiling the source code every single time a tiny change is made which led me to discard it as a convenient option in the long run. I like making small visual adjustments to my system from time to time and I want this to be as frictionless as&nbsp;possible.</p>
+<p>Otherwise, <code>dwm</code> and <code>bspwm</code> might be some very decent options if one is inclined to be tweaking everything from scratch (it&#8217;s not really a facultative step anyways!), but Xfce integrates everything one might need under very few different packages and has been extremely reliable for me from the beginning. On any kind of modern machine, the extra system resources used up by Xfce compared to those lighter alternatives really don&#8217;t mean much in the end because it is compensated with the presence of useful applets and tools which definitely make one&#8217;s life&nbsp;easier.</p>
+<h3>It&#8217;s Ideal for&nbsp;Developers</h3>
+<h4>Resources Efficiency <span class="amp">&amp;</span>&nbsp;Effectiveness</h4>
+<p>Debian with Xfce is resource-efficient and comes with much less software out of the box compared to the <span class="caps">KDE</span> or <span class="caps">GNOME</span> editions: instead, more resources are available for hungry applications like heavy IDEs. Installing applications specific to those desktop environments work flawlessly too. Not only does Debian consume less resources (especially while running Xfce on top), it does so extremely well and offers great&nbsp;performance.</p>
+<figure>
+    <a href="https://www.sglavoie.com/images/posts/0020_stable_system_debian_xfce/resources_utilization.png"><img src="https://www.sglavoie.com/images/posts/0020_stable_system_debian_xfce/resources_utilization.png" alt="resources_utilization" class="max-size-img-post"></a>
+    <figcaption>Debian Xfce mostly at rest.</figcaption>
+</figure>
+
+<h4>Rock-Solid Stability (Again, Big Selling&nbsp;Point!)</h4>
+<p>Since it&#8217;s so stable, any release of Debian is currently supported for at least 3 years and up to 5 years for <span class="caps">LTS</span> (Long Term Support) releases, which means one doesn&#8217;t have to worry about constantly upgrading the system. For a start, upgrading packages on the stable branch of Debian very rarely leads to a broken system, unlike on more bleeding edge distros like Fedora or Manjaro where downloading a few months old release almost guarantees some unexpected&nbsp;challenges.</p>
+<h4>Packages&nbsp;Availability</h4>
+<p>With currently close to 58,000 packages offered on Debian, there&#8217;s a very good chance that anything one might need will be available. Working with up-to-date, proprietary applications like Google Chrome, Zoom or Slack is also pain-free: most companies, when they do consider Linux, opt for sharing a classic <code>deb</code> package, the format used on Debian and Debian-based systems. Some of those packages can also be found or added directly to the sources managed by the package manager, allowing for easy, automatic&nbsp;updates.</p>
+<figure>
+    <a href="https://www.sglavoie.com/images/posts/0020_stable_system_debian_xfce/debian_packages.png"><img src="https://www.sglavoie.com/images/posts/0020_stable_system_debian_xfce/debian_packages.png" alt="debian_packages" class="max-size-img-post"></a>
+    <figcaption>Synaptic, the legendary package manager.</figcaption>
+</figure>
+
+<h4>Large Community with Freedom in&nbsp;Mind</h4>
+<p>Because no company backs Debian directly, it relies on a community effort to keep going and it has done so for a long time, having now hundreds of distributions being based on it. This means that it&#8217;s easy to find a ton of documentation and tutorials giving solutions taking into account Debian-based systems. One will be able to fix any issue cropping up thanks to the <a href="http://forums.debian.net/">Debian User Forums</a> and of course thanks to the immense popularity of Ubuntu, which contributes tremendously to making answers available in <a href="https://ubuntuforums.org/">its forums</a> and in the <a href="https://askubuntu.com/">Stack Exchange</a>&nbsp;network.</p>
+<hr>
+<h2>Resources to Get&nbsp;Started</h2>
+<ul>
+<li><a href="https://www.debian.org/doc/">Debian&nbsp;Documentation</a></li>
+<li><a href="http://forums.debian.net/">Debian User&nbsp;Forums</a></li>
+<li><a href="https://wiki.debian.org/">Debian&nbsp;Wiki</a></li>
+<li>Developer-oriented: <a href="https://www.debian.org/doc/manuals/developers-reference/resources.html">resources for contributing to&nbsp;Debian</a></li>
+<li>Cloud-oriented: <a href="https://www.digitalocean.com/community/tags/debian">tutorials for Debian on Digital&nbsp;Ocean</a></li>
+</ul>
+<hr>
+<h1>Conclusion</h1>
+<p>After trying many different Linux distributions and desktop environments, I keep coming back to what satisfies me best in the end: stability and usability. Debian feels a bit old, but at the same time one knows it delivers on what it promises. The same can be said for Xfce. This is also what makes them such a good combo: despite not being cutting edge in the realm of features, there&#8217;s no way it could break as easily as <span class="caps">KDE</span> or <span class="caps">GNOME</span>, particularly on less stable distributions. There are still a few rough edges when it comes to customizing Xfce in my opinion, but when looking for something that just works and will keep doing so, Debian Xfce edition is hard to&nbsp;beat.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sun 05 April 2020</p>
+    <p>Category: <a href="https://www.sglavoie.com/category/tools.html">tools</a>
+ &ndash; Tags:
+      <a href="https://www.sglavoie.com/tag/debian.html">debian</a>,      <a href="https://www.sglavoie.com/tag/linux.html">linux</a>,      <a href="https://www.sglavoie.com/tag/stability.html">stability</a>,      <a href="https://www.sglavoie.com/tag/xfce.html">xfce</a>    </p>
+  </div>
+
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "posts/2020/04/05/tip-the-scales-in-times-of-instability-with-the-rock-solid-debian-xfce/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//sglavoie.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
+
+</article>
+
+      <div id="ending_message">
+        <p>
+          &copy; Sébastien Lavoie. Built in
+          <a
+            href="https://www.python.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Python</a
+          >
+          using
+          <a
+            href="http://getpelican.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Pelican</a
+          >. Theme adapted from Giulio Fidente on
+          <a
+            href="https://github.com/gfidente/pelican-svbhack"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >.
+        </p>
+      </div>
+    </main>
+  </body>
+</html>
