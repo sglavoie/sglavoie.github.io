@@ -163,8 +163,7 @@ makes it pop almost instantaneously since it doesn&#8217;t have to scan files
 scattered anywhere else. You can then type anything that partially
 matches a file path and even include slashes (<code>/</code>) in your match if you
 know in which directories to look. You can then type <code>Enter</code> to open the
-file with your favorite text editor (here set to <code>nvim</code>) or type <code>CTRL +
-c</code> to abort the&nbsp;command.</p>
+file with your favorite text editor (here set to <code>nvim</code>) or type <code>CTRL + c</code> to abort the&nbsp;command.</p>
 <p>The other aliases work in a similar fashion. <code>se</code> (short for <em>search</em>)
 will simply search recursively for any kind of files in the current
 directory and open the selected file in a text editor. Of course,
@@ -231,8 +230,7 @@ faster than diving in the help pages when looking for a quick&nbsp;reference.</p
 
 <p>Without affecting keyword completion with <code>CTRL + n</code> and <code>CTRL + p</code>
 (unless you have <code>set complete+=k</code> in your configuration file), you can
-complete words from a custom dictionary of your choice with <code>CTRL + x
-CTRL + k</code>. The window that appears can be moved and resized, which is
+complete words from a custom dictionary of your choice with <code>CTRL + x CTRL + k</code>. The window that appears can be moved and resized, which is
 what is happening&nbsp;here:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">inoremap</span> <span class="p">&lt;</span>expr<span class="p">&gt;</span> <span class="p">&lt;</span><span class="k">c</span><span class="p">-</span><span class="k">x</span><span class="p">&gt;&lt;</span><span class="k">c</span><span class="p">-</span><span class="k">k</span><span class="p">&gt;</span> fzf#<span class="k">vim</span>#<span class="nb">complete</span>#word<span class="p">(</span>{<span class="s1">&#39;left&#39;</span>: <span class="s1">&#39;20%&#39;</span>}<span class="p">)</span>
 </code></pre></div>
