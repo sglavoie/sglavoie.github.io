@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://www.sglavoie.com/theme/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://www.sglavoie.com/theme/css/pygments.css"
+    />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Sébastien Lavoie" />
+    <meta name="description" content="Posts and writings by Sébastien Lavoie" />
+
+     <link
+      href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
+      type="application/rss+xml"
+      rel="alternate"
+      title="sglavoie.com RSS"
+    />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="/theme/favicon/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/theme/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/theme/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/theme/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/theme/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="/theme/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#2d89ef" />
+    <meta
+      name="msapplication-TileImage"
+      content="/theme/favicon/mstile-144x144.png"
+    />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#000000" />
+
+      <meta name="keywords" content="i3, window-manager">
+
+      <!-- Open graph for social networks -->
+      <meta name="og:title" property="og:title" content="This article will go over my dear i3 configuration file, which contains quite a few sections I hope I had stumbled upon right from the start when I got introduced to the tiling window manager world. It would probably have been less scary and intimidating. May you find the shortcut you needed!">
+
+    <title>
+      sglavoie.com &ndash; A Guided Tour of an i3&nbsp;Configuration    </title>
+  </head>
+
+  <body>
+    <aside>
+      <div id="user_meta">
+        <a href="https://www.sglavoie.com">
+                <div>
+                    <svg width="24.348mm" height="24.348mm" version="1.1" viewBox="0 0 24.348095 24.347754" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                        <metadata>
+                        <rdf:RDF>
+                        <cc:Work rdf:about="">
+                        <dc:format>image/svg+xml</dc:format>
+                        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+                        <dc:title/>
+                        </cc:Work>
+                        </rdf:RDF>
+                        </metadata>
+                        <g transform="translate(81.397 -84.454)">
+                        <path d="m-57.049 105.9v2.9029h-11.173v-2.9029z" fill="#c0c0c0">
+                        <animate attributeName="fill" values="white;grey;white" dur="2s" repeatCount="indefinite" />
+                        </path>
+                        <path d="m-72.272 98.481-9.1246 5.7598v-3.548l5.8658-3.5019v-0.09215l-5.8658-3.5019v-3.548l9.1246 5.7598z" fill="#c0c0c0"/>
+                        <path transform="scale(.26458)" d="m-273.15 319.2-27.588 14.77 8.498 5.3613 19.09-12.049zm15.309 25.67v44.412h8.8672v-35.635h33.361v-8.7773h-33.783zm25.336 24.66v8.7774h8.0254v10.975h8.8672v-19.752z" fill="#007bff"/>
+                        </g>
+                    </svg>
+                </div>
+        </a>
+        <h2><a href="https://www.sglavoie.com">sglavoie.com</a></h2>
+        <p></p>
+        <ul>
+            <li><a href="https://www.sglavoie.com/category/automation.html">automation</a></li>
+          <li><a href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a></li>
+          <li><a href="https://www.sglavoie.com/category/tools.html">tools</a></li>
+          <li><a href="https://www.sglavoie.com/category/workflow.html">workflow</a></li>
+          </ul>
+      </div>
+    </aside>
+
+    <main>
+      <header>
+        <p>
+          <a href="https://www.sglavoie.com">Index</a> &brvbar;
+          <a href="https://www.sglavoie.com/archives.html">Archives</a> &brvbar;
+          <a href="https://www.sglavoie.com/tags.html">Tags</a> &brvbar;
+          <a href="https://www.sglavoie.com/learning-progress-2020.html"
+            >Learning Progress</a
+          >
+ &brvbar;
+          <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS</a>
+          </p>
+      </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="https://www.sglavoie.com/posts/2020/08/15/a-guided-tour-of-an-i3-configuration/">A Guided Tour of an i3&nbsp;Configuration</a></h1>
+  </div>
+  <div class="article_readtime">
+    <p>Estimated read time: 19 minutes</p>
+  </div>
+  <div class="article_text">
+    <h1>Introduction</h1>
+<p>In <a href="https://www.sglavoie.com/posts/2019/01/08/using-i3-as-a-window-manager-for-increased-productivity/">Using i3 as a Window Manager for Increased Productivity</a>, a number of reasons were given to get going with this fantastic tiling window manager. Now, it&#8217;s time to jump in and explore how to actually use i3! If you&#8217;re looking for an in-depth guide, the <a href="https://i3wm.org/docs/userguide.html">official i3 documentation</a> or the <a href="https://wiki.archlinux.org/index.php/i3">i3 page on the Arch Wiki</a> are awesome resources to dive deep. Here, we&#8217;ll focus on day-to-day usage based on my current configuration file which I have used and refined over the past two years or so in the hope that you&#8217;ll be able to quickly glean useful tips and tricks to apply to your own use&nbsp;case.</p>
+<hr>
+<h2>The Configuration&nbsp;File</h2>
+<h3>General&nbsp;settings</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># set mod key (Mod1=Alt, Mod4=Super)</span>
+<span class="c1"># ⇒ the main modifier used to trigger shortcuts</span>
+<span class="nb">set</span> <span class="nv">$mod</span> Mod4
+
+<span class="c1"># font for window titles</span>
+<span class="c1"># ⇒ this is what you see in your i3bar</span>
+font xft:JetBrainsMono-Regular <span class="m">12</span>
+
+<span class="c1"># launch a terminal</span>
+bindsym <span class="nv">$mod</span>+Return     <span class="nb">exec</span> alacritty
+
+<span class="c1"># kill focused window</span>
+<span class="c1"># ⇒ usual way to close applications</span>
+bindsym <span class="nv">$mod</span>+x          <span class="nb">kill</span>
+
+<span class="c1"># reload the configuration file</span>
+<span class="c1"># ⇒ apply changes from this file on the fly</span>
+bindsym <span class="nv">$mod</span>+Shift+c    reload
+
+<span class="c1"># restart i3 inplace</span>
+<span class="c1"># ⇒ preserves your layout/session, can be used when upgrading i3</span>
+bindsym <span class="nv">$mod</span>+Shift+r    restart
+
+<span class="c1"># exit i3</span>
+<span class="c1"># ⇒ logs you out of your X session</span>
+bindsym <span class="nv">$mod</span>+Shift+e    <span class="nb">exec</span> --no-startup-id i3-msg <span class="nb">exit</span>
+
+<span class="c1"># set shut down, restart and locking features</span>
+<span class="c1"># ⇒ type `$mod+Shift+Delete` then either `e`, `r` or `s`</span>
+bindsym <span class="nv">$mod</span>+Shift+Delete   mode <span class="s2">&quot;</span><span class="nv">$mode_system</span><span class="s2">&quot;</span>
+<span class="nb">set</span> <span class="nv">$mode_system</span> <span class="o">(</span>e<span class="o">)</span>xit, <span class="o">(</span>r<span class="o">)</span>eboot, <span class="o">(</span>s<span class="o">)</span>hutdown
+mode <span class="s2">&quot;</span><span class="nv">$mode_system</span><span class="s2">&quot;</span> <span class="o">{</span>
+    bindsym e    <span class="nb">exec</span> --no-startup-id i3-msg <span class="nb">exit</span>
+    bindsym r    <span class="nb">exec</span> --no-startup-id systemctl reboot
+    bindsym s    <span class="nb">exec</span> --no-startup-id systemctl poweroff
+
+    <span class="c1"># exit system mode with &quot;Enter&quot; or &quot;Escape&quot;</span>
+    bindsym Return mode <span class="s2">&quot;default&quot;</span>
+    bindsym Escape mode <span class="s2">&quot;default&quot;</span>
+<span class="o">}</span>
+
+<span class="c1"># shut down the system without confirmation</span>
+<span class="c1"># ⇒ this shortcut is hard to trigger with one hand on purpose!</span>
+bindsym <span class="nv">$mod</span>+Shift+Escape <span class="nb">exec</span> --no-startup-id systemctl poweroff
+
+<span class="c1"># resize windows</span>
+<span class="c1"># you can also use the mouse for that:</span>
+<span class="c1"># for tiled windows ⇒</span>
+  <span class="c1"># drag the border with LeftClick or RightClick</span>
+<span class="c1"># for floating windows ⇒</span>
+  <span class="c1"># `mod + RightClick`, then drag</span>
+
+<span class="c1"># resize with smaller steps to get more control</span>
+bindsym <span class="nv">$mod</span>+r mode <span class="s2">&quot;resize&quot;</span>
+mode <span class="s2">&quot;resize&quot;</span> <span class="o">{</span>
+        bindsym h resize shrink width <span class="m">2</span> px or <span class="m">2</span> ppt
+        bindsym j resize grow height <span class="m">2</span> px or <span class="m">2</span> ppt
+        bindsym k resize shrink height <span class="m">2</span> px or <span class="m">2</span> ppt
+        bindsym l resize grow width <span class="m">2</span> px or <span class="m">2</span> ppt
+
+        <span class="c1"># exit resize mode: Enter or Escape</span>
+        bindsym Return mode <span class="s2">&quot;default&quot;</span>
+        bindsym Escape mode <span class="s2">&quot;default&quot;</span>
+<span class="o">}</span>
+
+<span class="c1"># resize without entering &quot;resize mode&quot;</span>
+<span class="c1"># ⇒ I find this more convenient. I usually don&#39;t care about</span>
+<span class="c1"># precise window sizes, so here the steps are far greater.</span>
+<span class="c1"># If I want more control, then entering resize mode will do.</span>
+bindsym <span class="nv">$mod</span>+Control+l resize shrink width <span class="m">10</span> px or <span class="m">10</span> ppt
+bindsym <span class="nv">$mod</span>+Control+k resize grow height <span class="m">10</span> px or <span class="m">10</span> ppt
+bindsym <span class="nv">$mod</span>+Control+j resize shrink height <span class="m">10</span> px or <span class="m">10</span> ppt
+bindsym <span class="nv">$mod</span>+Control+h resize grow width <span class="m">10</span> px or <span class="m">10</span> ppt
+
+<span class="c1"># lock the screen with a black color background</span>
+bindsym <span class="nv">$mod</span>+Delete    <span class="nb">exec</span> --no-startup-id i3lock -c <span class="m">000000</span>
+
+<span class="c1"># hide/unhide i3status bar (applies to all monitors)</span>
+bindsym <span class="nv">$mod</span>+m    bar mode toggle
+</code></pre></div>
+
+
+<p>A few notes on the <strong>General settings</strong>:</p>
+<ul>
+<li>I use <code>Alt</code> in a few applications and reserve <code>Super</code> for the window manager&nbsp;only.</li>
+<li>Find the font name you need with <code>fc-list</code>. For instance, to use JetBrains&#8217; font: <code>fc-list | grep Jet</code>.</li>
+</ul>
+<h3>Navigation</h3>
+<p><em>Note</em>: I rely on Vim keybindings to move between containers and workspaces as I find the position of those keys on the home row really comfortable to apply to the main window actions one would want to&nbsp;execute.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Set up monitor at launch automatically and set laptop screen as the</span>
+<span class="c1"># primary one. Set monitor to the top (being on the vertical axis</span>
+<span class="c1"># makes it possible to focus bottom/top and jump from one monitor to</span>
+<span class="c1"># the next, which is not possible if the monitor is set to top-left or</span>
+<span class="c1"># top-right in diagonal, for instance)</span>
+exec_always xrandr --output eDP --primary --mode 1920x1080 --pos 0x1080 <span class="se">\</span>
+    --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal <span class="se">\</span>
+    --output DisplayPort-0 --off --output DisplayPort-1 --off
+
+<span class="c1"># container focuses where the mouse is (yes/no)</span>
+focus_follows_mouse    no
+
+<span class="c1"># go to last urgent workspace</span>
+<span class="c1"># ⇒ this is the worspace that turns &quot;red&quot; by default when something happens</span>
+<span class="c1">#   in an unfocused workspace, like an application pop-up</span>
+bindsym <span class="nv">$mod</span>+u    <span class="o">[</span><span class="nv">urgent</span><span class="o">=</span>latest<span class="o">]</span> focus
+
+<span class="c1"># change focus</span>
+<span class="c1"># ⇒ works in all modes: tabbed, stacked, etc.</span>
+bindsym <span class="nv">$mod</span>+h    focus left
+bindsym <span class="nv">$mod</span>+j    focus down
+bindsym <span class="nv">$mod</span>+k    focus up
+bindsym <span class="nv">$mod</span>+Down focus down
+bindsym <span class="nv">$mod</span>+Up   focus up
+bindsym <span class="nv">$mod</span>+l    focus right
+
+<span class="c1"># move focused window (works in all modes)</span>
+bindsym <span class="nv">$mod</span>+Shift+h    move left
+bindsym <span class="nv">$mod</span>+Shift+j    move down
+bindsym <span class="nv">$mod</span>+Shift+k    move up
+bindsym <span class="nv">$mod</span>+Shift+l    move right
+
+<span class="c1"># for example, switching from workspace 1 to workspace 2 (e.g. mod+2) then</span>
+<span class="c1"># typing again mod+2 would bring you back to workspace 1 without having to</span>
+<span class="c1"># remember that you came from workspace 1 in the first place.</span>
+workspace_auto_back_and_forth    no
+
+<span class="c1"># alternate between the last two workspaces that have been used</span>
+bindsym <span class="nv">$mod</span>+Tab    workspace back_and_forth
+
+<span class="c1"># move a container (window or group of windows if you grouped them) to the</span>
+<span class="c1"># &quot;alternate&quot; workspace you visited last</span>
+<span class="c1"># (the one brought with $mod+Tab in this case)</span>
+bindsym <span class="nv">$mod</span>+Shift+Tab           move container to workspace back_and_forth<span class="p">;</span> <span class="se">\</span>
+                                 workspace back_and_forth
+
+<span class="c1"># switch to any window with Rofi</span>
+<span class="c1"># ⇒ this simulates the familiar behavior of Alt+Tab on Windows and allows you</span>
+<span class="c1">#   to find windows by typing, but uses a better operating system to do it ;).</span>
+bindsym Mod1+Tab    <span class="nb">exec</span> <span class="s2">&quot;rofi -theme Arc-Dark -font &#39;JetBrainsMono 14&#39; \</span>
+<span class="s2">                    -show-icons -width 90 -show window&quot;</span>
+
+<span class="c1"># toggle fullscreen mode for the focused container</span>
+<span class="c1"># ⇒ this hides the i3bar for the current monitor</span>
+<span class="c1"># ⇒ you can still leave the i3bar hidden and switch to other workspaces</span>
+bindsym <span class="nv">$mod</span>+f    fullscreen toggle
+
+<span class="c1"># navigate workspaces next / previous</span>
+<span class="c1"># ⇒ works for all monitors and will go in increasing order</span>
+<span class="c1">#   if workspaces 1 to 6 are on monitorX and workspaces</span>
+<span class="c1">#   7 to 10 are on monitorY as in this config, this will switch</span>
+<span class="c1">#   to any workspace where there is at least one container</span>
+bindsym <span class="nv">$mod</span>+Mod1+l         workspace next
+bindsym <span class="nv">$mod</span>+Mod1+h         workspace prev
+bindsym <span class="nv">$mod</span>+Shift+Right    workspace next
+bindsym <span class="nv">$mod</span>+Shift+Left     workspace prev
+
+<span class="c1"># the difference with the above is that it limits movements to the</span>
+<span class="c1"># the current monitor only</span>
+bindsym <span class="nv">$mod</span>+Right          workspace next_on_output
+bindsym <span class="nv">$mod</span>+Mod1+Tab       workspace next_on_output
+bindsym <span class="nv">$mod</span>+Left           workspace prev_on_output
+
+<span class="c1"># Bindings to &quot;mark&quot; and &quot;goto&quot; mark specified with 1 character</span>
+<span class="c1"># ⇒ rarely used, but can still be useful if you have many containers open</span>
+bindsym <span class="nv">$mod</span>+z    <span class="nb">exec</span> i3-input -F <span class="s1">&#39;mark %s&#39;</span> -l <span class="m">1</span> -P <span class="s1">&#39;Mark: &#39;</span>
+bindsym <span class="nv">$mod</span>+g    <span class="nb">exec</span> i3-input -F <span class="s1">&#39;[con_mark=&quot;%s&quot;] focus&#39;</span> -l <span class="m">1</span> -P <span class="s1">&#39;Goto: &#39;</span>
+
+<span class="c1"># Workspace names — can be customized with emojis and names</span>
+<span class="c1"># ⇒ I find I like minimalism best and just mentally associate</span>
+<span class="c1">#   one workspace number with a specific type of task</span>
+<span class="c1"># ⇒ those are set across all monitors</span>
+<span class="nb">set</span> <span class="nv">$ws1</span>  <span class="s2">&quot;1&quot;</span>
+<span class="nb">set</span> <span class="nv">$ws2</span>  <span class="s2">&quot;2&quot;</span>
+<span class="nb">set</span> <span class="nv">$ws3</span>  <span class="s2">&quot;3&quot;</span>
+<span class="nb">set</span> <span class="nv">$ws4</span>  <span class="s2">&quot;4&quot;</span>
+<span class="nb">set</span> <span class="nv">$ws5</span>  <span class="s2">&quot;5&quot;</span>
+<span class="nb">set</span> <span class="nv">$ws6</span>  <span class="s2">&quot;6&quot;</span>
+<span class="nb">set</span> <span class="nv">$ws7</span>  <span class="s2">&quot;7&quot;</span>
+<span class="nb">set</span> <span class="nv">$ws8</span>  <span class="s2">&quot;8&quot;</span>
+<span class="nb">set</span> <span class="nv">$ws9</span>  <span class="s2">&quot;9&quot;</span>
+<span class="nb">set</span> <span class="nv">$ws10</span> <span class="s2">&quot;10&quot;</span>
+
+<span class="c1"># switch to workspace (no matter which monitor it is set to)</span>
+bindsym <span class="nv">$mod</span>+1    workspace <span class="nv">$ws1</span>
+bindsym <span class="nv">$mod</span>+2    workspace <span class="nv">$ws2</span>
+bindsym <span class="nv">$mod</span>+3    workspace <span class="nv">$ws3</span>
+bindsym <span class="nv">$mod</span>+4    workspace <span class="nv">$ws4</span>
+bindsym <span class="nv">$mod</span>+5    workspace <span class="nv">$ws5</span>
+bindsym <span class="nv">$mod</span>+6    workspace <span class="nv">$ws6</span>
+bindsym <span class="nv">$mod</span>+7    workspace <span class="nv">$ws7</span>
+bindsym <span class="nv">$mod</span>+8    workspace <span class="nv">$ws8</span>
+bindsym <span class="nv">$mod</span>+9    workspace <span class="nv">$ws9</span>
+bindsym <span class="nv">$mod</span>+0    workspace <span class="nv">$ws10</span>
+
+<span class="c1"># determine which workspace appears on which screen</span>
+<span class="c1"># ⇒ with a single output screen, this is not necessary</span>
+workspace <span class="m">1</span>  output HDMI-A-0
+workspace <span class="m">2</span>  output HDMI-A-0
+workspace <span class="m">3</span>  output HDMI-A-0
+workspace <span class="m">4</span>  output HDMI-A-0
+workspace <span class="m">5</span>  output HDMI-A-0
+workspace <span class="m">6</span>  output HDMI-A-0
+workspace <span class="m">7</span>  output eDP
+workspace <span class="m">8</span>  output eDP
+workspace <span class="m">9</span>  output eDP
+workspace <span class="m">10</span> output eDP
+
+<span class="c1"># move focused container to workspace and switch to workspace</span>
+bindsym <span class="nv">$mod</span>+Shift+1    move container to workspace <span class="nv">$ws1</span><span class="p">;</span>  workspace <span class="nv">$ws1</span>
+bindsym <span class="nv">$mod</span>+Shift+2    move container to workspace <span class="nv">$ws2</span><span class="p">;</span>  workspace <span class="nv">$ws2</span>
+bindsym <span class="nv">$mod</span>+Shift+3    move container to workspace <span class="nv">$ws3</span><span class="p">;</span>  workspace <span class="nv">$ws3</span>
+bindsym <span class="nv">$mod</span>+Shift+4    move container to workspace <span class="nv">$ws4</span><span class="p">;</span>  workspace <span class="nv">$ws4</span>
+bindsym <span class="nv">$mod</span>+Shift+5    move container to workspace <span class="nv">$ws5</span><span class="p">;</span>  workspace <span class="nv">$ws5</span>
+bindsym <span class="nv">$mod</span>+Shift+6    move container to workspace <span class="nv">$ws6</span><span class="p">;</span>  workspace <span class="nv">$ws6</span>
+bindsym <span class="nv">$mod</span>+Shift+7    move container to workspace <span class="nv">$ws7</span><span class="p">;</span>  workspace <span class="nv">$ws7</span>
+bindsym <span class="nv">$mod</span>+Shift+8    move container to workspace <span class="nv">$ws8</span><span class="p">;</span>  workspace <span class="nv">$ws8</span>
+bindsym <span class="nv">$mod</span>+Shift+9    move container to workspace <span class="nv">$ws9</span><span class="p">;</span>  workspace <span class="nv">$ws9</span>
+bindsym <span class="nv">$mod</span>+Shift+0    move container to workspace <span class="nv">$ws10</span><span class="p">;</span> workspace <span class="nv">$ws10</span>
+</code></pre></div>
+
+
+<p>A few notes on the <strong>Navigation</strong>&nbsp;section:</p>
+<ul>
+<li>I like to keep the number of workspaces to 10 because the number row is easily accessible and there&#8217;s less context switching&nbsp;involved.</li>
+<li>I also like to keep a higher number of workspaces on the main screen I work on as I can use <code>mod+Left</code> and <code>mod+Right</code> to switch focus on that screen only. This is usually to keep a reference opened on the other screen, like server logs or the <a href="https://github.com/KryDos/todoist-linux">Todoist Linux</a>&nbsp;app.</li>
+<li>Those keybindings make it really easy to navigate between workspaces on one particular screen. Even though I like to work with a monitor being higher than the laptop located in front of it to avoid working in a twisted position at all times, this would work fantastically well in the horizontal direction&nbsp;too.</li>
+<li>If for whatever reason the main screen is disconnected (power outage or unplugged), I can still use the laptop screen without needing to modify the config file, although with a slightly more limited amount of workspaces. <em>Tip</em>: even if you don&#8217;t see a workspace from a temporarily disconnected screen, you can still interact with it and bring windows back to workspaces that you can see without changing the config&nbsp;file.</li>
+</ul>
+<h3>Layout</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># set default desktop layout (default is tiling), &lt;stacking|tabbed&gt;</span>
+workspace_layout    tabbed
+
+<span class="c1"># change container layout (stacked, tabbed, toggle split)</span>
+bindsym <span class="nv">$mod</span>+s    layout stacking
+bindsym <span class="nv">$mod</span>+w    layout tabbed
+bindsym <span class="nv">$mod</span>+e    layout toggle split
+
+<span class="c1">#start in opposite orientation from your monitor</span>
+default_orientation    vertical
+
+<span class="c1">#toggles split at each new window (Fibonnaci layout)</span>
+<span class="c1"># for_window [class=&quot;.*&quot;]    split toggle</span>
+
+<span class="c1"># toggle the way a split happens in the focused window</span>
+bindsym <span class="nv">$mod</span>+t    split toggle
+
+<span class="c1"># toggle tiling / floating</span>
+<span class="c1"># ⇒ this works on a container with any number of windows!</span>
+<span class="c1">#   if you select multiple windows with `$mod+a` (see below)</span>
+<span class="c1">#   to group them and then toggle them, the whole group will</span>
+<span class="c1">#   either tile or float</span>
+bindsym <span class="nv">$mod</span>+Shift+space    floating toggle
+
+<span class="c1"># change focus between tiling / floating windows</span>
+<span class="c1"># ⇒ If you leave a floating window on top of other tiled windows,</span>
+<span class="c1">#   you can switch the focus from the one on top to the one(s) in</span>
+<span class="c1">#   the background (useful with apps like Zoom or Google Meet that</span>
+<span class="c1">#   you want to keep in the foreground)</span>
+bindsym <span class="nv">$mod</span>+space    focus mode_toggle
+
+<span class="c1"># Use Mouse+$mod to drag floating windows</span>
+floating_modifier    <span class="nv">$mod</span>
+
+<span class="c1"># toggle sticky</span>
+bindsym <span class="nv">$mod</span>+Shift+s    sticky toggle
+
+<span class="c1"># focus the surrounding containers</span>
+bindsym <span class="nv">$mod</span>+a    focus parent
+bindsym <span class="nv">$mod</span>+c    focus child
+</code></pre></div>
+
+
+<p>A few notes on the <strong>Layout</strong>&nbsp;section:</p>
+<ul>
+<li>To maximize the size of applications, I prefer using the &#8220;tabbed&#8221; mode, which is more compact than the stacking mode. If I quickly want to split windows side-by-side, I just type <code>mod+e</code> to toggle split vertically by default and if I need a horizontal split, I just toggle again with <code>mod+e</code>.</li>
+<li>I don&#8217;t use the &#8220;grouping&#8221; feature with <code>mod+a</code> and <code>mod+c</code> very often, but when I need to move a few windows to another workspace for instance, that&#8217;s quite&nbsp;handy!</li>
+<li>A floating window in &#8220;sticky mode&#8221; will follow you on all your workspaces and remember that this mode is enabled even if you put in back in a tiling window and then to a floating   window&nbsp;again.</li>
+</ul>
+<h3>Scratchpad</h3>
+<p>The scratchpad is sometimes so useful that it deserves its own section! When you send a window to the &#8220;scratchpad&#8221;, it disappears. Then, with a keybinding, you can bring in back in floating mode on top of any other window on any active workspace you happen to be in. The same keybinding will toggle on/off the display of that scratchpad and if you happen to have sent multiple windows to the scratchpad, activating the same keybinding again will cycle through all the&nbsp;&#8220;scratchpads&#8221;.</p>
+<p>I often use that for an audio player I leave running in the background and instead of using a whole workspace to leave that window opened, I send it to the scratchpad, which means it doesn&#8217;t take any space and I can quickly bring it back in focus whenever I want. I find that having more than two windows in the list of scratchpads becomes cumbersome as you cycle through them, so I keep the scratchpad for specific, infrequent uses for applications that require less&nbsp;attention.</p>
+<p>If you want to convert a scratchpad back to a regular tiled container, it&#8217;s as easy as triggering &#8220;toggle tiling / floating&#8221; (in this config file, it happens with <code>mod+Shift+space</code>).</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Move the currently focused window to the scratchpad</span>
+bindsym <span class="nv">$mod</span>+minus    move scratchpad
+
+<span class="c1"># Show the next scratchpad window or hide the focused scratchpad window.</span>
+<span class="c1"># If there are multiple scratchpad windows, this command cycles through them.</span>
+bindsym <span class="nv">$mod</span>+plus    scratchpad show, resize <span class="nb">set</span> <span class="m">1900</span> <span class="m">1000</span>, move position center
+</code></pre></div>
+
+
+<p>A note on the <strong>Scratchpad</strong>&nbsp;section:</p>
+<ul>
+<li>In my setup, I have two screens with the same resolution of 1920x1080, so the same &#8220;resize&#8221; command works on both screens. You might want to use two different keybindings if you want to bring a scratchpad back to a screen with a different&nbsp;resolution.</li>
+</ul>
+<h3>Borders</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Configure border style &lt;normal|1pixel|pixel xx|none|pixel&gt;</span>
+new_window pixel <span class="m">3</span>
+new_float normal
+default_floating_border pixel <span class="m">3</span>
+
+<span class="c1"># Hide borders</span>
+hide_edge_borders smart
+
+<span class="c1"># change borders</span>
+bindsym <span class="nv">$mod</span>+b    border none
+bindsym <span class="nv">$mod</span>+y    border pixel <span class="m">3</span>
+bindsym <span class="nv">$mod</span>+n    border normal
+</code></pre></div>
+
+
+<p>A few notes on the <strong>Borders</strong>&nbsp;section:</p>
+<ul>
+<li>I just <strong>love</strong> knowing which container is active, so I set thick, bright borders with a nice kind of &#8220;electric blue&#8221; color that&#8217;s as easy to spot on a light or dark background (colors are set in a separate&nbsp;section).</li>
+<li>I also <strong>love</strong> saving space whenever possible to see more stuff on the screen, so I avoid gaps altogether (if you like them, have a look at <a href="https://github.com/Airblader/i3">i3-gaps</a>). In that spirit, I also set the option <code>hide_edge_borders smart</code> so that borders don&#8217;t show up when I have only one tiled container covering the whole&nbsp;space.</li>
+<li>This also shows that you can have a different border size for floating windows if you find the thickness distracting. Personally, I just find it helps me know which container is active when I toggle from foreground to background window with <code>mod+space</code>.</li>
+</ul>
+<figure>
+    <a href="https://www.sglavoie.com/images/posts/0022_guided-tour-i3/demo_dark_light_background_thick_border.png"><img src="https://www.sglavoie.com/images/posts/0022_guided-tour-i3/demo_dark_light_background_thick_border.png" alt="demo_dark_light_background_thick_border_i3" class="max-size-img-post"></a>
+    <figcaption>Bashtop on the left with a dark background, LibreOffice on the right with a light background, Neofetch floating window on top featuring a thick, blue border.</figcaption>
+</figure>
+
+<h3>dmenu</h3>
+<p><code>dmenu</code> is so useful that it also got its own section. By default, you usually launch applications with <code>mod+d</code>: I kept the same behavior here. I added a few custom launchers that I use all the time to open files based on a topic, using mnemonics that work (for me, at least). If you want to know more about setting these kinds of shortcuts, you may well be interested in reading <a href="https://www.sglavoie.com/posts/2019/11/10/using-dmenu-to-optimize-common-tasks/">Using dmenu to Optimize Common Tasks</a>&nbsp;;).</p>
+<div class="highlight"><pre><span></span><code>bindsym <span class="nv">$mod</span>+Mod1+c    <span class="nb">exec</span> --no-startup-id ~/Dropbox/.custom/dmenu/cheatsheets.sh
+bindsym <span class="nv">$mod</span>+Mod1+d    <span class="nb">exec</span> --no-startup-id ~/Dropbox/.custom/dmenu/documents.sh
+bindsym <span class="nv">$mod</span>+Mod1+e    <span class="nb">exec</span> --no-startup-id ~/Dropbox/.custom/dmenu/edit_scripts.sh
+bindsym <span class="nv">$mod</span>+Mod1+f    <span class="nb">exec</span> --no-startup-id ~/Dropbox/.custom/dmenu/filepaths.sh
+bindsym <span class="nv">$mod</span>+Mod1+q    <span class="nb">exec</span> --no-startup-id ~/Dropbox/.custom/dmenu/quotes.sh
+bindsym <span class="nv">$mod</span>+Mod1+r    <span class="nb">exec</span> --no-startup-id ~/Dropbox/.custom/dmenu/reading.sh
+bindsym <span class="nv">$mod</span>+Mod1+s    <span class="nb">exec</span> --no-startup-id ~/Dropbox/.custom/dmenu/scripts.sh
+bindsym <span class="nv">$mod</span>+Mod1+u    <span class="nb">exec</span> --no-startup-id ~/Dropbox/.custom/dmenu/university.sh
+bindsym <span class="nv">$mod</span>+Mod1+w    <span class="nb">exec</span> --no-startup-id ~/Dropbox/.custom/dmenu/work.sh
+bindsym <span class="nv">$mod</span>+Shift+u   <span class="nb">exec</span> --no-startup-id ~/Dropbox/.custom/dmenu/university_launchers.sh
+bindsym <span class="nv">$mod</span>+d         <span class="nb">exec</span> --no-startup-id ~/Dropbox/.custom/dmenu/software.sh
+</code></pre></div>
+
+
+<h3>Shortcuts</h3>
+<div class="highlight"><pre><span></span><code>bindsym <span class="nv">$mod</span>+control+r    <span class="nb">exec</span> --no-startup-id thunar ~/Desktop
+
+<span class="c1"># Simple calculator in terminal</span>
+bindsym <span class="nv">$mod</span>+masculine    <span class="nb">exec</span> alacritty -e bc
+
+<span class="c1"># Focus applications</span>
+bindsym <span class="nv">$mod</span>+q <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;Todoist&quot;</span><span class="o">]</span> focus
+
+<span class="c1"># Display multiple time zones around the world</span>
+bindsym <span class="nv">$mod</span>+Mod1+t    <span class="nb">exec</span> --no-startup-id ~/Dropbox/.custom/dmenu/times.sh
+</code></pre></div>
+
+
+<p>A few notes on the <strong>Shortcuts</strong>&nbsp;mini-section:</p>
+<ul>
+<li>In i3, you don&#8217;t really make use of icons on the desktop. I like the absence of visual clutter it provides, but I sometimes like to access a specific folder in which I drop a few shortcuts/symlinks to access other files from&nbsp;there.</li>
+<li><code>bc</code> is a nice minimalist&nbsp;calculator.</li>
+<li>Focusing applications is also a very cool use of shortcuts. In this case, I just leave Todoist running on a workspace and can quickly go back to&nbsp;it.</li>
+<li>Working remotely with many teammates from around the world is sometimes confusing time-wise, so I have a simple script that outputs the current time in the places I&#8217;m interested in&nbsp;monitoring.</li>
+</ul>
+<figure>
+    <a href="https://www.sglavoie.com/images/posts/0022_guided-tour-i3/timezones.png"><img src="https://www.sglavoie.com/images/posts/0022_guided-tour-i3/timezones.png" alt="timezones_dmenu" class="max-size-img-post"></a>
+    <figcaption>Simple pop-up with a list of timezones.</figcaption>
+</figure>
+
+<h3>Sound</h3>
+<div class="highlight"><pre><span></span><code><span class="nb">set</span> <span class="nv">$volumepath</span> ~/.config/i3-volume/volume
+<span class="nb">set</span> <span class="nv">$statuscmd</span> i3status
+
+<span class="c1"># Signal used to update the status line</span>
+<span class="nb">set</span> <span class="nv">$statussig</span> SIGUSR1
+
+<span class="c1"># Amount to increase/decrease volume as a percentage</span>
+<span class="nb">set</span> <span class="nv">$volumestep</span> <span class="m">5</span>
+
+bindsym XF86AudioRaiseVolume    <span class="nb">exec</span> <span class="nv">$volumepath</span> -np -i <span class="nv">$volumestep</span> -t <span class="nv">$statuscmd</span> -u <span class="nv">$statussig</span>
+bindsym XF86AudioLowerVolume    <span class="nb">exec</span> <span class="nv">$volumepath</span> -np -d <span class="nv">$volumestep</span> -t <span class="nv">$statuscmd</span> -u <span class="nv">$statussig</span>
+bindsym XF86AudioMute           <span class="nb">exec</span> <span class="nv">$volumepath</span> -mn -t <span class="nv">$statuscmd</span> -u <span class="nv">$statussig</span>
+bindsym XF86AudioMicMute        <span class="nb">exec</span> pactl set-source-mute alsa_input.pci-0000_03_00.6.analog-stereo toggle
+</code></pre></div>
+
+
+<p>This section will depend on the hardware being used, but it gives an idea of how to do things. I use <a href="https://github.com/hastinbe/i3-volume"><code>i3-volume</code></a> to get nice notifications when changing the volume and all the options being set here use <code>i3-volume</code>. Toggling the mic output was not super obvious at first, but it&#8217;s obviously doable and it&#8217;s good to know there&#8217;s an <code>XF86Audio</code> property for that&nbsp;purpose!</p>
+<h3>Brightness</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Control brightness more precisely through software `light`</span>
+bindsym XF86MonBrightnessDown    <span class="nb">exec</span> <span class="s2">&quot;light -U 5&quot;</span>
+bindsym XF86MonBrightnessUp      <span class="nb">exec</span> <span class="s2">&quot;light -A 5&quot;</span>
+
+<span class="c1"># Toggle laptop screen</span>
+bindsym <span class="nv">$mod</span>+Control+b    <span class="nb">exec</span> --no-startup-id ~/.local/bin/toggle_laptop_brightness
+</code></pre></div>
+
+
+<p>To control the screen brightness, I use <a href="https://github.com/haikarainen/light"><code>light</code></a>. I also like to just toggle the brightness of my laptop at night when I just read something on my external monitor, so I use a <a href="https://github.com/sglavoie/dotfiles/blob/master/.local/bin/toggle_laptop_brightness"><code>toggle_laptop_brightness</code></a> script that I found somewhere online and adapted&nbsp;slightly.</p>
+<h3>Applications</h3>
+<p>This section will heavily depend on the software you use, but that will give an idea. I like to have a shortcut for <a href="https://github.com/aristocratos/bashtop">bashtop</a> to quickly monitor system resources (<a href="https://github.com/nicolargo/glances">glances</a> is also quite nice). Besides that, I like to have applications automatically appear on specific workspaces and be switched to in some&nbsp;instances.</p>
+<p>Controlling which application opens in floating mode is also useful as some just don&#8217;t play that well with tiling. To find information about an application, you can open a new terminal window and launch <code>xprop</code>, click on the window you need information about and voilà, a couple of strings will be displayed like so (output truncated a&nbsp;bit):</p>
+<div class="highlight"><pre><span></span><code><span class="err">    Icon (16 x 16):</span>
+<span class="err">         ▒▓▓▓▓▒</span>
+<span class="err">       ▒▓██████▓▒</span>
+<span class="err">      ▒█▓▒░  ░▒▓█▒</span>
+<span class="err">     ▒█▓░      ░▓█▒</span>
+<span class="err">     ▓▓░  ░░░   ░▓▓</span>
+<span class="err">    ▒█▒  ░███▓░  ▒█▒</span>
+<span class="err">    ▓█░   ░░▓█▓  ░█▓</span>
+<span class="err">    ▓█   ░▓▓██▓   █▓</span>
+<span class="err">    ▓█   ▓█▒▓█▓   █▓</span>
+<span class="err">    ▓█░  ▓█▓▓█▓  ░█▓</span>
+<span class="err">    ▒█▒  ░▓▓▒▓▒  ▒█▒</span>
+<span class="err">     ▓▓░        ░▓▓</span>
+<span class="err">     ▒█▓░      ░▓█▒</span>
+<span class="err">      ▒█▓▒░  ░▒▓█▒</span>
+<span class="err">       ▒▓██████▓▒</span>
+<span class="err">         ▒▓▓▓▓▒</span>
+<span class="err">WM_NORMAL_HINTS(WM_SIZE_HINTS):</span>
+<span class="err">        program specified location: 0, 0</span>
+<span class="err">        program specified minimum size: 627 by 279</span>
+<span class="err">        window gravity: NorthWest</span>
+<span class="err">WM_CLASS(STRING) = &quot;audacious&quot;, &quot;Audacious&quot;</span>
+<span class="err">WM_ICON_NAME(STRING) = &quot;47. David Bowie - Best Of Bowie - Heroes (3:36) - Audacious&quot;</span>
+<span class="err">WM_NAME(STRING) = &quot;47. David Bowie - Best Of Bowie - Heroes (3:36) - Audacious&quot;</span>
+</code></pre></div>
+
+
+<p>You may need to switch to tiling windows or make the terminal window which will launch <code>xprop</code> a floating window to be able to click on the correct window. Here, we get an output for the Audacious music player. You usually need the second string from <code>WM_CLASS(STRING)</code> but if you don&#8217;t want to mess with letter casing being upper vs lowercase, you can prefix with <code>(?i)</code> for &#8220;insensitive&#8221; as shown below and that will match any window containing that&nbsp;pattern.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Start</span>
+bindsym <span class="nv">$mod</span>+BackSpace              <span class="nb">exec</span> alacritty -e bashtop
+bindsym <span class="nv">$mod</span>+Print --release        <span class="nb">exec</span> --no-startup-id flameshot screen --path ~/Pictures/screenshots/
+bindsym <span class="nv">$mod</span>+Shift+a                <span class="nb">exec</span> audacious
+bindsym <span class="nv">$mod</span>+Shift+d --release      <span class="nb">exec</span> <span class="s2">&quot;killall dunst; exec notify-send &#39;restart dunst&#39;&quot;</span>
+bindsym <span class="nv">$mod</span>+Shift+g                <span class="nb">exec</span> gimp
+bindsym <span class="nv">$mod</span>+Shift+i                <span class="nb">exec</span> inkscape
+bindsym <span class="nv">$mod</span>+Shift+t                <span class="nb">exec</span> thunar
+bindsym <span class="nv">$mod</span>+Shift+v                <span class="nb">exec</span> alacritty -e vifm
+bindsym <span class="nv">$mod</span>+Shift+w                <span class="nb">exec</span> --no-startup-id google-chrome-stable
+bindsym <span class="nv">$mod</span>+Shift+x --release      <span class="nb">exec</span> --no-startup-id xkill
+bindsym Print --release             <span class="nb">exec</span> --no-startup-id flameshot gui --path ~/Pictures/screenshots/
+
+<span class="c1"># Open applications on specific workspaces</span>
+assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;(?i)code&quot;</span><span class="o">]</span>               <span class="nv">$ws1</span>
+assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;(?i)brave-browser&quot;</span><span class="o">]</span>      <span class="nv">$ws3</span>
+assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;(?i)firefox&quot;</span><span class="o">]</span>            <span class="nv">$ws3</span>
+assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;(?i)google-chrome&quot;</span><span class="o">]</span>      <span class="nv">$ws3</span>
+assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;(?i)scribus&quot;</span><span class="o">]</span>            <span class="nv">$ws4</span>
+assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;Audacity&quot;</span><span class="o">]</span>               <span class="nv">$ws4</span>
+assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;Gimp&quot;</span><span class="o">]</span>                   <span class="nv">$ws4</span>
+assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;Inkscape&quot;</span><span class="o">]</span>               <span class="nv">$ws4</span>
+assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;vlc&quot;</span><span class="o">]</span>                    <span class="nv">$ws4</span>
+assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;(?i)org.gnome.Nautilus&quot;</span><span class="o">]</span> <span class="nv">$ws5</span>
+assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;(?i)zathura&quot;</span><span class="o">]</span>            <span class="nv">$ws6</span>
+assign <span class="o">[</span><span class="nv">title</span><span class="o">=</span><span class="s2">&quot;(?i)libreoffice&quot;</span><span class="o">]</span>        <span class="nv">$ws7</span>
+assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;keepassxc&quot;</span><span class="o">]</span>              <span class="nv">$ws8</span>
+assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;obs&quot;</span><span class="o">]</span>                    <span class="nv">$ws8</span>
+assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;Transmission&quot;</span><span class="o">]</span>           <span class="nv">$ws8</span>
+
+<span class="c1"># Automatically switch to workspace when opening those</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;(?i)brave-browser&quot;</span><span class="o">]</span>      workspace <span class="nv">$ws3</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;(?i)code&quot;</span><span class="o">]</span>               workspace <span class="nv">$ws1</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;(?i)firefox&quot;</span><span class="o">]</span>            workspace <span class="nv">$ws3</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;(?i)google-chrome&quot;</span><span class="o">]</span>      workspace <span class="nv">$ws3</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;(?i)org.gnome.Nautilus&quot;</span><span class="o">]</span> workspace <span class="nv">$ws5</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;(?i)scribus&quot;</span><span class="o">]</span>            workspace <span class="nv">$ws4</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;(?i)zathura&quot;</span><span class="o">]</span>            workspace <span class="nv">$ws6</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;Gimp&quot;</span><span class="o">]</span>                   workspace <span class="nv">$ws4</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;Inkscape&quot;</span><span class="o">]</span>               workspace <span class="nv">$ws4</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;Transmission&quot;</span><span class="o">]</span>           workspace <span class="nv">$ws8</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;audacity&quot;</span><span class="o">]</span>               workspace <span class="nv">$ws4</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;keepassxc&quot;</span><span class="o">]</span>              workspace <span class="nv">$ws8</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;obs&quot;</span><span class="o">]</span>                    workspace <span class="nv">$ws8</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;vlc&quot;</span><span class="o">]</span>                    workspace <span class="nv">$ws4</span>
+for_window <span class="o">[</span><span class="nv">title</span><span class="o">=</span><span class="s2">&quot;(?i)libreoffice&quot;</span><span class="o">]</span>        workspace <span class="nv">$ws7</span>
+
+<span class="c1"># Open specific applications in floating mode</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;(?i)virtualbox&quot;</span><span class="o">]</span>   floating <span class="nb">enable</span> border pixel <span class="m">2</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;GParted&quot;</span><span class="o">]</span>          floating <span class="nb">enable</span> border pixel <span class="m">2</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;Lightdm-settings&quot;</span><span class="o">]</span> floating <span class="nb">enable</span> pixel <span class="m">2</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;Lxappearance&quot;</span><span class="o">]</span>     floating <span class="nb">enable</span> sticky <span class="nb">enable</span> border pixel <span class="m">2</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;Nitrogen&quot;</span><span class="o">]</span>         floating <span class="nb">enable</span> sticky <span class="nb">enable</span> border pixel <span class="m">2</span>
+for_window <span class="o">[</span><span class="nv">title</span><span class="o">=</span><span class="s2">&quot;File Transfer*&quot;</span><span class="o">]</span>   floating <span class="nb">enable</span> border pixel <span class="m">2</span>
+for_window <span class="o">[</span><span class="nv">title</span><span class="o">=</span><span class="s2">&quot;alsamixer&quot;</span><span class="o">]</span>        floating <span class="nb">enable</span> border pixel <span class="m">2</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;(?i)zoom&quot;</span><span class="o">]</span>         floating <span class="nb">enable</span> border pixel <span class="m">2</span>
+
+<span class="c1"># Autostart applications</span>
+<span class="nb">exec</span> --no-startup-id    brightnessctl s <span class="m">40</span>%
+<span class="nb">exec</span> --no-startup-id    google-chrome-stable
+<span class="nb">exec</span> --no-startup-id    nitrogen --restore
+<span class="nb">exec</span> --no-startup-id    nm-applet
+<span class="nb">exec</span> --no-startup-id    pasystray
+<span class="nb">exec</span> --no-startup-id    todoist
+<span class="nb">exec</span> --no-startup-id    xfce4-clipman
+<span class="nb">exec</span> --no-startup-id    unclutter --jitter <span class="m">40</span> --ignore-scrolling <span class="p">&amp;</span>
+<span class="nb">exec</span> --no-startup-id    compton -CG --config /dev/null
+</code></pre></div>
+
+
+<p>This last section on <strong>Autostart applications</strong> is the list of applications that launch when you open your X session with&nbsp;i3.</p>
+<h3>Keyboard <span class="amp">&amp;</span>&nbsp;mouse</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Set compose key to Right Ctrl</span>
+exec_always --no-startup-id    setxkbmap -option <span class="s2">&quot;compose:rctrl&quot;</span>
+
+<span class="c1"># Delay, interval</span>
+exec_always --no-startup-id    xset r rate <span class="m">250</span> <span class="m">60</span>
+</code></pre></div>
+
+
+<p>I like to set those options in my config file as they can be modified on the fly if you reload i3. This is thanks to the <code>exec_always --no-startup-id</code> directive which will always run the invoked command when relaunching, not just when logging in to a&nbsp;session.</p>
+<h3>Colors <span class="amp">&amp;</span>&nbsp;theming</h3>
+<p>Of high interest in this section, apart from the actual colors, is where you will set your i3bar on the screen (top vs bottom) and on which monitor your tray will be displayed if you have more than one. In this case, the bar displays at the top of the screen <em>à la Mac</em> or <span class="caps">GNOME</span> with <code>position top</code> and reveals information about system resources with <code>i3status</code> (you can find how it can be configured in <a href="https://github.com/sglavoie/dotfiles/blob/master/.config/i3status/config">my dotfiles</a> or on the <a href="https://github.com/i3/i3status">i3status repo</a> on&nbsp;GitHub).</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Start i3bar to display a workspace bar (plus the system information i3status if available)</span>
+bar <span class="o">{</span>
+    i3bar_command i3bar
+    status_command i3status
+    position top
+
+<span class="c1">## please set your primary output first. Example: &#39;xrandr --output eDP1 --primary&#39;</span>
+    tray_output primary
+    bindsym button4 nop
+    bindsym button5 nop
+
+    colors <span class="o">{</span>
+        background <span class="c1">#222222</span>
+        statusline <span class="c1">#dddddd</span>
+        separator <span class="c1">#666666</span>
+<span class="c1">#                         border  backgr. text</span>
+        focused_workspace <span class="c1">#0088CC #0088CC #ffffff #cccccc</span>
+        active_workspace <span class="c1">#333333 #333333 #ffffff #181715</span>
+        inactive_workspace <span class="c1">#333333 #333333 #888888 #AAAAAA</span>
+        urgent_workspace <span class="c1">#2f343a #900000 #ffffff #FFFFFF</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1"># Theme colors</span>
+<span class="c1"># class          border  backgr. text    indic.  child_border</span>
+  client.focused <span class="c1">#0088CC #00C8FF #ffffff #dddddd</span>
+  client.focused_inactive <span class="c1">#333333 #333333 #888888 #292d2e</span>
+  client.unfocused <span class="c1">#333333 #333333 #888888 #292d2e</span>
+  client.urgent <span class="c1">#2f343a #900000 #ffffff #900000</span>
+  client.placeholder <span class="c1">#F9FAF9 #061229 #FFFFFF #061229</span>
+  client.background <span class="c1">#061229</span>
+</code></pre></div>
+
+
+<p>Theming i3 can be tedious, but thankfully there are tools to automate the process! One such tool is <a href="https://github.com/altdesktop/i3-style">i3-style</a>, which allows you to quickly switch in place your theme without having to log out or modify manually your <code>i3/config</code> file. To go the manual route or to tweak an existing theme, you can always use a website like <a href="https://htmlcolorcodes.com"><span class="caps">HTML</span> Color Codes</a>. You can also use <a href="https://terminal.sexy">terminal.sexy</a> to come up with nice looking themes, which can be exported for other applications you may be&nbsp;using.</p>
+<hr>
+<h1>Conclusion</h1>
+<p>You can find the <a href="https://github.com/sglavoie/dotfiles/blob/master/.config/i3/config">complete <code>config</code> file in my dotfiles on GitHub</a>. If you liked this article, you may also enjoy reading&nbsp;those:</p>
+<ul>
+<li><a href="https://www.sglavoie.com/posts/2019/05/12/suckless-minimalist-tools-that-work-great/">Suckless: Minimalist Tools That Work&nbsp;Great</a></li>
+<li><a href="https://www.sglavoie.com/posts/2019/11/10/using-dmenu-to-optimize-common-tasks/">Using dmenu to Optimize Common&nbsp;Tasks</a></li>
+<li><a href="https://www.sglavoie.com/posts/2019/01/08/using-i3-as-a-window-manager-for-increased-productivity/">Using i3 as a Window Manager for Increased&nbsp;Productivity</a></li>
+</ul>
+<h2>More resources and&nbsp;references</h2>
+<ul>
+<li><a href="https://fedoramagazine.org/getting-started-i3-window-manager/">Getting started with the i3 tiling window manager</a> — Fedora&nbsp;Magazine</li>
+<li><a href="https://i3wm.org/docs/userguide.html">Official i3 documentation</a> —&nbsp;i3wm.org</li>
+<li><a href="https://wiki.archlinux.org/index.php/i3">i3 page on the Arch Wiki</a> — Arch&nbsp;Wiki</li>
+</ul>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sat 15 August 2020</p>
+    <p>Category: <a href="https://www.sglavoie.com/category/tools.html">tools</a>
+ &ndash; Tags:
+      <a href="https://www.sglavoie.com/tag/i3.html">i3</a>,      <a href="https://www.sglavoie.com/tag/window-manager.html">window-manager</a>    </p>
+  </div>
+
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "posts/2020/08/15/a-guided-tour-of-an-i3-configuration/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//sglavoie.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
+
+</article>
+  
+      <div id="ending_message">
+        <p>
+          &copy; Sébastien Lavoie. Built in
+          <a
+            href="https://www.python.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Python</a
+          >
+          using
+          <a
+            href="http://getpelican.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Pelican</a
+          >. Theme adapted from Giulio Fidente on
+          <a
+            href="https://github.com/gfidente/pelican-svbhack"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >.
+        </p>
+      </div>
+    </main>
+  </body>
+</html>
