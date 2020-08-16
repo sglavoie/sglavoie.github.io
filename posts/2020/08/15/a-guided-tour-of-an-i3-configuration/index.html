@@ -125,13 +125,14 @@
     <h1><a href="https://www.sglavoie.com/posts/2020/08/15/a-guided-tour-of-an-i3-configuration/">A Guided Tour of an i3&nbsp;Configuration</a></h1>
   </div>
   <div class="article_readtime">
-    <p>Estimated read time: 19 minutes</p>
+    <p>Estimated read time: 20 minutes</p>
   </div>
   <div class="article_text">
     <h1>Introduction</h1>
-<p>In <a href="https://www.sglavoie.com/posts/2019/01/08/using-i3-as-a-window-manager-for-increased-productivity/">Using i3 as a Window Manager for Increased Productivity</a>, a number of reasons were given to get going with this fantastic tiling window manager. Now, it&#8217;s time to jump in and explore how to actually use i3! If you&#8217;re looking for an in-depth guide, the <a href="https://i3wm.org/docs/userguide.html">official i3 documentation</a> or the <a href="https://wiki.archlinux.org/index.php/i3">i3 page on the Arch Wiki</a> are awesome resources to dive deep. Here, we&#8217;ll focus on day-to-day usage based on my current configuration file which I have used and refined over the past two years or so in the hope that you&#8217;ll be able to quickly glean useful tips and tricks to apply to your own use&nbsp;case.</p>
+<p>In <a href="https://www.sglavoie.com/posts/2019/01/08/using-i3-as-a-window-manager-for-increased-productivity/">Using i3 as a Window Manager for Increased Productivity</a>, a number of reasons were given to get going with this fantastic tiling window manager. Now, it&#8217;s time to jump in and explore how to actually use i3! If you&#8217;re looking for an in-depth guide, the <a href="https://i3wm.org/docs/userguide.html">official i3 documentation</a> or the <a href="https://wiki.archlinux.org/index.php/i3">i3 page on the Arch Wiki</a> are awesome resources to dive deeper. Here, we&#8217;ll focus on day-to-day usage based on my current configuration file which I have used and refined over the past two years or so. I hope that you&#8217;ll be able to glean useful tips and tricks to apply to your own use&nbsp;case.</p>
 <hr>
 <h2>The Configuration&nbsp;File</h2>
+<p>To set keybindings, it <em>may</em> be handy to know the keycodes and their respective names. To get a full list, you can use <code>xmodmap -pk</code> in the terminal. If you&#8217;re not sure of the name of the key you want to press (is it &#8220;PageDown&#8221;, &#8220;PageDwn&#8221; or &#8220;Next&#8221;?), you can retrieve it by executing the <code>xev</code> command, which will open two windows: one for capturing the actual key press and the other one to display the relevant details for that key. For example, if you press the backspace key, the output will contain something like <code>keycode 22 (keysym 0xff08, BackSpace)</code>. From there, you will know that a mapping would be of the form <code>mod+BackSpace</code>, where <code>mod</code> is the modifier of your choice that is usually specified at the top of the configuration file. Now we can&nbsp;start!</p>
 <h3>General&nbsp;settings</h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># set mod key (Mod1=Alt, Mod4=Super)</span>
 <span class="c1"># ⇒ the main modifier used to trigger shortcuts</span>
@@ -446,7 +447,7 @@ bindsym <span class="nv">$mod</span>+n    border normal
 
 <p>A few notes on the <strong>Borders</strong>&nbsp;section:</p>
 <ul>
-<li>I just <strong>love</strong> knowing which container is active, so I set thick, bright borders with a nice kind of &#8220;electric blue&#8221; color that&#8217;s as easy to spot on a light or dark background (colors are set in a separate&nbsp;section).</li>
+<li>I just <strong>love</strong> knowing which container is active, so I set thick, bright borders with a nice kind of &#8220;electric blue&#8221; color that&#8217;s easy to spot on a light or dark background (colors are set below in the section <strong>Colors <span class="amp">&amp;</span> theming</strong>).</li>
 <li>I also <strong>love</strong> saving space whenever possible to see more stuff on the screen, so I avoid gaps altogether (if you like them, have a look at <a href="https://github.com/Airblader/i3">i3-gaps</a>). In that spirit, I also set the option <code>hide_edge_borders smart</code> so that borders don&#8217;t show up when I have only one tiled container covering the whole&nbsp;space.</li>
 <li>This also shows that you can have a different border size for floating windows if you find the thickness distracting. Personally, I just find it helps me know which container is active when I toggle from foreground to background window with <code>mod+space</code>.</li>
 </ul>
@@ -456,7 +457,7 @@ bindsym <span class="nv">$mod</span>+n    border normal
 </figure>
 
 <h3>dmenu</h3>
-<p><code>dmenu</code> is so useful that it also got its own section. By default, you usually launch applications with <code>mod+d</code>: I kept the same behavior here. I added a few custom launchers that I use all the time to open files based on a topic, using mnemonics that work (for me, at least). If you want to know more about setting these kinds of shortcuts, you may well be interested in reading <a href="https://www.sglavoie.com/posts/2019/11/10/using-dmenu-to-optimize-common-tasks/">Using dmenu to Optimize Common Tasks</a>&nbsp;;).</p>
+<p><code>dmenu</code> is so useful that it also got its own section. By default, you usually launch applications with <code>mod+d</code>: I kept the same behavior here. I added a few custom launchers that I use all the time to open files based on a topic, using mnemonics that work (for me, at least). If you want to know more about setting these kinds of shortcuts, you may be interested in reading <a href="https://www.sglavoie.com/posts/2019/11/10/using-dmenu-to-optimize-common-tasks/">Using dmenu to Optimize Common Tasks</a>&nbsp;;).</p>
 <div class="highlight"><pre><span></span><code>bindsym <span class="nv">$mod</span>+Mod1+c    <span class="nb">exec</span> --no-startup-id ~/Dropbox/.custom/dmenu/cheatsheets.sh
 bindsym <span class="nv">$mod</span>+Mod1+d    <span class="nb">exec</span> --no-startup-id ~/Dropbox/.custom/dmenu/documents.sh
 bindsym <span class="nv">$mod</span>+Mod1+e    <span class="nb">exec</span> --no-startup-id ~/Dropbox/.custom/dmenu/edit_scripts.sh
@@ -490,7 +491,7 @@ bindsym <span class="nv">$mod</span>+Mod1+t    <span class="nb">exec</span> --no
 <li>In i3, you don&#8217;t really make use of icons on the desktop. I like the absence of visual clutter it provides, but I sometimes like to access a specific folder in which I drop a few shortcuts/symlinks to access other files from&nbsp;there.</li>
 <li><code>bc</code> is a nice minimalist&nbsp;calculator.</li>
 <li>Focusing applications is also a very cool use of shortcuts. In this case, I just leave Todoist running on a workspace and can quickly go back to&nbsp;it.</li>
-<li>Working remotely with many teammates from around the world is sometimes confusing time-wise, so I have a simple script that outputs the current time in the places I&#8217;m interested in&nbsp;monitoring.</li>
+<li><em>An idea for customization</em>: working remotely with many teammates from around the world is sometimes confusing timewise, so I have a simple script that outputs the current time in the places I&#8217;m interested in&nbsp;monitoring.</li>
 </ul>
 <figure>
     <a href="https://www.sglavoie.com/images/posts/0022_guided-tour-i3/timezones.png"><img src="https://www.sglavoie.com/images/posts/0022_guided-tour-i3/timezones.png" alt="timezones_dmenu" class="max-size-img-post"></a>
@@ -525,10 +526,10 @@ bindsym <span class="nv">$mod</span>+Control+b    <span class="nb">exec</span> -
 </code></pre></div>
 
 
-<p>To control the screen brightness, I use <a href="https://github.com/haikarainen/light"><code>light</code></a>. I also like to just toggle the brightness of my laptop at night when I just read something on my external monitor, so I use a <a href="https://github.com/sglavoie/dotfiles/blob/master/.local/bin/toggle_laptop_brightness"><code>toggle_laptop_brightness</code></a> script that I found somewhere online and adapted&nbsp;slightly.</p>
+<p>To control the screen brightness, I use <a href="https://github.com/haikarainen/light"><code>light</code></a>. I also like to just toggle the brightness of my laptop at night when I read something on my external monitor, so I use a <a href="https://github.com/sglavoie/dotfiles/blob/master/.local/bin/toggle_laptop_brightness"><code>toggle_laptop_brightness</code></a> script that I found somewhere online and adapted&nbsp;slightly.</p>
 <h3>Applications</h3>
-<p>This section will heavily depend on the software you use, but that will give an idea. I like to have a shortcut for <a href="https://github.com/aristocratos/bashtop">bashtop</a> to quickly monitor system resources (<a href="https://github.com/nicolargo/glances">glances</a> is also quite nice). Besides that, I like to have applications automatically appear on specific workspaces and be switched to in some&nbsp;instances.</p>
-<p>Controlling which application opens in floating mode is also useful as some just don&#8217;t play that well with tiling. To find information about an application, you can open a new terminal window and launch <code>xprop</code>, click on the window you need information about and voilà, a couple of strings will be displayed like so (output truncated a&nbsp;bit):</p>
+<p>This section will heavily depend on the software you use of course, but there&#8217;s the gist of it. I like to have a shortcut for <a href="https://github.com/aristocratos/bashtop">bashtop</a> to quickly monitor system resources (<a href="https://github.com/nicolargo/glances">glances</a> is also quite nice). Besides that, I like to have applications automatically appear on specific workspaces and be switched to in some&nbsp;instances.</p>
+<p>Controlling which application opens in floating mode is also useful as some just don&#8217;t play that well with tiling. To find information about an application, you can open a new terminal window and launch <code>xprop</code>, click on the window you need information about and <em>voilà</em>, a couple of strings will be displayed like so (output truncated a&nbsp;bit):</p>
 <div class="highlight"><pre><span></span><code><span class="err">    Icon (16 x 16):</span>
 <span class="err">         ▒▓▓▓▓▒</span>
 <span class="err">       ▒▓██████▓▒</span>
@@ -556,7 +557,7 @@ bindsym <span class="nv">$mod</span>+Control+b    <span class="nb">exec</span> -
 </code></pre></div>
 
 
-<p>You may need to switch to tiling windows or make the terminal window which will launch <code>xprop</code> a floating window to be able to click on the correct window. Here, we get an output for the Audacious music player. You usually need the second string from <code>WM_CLASS(STRING)</code> but if you don&#8217;t want to mess with letter casing being upper vs lowercase, you can prefix with <code>(?i)</code> for &#8220;insensitive&#8221; as shown below and that will match any window containing that&nbsp;pattern.</p>
+<p>You may need to switch to tiling windows or make the terminal window that launches <code>xprop</code> a floating window to be able to click on the desired window. Here, we get an output for the Audacious music player. You usually need the second string from <code>WM_CLASS(STRING)</code> but if you don&#8217;t want to mess with letter casing being upper vs lowercase, you can prefix with <code>(?i)</code> for &#8220;insensitive&#8221; as shown below and that will match any window containing that pattern. Sometimes, you&#8217;re just after matching a &#8220;title&#8221; (like it&#8217;s done with LibreOffice in the snippet of code below) and you can get that one by showing the container&#8217;s border. With this config file, the <code>mod+n</code> keybinding will show the border you want at the top and <code>mod+y</code> will make it disappear&nbsp;again.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Start</span>
 bindsym <span class="nv">$mod</span>+BackSpace              <span class="nb">exec</span> alacritty -e bashtop
 bindsym <span class="nv">$mod</span>+Print --release        <span class="nb">exec</span> --no-startup-id flameshot screen --path ~/Pictures/screenshots/
@@ -639,7 +640,7 @@ exec_always --no-startup-id    xset r rate <span class="m">250</span> <span clas
 
 <p>I like to set those options in my config file as they can be modified on the fly if you reload i3. This is thanks to the <code>exec_always --no-startup-id</code> directive which will always run the invoked command when relaunching, not just when logging in to a&nbsp;session.</p>
 <h3>Colors <span class="amp">&amp;</span>&nbsp;theming</h3>
-<p>Of high interest in this section, apart from the actual colors, is where you will set your i3bar on the screen (top vs bottom) and on which monitor your tray will be displayed if you have more than one. In this case, the bar displays at the top of the screen <em>à la Mac</em> or <span class="caps">GNOME</span> with <code>position top</code> and reveals information about system resources with <code>i3status</code> (you can find how it can be configured in <a href="https://github.com/sglavoie/dotfiles/blob/master/.config/i3status/config">my dotfiles</a> or on the <a href="https://github.com/i3/i3status">i3status repo</a> on&nbsp;GitHub).</p>
+<p>Of interest in this section, apart from the actual colors, is where you will set your i3bar on the screen (top vs bottom) and on which monitor your tray (the space with little icons to show the volume, WiFi connectivity and so on) will be displayed if you have more than one monitor. In this case, the bar displays at the top of the screen <em>à la Mac</em> or <span class="caps">GNOME</span> with <code>position top</code> and reveals information about system resources with <code>i3status</code> (you can find how it can be configured in <a href="https://github.com/sglavoie/dotfiles/blob/master/.config/i3status/config">my dotfiles</a> or on the <a href="https://github.com/i3/i3status">i3status repo</a> on&nbsp;GitHub).</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Start i3bar to display a workspace bar (plus the system information i3status if available)</span>
 bar <span class="o">{</span>
     i3bar_command i3bar
@@ -674,10 +675,10 @@ bar <span class="o">{</span>
 </code></pre></div>
 
 
-<p>Theming i3 can be tedious, but thankfully there are tools to automate the process! One such tool is <a href="https://github.com/altdesktop/i3-style">i3-style</a>, which allows you to quickly switch in place your theme without having to log out or modify manually your <code>i3/config</code> file. To go the manual route or to tweak an existing theme, you can always use a website like <a href="https://htmlcolorcodes.com"><span class="caps">HTML</span> Color Codes</a>. You can also use <a href="https://terminal.sexy">terminal.sexy</a> to come up with nice looking themes, which can be exported for other applications you may be&nbsp;using.</p>
+<p>Theming i3 can be tedious, but thankfully there are tools to automate the process! One such tool is <a href="https://github.com/altdesktop/i3-style">i3-style</a>, which allows you to quickly switch in place your theme without having to log out or modify manually your i3 <code>config</code> file. To go the manual route or to tweak an existing theme, you can always use a website like <a href="https://htmlcolorcodes.com"><span class="caps">HTML</span> Color Codes</a> to find an exact hexadecimal value. You can also use <a href="https://terminal.sexy">terminal.sexy</a> to come up with nice looking themes, which can be exported for other applications you may be&nbsp;using.</p>
 <hr>
 <h1>Conclusion</h1>
-<p>You can find the <a href="https://github.com/sglavoie/dotfiles/blob/master/.config/i3/config">complete <code>config</code> file in my dotfiles on GitHub</a>. If you liked this article, you may also enjoy reading&nbsp;those:</p>
+<p>You can find the <a href="https://github.com/sglavoie/dotfiles/blob/master/.config/i3/config">complete <code>config</code> file in my dotfiles on GitHub</a>. If you liked this article, you may also enjoy reading the following&nbsp;ones:</p>
 <ul>
 <li><a href="https://www.sglavoie.com/posts/2019/05/12/suckless-minimalist-tools-that-work-great/">Suckless: Minimalist Tools That Work&nbsp;Great</a></li>
 <li><a href="https://www.sglavoie.com/posts/2019/11/10/using-dmenu-to-optimize-common-tasks/">Using dmenu to Optimize Common&nbsp;Tasks</a></li>
@@ -692,6 +693,9 @@ bar <span class="o">{</span>
   </div>
   <div class="article_meta">
     <p>Posted on: Sat 15 August 2020</p>
+     <time class="modified" datetime="2020-08-15T21:47:00-05:00">
+      Modified on: Sat 15 August 2020
+    </time>
     <p>Category: <a href="https://www.sglavoie.com/category/tools.html">tools</a>
  &ndash; Tags:
       <a href="https://www.sglavoie.com/tag/i3.html">i3</a>,      <a href="https://www.sglavoie.com/tag/window-manager.html">window-manager</a>    </p>
