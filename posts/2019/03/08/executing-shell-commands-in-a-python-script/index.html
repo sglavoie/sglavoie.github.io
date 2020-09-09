@@ -127,32 +127,43 @@
   <div class="article_readtime">
     <p>Estimated read time: 2 minutes</p>
   </div>
+    <nav class="toc">
+    <div class="toc">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#retrieve-the-output">Retrieve the output</a></li>
+<li><a href="#execute-a-command-in-the-background">Execute a command in the background</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</div>
+    </nav>
   <div class="article_text">
-    <p>Python is awesome for producing high-quality code quickly
+    
+<hr/>
+<h1 id="introduction">Introduction</h1>
+<p>Python is awesome for producing high-quality code quickly
 and efficiently, but it is not necessary to reinvent the
 wheel in each project: this is why the third-party library on
 <a href="https://pypi.org/">PyPI</a> is so extensive. There are also occasions when
 it is convenient to execute shell commands available in the terminal,
 either to retrieve its output or to perform some work in the background.
 I have wanted to do both when building this website, so here is one way
-to accomplish&nbsp;this!</p>
-<h3>Retrieve the&nbsp;output</h3>
+to accomplish this!</p>
+<h1 id="retrieve-the-output">Retrieve the output</h1>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">read_tree</span><span class="p">():</span>
-    <span class="sd">&#39;&#39;&#39;Execute `tree` command and store the output in</span>
-<span class="sd">    `tree.txt`.&#39;&#39;&#39;</span>
-    <span class="n">tree</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">getoutput</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;tree .&#39;</span><span class="p">)</span>
+    <span class="sd">'''Execute `tree` command and store the output in</span>
+<span class="sd">    `tree.txt`.'''</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">getoutput</span><span class="p">(</span><span class="sa">f</span><span class="s1">'tree .'</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./tree.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'./tree.txt'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
 
 
 <span class="n">read_tree</span><span class="p">()</span>
 </code></pre></div>
-
-
 <p>In this example, the structure from the current directory is printed
 when executing the code and it is later stored in a file. The output
-could look something like the&nbsp;following:</p>
+could look something like the following:</p>
 <div class="highlight"><pre><span></span><code><span class="p">.</span>
 <span class="err">├──</span> <span class="n">database_example</span>
 <span class="err">│</span>   <span class="err">├──</span> <span class="n">example</span><span class="p">.</span><span class="n">sqlite</span>
@@ -175,39 +186,35 @@ could look something like the&nbsp;following:</p>
 
 <span class="mi">3</span> <span class="n">directories</span><span class="p">,</span> <span class="mi">15</span> <span class="n">files</span>
 </code></pre></div>
-
-
-<h3>Execute a command in the&nbsp;background</h3>
+<h1 id="execute-a-command-in-the-background">Execute a command in the background</h1>
 <p>There are also instances in which is it useful to execute a program
 from the terminal inside a Python script. This website, for example,
 currently exports daily Git statistics in the <code>output/</code> folder. This
-looks like&nbsp;this:</p>
+looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">daily_stats</span><span class="p">():</span>
-    <span class="sd">&#39;&#39;&#39;Execute `Gitstats` once a day based on the date found in</span>
-<span class="sd">    `stats_counter.txt`. Very simple with a caveat: it won&#39;t check if</span>
+    <span class="sd">'''Execute `Gitstats` once a day based on the date found in</span>
+<span class="sd">    `stats_counter.txt`. Very simple with a caveat: it won't check if</span>
 <span class="sd">    there are new commits on the same day if stats have already been</span>
-<span class="sd">    generated on that day.&#39;&#39;&#39;</span>
-    <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;stats_counter.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="sd">    generated on that day.'''</span>
+    <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">'%Y%m</span><span class="si">%d</span><span class="s1">'</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'stats_counter.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">content</span> <span class="o">!=</span> <span class="n">today</span><span class="p">:</span>
         <span class="n">current_loc</span> <span class="o">=</span> <span class="n">current_path</span><span class="p">()</span>
-        <span class="n">cmd</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;gitstats&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;project_name=&#39;sglavoie.com&#39;&quot;</span><span class="p">,</span>
-               <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_loc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_loc</span><span class="si">}</span><span class="s2">/output/stats/&quot;</span><span class="p">]</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"gitstats"</span><span class="p">,</span> <span class="s2">"-c"</span><span class="p">,</span> <span class="s2">"project_name='sglavoie.com'"</span><span class="p">,</span>
+               <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">current_loc</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">current_loc</span><span class="si">}</span><span class="s2">/output/stats/"</span><span class="p">]</span>
         <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;stats_counter.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'stats_counter.txt'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
 </code></pre></div>
-
-
 <p>This is an automated process, which is something Python is easy to use
-for. However, it won&#8217;t be necessary to program everything: it all gets
-generated on&nbsp;demand!</p>
-<h2>Conclusion</h2>
+for. However, it won’t be necessary to program everything: it all gets
+generated on demand!</p>
+<h1 id="conclusion">Conclusion</h1>
 <p>I am always amazed at how easy it can be to automate simple tasks like
 those mentioned above. Programming can be very rewarding regardless of
 initial abilities. Just beyond the most basic stuff, suddenly there is a
-world that opens up to those that stay curious long&nbsp;enough.</p>
+world that opens up to those that stay curious long enough.</p>
   </div>
   <div class="article_meta">
     <p>Posted on: Fri 08 March 2019</p>

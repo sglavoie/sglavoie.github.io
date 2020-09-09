@@ -127,23 +127,35 @@
   <div class="article_readtime">
     <p>Estimated read time: 5 minutes</p>
   </div>
+    <nav class="toc">
+    <div class="toc">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#python-to-the-rescue">Python to the rescue</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</div>
+    </nav>
   <div class="article_text">
-    <p>How would you go about determining the number of possible paths in a
+    
+<hr/>
+<h1 id="introduction">Introduction</h1>
+<p>How would you go about determining the number of possible paths in a
 grid of size <em>n</em> if your initial position is at the top left corner and
 your destination is the bottom right corner, knowing you can only go
-right or down at each move? Let&#8217;s look at a grid of size <code>3 × 3</code>:</p>
-<p><a href="https://www.sglavoie.com/images/posts/0010_number-of-paths-in-a-grid/3x3_grid_paths_demo.png"><img src="https://www.sglavoie.com/images/posts/0010_number-of-paths-in-a-grid/3x3_grid_paths_demo.png" alt="3x3_grid_paths_demo" class="max-size-img-post"></a></p>
+right or down at each move? Let’s look at a grid of size <code>3 × 3</code>:</p>
+<p><a href="https://www.sglavoie.com/images/posts/0010_number-of-paths-in-a-grid/3x3_grid_paths_demo.png"><img alt="3x3_grid_paths_demo" class="max-size-img-post" src="https://www.sglavoie.com/images/posts/0010_number-of-paths-in-a-grid/3x3_grid_paths_demo.png"/></a></p>
 <p>Even at such a small size, one needs some concentration. Sure, it can be
-done on paper, but there must be a better&nbsp;way&#8230;</p>
-<h3>Python to the&nbsp;rescue</h3>
+done on paper, but there must be a better way…</p>
+<h1 id="python-to-the-rescue">Python to the rescue</h1>
 <p>Once again, programming comes in handy! Life is complicated, but there
 are aspects of it that can be solved more easily than previously
 thought when we use the right tools.
 Knowing that this particular situation corresponds to values from
-<a href="https://en.wikipedia.org/wiki/Pascal%27s_triangle">Pascal&#8217;s Triangle</a>
+<a href="https://en.wikipedia.org/wiki/Pascal%27s_triangle">Pascal’s Triangle</a>
 might help, but it sure is more fun
-to come up with a different solution. Here is how it occurred to me in&nbsp;Python:</p>
-<div class="highlight"><pre><span></span><code><span class="sd">&#39;&#39;&#39;</span>
+to come up with a different solution. Here is how it occurred to me in Python:</p>
+<div class="highlight"><pre><span></span><code><span class="sd">'''</span>
 <span class="sd">This approach consists in getting the number of possible paths for each</span>
 <span class="sd">position where we stop in a grid. We know that once we reach the bottom</span>
 <span class="sd">or the right of the grid, there is only one path possible from there,</span>
@@ -198,14 +210,14 @@ to come up with a different solution. Here is how it occurred to me in&nbsp;Pyth
 <span class="sd">      possible paths from that index number.</span>
 <span class="sd">    - Decrement current position by one and repeat the process until we</span>
 <span class="sd">      break out of the loop.</span>
-<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">'''</span>
 
 <span class="n">GRID_SIZE</span> <span class="o">=</span> <span class="mi">100</span>
 
 
 <span class="k">def</span> <span class="nf">num_paths</span><span class="p">(</span><span class="n">grid_size</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Return the number of possible paths in a grid of size `grid_size`</span>
-<span class="sd">    when going only right and down as an integer.&#39;&#39;&#39;</span>
+    <span class="sd">'''Return the number of possible paths in a grid of size `grid_size`</span>
+<span class="sd">    when going only right and down as an integer.'''</span>
     <span class="n">num_points</span> <span class="o">=</span> <span class="p">(</span><span class="n">grid_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
     <span class="n">path_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">num_points</span>
     <span class="n">multiple</span> <span class="o">=</span> <span class="n">grid_size</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># Indices of first column match this multiple</span>
@@ -227,30 +239,28 @@ to come up with a different solution. Here is how it occurred to me in&nbsp;Pyth
             <span class="n">starting_point</span> <span class="o">-=</span> <span class="mi">1</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">num_paths</span><span class="p">(</span><span class="n">GRID_SIZE</span><span class="p">))</span>
 </code></pre></div>
-
-
 <p>In the end, the idea was to find the number of possible paths that
 correspond to each possible move, starting from the destination and
 reverse engineering the number of possibilities until we get to the
-starting&nbsp;point.</p>
-<h2>Conclusion</h2>
+starting point.</p>
+<h1 id="conclusion">Conclusion</h1>
 <p>As it turns out, this strategy of reverse engineering things works
 pretty well when applied to real-life examples. When setting a goal,
 for instance loosing 10 kilograms in one year, it can sound a lot less
 daunting to find out what this represents by month (0.83 kg) or even
 by week (0.19 kg) instead of fixating on the big gap from your current
 situation. For short-term goals, this can be reduced to daily or even
-hourly&nbsp;outcomes.</p>
+hourly outcomes.</p>
 <p>This goes hand in hand with the advice found in <a href="https://amzn.to/2Y0QGis">Atomic
-Habits</a>, an excellent book written by James&nbsp;Clear:</p>
+Habits</a>, an excellent book written by James Clear:</p>
 <blockquote>
-<p>A 1% daily improvement leads to a version of yourself that&#8217;s <em>37</em> times better in one&nbsp;year.</p>
+<p>A 1% daily improvement leads to a version of yourself that’s <em>37</em> times better in one year.</p>
 </blockquote>
-<p>If that&#8217;s not motivating enough to start taking little steps with
-consistency towards your dreams, I don&#8217;t know what&nbsp;is.</p>
+<p>If that’s not motivating enough to start taking little steps with
+consistency towards your dreams, I don’t know what is.</p>
   </div>
   <div class="article_meta">
     <p>Posted on: Thu 14 March 2019</p>

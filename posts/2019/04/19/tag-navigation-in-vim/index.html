@@ -127,39 +127,43 @@
   <div class="article_readtime">
     <p>Estimated read time: 3 minutes</p>
   </div>
+    <nav class="toc">
+    <div class="toc">
+<ul>
+<li><a href="#navigate-inside-the-current-buffer">Navigate inside the current buffer</a></li>
+<li><a href="#navigate-inside-all-buffers-within-the-current-project">Navigate inside all buffers within the current project</a><ul>
+<li><a href="#debianubuntu">Debian/Ubuntu</a></li>
+<li><a href="#os-x"><span class="caps">OS</span> X</a></li>
+</ul>
+</li>
+</ul>
+</div>
+    </nav>
   <div class="article_text">
-    <p>Let&#8217;s jump right&nbsp;in.</p>
-<h2>Navigate to definitions and&nbsp;tags</h2>
-<h3>Navigate inside the current&nbsp;buffer</h3>
-<p>There is a command <code>gd</code> that stands for <strong>Goto local Declaration</strong>. It is quite useful when looking for a variable inside the current buffer as it allows to jump to where it is declared when the variable is under the cursor. Using that command, you can also find where a function is declared and it will find the first occurrence in the current function. If looking for the first occurrence in the buffer, <code>gD</code> (<strong>Goto global Declaration</strong>) will do the trick. You can jump back and forth to where you were with the commands <code>Ctrl + O</code> (older position) and <code>Ctrl + I</code> (newer position) in normal&nbsp;mode.</p>
-<h3>Navigate inside all buffers within the current&nbsp;project</h3>
+    
+<hr/>
+<h2 id="navigate-inside-the-current-buffer">Navigate inside the current buffer</h2>
+<p>There is a command <code>gd</code> that stands for <strong>Goto local Declaration</strong>. It is quite useful when looking for a variable inside the current buffer as it allows to jump to where it is declared when the variable is under the cursor. Using that command, you can also find where a function is declared and it will find the first occurrence in the current function. If looking for the first occurrence in the buffer, <code>gD</code> (<strong>Goto global Declaration</strong>) will do the trick. You can jump back and forth to where you were with the commands <code>Ctrl + O</code> (older position) and <code>Ctrl + I</code> (newer position) in normal mode.</p>
+<h2 id="navigate-inside-all-buffers-within-the-current-project">Navigate inside all buffers within the current project</h2>
 <p>To be able to jump between buffers and go back to the origin of a declaration when it is imported in the current module, generating tags comes in very handy as it allows you to use the command <code>Ctrl + ]</code> to jump to a tag, just like when using the help pages in <strong>Vim</strong>.</p>
-<p>To make this work, we can conveniently use <code>ctags</code>. First, we need to make sure it&#8217;s installed on the system as&nbsp;follow:</p>
-<hr>
-<h4>Debian/Ubuntu</h4>
+<p>To make this work, we can conveniently use <code>ctags</code>. First, we need to make sure it’s installed on the system as follow:</p>
+<hr/>
+<h3 id="debianubuntu">Debian/Ubuntu</h3>
 <div class="highlight"><pre><span></span><code>sudo apt-get install ctags
 </code></pre></div>
-
-
 <p>or</p>
 <div class="highlight"><pre><span></span><code>sudo apt-get install exuberant-ctags
 </code></pre></div>
-
-
-<h4><span class="caps">OS</span>&nbsp;X</h4>
+<h3 id="os-x"><span class="caps">OS</span> X</h3>
 <div class="highlight"><pre><span></span><code>brew install ctags
 </code></pre></div>
-
-
-<hr>
-<p>You can put the following command in your configuration file to be able to generate the necessary tags inside <strong>Vim</strong> by typing <code>MakeTags</code> in command&nbsp;mode:</p>
+<hr/>
+<p>You can put the following command in your configuration file to be able to generate the necessary tags inside <strong>Vim</strong> by typing <code>MakeTags</code> in command mode:</p>
 <div class="highlight"><pre><span></span><code>command<span class="p">!</span> MakeTags <span class="p">!</span>ctags <span class="p">-</span>R .
 </code></pre></div>
-
-
 <p>This will make it easy to remember how to do it. After that, open an existing project in its root directory and use this newly created <code>MakeTags</code> command to generate the tags. This will create a file named <code>tags</code> in the current working directory*. Now, you will be able to open any file inside your project and jump to all the available declarations with <code>Ctrl + ]</code>.</p>
 <p>* <sub>Note: This will create tags recursively from the <em>current working directory</em>, <strong>not</strong> from the path matching the current buffer.</sub></p>
-<p>If you go to a tag that leads you a few declarations away in one file or another, you can come back with <code>Ctrl + T</code>. Here is a clear explanation from Vim&#8217;s&nbsp;help:</p>
+<p>If you go to a tag that leads you a few declarations away in one file or another, you can come back with <code>Ctrl + T</code>. Here is a clear explanation from Vim’s help:</p>
 <div class="highlight"><pre><span></span><code><span class="n">The</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="n">obvious</span><span class="w"> </span><span class="n">way</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="n">browsing</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">call</span><span class="w"> </span><span class="n">graph</span><span class="w"> </span><span class="k">of</span><span class="w"></span>
 <span class="n">a</span><span class="w"> </span><span class="n">program</span><span class="p">.</span><span class="w">  </span><span class="n">Consider</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="k">call</span><span class="w"> </span><span class="nl">graph</span><span class="p">:</span><span class="w"></span>
 
@@ -171,14 +175,10 @@
 <span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">CTRL</span><span class="o">-</span><span class="err">]</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">get</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">FuncC</span><span class="p">.</span><span class="w">  </span><span class="k">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="n">back</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"></span>
 <span class="k">use</span><span class="w"> </span><span class="n">CTRL</span><span class="o">-</span><span class="n">T</span><span class="w"> </span><span class="n">twice</span><span class="p">.</span><span class="w">  </span><span class="k">Then</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">CTRL</span><span class="o">-</span><span class="err">]</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">FuncB</span><span class="p">.</span><span class="w"></span>
 </code></pre></div>
-
-
-<p>To keep those tags useful when you update your project, you can map a sequence that saves the buffer you are working on and then regenerates the tags automatically. Here is an&nbsp;example:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">nnoremap</span> <span class="p">&lt;</span>leader<span class="p">&gt;</span>W :<span class="k">w</span><span class="p">&lt;</span>CR<span class="p">&gt;</span>:MakeTags<span class="p">&lt;</span>CR<span class="p">&gt;</span>:echo <span class="s1">&#39;ctags have been updated.&#39;</span><span class="p">&lt;</span>CR<span class="p">&gt;</span>
+<p>To keep those tags useful when you update your project, you can map a sequence that saves the buffer you are working on and then regenerates the tags automatically. Here is an example:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">nnoremap</span> <span class="p">&lt;</span>leader<span class="p">&gt;</span>W :<span class="k">w</span><span class="p">&lt;</span>CR<span class="p">&gt;</span>:MakeTags<span class="p">&lt;</span>CR<span class="p">&gt;</span>:echo <span class="s1">'ctags have been updated.'</span><span class="p">&lt;</span>CR<span class="p">&gt;</span>
 </code></pre></div>
-
-
-<p>And on this note, we&#8217;re ready to conquer the&nbsp;world.</p>
+<p>And on this note, we’re ready to conquer the world.</p>
   </div>
   <div class="article_meta">
     <p>Posted on: Fri 19 April 2019</p>

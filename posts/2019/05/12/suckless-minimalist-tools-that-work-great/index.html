@@ -127,54 +127,73 @@
   <div class="article_readtime">
     <p>Estimated read time: 4 minutes</p>
   </div>
+    <nav class="toc">
+    <div class="toc">
+<ul>
+<li><a href="#what-are-suckless-tools">What are Suckless tools?</a></li>
+<li><a href="#st-simple-terminal">st — Simple Terminal</a><ul>
+<li><a href="#configuration">Configuration</a></li>
+</ul>
+</li>
+<li><a href="#dmenu">dmenu</a><ul>
+<li><a href="#configuration_1">Configuration</a></li>
+</ul>
+</li>
+<li><a href="#slock">slock</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</div>
+    </nav>
   <div class="article_text">
-    <h2>What are Suckless&nbsp;tools?</h2>
+    
+<hr/>
+<h2 id="what-are-suckless-tools">What are Suckless tools?</h2>
 <p>From the <a href="https://suckless.org/">official website</a>:</p>
 <blockquote>
 <p>Home of <a href="https://dwm.suckless.org/">dwm</a>,
 <a href="https://tools.suckless.org/dmenu">dmenu</a> and other quality software
-with a focus on simplicity, clarity, and&nbsp;frugality.</p>
+with a focus on simplicity, clarity, and frugality.</p>
 </blockquote>
 <p>There are also other incredible pieces of software that are worth
 mentioning, including <a href="https://st.suckless.org/">st</a>.</p>
 <p>Here, I will only go over the tools I use frequently, but keep in mind
-that everything from Suckless&#8230; Sucks&nbsp;less.</p>
-<hr>
-<h2>st — Simple&nbsp;Terminal</h2>
-<p>I did not know what to expect from this terminal and I found it delivers what I need! Configuring it is quite different than other terminals like <a href="https://konsole.kde.org/">Konsole</a> or <a href="https://help.gnome.org/users/gnome-terminal/stable/"><span class="caps">GNOME</span> Terminal</a>: you just edit a text file and compile the software before you can even use it. It may seem tedious at first, but compiling such a small piece of software is very fast and it needs to be done on seldom occasions when you may want to adjust a&nbsp;setting.</p>
-<p>I have experienced rendering issues when scaling the text with other terminals (including Konsole), where some weird flickering would happen at certain font sizes. <a href="https://st.suckless.org/">Simple Terminal</a> just works without hassle. It doesn&#8217;t have much bells and whistles out of the box, but it can be <em>patched</em> to extend its functionality if you know what you are doing. I don&#8217;t, so my compiled version remains pretty basic although I must say I like the simplicity of it very&nbsp;much.</p>
-<h3>Configuration</h3>
-<p>I didn&#8217;t have to adapt the configuration file very much. I ended up changing mainly the following&nbsp;lines:</p>
-<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="n">font</span> <span class="o">=</span> <span class="s">&quot;Consolas:pixelsize=18:antialias=true:autohint=true&quot;</span><span class="p">;</span>
+that everything from Suckless… Sucks less.</p>
+<hr/>
+<h2 id="st-simple-terminal">st — Simple Terminal</h2>
+<p>I did not know what to expect from this terminal and I found it delivers what I need! Configuring it is quite different than other terminals like <a href="https://konsole.kde.org/">Konsole</a> or <a href="https://help.gnome.org/users/gnome-terminal/stable/"><span class="caps">GNOME</span> Terminal</a>: you just edit a text file and compile the software before you can even use it. It may seem tedious at first, but compiling such a small piece of software is very fast and it needs to be done on seldom occasions when you may want to adjust a setting.</p>
+<p>I have experienced rendering issues when scaling the text with other terminals (including Konsole), where some weird flickering would happen at certain font sizes. <a href="https://st.suckless.org/">Simple Terminal</a> just works without hassle. It doesn’t have much bells and whistles out of the box, but it can be <em>patched</em> to extend its functionality if you know what you are doing. I don’t, so my compiled version remains pretty basic although I must say I like the simplicity of it very much.</p>
+<h3 id="configuration">Configuration</h3>
+<p>I didn’t have to adapt the configuration file very much. I ended up changing mainly the following lines:</p>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="n">font</span> <span class="o">=</span> <span class="s">"Consolas:pixelsize=18:antialias=true:autohint=true"</span><span class="p">;</span>
 
-<span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="n">shell</span> <span class="o">=</span> <span class="s">&quot;/bin/zsh&quot;</span><span class="p">;</span>
+<span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="n">shell</span> <span class="o">=</span> <span class="s">"/bin/zsh"</span><span class="p">;</span>
 
 <span class="cm">/* Terminal colors (16 first used in escape sequence) */</span>
 <span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">colorname</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
 
   <span class="cm">/* 8 normal colors */</span>
-  <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;#1c1c1c&quot;</span><span class="p">,</span> <span class="cm">/* black   */</span>
-  <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;#ff005b&quot;</span><span class="p">,</span> <span class="cm">/* red     */</span>
-  <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;#70e502&quot;</span><span class="p">,</span> <span class="cm">/* green   */</span>
-  <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;#fcdd11&quot;</span><span class="p">,</span> <span class="cm">/* yellow  */</span>
-  <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;#00a0ea&quot;</span><span class="p">,</span> <span class="cm">/* blue    */</span>
-  <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;#bd1efc&quot;</span><span class="p">,</span> <span class="cm">/* magenta */</span>
-  <span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;#14ecfc&quot;</span><span class="p">,</span> <span class="cm">/* cyan    */</span>
-  <span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;#ededed&quot;</span><span class="p">,</span> <span class="cm">/* white   */</span>
+  <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#1c1c1c"</span><span class="p">,</span> <span class="cm">/* black   */</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#ff005b"</span><span class="p">,</span> <span class="cm">/* red     */</span>
+  <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#70e502"</span><span class="p">,</span> <span class="cm">/* green   */</span>
+  <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#fcdd11"</span><span class="p">,</span> <span class="cm">/* yellow  */</span>
+  <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#00a0ea"</span><span class="p">,</span> <span class="cm">/* blue    */</span>
+  <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#bd1efc"</span><span class="p">,</span> <span class="cm">/* magenta */</span>
+  <span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#14ecfc"</span><span class="p">,</span> <span class="cm">/* cyan    */</span>
+  <span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#ededed"</span><span class="p">,</span> <span class="cm">/* white   */</span>
 
   <span class="cm">/* 8 bright colors */</span>
-  <span class="p">[</span><span class="mi">8</span><span class="p">]</span>  <span class="o">=</span> <span class="s">&quot;#666666&quot;</span><span class="p">,</span> <span class="cm">/* black   */</span>
-  <span class="p">[</span><span class="mi">9</span><span class="p">]</span>  <span class="o">=</span> <span class="s">&quot;#ff00a0&quot;</span><span class="p">,</span> <span class="cm">/* red     */</span>
-  <span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;#5dff00&quot;</span><span class="p">,</span> <span class="cm">/* green   */</span>
-  <span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;#ff9f00&quot;</span><span class="p">,</span> <span class="cm">/* yellow  */</span>
-  <span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;#71a9fc&quot;</span><span class="p">,</span> <span class="cm">/* blue    */</span>
-  <span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;#d571fc&quot;</span><span class="p">,</span> <span class="cm">/* magenta */</span>
-  <span class="p">[</span><span class="mi">14</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;#6cf2fc&quot;</span><span class="p">,</span> <span class="cm">/* cyan    */</span>
-  <span class="p">[</span><span class="mi">15</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;#fcfcfc&quot;</span><span class="p">,</span> <span class="cm">/* white   */</span>
+  <span class="p">[</span><span class="mi">8</span><span class="p">]</span>  <span class="o">=</span> <span class="s">"#666666"</span><span class="p">,</span> <span class="cm">/* black   */</span>
+  <span class="p">[</span><span class="mi">9</span><span class="p">]</span>  <span class="o">=</span> <span class="s">"#ff00a0"</span><span class="p">,</span> <span class="cm">/* red     */</span>
+  <span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#5dff00"</span><span class="p">,</span> <span class="cm">/* green   */</span>
+  <span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#ff9f00"</span><span class="p">,</span> <span class="cm">/* yellow  */</span>
+  <span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#71a9fc"</span><span class="p">,</span> <span class="cm">/* blue    */</span>
+  <span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#d571fc"</span><span class="p">,</span> <span class="cm">/* magenta */</span>
+  <span class="p">[</span><span class="mi">14</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#6cf2fc"</span><span class="p">,</span> <span class="cm">/* cyan    */</span>
+  <span class="p">[</span><span class="mi">15</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#fcfcfc"</span><span class="p">,</span> <span class="cm">/* white   */</span>
 
   <span class="cm">/* special colors */</span>
-  <span class="p">[</span><span class="mi">256</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;#0a0500&quot;</span><span class="p">,</span> <span class="cm">/* background */</span>
-  <span class="p">[</span><span class="mi">257</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;#e0e0e0&quot;</span><span class="p">,</span> <span class="cm">/* foreground */</span>
+  <span class="p">[</span><span class="mi">256</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#0a0500"</span><span class="p">,</span> <span class="cm">/* background */</span>
+  <span class="p">[</span><span class="mi">257</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#e0e0e0"</span><span class="p">,</span> <span class="cm">/* foreground */</span>
 <span class="p">};</span>
 
 <span class="cm">/*</span>
@@ -196,10 +215,10 @@ that everything from Suckless&#8230; Sucks&nbsp;less.</p>
 
 <span class="cm">/*</span>
 <span class="cm"> * Default shape of cursor</span>
-<span class="cm"> * 2: Block (&quot;█&quot;)</span>
-<span class="cm"> * 4: Underline (&quot;_&quot;)</span>
-<span class="cm"> * 6: Bar (&quot;|&quot;)</span>
-<span class="cm"> * 7: Snowman (&quot;☃&quot;)</span>
+<span class="cm"> * 2: Block ("█")</span>
+<span class="cm"> * 4: Underline ("_")</span>
+<span class="cm"> * 6: Bar ("|")</span>
+<span class="cm"> * 7: Snowman ("☃")</span>
 <span class="cm"> */</span>
 <span class="k">static</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">cursorshape</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 
@@ -210,44 +229,40 @@ that everything from Suckless&#8230; Sucks&nbsp;less.</p>
 <span class="k">static</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">cols</span> <span class="o">=</span> <span class="mi">80</span><span class="p">;</span>
 <span class="k">static</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">rows</span> <span class="o">=</span> <span class="mi">24</span><span class="p">;</span>
 </code></pre></div>
-
-
-<h2>dmenu</h2>
-<p><a href="https://tools.suckless.org/dmenu/">dmenu</a> can be configured in the same way as Simple Terminal by editing a text file and compiling the software. I like to use many keyboard shortcuts, but I find that for launching applications I don&#8217;t use that often or to launch custom Bash or Python scripts on the fly, nothing beats the simplicity of <strong>dmenu</strong>.</p>
-<h3>Configuration</h3>
-<p>This one is very easy to configure and doesn&#8217;t really require any attention at all besides defining where you want it to appear on the screen and what colors you prefer. Here are some smalls changes I made to the configuration in <code>config.h</code> before compiling&nbsp;it:</p>
+<h2 id="dmenu">dmenu</h2>
+<p><a href="https://tools.suckless.org/dmenu/">dmenu</a> can be configured in the same way as Simple Terminal by editing a text file and compiling the software. I like to use many keyboard shortcuts, but I find that for launching applications I don’t use that often or to launch custom Bash or Python scripts on the fly, nothing beats the simplicity of <strong>dmenu</strong>.</p>
+<h3 id="configuration_1">Configuration</h3>
+<p>This one is very easy to configure and doesn’t really require any attention at all besides defining where you want it to appear on the screen and what colors you prefer. Here are some smalls changes I made to the configuration in <code>config.h</code> before compiling it:</p>
 <div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="kt">int</span> <span class="n">topbar</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>                      <span class="cm">/* -b  option; if 0, dmenu appears at bottom     */</span>
 <span class="cm">/* -fn option overrides fonts[0]; default X11 font or font set */</span>
 <span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fonts</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">&quot;Consolas:size=12&quot;</span>
+    <span class="s">"Consolas:size=12"</span>
 <span class="p">};</span>
 <span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">prompt</span>      <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>      <span class="cm">/* -p  option; prompt to the left of input field */</span>
 <span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">colors</span><span class="p">[</span><span class="n">SchemeLast</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
     <span class="cm">/*     fg         bg       */</span>
-    <span class="p">[</span><span class="n">SchemeNorm</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;#D8D8D8&quot;</span><span class="p">,</span> <span class="s">&quot;#000000&quot;</span> <span class="p">},</span>
-    <span class="p">[</span><span class="n">SchemeSel</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;#000000&quot;</span><span class="p">,</span> <span class="s">&quot;#ff7400&quot;</span> <span class="p">},</span>
-    <span class="p">[</span><span class="n">SchemeOut</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;#000000&quot;</span><span class="p">,</span> <span class="s">&quot;#00ffff&quot;</span> <span class="p">},</span>
+    <span class="p">[</span><span class="n">SchemeNorm</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">"#D8D8D8"</span><span class="p">,</span> <span class="s">"#000000"</span> <span class="p">},</span>
+    <span class="p">[</span><span class="n">SchemeSel</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">"#000000"</span><span class="p">,</span> <span class="s">"#ff7400"</span> <span class="p">},</span>
+    <span class="p">[</span><span class="n">SchemeOut</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">"#000000"</span><span class="p">,</span> <span class="s">"#00ffff"</span> <span class="p">},</span>
 <span class="p">};</span>
 <span class="cm">/* -l option; if nonzero, dmenu uses vertical list with given number of lines */</span>
 <span class="k">static</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">lines</span>      <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
 <span class="cm">/*</span>
 <span class="cm"> * Characters not considered part of a word while deleting words</span>
-<span class="cm"> * for example: &quot; /?\&quot;&amp;[]&quot;</span>
+<span class="cm"> * for example: " /?\"&amp;[]"</span>
 <span class="cm"> */</span>
-<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">worddelimiters</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot; &quot;</span><span class="p">;</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">worddelimiters</span><span class="p">[]</span> <span class="o">=</span> <span class="s">" "</span><span class="p">;</span>
 </code></pre></div>
-
-
-<h2>slock</h2>
-<p>What can be said about slock? It just works and never gets in your way. Set it and really forget it. From the official&nbsp;page:</p>
+<h2 id="slock">slock</h2>
+<p>What can be said about slock? It just works and never gets in your way. Set it and really forget it. From the official page:</p>
 <blockquote>
-<p>This is the simplest X screen locker we are aware&nbsp;of.</p>
+<p>This is the simplest X screen locker we are aware of.</p>
 </blockquote>
-<p>Again, its simplicity is charming and nothing really needs to be changed in <code>config.h</code> apart from colors and setting the correct username and group name to lock and unlock the&nbsp;screen.</p>
-<hr>
-<h2>Conclusion</h2>
-<p>This was a lighting fast overview of some of the tools I now use on a daily basis. Suckless tools caught my attention and kept it! They offer other specialized software like a web browser, a tool for presentation from the terminal, <span class="caps">IRC</span> client and others&#8230; but the ones described here are really those which I now can&#8217;t live&nbsp;without.</p>
+<p>Again, its simplicity is charming and nothing really needs to be changed in <code>config.h</code> apart from colors and setting the correct username and group name to lock and unlock the screen.</p>
+<hr/>
+<h2 id="conclusion">Conclusion</h2>
+<p>This was a lighting fast overview of some of the tools I now use on a daily basis. Suckless tools caught my attention and kept it! They offer other specialized software like a web browser, a tool for presentation from the terminal, <span class="caps">IRC</span> client and others… but the ones described here are really those which I now can’t live without.</p>
 <p>I was originally inspired to seek out those tools thanks to <a href="https://lukesmith.xyz/">Luke Smith</a>, a <a href="https://www.youtube.com/channel/UC2eYFnH61tmytImy1mTYvhA">fantastic YouTuber</a>.</p>
   </div>
   <div class="article_meta">

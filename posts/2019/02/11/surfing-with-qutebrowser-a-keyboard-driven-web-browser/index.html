@@ -127,75 +127,95 @@
   <div class="article_readtime">
     <p>Estimated read time: 5 minutes</p>
   </div>
+    <nav class="toc">
+    <div class="toc">
+<ul>
+<li><a href="#what-is-qutebrowser">What is qutebrowser?</a><ul>
+<li><a href="#why-use-it">Why use it?</a><ul>
+<li><a href="#perfect-companion-to-any-vim-user">Perfect companion to any Vim user</a></li>
+<li><a href="#minimal-interface-more-space">Minimal interface ⇒ more space</a></li>
+<li><a href="#history-bookmarks-and-quickmarks">History, bookmarks and quickmarks</a></li>
+<li><a href="#hinting-system">Hinting system</a></li>
+</ul>
+</li>
+<li><a href="#whats-the-best-place-to-start-learning-about-it">What’s the best place to start learning about it?</a></li>
+</ul>
+</li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</div>
+    </nav>
   <div class="article_text">
-    <h2>What is&nbsp;qutebrowser?</h2>
+    
+<hr/>
+<h2 id="what-is-qutebrowser">What is qutebrowser?</h2>
 <p><a href="https://qutebrowser.org/">qutebrowser</a> is a web browser that makes
-great use of <strong>Vim</strong> commands to navigate. From its&nbsp;website:</p>
+great use of <strong>Vim</strong> commands to navigate. From its website:</p>
 <blockquote>
 <p>qutebrowser is a keyboard-focused browser with a minimal <span class="caps">GUI</span>. It’s
 based on Python and PyQt5 and free software, licensed under the <span class="caps">GPL</span>.
-It was inspired by other browsers/addons like dwb and&nbsp;Vimperator/Pentadactyl.</p>
+It was inspired by other browsers/addons like dwb and Vimperator/Pentadactyl.</p>
 </blockquote>
-<hr>
-<h3>Why use&nbsp;it?</h3>
-<h4>Perfect companion to any Vim&nbsp;user</h4>
+<hr/>
+<h3 id="why-use-it">Why use it?</h3>
+<h4 id="perfect-companion-to-any-vim-user">Perfect companion to any Vim user</h4>
 <p>The first notable feature of <strong>qutebrowser</strong> is obviously how well
 the use of keyboard shortcuts is integrated with the experience of
 using the software (there is a useful key binding cheatsheet on the
 <a href="https://qutebrowser.org/">homepage</a>). Search bindings (<code>/</code>, <code>n</code>/<code>N</code>,
 <code>?</code>), visual mode (<code>v</code>), tabs (<code>gt</code>, <code>T</code>), copy (<code>yy</code>), open URLs
 (<code>o</code>/<code>O</code>), <code>J</code> and <code>K</code> for switching tabs, etc. Many key bindings will
-look familiar to Vim&nbsp;users.</p>
+look familiar to Vim users.</p>
 <p>It even features a <em>command mode</em>, accessible by typing <code>:</code>, just like
 with Vim. Settings can be set from there directly, help can be accessed
 by typing <code>:help [command/setting]</code>, the configuration file can be
 customized on the fly, the position and size of tabs can be set in many
 ways, history and settings page can be accessed and navigated through
-like any other page (<code>hjkl</code>, <code>Ctrl + d</code>, <code>Ctrl + u</code>, <code>gg</code>, <code>G</code>),&nbsp;etc.</p>
-<p>Even though it is based on Python which is a &#8220;<em>slow</em>&#8221; language, most of
+like any other page (<code>hjkl</code>, <code>Ctrl + d</code>, <code>Ctrl + u</code>, <code>gg</code>, <code>G</code>), etc.</p>
+<p>Even though it is based on Python which is a “<em>slow</em>” language, most of
 the libraries and the web engine rely on C++ and the end result is a
-fast and powerful browser that&#8217;s totally customizable&#8230; Not unlike&nbsp;Vim.</p>
-<h4>Minimal interface ⇒ more&nbsp;space</h4>
+fast and powerful browser that’s totally customizable… Not unlike Vim.</p>
+<h4 id="minimal-interface-more-space">Minimal interface ⇒ more space</h4>
 <p>Until I upgrade my laptop to a larger screen (≥ 17 inches), my
 current setup with its 15 diagonal inches benefits tremendously
 from configuring all applications to use pixels as efficiently as
 possible — which is why I now use exclusively <a href="/posts/2019/01/08/using-i3-as-a-window-manager-for-increased-pr
 oductivity/">i3 as a window
 manager</a>.</p>
-<p><strong>qutebrowser</strong> doesn&#8217;t even have a menu bar. By default, it only
+<p><strong>qutebrowser</strong> doesn’t even have a menu bar. By default, it only
 displays a small tab bar at the top (which can be moved to another
 side or removed) and a thin status bar at the bottom to see the <span class="caps">URL</span>,
 the current position in the page expressed in percentage, the number
 assigned to the current tab, etc. There is also a fullscreen mode
 available like in most other web browsers with the key <code>F11</code>, which will
-remove any window decoration and leave you in a (possibly) productive&nbsp;mode.</p>
-<h4>History, bookmarks and&nbsp;quickmarks</h4>
+remove any window decoration and leave you in a (possibly) productive mode.</p>
+<h4 id="history-bookmarks-and-quickmarks">History, bookmarks and quickmarks</h4>
 <p>The history page (<code>:history</code>), while being minimal like all the rest,
 loads extremely fast and is a joy to navigate. The bookmarks page (<code>Sb</code>)
 is equally simple yet useful. The way I like to open a bookmark is in
 a new tab by typing <code>gB</code> (<strong>g</strong>o <strong>b</strong>ookmark as a mnemonic. Note that
 usually all uppercase letters open or do some action in a new space,
-such as a window or a&nbsp;tab).</p>
+such as a window or a tab).</p>
 <p>Where <strong>qutebrowser</strong> shines in my opinion is with quickmarks. This is
 a simple but genius way to find what you are looking for: you type <code>b</code>
 (or <code>B</code> for new tab) to open a list of pages that are defined with a
 keyword, you type that keyword (or can type anything to search for a
 page), move around with arrow keys if necessary to select a page, type
-<code>Enter</code> and there you go. As far as I know, Google Chrome doesn&#8217;t offer
+<code>Enter</code> and there you go. As far as I know, Google Chrome doesn’t offer
 the equivalent (only keywords for search engines). Firefox allows to add
 keywords for any bookmark that you have, but there is no good way to
 search around for keywords, define them quickly, remove them quickly,
 etc. <strong>qutebrowser</strong> comes with a set of commands that serve just this
 purpose (<code>:quickmark-add</code>, <code>quickmark-del</code>, etc.), apart from adding
-them very quickly by typing <code>m</code> for quickmarks and <code>M</code> for&nbsp;bookmarks.</p>
-<h4>Hinting&nbsp;system</h4>
+them very quickly by typing <code>m</code> for quickmarks and <code>M</code> for bookmarks.</p>
+<h4 id="hinting-system">Hinting system</h4>
 <p>You may have tried extensions for other web browsers such as Vimium,
 Vimperator, or Vimium-<span class="caps">FF</span> that let you navigate with Vim shortcuts. They
 usually use the letter <code>f</code> for <strong>f</strong>ollowing links. Some text appear on
 the screen for each visible link and you type the letters that match the
 link you want to see. The best way to get how it works is just to try it
-out,&nbsp;really.</p>
-<p><a href="https://www.sglavoie.com/images/posts/0007_surfing-with-qutebrowser/qutebrowser_hints.png"><img src="https://www.sglavoie.com/images/posts/0007_surfing-with-qutebrowser/qutebrowser_hints.png" alt="qutebrowser-hints" class="max-size-img-post"></a></p>
+out, really.</p>
+<p><a href="https://www.sglavoie.com/images/posts/0007_surfing-with-qutebrowser/qutebrowser_hints.png"><img alt="qutebrowser-hints" class="max-size-img-post" src="https://www.sglavoie.com/images/posts/0007_surfing-with-qutebrowser/qutebrowser_hints.png"/></a></p>
 <p>Well, <strong>qutebrowser</strong> takes those features and make them even greater!
 There is, for example, a <em>rapid hinting mode</em> you can access by typing
 <code>f</code> followed by <code>Ctrl + r</code> and it will open links in the background
@@ -203,12 +223,12 @@ for as long as you type any matching <em>hint</em> provided as a letter or
 combination of two letters when there are many visible links on the
 page. This is especially useful when doing some research to avoid
 breaking the rhythm on the current reading while preparing more
-resources to be&nbsp;available.</p>
-<hr>
-<h3>What&#8217;s the best place to start learning about&nbsp;it?</h3>
+resources to be available.</p>
+<hr/>
+<h3 id="whats-the-best-place-to-start-learning-about-it">What’s the best place to start learning about it?</h3>
 <p>The <a href="https://qutebrowser.org/doc/help/">help page</a> on the website
 contains all the information you really need. I did stumble upon the
-following resources, which I would recommend to read in order of&nbsp;appearance:</p>
+following resources, which I would recommend to read in order of appearance:</p>
 <ol>
 <li><a href="https://qutebrowser.org/doc/quickstart.html">Quickstart Guide</a>.</li>
 <li><a href="https://raw.githubusercontent.com/qutebrowser/qutebrowser/ma
@@ -216,21 +236,21 @@ following resources, which I would recommend to read in order of&nbsp;appearance
    cheatsheet</a>.</li>
 <li><a href="https://qutebrowser.org/doc/faq.html"><span class="caps">FAQ</span></a>, which is interesting
    but not indispensable. It did help me take a step forward in trying out
-   <strong>qutebrowser</strong>&nbsp;though.</li>
+   <strong>qutebrowser</strong> though.</li>
 <li><em>Open inside qutebrowser</em>: <a href="qute://help/settings.html#bindings.default">default
    keybindings</a>.</li>
 <li><em>Open inside qutebrowser</em>: <a href="qute://settings/">settings page</a>.</li>
 <li><a href="https://qutebrowser.org/doc/help/commands.html">List of commands</a>.</li>
 </ol>
-<hr>
-<h2>Conclusion</h2>
+<hr/>
+<h2 id="conclusion">Conclusion</h2>
 <p><strong>qutebrowser</strong> has been around for a while and is very stable. It is
 ideal for any Vim user and is a great option for anyone interested in
 efficiency and/or in trying out alternatives. Because I am very fond
 of relying on the keyboard as much as possible and because I love to
 program in Python, I have grown to like this web browser very quickly.
 This is clearly a tool designed for a specific type of user in mind and
-who knows, you might be one of&nbsp;those.</p>
+who knows, you might be one of those.</p>
   </div>
   <div class="article_meta">
     <p>Posted on: Mon 11 February 2019</p>
