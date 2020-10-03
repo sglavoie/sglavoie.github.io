@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://www.sglavoie.com/theme/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://www.sglavoie.com/theme/css/pygments.css"
+    />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Sébastien Lavoie" />
+    <meta name="description" content="Posts and writings by Sébastien Lavoie" />
+
+     <link
+      href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
+      type="application/rss+xml"
+      rel="alternate"
+      title="sglavoie.com RSS"
+    />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="/theme/favicon/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/theme/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/theme/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/theme/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/theme/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="/theme/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#2d89ef" />
+    <meta
+      name="msapplication-TileImage"
+      content="/theme/favicon/mstile-144x144.png"
+    />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#000000" />
+
+      <meta name="keywords" content="ssh, git, gpg">
+
+      <!-- Open graph for social networks -->
+      <meta name="og:title" property="og:title" content="Simple workflow with SSH, GPG and Git to work remotely with multiple accounts in a convenient way.">
+
+    <title>
+      sglavoie.com &ndash; Setting up <span class="caps">SSH</span> and Git for Multiple&nbsp;Accounts    </title>
+  </head>
+
+  <body>
+    <aside>
+      <div id="user_meta">
+        <a href="https://www.sglavoie.com">
+                <div>
+                    <svg width="24.348mm" height="24.348mm" version="1.1" viewBox="0 0 24.348095 24.347754" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                        <metadata>
+                        <rdf:RDF>
+                        <cc:Work rdf:about="">
+                        <dc:format>image/svg+xml</dc:format>
+                        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+                        <dc:title/>
+                        </cc:Work>
+                        </rdf:RDF>
+                        </metadata>
+                        <g transform="translate(81.397 -84.454)">
+                        <path d="m-57.049 105.9v2.9029h-11.173v-2.9029z" fill="#c0c0c0">
+                        <animate attributeName="fill" values="white;grey;white" dur="2s" repeatCount="indefinite" />
+                        </path>
+                        <path d="m-72.272 98.481-9.1246 5.7598v-3.548l5.8658-3.5019v-0.09215l-5.8658-3.5019v-3.548l9.1246 5.7598z" fill="#c0c0c0"/>
+                        <path transform="scale(.26458)" d="m-273.15 319.2-27.588 14.77 8.498 5.3613 19.09-12.049zm15.309 25.67v44.412h8.8672v-35.635h33.361v-8.7773h-33.783zm25.336 24.66v8.7774h8.0254v10.975h8.8672v-19.752z" fill="#007bff"/>
+                        </g>
+                    </svg>
+                </div>
+        </a>
+        <h2><a href="https://www.sglavoie.com">sglavoie.com</a></h2>
+        <p></p>
+        <ul>
+            <li><a href="https://www.sglavoie.com/category/automation.html">automation</a></li>
+          <li><a href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a></li>
+          <li><a href="https://www.sglavoie.com/category/tools.html">tools</a></li>
+          <li><a href="https://www.sglavoie.com/category/workflow.html">workflow</a></li>
+          </ul>
+      </div>
+    </aside>
+
+    <main>
+      <header>
+        <p>
+          <a href="https://www.sglavoie.com">Index</a> &brvbar;
+          <a href="https://www.sglavoie.com/archives.html">Archives</a> &brvbar;
+          <a href="https://www.sglavoie.com/tags.html">Tags</a> &brvbar;
+          <a href="https://www.sglavoie.com/learning-progress-2020.html"
+            >Learning Progress</a
+          >
+ &brvbar;
+          <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS</a>
+          </p>
+      </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="https://www.sglavoie.com/posts/2020/10/03/setting-up-ssh-and-git-for-multiple-accounts/">Setting up <span class="caps">SSH</span> and Git for Multiple&nbsp;Accounts</a></h1>
+  </div>
+  <div class="article_readtime">
+    <p>Estimated read time: 8 minutes</p>
+  </div>
+    <nav class="toc">
+    <div class="toc">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#setting-ssh-locally">Setting <span class="caps">SSH</span> locally</a><ul>
+<li><a href="#automatically-load-the-keys-from-the-shell">Automatically load the keys from the Shell</a></li>
+</ul>
+</li>
+<li><a href="#setting-ssh-keys-remotely">Setting <span class="caps">SSH</span> keys remotely</a></li>
+<li><a href="#setting-git-locally">Setting Git locally</a><ul>
+<li><a href="#minimal-gitconfig">Minimal ~/.gitconfig</a></li>
+<li><a href="#minimal-gitconfig-personal-and-gitconfig-company-x">Minimal ~/.gitconfig-personal and ~/.gitconfig-company-x</a></li>
+</ul>
+</li>
+<li><a href="#setting-gpg-keys-remotely">Setting <span class="caps">GPG</span> keys remotely</a></li>
+<li><a href="#interacting-with-remote-repositories">Interacting with remote repositories</a><ul>
+<li><a href="#the-ssh-part">The <span class="caps">SSH</span> part</a></li>
+<li><a href="#the-gpg-part">The <span class="caps">GPG</span> part</a></li>
+</ul>
+</li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</div>
+    </nav>
+  <div class="article_text">
+    
+<hr/>
+<h1 id="introduction">Introduction</h1>
+<p>To work effectively with services such as GitHub and GitLab, it is useful to set up a workflow that doesn’t get in the way, especially when multiple accounts are involved. <span class="caps">SSH</span> will be set up to avoid entering the username/password combination every time we interact with remote repositories and Git will be set up to work differently for each account while signing the commits potentially with different <span class="caps">GPG</span> keys.</p>
+<p>In short, we need to do the following:</p>
+<ul>
+<li>Set up <span class="caps">SSH</span> locally (in <code>~/.ssh/</code>);</li>
+<li>Set up <span class="caps">SSH</span> keys remotely (GitLab, GitHub, Bitbucket, etc.);</li>
+<li>Set up Git locally (in <code>~/.gitconfig</code>);</li>
+<li>Set up <span class="caps">GPG</span> keys remotely (add our keys(s) to GitLab, GitHub, etc.);</li>
+<li>Start interacting with remote repositories.</li>
+</ul>
+<hr/>
+<h1 id="setting-ssh-locally">Setting <span class="caps">SSH</span> locally</h1>
+<p>First, let’s make sure we have some <span class="caps">SSH</span> keys to work with. The default location is <code>~/.ssh/id_rsa</code> (you can just press <code>Enter</code> when asked to save to a path):</p>
+<div class="highlight"><pre><span></span><code>$ ssh-keygen -t rsa -C <span class="s2">"email@personal.com"</span>
+</code></pre></div>
+<p>The next key should have a different path:</p>
+<div class="highlight"><pre><span></span><code>$ ssh-keygen -t rsa -C <span class="s2">"email@work.com"</span>
+$ Enter file in which to save the key
+  <span class="o">(</span>/home/sglavoie/.ssh/id_rsa<span class="o">)</span>: /home/sglavoie/.ssh/id_rsa_work
+</code></pre></div>
+<p>Add the keys to the authentication agent like so:</p>
+<div class="highlight"><pre><span></span><code>$ ssh-add /.ssh/id_rsa
+$ ssh-add /.ssh/id_rsa_work
+</code></pre></div>
+<p>See which keys were added:</p>
+<div class="highlight"><pre><span></span><code>$ ssh-add -l  <span class="c1"># list the keys</span>
+</code></pre></div>
+<p>If you need to delete any keys that were cached prior to that:</p>
+<div class="highlight"><pre><span></span><code>$ ssh-add -D
+</code></pre></div>
+<p>Now, we need a configuration file:</p>
+<div class="highlight"><pre><span></span><code>$ touch ~/.ssh/config
+$ chmod <span class="m">600</span> ~/.ssh/config
+</code></pre></div>
+<p>Let’s add some content in there, assuming we deal with GitHub and GitLab, both with a personal account and a work account:</p>
+<div class="highlight"><pre><span></span><code><span class="err">AddKeysToAgent yes</span>
+<span class="err">Host github</span>
+<span class="err">   HostName github.com</span>
+<span class="err">   User git</span>
+<span class="err">   IdentityFile ~/.ssh/id_rsa</span>
+<span class="err">Host github-work</span>
+<span class="err">   HostName github.com</span>
+<span class="err">   User git</span>
+<span class="err">   IdentityFile ~/.ssh/id_rsa_work</span>
+<span class="err">Host gitlab</span>
+<span class="err">   HostName gitlab.com</span>
+<span class="err">   User git</span>
+<span class="err">   IdentityFile ~/.ssh/id_rsa</span>
+<span class="err">Host gitlab-work</span>
+<span class="err">   HostName gitlab.com</span>
+<span class="err">   User git</span>
+<span class="err">   IdentityFile ~/.ssh/id_rsa_work</span>
+</code></pre></div>
+<ul>
+<li>The directive <code>AddKeysToAgent yes</code> is useful to avoid typing <code>ssh-add path_to_key</code> every time <span class="caps">SSH</span> is needed.</li>
+<li>The <code>Host</code> can have any name we want, it doesn’t need to match the <code>HostName</code>.</li>
+<li>The <code>HostName</code> is the address we need to access. This should be the same thing for all accounts using a particular service (here, GitHub or GitLab).</li>
+<li>We can set the user to be <code>git</code> by default.</li>
+<li>For each <code>Host</code>, we indicate which <code>IdentityFile</code> to use when trying to work with a remote repository.</li>
+</ul>
+<h2 id="automatically-load-the-keys-from-the-shell">Automatically load the keys from the Shell</h2>
+<p>For Zsh, the following can be added near the top of <code>~/.zshrc</code> when using the <code>ssh-agent</code> plugin:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Load multiple SSH keys</span>
+zstyle :omz:plugins:ssh-agent identities id_rsa id_rsa_work
+</code></pre></div>
+<p>With <a href="https://ohmyz.sh/">Oh-My-Zsh</a>, the <code>ssh-agent</code> plugin should be contained in <code>plugins</code> like so:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">plugins</span><span class="o">=(</span>git ssh-agent fzf gitignore zsh-autosuggestions history-substring-search<span class="o">)</span>
+
+<span class="c1"># Somewhere below</span>
+<span class="nb">source</span> <span class="nv">$ZSH</span>/oh-my-zsh.sh
+</code></pre></div>
+<p>With this setup, the <span class="caps">SSH</span> keys will be loaded when opening a terminal after booting up and those will be available for any subsequent terminal sessions until the user session is exited.</p>
+<hr/>
+<h1 id="setting-ssh-keys-remotely">Setting <span class="caps">SSH</span> keys remotely</h1>
+<p>The process will be slightly different on each platform on which we want to authenticate, but the gist of it is to paste the content of the public <span class="caps">SSH</span> key in the field when asked to do so.</p>
+<ul>
+<li><a href="https://gitlab.com/help/ssh/README">Instructions for GitLab</a>.</li>
+<li><a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh">Instructions for GitHub</a>.</li>
+<li><a href="https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/">Instructions for Bitbucket</a>.</li>
+</ul>
+<hr/>
+<h1 id="setting-git-locally">Setting Git locally</h1>
+<p>The idea is to have a <code>~/.gitconfig</code> file from which we load the main Git configuration by default (let’s say, our personal account) and then we load another account  – overwriting the Git settings of the personal account with the settings defined for that other account – whenever we navigate to a directory that relates to that other account. Let’s see this in action.</p>
+<h2 id="minimal-gitconfig">Minimal <code>~/.gitconfig</code></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># default configuration settings to load</span>
+<span class="o">[</span>include<span class="o">]</span>
+  <span class="nv">path</span> <span class="o">=</span> ~/.gitconfig-personal
+
+<span class="c1"># when working with company-x</span>
+<span class="c1"># those settings are loaded only when the</span>
+<span class="c1"># directory matches the pattern defined</span>
+<span class="o">[</span>includeIf <span class="s2">"gitdir:**/company-x/**/.git"</span><span class="o">]</span>
+  <span class="nv">path</span> <span class="o">=</span> ~/.gitconfig-company-x
+<span class="o">[</span>gpg<span class="o">]</span>
+    <span class="nv">program</span> <span class="o">=</span> gpg
+<span class="o">[</span>credential<span class="o">]</span>
+    <span class="nv">helper</span> <span class="o">=</span> store
+</code></pre></div>
+<ul>
+<li>The <code>[credential]</code> section with the setting <code>helper = store</code> will store your username/password combination when using <span class="caps">HTTPS</span> so you don’t have to type it over and over again. You could also set this to <code>helper = cache</code> if you don’t want to permanently store credentials.</li>
+<li>The <code>includeIf</code> directive will be triggered whenever you are in a directory containing <code>company-x</code> in this case so that your correct <span class="caps">GPG</span> key and Git settings will be used instead of the default settings for your personal account.</li>
+<li>In the block <code>[gpg]</code>, your system may be using the program <code>gpg2</code> instead of <code>gpg</code>.</li>
+</ul>
+<h2 id="minimal-gitconfig-personal-and-gitconfig-company-x">Minimal <code>~/.gitconfig-personal</code> and <code>~/.gitconfig-company-x</code></h2>
+<p>Example for one of those:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>user<span class="o">]</span>
+  <span class="nv">email</span> <span class="o">=</span> email@work.com
+  <span class="nv">name</span> <span class="o">=</span> Sébastien Lavoie
+  <span class="nv">signingkey</span> <span class="o">=</span> A343702EBE11E0C2
+<span class="o">[</span>commit<span class="o">]</span>
+  <span class="nv">gpgsign</span> <span class="o">=</span> <span class="nb">true</span>
+</code></pre></div>
+<p>If you don’t have a <span class="caps">GPG</span> key already, you can generate one with this command:</p>
+<div class="highlight"><pre><span></span><code>gpg --gen-key
+</code></pre></div>
+<p>To list existing <span class="caps">GPG</span> keys to determine the <code>signinkey</code> value to use in those files, you can type:</p>
+<div class="highlight"><pre><span></span><code>gpg --list-secret-keys --keyid-format LONG
+</code></pre></div>
+<p>You might get an output similar to the following (this one is showing only one key):</p>
+<div class="highlight"><pre><span></span><code><span class="n">sec</span><span class="w">   </span><span class="n">rsa3072</span><span class="o">/</span><span class="n">A343702EBE11E0C2</span><span class="w"> </span><span class="mi">2020</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">03</span><span class="w"> </span><span class="o">[</span><span class="n">SC</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">expires: 2022-10-03</span><span class="o">]</span><span class="w"></span>
+<span class="w">      </span><span class="n">EF731EFC008D47D176C05910A343702EBE11E0C2</span><span class="w"></span>
+<span class="n">uid</span><span class="w">                 </span><span class="o">[</span><span class="n">ultimate</span><span class="o">]</span><span class="w"> </span><span class="n">Sébastien</span><span class="w"> </span><span class="n">Lavoie</span><span class="w"> </span><span class="o">&lt;</span><span class="n">email</span><span class="nv">@work</span><span class="p">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w"></span>
+<span class="n">ssb</span><span class="w">   </span><span class="n">rsa3072</span><span class="o">/</span><span class="mi">718726</span><span class="n">CCFED43B47</span><span class="w"> </span><span class="mi">2020</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">03</span><span class="w"> </span><span class="o">[</span><span class="n">E</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">expires: 2022-10-03</span><span class="o">]</span><span class="w"></span>
+</code></pre></div>
+<p>The bit you need to retrieve for the <code>signingkey</code> value comes after the type of encryption, here it’s <code>rsa3072</code> and the bit we want is <code>A343702EBE11E0C2</code>.</p>
+<p>If you need to edit a key, there are plenty of options described with <code>man gpg</code> or <code>man gpg2</code>. For instance, to remove the expiration date for the above key:</p>
+<div class="highlight"><pre><span></span><code>gpg2 --edit-key EF731EFC008D47D176C05910A343702EBE11E0C2
+</code></pre></div>
+<p>At the <code>gpg&gt;</code> prompt, type <code>expire</code> and follow the instructions.</p>
+<p>To delete a key, you can do so by referring to the email address like this:</p>
+<div class="highlight"><pre><span></span><code>gpg --delete-secret-and-public-key email@work.com
+</code></pre></div>
+<p>Just follow the instructions from there. You may need to repeat the process multiple times if your email address is associated with more than one key.</p>
+<hr/>
+<h1 id="setting-gpg-keys-remotely">Setting <span class="caps">GPG</span> keys remotely</h1>
+<p>Just like with the <span class="caps">SSH</span> keys, the process differs from one platform to the other.</p>
+<ul>
+<li><a href="https://docs.gitlab.com/ee/user/project/repository/gpg_signed_commits/">Instructions for GitLab</a>.</li>
+<li><a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account">Instructions for GitHub</a>.</li>
+<li><a href="https://confluence.atlassian.com/bitbucketserver/using-gpg-keys-913477014.html">Instructions for Bitbucket</a>.</li>
+</ul>
+<hr/>
+<h1 id="interacting-with-remote-repositories">Interacting with remote repositories</h1>
+<p>Now that the Git configuration is set up and we have <span class="caps">SSH</span> and <span class="caps">GPG</span> keys to authenticate ourselves and verify our identity when committing, respectively, we can start interacting with remote repositories. From the example we have been following, the file <code>~/.gitconfig-personal</code> will be used by default (and by consequence, our personal account).</p>
+<h2 id="the-ssh-part">The <span class="caps">SSH</span> part</h2>
+<p>When first cloning, change the host so that it reflects what you have in <code>~/.ssh/id_rsa_correct_key_file</code>. For your personal account, no change would be required:</p>
+<div class="highlight"><pre><span></span><code>git clone git@github.com:organization/repo.git
+</code></pre></div>
+<p>For a repository at work requiring the <span class="caps">SSH</span> key set up for the work account, you would need to change to the appropriate host like so (we still use the <code>git</code> user for convenience):</p>
+<div class="highlight"><pre><span></span><code>git clone git@github-work:organization/repo.git
+</code></pre></div>
+<p>For a refresher, the following are the hosts we have set in <code>~/.ssh/config</code>: <code>github</code>, <code>github-work</code>, <code>gitlab</code>, <code>gitlab-work</code>.</p>
+<p>The difference will be noticed when pushing/pulling as seen with <code>git remote -v</code>:</p>
+<div class="highlight"><pre><span></span><code>$ git remote -v
+origin  git@github-work:organization/repo.git <span class="o">(</span>fetch<span class="o">)</span>
+origin  git@github-work:organization/repo.git <span class="o">(</span>push<span class="o">)</span>
+</code></pre></div>
+<p>Whereas the personal account will have the same host as usual, for instance <code>git@github.com:organization/repo.git</code>.</p>
+<h2 id="the-gpg-part">The <span class="caps">GPG</span> part</h2>
+<p>If we want to keep our personal and work Git configurations separate (and we probably want that! ;)), it’s only a matter of ensuring that the <code>includeIf</code> pattern contains, in this example, <code>company-x</code> somewhere in the path. When this is the case, we will see with <code>git config --list</code> in the cloned repository that our personal account details are loaded first, but if the <code>includeIf</code> directive matches, the settings for that other account will be applied on top and used when committing.</p>
+<p>If you type <code>git config --list</code> and search for the word “email” in the output, it will appear only once when the default <code>~/.ssh/id_rsa</code> key is used (or whatever is read for the <code>IdentityFile</code> from the <span class="caps">SSH</span> configuration file) while you will see that same personal email showing up first in a work repository, but then later in the output you will find the work email, work <span class="caps">GPG</span> key and so on.</p>
+<hr/>
+<h1 id="conclusion">Conclusion</h1>
+<p>This is one possible kind of setup we can use to work with <span class="caps">SSH</span> and <span class="caps">GPG</span> comfortably. This is pretty much a “set it and forget it” approach as long as you remember the following:</p>
+<ul>
+<li><strong><span class="caps">SSH</span></strong>: Change the <span class="caps">SSH</span> host when cloning. If the repository is not publicly available, it would fail anyways (or you may realize you can clone it if it’s a public repo but have no <code>push</code> access).</li>
+<li><strong>Git</strong>: Make sure you are in a directory where the <code>includeIf</code> directive will kick in to set up the email, <span class="caps">GPG</span> key and so on.</li>
+</ul>
+<p>One nice tip to help with the latter bullet point could be to define an alias, say in <code>~/.bash_aliases</code>, something like what follows:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">cdwork</span><span class="o">=</span><span class="s1">'cd /path/to/work/dir/with/appropriate/pattern'</span>
+</code></pre></div>
+<p>Then, you simply <code>cdwork</code> and store all your Git repositories for work under that root repository, which would always match the desired pattern by default. That’s it. Anything else related to the personal account can be cloned anywhere on the file system since this is the default configuration file used.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sat 03 October 2020</p>
+    <p>Category: <a href="https://www.sglavoie.com/category/workflow.html">workflow</a>
+ &ndash; Tags:
+      <a href="https://www.sglavoie.com/tag/ssh.html">ssh</a>,      <a href="https://www.sglavoie.com/tag/git.html">git</a>,      <a href="https://www.sglavoie.com/tag/gpg.html">gpg</a>    </p>
+  </div>
+
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "posts/2020/10/03/setting-up-ssh-and-git-for-multiple-accounts/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//sglavoie.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
+
+</article>
+  
+      <div id="ending_message">
+        <p>
+          &copy; Sébastien Lavoie. Built in
+          <a
+            href="https://www.python.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Python</a
+          >
+          using
+          <a
+            href="http://getpelican.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Pelican</a
+          >. Theme adapted from Giulio Fidente on
+          <a
+            href="https://github.com/gfidente/pelican-svbhack"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >.
+        </p>
+      </div>
+    </main>
+  </body>
+</html>
