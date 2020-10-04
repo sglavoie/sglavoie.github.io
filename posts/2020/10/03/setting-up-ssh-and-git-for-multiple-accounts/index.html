@@ -189,23 +189,23 @@ $ ssh-add /.ssh/id_rsa_work
 $ chmod <span class="m">600</span> ~/.ssh/config
 </code></pre></div>
 <p>Let’s add some content in there, assuming we deal with GitHub and GitLab, both with a personal account and a work account:</p>
-<div class="highlight"><pre><span></span><code><span class="err">AddKeysToAgent yes</span>
-<span class="err">Host github</span>
-<span class="err">   HostName github.com</span>
-<span class="err">   User git</span>
-<span class="err">   IdentityFile ~/.ssh/id_rsa</span>
-<span class="err">Host github-work</span>
-<span class="err">   HostName github.com</span>
-<span class="err">   User git</span>
-<span class="err">   IdentityFile ~/.ssh/id_rsa_work</span>
-<span class="err">Host gitlab</span>
-<span class="err">   HostName gitlab.com</span>
-<span class="err">   User git</span>
-<span class="err">   IdentityFile ~/.ssh/id_rsa</span>
-<span class="err">Host gitlab-work</span>
-<span class="err">   HostName gitlab.com</span>
-<span class="err">   User git</span>
-<span class="err">   IdentityFile ~/.ssh/id_rsa_work</span>
+<div class="highlight"><pre><span></span><code>AddKeysToAgent yes
+Host github
+   HostName github.com
+   User git
+   IdentityFile ~/.ssh/id_rsa
+Host github-work
+   HostName github.com
+   User git
+   IdentityFile ~/.ssh/id_rsa_work
+Host gitlab
+   HostName gitlab.com
+   User git
+   IdentityFile ~/.ssh/id_rsa
+Host gitlab-work
+   HostName gitlab.com
+   User git
+   IdentityFile ~/.ssh/id_rsa_work
 </code></pre></div>
 <ul>
 <li>The directive <code>AddKeysToAgent yes</code> is useful to avoid typing <code>ssh-add path_to_key</code> every time <span class="caps">SSH</span> is needed.</li>
@@ -273,10 +273,10 @@ zstyle :omz:plugins:ssh-agent identities id_rsa id_rsa_work
 <div class="highlight"><pre><span></span><code>gpg --list-secret-keys --keyid-format LONG
 </code></pre></div>
 <p>You might get an output similar to the following (this one is showing only one key):</p>
-<div class="highlight"><pre><span></span><code><span class="n">sec</span><span class="w">   </span><span class="n">rsa3072</span><span class="o">/</span><span class="n">A343702EBE11E0C2</span><span class="w"> </span><span class="mi">2020</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">03</span><span class="w"> </span><span class="o">[</span><span class="n">SC</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">expires: 2022-10-03</span><span class="o">]</span><span class="w"></span>
-<span class="w">      </span><span class="n">EF731EFC008D47D176C05910A343702EBE11E0C2</span><span class="w"></span>
-<span class="n">uid</span><span class="w">                 </span><span class="o">[</span><span class="n">ultimate</span><span class="o">]</span><span class="w"> </span><span class="n">Sébastien</span><span class="w"> </span><span class="n">Lavoie</span><span class="w"> </span><span class="o">&lt;</span><span class="n">email</span><span class="nv">@work</span><span class="p">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w"></span>
-<span class="n">ssb</span><span class="w">   </span><span class="n">rsa3072</span><span class="o">/</span><span class="mi">718726</span><span class="n">CCFED43B47</span><span class="w"> </span><span class="mi">2020</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">03</span><span class="w"> </span><span class="o">[</span><span class="n">E</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">expires: 2022-10-03</span><span class="o">]</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>sec   rsa3072/A343702EBE11E0C2 <span class="m">2020</span>-10-03 <span class="o">[</span>SC<span class="o">]</span> <span class="o">[</span>expires: <span class="m">2022</span>-10-03<span class="o">]</span>
+      EF731EFC008D47D176C05910A343702EBE11E0C2
+uid                 <span class="o">[</span>ultimate<span class="o">]</span> Sébastien Lavoie &lt;email@work.com&gt;
+ssb   rsa3072/718726CCFED43B47 <span class="m">2020</span>-10-03 <span class="o">[</span>E<span class="o">]</span> <span class="o">[</span>expires: <span class="m">2022</span>-10-03<span class="o">]</span>
 </code></pre></div>
 <p>The bit you need to retrieve for the <code>signingkey</code> value comes after the type of encryption, here it’s <code>rsa3072</code> and the bit we want is <code>A343702EBE11E0C2</code>.</p>
 <p>If you need to edit a key, there are plenty of options described with <code>man gpg</code> or <code>man gpg2</code>. For instance, to remove the expiration date for the above key:</p>
