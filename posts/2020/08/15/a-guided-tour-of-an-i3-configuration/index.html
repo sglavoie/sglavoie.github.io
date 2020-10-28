@@ -434,15 +434,26 @@ bindsym <span class="nv">$mod</span>+c    focus child
 <li>A floating window in “sticky mode” will follow you on all your workspaces and remember that this mode is enabled even if you put in back in a tiling window and then to a floating   window again.</li>
 </ul>
 <h2 id="scratchpad">Scratchpad</h2>
-<p>The scratchpad is sometimes so useful that it deserves its own section! When you send a window to the “scratchpad”, it disappears. Then, with a keybinding, you can bring in back in floating mode on top of any other window on any active workspace you happen to be in. The same keybinding will toggle on/off the display of that scratchpad and if you happen to have sent multiple windows to the scratchpad, activating the same keybinding again will cycle through all the “scratchpads”.</p>
-<p>I often use that for an audio player I leave running in the background and instead of using a whole workspace to leave that window opened, I send it to the scratchpad, which means it doesn’t take any space and I can quickly bring it back in focus whenever I want. I find that having more than two windows in the list of scratchpads becomes cumbersome as you cycle through them, so I keep the scratchpad for specific, infrequent uses for applications that require less attention.</p>
+<p>The scratchpad is sometimes so useful that it deserves its own section! When you send a window to the “scratchpad”, it disappears. Then, with a keybinding, you can bring in back in floating mode on top of any other window on any active workspace you happen to be in. The same keybinding will toggle on/off the display of that scratchpad and if you happen to have sent multiple windows to the scratchpad, activating the same keybinding again will cycle through all the scratchpads as we set a custom mode called <code>Scratchpad</code> in this example.</p>
+<p>I often use that for an audio player I leave running in the background and instead of using a whole workspace to leave that window opened, I send it to the scratchpad, which means it doesn’t take any space and I can quickly bring it back in focus whenever I want, in any workspace. I find that having more than three windows in the list of scratchpads becomes cumbersome as you cycle through them, so I keep the scratchpad for specific, infrequent uses for applications that require less attention.</p>
 <p>If you want to convert a scratchpad back to a regular tiled container, it’s as easy as triggering “toggle tiling / floating” (in this config file, it happens with <code>mod+Shift+space</code>).</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Move the currently focused window to the scratchpad</span>
-bindsym <span class="nv">$mod</span>+minus    move scratchpad
+<div class="highlight"><pre><span></span><code><span class="c1"># Move the currently focused window to the scratchpad.</span>
+<span class="c1"># First, we toggle floating mode and we resize and position the window to make sure</span>
+<span class="c1"># it will appear correctly when showing it for the first time.</span>
+bindsym <span class="nv">$mod</span>+minus    floating toggle<span class="p">;</span> resize <span class="nb">set</span> <span class="m">1900</span> <span class="m">1000</span>, move position center<span class="p">;</span> move scratchpad
 
 <span class="c1"># Show the next scratchpad window or hide the focused scratchpad window.</span>
 <span class="c1"># If there are multiple scratchpad windows, this command cycles through them.</span>
-bindsym <span class="nv">$mod</span>+plus    scratchpad show, resize <span class="nb">set</span> <span class="m">1900</span> <span class="m">1000</span>, move position center
+<span class="c1"># There is an additional keybinding to allow a floating window to be toggled</span>
+<span class="c1"># (recovered as a normal window).</span>
+bindsym <span class="nv">$mod</span>+Escape mode <span class="s2">"Scratchpad"</span><span class="p">;</span> scratchpad show, resize <span class="nb">set</span> <span class="m">1900</span> <span class="m">1000</span>, move position center
+mode <span class="s2">"Scratchpad"</span><span class="o">{</span>
+  bindsym <span class="nv">$mod</span>+Escape       scratchpad show, resize <span class="nb">set</span> <span class="m">1900</span> <span class="m">1000</span>, move position center<span class="p">;</span> <span class="se">\</span>
+                            scratchpad show, resize <span class="nb">set</span> <span class="m">1900</span> <span class="m">1000</span>, move position center
+  bindsym <span class="nv">$mod</span>+Shift+space  floating toggle<span class="p">;</span> mode <span class="s2">"default"</span>
+  bindsym Return            scratchpad show<span class="p">;</span> mode <span class="s2">"default"</span>
+  bindsym Escape            scratchpad show<span class="p">;</span> mode <span class="s2">"default"</span>
+<span class="o">}</span>
 </code></pre></div>
 <p>A note on the <strong>Scratchpad</strong> section:</p>
 <ul>
