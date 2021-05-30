@@ -702,30 +702,30 @@ bindsym <span class="nv">$mod</span>+Control+b    <span class="nv">$exec</span> 
 <h2 id="applications">Applications</h2>
 <p>This section will heavily depend on the software you use of course, but there’s the gist of it. I like to have a shortcut for <a href="https://github.com/aristocratos/bashtop">bashtop</a> to quickly monitor system resources (<a href="https://github.com/nicolargo/glances">glances</a> is also quite nice). Besides that, I like to have applications automatically appear on specific workspaces and be switched to in some instances.</p>
 <p>Controlling which application opens in floating mode is also useful as some just don’t play that well with tiling. To find information about an application, you can open a new terminal window and launch <code>xprop</code>, click on the window you need information about and <em>voilà</em>, a couple of strings will be displayed like so (output truncated a bit):</p>
-<div class="highlight"><pre><span></span><code><span class="err">    Icon (16 x 16):</span>
-<span class="err">         ▒▓▓▓▓▒</span>
-<span class="err">       ▒▓██████▓▒</span>
-<span class="err">      ▒█▓▒░  ░▒▓█▒</span>
-<span class="err">     ▒█▓░      ░▓█▒</span>
-<span class="err">     ▓▓░  ░░░   ░▓▓</span>
-<span class="err">    ▒█▒  ░███▓░  ▒█▒</span>
-<span class="err">    ▓█░   ░░▓█▓  ░█▓</span>
-<span class="err">    ▓█   ░▓▓██▓   █▓</span>
-<span class="err">    ▓█   ▓█▒▓█▓   █▓</span>
-<span class="err">    ▓█░  ▓█▓▓█▓  ░█▓</span>
-<span class="err">    ▒█▒  ░▓▓▒▓▒  ▒█▒</span>
-<span class="err">     ▓▓░        ░▓▓</span>
-<span class="err">     ▒█▓░      ░▓█▒</span>
-<span class="err">      ▒█▓▒░  ░▒▓█▒</span>
-<span class="err">       ▒▓██████▓▒</span>
-<span class="err">         ▒▓▓▓▓▒</span>
-<span class="err">WM_NORMAL_HINTS(WM_SIZE_HINTS):</span>
-<span class="err">        program specified location: 0, 0</span>
-<span class="err">        program specified minimum size: 627 by 279</span>
-<span class="err">        window gravity: NorthWest</span>
-<span class="err">WM_CLASS(STRING) = "audacious", "Audacious"</span>
-<span class="err">WM_ICON_NAME(STRING) = "47. David Bowie - Best Of Bowie - Heroes (3:36) - Audacious"</span>
-<span class="err">WM_NAME(STRING) = "47. David Bowie - Best Of Bowie - Heroes (3:36) - Audacious"</span>
+<div class="highlight"><pre><span></span><code>    Icon (16 x 16):
+         ▒▓▓▓▓▒
+       ▒▓██████▓▒
+      ▒█▓▒░  ░▒▓█▒
+     ▒█▓░      ░▓█▒
+     ▓▓░  ░░░   ░▓▓
+    ▒█▒  ░███▓░  ▒█▒
+    ▓█░   ░░▓█▓  ░█▓
+    ▓█   ░▓▓██▓   █▓
+    ▓█   ▓█▒▓█▓   █▓
+    ▓█░  ▓█▓▓█▓  ░█▓
+    ▒█▒  ░▓▓▒▓▒  ▒█▒
+     ▓▓░        ░▓▓
+     ▒█▓░      ░▓█▒
+      ▒█▓▒░  ░▒▓█▒
+       ▒▓██████▓▒
+         ▒▓▓▓▓▒
+WM_NORMAL_HINTS(WM_SIZE_HINTS):
+        program specified location: 0, 0
+        program specified minimum size: 627 by 279
+        window gravity: NorthWest
+WM_CLASS(STRING) = "audacious", "Audacious"
+WM_ICON_NAME(STRING) = "47. David Bowie - Best Of Bowie - Heroes (3:36) - Audacious"
+WM_NAME(STRING) = "47. David Bowie - Best Of Bowie - Heroes (3:36) - Audacious"
 </code></pre></div>
 <p>You may need to switch to tiling windows or make the terminal window that launches <code>xprop</code> a floating window to be able to click on the desired window. Here, we get an output for the Audacious music player. You usually need the second string from <code>WM_CLASS(STRING)</code> but if you don’t want to mess with letter casing being upper vs lowercase, you can prefix with <code>(?i)</code> for “insensitive” as shown below and that will match any window containing that pattern. Sometimes, you’re just after matching a “title” (like it’s done with LibreOffice in the snippet of code below) and you can get that one by showing the container’s border. With this config file, the <code>mod+n</code> keybinding will show the border you want at the top and <code>mod+y</code> will make it disappear again.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Autostart applications</span>
