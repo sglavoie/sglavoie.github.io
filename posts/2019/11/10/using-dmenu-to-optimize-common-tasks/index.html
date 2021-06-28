@@ -157,7 +157,7 @@
     <h1><a href="https://www.sglavoie.com/posts/2019/11/10/using-dmenu-to-optimize-common-tasks/">Using dmenu to Optimize Common&nbsp;Tasks</a></h1>
   </div>
   <div class="article_readtime">
-    <p>Estimated read time: 11 minutes</p>
+    <p>Estimated read time: 12 minutes</p>
   </div>
     <nav class="toc">
     <div class="toc">
@@ -184,6 +184,7 @@
 </ul>
 </li>
 <li><a href="#running-a-custom-script">Running a Custom Script</a></li>
+<li><a href="#chaining-dmenu-prompts">Chaining dmenu prompts</a></li>
 </ul>
 </li>
 <li><a href="#customize-the-look-of-dmenu">Customize the Look of dmenu</a></li>
@@ -345,6 +346,31 @@ myscript      script.sh
 </code></pre></div>
 <p>And that’s all there is to know to get piping with <code>dmenu</code>! You may also find <a href="https://www.youtube.com/watch?v=8E8sUNHdzG8">this video from Luke Smith</a> on YouTube to be quite helpful as well, which is where the inspiration for this post came from. He also <a href="https://www.youtube.com/watch?v=R9m723tAurA">posted a complementary video</a> about adding prompts to your commands which is a nice way to add interactivity to your scripts!</p>
 <hr/>
+<h2 id="chaining-dmenu-prompts">Chaining dmenu prompts</h2>
+<p>Another useful scenario is when you want to take a specific action based on the output of a previous command. For instance, let’s say you want to read a book but when you choose a <code>pdf</code> with <code>dmenu</code>, you want to be prompted for which reader to use while you want to let the system choose the default application for other types of files (e.g. <code>epub</code> or <code>mobi</code>). This could be achieved with a script similar to the following one:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="nv">FILE</span><span class="o">=</span><span class="sb">`</span>find ~/Documents/calibre_library -type f -iname <span class="s2">"*.pdf"</span> -o <span class="se">\</span>
+    -iname <span class="s2">"*.epub"</span> -o -iname <span class="s2">"*.mobi"</span> <span class="p">|</span> dmenu -l <span class="m">30</span><span class="sb">`</span>
+
+<span class="k">if</span> <span class="o">[[</span> <span class="s2">"</span><span class="nv">$FILE</span><span class="s2">"</span> <span class="o">==</span> *.pdf <span class="o">]]</span>
+<span class="k">then</span>
+    <span class="nv">READER</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> -e <span class="s2">"zathura\natril"</span> <span class="p">|</span> dmenu -i -p <span class="s2">"Which reader?"</span><span class="sb">`</span>
+    <span class="nv">$READER</span> <span class="s2">"</span><span class="nv">$FILE</span><span class="s2">"</span>
+<span class="k">else</span>
+    xdg-open <span class="s2">"</span><span class="nv">$FILE</span><span class="s2">"</span>
+<span class="k">fi</span>
+</code></pre></div>
+<p>Here’s what’s happening:</p>
+<ol>
+<li>We <code>find</code> all the files (<code>-type f</code>)</li>
+<li>in the directory <code>~/Documents/calibre_library</code></li>
+<li>that match a pattern that’s case-insensitive with <code>-iname</code> (here, ending in either <code>pdf</code>, <code>mobi</code> or <code>epub</code>)</li>
+<li>matching one file at a time (<code>-o</code> can be interpreted to mean “only” and will keep searching if the previous file extension was not matched)</li>
+<li>then presenting 30 lines (<code>-l 30</code>) of results at a time with <code>dmenu</code></li>
+<li>then, if the file is a <span class="caps">PDF</span>, prompts whether to use <code>atril</code> or <code>zathura</code> as the file reader and open with the chosen program</li>
+<li>otherwise, open the file with the default application.</li>
+</ol>
+<hr/>
 <h1 id="customize-the-look-of-dmenu">Customize the Look of dmenu</h1>
 <p>As they say, <em>“beauty is in the eye of the beholder”</em>. If you would rather make some changes to how dmenu look, you can. <strong>dmenu</strong> will be searching for the configuration file located at <code>~/.dmenurc</code>, which could contain something as put below (with this configuration, it will look like the screenshots shown previously):</p>
 <div class="highlight"><pre><span></span><code><span class="c1">#</span>
@@ -379,8 +405,8 @@ myscript      script.sh
   </div>
   <div class="article_meta">
     <p>Posted on: Sun 10 November 2019</p>
-     <time class="modified" datetime="2019-11-11T10:56:00-06:00">
-      Modified on: Mon 11 November 2019
+     <time class="modified" datetime="2021-06-27T09:54:00-05:00">
+      Modified on: Sun 27 June 2021
     </time>
     <p>Category: <a href="https://www.sglavoie.com/category/tips-and-tricks.html">tips-and-tricks</a>
  &ndash; Tags:
