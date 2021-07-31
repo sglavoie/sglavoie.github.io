@@ -132,7 +132,6 @@ aside div#user_meta ul li a {
 
 main header {
     padding: 40px;
-    border-top: #007bff 1px solid;
     border-bottom: #007bff 1px solid;
     margin: auto 0.25em;
 }
@@ -170,7 +169,8 @@ main article div.article_text code {
     line-height: 1.4;
 }
 
-p > code, li > code {
+p > code,
+li > code {
     font-weight: bold;
     margin: 4px !important;
 }
@@ -234,7 +234,6 @@ main article div.article_text ul {
 }
 
 main footer {
-    border-top: #007bff 1px solid;
     padding: 40px;
     margin: auto 0.25em;
 }
@@ -270,7 +269,7 @@ main div#ending_message {
     padding: 0 40px 0 40px;
     color: #000864;
     font-size: 0.8rem;
-    margin: auto 0.25em;
+    margin: 4em 0.25em;
 }
 
 @media screen and (min-width: 600px) {
