@@ -196,54 +196,54 @@ that everything from Suckless… Sucks less.</p>
 <p>I have experienced rendering issues when scaling the text with other terminals (including Konsole), where some weird flickering would happen at certain font sizes. <a href="https://st.suckless.org/">Simple Terminal</a> just works without hassle. It doesn’t have much bells and whistles out of the box, but it can be <em>patched</em> to extend its functionality if you know what you are doing. I don’t, so my compiled version remains pretty basic although I must say I like the simplicity of it very much.</p>
 <h3 id="configuration">Configuration</h3>
 <p>I didn’t have to adapt the configuration file very much. I ended up changing mainly the following lines:</p>
-<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="n">font</span> <span class="o">=</span> <span class="s">"Consolas:pixelsize=18:antialias=true:autohint=true"</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">font</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Consolas:pixelsize=18:antialias=true:autohint=true"</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="n">shell</span> <span class="o">=</span> <span class="s">"/bin/zsh"</span><span class="p">;</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">shell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"/bin/zsh"</span><span class="p">;</span><span class="w"></span>
 
-<span class="cm">/* Terminal colors (16 first used in escape sequence) */</span>
-<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">colorname</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+<span class="cm">/* Terminal colors (16 first used in escape sequence) */</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">colorname</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
-  <span class="cm">/* 8 normal colors */</span>
-  <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#1c1c1c"</span><span class="p">,</span> <span class="cm">/* black   */</span>
-  <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#ff005b"</span><span class="p">,</span> <span class="cm">/* red     */</span>
-  <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#70e502"</span><span class="p">,</span> <span class="cm">/* green   */</span>
-  <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#fcdd11"</span><span class="p">,</span> <span class="cm">/* yellow  */</span>
-  <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#00a0ea"</span><span class="p">,</span> <span class="cm">/* blue    */</span>
-  <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#bd1efc"</span><span class="p">,</span> <span class="cm">/* magenta */</span>
-  <span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#14ecfc"</span><span class="p">,</span> <span class="cm">/* cyan    */</span>
-  <span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#ededed"</span><span class="p">,</span> <span class="cm">/* white   */</span>
+<span class="w">  </span><span class="cm">/* 8 normal colors */</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"#1c1c1c"</span><span class="p">,</span><span class="w"> </span><span class="cm">/* black   */</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"#ff005b"</span><span class="p">,</span><span class="w"> </span><span class="cm">/* red     */</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"#70e502"</span><span class="p">,</span><span class="w"> </span><span class="cm">/* green   */</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"#fcdd11"</span><span class="p">,</span><span class="w"> </span><span class="cm">/* yellow  */</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"#00a0ea"</span><span class="p">,</span><span class="w"> </span><span class="cm">/* blue    */</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"#bd1efc"</span><span class="p">,</span><span class="w"> </span><span class="cm">/* magenta */</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"#14ecfc"</span><span class="p">,</span><span class="w"> </span><span class="cm">/* cyan    */</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"#ededed"</span><span class="p">,</span><span class="w"> </span><span class="cm">/* white   */</span><span class="w"></span>
 
-  <span class="cm">/* 8 bright colors */</span>
-  <span class="p">[</span><span class="mi">8</span><span class="p">]</span>  <span class="o">=</span> <span class="s">"#666666"</span><span class="p">,</span> <span class="cm">/* black   */</span>
-  <span class="p">[</span><span class="mi">9</span><span class="p">]</span>  <span class="o">=</span> <span class="s">"#ff00a0"</span><span class="p">,</span> <span class="cm">/* red     */</span>
-  <span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#5dff00"</span><span class="p">,</span> <span class="cm">/* green   */</span>
-  <span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#ff9f00"</span><span class="p">,</span> <span class="cm">/* yellow  */</span>
-  <span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#71a9fc"</span><span class="p">,</span> <span class="cm">/* blue    */</span>
-  <span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#d571fc"</span><span class="p">,</span> <span class="cm">/* magenta */</span>
-  <span class="p">[</span><span class="mi">14</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#6cf2fc"</span><span class="p">,</span> <span class="cm">/* cyan    */</span>
-  <span class="p">[</span><span class="mi">15</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#fcfcfc"</span><span class="p">,</span> <span class="cm">/* white   */</span>
+<span class="w">  </span><span class="cm">/* 8 bright colors */</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">"#666666"</span><span class="p">,</span><span class="w"> </span><span class="cm">/* black   */</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">"#ff00a0"</span><span class="p">,</span><span class="w"> </span><span class="cm">/* red     */</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"#5dff00"</span><span class="p">,</span><span class="w"> </span><span class="cm">/* green   */</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="mi">11</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"#ff9f00"</span><span class="p">,</span><span class="w"> </span><span class="cm">/* yellow  */</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="mi">12</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"#71a9fc"</span><span class="p">,</span><span class="w"> </span><span class="cm">/* blue    */</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"#d571fc"</span><span class="p">,</span><span class="w"> </span><span class="cm">/* magenta */</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="mi">14</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"#6cf2fc"</span><span class="p">,</span><span class="w"> </span><span class="cm">/* cyan    */</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="mi">15</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"#fcfcfc"</span><span class="p">,</span><span class="w"> </span><span class="cm">/* white   */</span><span class="w"></span>
 
-  <span class="cm">/* special colors */</span>
-  <span class="p">[</span><span class="mi">256</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#0a0500"</span><span class="p">,</span> <span class="cm">/* background */</span>
-  <span class="p">[</span><span class="mi">257</span><span class="p">]</span> <span class="o">=</span> <span class="s">"#e0e0e0"</span><span class="p">,</span> <span class="cm">/* foreground */</span>
-<span class="p">};</span>
+<span class="w">  </span><span class="cm">/* special colors */</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="mi">256</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"#0a0500"</span><span class="p">,</span><span class="w"> </span><span class="cm">/* background */</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="mi">257</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"#e0e0e0"</span><span class="p">,</span><span class="w"> </span><span class="cm">/* foreground */</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
 <span class="cm">/*</span>
 <span class="cm"> * Default colors (colorname index)</span>
 <span class="cm"> * foreground, background, cursor</span>
-<span class="cm"> */</span>
-<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">defaultfg</span> <span class="o">=</span> <span class="mi">257</span><span class="p">;</span>
-<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">defaultbg</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span>
-<span class="k">static</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">defaultcs</span> <span class="o">=</span> <span class="mi">257</span><span class="p">;</span>
-<span class="k">static</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">defaultrcs</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">defaultfg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">257</span><span class="p">;</span><span class="w"></span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">defaultbg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">256</span><span class="p">;</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">defaultcs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">257</span><span class="p">;</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">defaultrcs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">256</span><span class="p">;</span><span class="w"></span>
 
 <span class="cm">/*</span>
 <span class="cm"> * Colors used, when the specific fg == defaultfg. So in reverse mode this</span>
 <span class="cm"> * will reverse too. Another logic would only make the simple feature too</span>
 <span class="cm"> * complex.</span>
-<span class="cm"> */</span>
-<span class="k">static</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">defaultitalic</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
-<span class="k">static</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">defaultunderline</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">defaultitalic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">defaultunderline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w"></span>
 
 <span class="cm">/*</span>
 <span class="cm"> * Default shape of cursor</span>
@@ -251,40 +251,40 @@ that everything from Suckless… Sucks less.</p>
 <span class="cm"> * 4: Underline ("_")</span>
 <span class="cm"> * 6: Bar ("|")</span>
 <span class="cm"> * 7: Snowman ("☃")</span>
-<span class="cm"> */</span>
-<span class="k">static</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">cursorshape</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cursorshape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
 
 <span class="cm">/*</span>
 <span class="cm"> * Default columns and rows numbers</span>
-<span class="cm"> */</span>
+<span class="cm"> */</span><span class="w"></span>
 
-<span class="k">static</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">cols</span> <span class="o">=</span> <span class="mi">80</span><span class="p">;</span>
-<span class="k">static</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">rows</span> <span class="o">=</span> <span class="mi">24</span><span class="p">;</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cols</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">24</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <h2 id="dmenu">dmenu</h2>
 <p><a href="https://tools.suckless.org/dmenu/">dmenu</a> can be configured in the same way as Simple Terminal by editing a text file and compiling the software. I like to use many keyboard shortcuts, but I find that for launching applications I don’t use that often or to launch custom Bash or Python scripts on the fly, nothing beats the simplicity of <strong>dmenu</strong>.</p>
 <h3 id="configuration_1">Configuration</h3>
 <p>This one is very easy to configure and doesn’t really require any attention at all besides defining where you want it to appear on the screen and what colors you prefer. Here are some smalls changes I made to the configuration in <code>config.h</code> before compiling it:</p>
-<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="kt">int</span> <span class="n">topbar</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>                      <span class="cm">/* -b  option; if 0, dmenu appears at bottom     */</span>
-<span class="cm">/* -fn option overrides fonts[0]; default X11 font or font set */</span>
-<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fonts</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"Consolas:size=12"</span>
-<span class="p">};</span>
-<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">prompt</span>      <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>      <span class="cm">/* -p  option; prompt to the left of input field */</span>
-<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">colors</span><span class="p">[</span><span class="n">SchemeLast</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="cm">/*     fg         bg       */</span>
-    <span class="p">[</span><span class="n">SchemeNorm</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">"#D8D8D8"</span><span class="p">,</span> <span class="s">"#000000"</span> <span class="p">},</span>
-    <span class="p">[</span><span class="n">SchemeSel</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">"#000000"</span><span class="p">,</span> <span class="s">"#ff7400"</span> <span class="p">},</span>
-    <span class="p">[</span><span class="n">SchemeOut</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">"#000000"</span><span class="p">,</span> <span class="s">"#00ffff"</span> <span class="p">},</span>
-<span class="p">};</span>
-<span class="cm">/* -l option; if nonzero, dmenu uses vertical list with given number of lines */</span>
-<span class="k">static</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">lines</span>      <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">topbar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">                      </span><span class="cm">/* -b  option; if 0, dmenu appears at bottom     */</span><span class="w"></span>
+<span class="cm">/* -fn option overrides fonts[0]; default X11 font or font set */</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">fonts</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s">"Consolas:size=12"</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">prompt</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w">      </span><span class="cm">/* -p  option; prompt to the left of input field */</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">colors</span><span class="p">[</span><span class="n">SchemeLast</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/*     fg         bg       */</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="n">SchemeNorm</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">"#D8D8D8"</span><span class="p">,</span><span class="w"> </span><span class="s">"#000000"</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="n">SchemeSel</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">"#000000"</span><span class="p">,</span><span class="w"> </span><span class="s">"#ff7400"</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="n">SchemeOut</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">"#000000"</span><span class="p">,</span><span class="w"> </span><span class="s">"#00ffff"</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="cm">/* -l option; if nonzero, dmenu uses vertical list with given number of lines */</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lines</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 
 <span class="cm">/*</span>
 <span class="cm"> * Characters not considered part of a word while deleting words</span>
 <span class="cm"> * for example: " /?\"&amp;[]"</span>
-<span class="cm"> */</span>
-<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">worddelimiters</span><span class="p">[]</span> <span class="o">=</span> <span class="s">" "</span><span class="p">;</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">worddelimiters</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">" "</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <h2 id="slock">slock</h2>
 <p>What can be said about slock? It just works and never gets in your way. Set it and really forget it. From the official page:</p>
