@@ -169,17 +169,17 @@
   <div class="article_readtime">
     <p>Estimated read time: 6 minutes</p>
   </div>
-  <div class="article_text">
+    <nav class="toc">
     <div class="toc">
 <ul>
-<li><a href="#what-is-vimwiki">What is&nbsp;Vimwiki?</a></li>
+<li><a href="#what-is-vimwiki">What is Vimwiki?</a></li>
 <li><a href="#what-were-the-other-options-considered">What were the other options considered?</a><ul>
-<li><a href="#one-feature-rich-alternative-to-vimwiki">One feature-rich alternative to&nbsp;Vimwiki</a></li>
+<li><a href="#one-feature-rich-alternative-to-vimwiki">One feature-rich alternative to Vimwiki</a></li>
 </ul>
 </li>
 <li><a href="#why-did-vimwiki-win-in-the-end">Why did Vimwiki win in the end?</a><ul>
 <li><a href="#in-short">In short</a><ul>
-<li><a href="#expanded-edition">Expanded&nbsp;edition</a></li>
+<li><a href="#expanded-edition">Expanded edition</a></li>
 </ul>
 </li>
 </ul>
@@ -187,22 +187,25 @@
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
 </div>
-<hr>
-<h2 id="what-is-vimwiki">What is&nbsp;Vimwiki?</h2>
+    </nav>
+  <div class="article_text">
+    
+<hr/>
+<h2 id="what-is-vimwiki">What is Vimwiki?</h2>
 <p>From the <a href="https://vimwiki.github.io/">official website</a>:</p>
 <blockquote>
 <p>Vimwiki is a personal wiki for Vim – interlinked, plain text files
-written in a markup&nbsp;language.</p>
+written in a markup language.</p>
 </blockquote>
-<p>As this relies upon Vim&#8217;s power to write content in a simple format,
-this quickly became a viable option to organize more and more&nbsp;notes!</p>
-<hr>
-<h2 id="what-were-the-other-options-considered">What were the other options&nbsp;considered?</h2>
+<p>As this relies upon Vim’s power to write content in a simple format,
+this quickly became a viable option to organize more and more notes!</p>
+<hr/>
+<h2 id="what-were-the-other-options-considered">What were the other options considered?</h2>
 <p>I have used various approaches in the past for different purposes and
 reasons, including <em>Evernote</em>, <em>Simplenote</em>, <em>Microsoft OneNote</em>,
 <em>Google Docs</em>, <em>Boostnote</em>, <em>Freeplane</em>/<em>FreeMind</em> (mind-mapping),
 <em>Workflowy</em> and even plain <code>.txt</code> files. Each has its pros and cons, but
-I then decided to limit my options based on the following self-imposed&nbsp;requirements:</p>
+I then decided to limit my options based on the following self-imposed requirements:</p>
 <ul>
 <li>It has to be <strong>available on Linux</strong>. Right from the start, this would
     disqualify many applications such as <em>Notational Velocity</em>, <em>Bear</em>,
@@ -219,76 +222,75 @@ I then decided to limit my options based on the following self-imposed&nbsp;requ
     because they use Java and it is quite a stretch to use them for
     something other than mind maps. In that same category would disappear
     <em><a href="https://www.draw.io/">draw.io</a></em>, which is fantastic for making
-    flowcharts and&nbsp;diagrams!</li>
+    flowcharts and diagrams!</li>
 <li>It has to be versatile enough to handle features such as <strong>including
     images, links and attached files</strong> and have a way to perform <strong>search
     and replace</strong>. Ciao <em><a href="https://simplenote.com/">Simplenote</a></em> which
-    is, well, simple. Even though it doesn&#8217;t fit the bill in this case,
+    is, well, simple. Even though it doesn’t fit the bill in this case,
     it remains a great option as it can synchronize your notes with many
     different devices (iOS, MacOS, Android, Windows and Linux). It has
     a feature that allows you to move a slider which acts as a timeline
     and shows you a different version of your note since its creation
     with the actual date and time down to the minute for each <em>restore
     point</em>. You can also use tags and Markdown and it has options to
-    share and collaborate with others. Highly&nbsp;recommended!</li>
+    share and collaborate with others. Highly recommended!</li>
 <li>It should have a hefty user base to back it up. This would exclude
     text editor plugins such as <code>atom-notes</code> for <em>Atom</em> or <code>VSNotes</code> for <em><span class="caps">VS</span>
-    Code</em>, which also lack features for accomplishing all of the&nbsp;above.</li>
+    Code</em>, which also lack features for accomplishing all of the above.</li>
 <li>On top of everything else, it has to be <strong>available offline</strong>, in a
     <strong>portable and readable format</strong>. Now, after discarding most options, we
     are left with <em>Boostnote</em> which uses CoffeeScript-Object-Notation and
-    <em>Vimwiki</em> which has its own Wiki syntax that&#8217;s similar in many ways to
+    <em>Vimwiki</em> which has its own Wiki syntax that’s similar in many ways to
     Markdown*. Those are the strongest contenders that I could think of but
     of course, if you would like to share your recommendations, please do so
-    in the comments&nbsp;below!</li>
+    in the comments below!</li>
 </ul>
 <p>* <sub>I somehow discredited
 <strong><a href="https://www.gnu.org/software/emacs">Emacs</a></strong> simply because I started
-to learn Vim first and since I&#8217;m still far from understanding all of
+to learn Vim first and since I’m still far from understanding all of
 its features, I had to postpone the discovery of Emacs.</sub></p>
-<h3 id="one-feature-rich-alternative-to-vimwiki">One feature-rich alternative to&nbsp;Vimwiki</h3>
-<p>After settling down on Vimwiki, I later found out about <a
-href="https://joplin.cozic.net">Joplin</a>, which comes with many great
-features and characteristics such&nbsp;as:</p>
+<h3 id="one-feature-rich-alternative-to-vimwiki">One feature-rich alternative to Vimwiki</h3>
+<p>After settling down on Vimwiki, I later found out about <a href="https://joplin.cozic.net">Joplin</a>, which comes with many great
+features and characteristics such as:</p>
 <ul>
-<li>Free <span class="amp">&amp;</span> Open&nbsp;Source</li>
-<li>Manages notes and todo&nbsp;lists</li>
-<li>Search across all&nbsp;notes/todos</li>
+<li>Free <span class="amp">&amp;</span> Open Source</li>
+<li>Manages notes and todo lists</li>
+<li>Search across all notes/todos</li>
 <li>Import/Export from/to various formats, including Markdown and even
-    imports from&nbsp;Evernote</li>
-<li>Support for&nbsp;attachments</li>
+    imports from Evernote</li>
+<li>Support for attachments</li>
 <li>Tags</li>
 <li>Synchronization with multiple providers such as Dropbox, Nextcloud,
-    OneDrive and even your own private&nbsp;cloud</li>
-<li>Available for Windows, Linux, macOS, Android and&nbsp;iOS</li>
-<li>Web Clipper&nbsp;integration</li>
+    OneDrive and even your own private cloud</li>
+<li>Available for Windows, Linux, macOS, Android and iOS</li>
+<li>Web Clipper integration</li>
 </ul>
 <p>This application left me a great first impression to say the least and I
 will make sure to stay up to date on its active development, which you
 can <a href="https://github.com/laurent22/joplin">follow on GitHub</a>.</p>
-<hr>
-<h2 id="why-did-vimwiki-win-in-the-end">Why did Vimwiki win in the&nbsp;end?</h2>
-<h3 id="in-short">In&nbsp;short</h3>
+<hr/>
+<h2 id="why-did-vimwiki-win-in-the-end">Why did Vimwiki win in the end?</h2>
+<h3 id="in-short">In short</h3>
 <blockquote>
 <p>The modal nature of Vim makes it very hard to enjoy any other text
 editor once you get used to it. The learning curve is quite considerable
 and nearly infinite, but this is also why I think it is worth investing
 more time to master it as it has proven to be an everlasting piece of
-trusty&nbsp;software.</p>
+trusty software.</p>
 <p>There is a feature in Boostnote to set the Editor Keymap to <code>vim</code> so
 that you can edit text in a very similar way, but then you miss out on
-Vim&#8217;s <code>Command mode</code> which adds tremendous extensibility and the ability
-to create any mappings you wish on the&nbsp;fly.</p>
+Vim’s <code>Command mode</code> which adds tremendous extensibility and the ability
+to create any mappings you wish on the fly.</p>
 </blockquote>
-<hr>
-<h4 id="expanded-edition">Expanded&nbsp;edition</h4>
+<hr/>
+<h4 id="expanded-edition">Expanded edition</h4>
 <p>Boostnote comes with nice features such as Tags, the ability to set
 multiple storage locations for notes, a <code>Preferences</code> panel to adjust
 many options, a feature to add code snippets, real-time preview of
 Markdown being edited, etc. Make no mistake: this is a great program.
 But there are many Vim features that are hard or impossible to replicate
 and everything that you can do in Boostnote can be done in Vim also
-(ctags, emmet syntax, plugins for Markdown,&nbsp;etc.).</p>
+(ctags, emmet syntax, plugins for Markdown, etc.).</p>
 <ul>
 <li>
 <p>For starters, the terminal integration is obviously unmatched. In
@@ -297,14 +299,14 @@ and everything that you can do in Boostnote can be done in Vim also
     to Vim by issuing the command <code>fg</code>. The terminal integration goes even
     further: you can have full access to the terminal inside Vim buffers
     since Vim 8.1 and that is a feature that has been available in Neovim
-    for even&nbsp;longer.</p>
+    for even longer.</p>
 </li>
 <li>
 <p>Even though <code>vim</code> mode can be enabled to edit text, you have to use
     the mouse to get many tasks done and the editing window can loose the
     focus. On the other hand, Vim is just one single window by default that
     you can split however you want, including adding tabs if your heart
-    tells you&nbsp;to.</p>
+    tells you to.</p>
 </li>
 <li>
 <p>You have to open your notes with Boostnote if you want them to be
@@ -313,31 +315,31 @@ and everything that you can do in Boostnote can be done in Vim also
     other text editor. On a related note, it is much easier to export many
     notes at the same time with Vimwiki. Boostnote does have a few options
     to export individual notes (<code>.md</code>, <code>.txt</code>, <code>.html</code> and print), but it is
-    not as user-friendly with many&nbsp;notes.</p>
+    not as user-friendly with many notes.</p>
 </li>
 <li>
 <p>Vimwiki makes it easy to link notes together and navigate between
     them, even within subfolders: highlight text, press <code>Enter</code> to create a
     link and open a new note, write your note and press <code>Backspace</code> to go
-    back to where you created the link. That&#8217;s quick and&nbsp;easy!</p>
+    back to where you created the link. That’s quick and easy!</p>
 </li>
 </ul>
-<hr>
+<hr/>
 <h2 id="conclusion">Conclusion</h2>
 <p>In the end, it is a matter of taste as those programs are indeed very
 distinct. Boostnote has a polished interface, is much easier to use and
 has many settings easily changed. Vim/Neovim, on the contrary, requires
 a lot of initial effort both to understand and to set up according
-to your needs, but it does deliver a good dose of productivity&#8230;&nbsp;Eventually!</p>
+to your needs, but it does deliver a good dose of productivity… Eventually!</p>
 <p>An honorable mention goes to Simplenote, which is a joy to use with
 mobile devices and allows for quick synchronization between different
-devices across all the supported&nbsp;platforms.</p>
+devices across all the supported platforms.</p>
 <p>Where things really get in favor of Vim, you could mention the extensive
 help system (command <code>:help</code>), the use of macros, words and lines
 completion, the dot (<code>.</code>) command, the many registers at your disposal
 for different tasks, the impressive amount of plugins available, the
-ways in which you can configure mappings, functions&#8230; But that&#8217;s for a
-whole new&nbsp;story!</p>
+ways in which you can configure mappings, functions… But that’s for a
+whole new story!</p>
   </div>
   <div class="article_meta">
     <p>Posted on: Mon 03 December 2018</p>

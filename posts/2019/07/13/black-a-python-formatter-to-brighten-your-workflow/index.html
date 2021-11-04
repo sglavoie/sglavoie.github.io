@@ -169,144 +169,137 @@
   <div class="article_readtime">
     <p>Estimated read time: 4 minutes</p>
   </div>
-  <div class="article_text">
+    <nav class="toc">
     <div class="toc">
 <ul>
-<li><a href="#what-is-black">What is&nbsp;Black?</a></li>
+<li><a href="#what-is-black">What is Black?</a></li>
 <li><a href="#how-to-use-it">How to use it?</a><ul>
-<li><a href="#use-it-from-the-terminal">Use it from the&nbsp;terminal</a></li>
-<li><a href="#use-it-with-vim">Use it with&nbsp;Vim</a></li>
+<li><a href="#use-it-from-the-terminal">Use it from the terminal</a></li>
+<li><a href="#use-it-with-vim">Use it with Vim</a></li>
 </ul>
 </li>
-<li><a href="#any-example">Any&nbsp;example?</a></li>
+<li><a href="#any-example">Any example?</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
 </div>
-<hr>
-<h2 id="what-is-black">What is&nbsp;Black?</h2>
+    </nav>
+  <div class="article_text">
+    
+<hr/>
+<h2 id="what-is-black">What is Black?</h2>
 <p>From its <a href="https://github.com/python/black">GitHub repository</a>:</p>
 <blockquote>
-<p>Black is the uncompromising Python code formatter. By using it, you agree to cede control over minutiae of hand-formatting. In return, Black gives you speed, determinism, and freedom from pycodestyle nagging about formatting. You will save time and mental energy for more important&nbsp;matters.</p>
+<p>Black is the uncompromising Python code formatter. By using it, you agree to cede control over minutiae of hand-formatting. In return, Black gives you speed, determinism, and freedom from pycodestyle nagging about formatting. You will save time and mental energy for more important matters.</p>
 </blockquote>
-<p><strong>Black</strong> will take less than ideal code and will automatically reformat it according to the <a href="https://www.python.org/dev/peps/pep-0008/"><span class="caps">PEP</span>-8 style guide</a>. It will take care of many things, including the following (taken in that order from <code>README.md</code> in <strong>Black</strong>&#8216;s&nbsp;repo):</p>
+<p><strong>Black</strong> will take less than ideal code and will automatically reformat it according to the <a href="https://www.python.org/dev/peps/pep-0008/"><span class="caps">PEP</span>-8 style guide</a>. It will take care of many things, including the following (taken in that order from <code>README.md</code> in <strong>Black</strong>‘s repo):</p>
 <ul>
-<li>Wrapping lines properly by shortening as much as possible single&nbsp;statements;</li>
-<li>Break long&nbsp;lines;</li>
-<li>Remove superfluous empty&nbsp;lines;</li>
-<li>Take care of adding trailing commas where&nbsp;necessary;</li>
+<li>Wrapping lines properly by shortening as much as possible single statements;</li>
+<li>Break long lines;</li>
+<li>Remove superfluous empty lines;</li>
+<li>Take care of adding trailing commas where necessary;</li>
 <li>Convert single quotes (<code>'</code>) to double quotes (<code>"</code>);</li>
 <li>Convert numeric literals to lowercase (<code>0XAB</code> to <code>0xAB</code>);</li>
-<li>Superfluous parentheses are&nbsp;removed;</li>
-<li>Split call chains on different&nbsp;lines;</li>
-<li>Works from the terminal and support many code editor integrations (Emacs, Vim, <span class="caps">VS</span> Code, Sublime,&nbsp;etc.).</li>
+<li>Superfluous parentheses are removed;</li>
+<li>Split call chains on different lines;</li>
+<li>Works from the terminal and support many code editor integrations (Emacs, Vim, <span class="caps">VS</span> Code, Sublime, etc.).</li>
 </ul>
-<p>Now that it&#8217;s clear <em>why</em> it can be a good idea to use it, let&#8217;s see how it works with Vim and the&nbsp;terminal.</p>
-<hr>
-<h2 id="how-to-use-it">How to use&nbsp;it?</h2>
-<p>First, we need to install it using Python&nbsp;3.6.0+:</p>
+<p>Now that it’s clear <em>why</em> it can be a good idea to use it, let’s see how it works with Vim and the terminal.</p>
+<hr/>
+<h2 id="how-to-use-it">How to use it?</h2>
+<p>First, we need to install it using Python 3.6.0+:</p>
 <div class="highlight"><pre><span></span><code>$ pip install black
 </code></pre></div>
-
-<p>That&#8217;s&nbsp;it!</p>
-<h3 id="use-it-from-the-terminal">Use it from the&nbsp;terminal</h3>
-<p>In its simplest invocation, we can use <strong>Black</strong> by specifying a file or a directory by&nbsp;typing:</p>
+<p>That’s it!</p>
+<h3 id="use-it-from-the-terminal">Use it from the terminal</h3>
+<p>In its simplest invocation, we can use <strong>Black</strong> by specifying a file or a directory by typing:</p>
 <div class="highlight"><pre><span></span><code>$ black path_to_file_or_directory
 </code></pre></div>
-
-<p>It doesn&#8217;t come with many options as its goal is to automatically format code consistently, but you can find out more about this tool in the following&nbsp;way:</p>
+<p>It doesn’t come with many options as its goal is to automatically format code consistently, but you can find out more about this tool in the following way:</p>
 <div class="highlight"><pre><span></span><code>$ black --help
 </code></pre></div>
-
-<h3 id="use-it-with-vim">Use it with&nbsp;Vim</h3>
-<p>Using <strong>Black</strong> as part of your workflow in a code editor is where I believe it really shines, because you can see almost in real-time when you make a formatting mistake, which will help down the road in committing less&nbsp;sins.</p>
-<p>Integrating <strong>Black</strong> with Vim or Neovim is quick and painless, adding a simple line in your <code>.vimrc</code> or <code>init.vim</code> file. You can also proceed to do a manual installation without a plugin manager as explained in the GitHub&nbsp;repository.</p>
+<h3 id="use-it-with-vim">Use it with Vim</h3>
+<p>Using <strong>Black</strong> as part of your workflow in a code editor is where I believe it really shines, because you can see almost in real-time when you make a formatting mistake, which will help down the road in committing less sins.</p>
+<p>Integrating <strong>Black</strong> with Vim or Neovim is quick and painless, adding a simple line in your <code>.vimrc</code> or <code>init.vim</code> file. You can also proceed to do a manual installation without a plugin manager as explained in the GitHub repository.</p>
 <p>With <a href="https://github.com/junegunn/vim-plug">vim-plug</a>:</p>
-<div class="highlight"><pre><span></span><code>Plug <span class="s1">&#39;python/black&#39;</span>
+<div class="highlight"><pre><span></span><code>Plug <span class="s1">'python/black'</span>
 </code></pre></div>
-
 <p>With <a href="https://github.com/VundleVim/Vundle.vim">Vundle</a>:</p>
-<div class="highlight"><pre><span></span><code>Plugin <span class="s1">&#39;python/black&#39;</span>
+<div class="highlight"><pre><span></span><code>Plugin <span class="s1">'python/black'</span>
 </code></pre></div>
-
-<p>Once the plugin is installed, it may well be convenient to automatically format Python files when saving the buffer, which can be accomplished by adding the following line to the configuration&nbsp;file:</p>
-<div class="highlight"><pre><span></span><code>autocmd <span class="nb">BufWritePre</span> *.<span class="k">py</span> execute <span class="s1">&#39;:Black&#39;</span>
+<p>Once the plugin is installed, it may well be convenient to automatically format Python files when saving the buffer, which can be accomplished by adding the following line to the configuration file:</p>
+<div class="highlight"><pre><span></span><code>autocmd <span class="nb">BufWritePre</span> *.<span class="k">py</span> execute <span class="s1">':Black'</span>
 </code></pre></div>
-
-<p>By default, <strong>Black</strong> works surprisingly well on its own. I only went ahead and changed the default line length from 88 to 79 characters by also adding this&nbsp;line:</p>
-<div class="highlight"><pre><span></span><code><span class="k">let</span> <span class="k">g</span>:black_linelength <span class="p">=</span> <span class="m">79</span>  <span class="c">&quot; default is 88</span>
+<p>By default, <strong>Black</strong> works surprisingly well on its own. I only went ahead and changed the default line length from 88 to 79 characters by also adding this line:</p>
+<div class="highlight"><pre><span></span><code><span class="k">let</span> <span class="k">g</span>:black_linelength <span class="p">=</span> <span class="m">79</span>  <span class="c">" default is 88</span>
 </code></pre></div>
-
-<p>Finally, it&#8217;s worth noting you can update <strong>Black</strong> at any point from the terminal with <code>pip</code> and you can also do it directly from within Vim/Neovim with this&nbsp;command:</p>
+<p>Finally, it’s worth noting you can update <strong>Black</strong> at any point from the terminal with <code>pip</code> and you can also do it directly from within Vim/Neovim with this command:</p>
 <div class="highlight"><pre><span></span><code><span class="p">:</span>BlackUpgrade
 </code></pre></div>
-
-<p>Vim will then output something along those&nbsp;lines:</p>
+<p>Vim will then output something along those lines:</p>
 <blockquote>
-<p>Upgrading Black with&nbsp;pip&#8230;</p>
-<p><span class="caps">DONE</span>! You are all set, thanks for&nbsp;waiting</p>
+<p>Upgrading Black with pip…</p>
+<p><span class="caps">DONE</span>! You are all set, thanks for waiting</p>
 </blockquote>
-<h2 id="any-example">Any&nbsp;example?</h2>
-<p>Taking a random Python 3.6+ code sample, we could originally have something like this (hopefully&nbsp;not):</p>
+<h2 id="any-example">Any example?</h2>
+<p>Taking a random Python 3.6+ code sample, we could originally have something like this (hopefully not):</p>
 <div class="highlight"><pre><span></span><code>    <span class="k">for</span> <span class="n">source</span> <span class="ow">in</span>  <span class="n">data_sources</span> <span class="p">:</span>
 
 
         <span class="c1"># Retrieve a list of all matching log files in `source`</span>
-        <span class="n">log_files</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">LOG_NAME</span><span class="si">}</span><span class="s1">*&#39;</span> <span class="p">)</span>
+        <span class="n">log_files</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">LOG_NAME</span><span class="si">}</span><span class="s1">*'</span> <span class="p">)</span>
         <span class="k">if</span> <span class="n">log_files</span>  <span class="o">==</span>  <span class="p">[</span> <span class="p">]:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">There is no log file to delete in </span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="se">\n</span><span class="s1">There is no log file to delete in </span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s1">.'</span><span class="p">)</span>
                 <span class="k">continue</span>
         <span class="k">else</span>    <span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Log files in </span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s1">:&#39;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Log files in </span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s1">:'</span><span class="p">)</span>
                 <span class="k">for</span> <span class="n">log_file</span> <span class="ow">in</span> <span class="n">log_files</span><span class="p">:</span>
                     <span class="k">if</span> <span class="p">(</span><span class="n">ARGUMENTS</span><span class="o">.</span><span class="n">remind</span><span class="p">):</span> <span class="n">REMINDER_IS_SET</span> <span class="o">=</span> <span class="kc">True</span>
                     <span class="nb">print</span><span class="p">(</span>
                             <span class="n">log_file</span>
                     <span class="p">)</span>
                 <span class="n">message</span> <span class="o">=</span> <span class="p">(</span>
-                    <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Do you want to delete log files &#39;</span> <span class="s1">&#39;for this source? (y/n) &#39;</span>
+                    <span class="s1">'</span><span class="se">\n</span><span class="s1">Do you want to delete log files '</span> <span class="s1">'for this source? (y/n) '</span>
                 <span class="p">)</span>
                 <span class="k">if</span> <span class="p">(</span><span class="n">user_says_yes</span><span class="p">(</span> <span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="p">))</span> <span class="p">:</span>
                     <span class="k">for</span> <span class="n">log_file</span> <span class="ow">in</span> <span class="n">log_files</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">log_file</span><span class="p">)</span>
                     <span class="nb">print</span><span class="p">(</span>
-                            <span class="s1">&#39;Log files deleted.&#39;</span>
+                            <span class="s1">'Log files deleted.'</span>
                             <span class="p">)</span>
                     <span class="k">continue</span>
                 <span class="k">else</span> <span class="p">:</span> <span class="k">continue</span>
-        <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;Exiting script...&#39;</span> <span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span> <span class="s1">'Exiting script...'</span> <span class="p">)</span>
         <span class="n">sys</span><span class="o">.</span> <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
-
-<p>Running <strong>Black</strong>, we will get something that&#8217;s quite a bit more&nbsp;palatable:</p>
+<p>Running <strong>Black</strong>, we will get something that’s quite a bit more palatable:</p>
 <div class="highlight"><pre><span></span><code>    <span class="k">for</span> <span class="n">source</span> <span class="ow">in</span> <span class="n">data_sources</span><span class="p">:</span>
 
         <span class="c1"># Retrieve a list of all matching log files in `source`</span>
-        <span class="n">log_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">LOG_NAME</span><span class="si">}</span><span class="s2">*&quot;</span><span class="p">)</span>
+        <span class="n">log_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">LOG_NAME</span><span class="si">}</span><span class="s2">*"</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">log_files</span> <span class="o">==</span> <span class="p">[]:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">There is no log file to delete in </span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">There is no log file to delete in </span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
             <span class="k">continue</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Log files in </span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Log files in </span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">:"</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">log_file</span> <span class="ow">in</span> <span class="n">log_files</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">ARGUMENTS</span><span class="o">.</span><span class="n">remind</span><span class="p">:</span>
                     <span class="n">REMINDER_IS_SET</span> <span class="o">=</span> <span class="kc">True</span>
                 <span class="nb">print</span><span class="p">(</span><span class="n">log_file</span><span class="p">)</span>
             <span class="n">message</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Do you want to delete log files &quot;</span> <span class="s2">&quot;for this source? (y/n) &quot;</span>
+                <span class="s2">"</span><span class="se">\n</span><span class="s2">Do you want to delete log files "</span> <span class="s2">"for this source? (y/n) "</span>
             <span class="p">)</span>
             <span class="k">if</span> <span class="n">user_says_yes</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">):</span>
                 <span class="k">for</span> <span class="n">log_file</span> <span class="ow">in</span> <span class="n">log_files</span><span class="p">:</span>
                     <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">log_file</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Log files deleted.&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Log files deleted."</span><span class="p">)</span>
                 <span class="k">continue</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">continue</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exiting script...&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Exiting script..."</span><span class="p">)</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
-
-<hr>
+<hr/>
 <h2 id="conclusion">Conclusion</h2>
-<p>I think the results speak for themselves: enforcing a style with a tool like <strong>Black</strong> is definitely useful to avoid arguments about conflicting coding styles. It lets you focus on what matters instead: being productive while providing value to the&nbsp;world.</p>
+<p>I think the results speak for themselves: enforcing a style with a tool like <strong>Black</strong> is definitely useful to avoid arguments about conflicting coding styles. It lets you focus on what matters instead: being productive while providing value to the world.</p>
   </div>
   <div class="article_meta">
     <p>Posted on: Sat 13 July 2019</p>

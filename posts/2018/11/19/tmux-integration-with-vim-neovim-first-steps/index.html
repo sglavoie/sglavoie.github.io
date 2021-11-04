@@ -169,7 +169,7 @@
   <div class="article_readtime">
     <p>Estimated read time: 3 minutes</p>
   </div>
-  <div class="article_text">
+    <nav class="toc">
     <div class="toc">
 <ul>
 <li><a href="#tmux-integration">tmux integration</a><ul>
@@ -185,23 +185,26 @@
 <li><a href="#tmux_default_sessionsh_1">.tmux_default_session.sh</a></li>
 </ul>
 </li>
-<li><a href="#tmux-demo">tmux&nbsp;demo</a></li>
+<li><a href="#tmux-demo">tmux demo</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<hr>
-<h2 id="tmux-integration">tmux&nbsp;integration</h2>
+    </nav>
+  <div class="article_text">
+    
+<hr/>
+<h2 id="tmux-integration">tmux integration</h2>
 <p><a href="https://github.com/tmux/tmux">tmux</a> offers many advantages in the
 context of remote access to another machine, but it also shines on a
-local setup! Here is how I currently like to set it&nbsp;up.</p>
-<hr>
-<h3 id="configuration-file">Configuration&nbsp;file:</h3>
+local setup! Here is how I currently like to set it up.</p>
+<hr/>
+<h3 id="configuration-file">Configuration file:</h3>
 <h5 id="tmuxconf"><code>~/.tmux.conf</code></h5>
 <div class="highlight"><pre><span></span><code><span class="c1"># split panes using | and -</span>
 <span class="nb">bind</span> <span class="p">|</span> split-window -h
 <span class="nb">bind</span> - split-window -v
-unbind <span class="s1">&#39;&quot;&#39;</span>
+unbind <span class="s1">'"'</span>
 unbind %
 
 <span class="c1"># switch panes using Alt-arrow without prefix</span>
@@ -214,27 +217,26 @@ unbind %
 <span class="c1"># Enable mouse mode (tmux 2.1 and above)</span>
 <span class="nb">set</span> -g mouse on
 
-source-file <span class="s2">&quot;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.tmux-themepack/blue.tmuxtheme&quot;</span>
+source-file <span class="s2">"</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.tmux-themepack/blue.tmuxtheme"</span>
 </code></pre></div>
-
 <p>This is all very self-explanatory. <a href="https://github.com/jimeh/tmux-themepack">Many themes can be found
 here</a>.</p>
-<hr>
-<h3 id="automating-the-launch-of-a-default-session">Automating the launch of a default&nbsp;session:</h3>
+<hr/>
+<h3 id="automating-the-launch-of-a-default-session">Automating the launch of a default session:</h3>
 <h5 id="tmux_default_sessionsh"><code>~/.tmux_default_session.sh</code></h5>
 <p>This is a small Bash script that I like to have for automatic set up
 of a development environment with tmux and Vim/Neovim. As my current
-workflow, I enjoy the&nbsp;following:</p>
+workflow, I enjoy the following:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!bash</span>
 <span class="c1"># var for session name (to avoid repeated occurences)</span>
 <span class="nv">sn</span><span class="o">=</span>dev
 
-tmux new-session -s <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">&quot;</span> -d
+tmux new-session -s <span class="s2">"</span><span class="nv">$sn</span><span class="s2">"</span> -d
 
 <span class="c1"># Create 3 windows</span>
-tmux new-window -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:0&quot;</span> -n <span class="s2">&quot;nvim&quot;</span>
-tmux new-window -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:9&quot;</span> -n <span class="s2">&quot;python&quot;</span>
-tmux new-window -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:8&quot;</span> -n <span class="s2">&quot;terminal&quot;</span>
+tmux new-window -t <span class="s2">"</span><span class="nv">$sn</span><span class="s2">:0"</span> -n <span class="s2">"nvim"</span>
+tmux new-window -t <span class="s2">"</span><span class="nv">$sn</span><span class="s2">:9"</span> -n <span class="s2">"python"</span>
+tmux new-window -t <span class="s2">"</span><span class="nv">$sn</span><span class="s2">:8"</span> -n <span class="s2">"terminal"</span>
 
 <span class="c1"># Split terminal window vertically, then split the right pane</span>
 <span class="c1"># horizontally, then switch to the left pane (identified by `FOCUS IS</span>
@@ -251,41 +253,39 @@ tmux split-window -v
 tmux <span class="k">select</span>-pane -L
 
 <span class="c1"># Set up Neovim ready to open files</span>
-tmux send-keys -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:0&quot;</span> C-z <span class="s1">&#39;nvim .&#39;</span> Enter
+tmux send-keys -t <span class="s2">"</span><span class="nv">$sn</span><span class="s2">:0"</span> C-z <span class="s1">'nvim .'</span> Enter
 
 <span class="c1"># Set up alias for IPython and clear the screen when entering IPython</span>
-tmux send-keys -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:9&quot;</span> C-z <span class="s1">&#39;ipython&#39;</span> Enter
-tmux send-keys -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:9&quot;</span> <span class="s1">&#39;clear&#39;</span> Enter
+tmux send-keys -t <span class="s2">"</span><span class="nv">$sn</span><span class="s2">:9"</span> C-z <span class="s1">'ipython'</span> Enter
+tmux send-keys -t <span class="s2">"</span><span class="nv">$sn</span><span class="s2">:9"</span> <span class="s1">'clear'</span> Enter
 
 <span class="c1"># Select window #0 and attach to the session</span>
-tmux <span class="k">select</span>-window -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">:0&quot;</span>
-tmux -2 attach-session -t <span class="s2">&quot;</span><span class="nv">$sn</span><span class="s2">&quot;</span>
+tmux <span class="k">select</span>-window -t <span class="s2">"</span><span class="nv">$sn</span><span class="s2">:0"</span>
+tmux -2 attach-session -t <span class="s2">"</span><span class="nv">$sn</span><span class="s2">"</span>
 </code></pre></div>
-
-<hr>
-<h3 id="aliases-to-make-use-of">Aliases to make use&nbsp;of:</h3>
+<hr/>
+<h3 id="aliases-to-make-use-of">Aliases to make use of:</h3>
 <h5 id="tmux_default_sessionsh_1"><code>.tmux_default_session.sh</code></h5>
 <p>I add the following aliases in <code>~/.bash_aliases</code> to automate a chunk of
-the&nbsp;workflow:</p>
+the workflow:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># This will launch tmux with the desired configuration</span>
-<span class="nb">alias</span> <span class="nv">dev</span><span class="o">=</span><span class="s1">&#39;bash ~/.tmux_default_session.sh&#39;</span>
+<span class="nb">alias</span> <span class="nv">dev</span><span class="o">=</span><span class="s1">'bash ~/.tmux_default_session.sh'</span>
 
 <span class="c1"># This will kill the tmux server if the need arises. By detaching from</span>
 <span class="c1"># the tmux session, you simply run this command and can reattach easily</span>
 <span class="c1"># to the default session configuration on another project.</span>
-<span class="nb">alias</span> <span class="nv">kdev</span><span class="o">=</span><span class="s1">&#39;pkill tmux&#39;</span>
+<span class="nb">alias</span> <span class="nv">kdev</span><span class="o">=</span><span class="s1">'pkill tmux'</span>
 
 <span class="c1"># If the session has been detached but the tmux server is still running,</span>
 <span class="c1"># I use the following alias to quickly reattach to the default session</span>
 <span class="c1"># named `dev` in that example.</span>
-<span class="nb">alias</span> <span class="nv">adev</span><span class="o">=</span><span class="s1">&#39;tmux attach-session -t dev&#39;</span>
+<span class="nb">alias</span> <span class="nv">adev</span><span class="o">=</span><span class="s1">'tmux attach-session -t dev'</span>
 </code></pre></div>
-
-<hr>
-<h3 id="tmux-demo">tmux&nbsp;demo</h3>
+<hr/>
+<h3 id="tmux-demo">tmux demo</h3>
 <p>(click to open image)
-<a href="https://www.sglavoie.com/images/posts/0001_tmux-integration-with-vim/tmux-demo.gif"><img src="https://www.sglavoie.com/images/posts/0001_tmux-integration-with-vim/tmux-demo.gif" alt="tmux-demo" class="max-size-img-post"></a></p>
-<hr>
+<a href="https://www.sglavoie.com/images/posts/0001_tmux-integration-with-vim/tmux-demo.gif"><img alt="tmux-demo" class="max-size-img-post" src="https://www.sglavoie.com/images/posts/0001_tmux-integration-with-vim/tmux-demo.gif"/></a></p>
+<hr/>
 <p>The content of this post can be found on
 <a href="https://github.com/sglavoie/better-vim-experience#tmux-integrat
 ion">GitHub</a>.</p>

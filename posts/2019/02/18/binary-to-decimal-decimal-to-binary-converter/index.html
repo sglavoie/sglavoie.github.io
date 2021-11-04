@@ -169,30 +169,33 @@
   <div class="article_readtime">
     <p>Estimated read time: 2 minutes</p>
   </div>
-  <div class="article_text">
+    <nav class="toc">
     <div class="toc">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#binary-to-decimal">Binary to&nbsp;Decimal</a></li>
-<li><a href="#decimal-to-binary">Decimal to&nbsp;Binary</a></li>
+<li><a href="#binary-to-decimal">Binary to Decimal</a></li>
+<li><a href="#decimal-to-binary">Decimal to Binary</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
 </div>
-<hr>
+    </nav>
+  <div class="article_text">
+    
+<hr/>
 <h1 id="introduction">Introduction</h1>
 <p>There is nothing new here in terms of algorithms, but it was interesting
 to figure out how to apply those concepts with Python. This works for
-integer numbers, but can be easily adapted to convert&nbsp;fractions.</p>
-<h1 id="binary-to-decimal">Binary to&nbsp;Decimal</h1>
-<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+integer numbers, but can be easily adapted to convert fractions.</p>
+<h1 id="binary-to-decimal">Binary to Decimal</h1>
+<div class="highlight"><pre><span></span><code><span class="sd">"""</span>
 <span class="sd">Converts a binary number to a decimal number.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 <span class="k">def</span> <span class="nf">bin_to_dec</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Algorithm that converts a binary number to a decimal number.</span>
+    <span class="sd">"""Algorithm that converts a binary number to a decimal number.</span>
 
-<span class="sd">    Receives and returns a string.&quot;&quot;&quot;</span>
+<span class="sd">    Receives and returns a string."""</span>
 
     <span class="c1"># get the index of power of first digit</span>
     <span class="c1"># e.g. 1001 → first index power is 3 (2^3)</span>
@@ -200,17 +203,17 @@ integer numbers, but can be easily adapted to convert&nbsp;fractions.</p>
 
     <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># initialize variable to store final result</span>
 
-    <span class="c1"># iterate over each number and if it is &#39;1&#39;, calculate the value</span>
+    <span class="c1"># iterate over each number and if it is '1', calculate the value</span>
     <span class="c1"># based on its position and add it to the total</span>
     <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">char</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">char</span> <span class="o">==</span> <span class="s1">'1'</span><span class="p">:</span>
             <span class="n">total</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">first_power</span> <span class="o">-</span> <span class="n">index</span><span class="p">)</span>
 
     <span class="c1"># give back the answer to the script</span>
     <span class="k">return</span> <span class="n">total</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="c1"># retrieve binary number from input as string to parse</span>
     <span class="n">BIN_NUM</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 
@@ -220,25 +223,24 @@ integer numbers, but can be easily adapted to convert&nbsp;fractions.</p>
     <span class="c1"># print the solution to the console</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">RESULT</span><span class="p">)</span>
 </code></pre></div>
-
-<h1 id="decimal-to-binary">Decimal to&nbsp;Binary</h1>
-<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<h1 id="decimal-to-binary">Decimal to Binary</h1>
+<div class="highlight"><pre><span></span><code><span class="sd">"""</span>
 <span class="sd">Converts a decimal number to a binary number.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 <span class="k">def</span> <span class="nf">dec_to_bin</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Algorithm that converts a decimal number to a binary number.</span>
+    <span class="sd">"""Algorithm that converts a decimal number to a binary number.</span>
 
-<span class="sd">    Receives an integer and returns a string.&quot;&quot;&quot;</span>
+<span class="sd">    Receives an integer and returns a string."""</span>
 
-    <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># if number is &#39;zero&#39;, the answer is &#39;zero&#39;</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># if number is 'zero', the answer is 'zero'</span>
         <span class="k">return</span> <span class="mi">0</span>
 
     <span class="n">remainders</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># list that stores the remainders</span>
 
     <span class="c1"># iterate over the initial given decimal and divide it by two</span>
-    <span class="c1"># until it gets to &#39;zero&#39;. At each step, add the remainder in</span>
+    <span class="c1"># until it gets to 'zero'. At each step, add the remainder in</span>
     <span class="c1"># the above list</span>
     <span class="k">while</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">remainders</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">number</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
@@ -250,7 +252,7 @@ integer numbers, but can be easily adapted to convert&nbsp;fractions.</p>
 
     <span class="c1"># concatenate all the digits from the list of remainders from left</span>
     <span class="c1"># to right to display the final binary number</span>
-    <span class="n">answer</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="s1">''</span>
     <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="n">remainders</span><span class="p">:</span>
         <span class="n">answer</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span>
 
@@ -258,7 +260,7 @@ integer numbers, but can be easily adapted to convert&nbsp;fractions.</p>
     <span class="k">return</span> <span class="n">answer</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="c1"># retrieve decimal number from input as integer</span>
     <span class="n">DEC_NUM</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 
@@ -268,16 +270,15 @@ integer numbers, but can be easily adapted to convert&nbsp;fractions.</p>
     <span class="c1"># print the solution to the console</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">RESULT</span><span class="p">)</span>
 </code></pre></div>
-
 <h1 id="conclusion">Conclusion</h1>
-<p>This was a very quick programming session that&#8217;s been useful
+<p>This was a very quick programming session that’s been useful
 to make new concepts stick. The best learning strategies are
 to <em>test yourself</em> constantly in any way possible and to
 <em>teach clearly what you know</em>, which is what I tried to do
 in the end. By the way, I found the course <a href="https://www.coursera.org/learn/learning-how-to-learn/">Learning How to
 Learn</a> on
 Coursera to be quite satisfying and I would invite you to have a look if
-that&#8217;s a topic you&#8217;re interested&nbsp;in!</p>
+that’s a topic you’re interested in!</p>
   </div>
   <div class="article_meta">
     <p>Posted on: Mon 18 February 2019</p>
