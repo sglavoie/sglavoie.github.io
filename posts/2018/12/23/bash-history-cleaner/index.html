@@ -169,79 +169,78 @@
   <div class="article_readtime">
     <p>Estimated read time: 8 minutes</p>
   </div>
-    <nav class="toc">
+  <div class="article_text">
     <div class="toc">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#make-history-in-a-big-way">Make history in a big way</a></li>
+<li><a href="#make-history-in-a-big-way">Make history in a big&nbsp;way</a></li>
 <li><a href="#bash-history-cleaner">Bash History Cleaner</a><ul>
 <li><a href="#bash_history_cleanerpy">bash_history_cleaner.py</a></li>
 <li><a href="#settingsjson">settings.json</a></li>
-<li><a href="#description-of-available-settings-in-settingsjson">Description of available settings in settings.json</a></li>
+<li><a href="#description-of-available-settings-in-settingsjson">Description of available settings in&nbsp;settings.json</a></li>
 </ul>
 </li>
-<li><a href="#anecdotal-evidence-of-satisfying-performances">Anecdotal evidence of satisfying performances</a></li>
+<li><a href="#anecdotal-evidence-of-satisfying-performances">Anecdotal evidence of satisfying&nbsp;performances</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
 </div>
-    </nav>
-  <div class="article_text">
-    
-<hr/>
+<hr>
 <h1 id="introduction">Introduction</h1>
 <p>This is a Python 3.6+ script that helps to clean the file containing
 the Bash history commands. It will remove any line matching a specified
-regular expression and can also remove any line starting with an alias.</p>
-<p>The idea behind this small utility was simple:</p>
+regular expression and can also remove any line starting with an&nbsp;alias.</p>
+<p>The idea behind this small utility was&nbsp;simple:</p>
 <ul>
 <li>The Bash history file (usually located in <code>~/.bash_history</code>) contains
-    much of the work one ends up doing in the terminal.</li>
+    much of the work one ends up doing in the&nbsp;terminal.</li>
 <li>The history can grow large over time and it becomes more cumbersome to
     find interesting information in all that clutter, such as a rarely used
-    command with specific flags.</li>
+    command with specific&nbsp;flags.</li>
 <li>By removing all superfluous commands that are repeated often and which
     give no real benefit in certain contexts (such as <code>ls</code>, <code>cd</code>, <code>cat</code>,
     etc.), the history is much cleaner and easier to navigate and actually
-    becomes much more useful in my opinion.</li>
+    becomes much more useful in my&nbsp;opinion.</li>
 <li>True, it will be harder to follow the bread crumbs for everything
-    you did, but I haven’t come across a situation where having access
+    you did, but I haven&#8217;t come across a situation where having access
     to yet another empty <code>ls</code> or <code>cd</code> has proven necessary and reading
-    <code>.bash_history</code> doesn’t make for a great narrative story either.</li>
+    <code>.bash_history</code> doesn&#8217;t make for a great narrative story&nbsp;either.</li>
 </ul>
-<hr/>
-<h1 id="make-history-in-a-big-way">Make history in a big way</h1>
+<hr>
+<h1 id="make-history-in-a-big-way">Make history in a big&nbsp;way</h1>
 <p>I took advantage of the fact that the history can be cleaned with the
 script you are about to see and set up what is known as an <em>eternal
 history</em> which, as it sounds like, can grow infinitely big! All you have
 to do is append the following lines to the file <code>~/.bashrc</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Eternal bash history.</span>
 <span class="c1"># ---------------------</span>
-<span class="c1"># Undocumented feature which sets the size to "unlimited".</span>
+<span class="c1"># Undocumented feature which sets the size to &quot;unlimited&quot;.</span>
 <span class="c1"># http://stackoverflow.com/questions/9457233/unlimited-bash-history</span>
 <span class="nb">export</span> <span class="nv">HISTFILESIZE</span><span class="o">=</span>-1
 <span class="nb">export</span> <span class="nv">HISTSIZE</span><span class="o">=</span>-1
-<span class="nb">export</span> <span class="nv">HISTTIMEFORMAT</span><span class="o">=</span><span class="s2">"[%F %T] "</span>
+<span class="nb">export</span> <span class="nv">HISTTIMEFORMAT</span><span class="o">=</span><span class="s2">&quot;[%F %T] &quot;</span>
 <span class="c1"># Change the file location because certain bash sessions truncate</span>
 <span class="c1"># .bash_history file upon close.</span>
 <span class="c1"># http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login</span>
 <span class="nb">export</span> <span class="nv">HISTFILE</span><span class="o">=</span>~/.bash_eternal_history
 <span class="c1"># Force prompt to write history after every command.</span>
 <span class="c1"># http://superuser.com/questions/20900/bash-history-loss</span>
-<span class="nv">PROMPT_COMMAND</span><span class="o">=</span><span class="s2">"history -a; </span><span class="nv">$PROMPT_COMMAND</span><span class="s2">"</span>
+<span class="nv">PROMPT_COMMAND</span><span class="o">=</span><span class="s2">&quot;history -a; </span><span class="nv">$PROMPT_COMMAND</span><span class="s2">&quot;</span>
 </code></pre></div>
-<hr/>
-<h1 id="bash-history-cleaner">Bash History Cleaner</h1>
-<p>And here is the script in question *. It comes in two files that need to be in the same directory:</p>
+
+<hr>
+<h1 id="bash-history-cleaner">Bash History&nbsp;Cleaner</h1>
+<p>And here is the script in question *. It comes in two files that need to be in the same&nbsp;directory:</p>
 <ul>
 <li>One is a Python file that needs to be launched from the terminal with
-    Python 3.</li>
+    Python&nbsp;3.</li>
 <li>The other file, <code>settings.json</code>, is a <span class="caps">JSON</span> file used to store the
-    settings of the script, which will be detailed below.</li>
+    settings of the script, which will be detailed&nbsp;below.</li>
 </ul>
-<p>* <sub>Improvements to the original script can be found on <a href="https://github.com/sglavoie/python-utilities/tree/main/bash_history_cleaner">Github</a>. To keep this
+<p>* <sub>Improvements to the original script can be found on <a
+href="https://github.com/sglavoie/python-utilities/tree/main/bash_history_cleaner">Github</a>. To keep this
 article a bit more readable, the original version is shown.</sub></p>
 <h2 id="bash_history_cleanerpy"><code>bash_history_cleaner.py</code></h2>
-<div class="highlight"><pre><span></span><code><span class="sd">'''</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">Python script that helps to clean the file containing the Bash history</span>
 <span class="sd">commands.</span>
 
@@ -252,35 +251,35 @@ article a bit more readable, the original version is shown.</sub></p>
 
 <span class="sd">Description of available settings in `settings.json`:</span>
 
-<span class="sd">    "home_directory":   Absolute path to user's home directory.</span>
+<span class="sd">    &quot;home_directory&quot;:   Absolute path to user&#39;s home directory.</span>
 
-<span class="sd">    "history_file":     Name of file where the history will be cleaned up.</span>
+<span class="sd">    &quot;history_file&quot;:     Name of file where the history will be cleaned up.</span>
 
-<span class="sd">    "aliases_file":     Name of file where Bash aliases are set up.</span>
+<span class="sd">    &quot;aliases_file&quot;:     Name of file where Bash aliases are set up.</span>
 
-<span class="sd">    "ignore_patterns":  List of patterns to ignore in `history_file`.</span>
+<span class="sd">    &quot;ignore_patterns&quot;:  List of patterns to ignore in `history_file`.</span>
 <span class="sd">                        Each line where a pattern is found will be deleted.</span>
 <span class="sd">                            → Patterns are specified as regular expressions.</span>
 
-<span class="sd">    "add_aliases":      Boolean. If set to `true`, aliases from `aliases_file`</span>
+<span class="sd">    &quot;add_aliases&quot;:      Boolean. If set to `true`, aliases from `aliases_file`</span>
 <span class="sd">                        will be added to `ignore_patterns`.</span>
 
-<span class="sd">    "aliases_match_greedily":</span>
+<span class="sd">    &quot;aliases_match_greedily&quot;:</span>
 <span class="sd">                        Boolean. If set to `true`, any line in `history_file`</span>
 <span class="sd">                        starting with an alias in `aliases_file` will be</span>
 <span class="sd">                        deleted. If set to `false`, delete line if the alias is</span>
 <span class="sd">                        the content of the whole line (with optional space at</span>
-<span class="sd">                        the end): `false` matches "^alias$" or "^alias $" only.</span>
+<span class="sd">                        the end): `false` matches &quot;^alias$&quot; or &quot;^alias $&quot; only.</span>
 
-<span class="sd">    "backup_history":   Boolean. If set to `true`, `history_file` will be backed</span>
+<span class="sd">    &quot;backup_history&quot;:   Boolean. If set to `true`, `history_file` will be backed</span>
 <span class="sd">                        up in the same directory with a name ending in .bak</span>
 <span class="sd">                        based on the current date.</span>
 
-<span class="sd">    "delete_logs_without_confirming":</span>
+<span class="sd">    &quot;delete_logs_without_confirming&quot;:</span>
 <span class="sd">                        Boolean. If set to `true`, script with flag `-c` will</span>
 <span class="sd">                        automatically delete all the backup files found for</span>
 <span class="sd">                        `history_file`.</span>
-<span class="sd">'''</span>
+<span class="sd">&#39;&#39;&#39;</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -292,78 +291,78 @@ article a bit more readable, the original version is shown.</sub></p>
 
 
 <span class="k">def</span> <span class="nf">get_current_path</span><span class="p">():</span>
-    <span class="sd">'''Returns the current working directory relative to where this script</span>
-<span class="sd">    is being executed.'''</span>
+    <span class="sd">&#39;&#39;&#39;Returns the current working directory relative to where this script</span>
+<span class="sd">    is being executed.&#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">user_says_yes</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
-    <span class="sd">'''Check if user input is either 'y' or 'n'. Returns a boolean.'''</span>
+<span class="k">def</span> <span class="nf">user_says_yes</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Check if user input is either &#39;y&#39; or &#39;n&#39;. Returns a boolean.&#39;&#39;&#39;</span>
 
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">message</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">'y'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span>
             <span class="n">choice</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="k">break</span>
-        <span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">'n'</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span>
             <span class="n">choice</span> <span class="o">=</span> <span class="kc">False</span>
             <span class="k">break</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">"Please enter either 'y' or 'n'."</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please enter either &#39;y&#39; or &#39;n&#39;.&quot;</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">choice</span>
 
 
 <span class="k">def</span> <span class="nf">delete_logs</span><span class="p">(</span><span class="n">settings</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">history_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="sd">'''Delete log files in `home_directory` based on `history_file`.'''</span>
+    <span class="sd">&#39;&#39;&#39;Delete log files in `home_directory` based on `history_file`.&#39;&#39;&#39;</span>
 
     <span class="c1"># Retrieve a list of all matching log files</span>
-    <span class="n">log_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">history_file</span><span class="si">}</span><span class="s1">_*.bak'</span><span class="p">)</span>
+    <span class="n">log_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">history_file</span><span class="si">}</span><span class="s1">_*.bak&#39;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">log_files</span> <span class="o">==</span> <span class="p">[]:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"There is no log file to delete."</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There is no log file to delete.&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Log files found in </span><span class="si">{</span><span class="n">settings</span><span class="p">[</span><span class="s2">"home_directory"</span><span class="p">]</span><span class="si">}</span><span class="s1">:'</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Log files found in </span><span class="si">{</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;home_directory&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">:&#39;</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">log_file</span> <span class="ow">in</span> <span class="n">log_files</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">log_file</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">settings</span><span class="p">[</span><span class="s1">'delete_logs_without_confirming'</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;delete_logs_without_confirming&#39;</span><span class="p">]:</span>
             <span class="k">for</span> <span class="n">log_file</span> <span class="ow">in</span> <span class="n">log_files</span><span class="p">:</span>
                 <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">log_file</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">'Log files deleted.'</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Log files deleted.&#39;</span><span class="p">)</span>
             <span class="k">return</span>
 
-        <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Do you want to delete those log files? [y/n] "</span><span class="p">)</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Do you want to delete those log files? [y/n] &quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">user_says_yes</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">log_file</span> <span class="ow">in</span> <span class="n">log_files</span><span class="p">:</span>
                 <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">log_file</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">'Log files deleted.'</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Log files deleted.&#39;</span><span class="p">)</span>
             <span class="k">return</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'Operation aborted.'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Operation aborted.&#39;</span><span class="p">)</span>
     <span class="k">return</span>
 
 
 <span class="k">def</span> <span class="nf">generate_date_string</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="sd">'''Return date formatted string to backup a file.'''</span>
-    <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">(),</span> <span class="s1">'_%Y%m</span><span class="si">%d</span><span class="s1">_%H%M%S.bak'</span><span class="p">)</span>
+    <span class="sd">&#39;&#39;&#39;Return date formatted string to backup a file.&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">(),</span> <span class="s1">&#39;_%Y%m</span><span class="si">%d</span><span class="s1">_%H%M%S.bak&#39;</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">load_settings</span><span class="p">(</span><span class="n">settings_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="sd">'''Load settings in the script. Return them as a dictionary.'''</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">settings_file</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;Load settings in the script. Return them as a dictionary.&#39;&#39;&#39;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">settings_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
         <span class="n">settings</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">read_file</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">settings</span>
 
 
 <span class="k">def</span> <span class="nf">get_list_aliases</span><span class="p">(</span><span class="n">bash_aliases_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">settings</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-    <span class="sd">'''Retrieve the name of all the aliases specified in `bash_aliases_file`.</span>
+    <span class="sd">&#39;&#39;&#39;Retrieve the name of all the aliases specified in `bash_aliases_file`.</span>
 
-<span class="sd">    Return aliases as a list of strings formatted as regular expressions.'''</span>
+<span class="sd">    Return aliases as a list of strings formatted as regular expressions.&#39;&#39;&#39;</span>
 
-    <span class="n">match_whole_line</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">settings</span><span class="p">[</span><span class="s1">'aliases_match_greedily'</span><span class="p">])</span>
+    <span class="n">match_whole_line</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">settings</span><span class="p">[</span><span class="s1">&#39;aliases_match_greedily&#39;</span><span class="p">])</span>
 
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">bash_aliases_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
         <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>  <span class="c1"># one alias per line</span>
@@ -371,26 +370,26 @@ article a bit more readable, the original version is shown.</sub></p>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">content</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="c1"># Get the actual alias in each line</span>
-                <span class="c1"># Use negative lookbehind to remove 'alias ' at the beginning.</span>
+                <span class="c1"># Use negative lookbehind to remove &#39;alias &#39; at the beginning.</span>
                 <span class="c1"># Matches anything after that is a dot, digit, underscore</span>
-                <span class="c1"># or letter (will stop at the equal sign: alias blah='...')</span>
-                <span class="n">alias</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">'(?&lt;!not )alias ([\.\w]*)'</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="c1"># or letter (will stop at the equal sign: alias blah=&#39;...&#39;)</span>
+                <span class="n">alias</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?&lt;!not )alias ([\.\w]*)&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
             <span class="c1"># If for some reason the alias cannot be extracted, skip it</span>
-            <span class="c1"># If search doesn't match, it's of type None and won't work</span>
+            <span class="c1"># If search doesn&#39;t match, it&#39;s of type None and won&#39;t work</span>
             <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
                 <span class="k">continue</span>
 
             <span class="k">if</span> <span class="n">match_whole_line</span><span class="p">:</span>
                 <span class="c1"># Match the whole line if it starts with the alias.</span>
-                <span class="n">alias</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'^</span><span class="si">{</span><span class="n">alias</span><span class="si">}</span><span class="s1">( )?$|^</span><span class="si">{</span><span class="n">alias</span><span class="si">}</span><span class="s1"> .*'</span>
+                <span class="n">alias</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;^</span><span class="si">{</span><span class="n">alias</span><span class="si">}</span><span class="s1">( )?$|^</span><span class="si">{</span><span class="n">alias</span><span class="si">}</span><span class="s1"> .*&#39;</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="c1"># Will match only when alias is the whole content of the line,</span>
                 <span class="c1"># followed by optional space.</span>
-                <span class="n">alias</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'^</span><span class="si">{</span><span class="n">alias</span><span class="si">}</span><span class="s1">( )?$'</span>
+                <span class="n">alias</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;^</span><span class="si">{</span><span class="n">alias</span><span class="si">}</span><span class="s1">( )?$&#39;</span>
 
             <span class="c1"># Escape dots in alias</span>
-            <span class="n">alias</span> <span class="o">=</span> <span class="n">alias</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">({</span><span class="s2">"."</span><span class="p">:</span>  <span class="sa">r</span><span class="s2">"\."</span><span class="p">}))</span>
+            <span class="n">alias</span> <span class="o">=</span> <span class="n">alias</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">({</span><span class="s2">&quot;.&quot;</span><span class="p">:</span>  <span class="sa">r</span><span class="s2">&quot;\.&quot;</span><span class="p">}))</span>
 
             <span class="n">aliases_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alias</span><span class="p">)</span>
 
@@ -398,13 +397,13 @@ article a bit more readable, the original version is shown.</sub></p>
 
 
 <span class="k">def</span> <span class="nf">clean_bash_history</span><span class="p">(</span><span class="n">settings</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">history_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="sd">'''Modify in place `history_file` by removing every line where</span>
+    <span class="sd">&#39;&#39;&#39;Modify in place `history_file` by removing every line where</span>
 <span class="sd">    `ignore_patterns` is found.</span>
 
 <span class="sd">    Optionally, add a list of aliases to `ignore_patterns` with</span>
-<span class="sd">    `aliases` based on the value of `add_aliases` in settings.json.'''</span>
+<span class="sd">    `aliases` based on the value of `add_aliases` in settings.json.&#39;&#39;&#39;</span>
 
-    <span class="k">if</span> <span class="n">settings</span><span class="p">[</span><span class="s1">'backup_history'</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;backup_history&#39;</span><span class="p">]:</span>
         <span class="n">backup_str</span> <span class="o">=</span> <span class="n">generate_date_string</span><span class="p">()</span>
         <span class="n">file_input</span> <span class="o">=</span> <span class="n">fileinput</span><span class="o">.</span><span class="n">FileInput</span><span class="p">(</span><span class="n">history_file</span><span class="p">,</span>
                                          <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -416,7 +415,7 @@ article a bit more readable, the original version is shown.</sub></p>
     <span class="k">with</span> <span class="n">file_input</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
             <span class="n">has_match</span> <span class="o">=</span> <span class="kc">False</span>
-            <span class="k">for</span> <span class="n">pattern</span> <span class="ow">in</span> <span class="n">settings</span><span class="p">[</span><span class="s1">'ignore_patterns'</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">pattern</span> <span class="ow">in</span> <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;ignore_patterns&#39;</span><span class="p">]:</span>
                 <span class="n">matched</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span><span class="o">.</span><span class="n">search</span>
                 <span class="k">if</span> <span class="n">matched</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
                     <span class="n">has_match</span> <span class="o">=</span> <span class="kc">True</span>
@@ -424,38 +423,38 @@ article a bit more readable, the original version is shown.</sub></p>
             <span class="c1"># If no match is found (nothing to ignore), print the line</span>
             <span class="c1"># back into the file. Otherwise, it will be empty.</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">has_match</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>  <span class="c1"># Line already has carriage return</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>  <span class="c1"># Line already has carriage return</span>
 
 
 <span class="k">def</span> <span class="nf">launch_cleanup</span><span class="p">(</span><span class="n">settings</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">history_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">aliases_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="sd">'''Main function that launches the cleanup process.'''</span>
+    <span class="sd">&#39;&#39;&#39;Main function that launches the cleanup process.&#39;&#39;&#39;</span>
 
     <span class="n">bash_aliases</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="k">if</span> <span class="n">settings</span><span class="p">[</span><span class="s1">'add_aliases'</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;add_aliases&#39;</span><span class="p">]:</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">bash_aliases</span> <span class="o">=</span> <span class="n">get_list_aliases</span><span class="p">(</span><span class="n">aliases_file</span><span class="p">,</span> <span class="n">settings</span><span class="p">)</span>
 
             <span class="c1"># add aliases to list of patterns to ignore</span>
-            <span class="n">settings</span><span class="p">[</span><span class="s1">'ignore_patterns'</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">bash_aliases</span><span class="p">)</span>
+            <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;ignore_patterns&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">bash_aliases</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"File not found: </span><span class="si">{</span><span class="n">aliases_file</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File not found: </span><span class="si">{</span><span class="n">aliases_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="n">quit</span><span class="p">()</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">clean_bash_history</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="n">history_file</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"File not found: </span><span class="si">{</span><span class="n">history_file</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File not found: </span><span class="si">{</span><span class="n">history_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
-    <span class="n">SETTINGS_FILE_PATH</span> <span class="o">=</span> <span class="n">get_current_path</span><span class="p">()</span> <span class="o">/</span> <span class="s1">'settings.json'</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">SETTINGS_FILE_PATH</span> <span class="o">=</span> <span class="n">get_current_path</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;settings.json&#39;</span>
     <span class="n">SETTINGS</span> <span class="o">=</span> <span class="n">load_settings</span><span class="p">(</span><span class="n">SETTINGS_FILE_PATH</span><span class="p">)</span>
-    <span class="n">ALIASES_FILE</span> <span class="o">=</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s1">'home_directory'</span><span class="p">]</span> <span class="o">+</span> <span class="s1">'/'</span> <span class="o">+</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s1">'aliases_file'</span><span class="p">]</span>
-    <span class="n">HISTORY_FILE</span> <span class="o">=</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s1">'home_directory'</span><span class="p">]</span> <span class="o">+</span> <span class="s1">'/'</span> <span class="o">+</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s1">'history_file'</span><span class="p">]</span>
+    <span class="n">ALIASES_FILE</span> <span class="o">=</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s1">&#39;home_directory&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s1">&#39;aliases_file&#39;</span><span class="p">]</span>
+    <span class="n">HISTORY_FILE</span> <span class="o">=</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s1">&#39;home_directory&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s1">&#39;history_file&#39;</span><span class="p">]</span>
 
     <span class="c1"># initiate the parser to check all the arguments passed to the script</span>
     <span class="n">PARSER</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
     <span class="n">PARSER</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">'-c'</span><span class="p">,</span> <span class="s1">'--clear'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">'Delete all log files'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">'store_true'</span><span class="p">)</span>
+        <span class="s1">&#39;-c&#39;</span><span class="p">,</span> <span class="s1">&#39;--clear&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Delete all log files&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">)</span>
 
     <span class="c1"># read arguments from the command line</span>
     <span class="n">ARGUMENTS</span> <span class="o">=</span> <span class="n">PARSER</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
@@ -466,51 +465,53 @@ article a bit more readable, the original version is shown.</sub></p>
 
     <span class="n">launch_cleanup</span><span class="p">(</span><span class="n">SETTINGS</span><span class="p">,</span> <span class="n">HISTORY_FILE</span><span class="p">,</span> <span class="n">ALIASES_FILE</span><span class="p">)</span>
 </code></pre></div>
+
 <h2 id="settingsjson"><code>settings.json</code></h2>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">"home_directory"</span><span class="p">:</span> <span class="s2">"/home/sglavoie"</span><span class="p">,</span>
-    <span class="nt">"history_file"</span><span class="p">:</span> <span class="s2">".bash_eternal_history"</span><span class="p">,</span>
-    <span class="nt">"add_aliases"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nt">"aliases_file"</span><span class="p">:</span> <span class="s2">".bash_aliases"</span><span class="p">,</span>
-    <span class="nt">"aliases_match_greedily"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nt">"backup_history"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nt">"delete_logs_without_confirming"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="nt">"ignore_patterns"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">"^\\#\\d+"</span><span class="p">,</span>
-        <span class="s2">"^$"</span><span class="p">,</span>
-        <span class="s2">"^(\\.\\/)?pip$"</span><span class="p">,</span>
-        <span class="s2">"^(\\.\\/)?python.*$"</span><span class="p">,</span>
-        <span class="s2">"^\\.\\.$"</span><span class="p">,</span>
-        <span class="s2">"^alias"</span><span class="p">,</span>
-        <span class="s2">"^cd "</span><span class="p">,</span>
-        <span class="s2">"^cd$"</span><span class="p">,</span>
-        <span class="s2">"^cd..$"</span><span class="p">,</span>
-        <span class="s2">"^fg$"</span><span class="p">,</span>
-        <span class="s2">"^df( )?"</span><span class="p">,</span>
-        <span class="s2">"^du( )?"</span><span class="p">,</span>
-        <span class="s2">"^exit$"</span><span class="p">,</span>
-        <span class="s2">"^git branch"</span><span class="p">,</span>
-        <span class="s2">"^git checkout master"</span><span class="p">,</span>
-        <span class="s2">"^git log$"</span><span class="p">,</span>
-        <span class="s2">"^git push$"</span><span class="p">,</span>
-        <span class="s2">"^git status$"</span><span class="p">,</span>
-        <span class="s2">"^git stauts$"</span><span class="p">,</span>
-        <span class="s2">"^kill \\d+.*"</span><span class="p">,</span>
-        <span class="s2">"^ls -a$"</span><span class="p">,</span>
-        <span class="s2">"^ls$"</span><span class="p">,</span>
-        <span class="s2">"^make|make install$"</span><span class="p">,</span>
-        <span class="s2">"^man "</span><span class="p">,</span>
-        <span class="s2">"^pelican( )?$"</span><span class="p">,</span>
-        <span class="s2">"^pip install -r requirements.txt"</span><span class="p">,</span>
-        <span class="s2">"^pip.* list|pip.* show$"</span><span class="p">,</span>
-        <span class="s2">"^source "</span><span class="p">,</span>
-        <span class="s2">"^sudo apt-get autoclean|sudo apt-get autoremove$"</span><span class="p">,</span>
-        <span class="s2">"^sudo apt-get dist-upgrade|sudo apt-get update$"</span><span class="p">,</span>
-        <span class="s2">"^which "</span>
+    <span class="nt">&quot;home_directory&quot;</span><span class="p">:</span> <span class="s2">&quot;/home/sglavoie&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;history_file&quot;</span><span class="p">:</span> <span class="s2">&quot;.bash_eternal_history&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;add_aliases&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;aliases_file&quot;</span><span class="p">:</span> <span class="s2">&quot;.bash_aliases&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;aliases_match_greedily&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;backup_history&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;delete_logs_without_confirming&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;ignore_patterns&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;^\\#\\d+&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^(\\.\\/)?pip$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^(\\.\\/)?python.*$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^\\.\\.$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^alias&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^cd &quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^cd$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^cd..$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^fg$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^df( )?&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^du( )?&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^exit$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^git branch&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^git checkout master&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^git log$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^git push$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^git status$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^git stauts$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^kill \\d+.*&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^ls -a$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^ls$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^make|make install$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^man &quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^pelican( )?$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^pip install -r requirements.txt&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^pip.* list|pip.* show$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^source &quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^sudo apt-get autoclean|sudo apt-get autoremove$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^sudo apt-get dist-upgrade|sudo apt-get update$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^which &quot;</span>
     <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-<hr/>
+
+<hr>
 <h2 id="description-of-available-settings-in-settingsjson">Description of available settings in <code>settings.json</code></h2>
 <table>
 <thead>
@@ -522,7 +523,7 @@ article a bit more readable, the original version is shown.</sub></p>
 <tbody>
 <tr>
 <td><code>home_directory</code></td>
-<td>Absolute path to user’s home directory.</td>
+<td>Absolute path to user&#8217;s home directory.</td>
 </tr>
 <tr>
 <td><code>history_file</code></td>
@@ -542,7 +543,7 @@ article a bit more readable, the original version is shown.</sub></p>
 </tr>
 <tr>
 <td><code>aliases_match_greedily</code></td>
-<td>Boolean. If set to <code>true</code>, any line in <code>history_file</code> starting with an alias in <code>aliases_file</code> will be deleted. If set to <code>false</code>, delete line if the alias is the content of the whole line (with optional space at the end): <code>false</code> matches “^alias$” or “^alias $” only.</td>
+<td>Boolean. If set to <code>true</code>, any line in <code>history_file</code> starting with an alias in <code>aliases_file</code> will be deleted. If set to <code>false</code>, delete line if the alias is the content of the whole line (with optional space at the end): <code>false</code> matches &#8220;^alias$&#8221; or &#8220;^alias $&#8221; only.</td>
 </tr>
 <tr>
 <td><code>backup_history</code></td>
@@ -554,12 +555,12 @@ article a bit more readable, the original version is shown.</sub></p>
 </tr>
 </tbody>
 </table>
-<hr/>
-<h1 id="anecdotal-evidence-of-satisfying-performances">Anecdotal evidence of satisfying performances</h1>
+<hr>
+<h1 id="anecdotal-evidence-of-satisfying-performances">Anecdotal evidence of satisfying&nbsp;performances</h1>
 <p>Performance-wise, this scans ~8,300 lines per second on my modest Intel
 Core i5 laptop with files of over 200,000 lines long. Not that I type so
-much stuff in the terminal: I just duplicated many lines.</p>
-<hr/>
+much stuff in the terminal: I just duplicated many&nbsp;lines.</p>
+<hr>
 <h1 id="conclusion">Conclusion</h1>
 <p>This is a simple solution to an nonexistent problem, but it was
 in the end very instructive to me nonetheless. You may even find

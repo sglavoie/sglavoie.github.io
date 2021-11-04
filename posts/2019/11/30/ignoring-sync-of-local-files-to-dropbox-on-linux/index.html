@@ -169,77 +169,78 @@
   <div class="article_readtime">
     <p>Estimated read time: 7 minutes</p>
   </div>
-    <nav class="toc">
+  <div class="article_text">
     <div class="toc">
 <ul>
 <li><a href="#introduction">Introduction</a><ul>
-<li><a href="#why-dropbox">Why Dropbox?</a></li>
-<li><a href="#so-whats-wrong-with-dropbox">So, what’s wrong with Dropbox?</a></li>
+<li><a href="#why-dropbox">Why&nbsp;Dropbox?</a></li>
+<li><a href="#so-whats-wrong-with-dropbox">So, what&#8217;s wrong with&nbsp;Dropbox?</a></li>
 </ul>
 </li>
 <li><a href="#any-simple-example">Any simple example?</a><ul>
-<li><a href="#ignore-all-git-and-node_modules-folders">Ignore all .git and node_modules folders</a></li>
+<li><a href="#ignore-all-git-and-node_modules-folders">Ignore all .git and node_modules&nbsp;folders</a></li>
 </ul>
 </li>
 <li><a href="#can-we-make-this-simpler">Can we make this simpler?</a><ul>
-<li><a href="#how-do-you-use-those-functions">How do you use those functions?</a></li>
+<li><a href="#how-do-you-use-those-functions">How do you use those&nbsp;functions?</a></li>
 </ul>
 </li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
 </div>
-    </nav>
-  <div class="article_text">
-    
-<hr/>
+<hr>
 <h1 id="introduction">Introduction</h1>
-<p><a href="https://www.dropbox.com">Dropbox</a> is an awesome company which has been until recently the working home of none other than <a href="https://gvanrossum.github.io">Guido van Rossum</a>, the creator of the <a href="https://www.python.org">Python</a> programming language. It works like a charm out of the box on Linux and can be installed easily enough through the package manager that comes with your chosen distribution.</p>
-<h2 id="why-dropbox">Why Dropbox?</h2>
-<p>In my experience, it has been working flawlessly and syncs consistently faster than Google Drive. It’s also worth mentioning that there is still no official Google Drive Linux client to this day: some users of the <a href="https://www.gnome.org"><span class="caps">GNOME</span></a> desktop environment will connect to their Google account and mount Google Drive within the file manager <a href="https://wiki.gnome.org/Apps/Files">Nautilus/Files</a>; other users will use the paid software <a href="https://www.insynchq.com">Insync</a> or the free software alternative <a href="https://liberodark.github.io/ODrive/">ODrive</a>. No thanks.</p>
-<p>On the other hand, Dropbox is easy to use with any flavor of Linux and also syncs seamlessly with mobile devices. I use Dropbox for its convenience, but other solutions exist like <a href="https://syncthing.net">Syncthing</a> that do not depend on proprietary software and third-party cloud services. I store mostly insensitive information in my Dropbox account and for the few files that happen to be a bit more sensitive (such as the password database I synchronize on both desktop and mobile with <a href="https://keepassxc.org">KeePassXC</a> and <a href="https://github.com/PhilippC/keepass2android">Keepass2Android</a>, respectively), they are of course encrypted (hopefully in a secure way).</p>
-<p>Because I like to keep things simple and light on system resources, I do not let Dropbox run in the background (it only syncs once a day in the evening). Since all one needs to do in order to use it is to create and modify files inside a specific folder (such as <code>~/Dropbox</code> by default), it can just synchronize at any moment and conflicts will be handled automatically if you make changes in more than one place that’s being synced.</p>
-<h2 id="so-whats-wrong-with-dropbox">So, what’s wrong with Dropbox?</h2>
-<p>With all that said, there’s one little feature that I find missing with Dropbox when using the official Linux client and that’s the <strong>ability to selectively sync local files</strong>. Yes, there is a <a href="https://help.dropbox.com/installs-integrations/sync-uploads/selective-sync-overview">selective sync</a> feature available, but that will delete the local copy of your files and store them in the cloud only, <em>not the other way around by keeping your local files intact and prevent uploading them to the cloud</em>. There are some hacks you can do to avoid this, but this isn’t a particularly enticing work flow, because we can do better.</p>
-<p><a href="https://www.sglavoie.com/images/posts/0019_ignoring-local-files-to-sync-with-dropbox-on-linux/dropbox_selective_sync.png"><img alt="dropbox_selective_sync" class="max-size-img-post" src="https://www.sglavoie.com/images/posts/0019_ignoring-local-files-to-sync-with-dropbox-on-linux/dropbox_selective_sync.png"/></a></p>
-<p>You may have heard of other alternatives like <a href="https://www.goodsync.com">GoodSync</a> that allow, through yet another third-party proprietary software, to ignore specific files at your request. That’s not what we are after here: instead, there’s something you can do from the terminal that works quite well, too. At the time of this writing, it is still a <em>beta feature</em> <a href="https://help.dropbox.com/files-folders/restore-delete/ignored-files">according to this page</a>:</p>
+<p><a href="https://www.dropbox.com">Dropbox</a> is an awesome company which has been until recently the working home of none other than <a href="https://gvanrossum.github.io">Guido van Rossum</a>, the creator of the <a href="https://www.python.org">Python</a> programming language. It works like a charm out of the box on Linux and can be installed easily enough through the package manager that comes with your chosen&nbsp;distribution.</p>
+<h2 id="why-dropbox">Why&nbsp;Dropbox?</h2>
+<p>In my experience, it has been working flawlessly and syncs consistently faster than Google Drive. It&#8217;s also worth mentioning that there is still no official Google Drive Linux client to this day: some users of the <a href="https://www.gnome.org"><span class="caps">GNOME</span></a> desktop environment will connect to their Google account and mount Google Drive within the file manager <a href="https://wiki.gnome.org/Apps/Files">Nautilus/Files</a>; other users will use the paid software <a href="https://www.insynchq.com">Insync</a> or the free software alternative <a href="https://liberodark.github.io/ODrive/">ODrive</a>. No&nbsp;thanks.</p>
+<p>On the other hand, Dropbox is easy to use with any flavor of Linux and also syncs seamlessly with mobile devices. I use Dropbox for its convenience, but other solutions exist like <a href="https://syncthing.net">Syncthing</a> that do not depend on proprietary software and third-party cloud services. I store mostly insensitive information in my Dropbox account and for the few files that happen to be a bit more sensitive (such as the password database I synchronize on both desktop and mobile with <a href="https://keepassxc.org">KeePassXC</a> and <a href="https://github.com/PhilippC/keepass2android">Keepass2Android</a>, respectively), they are of course encrypted (hopefully in a secure&nbsp;way).</p>
+<p>Because I like to keep things simple and light on system resources, I do not let Dropbox run in the background (it only syncs once a day in the evening). Since all one needs to do in order to use it is to create and modify files inside a specific folder (such as <code>~/Dropbox</code> by default), it can just synchronize at any moment and conflicts will be handled automatically if you make changes in more than one place that&#8217;s being&nbsp;synced.</p>
+<h2 id="so-whats-wrong-with-dropbox">So, what&#8217;s wrong with&nbsp;Dropbox?</h2>
+<p>With all that said, there&#8217;s one little feature that I find missing with Dropbox when using the official Linux client and that&#8217;s the <strong>ability to selectively sync local files</strong>. Yes, there is a <a href="https://help.dropbox.com/installs-integrations/sync-uploads/selective-sync-overview">selective sync</a> feature available, but that will delete the local copy of your files and store them in the cloud only, <em>not the other way around by keeping your local files intact and prevent uploading them to the cloud</em>. There are some hacks you can do to avoid this, but this isn&#8217;t a particularly enticing work flow, because we can do&nbsp;better.</p>
+<p><a href="https://www.sglavoie.com/images/posts/0019_ignoring-local-files-to-sync-with-dropbox-on-linux/dropbox_selective_sync.png"><img src="https://www.sglavoie.com/images/posts/0019_ignoring-local-files-to-sync-with-dropbox-on-linux/dropbox_selective_sync.png" alt="dropbox_selective_sync" class="max-size-img-post"></a></p>
+<p>You may have heard of other alternatives like <a href="https://www.goodsync.com">GoodSync</a> that allow, through yet another third-party proprietary software, to ignore specific files at your request. That&#8217;s not what we are after here: instead, there&#8217;s something you can do from the terminal that works quite well, too. At the time of this writing, it is still a <em>beta feature</em> <a href="https://help.dropbox.com/files-folders/restore-delete/ignored-files">according to this page</a>:</p>
 <blockquote>
-<p>This feature is currently in beta and not available to all Dropbox users. It will be rolled out to more users in the future.</p>
+<p>This feature is currently in beta and not available to all Dropbox users. It will be rolled out to more users in the&nbsp;future.</p>
 </blockquote>
-<p>Yet, because you can work with this feature programmatically to ignore and <em>un-ignore</em> files from your Dropbox directory, I thought it was worth giving it a try. Here is how I’m using it to give you a few ideas.</p>
-<hr/>
-<h1 id="any-simple-example">Any simple example?</h1>
-<p>Getting started is quick and painless. To ignore a file within your Dropbox folder, you only need to use the <code>attr</code> command to <strong>set</strong> (<code>-s</code>) the special attribute <code>com.dropbox.ignored</code> to give it a <strong>value</strong> of <code>1</code> (<code>-V 1</code>) so it ignores a file (<code>file.txt</code> in this example) as follow:</p>
+<p>Yet, because you can work with this feature programmatically to ignore and <em>un-ignore</em> files from your Dropbox directory, I thought it was worth giving it a try. Here is how I&#8217;m using it to give you a few&nbsp;ideas.</p>
+<hr>
+<h1 id="any-simple-example">Any simple&nbsp;example?</h1>
+<p>Getting started is quick and painless. To ignore a file within your Dropbox folder, you only need to use the <code>attr</code> command to <strong>set</strong> (<code>-s</code>) the special attribute <code>com.dropbox.ignored</code> to give it a <strong>value</strong> of <code>1</code> (<code>-V 1</code>) so it ignores a file (<code>file.txt</code> in this example) as&nbsp;follow:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> /path/to/file/in/Dropbox/folder
 
 attr -s com.dropbox.ignored -V <span class="m">1</span> file.txt
 </code></pre></div>
-<h2 id="ignore-all-git-and-node_modules-folders">Ignore all .git and node_modules folders</h2>
-<p>Things get <strong>really</strong> interesting when we can do that automatically by matching a specific pattern (it depends who you ask, anyways). How about exploring recursively the whole directory tree to exclude only hidden <code>.git</code> folders? Suppose you store your Git projects in <code>~/Dropbox/git/</code>. You would then do something like this:</p>
+
+<h2 id="ignore-all-git-and-node_modules-folders">Ignore all .git and node_modules&nbsp;folders</h2>
+<p>Things get <strong>really</strong> interesting when we can do that automatically by matching a specific pattern (it depends who you ask, anyways). How about exploring recursively the whole directory tree to exclude only hidden <code>.git</code> folders? Suppose you store your Git projects in <code>~/Dropbox/git/</code>. You would then do something like&nbsp;this:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/Dropbox/git/
 
-find . -type d -name <span class="s2">".git"</span> <span class="p">|</span>
-    xargs -I <span class="o">{}</span> attr -s com.dropbox.ignored -V <span class="m">1</span> <span class="s2">"{}"</span>
+find . -type d -name <span class="s2">&quot;.git&quot;</span> <span class="p">|</span>
+    xargs -I <span class="o">{}</span> attr -s com.dropbox.ignored -V <span class="m">1</span> <span class="s2">&quot;{}&quot;</span>
 </code></pre></div>
-<p>In an instant, you will start getting some feedback printed to the terminal for each <code>.git</code> folder that is being found:</p>
-<div class="highlight"><pre><span></span><code>Attribute "com.dropbox.ignored" set to a 1 byte value for ./path/to/.git:
+
+<p>In an instant, you will start getting some feedback printed to the terminal for each <code>.git</code> folder that is being&nbsp;found:</p>
+<div class="highlight"><pre><span></span><code>Attribute &quot;com.dropbox.ignored&quot; set to a 1 byte value for ./path/to/.git:
 1
 </code></pre></div>
-<p>Dealing with <code>node_modules</code> folders is equally easy. Because a message will be printed to the console every time a file attribute is changed, you could want to delete the output (preferably once you are sure you are modifying only the targeted files!) by redirecting it to <code>/dev/null</code>, a <em>null device</em> that discards all data it receives. We can always split a long command onto multiple lines with a backslash character <code>\</code> like so (it’s not required right after the pipe <code>|</code> symbol):</p>
-<div class="highlight"><pre><span></span><code>find . -type d -name <span class="s2">"node_modules"</span> <span class="p">|</span>
+
+<p>Dealing with <code>node_modules</code> folders is equally easy. Because a message will be printed to the console every time a file attribute is changed, you could want to delete the output (preferably once you are sure you are modifying only the targeted files!) by redirecting it to <code>/dev/null</code>, a <em>null device</em> that discards all data it receives. We can always split a long command onto multiple lines with a backslash character <code>\</code> like so (it&#8217;s not required right after the pipe <code>|</code> symbol):</p>
+<div class="highlight"><pre><span></span><code>find . -type d -name <span class="s2">&quot;node_modules&quot;</span> <span class="p">|</span>
     xargs -I <span class="o">{}</span> attr -s com.dropbox.ignored -V <span class="m">1</span> <span class="se">\</span>
-    <span class="s2">"{}"</span> &gt; /dev/null
+    <span class="s2">&quot;{}&quot;</span> &gt; /dev/null
 </code></pre></div>
-<hr/>
-<h1 id="can-we-make-this-simpler">Can we make this simpler?</h1>
-<p>Yes we can! An <code>alias</code> might be a bit hard to manage, but we can definitely create a set of functions that will be accessible from anywhere in the terminal. It suffices to add them to your shell configuration file, which could be located in <code>~/.profile</code>, <code>~/.bash_profile</code>, <code>~/.zshrc</code> or something else depending on your shell.</p>
+
+<hr>
+<h1 id="can-we-make-this-simpler">Can we make this&nbsp;simpler?</h1>
+<p>Yes we can! An <code>alias</code> might be a bit hard to manage, but we can definitely create a set of functions that will be accessible from anywhere in the terminal. It suffices to add them to your shell configuration file, which could be located in <code>~/.profile</code>, <code>~/.bash_profile</code>, <code>~/.zshrc</code> or something else depending on your&nbsp;shell.</p>
 <p>One solution that I see fit for this purpose is to have two distinct functions that have antagonistic effects so that we can revert our changes in a pinch. Basically, setting a value of <code>1</code> for the attribute <code>com.dropbox.ignored</code> ignores a file while setting it back to <code>0</code> tells Dropbox to sync it again. Our functions could be conveniently called <code>dropbox-ignore</code> and <code>dropbox-sync</code>.</p>
-<p>Now, the following functions could become quite a bit more complicated to take into account various scenarios and custom behaviors, but let’s keep things simple and assume that the user knows what is going to happen. We could have our two functions as follow:</p>
+<p>Now, the following functions could become quite a bit more complicated to take into account various scenarios and custom behaviors, but let&#8217;s keep things simple and assume that the user knows what is going to happen. We could have our two functions as&nbsp;follow:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Ignore specific files/directories in Dropbox</span>
 dropbox-ignore<span class="o">(){</span>
   <span class="nv">arg1</span><span class="o">=</span><span class="nv">$1</span>
   <span class="nv">arg2</span><span class="o">=</span><span class="nv">$2</span>
-  find . -type <span class="nv">$arg1</span> -name <span class="s2">"</span><span class="nv">$arg2</span><span class="s2">"</span> <span class="p">|</span>
-      xargs -I <span class="o">{}</span> attr -s com.dropbox.ignored -V <span class="m">1</span> <span class="s2">"{}"</span>
+  find . -type <span class="nv">$arg1</span> -name <span class="s2">&quot;</span><span class="nv">$arg2</span><span class="s2">&quot;</span> <span class="p">|</span>
+      xargs -I <span class="o">{}</span> attr -s com.dropbox.ignored -V <span class="m">1</span> <span class="s2">&quot;{}&quot;</span>
 <span class="o">}</span>
 
 <span class="c1"># Sync specific files/directories in Dropbox</span>
@@ -247,14 +248,15 @@ dropbox-ignore<span class="o">(){</span>
 dropbox-sync<span class="o">(){</span>
   <span class="nv">arg1</span><span class="o">=</span><span class="nv">$1</span>
   <span class="nv">arg2</span><span class="o">=</span><span class="nv">$2</span>
-  find . -type <span class="nv">$arg1</span> -name <span class="s2">"</span><span class="nv">$arg2</span><span class="s2">"</span> <span class="p">|</span>
-      xargs -I <span class="o">{}</span> attr -s com.dropbox.ignored -V <span class="m">0</span> <span class="s2">"{}"</span>
+  find . -type <span class="nv">$arg1</span> -name <span class="s2">&quot;</span><span class="nv">$arg2</span><span class="s2">&quot;</span> <span class="p">|</span>
+      xargs -I <span class="o">{}</span> attr -s com.dropbox.ignored -V <span class="m">0</span> <span class="s2">&quot;{}&quot;</span>
 <span class="o">}</span>
 </code></pre></div>
-<h2 id="how-do-you-use-those-functions">How do you use those functions?</h2>
-<p>Our commands will be accessible by typing <code>dropbox-ignore</code> and <code>dropbox-sync</code> the next time we open a terminal window. Both functions do exactly the same thing, but <code>dropbox-ignore</code> sets the attribute value to <code>1</code> to ignore files and <code>dropbox-sync</code> sets the attribute to <code>0</code> to allow syncing to happen.</p>
-<p><sub>Note: For simplicity and practicality, keep in mind that those commands will search <strong>recursively from the current working directory</strong>. It’s also good to know that if you set an attribute value to <code>1</code> then back to <code>0</code> again, Dropbox will need to re-sync the affected files and directories.</sub></p>
-<p>We need to pass them two arguments: the first is the type of search to perform (pass <code>f</code> for <strong>files</strong> and <code>d</code> for <strong>directories</strong>) and the second is the pattern to match in the name (<code>node_modules</code> or <code>.git</code> would fit here, no need to use quotes). Concretely, that will look like this:</p>
+
+<h2 id="how-do-you-use-those-functions">How do you use those&nbsp;functions?</h2>
+<p>Our commands will be accessible by typing <code>dropbox-ignore</code> and <code>dropbox-sync</code> the next time we open a terminal window. Both functions do exactly the same thing, but <code>dropbox-ignore</code> sets the attribute value to <code>1</code> to ignore files and <code>dropbox-sync</code> sets the attribute to <code>0</code> to allow syncing to&nbsp;happen.</p>
+<p><sub>Note: For simplicity and practicality, keep in mind that those commands will search <strong>recursively from the current working directory</strong>. It&#8217;s also good to know that if you set an attribute value to <code>1</code> then back to <code>0</code> again, Dropbox will need to re-sync the affected files and directories.</sub></p>
+<p>We need to pass them two arguments: the first is the type of search to perform (pass <code>f</code> for <strong>files</strong> and <code>d</code> for <strong>directories</strong>) and the second is the pattern to match in the name (<code>node_modules</code> or <code>.git</code> would fit here, no need to use quotes). Concretely, that will look like&nbsp;this:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># To ignore a file matching the pattern `myfile`</span>
 dropbox-ignore f myfile
 
@@ -264,10 +266,11 @@ dropbox-ignore d node_modules
 <span class="c1"># Te re-add a .git/ folder to Dropbox</span>
 dropbox-sync d .git
 </code></pre></div>
-<hr/>
+
+<hr>
 <h1 id="conclusion">Conclusion</h1>
-<p>This tip may certainly not be the best approach to solving this particular issue with Dropbox on Linux, but I hope you find it useful nevertheless as it worked out very nicely on my end! One could store files and directories elsewhere, working with symbolic links or hard links as necessary to reference files or simply give up on making a backup with Dropbox in some circumstances. But I like to keep an extra copy of projects I’m working on in Dropbox and that can include potentially large files that don’t need to be backed up, so ignoring what’s not indispensable can speed up the syncing process tremendously while keeping disk usage in the cloud possibly much lower.</p>
-<p>Dropbox only calculates the size of the files being synced in the cloud, so you can end up needing a lot more space locally if you ignore a number of big files or, conversely, selectively syncing many files will result in a cloud storage larger than what’s needed locally.</p>
+<p>This tip may certainly not be the best approach to solving this particular issue with Dropbox on Linux, but I hope you find it useful nevertheless as it worked out very nicely on my end! One could store files and directories elsewhere, working with symbolic links or hard links as necessary to reference files or simply give up on making a backup with Dropbox in some circumstances. But I like to keep an extra copy of projects I&#8217;m working on in Dropbox and that can include potentially large files that don&#8217;t need to be backed up, so ignoring what&#8217;s not indispensable can speed up the syncing process tremendously while keeping disk usage in the cloud possibly much&nbsp;lower.</p>
+<p>Dropbox only calculates the size of the files being synced in the cloud, so you can end up needing a lot more space locally if you ignore a number of big files or, conversely, selectively syncing many files will result in a cloud storage larger than what&#8217;s needed&nbsp;locally.</p>
   </div>
   <div class="article_meta">
     <p>Posted on: Sat 30 November 2019</p>

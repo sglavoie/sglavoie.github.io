@@ -169,18 +169,15 @@
   <div class="article_readtime">
     <p>Estimated read time: 3 minutes</p>
   </div>
-    <nav class="toc">
+  <div class="article_text">
     <div class="toc">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#the-script-in-action">The script in action</a></li>
+<li><a href="#the-script-in-action">The script in&nbsp;action</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
 </div>
-    </nav>
-  <div class="article_text">
-    
-<hr/>
+<hr>
 <h1 id="introduction">Introduction</h1>
 <p>The following Python script will by no means provide any useful idea to
 compete against the
@@ -188,17 +185,17 @@ compete against the
 , but it does give you an idea of how
 a simple technique about reducing the size of an exponent in modular
 arithmetic can bring you closer to using much larger numbers than the
-ones you could normally use in the Python interpreter.</p>
-<h1 id="the-script-in-action">The script in action</h1>
-<div class="highlight"><pre><span></span><code><span class="sd">"""Compute the result of a^b (mod k) by using the exponentiation technique.</span>
+ones you could normally use in the Python&nbsp;interpreter.</p>
+<h1 id="the-script-in-action">The script in&nbsp;action</h1>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;Compute the result of a^b (mod k) by using the exponentiation technique.</span>
 <span class="sd">The goal here is not efficiency, even though the program is actually pretty</span>
 <span class="sd">fast: the algorithm is applied manually for demonstration purposes.</span>
 <span class="sd">Testing on a modest Intel Core i5, having `a` and `b` each set to a random</span>
 <span class="sd">number containing 2,000 digits and `k` set to a modulo of a number containing</span>
-<span class="sd">20 digits, results are printed in about 3.3 seconds."""</span>
+<span class="sd">20 digits, results are printed in about 3.3 seconds.&quot;&quot;&quot;</span>
 
 <span class="k">def</span> <span class="nf">binary_remainders</span><span class="p">(</span><span class="n">num_b</span><span class="p">):</span>
-    <span class="sd">"""Take `b` and return the binary equivalent in a list of remainders."""</span>
+    <span class="sd">&quot;&quot;&quot;Take `b` and return the binary equivalent in a list of remainders.&quot;&quot;&quot;</span>
     <span class="n">remainders</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">quotient</span> <span class="o">=</span> <span class="n">num_b</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -214,8 +211,8 @@ ones you could normally use in the Python interpreter.</p>
 
 
 <span class="k">def</span> <span class="nf">powers_of_two</span><span class="p">(</span><span class="n">remainders</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">"""Return a list of the value of powers of two that form the</span>
-<span class="sd">    exponent`b`."""</span>
+    <span class="sd">&quot;&quot;&quot;Return a list of the value of powers of two that form the</span>
+<span class="sd">    exponent`b`.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">remainders</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">None</span>
 
@@ -228,8 +225,8 @@ ones you could normally use in the Python interpreter.</p>
 
 
 <span class="k">def</span> <span class="nf">compute_intermediate_congruences</span><span class="p">(</span><span class="n">num_a</span><span class="p">,</span> <span class="n">num_k</span><span class="p">,</span> <span class="n">powers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">"""Compute all necessary intermediate results of congruence in `mod k` for</span>
-<span class="sd">    powers of 2 in `powers` to form the number `b`."""</span>
+    <span class="sd">&quot;&quot;&quot;Compute all necessary intermediate results of congruence in `mod k` for</span>
+<span class="sd">    powers of 2 in `powers` to form the number `b`.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">powers</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">None</span>
 
@@ -248,9 +245,9 @@ ones you could normally use in the Python interpreter.</p>
 
 
 <span class="k">def</span> <span class="nf">compute_final_congruence</span><span class="p">(</span><span class="n">num_k</span><span class="p">,</span> <span class="n">powers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">intermediate_results</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">"""Take all relevant values from `intermediate_results` matching powers in</span>
+    <span class="sd">&quot;&quot;&quot;Take all relevant values from `intermediate_results` matching powers in</span>
 <span class="sd">    `powers`, multiply them together and calculate this number `mod k` to get</span>
-<span class="sd">    the final result."""</span>
+<span class="sd">    the final result.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">intermediate_results</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">powers</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">None</span>
 
@@ -269,7 +266,7 @@ ones you could normally use in the Python interpreter.</p>
 
 
 <span class="k">def</span> <span class="nf">compute_congruence</span><span class="p">(</span><span class="n">num_a</span><span class="p">,</span> <span class="n">num_b</span><span class="p">,</span> <span class="n">num_k</span><span class="p">):</span>
-    <span class="sd">"""Return `c`, the result of `a^b (mod k)`."""</span>
+    <span class="sd">&quot;&quot;&quot;Return `c`, the result of `a^b (mod k)`.&quot;&quot;&quot;</span>
     <span class="n">num_a</span> <span class="o">=</span> <span class="n">num_a</span> <span class="o">%</span> <span class="n">num_k</span>  <span class="c1"># Make sure `a` is smaller than `k`</span>
 
     <span class="c1"># Reduce `b` to list of remainders in binary</span>
@@ -289,21 +286,22 @@ ones you could normally use in the Python interpreter.</p>
     <span class="k">return</span> <span class="n">compute_final_congruence</span><span class="p">(</span><span class="n">num_k</span><span class="p">,</span> <span class="n">powers</span><span class="p">,</span> <span class="n">intermediate_results</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"We will calculate a^b (mod k). Enter only integers."</span><span class="p">)</span>
-    <span class="n">NUM_A</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Provide `a`: "</span><span class="p">))</span>
-    <span class="n">NUM_B</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Provide `b`: "</span><span class="p">))</span>
-    <span class="n">NUM_K</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Provide `k`: "</span><span class="p">))</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We will calculate a^b (mod k). Enter only integers.&quot;</span><span class="p">)</span>
+    <span class="n">NUM_A</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Provide `a`: &quot;</span><span class="p">))</span>
+    <span class="n">NUM_B</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Provide `b`: &quot;</span><span class="p">))</span>
+    <span class="n">NUM_K</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Provide `k`: &quot;</span><span class="p">))</span>
 
     <span class="n">FINAL_RESULT</span> <span class="o">=</span> <span class="n">compute_congruence</span><span class="p">(</span><span class="n">NUM_A</span><span class="p">,</span> <span class="n">NUM_B</span><span class="p">,</span> <span class="n">NUM_K</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">FINAL_RESULT</span><span class="p">)</span>
 </code></pre></div>
+
 <h1 id="conclusion">Conclusion</h1>
-<p>It was very interesting to see how a technique that’s applied manually
+<p>It was very interesting to see how a technique that&#8217;s applied manually
 will work wonders with such large numbers. The Python interpreter can
 barely calculate numbers with exponents with seven digits or more, while
 a basic approach like the one shown above can quickly churn out the
-results for seemingly quite large numbers.</p>
+results for seemingly quite large&nbsp;numbers.</p>
 <p>As always, this code is
 <a href="https://github.com/sglavoie/code-snippets/blob/main/python/mathematics/modular_arithmetic/exponentiation_mod_k.py">available on GitHub</a>.</p>
   </div>

@@ -169,42 +169,40 @@
   <div class="article_readtime">
     <p>Estimated read time: 4 minutes</p>
   </div>
-    <nav class="toc">
+  <div class="article_text">
     <div class="toc">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#python-to-the-rescue">Python to the rescue</a><ul>
-<li><a href="#example-usage">Example usage</a></li>
+<li><a href="#example-usage">Example&nbsp;usage</a></li>
 </ul>
 </li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
 </div>
-    </nav>
-  <div class="article_text">
-    
-<hr/>
+<hr>
 <h1 id="introduction">Introduction</h1>
 <p><a href="https://haveibeenpwned.com/">Have I Been Pwned?</a> has a very simple and
-accessible <span class="caps">API</span> that’s perfect to work with as a beginner. There are
+accessible <span class="caps">API</span> that&#8217;s perfect to work with as a beginner. There are
 different ways to retrieve information and the script below is only
 one glimpse into the numerous possibilities available. It is built in
 a way that makes it easy to add features and functionality thanks to
-<a href="https://github.com/pallets/click">Click</a>, a wonderful <em>“command line
-interface toolkit”</em>.</p>
-<h1 id="python-to-the-rescue">Python to the rescue</h1>
+<a href="https://github.com/pallets/click">Click</a>, a wonderful <em>&#8220;command line
+interface toolkit&#8221;</em>.</p>
+<h1 id="python-to-the-rescue">Python to the&nbsp;rescue</h1>
 <p>The following script uses <a href="https://github.com/pallets/click">Click</a>
 to build a tiny command-line interface instead of more
 traditional tools like <code>argparse</code>. You will also need
 <a href="https://github.com/kennethreitz/requests">requests</a> to peek inside the
-<span class="caps">API</span>. Both can be obtained as follow in a terminal:</p>
+<span class="caps">API</span>. Both can be obtained as follow in a&nbsp;terminal:</p>
 <div class="highlight"><pre><span></span><code>$ pip install click requests
 </code></pre></div>
+
 <p>And now, the <em>pièce de résistance</em>.</p>
-<div class="highlight"><pre><span></span><code><span class="sd">"""</span>
-<span class="sd">Simple script that will take advantage of haveibeenpwned.com's API to</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Simple script that will take advantage of haveibeenpwned.com&#39;s API to</span>
 <span class="sd">find out if your password has been breached.</span>
-<span class="sd">"""</span>
+<span class="sd">&quot;&quot;&quot;</span>
 <span class="c1"># Standard library imports</span>
 <span class="kn">import</span> <span class="nn">hashlib</span>
 
@@ -214,11 +212,11 @@ traditional tools like <code>argparse</code>. You will also need
 
 
 <span class="c1"># Needed to access API</span>
-<span class="n">PASS_URL</span> <span class="o">=</span> <span class="s1">'https://api.pwnedpasswords.com/range/'</span>
+<span class="n">PASS_URL</span> <span class="o">=</span> <span class="s1">&#39;https://api.pwnedpasswords.com/range/&#39;</span>
 
 <span class="c1"># Script information</span>
-<span class="n">VERSION</span> <span class="o">=</span> <span class="s1">'0.1.1'</span>
-<span class="n">LOGO</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'''</span>
+<span class="n">VERSION</span> <span class="o">=</span> <span class="s1">&#39;0.1.1&#39;</span>
+<span class="n">LOGO</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&#39;&#39;</span>
 <span class="s1"> __                        __   __</span>
 <span class="s1">|  |--.---.-.--.--.-----. |__| |  |--.-----.-----.-----.</span>
 <span class="s1">|     |  _  |  |  |  -__| |  | |  _  |  -__|  -__|     |</span>
@@ -226,24 +224,24 @@ traditional tools like <code>argparse</code>. You will also need
 
 <span class="s1">                               __  _____</span>
 <span class="s1">.-----.--.--.--.-----.-----.--|  ||__   |</span>
-<span class="s1">|  _  |  |  |  |     |  -__|  _  |',  ,-'</span>
+<span class="s1">|  _  |  |  |  |     |  -__|  _  |&#39;,  ,-&#39;</span>
 <span class="s1">|   __|________|__|__|_____|_____| |--|</span>
-<span class="s1">|__|                               '--'  '''</span>
+<span class="s1">|__|                               &#39;--&#39;  &#39;&#39;&#39;</span>
 
 
 <span class="k">def</span> <span class="nf">print_info</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>  <span class="c1"># `param` required by `click`</span>
-    <span class="sd">"""Print information about the program and exit."""</span>
+    <span class="sd">&quot;&quot;&quot;Print information about the program and exit.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span> <span class="ow">or</span> <span class="n">context</span><span class="o">.</span><span class="n">resilient_parsing</span><span class="p">:</span>
         <span class="k">return</span>
-    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">LOGO</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="s2">"Python 3.6+ Checker"</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span>
-                <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="p">(</span><span class="s2">"v"</span> <span class="o">+</span> <span class="n">VERSION</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">,</span> <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">LOGO</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="s2">&quot;Python 3.6+ Checker&quot;</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="p">(</span><span class="s2">&quot;v&quot;</span> <span class="o">+</span> <span class="n">VERSION</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">context</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
 
 <span class="k">def</span> <span class="nf">pass_to_sha1</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
-    <span class="sd">"""Will convert `password` with SHA-1 algorithm and return the short</span>
+    <span class="sd">&quot;&quot;&quot;Will convert `password` with SHA-1 algorithm and return the short</span>
 <span class="sd">    version with the first five characters and the long version with</span>
-<span class="sd">    everything but the first five characters as a tuple."""</span>
+<span class="sd">    everything but the first five characters as a tuple.&quot;&quot;&quot;</span>
 
     <span class="n">my_password</span> <span class="o">=</span> <span class="n">password</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>  <span class="c1"># converts to byte string</span>
 
@@ -255,76 +253,77 @@ traditional tools like <code>argparse</code>. You will also need
 
 
 <span class="k">def</span> <span class="nf">check_password</span><span class="p">(</span><span class="n">short_hash</span><span class="p">,</span> <span class="n">long_hash</span><span class="p">):</span>
-    <span class="sd">"""Consult haveibeenpwned.com to see how many times the password has</span>
-<span class="sd">    been breached."""</span>
-    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">'Please note that only the 5 first characters from your '</span>
-                <span class="s1">'SHA-1 ENCRYPTED password are sent to haveibeenpwned.com.'</span><span class="p">,</span>
-                <span class="n">fg</span><span class="o">=</span><span class="s1">'yellow'</span><span class="p">,</span> <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="sd">&quot;&quot;&quot;Consult haveibeenpwned.com to see how many times the password has</span>
+<span class="sd">    been breached.&quot;&quot;&quot;</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">&#39;Please note that only the 5 first characters from your &#39;</span>
+                <span class="s1">&#39;SHA-1 ENCRYPTED password are sent to haveibeenpwned.com.&#39;</span><span class="p">,</span>
+                <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">PASS_URL</span> <span class="o">+</span> <span class="n">short_hash</span><span class="p">)</span>
     <span class="n">lines</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">long_hash</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-            <span class="n">num_times</span> <span class="o">=</span> <span class="s1">'occurrences'</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">36</span><span class="p">:])</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">'occurence'</span>
-            <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">'Your password was found!'</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span> <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-            <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="sa">f</span><span class="s1">'→ </span><span class="si">{</span><span class="n">line</span><span class="p">[</span><span class="mi">36</span><span class="p">:]</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">num_times</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+            <span class="n">num_times</span> <span class="o">=</span> <span class="s1">&#39;occurrences&#39;</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">36</span><span class="p">:])</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39;occurence&#39;</span>
+            <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">&#39;Your password was found!&#39;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;→ </span><span class="si">{</span><span class="n">line</span><span class="p">[</span><span class="mi">36</span><span class="p">:]</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">num_times</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
             <span class="k">break</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">'Your password was NOT found!'</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">'green'</span><span class="p">)</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">&#39;Your password was NOT found!&#39;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
 
 
 <span class="nd">@click</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
 <span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span>
-    <span class="s1">'--info'</span><span class="p">,</span>
+    <span class="s1">&#39;--info&#39;</span><span class="p">,</span>
     <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">callback</span><span class="o">=</span><span class="n">print_info</span><span class="p">,</span>
     <span class="n">expose_value</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">is_eager</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">help</span><span class="o">=</span><span class="s2">"Print some information about the program and exit."</span><span class="p">)</span>
-<span class="nd">@click</span><span class="o">.</span><span class="n">version_option</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">VERSION</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">"</span><span class="si">%(version)s</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Print some information about the program and exit.&quot;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">version_option</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">VERSION</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(version)s</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">hibp</span><span class="p">():</span>
-    <span class="sd">"""A simple command-line interface to make use of</span>
-<span class="sd">    haveibeenpwned.com's data.</span>
+    <span class="sd">&quot;&quot;&quot;A simple command-line interface to make use of</span>
+<span class="sd">    haveibeenpwned.com&#39;s data.</span>
 
 <span class="sd">    Type `python3 pwned.py usage` for more info (or whatever way you</span>
-<span class="sd">    call Python 3)."""</span>
+<span class="sd">    call Python 3).&quot;&quot;&quot;</span>
 
 
 <span class="nd">@hibp</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">usage</span><span class="p">():</span>
-    <span class="sd">"""Give examples on how to use this script."""</span>
-    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">'Examples:'</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">)</span>
-    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">'python3 pwned.py check --help for more info.'</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">'green'</span><span class="p">)</span>
-    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">'python3 pwned.py check -p MyPasswordHere'</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">'yellow'</span><span class="p">)</span>
-    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">'python3 pwned.py check --password MyPasswordHere'</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">'green'</span><span class="p">)</span>
+    <span class="sd">&quot;&quot;&quot;Give examples on how to use this script.&quot;&quot;&quot;</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">&#39;Examples:&#39;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">&#39;python3 pwned.py check --help for more info.&#39;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">&#39;python3 pwned.py check -p MyPasswordHere&#39;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">&#39;python3 pwned.py check --password MyPasswordHere&#39;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
 
-    <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
-    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">'For more complicated passwords, you have to use quotes and '</span><span class="p">,</span>
-                <span class="n">fg</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">)</span>
-    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">'escape symbols with </span><span class="se">\\</span><span class="s1"> where appropriate:'</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">)</span>
-    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">'python3 pwned.py check -p "as0d9</span><span class="se">\\</span><span class="s1">"asg0</span><span class="se">\'\'</span><span class="s1">A=)SYD"'</span><span class="p">,</span>
-                <span class="n">fg</span><span class="o">=</span><span class="s1">'green'</span><span class="p">)</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">&#39;For more complicated passwords, you have to use quotes and &#39;</span><span class="p">,</span>
+                <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">&#39;escape symbols with </span><span class="se">\\</span><span class="s1"> where appropriate:&#39;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">&#39;python3 pwned.py check -p &quot;as0d9</span><span class="se">\\</span><span class="s1">&quot;asg0</span><span class="se">\&#39;\&#39;</span><span class="s1">A=)SYD&quot;&#39;</span><span class="p">,</span>
+                <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
 
 
 <span class="nd">@hibp</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
 <span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span>
-    <span class="s1">'-p'</span><span class="p">,</span>
-    <span class="s1">'--password'</span><span class="p">,</span>
+    <span class="s1">&#39;-p&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;--password&#39;</span><span class="p">,</span>
     <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">help</span><span class="o">=</span><span class="s2">"Reveal if match exists with `password`."</span><span class="p">)</span>
+    <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Reveal if match exists with `password`.&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
-    <span class="sd">"""Tell if your password has been breached."""</span>
+    <span class="sd">&quot;&quot;&quot;Tell if your password has been breached.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">password</span><span class="p">:</span>
         <span class="n">short_hash</span><span class="p">,</span> <span class="n">long_hash</span> <span class="o">=</span> <span class="n">pass_to_sha1</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
         <span class="n">check_password</span><span class="p">(</span><span class="n">short_hash</span><span class="p">,</span> <span class="n">long_hash</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">password</span><span class="p">:</span>
-        <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">'Run `pwned.py check --help` for more info.'</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">&#39;Run `pwned.py check --help` for more info.&#39;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">hibp</span><span class="p">()</span>
 </code></pre></div>
-<h2 id="example-usage">Example usage</h2>
-<p><a href="https://www.sglavoie.com/images/posts/0011_have-i-been-pwned/have_i_been_pwned_script.png"><img alt="have_i_been_pwned_script" class="max-size-img-post" src="https://www.sglavoie.com/images/posts/0011_have-i-been-pwned/have_i_been_pwned_script.png"/></a></p>
+
+<h2 id="example-usage">Example&nbsp;usage</h2>
+<p><a href="https://www.sglavoie.com/images/posts/0011_have-i-been-pwned/have_i_been_pwned_script.png"><img src="https://www.sglavoie.com/images/posts/0011_have-i-been-pwned/have_i_been_pwned_script.png" alt="have_i_been_pwned_script" class="max-size-img-post"></a></p>
 <h1 id="conclusion">Conclusion</h1>
 <p>If you are familiar with Python,
 you can easily make sense of how this little tool works by
@@ -332,10 +331,10 @@ reading its code. You can also have a look at this <a href="https://github.com/s
 GitHub</a> if you want
 to fork it or reuse it any other way you wish. I have personally found
 it much easier to work with <a href="https://github.com/pallets/click">Click</a>
-instead of <code>argparse</code> and <code>optparse</code>. I haven’t got to try
+instead of <code>argparse</code> and <code>optparse</code>. I haven&#8217;t got to try
 <a href="https://github.com/docopt/docopt">docopt</a> yet, but it is almost equally
 as popular as Click on GitHub at the time of this writing and its
-Pythonic way makes it another great option to consider.</p>
+Pythonic way makes it another great option to&nbsp;consider.</p>
   </div>
   <div class="article_meta">
     <p>Posted on: Thu 21 March 2019</p>
