@@ -226,25 +226,25 @@
 <p>This script is being made <a href="https://github.com/sglavoie/dev-helpers/tree/main/rsync_backup">available on GitHub</a> within a set of other small tools. To get the source code for this particular tool, you can either <a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository">clone the whole repository</a>, get the content of the files separately or simply copy and paste <a href="#the-script">the current version from below</a>. You will need a <code>settings.json</code> file as well as the Python script that will run the necessary commands.</p>
 <h2 id="the-configuration-file">The configuration file</h2>
 <p>Right off the bat, you will most probably want to update the array of strings for the <code>data_sources</code> key as well as the string for the key <code>data_destination</code> in the following <span class="caps">JSON</span> file.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">"data_sources"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">"/home/sglavoie"</span>
-    <span class="p">],</span>
-    <span class="nt">"data_destination"</span><span class="p">:</span> <span class="s2">"/media/sglavoie/Elements"</span><span class="p">,</span>
-    <span class="nt">"terminal_width"</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
-    <span class="nt">"sep"</span><span class="p">:</span> <span class="s2">"=-"</span><span class="p">,</span>
-    <span class="nt">"log_name"</span><span class="p">:</span> <span class="s2">".backup_log_"</span><span class="p">,</span>
-    <span class="nt">"log_format"</span><span class="p">:</span> <span class="s2">"%y%m%d_%H_%M_%S"</span><span class="p">,</span>
-    <span class="nt">"rsync_options"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">"-vaAHh"</span><span class="p">,</span>
-        <span class="s2">"--delete"</span><span class="p">,</span>
-        <span class="s2">"--ignore-errors"</span><span class="p">,</span>
-        <span class="s2">"--force"</span><span class="p">,</span>
-        <span class="s2">"--prune-empty-dirs"</span><span class="p">,</span>
-        <span class="s2">"--delete-excluded"</span>
-    <span class="p">],</span>
-    <span class="nt">"backup_exclude"</span><span class="p">:</span> <span class="s2">".backup_exclude"</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"data_sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"/home/sglavoie"</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"data_destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/media/sglavoie/Elements"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"terminal_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"sep"</span><span class="p">:</span><span class="w"> </span><span class="s2">"=-"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"log_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">".backup_log_"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"log_format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%y%m%d_%H_%M_%S"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"rsync_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"-vaAHh"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"--delete"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"--ignore-errors"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"--force"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"--prune-empty-dirs"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"--delete-excluded"</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"backup_exclude"</span><span class="p">:</span><span class="w"> </span><span class="s2">".backup_exclude"</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>By default, the following options are passed to <code>rsync</code>:</p>
 <table>
@@ -610,7 +610,7 @@ my_folder
                         rel="noopener noreferrer"
                         >Pelican</a
                     >
-                    v4.7.1. Theme adapted from Giulio Fidente on
+                    v4.7.2. Theme adapted from Giulio Fidente on
                     <a
                         href="https://github.com/gfidente/pelican-svbhack"
                         target="_blank"

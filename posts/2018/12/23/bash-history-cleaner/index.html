@@ -485,48 +485,48 @@ article a bit more readable, the original version is shown.</sub></p>
     <span class="n">launch_cleanup</span><span class="p">(</span><span class="n">SETTINGS</span><span class="p">,</span> <span class="n">HISTORY_FILE</span><span class="p">,</span> <span class="n">ALIASES_FILE</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="settingsjson"><code>settings.json</code></h2>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">"home_directory"</span><span class="p">:</span> <span class="s2">"/home/sglavoie"</span><span class="p">,</span>
-    <span class="nt">"history_file"</span><span class="p">:</span> <span class="s2">".bash_eternal_history"</span><span class="p">,</span>
-    <span class="nt">"add_aliases"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nt">"aliases_file"</span><span class="p">:</span> <span class="s2">".bash_aliases"</span><span class="p">,</span>
-    <span class="nt">"aliases_match_greedily"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nt">"backup_history"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nt">"delete_logs_without_confirming"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="nt">"ignore_patterns"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">"^\\#\\d+"</span><span class="p">,</span>
-        <span class="s2">"^$"</span><span class="p">,</span>
-        <span class="s2">"^(\\.\\/)?pip$"</span><span class="p">,</span>
-        <span class="s2">"^(\\.\\/)?python.*$"</span><span class="p">,</span>
-        <span class="s2">"^\\.\\.$"</span><span class="p">,</span>
-        <span class="s2">"^alias"</span><span class="p">,</span>
-        <span class="s2">"^cd "</span><span class="p">,</span>
-        <span class="s2">"^cd$"</span><span class="p">,</span>
-        <span class="s2">"^cd..$"</span><span class="p">,</span>
-        <span class="s2">"^fg$"</span><span class="p">,</span>
-        <span class="s2">"^df( )?"</span><span class="p">,</span>
-        <span class="s2">"^du( )?"</span><span class="p">,</span>
-        <span class="s2">"^exit$"</span><span class="p">,</span>
-        <span class="s2">"^git branch"</span><span class="p">,</span>
-        <span class="s2">"^git checkout master"</span><span class="p">,</span>
-        <span class="s2">"^git log$"</span><span class="p">,</span>
-        <span class="s2">"^git push$"</span><span class="p">,</span>
-        <span class="s2">"^git status$"</span><span class="p">,</span>
-        <span class="s2">"^git stauts$"</span><span class="p">,</span>
-        <span class="s2">"^kill \\d+.*"</span><span class="p">,</span>
-        <span class="s2">"^ls -a$"</span><span class="p">,</span>
-        <span class="s2">"^ls$"</span><span class="p">,</span>
-        <span class="s2">"^make|make install$"</span><span class="p">,</span>
-        <span class="s2">"^man "</span><span class="p">,</span>
-        <span class="s2">"^pelican( )?$"</span><span class="p">,</span>
-        <span class="s2">"^pip install -r requirements.txt"</span><span class="p">,</span>
-        <span class="s2">"^pip.* list|pip.* show$"</span><span class="p">,</span>
-        <span class="s2">"^source "</span><span class="p">,</span>
-        <span class="s2">"^sudo apt-get autoclean|sudo apt-get autoremove$"</span><span class="p">,</span>
-        <span class="s2">"^sudo apt-get dist-upgrade|sudo apt-get update$"</span><span class="p">,</span>
-        <span class="s2">"^which "</span>
-    <span class="p">]</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"home_directory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/home/sglavoie"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"history_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">".bash_eternal_history"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"add_aliases"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"aliases_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">".bash_aliases"</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"aliases_match_greedily"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"backup_history"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"delete_logs_without_confirming"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"ignore_patterns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^\\#\\d+"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^$"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^(\\.\\/)?pip$"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^(\\.\\/)?python.*$"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^\\.\\.$"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^alias"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^cd "</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^cd$"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^cd..$"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^fg$"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^df( )?"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^du( )?"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^exit$"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^git branch"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^git checkout master"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^git log$"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^git push$"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^git status$"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^git stauts$"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^kill \\d+.*"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^ls -a$"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^ls$"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^make|make install$"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^man "</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^pelican( )?$"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^pip install -r requirements.txt"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^pip.* list|pip.* show$"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^source "</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^sudo apt-get autoclean|sudo apt-get autoremove$"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^sudo apt-get dist-upgrade|sudo apt-get update$"</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">"^which "</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <hr/>
 <h2 id="description-of-available-settings-in-settingsjson">Description of available settings in <code>settings.json</code></h2>
@@ -625,7 +625,7 @@ at the source in a more convenient way, you can find the code <a href="https://g
                         rel="noopener noreferrer"
                         >Pelican</a
                     >
-                    v4.7.1. Theme adapted from Giulio Fidente on
+                    v4.7.2. Theme adapted from Giulio Fidente on
                     <a
                         href="https://github.com/gfidente/pelican-svbhack"
                         target="_blank"
