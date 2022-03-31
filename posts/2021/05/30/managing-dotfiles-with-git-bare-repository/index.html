@@ -258,7 +258,7 @@ config push
 <span class="nv">REMOTE</span><span class="o">=</span>git@github.com:username/dotfiles.git
 
 <span class="nb">alias</span> <span class="nv">config</span><span class="o">=</span><span class="s1">'/usr/bin/git --git-dir=$HOME/$DOTFILES/ --work-tree=$HOME'</span>
-<span class="nb">echo</span> <span class="s2">"</span><span class="nv">$DOTFILES</span><span class="s2">"</span> &gt;&gt; .gitignore
+<span class="nb">echo</span> <span class="s2">"</span><span class="nv">$DOTFILES</span><span class="s2">"</span> &gt;&gt; <span class="nv">$HOME</span>/.gitignore
 git clone --bare <span class="nv">$REMOTE</span> <span class="nv">$HOME</span>/<span class="nv">$DOTFILES</span>
 config checkout
 </code></pre></div>
@@ -282,6 +282,9 @@ xargs -I<span class="o">{}</span> mv <span class="o">{}</span> .config-backup/<s
   </div>
   <div class="article_meta">
     <p>Posted on: Sun 30 May 2021</p>
+     <time class="modified" datetime="2022-03-30T18:41:00-06:00">
+      Modified on: Wed 30 March 2022
+    </time>
     <p>Category: <a href="https://www.sglavoie.com/category/workflow.html">workflow</a>
  &ndash; Tags:
       <a href="https://www.sglavoie.com/tag/dotfiles.html">dotfiles</a>,      <a href="https://www.sglavoie.com/tag/git.html">git</a>,      <a href="https://www.sglavoie.com/tag/terminal.html">terminal</a>    </p>
