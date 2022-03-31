@@ -414,3 +414,49 @@ strong,
 em {
     color: #007bff;
 }
+
+/* Styles for the tag cloud */
+
+ul.tagcloud {
+    list-style: none;
+    padding: 0;
+    line-height: 3rem;
+    text-align: center;
+}
+
+ul.tagcloud li {
+    display: inline-block;
+    padding: 0.15em;
+}
+
+li.tag-1 {
+    font-size: 250%;
+}
+li.tag-2 {
+    font-size: 225%;
+}
+li.tag-3 {
+    font-size: 200%;
+}
+li.tag-4 {
+    font-size: 175%;
+}
+li.tag-5 {
+    font-size: 150%;
+}
+li.tag-6 {
+    font-size: 125%;
+}
+li.tag-7 {
+    font-size: 100%;
+}
+li.tag-8 {
+    font-size: 75%;
+}
+
+span.badge {
+    background-color: #007bff;
+    border-radius: 15%;
+    color: white;
+    padding: 0.15em;
+}
