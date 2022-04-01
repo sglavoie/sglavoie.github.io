@@ -185,15 +185,15 @@
     <h1><a href="https://www.sglavoie.com/drafts/git-the-gist-of-it-common-commands-for-a-working-workflow.html">Git the gist of it: common commands for a working&nbsp;workflow</a></h1>
   </div>
   <div class="article_readtime">
-    <p>Estimated read time: 6 minutes</p>
+    <p>Estimated read time: 9 minutes</p>
   </div>
     <nav class="toc">
     <div class="toc">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#meaningful-commit-messages-with-gitmessage">Meaningful commit messages with .gitmessage</a></li>
 <li><a href="#global-and-local-gitignore">Global and local .gitignore</a></li>
 <li><a href="#configuration-file">Configuration file</a></li>
+<li><a href="#meaningful-commit-messages-with-gitmessage">Meaningful commit messages with .gitmessage</a></li>
 <li><a href="#my-usual-workflow">My usual workflow</a></li>
 <li><a href="#aliases">Aliases</a></li>
 <li><a href="#custom-git-sub-commands">Custom Git sub-commands</a></li>
@@ -214,27 +214,53 @@
     
 <hr/>
 <h1 id="introduction">Introduction</h1>
-<!-- Some notes
+<!--&#8212; Some notes
 
-why is Git so great...
-some personal use cases...
+why is Git so great&#8230;
+some personal use cases&#8230;
 
 mention and link article https://www.sglavoie.com/posts/2021/05/30/managing-dotfiles-with-git-bare-repository/ when talking about `c` Bash alias
 
-see whether to cover git templates...
--->
-<hr/>
-<h1 id="meaningful-commit-messages-with-gitmessage">Meaningful commit messages with <code>.gitmessage</code></h1>
-<p>…</p>
+alias c=&#8217;git &#8212;git-dir=$HOME/dotfiles/ &#8212;work-tree=$HOME&#8217;
+
+see whether to cover git templates&#8230;
+&#8212;-->
 <hr/>
 <h1 id="global-and-local-gitignore">Global and local <code>.gitignore</code></h1>
-<p>…</p>
+<p>There are files we never care about adding to Git repositories, such as a thumbnail cache file <code>Thumbs.db</code> on Windows or a <code>.DS_Store</code> file storing custom attributes for folders on macOS. Instead of ignoring these kinds of entries in a per-repository <code>.gitignore</code> file which might not contain everything we would like to exclude, it can be simpler and more efficient to use a global <code>.gitignore</code>, which serves the same purpose but for <em>any</em> Git repository regardless of the presence of a <code>.gitignore</code> in that specific repository! In other words, this serves as a permanent list of things to ignore so that there is no need to remember about them later.</p>
+<p>The setup is straightforward: create a file <code>~/.gitignore</code>, fill it as usual with patterns you are sure to want to exclude globally and set a configuration option to use that file – for instance by adding the following to <code>.gitconfig</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[core]</span><span class="w"></span>
+<span class="w">    </span><span class="na">excludesfile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">~/.gitignore</span><span class="w"></span>
+</code></pre></div>
+<p>Toptal provides <a href="https://docs.gitignore.io/install/command-line">a nice tool on the command-line</a> that can be used to easily exclude patterns. With it, typing <code>gi python &gt;&gt; .gitignore</code> would append a bunch of common patterns to a <code>.gitignore</code> file – in this case, for Python.</p>
 <hr/>
 <h1 id="configuration-file">Configuration file</h1>
 <!--
 ...
 omitted aliases, which will be covered in the [section Aliases](#aliases).
+
+https://git-scm.com/docs/git-config
 -->
+<hr/>
+<h1 id="meaningful-commit-messages-with-gitmessage">Meaningful commit messages with <code>.gitmessage</code></h1>
+<p>Besides using the excellent <a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a> specification to write messages in a format that makes sense, using a template for Git commits can help with remembering <em>why</em> commits are made and how they should be structured. There is a configuration setting, <code>commit.template</code>, that can be used to set the default text being displayed when a text editor opens after typing <code>git commit</code>.</p>
+<p>The following is the current template I use, which can be saved in a file like <code>~/.gitmessage</code>:</p>
+<div class="highlight"><pre><span></span><code># [Add/Fix/Remove/Update/Refactor/Document] [summary]
+
+
+# Why is it necessary? (Bug fix, feature, improvements?)
+#-
+# How does the change address the issue?
+#-
+# What side effects does this change have?
+#-
+# Include a link to the ticket, if any.
+</code></pre></div>
+<p>Then, this can be added to the config file under the <code>[commit]</code> section like so:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[commit]</span><span class="w"></span>
+<span class="w">    </span><span class="na">template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">~/.gitmessage</span><span class="w"></span>
+</code></pre></div>
+<p>All lines starting with a hash symbol (<code>#</code>) will be ignored, so there is no need to manually delete all of this verbose content when saving the commit message. Sweet!</p>
 <hr/>
 <h1 id="my-usual-workflow">My usual workflow</h1>
 <p>…</p>
@@ -250,70 +276,89 @@ omitted aliases, which will be covered in the [section Aliases](#aliases).
 <hr/>
 <h1 id="aliases">Aliases</h1>
 <p>While I believe it’s good practice to type complete commands to remember them better, I also tend to use Git aliases for two reasons: because some deeply ingrained concepts don’t need as much reinforcement and because some obscure operations can be made so much more accessible with a pertinent mnemonic device.</p>
-<p>Some commands like <code>add</code> just become unforgettable over time, while others – e.g., <code>unstage</code> – just don’t exist yet. Without further ado, here is a list of the aliases I currently rely on when using Git, which comes straight from <code>~/.gitconfig</code> with additional comments for clarity.</p>
+<p>Some commands like <code>add</code> just become unforgettable over time, while others – e.g., <code>unstage</code> – just don’t exist yet. Without further ado, here is a list of the aliases I currently rely on when using Git, which comes straight from <code>~/.gitconfig</code>.</p>
 <p>For instance, instead of typing <code>git add</code>, by setting the alias <code>a = add</code> (see below), it is now possible to type <code>git a</code> to get the same result.</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>alias<span class="o">]</span>
-    <span class="nv">a</span> <span class="o">=</span> add
-    <span class="nv">br</span> <span class="o">=</span> branch
-    <span class="nv">c</span> <span class="o">=</span> commit
-    <span class="nv">ca</span> <span class="o">=</span> commit --amend
-    <span class="nv">can</span> <span class="o">=</span> commit --amend --no-edit
-    <span class="nv">ch</span> <span class="o">=</span> checkout
-    <span class="nv">d</span> <span class="o">=</span> diff
-    <span class="nv">ds</span> <span class="o">=</span> diff --staged
-    <span class="nv">po</span> <span class="o">=</span> push origin
-    <span class="nv">pos</span> <span class="o">=</span> push --set-upstream origin main
-    <span class="nv">rc</span> <span class="o">=</span> rebase --continue
-    <span class="nv">ri</span> <span class="o">=</span> rebase -i
-    <span class="nv">rl</span> <span class="o">=</span> reflog
-    <span class="nv">sh</span> <span class="o">=</span> show
-    <span class="nv">s</span> <span class="o">=</span> status --short
-    <span class="nv">st</span> <span class="o">=</span> status
-    <span class="nv">sw</span> <span class="o">=</span> switch
-    <span class="nv">t</span> <span class="o">=</span> tag
-    <span class="nv">unstage</span> <span class="o">=</span> reset HEAD --
+<div class="highlight"><pre><span></span><code><span class="k">[alias]</span><span class="w"></span>
+<span class="w">    </span><span class="na">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">add</span><span class="w"></span>
+<span class="w">    </span><span class="na">br</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">branch</span><span class="w"></span>
+<span class="w">    </span><span class="na">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">commit</span><span class="w"></span>
+<span class="w">    </span><span class="na">ca</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">commit --amend</span><span class="w"></span>
+<span class="w">    </span><span class="na">can</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">commit --amend --no-edit</span><span class="w"></span>
+<span class="w">    </span><span class="na">ch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">checkout</span><span class="w"></span>
+<span class="w">    </span><span class="na">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">diff</span><span class="w"></span>
+<span class="w">    </span><span class="na">ds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">diff --staged</span><span class="w"></span>
+<span class="w">    </span><span class="na">po</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">push origin</span><span class="w"></span>
+<span class="w">    </span><span class="na">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">push --set-upstream origin main</span><span class="w"></span>
+<span class="w">    </span><span class="na">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rebase --continue</span><span class="w"></span>
+<span class="w">    </span><span class="na">ri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rebase -i</span><span class="w"></span>
+<span class="w">    </span><span class="na">rl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">reflog</span><span class="w"></span>
+<span class="w">    </span><span class="na">sh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">show</span><span class="w"></span>
+<span class="w">    </span><span class="na">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">status --short</span><span class="w"></span>
+<span class="w">    </span><span class="na">st</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">status</span><span class="w"></span>
+<span class="w">    </span><span class="na">sw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">switch</span><span class="w"></span>
+<span class="w">    </span><span class="na">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">tag</span><span class="w"></span>
+<span class="w">    </span><span class="na">unstage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">reset HEAD --</span><span class="w"></span>
 
-    <span class="p">;</span> show changes since last commit
-    <span class="nv">difflast</span> <span class="o">=</span> diff --cached HEAD^
+<span class="w">    </span><span class="c1">; show changes since last commit</span><span class="w"></span>
+<span class="w">    </span><span class="na">difflast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">diff --cached HEAD^</span><span class="w"></span>
 
-    <span class="p">;</span> show last commit
-    <span class="nv">last</span> <span class="o">=</span> l -1 HEAD
+<span class="w">    </span><span class="c1">; show last commit</span><span class="w"></span>
+<span class="w">    </span><span class="na">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">l -1 HEAD</span><span class="w"></span>
 
-    <span class="p">;</span> undo last commit
-    <span class="nv">undo</span> <span class="o">=</span> <span class="s2">"!f() { git reset --hard </span><span class="k">$(</span>git rev-parse <span class="se">\</span>
---abbrev-ref HEAD<span class="k">)</span><span class="s2">@{</span><span class="si">${</span><span class="nv">1</span><span class="p">-1</span><span class="si">}</span><span class="s2">}; }; f"</span>
+<span class="w">    </span><span class="c1">; undo last commit</span><span class="w"></span>
+<span class="w">    </span><span class="na">undo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"!f() { git reset --hard $(git rev-parse \</span><span class="w"></span>
+<span class="na">--abbrev-ref HEAD)@{${1-1}}; }; f"</span><span class="w"></span>
 
-    <span class="nv">l</span> <span class="o">=</span> log
+<span class="w">    </span><span class="na">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">log</span><span class="w"></span>
 
-    <span class="p">;</span> short log
-    <span class="nv">sl</span> <span class="o">=</span> shortlog
+<span class="w">    </span><span class="c1">; short log</span><span class="w"></span>
+<span class="w">    </span><span class="na">sl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">shortlog</span><span class="w"></span>
 
-    <span class="p">;</span> log graph
-    <span class="nv">lg</span> <span class="o">=</span> l --color --graph --pretty<span class="o">=</span>format:<span class="s1">'%Cred%h%Creset \</span>
-<span class="s1">-%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset'</span> --abbrev-commit
+<span class="w">    </span><span class="c1">; log graph</span><span class="w"></span>
+<span class="w">    </span><span class="na">lg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">l --color --graph --pretty=format:'%Cred%h%Creset \</span><span class="w"></span>
+<span class="na">-%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit</span><span class="w"></span>
 
-    <span class="p">;</span> log name
-    <span class="nv">ln</span> <span class="o">=</span> l --name-only
+<span class="w">    </span><span class="c1">; log name</span><span class="w"></span>
+<span class="w">    </span><span class="na">ln</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">l --name-only</span><span class="w"></span>
 
-    <span class="p">;</span> log decorate all
-    <span class="nv">logda</span> <span class="o">=</span> l --oneline --decorate --graph --all
+<span class="w">    </span><span class="c1">; log decorate all</span><span class="w"></span>
+<span class="w">    </span><span class="na">logda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">l --oneline --decorate --graph --all</span><span class="w"></span>
 
-    <span class="p">;</span> log stat
-    <span class="nv">ls</span> <span class="o">=</span> l --stat
+<span class="w">    </span><span class="c1">; log stat</span><span class="w"></span>
+<span class="w">    </span><span class="na">ls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">l --stat</span><span class="w"></span>
 
-    <span class="p">;</span> log pretty
-    <span class="nv">lp</span> <span class="o">=</span> log --pretty<span class="o">=</span><span class="s1">'%C(yellow)%h %C(cyan)%ad %Cblue%aN%C(auto)%d \</span>
-<span class="s1">%Creset%s'</span> --date<span class="o">=</span>relative --date-order --graph
+<span class="w">    </span><span class="c1">; log pretty</span><span class="w"></span>
+<span class="w">    </span><span class="na">lp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">log --pretty='%C(yellow)%h %C(cyan)%ad %Cblue%aN%C(auto)%d \</span><span class="w"></span>
+<span class="na">%Creset%s' --date</span><span class="o">=</span><span class="s">relative --date-order --graph</span><span class="w"></span>
 </code></pre></div>
-<!-- Add note on `gitaliases` alias. -->
+<p>At some point, using Git aliases will become second nature, but until then, it can be useful to have a separate terminal alias to list them all (or maybe you forgot the command an alias is using under the hood!). For this, you can set the following alias in a file like <code>~/.bash_aliases</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">gitaliases</span><span class="o">=</span><span class="s1">'git config -l | grep alias | sed "s/^alias\.//g"'</span>
+</code></pre></div>
+<p>That command will look in the Git configuration, extract all the lines containing “alias” and remove the <code>alias.</code> prefix so that you can see all aliases in the form <code>a=add</code> in the case of <code>git add</code> being aliased to <code>git a</code>. If you have a ton of aliases (which is probably a red flag…), finding a specific one is just a matter of doing <code>gitaliases | grep keyword</code>, of course replacing <code>keyword</code> with something else ;).</p>
 <p><sub>Tip: One can go further to shorten Git commands by shortening <code>git</code> itself! You can put a line such as <code>alias g='git'</code> in <code>~/.bash_aliases</code> for instance. Now, <code>git add</code> can become <code>g a</code>. Pretty efficient! For more on Bash aliases, you might like to read <a href="https://www.sglavoie.com/posts/2018/12/08/aliases-also-known-as-terminal-users-best-friends/">Aliases: Also Known as Terminal User’s Best Friends</a>.</sub></p>
-<p>This section is really just meant to give a taste of the possibilities that aliases offer. To learn about actual commands and their usage, there is nothing like the <a href="https://git-scm.com/docs">official Git docs</a>.</p>
+<p>This section is really just meant to give a taste of the possibilities that aliases offer. To learn about actual commands and their usage, there is nothing like the <a href="https://git-scm.com/docs">official Git docs</a> (there is a <a href="https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases">short section on Git aliases</a> too).</p>
 <hr/>
 <h1 id="custom-git-sub-commands">Custom Git sub-commands</h1>
-<p>…</p>
-<!--
-e.g., `git add-learning`
--->
+<p>There might be less of a need for custom-made commands to be created when so much can be done with Git alone, but there are cases where these custom additions can shine! As a concrete example, I have been updating this website with what I call my “<a href="https://www.sglavoie.com/learning-progress.html">learning progress</a>” but committing always the same kind of stuff gets boring, so I have created a simple Bash script to automate the process of publishing and committing (the content of the script is of no importance, it is only there to demonstrate that commands other than Git can be called too):</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1"># Act as custom command `git addlearning` and perform all that follows</span>
+<span class="c1"># Assumes that `pelican` command is available</span>
+<span class="nb">cd</span> ~/dev/sglavoie/sglavoie.github.io-source
+git add .
+git commit -m <span class="s2">"Add learning progress"</span>
+git push origin main
+pelican
+
+cp -r <span class="se">\</span>
+    ~/dev/sglavoie/sglavoie.github.io-source/output/* <span class="se">\</span>
+    ~/dev/sglavoie/sglavoie.github.io/ <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    <span class="nb">cd</span> ~/dev/sglavoie/sglavoie.github.io <span class="o">&amp;&amp;</span> git add .
+git commit -m <span class="s2">"Add learning progress"</span>
+git push origin main
+<span class="nb">cd</span> ~/dev/sglavoie/sglavoie.github.io-source
+</code></pre></div>
+<p>It is noteworthy to know that any kind of executable programs can be used, such as Ruby, Python and so on, as long as they are made available in the <code>$PATH</code>.</p>
+<!-- More on the PATH thing with a concrete example, chmod +x the program, etc. -->
 <hr/>
 <h1 id="some-lesser-known-yet-incredibly-useful-commands">Some lesser-known yet incredibly useful commands</h1>
 <p>…</p>
@@ -360,7 +405,7 @@ e.g., bisect, rerere
 </ul>
   </div>
   <div class="article_meta">
-    <p>Posted on: Wed 30 March 2022</p>
+    <p>Posted on: Thu 31 March 2022</p>
     <p>Category: <a href="https://www.sglavoie.com/category/workflow.html">workflow</a>
  &ndash; Tags:
       <a href="https://www.sglavoie.com/tag/git.html">git</a>,      <a href="https://www.sglavoie.com/tag/productivity.html">productivity</a>,      <a href="https://www.sglavoie.com/tag/terminal.html">terminal</a>    </p>
