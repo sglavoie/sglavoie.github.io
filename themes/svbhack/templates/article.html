@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block head %}
+<meta name="keywords" content="{{ article.tags|join(', ')  }}">
+{% if article.description %}
+
+<!-- Open graph for social networks -->
+<meta name="og:title" property="og:title" content="{{article.description}}">
+{% endif %}
+{% endblock %}
+
+{% block title %}&ndash; {{ article.title }}{% endblock %}
+
+{% block content %}
+<article>
+  <div class="article_title">
+    <h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
+  </div>
+  <div class="flex-container">
+    <div class="article_meta">
+      <div>Posted on: {{ article.locale_date }}</div>
+      {% if article.modified %}
+      <div>
+        <time class="modified" datetime="{{ article.modified.isoformat() }}">
+          Modified on: {{ article.locale_modified }}
+        </time>
+      </div>
+      {% endif %}
+      <div>Category: <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+        {% if article.tags %} &ndash; Tags:
+        {% for tag in article.tags %}
+        <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %},{% endif %}
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+    {% if article.readtime %}
+    <div class="article_readtime">
+      Estimated read time: {{article.readtime.minutes}} minutes
+    </div>
+    {% endif %}
+  </div>
+  {% if article.toc %}
+
+  <h2 class="toc-title">Table of contents</h2>
+  </div>
+  <nav class="toc">
+    {{ article.toc }}
+  </nav>
+  {% endif %}
+  <div class="article_text">
+    {{ article.content }}
+  </div>
+
+  {% if DISQUS_SITENAME %}
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_identifier = "{{ article.url }}";
+      (function () {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </div>
+  {% endif %}
+
+</article>
+{% endblock %}

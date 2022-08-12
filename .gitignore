@@ -1,5 +1,11 @@
-.venv
 __pycache__/
+.venv/
+.vscode/
 *.py[cod]
+*$py.class
+cache/
+files/
 output/
-tags
+TODO
+tree_content.html
+tree.txt
