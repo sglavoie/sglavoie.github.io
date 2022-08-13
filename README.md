@@ -26,4 +26,9 @@ invoke build
 
 # Watch for changes
 invoke livereload
+
+# Publish the changes by committing once the post-commit hook
+# is set up
+# .git/hooks/post-commit:
+pelican content -o output -s pelicanconf.py && ghp-import output && git push origin gh-pages
 ```
