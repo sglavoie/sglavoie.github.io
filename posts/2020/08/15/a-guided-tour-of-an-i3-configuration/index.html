@@ -238,7 +238,7 @@
     
 <hr/>
 <h1 id="introduction">Introduction</h1>
-<p>In <a href="https://www.sglavoie.com/posts/2019/01/08/using-i3-as-a-window-manager-for-increased-productivity/">Using i3 as a Window Manager for Increased Productivity</a>, a number of reasons were given to get going with this fantastic tiling window manager. Now, it’s time to jump in and explore how to actually use i3! If you’re looking for an in-depth guide, the <a href="https://i3wm.org/docs/userguide.html">official i3 documentation</a> or the <a href="https://wiki.archlinux.org/index.php/i3">i3 page on the Arch Wiki</a> are awesome resources to dive deeper. Here, we’ll focus on day-to-day usage based on my current configuration file which I have used and refined over the past three years or so. I hope that you’ll be able to glean useful tips and tricks to apply to your own use case.</p>
+<p>In <a href="../../../../../posts/2020/08/15/a-guided-tour-of-an-i3-configuration/">Using i3 as a Window Manager for Increased Productivity</a>, a number of reasons were given to get going with this fantastic tiling window manager. Now, it’s time to jump in and explore how to actually use i3! If you’re looking for an in-depth guide, the <a href="https://i3wm.org/docs/userguide.html">official i3 documentation</a> or the <a href="https://wiki.archlinux.org/index.php/i3">i3 page on the Arch Wiki</a> are awesome resources to dive deeper. Here, we’ll focus on day-to-day usage based on my current configuration file which I have used and refined over the past three years or so. I hope that you’ll be able to glean useful tips and tricks to apply to your own use case.</p>
 <hr/>
 <h1 id="the-configuration-file">The Configuration File</h1>
 <p>To set keybindings, it <em>may</em> be handy to know the keycodes and their respective names. To get a full list, you can use <code>xmodmap -pk</code> in the terminal. If you’re not sure of the name of the key you want to press (is it “PageDown”, “PageDwn” or “Next”?), you can retrieve it by executing the <code>xev</code> command, which will open two windows: one for capturing the actual key press and the other one to display the relevant details for that key. For example, if you press the backspace key, the output will contain something like <code>keycode 22 (keysym 0xff08, BackSpace)</code>. From there, you will know that a mapping would be of the form <code>mod+BackSpace</code>, where <code>mod</code> is the modifier of your choice that is usually specified at the top of the configuration file. Now we can start!</p>
@@ -679,7 +679,7 @@ bindsym <span class="nv">$mod</span>+y         border normal <span class="m">5</
 <figcaption>Bashtop on the left with a dark background, LibreOffice on the right with a light background, Neofetch floating window on top featuring a thick, blue border.</figcaption>
 </figure>
 <h2 id="dmenu">dmenu</h2>
-<p><code>dmenu</code> is so useful that it also got its own section. By default, you usually launch applications with <code>mod+d</code>: I kept the same behavior here. I added a few custom launchers that I use all the time to open files based on a topic, using mnemonics that work (for me, at least). If you want to know more about setting these kinds of shortcuts, you may be interested in reading <a href="https://www.sglavoie.com/posts/2019/11/10/using-dmenu-to-optimize-common-tasks/">Using dmenu to Optimize Common Tasks</a> ;).</p>
+<p><code>dmenu</code> is so useful that it also got its own section. By default, you usually launch applications with <code>mod+d</code>: I kept the same behavior here. I added a few custom launchers that I use all the time to open files based on a topic, using mnemonics that work (for me, at least). If you want to know more about setting these kinds of shortcuts, you may be interested in reading <a href="../../../../../posts/2019/11/10/using-dmenu-to-optimize-common-tasks/">Using dmenu to Optimize Common Tasks</a> ;).</p>
 <div class="highlight"><pre><span></span><code>bindsym <span class="nv">$mod</span>+Mod1+b    <span class="nv">$exec</span> ~/Dropbox/.custom/dmenu/books.sh
 bindsym <span class="nv">$mod</span>+Mod1+c    <span class="nv">$exec</span> ~/Dropbox/.custom/dmenu/cheatsheets.sh
 bindsym <span class="nv">$mod</span>+Mod1+d    <span class="nv">$exec</span> ~/Dropbox/.custom/dmenu/documents.sh
@@ -916,9 +916,9 @@ bar <span class="o">{</span>
 <h1 id="conclusion">Conclusion</h1>
 <p>You can find the <a href="https://github.com/sglavoie/dotfiles/blob/main/.config/i3/config">complete <code>config</code> file in my dotfiles on GitHub</a>. If you liked this article, you may also enjoy reading the following ones:</p>
 <ul>
-<li><a href="https://www.sglavoie.com/posts/2019/05/12/suckless-minimalist-tools-that-work-great/">Suckless: Minimalist Tools That Work Great</a></li>
-<li><a href="https://www.sglavoie.com/posts/2019/11/10/using-dmenu-to-optimize-common-tasks/">Using dmenu to Optimize Common Tasks</a></li>
-<li><a href="https://www.sglavoie.com/posts/2019/01/08/using-i3-as-a-window-manager-for-increased-productivity/">Using i3 as a Window Manager for Increased Productivity</a></li>
+<li><a href="../../../../../posts/2019/05/12/suckless-minimalist-tools-that-work-great/">Suckless: Minimalist Tools That Work Great</a></li>
+<li><a href="../../../../../posts/2019/11/10/using-dmenu-to-optimize-common-tasks/">Using dmenu to Optimize Common Tasks</a></li>
+<li><a href="../../../../../posts/2019/01/08/using-i3-as-a-window-manager-for-increased-productivity/">Using i3 as a Window Manager for Increased Productivity</a></li>
 </ul>
 <h2 id="more-resources-and-references">More resources and references</h2>
 <ul>
