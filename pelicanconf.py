@@ -82,7 +82,7 @@ def generate_redirect_pages_on_the_fly() -> None:
 # Pelican-specific settings
 PATH = "content"
 
-STATIC_PATHS = ["files", "images"]
+STATIC_PATHS = ["files", "images", "extra/CNAME"]
 EXTRA_PATH_METADATA = {"extra/CNAME": {"path": "CNAME"}}
 
 DISPLAY_PAGES_ON_MENU = False
