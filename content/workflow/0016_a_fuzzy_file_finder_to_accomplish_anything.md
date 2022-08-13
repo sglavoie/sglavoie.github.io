@@ -161,4 +161,4 @@ superb piece of software!
 [Luke Smith](https://lukesmith.xyz/) also makes a strong point of
 combining `fzf` with [dmenu](https://tools.suckless.org/dmenu/), a tool
 that I described succinctly in
-[a previous article](https://www.sglavoie.com/posts/2019/05/12/suckless-minimalist-tools-that-work-great/).
+[a previous article]({filename}/tools/0015_suckless-minimalist-tools-that-work-great.md).

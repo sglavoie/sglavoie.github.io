@@ -13,7 +13,7 @@ Description: If remembering dozens of keyboard shortcuts isn't your forte, let d
 
 # Introduction
 
-[dmenu](https://tools.suckless.org/dmenu) is one of those tools that look a little unimpressive at first but can accomplish so much! It's a program that you can use to receive any output redirected from other programs (through pipes in the terminal, the symbol `|`) and treat that output so that it can pop up within a simple menu to make it available for execution. If you want to know more about other fantastic tools from [suckless.org](https://suckless.org), I [went over some of them before](https://www.sglavoie.com/posts/2019/05/12/suckless-minimalist-tools-that-work-great), such as the `st` terminal and `slock`, a dead simple screen locker.
+[dmenu](https://tools.suckless.org/dmenu) is one of those tools that look a little unimpressive at first but can accomplish so much! It's a program that you can use to receive any output redirected from other programs (through pipes in the terminal, the symbol `|`) and treat that output so that it can pop up within a simple menu to make it available for execution. If you want to know more about other fantastic tools from [suckless.org](https://suckless.org), I [went over some of them before]({filename}/tips-and-tricks/0018_using_dmenu_to_optimize_common_tasks.md), such as the `st` terminal and `slock`, a dead simple screen locker.
 
 ---
 

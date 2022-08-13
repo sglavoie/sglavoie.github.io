@@ -13,7 +13,7 @@ Description: This article will go over my dear i3 configuration file, which cont
 
 # Introduction
 
-In [Using i3 as a Window Manager for Increased Productivity](https://www.sglavoie.com/posts/2019/01/08/using-i3-as-a-window-manager-for-increased-productivity/), a number of reasons were given to get going with this fantastic tiling window manager. Now, it's time to jump in and explore how to actually use i3! If you're looking for an in-depth guide, the [official i3 documentation](https://i3wm.org/docs/userguide.html) or the [i3 page on the Arch Wiki](https://wiki.archlinux.org/index.php/i3) are awesome resources to dive deeper. Here, we'll focus on day-to-day usage based on my current configuration file which I have used and refined over the past three years or so. I hope that you'll be able to glean useful tips and tricks to apply to your own use case.
+In [Using i3 as a Window Manager for Increased Productivity]({filename}/tools/0022_guided-tour-of-i3-configuration-in-action.md), a number of reasons were given to get going with this fantastic tiling window manager. Now, it's time to jump in and explore how to actually use i3! If you're looking for an in-depth guide, the [official i3 documentation](https://i3wm.org/docs/userguide.html) or the [i3 page on the Arch Wiki](https://wiki.archlinux.org/index.php/i3) are awesome resources to dive deeper. Here, we'll focus on day-to-day usage based on my current configuration file which I have used and refined over the past three years or so. I hope that you'll be able to glean useful tips and tricks to apply to your own use case.
 
 ---
 
@@ -488,7 +488,7 @@ A few notes on the **Borders** section:
 
 ## dmenu
 
-`dmenu` is so useful that it also got its own section. By default, you usually launch applications with `mod+d`: I kept the same behavior here. I added a few custom launchers that I use all the time to open files based on a topic, using mnemonics that work (for me, at least). If you want to know more about setting these kinds of shortcuts, you may be interested in reading [Using dmenu to Optimize Common Tasks](https://www.sglavoie.com/posts/2019/11/10/using-dmenu-to-optimize-common-tasks/) ;).
+`dmenu` is so useful that it also got its own section. By default, you usually launch applications with `mod+d`: I kept the same behavior here. I added a few custom launchers that I use all the time to open files based on a topic, using mnemonics that work (for me, at least). If you want to know more about setting these kinds of shortcuts, you may be interested in reading [Using dmenu to Optimize Common Tasks]({filename}/tips-and-tricks/0018_using_dmenu_to_optimize_common_tasks.md) ;).
 
 ```{.bash}
 bindsym $mod+Mod1+b    $exec ~/Dropbox/.custom/dmenu/books.sh
@@ -762,9 +762,9 @@ Theming i3 can be tedious, but thankfully there are tools to automate the proces
 
 You can find the [complete `config` file in my dotfiles on GitHub](https://github.com/sglavoie/dotfiles/blob/main/.config/i3/config). If you liked this article, you may also enjoy reading the following ones:
 
-- [Suckless: Minimalist Tools That Work Great](https://www.sglavoie.com/posts/2019/05/12/suckless-minimalist-tools-that-work-great/)
-- [Using dmenu to Optimize Common Tasks](https://www.sglavoie.com/posts/2019/11/10/using-dmenu-to-optimize-common-tasks/)
-- [Using i3 as a Window Manager for Increased Productivity](https://www.sglavoie.com/posts/2019/01/08/using-i3-as-a-window-manager-for-increased-productivity/)
+- [Suckless: Minimalist Tools That Work Great]({filename}/tools/0015_suckless-minimalist-tools-that-work-great.md)
+- [Using dmenu to Optimize Common Tasks]({filename}/tips-and-tricks/0018_using_dmenu_to_optimize_common_tasks.md)
+- [Using i3 as a Window Manager for Increased Productivity]({filename}/workflow/0005_using-i3-as-window-manager-for-increased-productivity.md)
 
 ## More resources and references
 

@@ -262,4 +262,4 @@ One nice tip to help with the latter bullet point could be to define an alias, s
 cdwork='cd /path/to/work/dir/with/appropriate/pattern'
 ```
 
-Then, you simply `cdwork` and store all your Git repositories for work under that root repository, which would always match the desired pattern by default. That's it. Anything else related to the personal account can be cloned anywhere on the file system since this is the default configuration file used. For more Git-related content, you might enjoy reading [Git the gist of it: common commands for a working workflow](https://www.sglavoie.com/posts/2022/04/03/git-the-gist-of-it-common-commands-for-a-working-workflow/).
+Then, you simply `cdwork` and store all your Git repositories for work under that root repository, which would always match the desired pattern by default. That's it. Anything else related to the personal account can be cloned anywhere on the file system since this is the default configuration file used. For more Git-related content, you might enjoy reading [Git the gist of it: common commands for a working workflow]({filename}/workflow/0029_git_the_gist.md).

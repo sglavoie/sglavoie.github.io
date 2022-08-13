@@ -63,7 +63,7 @@ With your new Git repository created in the previous step, you will now want to 
 config remote set-url origin git@github.com:username/dotfiles.git
 ```
 
-For more information about this, you can read the article [Setting up SSH and Git for Multiple Accounts](https://www.sglavoie.com/posts/2020/10/03/setting-up-ssh-and-git-for-multiple-accounts/) if you'll be using an SSH key to connect and more specifically [the official documentation on the `git remote` command](https://git-scm.com/docs/git-remote).
+For more information about this, you can read the article [Setting up SSH and Git for Multiple Accounts]({filename}/workflow/0023_setting_up_ssh_git_multiple_accounts.md) if you'll be using an SSH key to connect and more specifically [the official documentation on the `git remote` command](https://git-scm.com/docs/git-remote).
 
 ---
 
@@ -119,7 +119,7 @@ From here, this will be the same workflow as described in the section [2.1 On yo
 
 # Conclusion
 
-No more symlinks: this is definitely a nicer approach! You will need to be a bit more familiar with Git if you need to edit your Git history such as with the `rebase` sub-command or when adding changes selectively such as with the sub-command `add -p` to add files interactively — which might be the case if you want to commit only part of the changes made to one file — but that's a great tool to master anyways, and there's an article to get the ball rolling: [Git the gist of it: common commands for a working workflow](https://www.sglavoie.com/posts/2022/04/03/git-the-gist-of-it-common-commands-for-a-working-workflow/) ;).
+No more symlinks: this is definitely a nicer approach! You will need to be a bit more familiar with Git if you need to edit your Git history such as with the `rebase` sub-command or when adding changes selectively such as with the sub-command `add -p` to add files interactively — which might be the case if you want to commit only part of the changes made to one file — but that's a great tool to master anyways, and there's an article to get the ball rolling: [Git the gist of it: common commands for a working workflow]({filename}/workflow/0029_git_the_gist.md) ;).
 
 ## More resources and references
 
