@@ -1,6 +1,6 @@
 # Source code for [sglavoie.com](https://www.sglavoie.com/)
 
-This repository contains the source code for my personal website, which is a blog describing my learning path in all things related to computer science. For more details, you can visit the [GitHub repository](https://github.com/sglavoie/sglavoie.github.io) with the actual content of the website.
+This repository contains the source code for my personal website, which is a blog describing my learning path in all things related to computer science.
 
 Please feel free to reuse all the code that you might need!
 
