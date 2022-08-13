@@ -18,7 +18,7 @@ Here are the main reasons why this approach felt right:
 
 ```bash
 # Activate a virtual environment, e.g.:
-# python -m venv .venv && source ./venv/bin/activate
+# python -m venv .venv && source ./.venv/bin/activate
 pip install -r requirements.txt
 
 # Build the website
