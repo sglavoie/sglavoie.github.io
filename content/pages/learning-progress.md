@@ -13,6 +13,10 @@ save_as: learning-progress.html
 
 ---
 
+The output below was formatted automatically with a tool that converts the content of a Google Sheet into Markdown. If you're curious, you might enjoy reading [this article]({filename}/automation/0028_google_sheets_as_database_output_markdown.md)!
+
+---
+
 # 2022
 
 ## April
