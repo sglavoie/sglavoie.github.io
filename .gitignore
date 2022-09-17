@@ -6,6 +6,7 @@ __pycache__/
 cache/
 files/
 output/
+redirects/*.html
 TODO
 tree_content.html
 tree.txt
