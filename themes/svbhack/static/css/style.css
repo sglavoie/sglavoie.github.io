@@ -190,11 +190,17 @@ main article div.article_text pre {
   font-size: 1.2rem;
 }
 
-main article div.article_text blockquote {
+main article div.article_text blockquote,
+.quote-author {
   margin: 22px 2px 22px 2px;
   padding-left: 40px;
   color: #000864;
   font-style: italic;
+}
+
+.quote-author {
+  margin: -12px 0px 22px 0px;
+  text-align: right;
 }
 
 main article div.article_text div.quoteblock {
