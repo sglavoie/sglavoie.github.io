@@ -131,6 +131,10 @@ aside div#user_meta ul li a {
   color: #ffffff;
 }
 
+figure {
+  text-align: center;
+}
+
 main header {
   padding: 40px;
   border-bottom: #007bff 1px solid;
