@@ -1,7 +1,7 @@
 Title: Book summary: Letters to a New Developer
 Date: 2021-11-08 10:12
 Modified: 2021-11-20 12:36
-Tags: advice, best practices, career, learning
+Tags: advice, best practices, career
 Slug: book-summary-letters-to-a-new-developer
 Authors: Sébastien Lavoie
 Summary: If you are still early in your career as a software developer (or not so much!), I think you might enjoy reading *Letters to a New Developer: What I Wish I Had Known When Starting My Development Career* written by Dan Moore, who also features [a very insightful blog](https://letterstoanewdeveloper.com/).
@@ -140,7 +140,7 @@ Some of the following notes are verbatim and reading the whole title will be wor
 Here's one way to keep track of your estimates in a spreadsheet:
 
 | Task                                                                                           | Low estimate               | High estimate                                                | Notes, questions, research                                        | Final estimate                               | Estimate in days                                               |
-|------------------------------------------------------------------------------------------------|----------------------------|--------------------------------------------------------------|-------------------------------------------------------------------|----------------------------------------------|----------------------------------------------------------------|
+| ---------------------------------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------------ | ----------------------------------------------------------------- | -------------------------------------------- | -------------------------------------------------------------- |
 | Requirements definition, research, development, testing, deployment, estimates on bug fixes... | Everything going smoothly. | Facing obstacles, having to rebuild part of the system, etc. | Answer questions and verify assumptions to complete the estimate. | (low + high) * 1.2 (add 20%, "fudge factor") | Total hours estimated divided by number of ideal hours per day |
 
 - *Tracking the actual accuracy of tasks* can be insightful too.
