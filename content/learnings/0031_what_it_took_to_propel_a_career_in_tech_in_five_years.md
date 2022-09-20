@@ -1,12 +1,12 @@
 Title: What it took to propel a career in tech in five years
+Date: 2022-06-18 14:22
+Tags: career
 Slug: what-it-took-to-propel-a-career-in-tech-in-five-years
 Authors: Sébastien Lavoie
-URL: learning-progress.html
-Date: 2022-06-18 14:22
-save_as: learning-progress.html
+Modified: 2022-09-19 18:50
+Summary: Learning is an eternal path. I have been sharing my own adventure primarily for the following practical reasons: to help me remember what I have been working on technology-wise and to help me practice a technique known as [spaced repetition](https://en.wikipedia.org/wiki/Spaced_repetition). This has been a summary to motivate myself to keep on track, to practice consistent self-reflection and to be reminded as often as possible to stay a bit more humble. In the process, I hope you may found some inspiration too.
+Description: Learning is an eternal path. I have been sharing my own adventure primarily for the following practical reasons: to help me remember what I have been working on technology-wise and to help me practice a technique known as spaced repetition. This has been a summary to motivate myself to keep on track, to practice consistent self-reflection and to be reminded as often as possible to stay a bit more humble. In the process, I hope you may found some inspiration too.
 
-> Learning is an eternal path. I have been sharing my own adventure primarily for the following practical reasons: to help me remember what I have been working on technology-wise and to help me practice a technique known as [spaced repetition](https://en.wikipedia.org/wiki/Spaced_repetition). This has been a summary to motivate myself to keep on track, to practice consistent self-reflection and to be reminded as often as possible to stay a bit more humble. In the process, I hope you may found some inspiration too.
->
 > After having kept a concise (and incomplete) log of my technical learnings for five years at this point, I can see I've come a long way, yet this is only the beginning. From now on, it is time to focus on taking concrete action, build on the foundation that has been laid out over time and start appreciating life from a broader perspective, too, as there are of course many aspects that have contributed to put me at this exact spot on this journey. Theory leads to a deeper understanding in any field, but in the end, the results being produced are what matter most and spending quality time getting good at one's craft is key to making real progress. I think the most important steps to take in this context are _getting into the habit of learning constantly_ and _working towards generating a profound desire to excel_, just for its own sake.
 >
 > To glory and beyond!
@@ -266,10 +266,10 @@ The output below was formatted automatically with a tool that converts the conte
 
 ---
 
-[2021](./learning-progress-2021.html)
+[2021]({filename}/pages/learning-progress-2021.md)
 
-[2020](./learning-progress-2020.html)
+[2020]({filename}/pages/learning-progress-2020.md)
 
-[2019](./learning-progress-2019.html)
+[2019]({filename}/pages/learning-progress-2019.md)
 
-[2018 and earlier](./learning-progress-2018-earlier.html)
+[2018 and earlier]({filename}/pages/learning-progress-2018-earlier.md)

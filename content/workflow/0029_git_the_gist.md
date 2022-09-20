@@ -460,7 +460,7 @@ This section is really just meant to give a taste of the possibilities that alia
 
 # Custom Git sub-commands
 
-There might be less of a need for custom-made commands to be created when so much can be done with Git alone, but there are cases where these custom additions can shine! As a concrete example, I have been updating this website with what I call my "[learning progress]({filename}/pages/learning-progress.md)" but committing always the same kind of stuff gets boring, so I have created a simple Bash script to automate the process of publishing and committing (the content of the script is of no importance, it is only there to demonstrate that commands other than Git can be called too):
+There might be less of a need for custom-made commands to be created when so much can be done with Git alone, but there are cases where these custom additions can shine! As a concrete example, I have been updating this website with what I call my "[learning progress]({filename}/learnings/0031_what_it_took_to_propel_a_career_in_tech_in_five_years.md)" but committing always the same kind of stuff gets boring, so I have created a simple Bash script to automate the process of publishing and committing (the content of the script is of no importance, it is only there to demonstrate that commands other than Git can be called too):
 
 ```{.bash}
 #!/bin/bash

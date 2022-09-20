@@ -1,8 +1,8 @@
 Title: Learning Progress 2018 and Earlier
+Date: 2022-06-18 14:22
 Slug: learning-progress-2018-earlier
 Authors: Sébastien Lavoie
-URL:
-Date: 2022-06-18 14:22
+URL: learning-progress-2018-earlier.html
 save_as: learning-progress-2018-earlier.html
 status: hidden
 

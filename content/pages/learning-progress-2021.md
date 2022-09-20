@@ -494,8 +494,8 @@ save_as: learning-progress-2021.html
 
 ---
 
-[2020](./learning-progress-2020.html)
+[2020]({filename}/pages/learning-progress-2020.md)
 
-[2019](./learning-progress-2019.html)
+[2019]({filename}/pages/learning-progress-2019.md)
 
-[2018 and earlier](./learning-progress-2018-earlier.html)
+[2018 and earlier]({filename}/pages/learning-progress-2018-earlier.md)

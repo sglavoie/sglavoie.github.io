@@ -2277,4 +2277,4 @@ save_as: learning-progress-2019.html
 
 ---
 
-[2018 and earlier](./learning-progress-2018-earlier.html)
+[2018 and earlier]({filename}/pages/learning-progress-2018-earlier.md)

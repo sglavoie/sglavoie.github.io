@@ -13,7 +13,7 @@ Description: Using Google Sheets API, this little tool reads a spreadsheet, extr
 
 # Introduction
 
-The purpose of this tool is to parse and convert the content of a Google Sheets spreadsheet to Markdown. In this specific case, I just wanted a simple script to reduce the friction in getting a valid output I could use to maintain a ["learning log" on my website](/learning-progress.html). So that gives me a quick way to input data in a spreadsheet and then I can take the time whenever needed to update the learning progress as desired by reformatting any of the entries and optionally adding notes to them.
+The purpose of this tool is to parse and convert the content of a Google Sheets spreadsheet to Markdown. In this specific case, I just wanted a simple script to reduce the friction in getting a valid output I could use to maintain a ["learning log" on my website]({filename}/learnings/0031_what_it_took_to_propel_a_career_in_tech_in_five_years.md). So that gives me a quick way to input data in a spreadsheet and then I can take the time whenever needed to update the learning progress as desired by reformatting any of the entries and optionally adding notes to them.
 
 ---
 
@@ -150,4 +150,4 @@ This will output the converted data from the spreadsheet to Markdown [as shown a
 
 # Conclusion
 
-This little tool scratched an itch and will be helpful in making the process of updating the [learning progress](/learning-progress.html) of this website more straightforward, more convenient and less hands-on! You can find its source code [on GitHub](https://github.com/sglavoie/dev-helpers/tree/main/learning-logs-to-markdown).
+This little tool scratched an itch and will be helpful in making the process of updating the [learning progress]({filename}/learnings/0031_what_it_took_to_propel_a_career_in_tech_in_five_years.md) of this website more straightforward, more convenient and less hands-on! You can find its source code [on GitHub](https://github.com/sglavoie/dev-helpers/tree/main/learning-logs-to-markdown).
