@@ -1,5 +1,6 @@
 Title: Git the gist of it: common commands for a working workflow
 Date: 2022-04-03 11:21
+Modified: 2022-10-02 18:37
 Tags: git, productivity, terminal
 Slug: git-the-gist-of-it-common-commands-for-a-working-workflow
 Authors: Sébastien Lavoie
@@ -661,7 +662,7 @@ Being exhaustive when it comes to using Git is definitely not something this art
 - [Binary search algorithm](https://en.wikipedia.org/wiki/Binary_search_algorithm) - Wikipedia.
 - [Gitignore](https://docs.gitignore.io/install/command-line) - Toptal.
 - [HackerRank](https://www.hackerrank.com/).
-- [LeetCode](https://leetcode.com/)).
+- [LeetCode](https://leetcode.com/).
 - [Rewriting history](https://www.atlassian.com/git/tutorials/rewriting-history) - Atlassian.
 - [The new Git default branch name](https://about.gitlab.com/blog/2021/03/10/new-git-default-branch-name) - GitLab.
 - [What is git-rerere and how does it work?](https://stackoverflow.com/a/49501436/8787680) - Stack Overflow.
