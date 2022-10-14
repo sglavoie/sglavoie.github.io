@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../../../../../theme/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../theme/css/pygments.css" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Sébastien Lavoie" />
+    <meta name="description"
+        content="Posts and writings by Sébastien Lavoie. Customization setups and articles on productivity for developers who like minimalism." />
+    <meta name="title" property="og:title" content="sglavoie.com" />
+    <meta property="og:type" content="Website" />
+    <meta name="image" property="og:image" content="../../../../../theme/images/logo_1200x627.png" />
+
+     <link href="https://www.sglavoie.com/feeds/sglavoie.rss.xml" type="application/rss+xml" rel="alternate"
+        title="sglavoie.com RSS" />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="/theme/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/theme/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/theme/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/theme/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="/theme/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="shortcut icon" href="/theme/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#2d89ef" />
+    <meta name="msapplication-TileImage" content="/theme/favicon/mstile-144x144.png" />
+    <meta name="msapplication-config" content="/theme/favicon/browserconfig.xml" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="msapplication-config" content="/theme/favicon/browserconfig.xml" />
+    <meta name="theme-color" content="#000000" />
+
+<meta name="keywords" content="bsc, django, lessons, python">
+
+<!-- Open graph for social networks -->
+<meta name="og:title" property="og:title" content="To spice things up, I am posting a reformatted version of the report I wrote for a web development assignment done during the last year of a computer science degree at the undergraduate level. Facebook should remain a dominant social media platform for a little while longer...">
+
+    <title>sglavoie.com &ndash; Building the next Facebook in a couple of weeks (as a humble&nbsp;experiment)</title>
+
+    <!-- Enable tracking of web traffic -->
+<script type="text/javascript">
+    var _gaq = _gaq || []
+    _gaq.push(['_setAccount', 'UA-150998392-1'])
+    _gaq.push(['_trackPageview'])
+    ;(function () {
+        var ga = document.createElement('script')
+        ga.type = 'text/javascript'
+        ga.async = true
+        ga.src =
+            ('https:' == document.location.protocol
+                ? 'https://ssl'
+                : 'http://www') + '.google-analytics.com/ga.js'
+        var s = document.getElementsByTagName('script')[0]
+        s.parentNode.insertBefore(ga, s)
+    })()
+</script>
+ </head>
+
+<body>
+    <aside>
+        <div id="user_meta">
+            <a href="../../../../..">
+                <div>
+                    <svg width="24.348mm" height="24.348mm" version="1.1" viewBox="0 0 24.348095 24.347754"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#"
+                        xmlns:dc="http://purl.org/dc/elements/1.1/"
+                        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                        <metadata>
+                            <rdf:RDF>
+                                <cc:Work rdf:about="">
+                                    <dc:format>image/svg+xml</dc:format>
+                                    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                                    <dc:title />
+                                </cc:Work>
+                            </rdf:RDF>
+                        </metadata>
+                        <g transform="translate(81.397 -84.454)">
+                            <path d="m-57.049 105.9v2.9029h-11.173v-2.9029z" fill="#c0c0c0">
+                                <animate attributeName="fill" values="white;grey;white" dur="2s"
+                                    repeatCount="indefinite" />
+                            </path>
+                            <path
+                                d="m-72.272 98.481-9.1246 5.7598v-3.548l5.8658-3.5019v-0.09215l-5.8658-3.5019v-3.548l9.1246 5.7598z"
+                                fill="#c0c0c0" />
+                            <path transform="scale(.26458)"
+                                d="m-273.15 319.2-27.588 14.77 8.498 5.3613 19.09-12.049zm15.309 25.67v44.412h8.8672v-35.635h33.361v-8.7773h-33.783zm25.336 24.66v8.7774h8.0254v10.975h8.8672v-19.752z"
+                                fill="#007bff" />
+                        </g>
+                    </svg>
+                </div>
+            </a>
+            <ul>
+                  <li><a href="../../../../../category/automation.html">automation</a></li>
+                <li><a href="../../../../../category/learnings.html">learnings</a></li>
+                <li><a href="../../../../../category/tips-and-tricks.html">tips-and-tricks</a></li>
+                <li><a href="../../../../../category/tools.html">tools</a></li>
+                <li><a href="../../../../../category/workflow.html">workflow</a></li>
+              </ul>
+        </div>
+    </aside>
+
+    <main>
+        <header>
+            <p>
+                <a href="../../../../..">Home</a> &brvbar;
+                <a href="../../../../../archives.html">Archives</a> &brvbar;
+                <a href="../../../../../tags.html">Tags</a> &brvbar;
+                <a href="../../../../../contact.html">Contact</a> &brvbar;
+                <a href="https://drive.google.com/file/d/1t6GdZjC13naJXVGe6RinGowZLfkRzjy_/view" target="_blank"
+                    rel="noopener noreferrer">Resume</a>
+            </p>
+        </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="../../../../../posts/2022/10/14/building-the-next-Facebook-in-a-couple-of-weeks-as-a-humble-experiment/">Building the next Facebook in a couple of weeks (as a humble&nbsp;experiment)</a></h1>
+  </div>
+  <div class="flex-container">
+    <div class="article_meta">
+      <div>Posted on: Fri 14 October 2022</div>
+      <div>Category: <a href="../../../../../category/learnings.html">learnings</a>
+ &ndash; Tags:
+        <a href="../../../../../tag/bsc.html">bsc</a>,        <a href="../../../../../tag/django.html">django</a>,        <a href="../../../../../tag/lessons.html">lessons</a>,        <a href="../../../../../tag/python.html">python</a>      </div>
+    </div>
+    <div class="article_readtime">
+      Estimated read time: 27 minutes
+    </div>
+  </div>
+
+  <h2 class="toc-title">Table of contents</h2>
+  </div>
+  <nav class="toc">
+    <div class="toc">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#meeting-the-requirements">Meeting the requirements</a></li>
+<li><a href="#running-the-application">Running the application</a><ul>
+<li><a href="#installing-and-running-the-web-application">Installing and running the web application</a><ul>
+<li><a href="#accessing-user-accounts">Accessing user accounts</a></li>
+<li><a href="#running-locally">Running locally</a><ul>
+<li><a href="#backend">Backend</a></li>
+<li><a href="#frontend">Frontend</a></li>
+<li><a href="#using-docker">Using Docker</a></li>
+</ul>
+</li>
+<li><a href="#local-deployment">Local deployment</a><ul>
+<li><a href="#summary-of-the-steps-needed-to-deploy-locally">Summary of the steps needed to deploy locally</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#functionality-implemented">Functionality implemented</a></li>
+<li><a href="#executing-the-unit-tests">Executing the unit tests</a></li>
+<li><a href="#logical-approach">Logical approach</a><ul>
+<li><a href="#frontend-framework-react">Frontend framework: React</a></li>
+<li><a href="#react-components-and-icons-material-ui">React components and icons: Material <span class="caps">UI</span></a></li>
+<li><a href="#api-django-rest-framework"><span class="caps">API</span>: Django Rest Framework</a></li>
+<li><a href="#user-management-djoser">User management: Djoser</a></li>
+<li><a href="#asynchronous-communication">Asynchronous communication</a></li>
+<li><a href="#deployment-docker-cloudflare-tunnel">Deployment: Docker, Cloudflare Tunnel</a></li>
+<li><a href="#formatting-prettier-black-vulture-pylint">Formatting: Prettier, Black, Vulture, Pylint</a></li>
+<li><a href="#api-calls-axios"><span class="caps">API</span> calls: Axios</a></li>
+<li><a href="#state-management-redux-and-immer">State management: Redux and Immer</a></li>
+</ul>
+</li>
+<li><a href="#design-and-implementation-decisions">Design and implementation decisions</a></li>
+<li><a href="#evaluation-of-the-final-product">Evaluation of the final product</a><ul>
+<li><a href="#what-worked-well">What worked well</a></li>
+<li><a href="#what-could-have-been-improved">What could have been improved</a></li>
+<li><a href="#state-of-the-art-in-web-development">State of the art in web development</a></li>
+</ul>
+</li>
+<li><a href="#demo-of-the-app">Demo of the app</a><ul>
+<li><a href="#resources-and-references">Resources and references</a></li>
+</ul>
+</li>
+</ul>
+</div>
+  </nav>
+  <div class="article_text">
+    
+<hr/>
+<h1 id="introduction">Introduction</h1>
+<p>The following is a report that was part of a project I delivered during my BSc in computer science, reformatted from LaTeX to Markdown. While not being utterly interesting (unfortunately, the source code cannot be freely published due to the nature of the work…), it gives a glimpse of my thought process while building this Django website. I have learnt a few lessons from it and maybe, with some imagination, you might too :). To read a nicely formatted version of this article, you can refer to the <a href="../../../../../files/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/report.pdf">original report</a> instead.</p>
+<hr/>
+<h1 id="meeting-the-requirements">Meeting the requirements</h1>
+<p>In order to meet all the requirements when building this application, a few different techniques, strategies and concepts were put to good use. Firstly, all <a href="https://www.djangoproject.com/">Django</a> views are class-based and rely on <a href="https://www.django-rest-framework.org/">Django <span class="caps">REST</span> Framework</a> to reduce the boilerplate needed to write the views. One such (simple) view is shown below:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Profiles</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
+    <span class="sd">"""Used when listing all profiles at once."""</span>
+
+    <span class="c1"># allow everyone to see all basic profiles</span>
+    <span class="n">permission_classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">IsOwnerOrReadOnly</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="n">profiles</span> <span class="o">=</span> <span class="n">UserProfile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">"-id"</span><span class="p">)</span>
+        <span class="n">serializer</span> <span class="o">=</span> <span class="n">ProfileSerializer</span><span class="p">(</span><span class="n">profiles</span><span class="p">,</span> <span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+<p>All views in turn rely on serializers to parse incoming data and to transform it into appropriate structures that can be used internally by Django. Some serializers are obviously more complex than others, but for demonstration purposes and for the sake of brevity, an example of a class-based serializer is reproduced here:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">UserPublicSerializer</span><span class="p">(</span><span class="n">ModelSerializer</span><span class="p">):</span>
+    <span class="sd">"""Serializer the User model to get back user information that can</span>
+<span class="sd">    safely be shared around in the application to other users."""</span>
+
+    <span class="c1"># We need easy access to the profile image when listing all profiles</span>
+    <span class="c1"># at once</span>
+    <span class="n">profile_image</span> <span class="o">=</span> <span class="n">SerializerMethodField</span><span class="p">()</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">User</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"id"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">,</span> <span class="s2">"profile_image"</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">get_profile_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">userprofile</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">url</span>
+</code></pre></div>
+<p>The actual implementation details for signals, forms, URLs, other views and components can be explored in the source code submission provided with this report.</p>
+<p>When it comes to version control, Git was used religiously with GitHub to host a private repository. The <a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits specification</a> was followed to help create meaningful commit messages.</p>
+<p><img alt="Git log extract" src="../../../../../images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/commits.png"/></p>
+<p>Defensive coding strategies were used, both in Python and in JavaScript. In the backend, exceptions were raised directly where no appropriate actions could be taken:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">clean_email</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">"""Verify that the email is available."""</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"email"</span><span class="p">)</span>
+    <span class="n">query_set</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">query_set</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s2">"email is taken"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">email</span>
+</code></pre></div>
+<p>In the views, conditional statements were sprinkled everywhere where necessary to avoid expansive computations (e.g., processing a profile image when the request is invalid) and to return early from functions:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ...</span>
+<span class="k">if</span> <span class="n">profile</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span>
+        <span class="s2">"Profile not found!"</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_404_NOT_FOUND</span>
+    <span class="p">)</span>
+
+<span class="k">if</span> <span class="n">profile</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">id</span> <span class="o">!=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span>
+        <span class="s2">"You do not have the required permissions "</span>
+        <span class="s2">"to update this profile!"</span><span class="p">,</span>
+        <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="n">serializer</span> <span class="o">=</span> <span class="n">ProfileUpdateSerializer</span><span class="p">(</span><span class="n">profile</span><span class="p">,</span> <span class="n">many</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+    <span class="n">serializer</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="c1"># ...</span>
+</code></pre></div>
+<p>On the frontend, a kindred approach was used to assemble robust requests:</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="sb">`</span><span class="si">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_API_URL</span><span class="si">}</span><span class="sb">/auth/jwt/verify/`</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">body</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">config</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">code</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">"token_not_valid"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">dispatch</span><span class="p">({</span><span class="w"></span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nx">AUTHENTICATED_SUCCESS</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="p">})</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">dispatch</span><span class="p">({</span><span class="w"></span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nx">AUTHENTICATED_FAIL</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="p">})</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">dispatch</span><span class="p">({</span><span class="w"></span>
+<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nx">AUTHENTICATED_FAIL</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">})</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>With security in mind, views were by default protected and accessible only to authenticated users unless a statement such as the following allows all users to read an endpoint:</p>
+<div class="highlight"><pre><span></span><code><span class="n">permission_classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">IsOwnerOrReadOnly</span><span class="p">]</span>
+</code></pre></div>
+<p>Requirements were also exceeded by using advanced techniques and tools: <a href="https://www.docker.com/">Docker</a>, <a href="https://docs.docker.com/compose/">Docker Compose</a>, <a href="https://python-poetry.org/">Poetry</a>, <a href="https://reactjs.org/">React</a>, <a href="https://redux.js.org/">Redux</a>, <a href="https://mui.com/">Material <span class="caps">UI</span></a> as well as setting up an <span class="caps">SMTP</span> backend to send emails to users were some of the additions made to the project to prove this claim — these will be covered in more details in later sections of this report.</p>
+<p>While being a simple application considering time constraints and budget, the solution brings some novelty to the table, making it a valid application that is production-ready while also serving as an excellent prototype for a much bigger project. Some interesting features not commonly found elsewhere include:</p>
+<ul>
+<li>Being able to chat in real-time with all users of the platform in a time-sensitive context in a way that supports high concurrency with <a href="https://channels.readthedocs.io/en/stable/">Django Channels</a> and <a href="https://redis.io/">Redis</a>. In other words, messages disappear automatically after a specified delay, making for a special chat room where one lives in the moment.</li>
+<li>The application allows users to easily follow others to then be able to quickly search through their posts by filtering them. The added tweak resides in the fact that all posts are given “total points” without “up” or “down” counts being disclosed directly.</li>
+<li>Posts can be hidden at any time by users yet remain viewable by showing the author as being anonymous.</li>
+<li>The colourful profile list view allows filtering of all the profiles at once by name and shows distinctive information about users, such as the list of people they follow or the list of people who are following them as a non-obstrusive modal (Material <span class="caps">UI</span> pop-up).</li>
+</ul>
+<p>As will be discussed in the section <a href="#state-of-the-art-in-web-development">State of the art in web development</a>, this solution follows best practices and aims to represent the state of the art, both in terms of technical execution and in the contemporary look of the final product, which is brought into the spotlight in the following figures.</p>
+<hr/>
+<h1 id="running-the-application">Running the application</h1>
+<p><img alt="demo1" src="../../../../../images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/demo1.png"/></p>
+<h2 id="installing-and-running-the-web-application">Installing and running the web application</h2>
+<h3 id="accessing-user-accounts">Accessing user accounts</h3>
+<p>All accounts are registered with the same password: <code>pass1234</code>.</p>
+<p>To log in, simply use one of the following email addresses:</p>
+<div class="highlight"><pre><span></span><code>admin      admin@gmail.com       (superuser for Django admin)
+Andrea     andrea@gmail.com
+Bob        uol.grader@gmail.com
+Hider      hider@gmail.com       (hidden profile)
+Mia        mamamia@gmail.com
+Suliman    suliman@gmail.com
+Tuan       tuan@gmail.com
+</code></pre></div>
+<p>If you set the <code>SEND_ACTIVATION_EMAIL</code> setting to <code>True</code> in the configuration file <code>socialnetwork/settings.py</code>, emails will be sent from the account <code>uol.grader@gmail.com</code>, which is a real account created to manage emails for this application.</p>
+<h3 id="running-locally">Running locally</h3>
+<h4 id="backend">Backend</h4>
+<p>To avoid a layer of abstraction as setting up Redis on some systems may be more difficult, Django’s backend is used for the channels by default. Should you require to use Redis instead, please follow the instructions in <code>settings.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">CHANNEL_LAYERS</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"default"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"BACKEND"</span><span class="p">:</span> <span class="s2">"channels.layers.InMemoryChannelLayer"</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="c1"># To use Redis locally, please comment the above line and uncomment the</span>
+<span class="c1"># following two dicts:</span>
+<span class="c1"># CHANNEL_LAYERS = {</span>
+<span class="c1">#     "default": {</span>
+<span class="c1">#         "BACKEND": "channels_redis.core.RedisChannelLayer",</span>
+<span class="c1">#         "CONFIG": {"hosts": [("redis", 6379)]},</span>
+<span class="c1">#     }</span>
+<span class="c1"># }</span>
+
+<span class="c1"># CACHES = {</span>
+<span class="c1">#     "default": {</span>
+<span class="c1">#         "BACKEND": "django_redis.cache.RedisCache",</span>
+<span class="c1">#         "LOCATION": [("redis", 6379)],</span>
+<span class="c1">#         "OPTIONS": {</span>
+<span class="c1">#           "CLIENT_CLASS": "django_redis.client.DefaultClient"</span>
+<span class="c1">#         },</span>
+<span class="c1">#     }</span>
+<span class="c1"># }</span>
+</code></pre></div>
+<p>Then, a simple way to get Redis running would be to launch it with Docker:</p>
+<div class="highlight"><pre><span></span><code>docker run -d -p <span class="m">6379</span>:6379 redis
+</code></pre></div>
+<p>Moving on to installing Django and the rest of the dependencies for the backend:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> backend
+
+<span class="c1"># Activate a virtual environment, e.g.:</span>
+python3 -m venv .venv <span class="o">&amp;&amp;</span> <span class="nb">source</span> .venv/bin/activate
+
+<span class="c1"># Install dependencies</span>
+pip install -r requirements.txt
+
+<span class="c1"># Run the server on port 8000 with existing data</span>
+python manage.py runserver
+</code></pre></div>
+<p>Dependencies can also be installed with Poetry thanks to the provided files <code>pyproject.toml</code> and <code>poetry.lock</code> with the following command:</p>
+<div class="highlight"><pre><span></span><code>poetry install
+</code></pre></div>
+<p>To keep the Docker image simple, <code>pip</code> is used to install the requirements, although beware that Poetry’s dependency resolver will be more predictable in a production application.</p>
+<h4 id="frontend">Frontend</h4>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> frontend
+
+<span class="c1"># Install dependencies</span>
+npm install
+
+<span class="c1"># Run the server on port 3000</span>
+npm run start
+</code></pre></div>
+<p>Access the application at <a href="http://localhost:3000">http://localhost:3000</a>.</p>
+<h4 id="using-docker">Using Docker</h4>
+<p>A <code>docker-compose.yaml</code> has been prepared to launch all the required parts at once (Redis, Django and React).</p>
+<div class="highlight"><pre><span></span><code>docker-compose build
+docker-compose up -d
+</code></pre></div>
+<p>Some other useful commands:</p>
+<div class="highlight"><pre><span></span><code>docker-compose down
+docker-compose logs
+docker-compose ps -a
+</code></pre></div>
+<p>This container could be set up to run in a cloud infrastructure such as Google Cloud Platform inside a virtual machine. This setup goes above and beyond what was taught in this module, though, therefore resources were not allocated to the actual deployment.</p>
+<h3 id="local-deployment">Local deployment</h3>
+<p>An alternative to the (costly and unfunded) deployment on <span class="caps">GCP</span> can be done on a local machine, using Docker to containerize the application and a service like Cloudflare Tunnel to allow traffic from the external world to reach the application, effectively converting the machine into a server.</p>
+<h4 id="summary-of-the-steps-needed-to-deploy-locally">Summary of the steps needed to deploy locally</h4>
+<ul>
+<li>Buy/use a domain name and configure its <span class="caps">DNS</span> with Cloudflare.</li>
+<li>Update Django’s <code>settings.py</code> to allow the domain name to reach the Django application — avoiding <span class="caps">CORS</span> issue when localhost:3000 tries to connect to localhost:8000 using that domain — (i.e. <code>ALLOWED_HOSTS</code>).</li>
+<li>Install the <span class="caps">CLI</span> tool <code>cloudflared</code>, log in to your Cloudflare account with <code>cloudflared tunnel login</code>.</li>
+<li>Create a new tunnel: <code>cloudflared tunnel create test-tunnel</code>.</li>
+<li>Route that tunnel: <code>cloudflared tunnel route dns &lt;T&gt; &lt;N&gt;</code>, where <code>&lt;N&gt;</code> is the web address to use as a sub-domain and <code>&lt;T&gt;</code> is the tunnel <span class="caps">ID</span>.</li>
+<li>Add this sub-domain to the <span class="caps">DNS</span> management console in the Cloudflare dashboard.</li>
+<li>Configure Cloudflare to use the web application:</li>
+</ul>
+<div class="highlight"><pre><span></span><code># ~/.cloudflared/config.yml
+url: http://localhost:3000
+tunnel: SOME_ID_GIVEN_BY_CLOUDFLARE
+credentials-file: ~/.cloudflared/SOME_ID_GIVEN_BY_CLOUDFLARE.json
+</code></pre></div>
+<p>Finally, run the tunnel with <code>cloudflared tunnel run</code> and go to the configured website at its subdomain (e.g., <code>name.domain.com</code>).</p>
+<hr/>
+<h1 id="functionality-implemented">Functionality implemented</h1>
+<p><img alt="demo2" src="../../../../../images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/demo2.png"/></p>
+<p>This application implements all the necessary functionality at the account management level with Djoser. In effect, users can:</p>
+<ul>
+<li>Sign up for a new account;</li>
+<li>Activate their account via email upon creation (this behaviour is disabled by default for convenience but can be reactivated as mentioned earlier);</li>
+<li>Reset their password via email;</li>
+<li>Log into their account;</li>
+<li>Change their displayed name;</li>
+<li>Make their profile hidden to other users;</li>
+<li>Log out from their account;</li>
+<li>Delete their account permanently by validating their password.</li>
+</ul>
+<p>User profiles provide the following features:</p>
+<ul>
+<li>Number of followers as well as a complete list of followers shown;</li>
+<li>Number of people that a user is following as well as a complete list of these people;</li>
+<li>Number of points a user has “given” to posts they like;</li>
+<li>Number of points a user has “taken” from posts they dislike;</li>
+<li>Where the user is located;</li>
+<li>Each user can display a biography;</li>
+<li>The date at which a user joined the social network;</li>
+<li>The latest date at which the user updated their profile;</li>
+<li>A “status” field to prominently feature a statement, which is also shown in the profile listing;</li>
+<li>A list of posts written by the user, where the owner can create new posts, delete, edit or hide existing posts so they are no longer displayed publicly in their profile nor in the list of public posts;</li>
+<li>An image gallery the user has uploaded, where the owner can add or remove pictures;</li>
+<li>The ability for each user to delete their account, effectively cascading a delete of their interactions in the application such as their posts, profile image, etc.;</li>
+<li>Users can edit the information they share with others;</li>
+<li>To avoid profile pictures slowing down navigation — most notably in the profile list view — all images are automatically resized to maximum 300 by 300 pixels when a user uploads a new image;</li>
+<li>Finally, users can also hide their profile entirely — doing so will then mark all their posts as being anonymous and they will not be reachable by any other user of the network.</li>
+</ul>
+<p>Following the “profile” view, the “profile list” view (linked with the text “<strong>Meet</strong>” in the navigation bar) shows all public profiles with most of the information users share. To view the details of a profile (such as a birth date and the date of the last edit of a user), it is necessary to be authenticated, otherwise unauthenticated users will be redirected back to the “profile list” view and an error alert will be flashed.  Additionally, the number of followers and people users are following are displayed right from the list view and allow to click to retrieve a complete list of people who are followed. The different icons shown on this page really pop out: the more followers a user has, the bigger the number of people shown in the actual icon representation; also, an icon indicating a value of “0” is slightly greyed out for readability and to let users know they won’t be able to interact with these icons.</p>
+<p>As a distinctive mark of interest, everything belonging to a user is marked with a fingerprint icon: when a user views their own profile or posts, they will be able to quickly identify that this information is theirs as long as they are logged in.</p>
+<p>Posts implement a basic editing view and allow their author to hide them. Furthermore, posts receive and lose points based on the opinions of users in the network and will end up with positive or negative scores, similar to what <a href="https://www.reddit.com/">Reddit</a> and <a href="https://stackoverflow.com/">Stack Overflow</a> have done but without splitting the count in either direction.</p>
+<p>The “<strong>Read</strong>” page — to be found in the navigation bar — shows posts from people users follow at the top, allowing to filter the content of posts based on their interests. The total number of points is shown next to each post entry. As a section section on that page, users have the ability to see a list of public posts as well as search for keywords of interest, just like in the first section just described.</p>
+<p>On any page that gets longer than 500 pixels when scrolling down, there will be a little arrow icon allowing users to swiftly glide to the top of the page.</p>
+<p>When clicking on the avatar icon displayed in the top-right corner of the application, a “drawer” (in <a href="https://mui.com/">Material <span class="caps">UI</span></a>‘s terms) will open to allow users to quickly jump to their profile and to log out of the application.</p>
+<p>Behind the scenes, administrators and superusers can be created with full privileges to modify and delete other accounts. These special accounts will be hidden by default from the public-facing frontend, although their profile can later be made public and used as any other account on the website.</p>
+<p>Last but not least, there is a public chat room where all users of the application can go to have a spontaneous discussion. In fact, the web application is programmed to automatically discard messages that are older than 20 seconds (by default), allowing users to share special moments that are very much unique and time-limited while avoiding being overwhelmed by content. In the event that a constant flow of messages might be entering the chat room at a given time, users will still have the ability to scroll up in the view (assuming they read fast enough). If they do not scroll up, the view will always focus on the latest incoming message so their attention span will be maintained on this very moment. Every time a user reloads the page or goes somewhere else in the application, the content of the chat window will disappear on purpose, because good discussions are meant to happen in real-time on this website. Users will not be distracted by anything else other than a little avatar icon and people’s names so they can know at a glance who is interacting with them… but they will need to have a good memory to remember everything. After all, the idea behind this chat application really is to exchange some good thoughts in the moment. What lives on is only the memory of time well spent with others.</p>
+<p>At the <span class="caps">API</span> level, users can interact with the application directly via <span class="caps">API</span> endpoints, provided they send their authentication token should a view have a requirement  in this regard. These endpoints are listed succinctly below, but a file <code>openapi-schema.yml</code> has been provided in the <code>backend</code> directory for a complete reference.</p>
+<div class="highlight"><pre><span></span><code>accounts/ profiles/
+accounts/ profiles/&lt;int:user_id&gt;
+accounts/ profiles/&lt;int:user_id&gt;/image
+accounts/ profiles/&lt;int:pk&gt;/followers
+accounts/ profiles/&lt;int:pk&gt;/followers/add
+accounts/ profiles/&lt;int:pk&gt;/followers/remove
+accounts/ profiles/gallery/add
+accounts/ profiles/gallery/remove/&lt;int:gallery_pk&gt;
+accounts/ ^media/(?P&lt;path&gt;.*)$
+api/ posts/&lt;int:pk&gt;/
+api/ posts/author/&lt;int:pk&gt;/
+api/ posts/&lt;int:pk&gt;/up/
+api/ posts/&lt;int:pk&gt;/down/
+api/ posts/&lt;int:pk&gt;/pointsby/
+api/ posts/
+</code></pre></div>
+<hr/>
+<h1 id="executing-the-unit-tests">Executing the unit tests</h1>
+<p>To run the unit tests, it is a matter of activating a virtual environment (as described in the section <a href="#running-locally">Running locally</a>) and using the built-in <code>test</code> command provided by Django in the following manner, which must be run from within the <code>backend</code> directory:</p>
+<div class="highlight"><pre><span></span><code>$ python manage.py <span class="nb">test</span>
+Found <span class="m">119</span> test<span class="o">(</span>s<span class="o">)</span>.
+Creating <span class="nb">test</span> database <span class="k">for</span> <span class="nb">alias</span> <span class="s1">'default'</span>...
+System check identified no issues <span class="o">(</span><span class="m">0</span> silenced<span class="o">)</span>.
+..............................................................
+--------------------------------------------------------------
+Ran <span class="m">119</span> tests <span class="k">in</span> <span class="m">0</span>.584s
+
+OK
+Destroying <span class="nb">test</span> database <span class="k">for</span> <span class="nb">alias</span> <span class="s1">'default'</span>...
+</code></pre></div>
+<hr/>
+<h1 id="logical-approach">Logical approach</h1>
+<h2 id="frontend-framework-react">Frontend framework: React</h2>
+<p>The application was designed with the goal in mind of having a modern frontend framework relying on an excellent <span class="caps">CSS</span> framework to provide icons and other components. Speaking of components, React was chosen for its strong focus on designing small components that can be reused. Taking advantage of this approach, some components such as the “profile intro” (the box showing the main information regarding a user profile) are literally displayed on different pages, such as when viewing a single profile or when viewing a list of profiles.</p>
+<p>Similarly, a “post” entry represents the exact same React component when viewed in isolation or when browsing for many more posts. When search bars are used, these share the same characteristics and behaviors across the page while managing a different state.</p>
+<p><img alt="demo3" src="../../../../../images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/demo3.png"/></p>
+<h2 id="react-components-and-icons-material-ui">React components and icons: Material <span class="caps">UI</span></h2>
+<p>On the design side, the presentation of the website was made much more consistent with the help of Material <span class="caps">UI</span>, which provides many ready-made React components. The whole application was built around the concept of adding building blocks from Material <span class="caps">UI</span> such as a “<code>box</code><span class="dquo">“</span>, “<code>button</code>” or “<code>typography</code>” to guarantee that all aspects of the application look homogeneous and with the same modern style.</p>
+<p>Components such as a “<code>drawer</code>” and a “<code>navbar</code>” really sped up development and were expected to be used extensively right from the start.</p>
+<h2 id="api-django-rest-framework"><span class="caps">API</span>: Django Rest Framework</h2>
+<p>Since the use of Django was mandatory for the backend part of this work, Django <span class="caps">REST</span> framework was an ideal choice considering the need for an <span class="caps">API</span> to be directly accessible to end-users and to benefit from an easy-to-use toolkit to build an <span class="caps">API</span> that can be accessed from React without breaking a sweat.</p>
+<p>Django <span class="caps">REST</span> Framework simplifies data serialization and even allows dealing with nested serialization in a straightforward way. Because it comes with powerful features for authentication and permission management, it was also a great option for this specific use case which depend easily on these sets of features which would arguably be very complex, error-prone and time consuming to implement manually.</p>
+<h2 id="user-management-djoser">User management: Djoser</h2>
+<p>Beyond Django’s default user management system, there was a desire to extend the default behaviour, for instance to use an email address instead of a username to authenticate users. Djoser makes these changes and much more a lot more simple, adding easy management of logins, logouts, password confirmation resets, activation emails and so forth.</p>
+<p>By leveraging Django’s built-in features with Djoser, the user model can be extended with ease and flexibility.</p>
+<h2 id="asynchronous-communication">Asynchronous communication</h2>
+<p>To build the chat application, Channels and <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">WebSocket</a> were considered as one of the best combination of libraries because they are simple to use and allow high concurrency to be possible. Channels makes it easy to create an asynchronous WebSocket consumer to deal with many users connecting to possibly many different groups: it is therefore an ideal option for a growing social network.</p>
+<p>The WebSocket library in JavaScript is then used to communicate with Channels via the WebSockets technology, sending and receiving messages with additional payload to extend the functionality of the chat application.</p>
+<h2 id="deployment-docker-cloudflare-tunnel">Deployment: Docker, Cloudflare Tunnel</h2>
+<p>To deploy an application to production, Docker Compose is a robust and reliable solution, especially for this use case where different microservices can be pieced together seamlessly, sharing resources across a single network on different ports.</p>
+<p>Docker makes it possible to containerize parts of the application (i.e., the backend, frontend and in-memory cache database) to be run potentially on many virtual machines in the cloud and Docker Compose makes the process of orchestring an application such as this one much more accessible than configure web servers from start to finish.</p>
+<p>Poetry, a package and dependencies management system for Python, allows requirements to be pinned to specific versions and ensures reproducibility is achieved, which is critically important when it comes to deploying to production. Its dependencies resolver is much more reliable when the exactitude of a list of requirements must be met.</p>
+<p>In terms of deploying a real application on a small scale, <a href="https://www.cloudflare.com/products/tunnel/">Cloudflare Tunnel</a> was also considered as it is useful to share prototypes during development and to instantly deploy a local server. Furthermore, it can work hand in hand with Docker Compose and Poetry since a container can be run in the background and the application can be exposed on multiple ports locally without having to configure firewalls.</p>
+<p>Because <code>pip</code> is traditionally used in the Python world to manage requirements, the command <code>pip freeze</code> was used to generate a standard list of pinned dependencies, although for an actual deployment to production, an open source alternative like Poetry would likely be preferable.</p>
+<h2 id="formatting-prettier-black-vulture-pylint">Formatting: Prettier, Black, Vulture, Pylint</h2>
+<p>While code formatting is of utmost importance for readability, it is also a tremendous waste of time to try to do it manually. For this reason, multiple tools were used to aid with this gargantuan task. <a href="https://prettier.io/">Prettier</a> was used on the frontend side to format everything related to JavaScript and <span class="caps">CSS</span>.</p>
+<p>On the backend side, <a href="https://black.readthedocs.io/en/stable/">Black</a> was the primary formatter used. Its use was complemented with <a href="https://pylint.pycqa.org/en/latest/">Pylint</a>, which helps to clean up and refactor the code by finding hard-to-spot warnings, such as unnecessary return statements or the use of more complex expressions when an equivalent such as a list comprehension could be used.</p>
+<p>Finally, to keep the code tidy and alive, <a href="https://github.com/jendrikseipp/vulture">Vulture</a> was used to find “dead” code not in used anywhere else. Even if code is well formatted, code that is not needed become a liability. In the source code world, less really is more.</p>
+<h2 id="api-calls-axios"><span class="caps">API</span> calls: Axios</h2>
+<p>The <a href="https://axios-http.com/">Axios</a> JavaScript library was used for the attractiveness and flexibility of its <span class="caps">API</span>. Because it supports fully the Promise <span class="caps">API</span> and allow making asynchronous calls with the async/await syntax, it makes for a good tool to communicate with the backend. It has extensive documentation and excellent support on various web platforms including GitHub, which is an important consideration when thinking about deploying an application in the real world.</p>
+<p>There are new and shiny technological options all the time, but a battle-tested software like Axios remain a competent tool apt for the job.</p>
+<h2 id="state-management-redux-and-immer">State management: Redux and Immer</h2>
+<p>Despite the Context <span class="caps">API</span> from React being powerful and easy to use, Redux and <a href="https://immerjs.github.io/immer/">Immer</a> really make dealing with state management a breeze. Redux on its own is one of the best in its category to provide state management at scale: its documentation is also fantastic and detailed and its popularity on Stack Overflow is only a plus in its favour should there be a need to fix issues while using it (because there will inevitably be such a need). The Redux workflow with actions being dispatched with types makes sense and adding new features is very fast without having to change existing pieces of states when combining reducers.</p>
+<p>One possible drawback of using plain Redux to manage the store is that states can be mutated and unexpected consequences may ensue. For this reason, Immer was included so that dealing with a Redux store is stripped down to a direct object assignment, where Immer takes care of updating items and even nested items as needed.</p>
+<hr/>
+<h1 id="design-and-implementation-decisions">Design and implementation decisions</h1>
+<p>Because deployment with Docker was a primordial concern, the application was built with a backend that is completely decoupled from a frontend. In fact, with just a little bit of ingenuity, Django could be swapped entirely with another web framework as long as the same endpoints are provided to the frontend with the necessary technologies (such as web sockets) being implemented. In a similar way, the frontend, which is built primarily with React, could be upgraded to another popular alternative such as Vue.js. This gives flexibility and should there be a greater need for optimization once the social network takes off for a real spin, there is the possibility to bundle React with Django by building minimized versions of the assets and shipping everything as a Docker container that can be run on powerful machines in the cloud.</p>
+<p>Beyond this original concern, more concrete decisions were taken. For instance, Django signals were used to simplify how user profiles are created. Instead of allowing users to create a profile from their user account, the experience was unified by transparently automating this process whenever a user account is created such that it is attached to a newly created profile associated with it. Leaving the option to the end-user of manually creating a profile could be confusing at best and lead to unexpected results at worst, where user accounts and user profiles IDs become out of sync, which is a nice side-effect of having them created as well as deleted at the same time.</p>
+<p>From the start, Djoser was chosen to override specific built-in functions performed by Django and to facilitate email management. To integrate Djoser with the administrative bits of the application — namely, the Django admin interface — Django forms were used to customize how users are to be registered as well as superusers and staff accounts. By overriding the user creation, it is now possible to update parts of the process with simple configuration variables implemented by Djoser, such as forcing users to retype their passwords or not.</p>
+<p><img alt="demo4" src="../../../../../images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/demo4.png"/></p>
+<p>With Django models, the base model became a <code>UserAccount</code>, which allow users to join the network. However, the functionality related to account management is kept separate from other features of the application by interfacing with the accounts using a <code>UserProfile</code> model on which a <strong>user</strong> field exist. In turn, this model integrates other parts of the models, such as many-to-many relationships with followers and a gallery image model, which is also linked as a many-to-many relationship. Another part of the application implements a <code>Post</code> model where the <strong>author</strong> field corresponds to a <code>UserAccount</code>, effectively linking a different part of the application to the user accounts. Again, a <code>Post</code> then interfaces with other models to take points into account, which are also linked to user profiles.</p>
+<p>To manage all kinds of <span class="caps">POST</span> requests as well as to guarantee that models communicate as expected between each other, serializers using Django <span class="caps">REST</span> framework features were used in the process. These generally use a <code>SerializerMethodField</code> to define more complex behaviors, such as getting all non-hidden followers for a single profile.</p>
+<p>Views were implemented with <span class="caps">DRF</span> <code>APIView</code>, bridging the gap between a RESTful <span class="caps">API</span> and the ability to define simple views using methods like <strong>get</strong> and <strong>delete</strong>. Views rely on serializers and specify a <code>permission_classes</code> list of custom values, which were implemented separately in a <code>permissions.py</code> file. This allows customizing the default behavior so that by default all views require authentication unless explicitly stated otherwise by these permission classes. This is also more secure, preventing users from inadvertently being able to access what should have been protected resources.</p>
+<p>In terms of <span class="caps">API</span> definition, simplicity was key: every endpoint regarding authentication is accessed under <code>/auth</code> while our specific implementation of user accounts is accessed under <code>/accounts</code>. Additionally, all endpoints to deal with user posts are to be found with an endpoint starting with <code>/posts</code>. Finally, there is another set of endpoints to work with profiles, these being accessible under <code>/profiles</code>.</p>
+<p>The Django chat application, due to its asynchronous nature, uses different technologies behind the scenes, including notably WebSockets. Channels was chosen to implement this portion because it extends Django’s capabilities beyond <span class="caps">HTTP</span> and is ideally suited for chat applications like the one being built as part of this social network.</p>
+<hr/>
+<h1 id="evaluation-of-the-final-product">Evaluation of the final product</h1>
+<h2 id="what-worked-well">What worked well</h2>
+<p><img alt="demo5" src="../../../../../images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/demo5.png"/></p>
+<p>Opting for React made for a flexible framework that behaves extremely well with Django. React has complete documentation and extensive support offered on different medium, making it ideal for a robust and complex web application. Coupled with Material <span class="caps">UI</span>, the frontend aspect of the work was taken care of and didn’t need particular attention when developing. For any basic functionality that was not available out of the box in JavaScript, the Lodash library was used to make object comparisons and such much more readable and understandable when multiple conditions were being evaluated in a <span class="caps">JSX</span> expression, often with ternary operators.</p>
+<p>The state was managed beautifully with Redux and the Redux Devtools web browser extension, allowing for rapid iterations and feedback where debugging would otherwise become very cumbersome. The <code>useState</code> hook was used profusely to separate concerns as well.</p>
+<p>Keeping with React, the application was divided into logical sections that made it easy to add new features. Small components were created for different parts of the application, Redux actions and reducers were stored in their respective directories, containers and other higher-order components were given a special place in the frontend hierarchy, utility functions were well organized and accessible, pages and custom hooks also had their own place to reside.</p>
+<p>Deploying with Docker remained a clean process, where a single <code>Dockerfile</code> was created to power the backend and another <code>Dockerfile</code> added for the frontend. Finally, all these instructions were put together with a readable <code>docker-compose.yaml</code> file, which purpose was to join all the different containers in a single place and to allow adding more microservices, such as Redis. Postgres was not used in this version for practical reasons when sharing the source code of the web application with others, but only a few steps would need to be taken to update Django’s settings file as well as pulling from DockerHub a suitable image to run Postgres.</p>
+<p>Testing with Django went particularly well: the documentation had a clear guide about testing and any aspect of the application — serializers, views, models, forms, consumers, signals and so on — were tested according to the Django standards, leading to a whopping total of 119 passing unit tests, which are to be found inside a <code>tests</code> directory inside each Django application within the project.</p>
+<h2 id="what-could-have-been-improved">What could have been improved</h2>
+<p><img alt="demo6" src="../../../../../images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/demo6.png"/></p>
+<p>Planning of the technical stack could have gone much better. During the experimentation phase in the early steps of this project, good portions of functionality were implemented using Django templates without any frontend framework, except for the <span class="caps">CSS</span> framework Bootstrap. Features such as user notifications, personal messaging between two users with the ability to use different “inboxes” and “threads” was a very good selling point of the first version of this web application. Alas, due to time constraints, these useful additions were left behind (preserved with a Git history) but did not manage to make it to the final product. It would have been much more productive to take a closer look at the panoply of requirements to be implemented from the very beginning and determining the best fit as early as possible to avoid rewriting code from one framework to another.</p>
+<p>Although Redux was a lifesaver in many circumstances, it was also a hurdle in terms of productivity because of its complexity and different moving parts. Being more careful to not use Redux at all costs everywhere possible, dispatching updates in the application would surely be simplified with the Context <span class="caps">API</span> using pure React or even some <code>useEffect</code> hooks, which were used profusely with good results. Immer was also introduced a bit later in the thought process when dealing with nested <span class="caps">JSON</span> objects. Although it made the remaining development easier, it was also probably a red flag meaning that the Redux store could have been simplified into smaller reducers where different selectors could access parts of the store that wouldn’t need to be nested objects. This may also indicate a flaw in the way models were implemented, but most likely there were errors made when dispatching messages in a part of the Redux store that really should belong somewhere else. In concrete terms, dispatching an event regarding users inside the “user” reducer was probably more complicated than simply dealing with all notifications in a different reducer. In actuality, this led to some dispatch actions that did more than one thing, which is not ideal when thinking about the concept of separation of concerns.</p>
+<p>Although this is not perceptible in the final product, Django migrations were at times a pain to work with. This is because the models weren’t thought through very well at the beginning and despite the iterative process being an inherent part of software development, iterating over models in Django definitely counts as an exception to the rule where clearly defined models will not cause migrations to break or need to be modified in any way. It would have been more productive to produce well-designed diagrams, depicting the architecture of the application as well as the complete schema of the database to avoid surprises down the road.</p>
+<h2 id="state-of-the-art-in-web-development">State of the art in web development</h2>
+<p><img alt="source_code" src="../../../../../images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/source_code.png"/></p>
+<p>On a technical aspect, many parts of this web application conform to modern web standards. The latest stable release versions of libraries were used whenever convenient and/or possible. This non-exhaustive list would include, at the time of this writing, React 17.0.2, Redux 4.1.2, WebSocket 1.0.34 and Material <span class="caps">UI</span> 5.5.0 for the frontend. On the backend, Django 4.0.3, Channels 3.0.4, Djoser 2.1.0 and Redis 4.2.0 were used.</p>
+<p>When dealing with dependencies, Poetry was used with great benefit to make sure that Docker containers could be deployed reliably. Using Docker and Docker Compose was another touch that was added since most contemporary software will ship with a Docker solution for convenience. An excellent example in this regard would be PlantUML, a Java-based application to generate diagrams from textual descriptions that can be deployed in only a few seconds via Docker, launching a local server with the full capabilities offered by the piece of software in question. Nowadays, with Docker containers being more secure and very fitting for a deployment to the cloud at most big technology companies, it really is a best practice adopted by good software teams to work with containerized versions of their products.</p>
+<p>The wider community was consulted in an effort to bring the maximum quality possible to the end result. Concretely, advice was taken from prominent figures in the web development world, including <a href="https://www.dennisivy.com/">Dennis Ivanov</a> and <a href="https://laithharb.com/">Laith Harb</a>, both Django and React experts and <a href="https://coreyms.com/">Corey Schafer</a>, an accomplished software developer from the Python world. <a href="https://nigelpoulton.com/">Nigel Poulton</a> — author of Docker Deep Dive — served as a good reference for the deployment part. <a href="https://realpython.com/">Real Python</a> was a godsend with its in-depth articles, for instance about debugging code with Pdb. Less well-known yet high-quality content producers inspired work with Djoser and the implementation of user posts, including <a href="https://www.youtube.com/channel/UCf_Y89gbkB1bJGkmqiQIAnQ">Bryan Dunn</a> and <a href="https://www.legionscript.com/">Legion Script</a>. <a href="https://www.cloudflare.com/">Cloudflare</a> was also one of the best resources used to deploy a secure web server locally and to learn about <span class="caps">JSON</span> web tokens and their use specifically with Python. Needless to say, the official documentation from each major framework and tool was referenced all way through, many names which are going to sound familiar by now — Django <span class="caps">REST</span> Framework, React, Redux, Immer.js, Django, Djoser, Channels, etc.</p>
+<hr/>
+<h1 id="demo-of-the-app">Demo of the app</h1>
+<div class="youtube youtube-16x9">
+<iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/LFJfL2ejhAU"></iframe>
+</div>
+<hr/>
+<h2 id="resources-and-references">Resources and references</h2>
+<ul>
+<li><a href="https://axios-http.com/">Axios</a></li>
+<li><a href="https://black.readthedocs.io/en/stable/">Black</a></li>
+<li><a href="https://www.youtube.com/channel/UCf_Y89gbkB1bJGkmqiQIAnQ">Bryan Dunn</a></li>
+<li><a href="https://www.cloudflare.com/products/tunnel/">Cloudflare Tunnel</a></li>
+<li><a href="https://www.cloudflare.com/">Cloudflare</a></li>
+<li><a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits specification</a></li>
+<li><a href="https://coreyms.com/">Corey Schafer</a></li>
+<li><a href="https://www.dennisivy.com/">Dennis Ivanov</a></li>
+<li><a href="https://channels.readthedocs.io/en/stable/">Django Channels</a></li>
+<li><a href="https://www.django-rest-framework.org/">Django <span class="caps">REST</span> Framework</a></li>
+<li><a href="https://www.djangoproject.com/">Django</a></li>
+<li><a href="https://docs.docker.com/compose/">Docker Compose</a></li>
+<li><a href="https://www.docker.com/">Docker</a></li>
+<li><a href="https://immerjs.github.io/immer/">Immer</a></li>
+<li><a href="https://laithharb.com/">Laith Harb</a></li>
+<li><a href="https://www.legionscript.com/">Legion Script</a></li>
+<li><a href="https://mui.com/">Material <span class="caps">UI</span></a></li>
+<li><a href="https://nigelpoulton.com/">Nigel Poulton</a></li>
+<li><a href="https://python-poetry.org/">Poetry</a></li>
+<li><a href="https://prettier.io/">Prettier</a></li>
+<li><a href="https://pylint.pycqa.org/en/latest/">Pylint</a></li>
+<li><a href="https://reactjs.org/">React</a></li>
+<li><a href="https://realpython.com/">Real Python</a></li>
+<li><a href="https://www.reddit.com/">Reddit</a></li>
+<li><a href="https://redis.io/">Redis</a></li>
+<li><a href="https://redux.js.org/">Redux</a></li>
+<li><a href="https://stackoverflow.com/">Stack Overflow</a></li>
+<li><a href="https://github.com/jendrikseipp/vulture">Vulture</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">WebSocket</a></li>
+</ul>
+  </div>
+
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_identifier = "posts/2022/10/14/building-the-next-Facebook-in-a-couple-of-weeks-as-a-humble-experiment/";
+      (function () {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//sglavoie.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </div>
+
+</article>
+  
+        <div id="ending_message">
+            <p>
+                &copy; Sébastien Lavoie. Built with
+                <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Python</a>
+                using
+                <a href="http://getpelican.com" target="_blank" rel="noopener noreferrer">Pelican</a>
+                <span class="badge">v4.8.0</span>. Theme adapted from Giulio Fidente on
+                <a href="https://github.com/gfidente/pelican-svbhack" target="_blank"
+                    rel="noopener noreferrer">GitHub</a>.
+                <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS feed</a>.
+            </p>
+        </div>
+    </main>
+</body>
+
+</html>
