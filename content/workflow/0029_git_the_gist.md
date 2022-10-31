@@ -1,6 +1,6 @@
 Title: Git the gist of it: common commands for a working workflow
 Date: 2022-04-03 11:21
-Modified: 2022-10-02 18:37
+Modified: 2022-10-31 8:52
 Tags: git, productivity, terminal
 Slug: git-the-gist-of-it-common-commands-for-a-working-workflow
 Authors: Sébastien Lavoie
@@ -36,7 +36,7 @@ The setup is straightforward: create a file `~/.gitignore`, fill it as usual wit
     excludesfile = ~/.gitignore
 ```
 
-Toptal provides [a nice tool on the command-line](https://docs.gitignore.io/install/command-line) that can be used to easily exclude patterns. With it, typing `gi python >> .gitignore` would append a bunch of common patterns to a `.gitignore` file – in this case, for Python.
+[Toptal](https://www.toptal.com/) provides [a nice tool on the command-line](https://docs.gitignore.io/install/command-line) that can be used to easily exclude patterns. With it, typing `gi python >> .gitignore` would append a bunch of common patterns to a `.gitignore` file – in this case, for Python.
 
 ---
 
