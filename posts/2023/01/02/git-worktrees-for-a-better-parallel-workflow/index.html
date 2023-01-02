@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../../../../../theme/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../theme/css/pygments.css" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Sébastien Lavoie" />
+    <meta name="description"
+        content="Posts and writings by Sébastien Lavoie. Customization setups and articles on productivity for developers who like minimalism." />
+    <meta name="title" property="og:title" content="sglavoie.com" />
+    <meta property="og:type" content="Website" />
+    <meta name="image" property="og:image" content="../../../../../theme/images/logo_1200x627.png" />
+
+     <link href="https://www.sglavoie.com/feeds/sglavoie.rss.xml" type="application/rss+xml" rel="alternate"
+        title="sglavoie.com RSS" />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="/theme/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/theme/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/theme/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/theme/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="/theme/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="shortcut icon" href="/theme/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#2d89ef" />
+    <meta name="msapplication-TileImage" content="/theme/favicon/mstile-144x144.png" />
+    <meta name="msapplication-config" content="/theme/favicon/browserconfig.xml" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="msapplication-config" content="/theme/favicon/browserconfig.xml" />
+    <meta name="theme-color" content="#000000" />
+
+<meta name="keywords" content="git, terminal">
+
+<!-- Open graph for social networks -->
+<meta name="og:title" property="og:title" content="Git leads to a wealth of discoveries. Once SSH and GPG are set up, once dotfiles are under control and once a reasonable Git workflow has been adopted, there's still room to be amazed by something like Git worktrees!">
+
+    <title>sglavoie.com &ndash; Git worktrees for a better parallel&nbsp;workflow</title>
+
+    <!-- Enable tracking of web traffic -->
+<script type="text/javascript">
+    var _gaq = _gaq || []
+    _gaq.push(['_setAccount', 'UA-150998392-1'])
+    _gaq.push(['_trackPageview'])
+    ;(function () {
+        var ga = document.createElement('script')
+        ga.type = 'text/javascript'
+        ga.async = true
+        ga.src =
+            ('https:' == document.location.protocol
+                ? 'https://ssl'
+                : 'http://www') + '.google-analytics.com/ga.js'
+        var s = document.getElementsByTagName('script')[0]
+        s.parentNode.insertBefore(ga, s)
+    })()
+</script>
+ </head>
+
+<body>
+    <aside>
+        <div id="user_meta">
+            <a href="../../../../..">
+                <div>
+                    <svg width="24.348mm" height="24.348mm" version="1.1" viewBox="0 0 24.348095 24.347754"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#"
+                        xmlns:dc="http://purl.org/dc/elements/1.1/"
+                        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                        <metadata>
+                            <rdf:RDF>
+                                <cc:Work rdf:about="">
+                                    <dc:format>image/svg+xml</dc:format>
+                                    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                                    <dc:title />
+                                </cc:Work>
+                            </rdf:RDF>
+                        </metadata>
+                        <g transform="translate(81.397 -84.454)">
+                            <path d="m-57.049 105.9v2.9029h-11.173v-2.9029z" fill="#c0c0c0">
+                                <animate attributeName="fill" values="white;grey;white" dur="2s"
+                                    repeatCount="indefinite" />
+                            </path>
+                            <path
+                                d="m-72.272 98.481-9.1246 5.7598v-3.548l5.8658-3.5019v-0.09215l-5.8658-3.5019v-3.548l9.1246 5.7598z"
+                                fill="#c0c0c0" />
+                            <path transform="scale(.26458)"
+                                d="m-273.15 319.2-27.588 14.77 8.498 5.3613 19.09-12.049zm15.309 25.67v44.412h8.8672v-35.635h33.361v-8.7773h-33.783zm25.336 24.66v8.7774h8.0254v10.975h8.8672v-19.752z"
+                                fill="#007bff" />
+                        </g>
+                    </svg>
+                </div>
+            </a>
+            <ul>
+                  <li><a href="../../../../../category/automation.html">automation</a></li>
+                <li><a href="../../../../../category/learnings.html">learnings</a></li>
+                <li><a href="../../../../../category/tips-and-tricks.html">tips-and-tricks</a></li>
+                <li><a href="../../../../../category/tools.html">tools</a></li>
+                <li><a href="../../../../../category/workflow.html">workflow</a></li>
+              </ul>
+        </div>
+    </aside>
+
+    <main>
+        <header>
+            <p>
+                <a href="../../../../..">Home</a> &brvbar;
+                <a href="../../../../../archives.html">Archives</a> &brvbar;
+                <a href="../../../../../tags.html">Tags</a> &brvbar;
+                <a href="../../../../../contact.html">Contact</a> &brvbar;
+                <a href="https://drive.google.com/file/d/1t6GdZjC13naJXVGe6RinGowZLfkRzjy_/view" target="_blank"
+                    rel="noopener noreferrer">Resume</a>
+            </p>
+        </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="../../../../../posts/2023/01/02/git-worktrees-for-a-better-parallel-workflow/">Git worktrees for a better parallel&nbsp;workflow</a></h1>
+  </div>
+  <div class="flex-container">
+    <div class="article_meta">
+      <div>Posted on: Mon 02 January 2023</div>
+      <div>Category: <a href="../../../../../category/tips-and-tricks.html">tips-and-tricks</a>
+ &ndash; Tags:
+        <a href="../../../../../tag/git.html">git</a>,        <a href="../../../../../tag/terminal.html">terminal</a>      </div>
+    </div>
+    <div class="article_readtime">
+      Estimated read time: 10 minutes
+    </div>
+  </div>
+
+  <h2 class="toc-title">Table of contents</h2>
+  </div>
+  <nav class="toc">
+    <div class="toc">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#why-is-git-stash-not-enough">Why is git stash not enough?</a><ul>
+<li><a href="#switching-context">Switching context</a></li>
+<li><a href="#running-tasks-in-the-background">Running tasks in the background</a></li>
+</ul>
+</li>
+<li><a href="#how-i-operate-worktrees">How I operate worktrees</a><ul>
+<li><a href="#first-other-approaches-in-the-wild">First, other approaches in the wild</a></li>
+<li><a href="#what-i-actually-do-these-days">What I actually do these days</a><ul>
+<li><a href="#starting-with-a-project-with-existing-branches">Starting with a project with existing branches</a></li>
+<li><a href="#new-worktrees-from-a-project-already-using-worktrees">New worktrees from a project already using worktrees</a></li>
+<li><a href="#keeping-worktrees-around">Keeping worktrees around</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#conclusion">Conclusion</a><ul>
+<li><a href="#resources-and-references">Resources and references</a><ul>
+<li><a href="#external-links">External links</a></li>
+<li><a href="#from-this-website">From this website</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+  </nav>
+  <div class="article_text">
+    
+<hr/>
+<h1 id="introduction">Introduction</h1>
+<p>Why are Git worktrees needed in the first place? Well, there are certainly a couple of different use cases where they come in handy, but the reason they exist is to allow a developer to check out multiple branches at once without having to do any kind of cleanup when switching branches. Introduced back in <a href="https://github.blog/2015-07-29-git-2-5-including-multiple-worktrees-and-triangular-workflows/">2015 in Git 2.5</a>, it’s certainly not a new feature anymore, yet it seems like its adoption really took off more recently. I was an avid user of <a href="https://git-scm.com/docs/git-stash"><code>git stash</code></a> but I often got myself cornered in some specific situations where it was not as convenient as I thought it was… and <a href="https://git-scm.com/docs/git-worktree"><code>git worktree</code></a> was for me a pretty good solution without much overhead.</p>
+<h1 id="why-is-git-stash-not-enough">Why is <code>git stash</code> not enough?</h1>
+<p>It <em>can</em> be enough, but there are edge cases where it falls short of its promise of keeping stuff neatly around without too much fuss.</p>
+<h2 id="switching-context">Switching context</h2>
+<p>One particular use case in favor of <code>git worktree</code> is when you have to quickly switch context and you have a dirty branch checked out — which is basically the same use case advertised in the <a href="https://git-scm.com/docs/git-worktree#_examples">Git documentation</a>. Committing changes away might be a bit risky if those aren’t ready to be pushed to the remote server and stashing files might be annoying because there could be newer files to include with <code>git stash --include-untracked</code> or some files already staged in the middle of the work where a <code>git stash --keep-index</code> is also appropriate, or maybe even a case where you have created temporary files that match ignored files where <code>git stash --all</code> might do. It gets even messier if you want to leave things in a clean state with only the changes you need with <code>git stash --patch</code> where it would be needed to select interactively all your hunks. And then, you might already have multiple stashes or you might have forgotten to give one or more stash(es) a name, which makes it harder to <code>git stash pop</code> or <code>git stash apply</code> your changes later without having to inspect the content of your stashes with something like <code>git stash show -p</code>.</p>
+<p>With <code>git worktree</code>, this is no longer an issue! If you don’t already have a new worktree you can switch to, creating one with <code>git worktree add</code> is quick and easy, as shown in the docs:</p>
+<div class="highlight"><pre><span></span><code>git worktree add -b emergency-fix ../temp master
+</code></pre></div>
+<p>This will create a branch named <code>emergency-fix</code>, creating a new worktree at <code>../temp</code> checking the branch <code>emergency-fix</code> that will be based off the <code>master</code> branch. Then, you would switch to that branch which is managed with a new worktree by changing directory into it (or <code>pushd ../temp</code> to put the directory into a stack so you can come back later to your current branch with <code>popd</code>). You would add changes and commit them, likely pushing them to a remote, then you could resume your work by going back to the original directory for your <code>master</code> branch. Now, you could leave behind the <code>emergency-fix</code> branch but if that was meant as a temporary one, you could just delete the worktree with <code>git worktree remove ../temp</code>. Besides being removed by path, worktrees can also be removed by the name they are associated with, which is the branch name shown in square brackets when issuing the command <code>git worktree list</code>.</p>
+<p>Arguably, it’s not too hard to see that dealing with temporary changes in this way is a lot more straightforward since the current changes can be left intact without having to commit or stash them.</p>
+<h2 id="running-tasks-in-the-background">Running tasks in the background</h2>
+<p>Whether that be running a test suite that takes a while to execute or leaving the build of a system untouched while it is happening (like building a Docker image), it can be really useful to go work on something else while leaving the original task in the background. More than this, it allows one to go on another branch and make changes to the repository while files from the other branch are being accessed. In the case of building a Docker image for instance, it could cause hard-to-find bugs if the build is stopped or failed and meanwhile files were modified in the repo on the same branch to then be copied back in the next build of the Docker image only to realize that the files being copied have changed prior to being copied.</p>
+<p>More generally though, I find I just like to leave my terminal windows open into a specific path (branch) while having the freedom to go work elsewhere. This way, a virtual environment (for instance, in Python) can be left “activated” and ready to use when context is switched again. Often, different branches in a project might have slightly different requirements and so a distinct virtual environment must be activated. Having them entirely separated by path in separate worktrees makes this kind of workflow a lot simpler to manage.</p>
+<hr/>
+<h1 id="how-i-operate-worktrees">How I operate worktrees</h1>
+<h2 id="first-other-approaches-in-the-wild">First, other approaches in the wild</h2>
+<p>I have seen some great programmers use them within a “<a href="https://git-scm.com/docs/git-clone#Documentation/git-clone.txt---bare">bare repository</a>“, notably <strong>ThePrimeagen</strong> in his YouTube video titled <a href="https://www.youtube.com/watch?v=2uEqYw-N8uE">Git’s Best And Most Unknown Feature</a>. This works by creating different directories inside the bare repository, effectively having all worktrees at the same level. There is a slight chance of colliding with a reserved directory name by Git, though, since all the metadata is stored there too.</p>
+<p>Another interesting approach I’ve witnessed is the use of a <code>.worktrees</code> directory inside the directory containing the main branch of the project, which works by adding a match for <code>.worktrees/</code> in a global <code>.gitignore</code> file (kudos to <strong>Redhwan Nacef</strong> in his <a href="https://www.youtube.com/watch?v=4_p1OdLeDLE">Git Worktree Tutorial</a>!). I like this approach because it can list all working trees anyways with <code>git worktree list</code> and there’s nothing really cluttering the directory structure. However, there might be some huge build files or environments and nesting everything that way might require creating a script to find all worktrees as it is not immediately obvious where they would be stored, if at all.</p>
+<h2 id="what-i-actually-do-these-days">What I actually do these days</h2>
+<p>The approach I have adopted is very simple and requires almost no setup at all.</p>
+<h3 id="starting-with-a-project-with-existing-branches">Starting with a project with existing branches</h3>
+<p>Assuming a project is already cloned and worked on with no additional worktrees, then it leads to a minor hiccup because the project will need to be renamed. So what I currently do is create a top-level directory for the project, say <code>sglavoie.github.io</code> for this website. Then, I will literally reuse the branch name to create some hierarchy inside that project. Let’s say that right now, I’m writing multiple articles in different branches and I keep my <code>main</code> branch as always, then I would first <code>mkdir sglavoie.github.io/main</code> and put the project’s content in there with its <code>.git</code> folder. Mind you, this is a one-time thing when not already using worktrees!</p>
+<p>At this stage, the project structure is laid out nicely and ready to accommodate new worktrees. So for instance, if I want to work on a new branch to create a new article without touching the <code>main</code> branch, I would <code>git worktree add ../articles/article-name-here article-name-here</code> from the <code>main</code> branch and voilà, a new worktree will be ready to use. Once a couple of worktrees are created in this way, the directory structure might look as follows:</p>
+<div class="highlight"><pre><span></span><code>~/dev/sglavoie/sglavoie.github.io
+├── articles
+│   ├── adv-web-dev-social-network-app
+│   ├── git-worktree
+│   ├── react-native-app
+│   └── text-based-diagrams
+└── main
+</code></pre></div>
+<p>In this way, it’s just a matter of changing directory and opening the worktree in your editor of choice (e.g., <code>nvim</code> for neovim or <code>code .</code> with <span class="caps">VS</span> Code). From now on, it’s easy to switch between branches of a project right from the editor by searching for the “topic” (e.g., <code>main</code> or <code>articles</code> in this case, but that could be <code>hotfix</code> or <code>feat</code> depending on how your name your branches) or for a project name directory, which would show all the branches that have been opened previously to allow further filtering. This is what <code>git worktree list</code> would display in this example:</p>
+<div class="highlight"><pre><span></span><code>/some/path/sglavoie.github.io/main                                     d67dd8d2 [main]
+/some/path/sglavoie.github.io/articles/adv-web-dev-social-network-app  666a0b43 [articles/adv-web-dev-social-network-app]
+/some/path/sglavoie.github.io/articles/git-worktree                    d67dd8d2 [git-worktree]
+/some/path/sglavoie.github.io/articles/react-native-app                bcfac34e [articles/react-native-app]
+/some/path/sglavoie.github.io/articles/text-based-diagrams             4b25371d [articles/text-based-diagrams]
+</code></pre></div>
+<h3 id="new-worktrees-from-a-project-already-using-worktrees">New worktrees from a project already using worktrees</h3>
+<p>If you’ve already embraced this approach, then the next time you want to create a worktree, it will just be a matter of switching to the “base” branch you want to create a worktree from and creating one at whatever location you fancy outside the current directory. For instance, for this article:</p>
+<div class="highlight"><pre><span></span><code>git worktree add ../articles/git-worktree articles/git-worktree
+</code></pre></div>
+<p>This would take care of using the branch name “nesting” convention (e.g., <code>feat/feature-name</code>, <code>hotfix/bug-name</code>, etc.) and create sub-directories as needed too. Assuming a worktree has been merged in another branch and/or is no longer necessary, it can be removed with <code>git worktree remove git-worktree</code> in this example (where <code>git-worktree</code> is the name given to the worktree… a bit confusing here, you’re right).</p>
+<h3 id="keeping-worktrees-around">Keeping worktrees around</h3>
+<p>Although the official Git documentation presents a useful case for a temporary fix where the worktree is almost immediately deleted upon the completion of a task, I have found myself in a situation where I’d rather have multiple longstanding worktrees. For example, I regularly need to boot a web application from a different branch, either because the currently checked out branch does not have the necessary requirements installed or because I want to leave a web application running in the background without affecting my current work. In my case, I use it to process some data when it arrives and come back to the work I was doing earlier, doing practically the same thing shown in the Git docs but keeping the worktree around for future use.</p>
+<p>On a large project, I might have a couple of worktrees, but still I would keep branches around without them being part of worktrees when these are meant to be short-lived feature branches that share the same dependencies as other branches as long as they won’t need to be checked out at the same time. Another time I might have separate branches like this could be to avoid having to duplicate gigantic <code>node_modules</code> or <code>.venv</code> directories when not needed, because working with different worktrees is pretty much like cloning an entire repository in a separate folder and having to reinstall requirements. There is also a nice Git feature where worktrees are prefixed with a plus sign when issuing <code>git branch</code>, so that makes them distinctly different from regular branches:</p>
+<div class="highlight"><pre><span></span><code>$ git branch
++ articles/react-native-app   <span class="c1"># worktree</span>
+  gh-pages                    <span class="c1"># other regular branch</span>
++ git-worktree                <span class="c1"># worktree</span>
+* main                        <span class="c1"># currently checked out</span>
+</code></pre></div>
+<hr/>
+<h1 id="conclusion">Conclusion</h1>
+<p>I have briefly touched upon a downside of worktrees, which is that it’s almost like cloning over and over a repository, which can take up a lot of disk space with large projects. Nevertheless, this is a tradeoff I am entirely willing to make given the advantages Git worktrees bring with them! If you’re not already using them, maybe this little post might have inspired you to give them a go!</p>
+<h2 id="resources-and-references">Resources and references</h2>
+<h3 id="external-links">External links</h3>
+<ul>
+<li><a href="https://github.blog/2015-07-29-git-2-5-including-multiple-worktrees-and-triangular-workflows/">Git 2.5, including multiple worktrees and triangular workflows - github.blog</a></li>
+<li><a href="https://git-scm.com/docs/git-stash"><code>git-stash</code> - git-scm.com</a></li>
+<li><a href="https://git-scm.com/docs/git-worktree"><code>git-worktree</code> - git-scm.com</a></li>
+<li><a href="https://git-scm.com/docs/git-worktree#_examples"><code>git-worktree</code> / Examples - git-scm.com</a></li>
+<li><a href="https://git-scm.com/docs/git-clone#Documentation/git-clone.txt---bare"><code>git-clone</code> on <code>--bare</code> - git-scm.com</a></li>
+<li><a href="https://www.youtube.com/watch?v=2uEqYw-N8uE">Git’s Best And Most Unknown Feature - ThePrimeagen, YouTube</a></li>
+<li><a href="https://www.youtube.com/watch?v=4_p1OdLeDLE">Git Worktree Tutorial -  Redhwan Nacef, YouTube</a></li>
+</ul>
+<h3 id="from-this-website">From this website</h3>
+<ul>
+<li><a href="../../../../../posts/2022/04/03/git-the-gist-of-it-common-commands-for-a-working-workflow/">Git the gist of it: common commands for a working workflow</a></li>
+<li><a href="../../../../../posts/2021/05/30/managing-dotfiles-with-git-bare-repository/">Managing dotfiles with a Git bare repository</a></li>
+<li><a href="../../../../../posts/2020/10/03/setting-up-ssh-and-git-for-multiple-accounts/">Setting up <span class="caps">SSH</span> and Git for Multiple Accounts</a></li>
+</ul>
+  </div>
+
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_identifier = "posts/2023/01/02/git-worktrees-for-a-better-parallel-workflow/";
+      (function () {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//sglavoie.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </div>
+
+</article>
+  
+        <div id="ending_message">
+            <p>
+                &copy; Sébastien Lavoie. Built with
+                <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Python</a>
+                using
+                <a href="http://getpelican.com" target="_blank" rel="noopener noreferrer">Pelican</a>
+                <span class="badge">v4.8.0</span>. Theme adapted from Giulio Fidente on
+                <a href="https://github.com/gfidente/pelican-svbhack" target="_blank"
+                    rel="noopener noreferrer">GitHub</a>.
+                <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS feed</a>.
+            </p>
+        </div>
+    </main>
+</body>
+
+</html>
