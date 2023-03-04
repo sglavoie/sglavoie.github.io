@@ -1,6 +1,6 @@
 Title: A retrospective on creating an impractical little tool just for fun
 Date: 2022-09-18 20:06
-Tags: open-source, retrospective, terminal
+Tags: lessons, open-source, retrospective, terminal
 Slug: a-retrospective-on-creating-an-impractical-little-tool-just-for-fun
 Authors: Sébastien Lavoie
 Summary: Sometimes, spending hundreds of hours on something that could easily have been achieved in a fraction of the time makes for a rewarding journey! While it's important to be selective about where our attention goes in the first place, it matters equally to realize when the end of the rope is in sight so we can jump off the boat with good enough timing...
