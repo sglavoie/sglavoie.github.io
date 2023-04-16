@@ -1,6 +1,6 @@
 Title: Book summary: Letters to a New Developer
 Date: 2021-11-08 10:12
-Modified: 2021-11-20 12:36
+Modified: 2023-04-16 15:04
 Tags: advice, best practices, career
 Slug: book-summary-letters-to-a-new-developer
 Authors: Sébastien Lavoie
@@ -430,4 +430,4 @@ Here's one way to keep track of your estimates in a spreadsheet:
 
 # Conclusion
 
-That's it: we went through a short overview of a book I've enjoyed and recommend heartily. You can find more on [the author's website](https://letterstoanewdeveloper.com/). May you live this knowledge!
+That's it: we went through a short overview of a book I've enjoyed and recommend heartily. You can find more on [the author's website](https://letterstoanewdeveloper.com/). You might also enjoy a follow-up book summary about [The Effective Engineer]({filename}/learnings/0036_the_effective_engineer_book_summary.md). May you live this knowledge!
