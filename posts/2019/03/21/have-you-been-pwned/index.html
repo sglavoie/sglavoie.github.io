@@ -159,7 +159,7 @@ to build a tiny command-line interface instead of more
 traditional tools like <code>argparse</code>. You will also need
 <a href="https://github.com/kennethreitz/requests">requests</a> to peek inside the
 <span class="caps">API</span>. Both can be obtained as follow in a terminal:</p>
-<div class="highlight"><pre><span></span><code>$ pip install click requests
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>click<span class="w"> </span>requests
 </code></pre></div>
 <p>And now, the <em>pièce de résistance</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="sd">"""</span>
@@ -193,16 +193,16 @@ traditional tools like <code>argparse</code>. You will also need
 
 
 <span class="k">def</span> <span class="nf">print_info</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>  <span class="c1"># `param` required by `click`</span>
-    <span class="sd">"""Print information about the program and exit."""</span>
+<span class="w">    </span><span class="sd">"""Print information about the program and exit."""</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span> <span class="ow">or</span> <span class="n">context</span><span class="o">.</span><span class="n">resilient_parsing</span><span class="p">:</span>
         <span class="k">return</span>
     <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">LOGO</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="s2">"Python 3.6+ Checker"</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span>
-                <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="p">(</span><span class="s2">"v"</span> <span class="o">+</span> <span class="n">VERSION</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">,</span> <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="p">(</span><span class="s2">"v"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">VERSION</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">,</span> <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">context</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
 
 <span class="k">def</span> <span class="nf">pass_to_sha1</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
-    <span class="sd">"""Will convert `password` with SHA-1 algorithm and return the short</span>
+<span class="w">    </span><span class="sd">"""Will convert `password` with SHA-1 algorithm and return the short</span>
 <span class="sd">    version with the first five characters and the long version with</span>
 <span class="sd">    everything but the first five characters as a tuple."""</span>
 
@@ -216,7 +216,7 @@ traditional tools like <code>argparse</code>. You will also need
 
 
 <span class="k">def</span> <span class="nf">check_password</span><span class="p">(</span><span class="n">short_hash</span><span class="p">,</span> <span class="n">long_hash</span><span class="p">):</span>
-    <span class="sd">"""Consult haveibeenpwned.com to see how many times the password has</span>
+<span class="w">    </span><span class="sd">"""Consult haveibeenpwned.com to see how many times the password has</span>
 <span class="sd">    been breached."""</span>
     <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">'Please note that only the 5 first characters from your '</span>
                 <span class="s1">'SHA-1 ENCRYPTED password are sent to haveibeenpwned.com.'</span><span class="p">,</span>
@@ -243,7 +243,7 @@ traditional tools like <code>argparse</code>. You will also need
     <span class="n">help</span><span class="o">=</span><span class="s2">"Print some information about the program and exit."</span><span class="p">)</span>
 <span class="nd">@click</span><span class="o">.</span><span class="n">version_option</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">VERSION</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">"</span><span class="si">%(version)s</span><span class="s2">"</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">hibp</span><span class="p">():</span>
-    <span class="sd">"""A simple command-line interface to make use of</span>
+<span class="w">    </span><span class="sd">"""A simple command-line interface to make use of</span>
 <span class="sd">    haveibeenpwned.com's data.</span>
 
 <span class="sd">    Type `python3 pwned.py usage` for more info (or whatever way you</span>
@@ -252,7 +252,7 @@ traditional tools like <code>argparse</code>. You will also need
 
 <span class="nd">@hibp</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">usage</span><span class="p">():</span>
-    <span class="sd">"""Give examples on how to use this script."""</span>
+<span class="w">    </span><span class="sd">"""Give examples on how to use this script."""</span>
     <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">'Examples:'</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">)</span>
     <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">'python3 pwned.py check --help for more info.'</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">'green'</span><span class="p">)</span>
     <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">'python3 pwned.py check -p MyPasswordHere'</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">'yellow'</span><span class="p">)</span>
@@ -273,7 +273,7 @@ traditional tools like <code>argparse</code>. You will also need
     <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">help</span><span class="o">=</span><span class="s2">"Reveal if match exists with `password`."</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
-    <span class="sd">"""Tell if your password has been breached."""</span>
+<span class="w">    </span><span class="sd">"""Tell if your password has been breached."""</span>
     <span class="k">if</span> <span class="n">password</span><span class="p">:</span>
         <span class="n">short_hash</span><span class="p">,</span> <span class="n">long_hash</span> <span class="o">=</span> <span class="n">pass_to_sha1</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
         <span class="n">check_password</span><span class="p">(</span><span class="n">short_hash</span><span class="p">,</span> <span class="n">long_hash</span><span class="p">)</span>

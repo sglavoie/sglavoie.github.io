@@ -164,31 +164,31 @@
 <p>That’s it!</p>
 <h1 id="1-configuring-projects-to-launch-tmux-sessions">1. Configuring projects to launch tmux sessions</h1>
 <p>Firstly, we need to create new files to open our projects in the way we want. Basically, we need to create a file, let’s call it <code>.tmux</code>, and put it at the root of the project we’re interested in working with tmux. Then, we need to put some instructions that will be run with the shell (e.g. Bash or Zsh) so that tmux commands will be run automatically for us and let us “attach” to the session once all the necessary actions are performed. That means we need to make that file executable. In the terminal, this would be done as follows, assuming the project’s folder is the current working directory:</p>
-<div class="highlight"><pre><span></span><code>chmod +x .tmux
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>.tmux
 </code></pre></div>
 <p>At last, we want to give some orders to tmux so that when we execute that file, it will open our project in a pre-configured state so we’re ready to go. This will need to be customized depending on your needs, but here is a simple example to illustrate what could happen. So, we could put the following inside the <code>.tmux</code> file:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
 
-<span class="nb">set</span> -e
+<span class="nb">set</span><span class="w"> </span>-e
 
-<span class="k">if</span> tmux has-session -t<span class="o">=</span>my-project <span class="m">2</span>&gt; /dev/null<span class="p">;</span> <span class="k">then</span>
-    tmux attach -t my-project
-    <span class="nb">exit</span>
+<span class="k">if</span><span class="w"> </span>tmux<span class="w"> </span>has-session<span class="w"> </span>-t<span class="o">=</span>my-project<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>tmux<span class="w"> </span>attach<span class="w"> </span>-t<span class="w"> </span>my-project
+<span class="w">    </span><span class="nb">exit</span>
 <span class="k">fi</span>
 
-tmux new-session -d -s my-project -n nvim -x <span class="k">$(</span>tput cols<span class="k">)</span> -y <span class="k">$(</span>tput lines<span class="k">)</span>
+tmux<span class="w"> </span>new-session<span class="w"> </span>-d<span class="w"> </span>-s<span class="w"> </span>my-project<span class="w"> </span>-n<span class="w"> </span>nvim<span class="w"> </span>-x<span class="w"> </span><span class="k">$(</span>tput<span class="w"> </span>cols<span class="k">)</span><span class="w"> </span>-y<span class="w"> </span><span class="k">$(</span>tput<span class="w"> </span>lines<span class="k">)</span>
 
 <span class="c1"># Neovim</span>
-tmux send-keys -t my-project:nvim <span class="s2">"n"</span> Enter
+tmux<span class="w"> </span>send-keys<span class="w"> </span>-t<span class="w"> </span>my-project:nvim<span class="w"> </span><span class="s2">"n"</span><span class="w"> </span>Enter
 
 <span class="c1"># Servers</span>
-tmux new-window -t my-project -n servers
-tmux send-keys -t my-project:servers <span class="s2">"cd frontend &amp;&amp; yarn start"</span> Enter
+tmux<span class="w"> </span>new-window<span class="w"> </span>-t<span class="w"> </span>my-project<span class="w"> </span>-n<span class="w"> </span>servers
+tmux<span class="w"> </span>send-keys<span class="w"> </span>-t<span class="w"> </span>my-project:servers<span class="w"> </span><span class="s2">"cd frontend &amp;&amp; yarn start"</span><span class="w"> </span>Enter
 
-tmux split-window -t <span class="m">2</span> -v -p <span class="m">50</span> <span class="c1"># split it into two halves</span>
-tmux send-keys -t my-project:servers <span class="s2">"cd backend &amp;&amp; ap &amp;&amp; uvicorn main:app --reload"</span> Enter
+tmux<span class="w"> </span>split-window<span class="w"> </span>-t<span class="w"> </span><span class="m">2</span><span class="w"> </span>-v<span class="w"> </span>-p<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="c1"># split it into two halves</span>
+tmux<span class="w"> </span>send-keys<span class="w"> </span>-t<span class="w"> </span>my-project:servers<span class="w"> </span><span class="s2">"cd backend &amp;&amp; ap &amp;&amp; uvicorn main:app --reload"</span><span class="w"> </span>Enter
 
-tmux attach -t my-project:nvim
+tmux<span class="w"> </span>attach<span class="w"> </span>-t<span class="w"> </span>my-project:nvim
 </code></pre></div>
 <p>Here is what is happening:</p>
 <ul>
@@ -206,17 +206,17 @@ tmux attach -t my-project:nvim
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="c1"># Get the path to the `.tmux` file to execute using `find` and `rofi`</span>
-<span class="nv">PROJECT</span><span class="o">=</span><span class="sb">`</span>find <span class="nv">$HOME</span>/dev -type d <span class="se">\(</span> -name node_modules -o -name .venv <span class="se">\</span>
-    -o -path name <span class="se">\)</span> -prune -false -o -name <span class="s1">'.tmux'</span> <span class="se">\</span>
-    <span class="p">|</span> rofi -i -dmenu -theme purple -font <span class="s1">'JetBrainsMono 14'</span> <span class="se">\</span>
-    -width <span class="m">90</span> -show window<span class="sb">`</span>
+<span class="nv">PROJECT</span><span class="o">=</span><span class="sb">`</span>find<span class="w"> </span><span class="nv">$HOME</span>/dev<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span><span class="se">\(</span><span class="w"> </span>-name<span class="w"> </span>node_modules<span class="w"> </span>-o<span class="w"> </span>-name<span class="w"> </span>.venv<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-o<span class="w"> </span>-path<span class="w"> </span>name<span class="w"> </span><span class="se">\)</span><span class="w"> </span>-prune<span class="w"> </span>-false<span class="w"> </span>-o<span class="w"> </span>-name<span class="w"> </span><span class="s1">'.tmux'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="p">|</span><span class="w"> </span>rofi<span class="w"> </span>-i<span class="w"> </span>-dmenu<span class="w"> </span>-theme<span class="w"> </span>purple<span class="w"> </span>-font<span class="w"> </span><span class="s1">'JetBrainsMono 14'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-width<span class="w"> </span><span class="m">90</span><span class="w"> </span>-show<span class="w"> </span>window<span class="sb">`</span>
 
 <span class="c1"># Get the full directory path to the `.tmux` file, excluding the filename</span>
-<span class="nv">PROJECT_DIR</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nv">$PROJECT</span> <span class="p">|</span> xargs -I <span class="o">{}</span> dirname <span class="s2">"{}"</span><span class="sb">`</span>
+<span class="nv">PROJECT_DIR</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$PROJECT</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-I<span class="w"> </span><span class="o">{}</span><span class="w"> </span>dirname<span class="w"> </span><span class="s2">"{}"</span><span class="sb">`</span>
 
 <span class="c1"># If $PROJECT is empty (e.g. pressing Esc at the prompt), don't do anything</span>
-<span class="k">if</span> <span class="o">[</span> ! -z <span class="s2">"</span><span class="nv">$PROJECT</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    kitty --directory <span class="s2">"</span><span class="nv">$PROJECT_DIR</span><span class="s2">"</span> -e <span class="s2">"</span><span class="nv">$PROJECT</span><span class="s2">"</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-z<span class="w"> </span><span class="s2">"</span><span class="nv">$PROJECT</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>kitty<span class="w"> </span>--directory<span class="w"> </span><span class="s2">"</span><span class="nv">$PROJECT_DIR</span><span class="s2">"</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"</span><span class="nv">$PROJECT</span><span class="s2">"</span>
 <span class="k">fi</span>
 </code></pre></div>
 <p>So, what this does is this:</p>
@@ -231,27 +231,27 @@ tmux attach -t my-project:nvim
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="c1"># Get the name of all running sessions</span>
-<span class="nv">TMUX_SESSIONS</span><span class="o">=</span><span class="sb">`</span>tmux ls <span class="p">|</span> cut -f1 -d <span class="s2">":"</span><span class="sb">`</span>
+<span class="nv">TMUX_SESSIONS</span><span class="o">=</span><span class="sb">`</span>tmux<span class="w"> </span>ls<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-f1<span class="w"> </span>-d<span class="w"> </span><span class="s2">":"</span><span class="sb">`</span>
 
 <span class="c1"># No listed session, then notify about it</span>
-<span class="k">if</span> <span class="o">[</span> -z <span class="s2">"</span><span class="nv">$TMUX_SESSIONS</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    notify-send <span class="s2">"No active tmux session found"</span>
-    <span class="nb">exit</span> <span class="m">0</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">"</span><span class="nv">$TMUX_SESSIONS</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>notify-send<span class="w"> </span><span class="s2">"No active tmux session found"</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
 <span class="k">fi</span>
 
 <span class="c1"># Show all running sessions with Rofi and store the selection in a variable</span>
-<span class="nv">SESSION</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nv">$TMUX_SESSIONS</span> <span class="p">|</span> rofi -sep <span class="s1">' '</span> -i -dmenu -theme purple -font <span class="s1">'JetBrainsMono 14'</span> <span class="se">\</span>
-    -width <span class="m">90</span> -show window<span class="sb">`</span>
+<span class="nv">SESSION</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$TMUX_SESSIONS</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>rofi<span class="w"> </span>-sep<span class="w"> </span><span class="s1">' '</span><span class="w"> </span>-i<span class="w"> </span>-dmenu<span class="w"> </span>-theme<span class="w"> </span>purple<span class="w"> </span>-font<span class="w"> </span><span class="s1">'JetBrainsMono 14'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-width<span class="w"> </span><span class="m">90</span><span class="w"> </span>-show<span class="w"> </span>window<span class="sb">`</span>
 
 <span class="c1"># Kill the selected session</span>
-tmux kill-session -t <span class="nv">$SESSION</span>
+tmux<span class="w"> </span>kill-session<span class="w"> </span>-t<span class="w"> </span><span class="nv">$SESSION</span>
 </code></pre></div>
 <p>In this case, the usage is quite straightforward: only running sessions are shown, so it’s just a matter of choosing the one we want to kill or pressing the <code>Escape</code> key to abort the Rofi pop-up.</p>
 <hr/>
 <h1 id="example-workflow">Example workflow</h1>
 <p>It’s a matter of setting up keyboard shortcuts to run the scripts to open and kill projects. For instance, one such configuration for the <code>i3</code> window manager would be as follows:</p>
-<div class="highlight"><pre><span></span><code>bindsym <span class="nv">$mod</span>+Mod1+p    <span class="nv">$exec</span> ~/path/to/projects-start.sh
-bindsym <span class="nv">$mod</span>+Mod1+k    <span class="nv">$exec</span> ~/path/to/projects-kill.sh
+<div class="highlight"><pre><span></span><code>bindsym<span class="w"> </span><span class="nv">$mod</span>+Mod1+p<span class="w">    </span><span class="nv">$exec</span><span class="w"> </span>~/path/to/projects-start.sh
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Mod1+k<span class="w">    </span><span class="nv">$exec</span><span class="w"> </span>~/path/to/projects-kill.sh
 </code></pre></div>
 <ul>
 <li>A simple shortcut lets us choose sessions to open.</li>

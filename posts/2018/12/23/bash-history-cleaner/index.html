@@ -184,13 +184,13 @@ to do is append the following lines to the file <code>~/.bashrc</code>:</p>
 <span class="c1"># ---------------------</span>
 <span class="c1"># Undocumented feature which sets the size to "unlimited".</span>
 <span class="c1"># http://stackoverflow.com/questions/9457233/unlimited-bash-history</span>
-<span class="nb">export</span> <span class="nv">HISTFILESIZE</span><span class="o">=</span>-1
-<span class="nb">export</span> <span class="nv">HISTSIZE</span><span class="o">=</span>-1
-<span class="nb">export</span> <span class="nv">HISTTIMEFORMAT</span><span class="o">=</span><span class="s2">"[%F %T] "</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">HISTFILESIZE</span><span class="o">=</span>-1
+<span class="nb">export</span><span class="w"> </span><span class="nv">HISTSIZE</span><span class="o">=</span>-1
+<span class="nb">export</span><span class="w"> </span><span class="nv">HISTTIMEFORMAT</span><span class="o">=</span><span class="s2">"[%F %T] "</span>
 <span class="c1"># Change the file location because certain bash sessions truncate</span>
 <span class="c1"># .bash_history file upon close.</span>
 <span class="c1"># http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login</span>
-<span class="nb">export</span> <span class="nv">HISTFILE</span><span class="o">=</span>~/.bash_eternal_history
+<span class="nb">export</span><span class="w"> </span><span class="nv">HISTFILE</span><span class="o">=</span>~/.bash_eternal_history
 <span class="c1"># Force prompt to write history after every command.</span>
 <span class="c1"># http://superuser.com/questions/20900/bash-history-loss</span>
 <span class="nv">PROMPT_COMMAND</span><span class="o">=</span><span class="s2">"history -a; </span><span class="nv">$PROMPT_COMMAND</span><span class="s2">"</span>
@@ -258,13 +258,13 @@ article a bit more readable, the original version is shown.</sub></p>
 
 
 <span class="k">def</span> <span class="nf">get_current_path</span><span class="p">():</span>
-    <span class="sd">'''Returns the current working directory relative to where this script</span>
+<span class="w">    </span><span class="sd">'''Returns the current working directory relative to where this script</span>
 <span class="sd">    is being executed.'''</span>
     <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 
 <span class="k">def</span> <span class="nf">user_says_yes</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
-    <span class="sd">'''Check if user input is either 'y' or 'n'. Returns a boolean.'''</span>
+<span class="w">    </span><span class="sd">'''Check if user input is either 'y' or 'n'. Returns a boolean.'''</span>
 
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">message</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -281,7 +281,7 @@ article a bit more readable, the original version is shown.</sub></p>
 
 
 <span class="k">def</span> <span class="nf">delete_logs</span><span class="p">(</span><span class="n">settings</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">history_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="sd">'''Delete log files in `home_directory` based on `history_file`.'''</span>
+<span class="w">    </span><span class="sd">'''Delete log files in `home_directory` based on `history_file`.'''</span>
 
     <span class="c1"># Retrieve a list of all matching log files</span>
     <span class="n">log_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">history_file</span><span class="si">}</span><span class="s1">_*.bak'</span><span class="p">)</span>
@@ -313,19 +313,19 @@ article a bit more readable, the original version is shown.</sub></p>
 
 
 <span class="k">def</span> <span class="nf">generate_date_string</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="sd">'''Return date formatted string to backup a file.'''</span>
+<span class="w">    </span><span class="sd">'''Return date formatted string to backup a file.'''</span>
     <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">(),</span> <span class="s1">'_%Y%m</span><span class="si">%d</span><span class="s1">_%H%M%S.bak'</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">load_settings</span><span class="p">(</span><span class="n">settings_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="sd">'''Load settings in the script. Return them as a dictionary.'''</span>
+<span class="w">    </span><span class="sd">'''Load settings in the script. Return them as a dictionary.'''</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">settings_file</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
         <span class="n">settings</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">read_file</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">settings</span>
 
 
 <span class="k">def</span> <span class="nf">get_list_aliases</span><span class="p">(</span><span class="n">bash_aliases_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">settings</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-    <span class="sd">'''Retrieve the name of all the aliases specified in `bash_aliases_file`.</span>
+<span class="w">    </span><span class="sd">'''Retrieve the name of all the aliases specified in `bash_aliases_file`.</span>
 
 <span class="sd">    Return aliases as a list of strings formatted as regular expressions.'''</span>
 
@@ -364,7 +364,7 @@ article a bit more readable, the original version is shown.</sub></p>
 
 
 <span class="k">def</span> <span class="nf">clean_bash_history</span><span class="p">(</span><span class="n">settings</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">history_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="sd">'''Modify in place `history_file` by removing every line where</span>
+<span class="w">    </span><span class="sd">'''Modify in place `history_file` by removing every line where</span>
 <span class="sd">    `ignore_patterns` is found.</span>
 
 <span class="sd">    Optionally, add a list of aliases to `ignore_patterns` with</span>
@@ -394,7 +394,7 @@ article a bit more readable, the original version is shown.</sub></p>
 
 
 <span class="k">def</span> <span class="nf">launch_cleanup</span><span class="p">(</span><span class="n">settings</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">history_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">aliases_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="sd">'''Main function that launches the cleanup process.'''</span>
+<span class="w">    </span><span class="sd">'''Main function that launches the cleanup process.'''</span>
 
     <span class="n">bash_aliases</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">if</span> <span class="n">settings</span><span class="p">[</span><span class="s1">'add_aliases'</span><span class="p">]:</span>
@@ -433,48 +433,48 @@ article a bit more readable, the original version is shown.</sub></p>
     <span class="n">launch_cleanup</span><span class="p">(</span><span class="n">SETTINGS</span><span class="p">,</span> <span class="n">HISTORY_FILE</span><span class="p">,</span> <span class="n">ALIASES_FILE</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="settingsjson"><code>settings.json</code></h2>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"home_directory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/home/sglavoie"</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"history_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">".bash_eternal_history"</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"add_aliases"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"aliases_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">".bash_aliases"</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"aliases_match_greedily"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"backup_history"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"delete_logs_without_confirming"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"ignore_patterns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^\\#\\d+"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^$"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^(\\.\\/)?pip$"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^(\\.\\/)?python.*$"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^\\.\\.$"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^alias"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^cd "</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^cd$"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^cd..$"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^fg$"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^df( )?"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^du( )?"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^exit$"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^git branch"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^git checkout master"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^git log$"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^git push$"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^git status$"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^git stauts$"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^kill \\d+.*"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^ls -a$"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^ls$"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^make|make install$"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^man "</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^pelican( )?$"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^pip install -r requirements.txt"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^pip.* list|pip.* show$"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^source "</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^sudo apt-get autoclean|sudo apt-get autoremove$"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^sudo apt-get dist-upgrade|sudo apt-get update$"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"^which "</span><span class="w"></span>
-<span class="w">    </span><span class="p">]</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">"home_directory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/home/sglavoie"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"history_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">".bash_eternal_history"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"add_aliases"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"aliases_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">".bash_aliases"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"aliases_match_greedily"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"backup_history"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"delete_logs_without_confirming"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"ignore_patterns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"^\\#\\d+"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^$"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^(\\.\\/)?pip$"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^(\\.\\/)?python.*$"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^\\.\\.$"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^alias"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^cd "</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^cd$"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^cd..$"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^fg$"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^df( )?"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^du( )?"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^exit$"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^git branch"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^git checkout master"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^git log$"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^git push$"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^git status$"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^git stauts$"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^kill \\d+.*"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^ls -a$"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^ls$"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^make|make install$"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^man "</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^pelican( )?$"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^pip install -r requirements.txt"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^pip.* list|pip.* show$"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^source "</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^sudo apt-get autoclean|sudo apt-get autoremove$"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^sudo apt-get dist-upgrade|sudo apt-get update$"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"^which "</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
 </code></pre></div>
 <hr/>
 <h2 id="description-of-available-settings-in-settingsjson">Description of available settings in <code>settings.json</code></h2>

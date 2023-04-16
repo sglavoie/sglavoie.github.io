@@ -169,25 +169,25 @@
 <p>This script is being made <a href="https://github.com/sglavoie/dev-helpers/tree/main/rsync_backup">available on GitHub</a> within a set of other small tools. To get the source code for this particular tool, you can either <a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository">clone the whole repository</a>, get the content of the files separately or simply copy and paste <a href="#the-script">the current version from below</a>. You will need a <code>settings.json</code> file as well as the Python script that will run the necessary commands.</p>
 <h2 id="the-configuration-file">The configuration file</h2>
 <p>Right off the bat, you will most probably want to update the array of strings for the <code>data_sources</code> key as well as the string for the key <code>data_destination</code> in the following <span class="caps">JSON</span> file.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"data_sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"/home/sglavoie"</span><span class="w"></span>
-<span class="w">    </span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"data_destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/media/sglavoie/Elements"</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"terminal_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"sep"</span><span class="p">:</span><span class="w"> </span><span class="s2">"=-"</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"log_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">".backup_log_"</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"log_format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%y%m%d_%H_%M_%S"</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"rsync_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"-vaAHh"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"--delete"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"--ignore-errors"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"--force"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"--prune-empty-dirs"</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">"--delete-excluded"</span><span class="w"></span>
-<span class="w">    </span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nt">"backup_exclude"</span><span class="p">:</span><span class="w"> </span><span class="s2">".backup_exclude"</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">"data_sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"/home/sglavoie"</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"data_destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/media/sglavoie/Elements"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"terminal_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"sep"</span><span class="p">:</span><span class="w"> </span><span class="s2">"=-"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"log_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">".backup_log_"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"log_format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%y%m%d_%H_%M_%S"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"rsync_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"-vaAHh"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"--delete"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"--ignore-errors"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"--force"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"--prune-empty-dirs"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"--delete-excluded"</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"backup_exclude"</span><span class="p">:</span><span class="w"> </span><span class="s2">".backup_exclude"</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>By default, the following options are passed to <code>rsync</code>:</p>
 <div style="overflow-x: auto"><table>
@@ -282,7 +282,7 @@
 
 
 <span class="k">def</span> <span class="nf">run_backup</span><span class="p">():</span>
-    <span class="sd">"""This is where all the action happens!"""</span>
+<span class="w">    </span><span class="sd">"""This is where all the action happens!"""</span>
     <span class="n">settings</span> <span class="o">=</span> <span class="n">get_settings</span><span class="p">()</span>
 
     <span class="c1"># initiate the parser</span>
@@ -349,7 +349,7 @@
 
 
 <span class="k">def</span> <span class="nf">backup_all_sources</span><span class="p">(</span><span class="n">settings</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""Iterate over all sources to backup."""</span>
+<span class="w">    </span><span class="sd">"""Iterate over all sources to backup."""</span>
     <span class="k">for</span> <span class="n">source</span> <span class="ow">in</span> <span class="n">settings</span><span class="p">[</span><span class="s2">"data_sources"</span><span class="p">]:</span>
         <span class="n">date_now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
         <span class="n">log_format</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span>
@@ -385,7 +385,7 @@
 
 
 <span class="k">def</span> <span class="nf">backing_source</span><span class="p">(</span><span class="n">settings</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""Print information to STDOUT and to `log_filename` and executes the</span>
+<span class="w">    </span><span class="sd">"""Print information to STDOUT and to `log_filename` and executes the</span>
 <span class="sd">    rsync command."""</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">settings</span><span class="p">[</span><span class="s2">"sep"</span><span class="p">]</span> <span class="o">*</span> <span class="n">settings</span><span class="p">[</span><span class="s2">"terminal_width"</span><span class="p">])</span>
 
@@ -409,7 +409,7 @@
 
 
 <span class="k">def</span> <span class="nf">clear_logs</span><span class="p">(</span><span class="n">data_sources</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">log_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""Clears log files for each source specified in SETTINGS."""</span>
+<span class="w">    </span><span class="sd">"""Clears log files for each source specified in SETTINGS."""</span>
     <span class="k">for</span> <span class="n">source</span> <span class="ow">in</span> <span class="n">data_sources</span><span class="p">:</span>
         <span class="c1"># Retrieve a list of all matching log files in `source`</span>
         <span class="n">log_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">log_name</span><span class="si">}</span><span class="s2">*"</span><span class="p">)</span>
@@ -431,7 +431,7 @@
 <span class="k">def</span> <span class="nf">user_says_yes</span><span class="p">(</span>
     <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">Do you want to delete log files for this source? (y/n) "</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="sd">"""Asks the user to enter either "y" or "n" to confirm. Returns boolean."""</span>
+<span class="w">    </span><span class="sd">"""Asks the user to enter either "y" or "n" to confirm. Returns boolean."""</span>
     <span class="n">choice</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">while</span> <span class="n">choice</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
@@ -445,7 +445,7 @@
 
 
 <span class="k">def</span> <span class="nf">get_settings</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="sd">"""</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Get the settings from `settings.json`.</span>
 
 <span class="sd">    Returns:</span>
@@ -473,22 +473,22 @@
 <li>Make sure that the backup destination is available/mounted. A simple warning will be echoed if the destination can’t be found.</li>
 <li>Call the Python script. As an example, if it’s located at <code>/home/user/backup/rsync_backup.py</code>, then you could put the following alias in <code>~/.bash_aliases</code> (or equivalent)*:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">backup</span><span class="o">=</span><span class="s1">'python3 /home/user/backup/rsync_backup.py'</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">backup</span><span class="o">=</span><span class="s1">'python3 /home/user/backup/rsync_backup.py'</span>
 </code></pre></div>
 <p>* Python may be called differently on your system, e.g. simply <code>python</code> instead of <code>python3</code>.</p>
 <p>In this instance, the script can now be executed in a terminal with the keyword <code>backup</code> along with optional arguments.</p>
 <h2 id="using-as-a-daily-driver">Using as a daily driver</h2>
 <p>Make sure the destination to back files up is available/mounted and simply call the script (e.g. <code>backup</code> in this example).</p>
 <p>The output will look something like this:</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nv">backup</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nv">backup</span>
 <span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-
-Command executed:
-rsync -vaAHh --delete --ignore-errors --force --prune-empty-dirs <span class="se">\</span>
-    --delete-excluded --log-file<span class="o">=</span>/home/sglavoie/.backup_log_210731_09_28_09 <span class="se">\</span>
-    --exclude-from<span class="o">=</span>/home/sglavoie/.backup_exclude /home/sglavoie /tmp
+Command<span class="w"> </span>executed:
+rsync<span class="w"> </span>-vaAHh<span class="w"> </span>--delete<span class="w"> </span>--ignore-errors<span class="w"> </span>--force<span class="w"> </span>--prune-empty-dirs<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--delete-excluded<span class="w"> </span>--log-file<span class="o">=</span>/home/sglavoie/.backup_log_210731_09_28_09<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--exclude-from<span class="o">=</span>/home/sglavoie/.backup_exclude<span class="w"> </span>/home/sglavoie<span class="w"> </span>/tmp
 
-building file list ... <span class="k">done</span>
-deleting sglavoie/.backup_log_210731_08_47_24
+building<span class="w"> </span>file<span class="w"> </span>list<span class="w"> </span>...<span class="w"> </span><span class="k">done</span>
+deleting<span class="w"> </span>sglavoie/.backup_log_210731_08_47_24
 sglavoie/
 sglavoie/.bash_aliases
 ...
@@ -500,7 +500,7 @@ sglavoie/.bash_aliases
 Dropbox/other/folder/
 </code></pre></div>
 <p>Then, these directories will be ignored when backing up the source (if they are nested inside the source directory to start with!). If the destination is set to <code>/media/user/backup</code> and the source set to <code>/home/user/my_folder</code>, then the script would recreate the “root” directory of the source if it doesn’t exist on the destination:</p>
-<div class="highlight"><pre><span></span><code>$ ls /media/user/backup
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>/media/user/backup
 my_folder
 </code></pre></div>
 <p>You could keep track of those heavy files that do not need to be backed up frequently by putting them manually next to <code>my_folder</code> in <code>/media/user/backup</code>. This will lead to huge speed ups when running the script if you track many files in this way!</p>

@@ -168,48 +168,48 @@ commands represents the prompt, it should not be typed.</p>
 <h3 id="general-purpose">General-purpose</h3>
 <hr/>
 <h4 id="list-all-aliases">List all aliases</h4>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">alias</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">alias</span>
 </code></pre></div>
 <p>Prints all of your aliases. If you have plenty of those, you might
 prefer to pipe this command with <code>less</code> to get a nice pager that allows
 you to easily nagivate them:</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">alias</span> <span class="p">|</span> less
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">alias</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>less
 </code></pre></div>
 <hr/>
 <h4 id="setting-an-alias-in-bash_aliases">Setting an alias in <code>~/.bash_aliases</code></h4>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">c</span><span class="o">=</span><span class="s1">'clear'</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">c</span><span class="o">=</span><span class="s1">'clear'</span>
 </code></pre></div>
 <p>This would set <code>c</code> as a shortcut to <code>clear</code>. In order to use the
 newly created alias, you would have to close the terminal or type the
 following command in the terminal:</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">source</span> ~/.bash_aliases
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/.bash_aliases
 </code></pre></div>
 <hr/>
 <h4 id="clear-the-screen">Clear the screen</h4>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">c</span><span class="o">=</span><span class="s1">'clear'</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">c</span><span class="o">=</span><span class="s1">'clear'</span>
 </code></pre></div>
 <p>I like being absorbed into the emptiness of the terminal, so this one
 comes in handy to tidy up the work space.</p>
 <hr/>
 <h4 id="reset-the-terminal">Reset the terminal</h4>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">re</span><span class="o">=</span><span class="s1">'tput reset'</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">re</span><span class="o">=</span><span class="s1">'tput reset'</span>
 </code></pre></div>
 <p>If for some reasons the terminal displays badly or display funky
 characters, it can usually be reset this way.</p>
 <hr/>
 <h4 id="exit-from-the-terminal">Exit from the terminal</h4>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">q</span><span class="o">=</span><span class="s1">'exit'</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">q</span><span class="o">=</span><span class="s1">'exit'</span>
 </code></pre></div>
 <p>For exiting the terminal as if you were still in Vim!</p>
 <hr/>
 <h4 id="display-all-file-extensions-recursively-from-the-current-directory">Display all file extensions recursively from the current directory</h4>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">allextensions</span><span class="o">=</span><span class="s2">"find . -type f -name '*.*' | sed 's|.*\.||' | sort -u"</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">allextensions</span><span class="o">=</span><span class="s2">"find . -type f -name '*.*' | sed 's|.*\.||' | sort -u"</span>
 </code></pre></div>
 <p>It comes in handy to spot if a file shouldn’t be there or to check for
 lower or uppercase extensions.</p>
 <hr/>
 <h4 id="find-text-inside-files-including-filenames">Find text inside files, including filenames</h4>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">findinfiles</span><span class="o">=</span><span class="s1">'ag --nobreak --nonumbers --noheading . | fzf'</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">findinfiles</span><span class="o">=</span><span class="s1">'ag --nobreak --nonumbers --noheading . | fzf'</span>
 </code></pre></div>
 <p>In this example, the alias is set up with
 <a href="https://github.com/ggreer/the_silver_searcher">ag</a>, a fast
@@ -217,14 +217,14 @@ code-searching tool and <a href="https://github.com/junegunn/fzf">fzf</a>, a gre
 fuzzy finder.</p>
 <hr/>
 <h4 id="reboot-and-shutdown-the-system">Reboot and shutdown the system</h4>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">reboot</span><span class="o">=</span><span class="s1">'systemctl reboot'</span>
-<span class="nb">alias</span> <span class="nv">shutdown</span><span class="o">=</span><span class="s1">'systemctl poweroff'</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">reboot</span><span class="o">=</span><span class="s1">'systemctl reboot'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">shutdown</span><span class="o">=</span><span class="s1">'systemctl poweroff'</span>
 </code></pre></div>
 <p>This will reboot or power off the system without needing root privileges
 in most working conditions.</p>
 <hr/>
 <h4 id="list-and-sort-files-and-directories-by-modification-time">List and sort files and directories by modification time</h4>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">treeold</span><span class="o">=</span><span class="s1">'tree -hDF | less'</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">treeold</span><span class="o">=</span><span class="s1">'tree -hDF | less'</span>
 </code></pre></div>
 <p>This requires the command <code>tree</code> to be installed. The parameters are
 (descriptions taken from <code>man tree</code>):</p>
@@ -235,7 +235,7 @@ for executable files, a ‘<code>&gt;</code><span class="quo">‘</span> for doo
 <span class="caps">FIFO</span>’s, as per <code>ls -F</code>.</p>
 <hr/>
 <h4 id="open-files-quickly-with-default-applications">Open files quickly with default applications</h4>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">o</span><span class="o">=</span><span class="s1">'xdg-open'</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">o</span><span class="o">=</span><span class="s1">'xdg-open'</span>
 </code></pre></div>
 <p>This will open files and URLs specified as argument in the default
 application detected.</p>
@@ -243,26 +243,26 @@ application detected.</p>
 <h4 id="moving-around">Moving around</h4>
 <p>If you are going to be working on projects for some time and require to
 <code>cd</code> into them, I have found the following to be useful:</p>
-<div class="highlight"><pre><span></span><code>$ cdnameOfProject  <span class="c1"># instead of having to do cd /path/to/project/</span>
-$ <span class="c1"># More examples:</span>
-$ cdcodeabbey  <span class="c1"># For codeabbey.com</span>
-$ cdhackerrank  <span class="c1"># For hackerrank.com</span>
-$ cdeuler  <span class="c1"># For projecteuler.net</span>
-$ cdgit  <span class="c1"># For all Github repositories</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cdnameOfProject<span class="w">  </span><span class="c1"># instead of having to do cd /path/to/project/</span>
+$<span class="w"> </span><span class="c1"># More examples:</span>
+$<span class="w"> </span>cdcodeabbey<span class="w">  </span><span class="c1"># For codeabbey.com</span>
+$<span class="w"> </span>cdhackerrank<span class="w">  </span><span class="c1"># For hackerrank.com</span>
+$<span class="w"> </span>cdeuler<span class="w">  </span><span class="c1"># For projecteuler.net</span>
+$<span class="w"> </span>cdgit<span class="w">  </span><span class="c1"># For all Github repositories</span>
 </code></pre></div>
 <p>This is not advanced by any means, but it helps quite regularly! Since
 you can take advantage of tab completion, you can type <code>cd</code> (without
 adding a space) and then press <code>TAB</code> key to autocomplete the aliases.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span> ...<span class="o">=</span><span class="s1">'cd ../..'</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span>...<span class="o">=</span><span class="s1">'cd ../..'</span>
 </code></pre></div>
 <p>Make it easier to navigate into deep directory structures by basically
 doing <code>cd .. &amp;&amp; cd ..</code> to go back up two directories at once.</p>
 <hr/>
 <h4 id="listing-files">Listing files</h4>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">l</span><span class="o">=</span><span class="s1">'ls -CFh'</span>
-<span class="nb">alias</span> <span class="nv">la</span><span class="o">=</span><span class="s1">'ls -Ah'</span>
-<span class="nb">alias</span> <span class="nv">ll</span><span class="o">=</span><span class="s1">'ls -ahlF'</span>
-<span class="nb">alias</span> <span class="nv">ls</span><span class="o">=</span><span class="s1">'ls --color=auto'</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">l</span><span class="o">=</span><span class="s1">'ls -CFh'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">la</span><span class="o">=</span><span class="s1">'ls -Ah'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">ll</span><span class="o">=</span><span class="s1">'ls -ahlF'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">ls</span><span class="o">=</span><span class="s1">'ls --color=auto'</span>
 </code></pre></div>
 <p>Different ways to set up the command ls to quickly see the needed files.
 The parameters are (descriptions taken from <code>man ls</code>):</p>
@@ -275,12 +275,12 @@ The parameters are (descriptions taken from <code>man ls</code>):</p>
 <hr/>
 <h3 id="python-related">Python-related</h3>
 <hr/>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">aNameOfProject</span><span class="o">=</span><span class="s1">'source /path/to/project/bin/activate'</span>
-<span class="nb">alias</span> <span class="nv">aa</span><span class="o">=</span><span class="s1">'source ~/Programming/anaconda3/bin/activate'</span>  <span class="c1"># Example using Anaconda distribution</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">aNameOfProject</span><span class="o">=</span><span class="s1">'source /path/to/project/bin/activate'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">aa</span><span class="o">=</span><span class="s1">'source ~/Programming/anaconda3/bin/activate'</span><span class="w">  </span><span class="c1"># Example using Anaconda distribution</span>
 </code></pre></div>
 <p>The purpose is to activate a specific virtual environment quickly. The
 command <code>cd</code> could be added to go to the related project also:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">gNameOfProject</span><span class="o">=</span><span class="s1">'cd /path/to/project/ &amp;&amp; ./.venv/bin/activate'</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">gNameOfProject</span><span class="o">=</span><span class="s1">'cd /path/to/project/ &amp;&amp; ./.venv/bin/activate'</span>
 </code></pre></div>
 <p>Where <code>.venv</code> would be the name of the virtual environment.</p>
 <p>I like to <strong>a</strong>ctivate environments starting aliases with <code>a</code> and <strong>go</strong>
@@ -288,16 +288,16 @@ and activate at the same time starting aliases with <code>g</code>. This way, it
 feels like I am speaking the Vim language (<code>cw</code> for <strong>c</strong>hange <strong>w</strong>ord,
 for example).</p>
 <hr/>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">da</span><span class="o">=</span><span class="s1">'deactivate'</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">da</span><span class="o">=</span><span class="s1">'deactivate'</span>
 </code></pre></div>
 <p>This will deactivate a virtual environment.</p>
 <hr/>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">p36</span><span class="o">=</span><span class="s1">'python3.6'</span>
-<span class="nb">alias</span> <span class="nv">p</span><span class="o">=</span><span class="s1">'python3.7'</span>  <span class="c1"># Simply using `p` for main version of Python</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">p36</span><span class="o">=</span><span class="s1">'python3.6'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">p</span><span class="o">=</span><span class="s1">'python3.7'</span><span class="w">  </span><span class="c1"># Simply using `p` for main version of Python</span>
 </code></pre></div>
 <p>Practical way to quickly open the desired Python version.</p>
 <hr/>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">pyclean</span><span class="o">=</span><span class="s1">'find . -regex ".*\(__pycache__\|\.py[co]\)" -delete'</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">pyclean</span><span class="o">=</span><span class="s1">'find . -regex ".*\(__pycache__\|\.py[co]\)" -delete'</span>
 </code></pre></div>
 <p>This will delete recursively all files and directories that match one of
 the following patterns in their name: <code>__pycache__</code>, <code>.pyc</code> or <code>.pyo</code>.</p>

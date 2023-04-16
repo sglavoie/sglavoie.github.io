@@ -159,7 +159,7 @@ ones you could normally use in the Python interpreter.</p>
 <span class="sd">20 digits, results are printed in about 3.3 seconds."""</span>
 
 <span class="k">def</span> <span class="nf">binary_remainders</span><span class="p">(</span><span class="n">num_b</span><span class="p">):</span>
-    <span class="sd">"""Take `b` and return the binary equivalent in a list of remainders."""</span>
+<span class="w">    </span><span class="sd">"""Take `b` and return the binary equivalent in a list of remainders."""</span>
     <span class="n">remainders</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">quotient</span> <span class="o">=</span> <span class="n">num_b</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -175,7 +175,7 @@ ones you could normally use in the Python interpreter.</p>
 
 
 <span class="k">def</span> <span class="nf">powers_of_two</span><span class="p">(</span><span class="n">remainders</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">"""Return a list of the value of powers of two that form the</span>
+<span class="w">    </span><span class="sd">"""Return a list of the value of powers of two that form the</span>
 <span class="sd">    exponent`b`."""</span>
     <span class="k">if</span> <span class="n">remainders</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">None</span>
@@ -189,7 +189,7 @@ ones you could normally use in the Python interpreter.</p>
 
 
 <span class="k">def</span> <span class="nf">compute_intermediate_congruences</span><span class="p">(</span><span class="n">num_a</span><span class="p">,</span> <span class="n">num_k</span><span class="p">,</span> <span class="n">powers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">"""Compute all necessary intermediate results of congruence in `mod k` for</span>
+<span class="w">    </span><span class="sd">"""Compute all necessary intermediate results of congruence in `mod k` for</span>
 <span class="sd">    powers of 2 in `powers` to form the number `b`."""</span>
     <span class="k">if</span> <span class="n">powers</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">None</span>
@@ -209,7 +209,7 @@ ones you could normally use in the Python interpreter.</p>
 
 
 <span class="k">def</span> <span class="nf">compute_final_congruence</span><span class="p">(</span><span class="n">num_k</span><span class="p">,</span> <span class="n">powers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">intermediate_results</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">"""Take all relevant values from `intermediate_results` matching powers in</span>
+<span class="w">    </span><span class="sd">"""Take all relevant values from `intermediate_results` matching powers in</span>
 <span class="sd">    `powers`, multiply them together and calculate this number `mod k` to get</span>
 <span class="sd">    the final result."""</span>
     <span class="k">if</span> <span class="n">intermediate_results</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">powers</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -230,7 +230,7 @@ ones you could normally use in the Python interpreter.</p>
 
 
 <span class="k">def</span> <span class="nf">compute_congruence</span><span class="p">(</span><span class="n">num_a</span><span class="p">,</span> <span class="n">num_b</span><span class="p">,</span> <span class="n">num_k</span><span class="p">):</span>
-    <span class="sd">"""Return `c`, the result of `a^b (mod k)`."""</span>
+<span class="w">    </span><span class="sd">"""Return `c`, the result of `a^b (mod k)`."""</span>
     <span class="n">num_a</span> <span class="o">=</span> <span class="n">num_a</span> <span class="o">%</span> <span class="n">num_k</span>  <span class="c1"># Make sure `a` is smaller than `k`</span>
 
     <span class="c1"># Reduce `b` to list of remainders in binary</span>

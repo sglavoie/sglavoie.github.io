@@ -167,13 +167,13 @@ currently using that undoubtedly improve my terminal workflow.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">##### Functions</span>
 
 <span class="c1"># Select a configuration file with fzf and open it with Neovim</span>
-conf<span class="o">()</span> <span class="o">{</span> du -a ~/.dotfiles/* ~/.config/* <span class="p">|</span> awk <span class="s1">'{print $2}'</span> <span class="p">|</span> fzf <span class="p">|</span> xargs -r nvim <span class="p">;</span><span class="o">}</span>
+conf<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>du<span class="w"> </span>-a<span class="w"> </span>~/.dotfiles/*<span class="w"> </span>~/.config/*<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $2}'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>fzf<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-r<span class="w"> </span>nvim<span class="w"> </span><span class="p">;</span><span class="o">}</span>
 
 <span class="c1"># Select a file from current folder and recursively with fzf and open it with Neovim</span>
-se<span class="o">()</span> <span class="o">{</span> du -a ./* <span class="p">|</span> awk <span class="s1">'{print $2}'</span> <span class="p">|</span> fzf <span class="p">|</span> xargs -r nvim <span class="p">;</span><span class="o">}</span>
+se<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>du<span class="w"> </span>-a<span class="w"> </span>./*<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $2}'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>fzf<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-r<span class="w"> </span>nvim<span class="w"> </span><span class="p">;</span><span class="o">}</span>
 
 <span class="c1"># Select a file recursively from university folder with fzf and open it with default app</span>
-sc<span class="o">()</span> <span class="o">{</span> du -a ~/Dropbox/university/* <span class="p">|</span> awk <span class="s1">'{print $2}'</span> <span class="p">|</span> fzf <span class="p">|</span> xargs -r xdg-open <span class="p">;</span><span class="o">}</span>
+sc<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>du<span class="w"> </span>-a<span class="w"> </span>~/Dropbox/university/*<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $2}'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>fzf<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-r<span class="w"> </span>xdg-open<span class="w"> </span><span class="p">;</span><span class="o">}</span>
 </code></pre></div>
 <p>The first alias, <code>conf</code> (short for <em>configuration</em>), allows to search
 only within the two folders specified for configuration files, which

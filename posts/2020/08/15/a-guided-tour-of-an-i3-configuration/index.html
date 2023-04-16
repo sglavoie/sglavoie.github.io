@@ -176,37 +176,37 @@
 <p>To set keybindings, it <em>may</em> be handy to know the keycodes and their respective names. To get a full list, you can use <code>xmodmap -pk</code> in the terminal. If you’re not sure of the name of the key you want to press (is it “PageDown”, “PageDwn” or “Next”?), you can retrieve it by executing the <code>xev</code> command, which will open two windows: one for capturing the actual key press and the other one to display the relevant details for that key. For example, if you press the backspace key, the output will contain something like <code>keycode 22 (keysym 0xff08, BackSpace)</code>. From there, you will know that a mapping would be of the form <code>mod+BackSpace</code>, where <code>mod</code> is the modifier of your choice that is usually specified at the top of the configuration file. Now we can start!</p>
 <h2 id="i3-config-shortcuts">i3 config shortcuts</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># Paths and names</span>
-<span class="nb">set</span> <span class="nv">$brightness</span>-laptop-down      <span class="s2">"light -U 1"</span>
-<span class="nb">set</span> <span class="nv">$brightness</span>-laptop-up        <span class="s2">"light -A 1"</span>
-<span class="nb">set</span> <span class="nv">$brightness</span>-monitor-default  <span class="s2">"python3 ~/.local/bin/monitor_brightness default"</span>
-<span class="nb">set</span> <span class="nv">$brightness</span>-monitor-down     <span class="s2">"python3 ~/.local/bin/monitor_brightness down"</span>
-<span class="nb">set</span> <span class="nv">$brightness</span>-monitor-up       <span class="s2">"python3 ~/.local/bin/monitor_brightness up"</span>
-<span class="nb">set</span> <span class="nv">$brightness</span>-toggle-laptop    ~/.local/bin/toggle_laptop_brightness
-<span class="nb">set</span> <span class="nv">$default</span>-web-browser         brave-browser-stable
-<span class="nb">set</span> <span class="nv">$launcher</span>-python-term        ~/.config/ipython_launch.sh
-<span class="nb">set</span> <span class="nv">$launcher</span>-temp-notes         ~/.config/tmpnotes_launch.sh
-<span class="nb">set</span> <span class="nv">$launcher</span>-todoist            ~/.config/todoist_launch.sh
-<span class="nb">set</span> <span class="nv">$path</span>-xrandr-both            ~/.config/i3/run_xrandr.sh
-<span class="nb">set</span> <span class="nv">$path</span>-xrandr-laptop          ~/.config/i3/run_xrandr_laptop.sh
-<span class="nb">set</span> <span class="nv">$path</span>-xrandr-monitor         ~/.config/i3/run_xrandr_monitor.sh
-<span class="nb">set</span> <span class="nv">$screenshots</span>-folder          ~/Pictures/screenshots/
-<span class="nb">set</span> <span class="nv">$todoist</span>-app-name            <span class="s2">"crx_elldfnmogicegdcphgljaoaklkpcnbnn"</span>
-<span class="nb">set</span> <span class="nv">$toggle</span>-mic-on-off           ~/.local/bin/toggle_mic_source
+<span class="nb">set</span><span class="w"> </span><span class="nv">$brightness</span>-laptop-down<span class="w">      </span><span class="s2">"light -U 1"</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$brightness</span>-laptop-up<span class="w">        </span><span class="s2">"light -A 1"</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$brightness</span>-monitor-default<span class="w">  </span><span class="s2">"python3 ~/.local/bin/monitor_brightness default"</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$brightness</span>-monitor-down<span class="w">     </span><span class="s2">"python3 ~/.local/bin/monitor_brightness down"</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$brightness</span>-monitor-up<span class="w">       </span><span class="s2">"python3 ~/.local/bin/monitor_brightness up"</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$brightness</span>-toggle-laptop<span class="w">    </span>~/.local/bin/toggle_laptop_brightness
+<span class="nb">set</span><span class="w"> </span><span class="nv">$default</span>-web-browser<span class="w">         </span>brave-browser-stable
+<span class="nb">set</span><span class="w"> </span><span class="nv">$launcher</span>-python-term<span class="w">        </span>~/.config/ipython_launch.sh
+<span class="nb">set</span><span class="w"> </span><span class="nv">$launcher</span>-temp-notes<span class="w">         </span>~/.config/tmpnotes_launch.sh
+<span class="nb">set</span><span class="w"> </span><span class="nv">$launcher</span>-todoist<span class="w">            </span>~/.config/todoist_launch.sh
+<span class="nb">set</span><span class="w"> </span><span class="nv">$path</span>-xrandr-both<span class="w">            </span>~/.config/i3/run_xrandr.sh
+<span class="nb">set</span><span class="w"> </span><span class="nv">$path</span>-xrandr-laptop<span class="w">          </span>~/.config/i3/run_xrandr_laptop.sh
+<span class="nb">set</span><span class="w"> </span><span class="nv">$path</span>-xrandr-monitor<span class="w">         </span>~/.config/i3/run_xrandr_monitor.sh
+<span class="nb">set</span><span class="w"> </span><span class="nv">$screenshots</span>-folder<span class="w">          </span>~/Pictures/screenshots/
+<span class="nb">set</span><span class="w"> </span><span class="nv">$todoist</span>-app-name<span class="w">            </span><span class="s2">"crx_elldfnmogicegdcphgljaoaklkpcnbnn"</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$toggle</span>-mic-on-off<span class="w">           </span>~/.local/bin/toggle_mic_source
 
 <span class="c1"># i3 specific</span>
-<span class="nb">set</span> <span class="nv">$center</span>-mouse <span class="nb">exec</span>           ~/.config/i3/center-mouse
-<span class="nb">set</span> <span class="nv">$default</span>-web-browser-class   <span class="s2">"(?i)brave-browser"</span>
-<span class="nb">set</span> <span class="nv">$exec</span>                        <span class="nb">exec</span> --no-startup-id
-<span class="nb">set</span> <span class="nv">$output</span>-primary              output eDP
-<span class="nb">set</span> <span class="nv">$output</span>-secondary            output HDMI-A-0
-<span class="nb">set</span> <span class="nv">$python</span>-term                 <span class="s2">"ipythonterm"</span>
-<span class="nb">set</span> <span class="nv">$scratchpad</span>-size             <span class="m">1920</span> <span class="m">1060</span>
-<span class="nb">set</span> <span class="nv">$temp</span>-notes                  <span class="s2">"tmpnotes"</span>
-<span class="nb">set</span> <span class="nv">$volumepath</span>                  ~/.config/i3-volume/volume
+<span class="nb">set</span><span class="w"> </span><span class="nv">$center</span>-mouse<span class="w"> </span><span class="nb">exec</span><span class="w">           </span>~/.config/i3/center-mouse
+<span class="nb">set</span><span class="w"> </span><span class="nv">$default</span>-web-browser-class<span class="w">   </span><span class="s2">"(?i)brave-browser"</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$exec</span><span class="w">                        </span><span class="nb">exec</span><span class="w"> </span>--no-startup-id
+<span class="nb">set</span><span class="w"> </span><span class="nv">$output</span>-primary<span class="w">              </span>output<span class="w"> </span>eDP
+<span class="nb">set</span><span class="w"> </span><span class="nv">$output</span>-secondary<span class="w">            </span>output<span class="w"> </span>HDMI-A-0
+<span class="nb">set</span><span class="w"> </span><span class="nv">$python</span>-term<span class="w">                 </span><span class="s2">"ipythonterm"</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$scratchpad</span>-size<span class="w">             </span><span class="m">1920</span><span class="w"> </span><span class="m">1060</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$temp</span>-notes<span class="w">                  </span><span class="s2">"tmpnotes"</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$volumepath</span><span class="w">                  </span>~/.config/i3-volume/volume
 
 <span class="c1"># set mod key (Mod1=Alt, Mod4=Super)</span>
 <span class="c1"># ⇒ the main modifier used to trigger shortcuts</span>
-<span class="nb">set</span> <span class="nv">$mod</span> Mod4
+<span class="nb">set</span><span class="w"> </span><span class="nv">$mod</span><span class="w"> </span>Mod4
 
 <span class="c1"># Workspaces</span>
 <span class="c1">#######################################</span>
@@ -214,45 +214,45 @@
 <span class="c1"># ⇒ I find I like minimalism best and just mentally associate</span>
 <span class="c1">#   one workspace number with a specific type of task</span>
 <span class="c1"># ⇒ those are set across all monitors</span>
-<span class="nb">set</span> <span class="nv">$ws1</span>  <span class="s2">"1"</span>
-<span class="nb">set</span> <span class="nv">$ws2</span>  <span class="s2">"2"</span>
-<span class="nb">set</span> <span class="nv">$ws3</span>  <span class="s2">"3"</span>
-<span class="nb">set</span> <span class="nv">$ws4</span>  <span class="s2">"4"</span>
-<span class="nb">set</span> <span class="nv">$ws5</span>  <span class="s2">"5"</span>
-<span class="nb">set</span> <span class="nv">$ws6</span>  <span class="s2">"6"</span>
-<span class="nb">set</span> <span class="nv">$ws7</span>  <span class="s2">"7"</span>
-<span class="nb">set</span> <span class="nv">$ws8</span>  <span class="s2">"8"</span>
-<span class="nb">set</span> <span class="nv">$ws9</span>  <span class="s2">"9"</span>
-<span class="nb">set</span> <span class="nv">$ws10</span> <span class="s2">"10"</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$ws1</span><span class="w">  </span><span class="s2">"1"</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$ws2</span><span class="w">  </span><span class="s2">"2"</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$ws3</span><span class="w">  </span><span class="s2">"3"</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$ws4</span><span class="w">  </span><span class="s2">"4"</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$ws5</span><span class="w">  </span><span class="s2">"5"</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$ws6</span><span class="w">  </span><span class="s2">"6"</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$ws7</span><span class="w">  </span><span class="s2">"7"</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$ws8</span><span class="w">  </span><span class="s2">"8"</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$ws9</span><span class="w">  </span><span class="s2">"9"</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$ws10</span><span class="w"> </span><span class="s2">"10"</span>
 
 <span class="c1"># Modes</span>
 <span class="c1">#######################################</span>
 <span class="c1"># set shut down, restart and locking features</span>
 <span class="c1"># ⇒ type `$mod+Shift+Delete` then either `e`, `r` or `s`</span>
-mode <span class="s2">"</span><span class="nv">$mode_system</span><span class="s2">"</span> <span class="o">{</span>
-    bindsym e  <span class="nb">exec</span> --no-startup-id i3-msg <span class="nb">exit</span>
-    bindsym r  <span class="nb">exec</span> --no-startup-id systemctl reboot
-    bindsym s  <span class="nb">exec</span> --no-startup-id systemctl poweroff
+mode<span class="w"> </span><span class="s2">"</span><span class="nv">$mode_system</span><span class="s2">"</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>bindsym<span class="w"> </span>e<span class="w">  </span><span class="nb">exec</span><span class="w"> </span>--no-startup-id<span class="w"> </span>i3-msg<span class="w"> </span><span class="nb">exit</span>
+<span class="w">    </span>bindsym<span class="w"> </span>r<span class="w">  </span><span class="nb">exec</span><span class="w"> </span>--no-startup-id<span class="w"> </span>systemctl<span class="w"> </span>reboot
+<span class="w">    </span>bindsym<span class="w"> </span>s<span class="w">  </span><span class="nb">exec</span><span class="w"> </span>--no-startup-id<span class="w"> </span>systemctl<span class="w"> </span>poweroff
 
-    <span class="c1"># exit system mode with "Enter" or "Escape"</span>
-    bindsym Return mode <span class="s2">"default"</span>
-    bindsym Escape mode <span class="s2">"default"</span>
+<span class="w">    </span><span class="c1"># exit system mode with "Enter" or "Escape"</span>
+<span class="w">    </span>bindsym<span class="w"> </span>Return<span class="w"> </span>mode<span class="w"> </span><span class="s2">"default"</span>
+<span class="w">    </span>bindsym<span class="w"> </span>Escape<span class="w"> </span>mode<span class="w"> </span><span class="s2">"default"</span>
 <span class="o">}</span>
-<span class="nb">set</span> <span class="nv">$mode_system</span> <span class="o">(</span>e<span class="o">)</span>xit, <span class="o">(</span>r<span class="o">)</span>eboot, <span class="o">(</span>s<span class="o">)</span>hutdown
-bindsym <span class="nv">$mod</span>+Shift+Delete   mode <span class="s2">"</span><span class="nv">$mode_system</span><span class="s2">"</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$mode_system</span><span class="w"> </span><span class="o">(</span>e<span class="o">)</span>xit,<span class="w"> </span><span class="o">(</span>r<span class="o">)</span>eboot,<span class="w"> </span><span class="o">(</span>s<span class="o">)</span>hutdown
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+Delete<span class="w">   </span>mode<span class="w"> </span><span class="s2">"</span><span class="nv">$mode_system</span><span class="s2">"</span>
 
 <span class="c1"># resize with smaller steps to get more control</span>
-mode <span class="s2">"resize"</span> <span class="o">{</span>
-        bindsym h resize shrink width <span class="m">2</span> px or <span class="m">2</span> ppt
-        bindsym j resize grow height <span class="m">2</span> px or <span class="m">2</span> ppt
-        bindsym k resize shrink height <span class="m">2</span> px or <span class="m">2</span> ppt
-        bindsym l resize grow width <span class="m">2</span> px or <span class="m">2</span> ppt
+mode<span class="w"> </span><span class="s2">"resize"</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span>bindsym<span class="w"> </span>h<span class="w"> </span>resize<span class="w"> </span>shrink<span class="w"> </span>width<span class="w"> </span><span class="m">2</span><span class="w"> </span>px<span class="w"> </span>or<span class="w"> </span><span class="m">2</span><span class="w"> </span>ppt
+<span class="w">        </span>bindsym<span class="w"> </span>j<span class="w"> </span>resize<span class="w"> </span>grow<span class="w"> </span>height<span class="w"> </span><span class="m">2</span><span class="w"> </span>px<span class="w"> </span>or<span class="w"> </span><span class="m">2</span><span class="w"> </span>ppt
+<span class="w">        </span>bindsym<span class="w"> </span>k<span class="w"> </span>resize<span class="w"> </span>shrink<span class="w"> </span>height<span class="w"> </span><span class="m">2</span><span class="w"> </span>px<span class="w"> </span>or<span class="w"> </span><span class="m">2</span><span class="w"> </span>ppt
+<span class="w">        </span>bindsym<span class="w"> </span>l<span class="w"> </span>resize<span class="w"> </span>grow<span class="w"> </span>width<span class="w"> </span><span class="m">2</span><span class="w"> </span>px<span class="w"> </span>or<span class="w"> </span><span class="m">2</span><span class="w"> </span>ppt
 
-        <span class="c1"># exit resize mode: Enter or Escape</span>
-        bindsym Return mode <span class="s2">"default"</span>
-        bindsym Escape mode <span class="s2">"default"</span>
+<span class="w">        </span><span class="c1"># exit resize mode: Enter or Escape</span>
+<span class="w">        </span>bindsym<span class="w"> </span>Return<span class="w"> </span>mode<span class="w"> </span><span class="s2">"default"</span>
+<span class="w">        </span>bindsym<span class="w"> </span>Escape<span class="w"> </span>mode<span class="w"> </span><span class="s2">"default"</span>
 <span class="o">}</span>
-bindsym <span class="nv">$mod</span>+r mode <span class="s2">"resize"</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+r<span class="w"> </span>mode<span class="w"> </span><span class="s2">"resize"</span>
 
 <span class="c1"># Show the next scratchpad window or hide the focused scratchpad window.</span>
 <span class="c1"># If there are multiple scratchpad windows, this command cycles through them.</span>
@@ -260,49 +260,49 @@ bindsym <span class="nv">$mod</span>+r mode <span class="s2">"resize"</span>
 <span class="c1"># (recovered as a normal window).</span>
 <span class="c1"># keycode 179 = F10 button</span>
 <span class="c1"># (not the actual F10 key, but same button on my laptop with default function!)</span>
-mode <span class="s2">"Scratchpad"</span><span class="o">{</span>
-  bindcode <span class="m">179</span>              scratchpad show, resize <span class="nb">set</span> <span class="m">1920</span> <span class="m">1060</span>, move position center<span class="p">;</span> <span class="se">\</span>
-                            scratchpad show, resize <span class="nb">set</span> <span class="m">1920</span> <span class="m">1060</span>, move position center
-  bindsym <span class="nv">$mod</span>+Shift+space  floating toggle<span class="p">;</span> mode <span class="s2">"default"</span>
-  bindsym <span class="nv">$mod</span>+Escape       kill<span class="p">;</span> mode <span class="s2">"default"</span>
-  bindsym Escape            scratchpad show<span class="p">;</span> mode <span class="s2">"default"</span>
+mode<span class="w"> </span><span class="s2">"Scratchpad"</span><span class="o">{</span>
+<span class="w">  </span>bindcode<span class="w"> </span><span class="m">179</span><span class="w">              </span>scratchpad<span class="w"> </span>show,<span class="w"> </span>resize<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="m">1920</span><span class="w"> </span><span class="m">1060</span>,<span class="w"> </span>move<span class="w"> </span>position<span class="w"> </span>center<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                            </span>scratchpad<span class="w"> </span>show,<span class="w"> </span>resize<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="m">1920</span><span class="w"> </span><span class="m">1060</span>,<span class="w"> </span>move<span class="w"> </span>position<span class="w"> </span>center
+<span class="w">  </span>bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+space<span class="w">  </span>floating<span class="w"> </span>toggle<span class="p">;</span><span class="w"> </span>mode<span class="w"> </span><span class="s2">"default"</span>
+<span class="w">  </span>bindsym<span class="w"> </span><span class="nv">$mod</span>+Escape<span class="w">       </span>kill<span class="p">;</span><span class="w"> </span>mode<span class="w"> </span><span class="s2">"default"</span>
+<span class="w">  </span>bindsym<span class="w"> </span>Escape<span class="w">            </span>scratchpad<span class="w"> </span>show<span class="p">;</span><span class="w"> </span>mode<span class="w"> </span><span class="s2">"default"</span>
 <span class="o">}</span>
-bindcode <span class="m">179</span> mode <span class="s2">"Scratchpad"</span><span class="p">;</span> scratchpad show, resize <span class="nb">set</span> <span class="m">1920</span> <span class="m">1060</span>, move position center
+bindcode<span class="w"> </span><span class="m">179</span><span class="w"> </span>mode<span class="w"> </span><span class="s2">"Scratchpad"</span><span class="p">;</span><span class="w"> </span>scratchpad<span class="w"> </span>show,<span class="w"> </span>resize<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="m">1920</span><span class="w"> </span><span class="m">1060</span>,<span class="w"> </span>move<span class="w"> </span>position<span class="w"> </span>center
 
 <span class="c1"># Caps Lock indicator, seen at</span>
 <span class="c1"># https://www.reddit.com/r/i3wm/comments/k8m4k4/share_your_i3_tips_and_tricks_that_you_have/gf2lppd</span>
-mode <span class="s2">"-------------------- CAPSLOCK --------------------"</span> <span class="o">{</span>
-    bindsym Caps_Lock mode <span class="s2">"default"</span>
+mode<span class="w"> </span><span class="s2">"-------------------- CAPSLOCK --------------------"</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>bindsym<span class="w"> </span>Caps_Lock<span class="w"> </span>mode<span class="w"> </span><span class="s2">"default"</span>
 <span class="o">}</span>
-bindsym Caps_Lock mode <span class="s2">"-------------------- CAPSLOCK --------------------"</span>
+bindsym<span class="w"> </span>Caps_Lock<span class="w"> </span>mode<span class="w"> </span><span class="s2">"-------------------- CAPSLOCK --------------------"</span>
 
 <span class="c1"># Sound</span>
 <span class="c1">#######################################</span>
-<span class="nb">set</span> <span class="nv">$statuscmd</span> i3status
+<span class="nb">set</span><span class="w"> </span><span class="nv">$statuscmd</span><span class="w"> </span>i3status
 
 <span class="c1"># Signal used to update the status line</span>
-<span class="nb">set</span> <span class="nv">$statussig</span> SIGUSR1
+<span class="nb">set</span><span class="w"> </span><span class="nv">$statussig</span><span class="w"> </span>SIGUSR1
 
 <span class="c1"># Amount to increase/decrease volume as a percentage</span>
-<span class="nb">set</span> <span class="nv">$volumestep</span> <span class="m">5</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$volumestep</span><span class="w"> </span><span class="m">5</span>
 
 <span class="c1"># Font</span>
 <span class="c1">#######################################</span>
 <span class="c1"># font for window titles</span>
 <span class="c1"># ⇒ this is what you see in your i3bar</span>
-<span class="nb">set</span> <span class="nv">$font</span>-small font xft:Lato <span class="m">12</span>
-<span class="nb">set</span> <span class="nv">$font</span>-medium font xft:Lato <span class="m">14</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$font</span>-small<span class="w"> </span>font<span class="w"> </span>xft:Lato<span class="w"> </span><span class="m">12</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$font</span>-medium<span class="w"> </span>font<span class="w"> </span>xft:Lato<span class="w"> </span><span class="m">14</span>
 
 <span class="c1"># Set default font</span>
 <span class="nv">$font</span>-small
 
 <span class="c1"># Font used with Rofi (dmenu alternative)</span>
-<span class="nb">set</span> <span class="nv">$rofi</span>-font <span class="s1">'JetBrainsMono 16'</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$rofi</span>-font<span class="w"> </span><span class="s1">'JetBrainsMono 16'</span>
 
 <span class="c1"># Keyboard</span>
 <span class="c1">#######################################</span>
 <span class="c1"># Set the compose key to right Control</span>
-<span class="nb">set</span> <span class="nv">$compose</span>-key <span class="s2">"compose:rctrl"</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">$compose</span>-key<span class="w"> </span><span class="s2">"compose:rctrl"</span>
 </code></pre></div>
 <p>A few notes on the <strong>i3 config shortcuts</strong>:</p>
 <ul>
@@ -314,43 +314,43 @@ bindsym Caps_Lock mode <span class="s2">"-------------------- CAPSLOCK ---------
 </ul>
 <h2 id="general-settings">General settings</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># launch a terminal</span>
-bindsym <span class="nv">$mod</span>+Return  <span class="nb">exec</span> kitty
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Return<span class="w">  </span><span class="nb">exec</span><span class="w"> </span>kitty
 
 <span class="c1"># launch a terminal in the same directory currently used</span>
-bindsym <span class="nv">$mod</span>+Shift+Return <span class="nb">exec</span> <span class="nb">cd</span> <span class="s2">"</span><span class="k">$(</span>xcwd<span class="k">)</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">exec</span> kitty
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+Return<span class="w"> </span><span class="nb">exec</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">"</span><span class="k">$(</span>xcwd<span class="k">)</span><span class="s2">"</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exec</span><span class="w"> </span>kitty
 
 <span class="c1"># kill focused window</span>
 <span class="c1"># ⇒ usual way to close applications</span>
-bindsym <span class="nv">$mod</span>+Escape   <span class="nb">kill</span>
-bindsym <span class="nv">$mod</span>+mod1+Escape --release  <span class="nv">$exec</span> xkill
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Escape<span class="w">   </span><span class="nb">kill</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+mod1+Escape<span class="w"> </span>--release<span class="w">  </span><span class="nv">$exec</span><span class="w"> </span>xkill
 
 <span class="c1"># reload the configuration file</span>
 <span class="c1"># ⇒ apply changes from this file on the fly</span>
-bindsym <span class="nv">$mod</span>+Shift+c  reload
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+c<span class="w">  </span>reload
 
 <span class="c1"># restart i3 inplace</span>
 <span class="c1"># ⇒ preserves your layout/session, can be used when upgrading i3</span>
-bindsym <span class="nv">$mod</span>+Shift+r  restart
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+r<span class="w">  </span>restart
 
 <span class="c1"># exit i3</span>
 <span class="c1"># ⇒ logs you out of your X session</span>
-bindsym <span class="nv">$mod</span>+Shift+e  <span class="nv">$exec</span> i3-msg <span class="nb">exit</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+e<span class="w">  </span><span class="nv">$exec</span><span class="w"> </span>i3-msg<span class="w"> </span><span class="nb">exit</span>
 
 <span class="c1"># resize windows</span>
 <span class="c1"># you can also use the mouse for that:</span>
 <span class="c1"># for tiled windows ⇒</span>
-  <span class="c1"># drag the border with LeftClick or RightClick</span>
+<span class="w">  </span><span class="c1"># drag the border with LeftClick or RightClick</span>
 <span class="c1"># for floating windows ⇒</span>
-  <span class="c1"># `mod + RightClick`, then drag</span>
+<span class="w">  </span><span class="c1"># `mod + RightClick`, then drag</span>
 
 <span class="c1"># resize without entering "resize mode"</span>
 <span class="c1"># ⇒ I find this more convenient. I usually don't care about</span>
 <span class="c1"># precise window sizes, so here the steps are far greater.</span>
 <span class="c1"># If I want more control, then entering resize mode will do.</span>
-bindsym <span class="nv">$mod</span>+Control+l resize shrink width <span class="m">10</span> px or <span class="m">10</span> ppt
-bindsym <span class="nv">$mod</span>+Control+k resize grow height <span class="m">10</span> px or <span class="m">10</span> ppt
-bindsym <span class="nv">$mod</span>+Control+j resize shrink height <span class="m">10</span> px or <span class="m">10</span> ppt
-bindsym <span class="nv">$mod</span>+Control+h resize grow width <span class="m">10</span> px or <span class="m">10</span> ppt
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Control+l<span class="w"> </span>resize<span class="w"> </span>shrink<span class="w"> </span>width<span class="w"> </span><span class="m">10</span><span class="w"> </span>px<span class="w"> </span>or<span class="w"> </span><span class="m">10</span><span class="w"> </span>ppt
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Control+k<span class="w"> </span>resize<span class="w"> </span>grow<span class="w"> </span>height<span class="w"> </span><span class="m">10</span><span class="w"> </span>px<span class="w"> </span>or<span class="w"> </span><span class="m">10</span><span class="w"> </span>ppt
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Control+j<span class="w"> </span>resize<span class="w"> </span>shrink<span class="w"> </span>height<span class="w"> </span><span class="m">10</span><span class="w"> </span>px<span class="w"> </span>or<span class="w"> </span><span class="m">10</span><span class="w"> </span>ppt
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Control+h<span class="w"> </span>resize<span class="w"> </span>grow<span class="w"> </span>width<span class="w"> </span><span class="m">10</span><span class="w"> </span>px<span class="w"> </span>or<span class="w"> </span><span class="m">10</span><span class="w"> </span>ppt
 </code></pre></div>
 <p>A few notes on the <strong>General settings</strong>:</p>
 <ul>
@@ -358,33 +358,33 @@ bindsym <span class="nv">$mod</span>+Control+h resize grow width <span class="m"
 </ul>
 <h2 id="screens-and-monitors">Screens and monitors</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># lock the screens with a black color background</span>
-bindsym <span class="nv">$mod</span>+Delete    <span class="nv">$exec</span> i3lock -c <span class="m">000000</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Delete<span class="w">    </span><span class="nv">$exec</span><span class="w"> </span>i3lock<span class="w"> </span>-c<span class="w"> </span><span class="m">000000</span>
 
 <span class="c1"># hide/unhide i3status bar (laptop)</span>
-bindsym <span class="nv">$mod</span>+m         bar mode invisible bar-0
-bindsym <span class="nv">$mod</span>+Shift+m   bar mode dock bar-0
+bindsym<span class="w"> </span><span class="nv">$mod</span>+m<span class="w">         </span>bar<span class="w"> </span>mode<span class="w"> </span>invisible<span class="w"> </span>bar-0
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+m<span class="w">   </span>bar<span class="w"> </span>mode<span class="w"> </span>dock<span class="w"> </span>bar-0
 
 <span class="c1"># hide/unhide i3status bar (monitor)</span>
-bindsym <span class="nv">$mod</span>+b         bar mode invisible bar-1
-bindsym <span class="nv">$mod</span>+Shift+b   bar mode dock bar-1
+bindsym<span class="w"> </span><span class="nv">$mod</span>+b<span class="w">         </span>bar<span class="w"> </span>mode<span class="w"> </span>invisible<span class="w"> </span>bar-1
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+b<span class="w">   </span>bar<span class="w"> </span>mode<span class="w"> </span>dock<span class="w"> </span>bar-1
 
 <span class="c1"># set up displays</span>
-<span class="nb">exec</span> <span class="nv">$path</span>-xrandr-both
+<span class="nb">exec</span><span class="w"> </span><span class="nv">$path</span>-xrandr-both
 
 <span class="c1"># use laptop display only (turn off monitor)</span>
-bindsym <span class="nv">$mod</span>+o         <span class="nb">exec</span> <span class="nv">$path</span>-xrandr-laptop
+bindsym<span class="w"> </span><span class="nv">$mod</span>+o<span class="w">         </span><span class="nb">exec</span><span class="w"> </span><span class="nv">$path</span>-xrandr-laptop
 
 <span class="c1"># use monitor display only (turn off laptop screen)</span>
-bindsym <span class="nv">$mod</span>+mod1+o    <span class="nb">exec</span> <span class="nv">$path</span>-xrandr-monitor
+bindsym<span class="w"> </span><span class="nv">$mod</span>+mod1+o<span class="w">    </span><span class="nb">exec</span><span class="w"> </span><span class="nv">$path</span>-xrandr-monitor
 
 <span class="c1"># use laptop + monitor displays</span>
-bindsym <span class="nv">$mod</span>+shift+o   <span class="nb">exec</span> <span class="nv">$path</span>-xrandr-both
+bindsym<span class="w"> </span><span class="nv">$mod</span>+shift+o<span class="w">   </span><span class="nb">exec</span><span class="w"> </span><span class="nv">$path</span>-xrandr-both
 
 <span class="c1"># disable screen saver</span>
-<span class="nv">$exec</span>   xset s off
+<span class="nv">$exec</span><span class="w">   </span>xset<span class="w"> </span>s<span class="w"> </span>off
 
 <span class="c1"># disable power saving</span>
-<span class="nv">$exec</span>   xset -dpms
+<span class="nv">$exec</span><span class="w">   </span>xset<span class="w"> </span>-dpms
 </code></pre></div>
 <p>A few notes on the <strong>Screens and monitors</strong> section:</p>
 <ul>
@@ -394,111 +394,111 @@ bindsym <span class="nv">$mod</span>+shift+o   <span class="nb">exec</span> <spa
 <h2 id="navigation">Navigation</h2>
 <p><em>Note</em>: I rely on Vim keybindings to move between containers and workspaces as I find the position of those keys on the home row really comfortable to apply to the main window actions one would want to execute.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># container focuses where the mouse is (yes/no)</span>
-focus_follows_mouse    no
+focus_follows_mouse<span class="w">    </span>no
 
 <span class="c1"># go to last urgent workspace</span>
 <span class="c1"># ⇒ this is the worspace that turns "red" by default when something happens</span>
 <span class="c1">#   in an unfocused workspace, like an application pop-up</span>
-bindsym <span class="nv">$mod</span>+u    <span class="o">[</span><span class="nv">urgent</span><span class="o">=</span>latest<span class="o">]</span> focus<span class="p">;</span> <span class="nv">$center</span>-mouse
+bindsym<span class="w"> </span><span class="nv">$mod</span>+u<span class="w">    </span><span class="o">[</span><span class="nv">urgent</span><span class="o">=</span>latest<span class="o">]</span><span class="w"> </span>focus<span class="p">;</span><span class="w"> </span><span class="nv">$center</span>-mouse
 
 <span class="c1"># change focus</span>
 <span class="c1"># ⇒ works in all modes: tabbed, stacked, etc.</span>
-bindsym <span class="nv">$mod</span>+h    focus left<span class="p">;</span> <span class="nv">$center</span>-mouse
-bindsym <span class="nv">$mod</span>+j    focus down<span class="p">;</span> <span class="nv">$center</span>-mouse
-bindsym <span class="nv">$mod</span>+k    focus up<span class="p">;</span> <span class="nv">$center</span>-mouse
-bindsym <span class="nv">$mod</span>+Down focus down<span class="p">;</span> <span class="nv">$center</span>-mouse
-bindsym <span class="nv">$mod</span>+Up   focus up<span class="p">;</span> <span class="nv">$center</span>-mouse
-bindsym <span class="nv">$mod</span>+l    focus right<span class="p">;</span> <span class="nv">$center</span>-mouse
+bindsym<span class="w"> </span><span class="nv">$mod</span>+h<span class="w">    </span>focus<span class="w"> </span>left<span class="p">;</span><span class="w"> </span><span class="nv">$center</span>-mouse
+bindsym<span class="w"> </span><span class="nv">$mod</span>+j<span class="w">    </span>focus<span class="w"> </span>down<span class="p">;</span><span class="w"> </span><span class="nv">$center</span>-mouse
+bindsym<span class="w"> </span><span class="nv">$mod</span>+k<span class="w">    </span>focus<span class="w"> </span>up<span class="p">;</span><span class="w"> </span><span class="nv">$center</span>-mouse
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Down<span class="w"> </span>focus<span class="w"> </span>down<span class="p">;</span><span class="w"> </span><span class="nv">$center</span>-mouse
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Up<span class="w">   </span>focus<span class="w"> </span>up<span class="p">;</span><span class="w"> </span><span class="nv">$center</span>-mouse
+bindsym<span class="w"> </span><span class="nv">$mod</span>+l<span class="w">    </span>focus<span class="w"> </span>right<span class="p">;</span><span class="w"> </span><span class="nv">$center</span>-mouse
 
 <span class="c1"># move focused window (works in all modes)</span>
-bindsym <span class="nv">$mod</span>+Shift+h   move left<span class="p">;</span> <span class="nv">$center</span>-mouse
-bindsym <span class="nv">$mod</span>+Shift+j   move down<span class="p">;</span> <span class="nv">$center</span>-mouse
-bindsym <span class="nv">$mod</span>+Shift+k   move up<span class="p">;</span> <span class="nv">$center</span>-mouse
-bindsym <span class="nv">$mod</span>+Shift+l   move right<span class="p">;</span> <span class="nv">$center</span>-mouse
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+h<span class="w">   </span>move<span class="w"> </span>left<span class="p">;</span><span class="w"> </span><span class="nv">$center</span>-mouse
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+j<span class="w">   </span>move<span class="w"> </span>down<span class="p">;</span><span class="w"> </span><span class="nv">$center</span>-mouse
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+k<span class="w">   </span>move<span class="w"> </span>up<span class="p">;</span><span class="w"> </span><span class="nv">$center</span>-mouse
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+l<span class="w">   </span>move<span class="w"> </span>right<span class="p">;</span><span class="w"> </span><span class="nv">$center</span>-mouse
 
 <span class="c1"># for example, switching from workspace 1 to workspace 2 (e.g. mod+2) then</span>
 <span class="c1"># typing again mod+2 would bring you back to workspace 1 without having to</span>
 <span class="c1"># remember that you came from workspace 1 in the first place.</span>
-workspace_auto_back_and_forth    no
+workspace_auto_back_and_forth<span class="w">    </span>no
 
 <span class="c1"># alternate between the last two workspaces that have been used</span>
-bindsym <span class="nv">$mod</span>+Tab    workspace back_and_forth
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Tab<span class="w">    </span>workspace<span class="w"> </span>back_and_forth
 
 <span class="c1"># move a container (window or group of windows if you grouped them) to the</span>
 <span class="c1"># "alternate" workspace you visited last</span>
 <span class="c1"># (the one brought with $mod+Tab in this case)</span>
-bindsym <span class="nv">$mod</span>+mod1+Tab    move container to workspace back_and_forth<span class="p">;</span> <span class="se">\</span>
-                           workspace back_and_forth
+bindsym<span class="w"> </span><span class="nv">$mod</span>+mod1+Tab<span class="w">    </span>move<span class="w"> </span>container<span class="w"> </span>to<span class="w"> </span>workspace<span class="w"> </span>back_and_forth<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                           </span>workspace<span class="w"> </span>back_and_forth
 
 <span class="c1"># switch to any window with Rofi</span>
 <span class="c1"># ⇒ this simulates the familiar behavior of Alt+Tab on Windows and allows you</span>
 <span class="c1">#   to find windows by typing, but uses a better operating system to do it ;).</span>
-bindsym Mod1+Tab    <span class="nb">exec</span> <span class="s2">"rofi -theme lb -font </span><span class="nv">$rofi</span><span class="s2">-font \</span>
+bindsym<span class="w"> </span>Mod1+Tab<span class="w">    </span><span class="nb">exec</span><span class="w"> </span><span class="s2">"rofi -theme lb -font </span><span class="nv">$rofi</span><span class="s2">-font \</span>
 <span class="s2">                      -show-icons -width 95 -show window"</span>
 
 <span class="c1"># toggle fullscreen mode for the focused container</span>
 <span class="c1"># ⇒ this hides the i3bar for the current monitor</span>
 <span class="c1"># ⇒ you can still leave the i3bar hidden and switch to other workspaces</span>
-bindsym <span class="nv">$mod</span>+f    fullscreen toggle
+bindsym<span class="w"> </span><span class="nv">$mod</span>+f<span class="w">    </span>fullscreen<span class="w"> </span>toggle
 
 <span class="c1"># navigate workspaces next / previous</span>
 <span class="c1"># ⇒ works for all monitors and will go in increasing order</span>
 <span class="c1">#   if workspaces 1 to 6 are on monitorX and workspaces</span>
 <span class="c1">#   7 to 10 are on monitorY as in this config, this will switch</span>
 <span class="c1">#   to any workspace where there is at least one container</span>
-bindsym <span class="nv">$mod</span>+Mod1+l         workspace next
-bindsym <span class="nv">$mod</span>+Mod1+h         workspace prev
-bindsym <span class="nv">$mod</span>+Shift+Right    workspace next
-bindsym <span class="nv">$mod</span>+Shift+Left     workspace prev
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Mod1+l<span class="w">         </span>workspace<span class="w"> </span>next
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Mod1+h<span class="w">         </span>workspace<span class="w"> </span>prev
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+Right<span class="w">    </span>workspace<span class="w"> </span>next
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+Left<span class="w">     </span>workspace<span class="w"> </span>prev
 
 <span class="c1"># the difference with the above is that it limits movements to the</span>
 <span class="c1"># the current monitor only</span>
-bindsym <span class="nv">$mod</span>+Right            workspace next_on_output
-bindsym <span class="nv">$mod</span>+BackSpace        workspace next_on_output
-bindsym <span class="nv">$mod</span>+Shift+BackSpace  workspace prev_on_output
-bindsym <span class="nv">$mod</span>+Left             workspace prev_on_output
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Right<span class="w">            </span>workspace<span class="w"> </span>next_on_output
+bindsym<span class="w"> </span><span class="nv">$mod</span>+BackSpace<span class="w">        </span>workspace<span class="w"> </span>next_on_output
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+BackSpace<span class="w">  </span>workspace<span class="w"> </span>prev_on_output
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Left<span class="w">             </span>workspace<span class="w"> </span>prev_on_output
 
 <span class="c1"># Bindings to "mark" and "goto" mark specified with 1 character</span>
 <span class="c1"># ⇒ rarely used, but can still be useful if you have many containers open</span>
-bindsym <span class="nv">$mod</span>+z    <span class="nb">exec</span> i3-input -F <span class="s1">'mark %s'</span> -l <span class="m">1</span> -P <span class="s1">'Mark: '</span>
-bindsym <span class="nv">$mod</span>+g    <span class="nb">exec</span> i3-input -F <span class="s1">'[con_mark="%s"] focus'</span> -l <span class="m">1</span> -P <span class="s1">'Goto: '</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+z<span class="w">    </span><span class="nb">exec</span><span class="w"> </span>i3-input<span class="w"> </span>-F<span class="w"> </span><span class="s1">'mark %s'</span><span class="w"> </span>-l<span class="w"> </span><span class="m">1</span><span class="w"> </span>-P<span class="w"> </span><span class="s1">'Mark: '</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+g<span class="w">    </span><span class="nb">exec</span><span class="w"> </span>i3-input<span class="w"> </span>-F<span class="w"> </span><span class="s1">'[con_mark="%s"] focus'</span><span class="w"> </span>-l<span class="w"> </span><span class="m">1</span><span class="w"> </span>-P<span class="w"> </span><span class="s1">'Goto: '</span>
 
 <span class="c1"># switch to workspace (no matter which monitor it is set to)</span>
-bindsym <span class="nv">$mod</span>+1    workspace <span class="nv">$ws1</span>
-bindsym <span class="nv">$mod</span>+2    workspace <span class="nv">$ws2</span>
-bindsym <span class="nv">$mod</span>+3    workspace <span class="nv">$ws3</span>
-bindsym <span class="nv">$mod</span>+4    workspace <span class="nv">$ws4</span>
-bindsym <span class="nv">$mod</span>+5    workspace <span class="nv">$ws5</span>
-bindsym <span class="nv">$mod</span>+6    workspace <span class="nv">$ws6</span>
-bindsym <span class="nv">$mod</span>+7    workspace <span class="nv">$ws7</span>
-bindsym <span class="nv">$mod</span>+8    workspace <span class="nv">$ws8</span>
-bindsym <span class="nv">$mod</span>+9    workspace <span class="nv">$ws9</span>
-bindsym <span class="nv">$mod</span>+0    workspace <span class="nv">$ws10</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+1<span class="w">    </span>workspace<span class="w"> </span><span class="nv">$ws1</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+2<span class="w">    </span>workspace<span class="w"> </span><span class="nv">$ws2</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+3<span class="w">    </span>workspace<span class="w"> </span><span class="nv">$ws3</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+4<span class="w">    </span>workspace<span class="w"> </span><span class="nv">$ws4</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+5<span class="w">    </span>workspace<span class="w"> </span><span class="nv">$ws5</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+6<span class="w">    </span>workspace<span class="w"> </span><span class="nv">$ws6</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+7<span class="w">    </span>workspace<span class="w"> </span><span class="nv">$ws7</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+8<span class="w">    </span>workspace<span class="w"> </span><span class="nv">$ws8</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+9<span class="w">    </span>workspace<span class="w"> </span><span class="nv">$ws9</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+0<span class="w">    </span>workspace<span class="w"> </span><span class="nv">$ws10</span>
 
 <span class="c1"># determine which workspace appears on which screen</span>
 <span class="c1"># ⇒ with a single output screen, this is not necessary</span>
-workspace <span class="m">1</span>  <span class="nv">$output</span>-secondary
-workspace <span class="m">2</span>  <span class="nv">$output</span>-secondary
-workspace <span class="m">3</span>  <span class="nv">$output</span>-secondary
-workspace <span class="m">4</span>  <span class="nv">$output</span>-secondary
-workspace <span class="m">5</span>  <span class="nv">$output</span>-secondary
-workspace <span class="m">6</span>  <span class="nv">$output</span>-secondary
-workspace <span class="m">7</span>  <span class="nv">$output</span>-primary
-workspace <span class="m">8</span>  <span class="nv">$output</span>-primary
-workspace <span class="m">9</span>  <span class="nv">$output</span>-primary
-workspace <span class="m">10</span> <span class="nv">$output</span>-primary
+workspace<span class="w"> </span><span class="m">1</span><span class="w">  </span><span class="nv">$output</span>-secondary
+workspace<span class="w"> </span><span class="m">2</span><span class="w">  </span><span class="nv">$output</span>-secondary
+workspace<span class="w"> </span><span class="m">3</span><span class="w">  </span><span class="nv">$output</span>-secondary
+workspace<span class="w"> </span><span class="m">4</span><span class="w">  </span><span class="nv">$output</span>-secondary
+workspace<span class="w"> </span><span class="m">5</span><span class="w">  </span><span class="nv">$output</span>-secondary
+workspace<span class="w"> </span><span class="m">6</span><span class="w">  </span><span class="nv">$output</span>-secondary
+workspace<span class="w"> </span><span class="m">7</span><span class="w">  </span><span class="nv">$output</span>-primary
+workspace<span class="w"> </span><span class="m">8</span><span class="w">  </span><span class="nv">$output</span>-primary
+workspace<span class="w"> </span><span class="m">9</span><span class="w">  </span><span class="nv">$output</span>-primary
+workspace<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="nv">$output</span>-primary
 
 <span class="c1"># move focused container to workspace and switch to workspace</span>
-bindsym <span class="nv">$mod</span>+Shift+1    move container to workspace <span class="nv">$ws1</span><span class="p">;</span>  workspace <span class="nv">$ws1</span>
-bindsym <span class="nv">$mod</span>+Shift+2    move container to workspace <span class="nv">$ws2</span><span class="p">;</span>  workspace <span class="nv">$ws2</span>
-bindsym <span class="nv">$mod</span>+Shift+3    move container to workspace <span class="nv">$ws3</span><span class="p">;</span>  workspace <span class="nv">$ws3</span>
-bindsym <span class="nv">$mod</span>+Shift+4    move container to workspace <span class="nv">$ws4</span><span class="p">;</span>  workspace <span class="nv">$ws4</span>
-bindsym <span class="nv">$mod</span>+Shift+5    move container to workspace <span class="nv">$ws5</span><span class="p">;</span>  workspace <span class="nv">$ws5</span>
-bindsym <span class="nv">$mod</span>+Shift+6    move container to workspace <span class="nv">$ws6</span><span class="p">;</span>  workspace <span class="nv">$ws6</span>
-bindsym <span class="nv">$mod</span>+Shift+7    move container to workspace <span class="nv">$ws7</span><span class="p">;</span>  workspace <span class="nv">$ws7</span>
-bindsym <span class="nv">$mod</span>+Shift+8    move container to workspace <span class="nv">$ws8</span><span class="p">;</span>  workspace <span class="nv">$ws8</span>
-bindsym <span class="nv">$mod</span>+Shift+9    move container to workspace <span class="nv">$ws9</span><span class="p">;</span>  workspace <span class="nv">$ws9</span>
-bindsym <span class="nv">$mod</span>+Shift+0    move container to workspace <span class="nv">$ws10</span><span class="p">;</span> workspace <span class="nv">$ws10</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+1<span class="w">    </span>move<span class="w"> </span>container<span class="w"> </span>to<span class="w"> </span>workspace<span class="w"> </span><span class="nv">$ws1</span><span class="p">;</span><span class="w">  </span>workspace<span class="w"> </span><span class="nv">$ws1</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+2<span class="w">    </span>move<span class="w"> </span>container<span class="w"> </span>to<span class="w"> </span>workspace<span class="w"> </span><span class="nv">$ws2</span><span class="p">;</span><span class="w">  </span>workspace<span class="w"> </span><span class="nv">$ws2</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+3<span class="w">    </span>move<span class="w"> </span>container<span class="w"> </span>to<span class="w"> </span>workspace<span class="w"> </span><span class="nv">$ws3</span><span class="p">;</span><span class="w">  </span>workspace<span class="w"> </span><span class="nv">$ws3</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+4<span class="w">    </span>move<span class="w"> </span>container<span class="w"> </span>to<span class="w"> </span>workspace<span class="w"> </span><span class="nv">$ws4</span><span class="p">;</span><span class="w">  </span>workspace<span class="w"> </span><span class="nv">$ws4</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+5<span class="w">    </span>move<span class="w"> </span>container<span class="w"> </span>to<span class="w"> </span>workspace<span class="w"> </span><span class="nv">$ws5</span><span class="p">;</span><span class="w">  </span>workspace<span class="w"> </span><span class="nv">$ws5</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+6<span class="w">    </span>move<span class="w"> </span>container<span class="w"> </span>to<span class="w"> </span>workspace<span class="w"> </span><span class="nv">$ws6</span><span class="p">;</span><span class="w">  </span>workspace<span class="w"> </span><span class="nv">$ws6</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+7<span class="w">    </span>move<span class="w"> </span>container<span class="w"> </span>to<span class="w"> </span>workspace<span class="w"> </span><span class="nv">$ws7</span><span class="p">;</span><span class="w">  </span>workspace<span class="w"> </span><span class="nv">$ws7</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+8<span class="w">    </span>move<span class="w"> </span>container<span class="w"> </span>to<span class="w"> </span>workspace<span class="w"> </span><span class="nv">$ws8</span><span class="p">;</span><span class="w">  </span>workspace<span class="w"> </span><span class="nv">$ws8</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+9<span class="w">    </span>move<span class="w"> </span>container<span class="w"> </span>to<span class="w"> </span>workspace<span class="w"> </span><span class="nv">$ws9</span><span class="p">;</span><span class="w">  </span>workspace<span class="w"> </span><span class="nv">$ws9</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+0<span class="w">    </span>move<span class="w"> </span>container<span class="w"> </span>to<span class="w"> </span>workspace<span class="w"> </span><span class="nv">$ws10</span><span class="p">;</span><span class="w"> </span>workspace<span class="w"> </span><span class="nv">$ws10</span>
 </code></pre></div>
 <p>A few notes on the <strong>Navigation</strong> section:</p>
 <ul>
@@ -511,46 +511,46 @@ bindsym <span class="nv">$mod</span>+Shift+0    move container to workspace <spa
 <p>By default, the focus of the mouse in i3 will go to the active screen, but it won’t follow the focus if switching to different containers on the <em>same</em> screen. I found this little hack using the <code>center-mouse</code> script after running commands like <code>move</code> and <code>focus</code> to force the mouse to move to any focused container. For convenience, <a href="https://github.com/sglavoie/dotfiles/blob/main/.config/i3/center-mouse">here is the content of that script</a>. You will need the program <code>xdotool</code> to use it.</p>
 <h2 id="layout">Layout</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># set default desktop layout (default is tiling), &lt;stacking|tabbed&gt;</span>
-workspace_layout    tabbed
+workspace_layout<span class="w">    </span>tabbed
 
 <span class="c1"># change container layout (stacked, tabbed, toggle split)</span>
-bindsym <span class="nv">$mod</span>+s    layout stacking
-bindsym <span class="nv">$mod</span>+w    layout tabbed
-bindsym <span class="nv">$mod</span>+e    layout toggle split
+bindsym<span class="w"> </span><span class="nv">$mod</span>+s<span class="w">    </span>layout<span class="w"> </span>stacking
+bindsym<span class="w"> </span><span class="nv">$mod</span>+w<span class="w">    </span>layout<span class="w"> </span>tabbed
+bindsym<span class="w"> </span><span class="nv">$mod</span>+e<span class="w">    </span>layout<span class="w"> </span>toggle<span class="w"> </span>split
 
 <span class="c1"># start in opposite orientation from your monitor</span>
-default_orientation    vertical
+default_orientation<span class="w">    </span>vertical
 
 <span class="c1"># toggle split at each new window (Fibonnaci layout)</span>
 <span class="c1"># note: only useful if the layout is set to `default`</span>
 <span class="c1"># for_window [class=".*"]    split toggle</span>
 
 <span class="c1"># toggle the way a split happens in the focused window</span>
-bindsym <span class="nv">$mod</span>+t    split toggle
+bindsym<span class="w"> </span><span class="nv">$mod</span>+t<span class="w">    </span>split<span class="w"> </span>toggle
 
 <span class="c1"># toggle tiling / floating</span>
 <span class="c1"># ⇒ this works on a container with any number of windows!</span>
 <span class="c1">#   if you select multiple windows with `$mod+a` (see below)</span>
 <span class="c1">#   to group them and then toggle them, the whole group will</span>
 <span class="c1">#   either tile or float</span>
-bindsym <span class="nv">$mod</span>+Shift+space    floating toggle
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+space<span class="w">    </span>floating<span class="w"> </span>toggle
 
 <span class="c1"># change focus between tiling / floating windows</span>
 <span class="c1"># ⇒ If you leave a floating window on top of other tiled windows,</span>
 <span class="c1">#   you can switch the focus from the one on top to the one(s) in</span>
 <span class="c1">#   the background (useful with apps like Zoom or Google Meet that</span>
 <span class="c1">#   you want to keep in the foreground)</span>
-bindsym <span class="nv">$mod</span>+space    focus mode_toggle
+bindsym<span class="w"> </span><span class="nv">$mod</span>+space<span class="w">    </span>focus<span class="w"> </span>mode_toggle
 
 <span class="c1"># Use Mouse+$mod to drag floating windows</span>
-floating_modifier    <span class="nv">$mod</span>
+floating_modifier<span class="w">    </span><span class="nv">$mod</span>
 
 <span class="c1"># toggle sticky for floating windows</span>
-bindsym <span class="nv">$mod</span>+Shift+s    sticky toggle
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+s<span class="w">    </span>sticky<span class="w"> </span>toggle
 
 <span class="c1"># focus the surrounding containers</span>
-bindsym <span class="nv">$mod</span>+a    focus parent<span class="p">;</span> <span class="nv">$center</span>-mouse
-bindsym <span class="nv">$mod</span>+c    focus child<span class="p">;</span> <span class="nv">$center</span>-mouse
+bindsym<span class="w"> </span><span class="nv">$mod</span>+a<span class="w">    </span>focus<span class="w"> </span>parent<span class="p">;</span><span class="w"> </span><span class="nv">$center</span>-mouse
+bindsym<span class="w"> </span><span class="nv">$mod</span>+c<span class="w">    </span>focus<span class="w"> </span>child<span class="p">;</span><span class="w"> </span><span class="nv">$center</span>-mouse
 </code></pre></div>
 <p>A few notes on the <strong>Layout</strong> section:</p>
 <ul>
@@ -565,22 +565,22 @@ bindsym <span class="nv">$mod</span>+c    focus child<span class="p">;</span> <s
 <div class="highlight"><pre><span></span><code><span class="c1"># Move the currently focused window to the scratchpad.</span>
 <span class="c1"># First, we toggle floating mode and we resize and position the window to make sure</span>
 <span class="c1"># it will appear correctly when showing it for the first time.</span>
-bindsym <span class="nv">$mod</span>+minus    floating toggle<span class="p">;</span> resize <span class="nb">set</span> <span class="nv">$scratchpad</span>-size, <span class="se">\</span>
-                        move position center<span class="p">;</span> move scratchpad
+bindsym<span class="w"> </span><span class="nv">$mod</span>+minus<span class="w">    </span>floating<span class="w"> </span>toggle<span class="p">;</span><span class="w"> </span>resize<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">$scratchpad</span>-size,<span class="w"> </span><span class="se">\</span>
+<span class="w">                        </span>move<span class="w"> </span>position<span class="w"> </span>center<span class="p">;</span><span class="w"> </span>move<span class="w"> </span>scratchpad
 
 <span class="c1"># Set up scratchpad applications</span>
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Audacious"</span><span class="o">]</span>           floating <span class="nb">enable</span>
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Audacious"</span><span class="o">]</span>           move scratchpad
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Audacious"</span><span class="o">]</span>           resize <span class="nb">set</span> <span class="nv">$scratchpad</span>-size
-for_window <span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$temp</span>-notes<span class="o">]</span>        floating <span class="nb">enable</span>
-for_window <span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$temp</span>-notes<span class="o">]</span>        move scratchpad
-for_window <span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$temp</span>-notes<span class="o">]</span>        resize <span class="nb">set</span> <span class="nv">$scratchpad</span>-size
-for_window <span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$python</span>-term<span class="o">]</span>       floating <span class="nb">enable</span>
-for_window <span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$python</span>-term<span class="o">]</span>       move scratchpad
-for_window <span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$python</span>-term<span class="o">]</span>       resize <span class="nb">set</span> <span class="nv">$scratchpad</span>-size
-for_window <span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$todoist</span>-app-name<span class="o">]</span>  floating <span class="nb">enable</span>
-for_window <span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$todoist</span>-app-name<span class="o">]</span>  move scratchpad
-for_window <span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$todoist</span>-app-name<span class="o">]</span>  resize <span class="nb">set</span> <span class="nv">$scratchpad</span>-size
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Audacious"</span><span class="o">]</span><span class="w">           </span>floating<span class="w"> </span><span class="nb">enable</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Audacious"</span><span class="o">]</span><span class="w">           </span>move<span class="w"> </span>scratchpad
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Audacious"</span><span class="o">]</span><span class="w">           </span>resize<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">$scratchpad</span>-size
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$temp</span>-notes<span class="o">]</span><span class="w">        </span>floating<span class="w"> </span><span class="nb">enable</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$temp</span>-notes<span class="o">]</span><span class="w">        </span>move<span class="w"> </span>scratchpad
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$temp</span>-notes<span class="o">]</span><span class="w">        </span>resize<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">$scratchpad</span>-size
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$python</span>-term<span class="o">]</span><span class="w">       </span>floating<span class="w"> </span><span class="nb">enable</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$python</span>-term<span class="o">]</span><span class="w">       </span>move<span class="w"> </span>scratchpad
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$python</span>-term<span class="o">]</span><span class="w">       </span>resize<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">$scratchpad</span>-size
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$todoist</span>-app-name<span class="o">]</span><span class="w">  </span>floating<span class="w"> </span><span class="nb">enable</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$todoist</span>-app-name<span class="o">]</span><span class="w">  </span>move<span class="w"> </span>scratchpad
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$todoist</span>-app-name<span class="o">]</span><span class="w">  </span>resize<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">$scratchpad</span>-size
 </code></pre></div>
 <p>A note on the <strong>Scratchpad</strong> section:</p>
 <ul>
@@ -588,17 +588,17 @@ for_window <span class="o">[</span><span class="nv">instance</span><span class="
 </ul>
 <h2 id="borders">Borders</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># Configure border style &lt;normal|1pixel|pixel xx|none|pixel&gt;</span>
-new_window pixel <span class="m">5</span>
-new_float normal
-default_floating_border pixel <span class="m">5</span>
+new_window<span class="w"> </span>pixel<span class="w"> </span><span class="m">5</span>
+new_float<span class="w"> </span>normal
+default_floating_border<span class="w"> </span>pixel<span class="w"> </span><span class="m">5</span>
 
 <span class="c1"># Hide borders</span>
-hide_edge_borders smart
+hide_edge_borders<span class="w"> </span>smart
 
 <span class="c1"># change borders</span>
-bindsym <span class="nv">$mod</span>+Shift+n   border none
-bindsym <span class="nv">$mod</span>+n         border pixel <span class="m">5</span>
-bindsym <span class="nv">$mod</span>+y         border normal <span class="m">5</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+n<span class="w">   </span>border<span class="w"> </span>none
+bindsym<span class="w"> </span><span class="nv">$mod</span>+n<span class="w">         </span>border<span class="w"> </span>pixel<span class="w"> </span><span class="m">5</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+y<span class="w">         </span>border<span class="w"> </span>normal<span class="w"> </span><span class="m">5</span>
 </code></pre></div>
 <p>A few notes on the <strong>Borders</strong> section:</p>
 <ul>
@@ -612,25 +612,25 @@ bindsym <span class="nv">$mod</span>+y         border normal <span class="m">5</
 </figure>
 <h2 id="dmenu">dmenu</h2>
 <p><code>dmenu</code> is so useful that it also got its own section. By default, you usually launch applications with <code>mod+d</code>: I kept the same behavior here. I added a few custom launchers that I use all the time to open files based on a topic, using mnemonics that work (for me, at least). If you want to know more about setting these kinds of shortcuts, you may be interested in reading <a href="../../../../../posts/2019/11/10/using-dmenu-to-optimize-common-tasks/">Using dmenu to Optimize Common Tasks</a> ;).</p>
-<div class="highlight"><pre><span></span><code>bindsym <span class="nv">$mod</span>+Mod1+b    <span class="nv">$exec</span> ~/Dropbox/.custom/dmenu/books.sh
-bindsym <span class="nv">$mod</span>+Mod1+c    <span class="nv">$exec</span> ~/Dropbox/.custom/dmenu/cheatsheets.sh
-bindsym <span class="nv">$mod</span>+Mod1+d    <span class="nv">$exec</span> ~/Dropbox/.custom/dmenu/documents.sh
-bindsym <span class="nv">$mod</span>+Mod1+e    <span class="nv">$exec</span> ~/Dropbox/.custom/dmenu/edit_scripts.sh
-bindsym <span class="nv">$mod</span>+Mod1+f    <span class="nv">$exec</span> ~/Dropbox/.custom/dmenu/filepaths.sh
-bindsym <span class="nv">$mod</span>+Mod1+q    <span class="nv">$exec</span> ~/Dropbox/.custom/dmenu/quotes.sh
-bindsym <span class="nv">$mod</span>+Mod1+r    <span class="nv">$exec</span> ~/Dropbox/.custom/dmenu/reading.sh
-bindsym <span class="nv">$mod</span>+Mod1+s    <span class="nv">$exec</span> ~/Dropbox/.custom/dmenu/scripts.sh
-bindsym <span class="nv">$mod</span>+Mod1+u    <span class="nv">$exec</span> ~/Dropbox/.custom/dmenu/university.sh
-bindsym <span class="nv">$mod</span>+Mod1+w    <span class="nv">$exec</span> ~/Dropbox/.custom/dmenu/work.sh
-bindsym <span class="nv">$mod</span>+Shift+f   <span class="nv">$exec</span> ~/Dropbox/.custom/dmenu/thunar_launcher.sh
-bindsym <span class="nv">$mod</span>+Shift+u   <span class="nv">$exec</span> ~/Dropbox/.custom/dmenu/university_launchers.sh
-bindsym <span class="nv">$mod</span>+d         <span class="nv">$exec</span> ~/Dropbox/.custom/dmenu/software.sh
+<div class="highlight"><pre><span></span><code>bindsym<span class="w"> </span><span class="nv">$mod</span>+Mod1+b<span class="w">    </span><span class="nv">$exec</span><span class="w"> </span>~/Dropbox/.custom/dmenu/books.sh
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Mod1+c<span class="w">    </span><span class="nv">$exec</span><span class="w"> </span>~/Dropbox/.custom/dmenu/cheatsheets.sh
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Mod1+d<span class="w">    </span><span class="nv">$exec</span><span class="w"> </span>~/Dropbox/.custom/dmenu/documents.sh
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Mod1+e<span class="w">    </span><span class="nv">$exec</span><span class="w"> </span>~/Dropbox/.custom/dmenu/edit_scripts.sh
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Mod1+f<span class="w">    </span><span class="nv">$exec</span><span class="w"> </span>~/Dropbox/.custom/dmenu/filepaths.sh
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Mod1+q<span class="w">    </span><span class="nv">$exec</span><span class="w"> </span>~/Dropbox/.custom/dmenu/quotes.sh
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Mod1+r<span class="w">    </span><span class="nv">$exec</span><span class="w"> </span>~/Dropbox/.custom/dmenu/reading.sh
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Mod1+s<span class="w">    </span><span class="nv">$exec</span><span class="w"> </span>~/Dropbox/.custom/dmenu/scripts.sh
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Mod1+u<span class="w">    </span><span class="nv">$exec</span><span class="w"> </span>~/Dropbox/.custom/dmenu/university.sh
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Mod1+w<span class="w">    </span><span class="nv">$exec</span><span class="w"> </span>~/Dropbox/.custom/dmenu/work.sh
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+f<span class="w">   </span><span class="nv">$exec</span><span class="w"> </span>~/Dropbox/.custom/dmenu/thunar_launcher.sh
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+u<span class="w">   </span><span class="nv">$exec</span><span class="w"> </span>~/Dropbox/.custom/dmenu/university_launchers.sh
+bindsym<span class="w"> </span><span class="nv">$mod</span>+d<span class="w">         </span><span class="nv">$exec</span><span class="w"> </span>~/Dropbox/.custom/dmenu/software.sh
 </code></pre></div>
 <h2 id="shortcuts">Shortcuts</h2>
-<div class="highlight"><pre><span></span><code>bindsym <span class="nv">$mod</span>+control+r   <span class="nv">$exec</span> thunar ~/Desktop
+<div class="highlight"><pre><span></span><code>bindsym<span class="w"> </span><span class="nv">$mod</span>+control+r<span class="w">   </span><span class="nv">$exec</span><span class="w"> </span>thunar<span class="w"> </span>~/Desktop
 
 <span class="c1"># Display multiple time zones around the world</span>
-bindsym <span class="nv">$mod</span>+Mod1+t      <span class="nv">$exec</span> ~/Dropbox/.custom/dmenu/times.sh
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Mod1+t<span class="w">      </span><span class="nv">$exec</span><span class="w"> </span>~/Dropbox/.custom/dmenu/times.sh
 </code></pre></div>
 <p>A few notes on the <strong>Shortcuts</strong> mini-section:</p>
 <ul>
@@ -643,36 +643,36 @@ bindsym <span class="nv">$mod</span>+Mod1+t      <span class="nv">$exec</span> ~
 </figure>
 <h2 id="sound">Sound</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># `pkill` is useful to quickly update the block in i3blocks</span>
-bindsym XF86AudioRaiseVolume    <span class="nb">exec</span> <span class="nv">$volumepath</span> -np up <span class="nv">$volumestep</span> -t <span class="nv">$statuscmd</span> <span class="se">\</span>
-                                    -u <span class="nv">$statussig</span> <span class="o">&amp;&amp;</span> pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume    <span class="nb">exec</span> <span class="nv">$volumepath</span> -np down <span class="nv">$volumestep</span> -t <span class="nv">$statuscmd</span> <span class="se">\</span>
-                                    -u <span class="nv">$statussig</span> <span class="o">&amp;&amp;</span> pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMute           <span class="nb">exec</span> <span class="nv">$volumepath</span> mute -n -t <span class="nv">$statuscmd</span> <span class="se">\</span>
-                                    -u <span class="nv">$statussig</span> <span class="o">&amp;&amp;</span> pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMicMute        <span class="nv">$exec</span> <span class="nv">$toggle</span>-mic-on-off
-bindsym <span class="nv">$mod</span>+exclamdown         <span class="nv">$exec</span> <span class="nv">$toggle</span>-mic-on-off
+bindsym<span class="w"> </span>XF86AudioRaiseVolume<span class="w">    </span><span class="nb">exec</span><span class="w"> </span><span class="nv">$volumepath</span><span class="w"> </span>-np<span class="w"> </span>up<span class="w"> </span><span class="nv">$volumestep</span><span class="w"> </span>-t<span class="w"> </span><span class="nv">$statuscmd</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                                    </span>-u<span class="w"> </span><span class="nv">$statussig</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pkill<span class="w"> </span>-RTMIN+1<span class="w"> </span>i3blocks
+bindsym<span class="w"> </span>XF86AudioLowerVolume<span class="w">    </span><span class="nb">exec</span><span class="w"> </span><span class="nv">$volumepath</span><span class="w"> </span>-np<span class="w"> </span>down<span class="w"> </span><span class="nv">$volumestep</span><span class="w"> </span>-t<span class="w"> </span><span class="nv">$statuscmd</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                                    </span>-u<span class="w"> </span><span class="nv">$statussig</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pkill<span class="w"> </span>-RTMIN+1<span class="w"> </span>i3blocks
+bindsym<span class="w"> </span>XF86AudioMute<span class="w">           </span><span class="nb">exec</span><span class="w"> </span><span class="nv">$volumepath</span><span class="w"> </span>mute<span class="w"> </span>-n<span class="w"> </span>-t<span class="w"> </span><span class="nv">$statuscmd</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                                    </span>-u<span class="w"> </span><span class="nv">$statussig</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pkill<span class="w"> </span>-RTMIN+1<span class="w"> </span>i3blocks
+bindsym<span class="w"> </span>XF86AudioMicMute<span class="w">        </span><span class="nv">$exec</span><span class="w"> </span><span class="nv">$toggle</span>-mic-on-off
+bindsym<span class="w"> </span><span class="nv">$mod</span>+exclamdown<span class="w">         </span><span class="nv">$exec</span><span class="w"> </span><span class="nv">$toggle</span>-mic-on-off
 
 <span class="c1"># Automatically set the volume to a given value when (re)launching i3</span>
-exec_always --no-startup-id <span class="s2">"amixer -D pulse set Master 50%"</span>
+exec_always<span class="w"> </span>--no-startup-id<span class="w"> </span><span class="s2">"amixer -D pulse set Master 50%"</span>
 
 <span class="c1"># Always mute the microphone source when (re)launching i3</span>
-exec_always --no-startup-id pactl set-source-mute <span class="se">\</span>
-            <span class="s2">"alsa_input.pci-0000_03_00.6.analog-stereo"</span> <span class="nb">true</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
-            pkill -RTMIN+10 i3blocks
+exec_always<span class="w"> </span>--no-startup-id<span class="w"> </span>pactl<span class="w"> </span>set-source-mute<span class="w"> </span><span class="se">\</span>
+<span class="w">            </span><span class="s2">"alsa_input.pci-0000_03_00.6.analog-stereo"</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">            </span>pkill<span class="w"> </span>-RTMIN+10<span class="w"> </span>i3blocks
 </code></pre></div>
 <p>This section will depend on the hardware being used, but it gives an idea of how to do things. I use <a href="https://github.com/hastinbe/i3-volume"><code>i3-volume</code></a> to get nice notifications when changing the volume and all the options being set here use <code>i3-volume</code>. Toggling the mic output was not super obvious at first, but it’s obviously doable and it’s good to know there’s an <code>XF86Audio</code> property for that purpose!</p>
 <h2 id="brightness">Brightness</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># Control brightness more precisely through software `light`</span>
-bindsym XF86MonBrightnessDown    <span class="nb">exec</span> <span class="nv">$brightness</span>-laptop-down
-bindsym XF86MonBrightnessUp      <span class="nb">exec</span> <span class="nv">$brightness</span>-laptop-up
+bindsym<span class="w"> </span>XF86MonBrightnessDown<span class="w">    </span><span class="nb">exec</span><span class="w"> </span><span class="nv">$brightness</span>-laptop-down
+bindsym<span class="w"> </span>XF86MonBrightnessUp<span class="w">      </span><span class="nb">exec</span><span class="w"> </span><span class="nv">$brightness</span>-laptop-up
 
 <span class="c1"># Adjust external monitor brightness</span>
-bindsym <span class="nv">$mod</span>+F2   <span class="nv">$exec</span> <span class="nv">$brightness</span>-monitor-down
-bindsym <span class="nv">$mod</span>+F1   <span class="nv">$exec</span> <span class="nv">$brightness</span>-monitor-up
-bindsym <span class="nv">$mod</span>+F3   <span class="nv">$exec</span> <span class="nv">$brightness</span>-monitor-default
+bindsym<span class="w"> </span><span class="nv">$mod</span>+F2<span class="w">   </span><span class="nv">$exec</span><span class="w"> </span><span class="nv">$brightness</span>-monitor-down
+bindsym<span class="w"> </span><span class="nv">$mod</span>+F1<span class="w">   </span><span class="nv">$exec</span><span class="w"> </span><span class="nv">$brightness</span>-monitor-up
+bindsym<span class="w"> </span><span class="nv">$mod</span>+F3<span class="w">   </span><span class="nv">$exec</span><span class="w"> </span><span class="nv">$brightness</span>-monitor-default
 
 <span class="c1"># Toggle laptop screen</span>
-bindsym <span class="nv">$mod</span>+Control+b    <span class="nv">$exec</span> <span class="nv">$brightness</span>-toggle-laptop
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Control+b<span class="w">    </span><span class="nv">$exec</span><span class="w"> </span><span class="nv">$brightness</span>-toggle-laptop
 </code></pre></div>
 <p>To control the screen brightness, I use <a href="https://github.com/haikarainen/light"><code>light</code></a>. I also like to just toggle the brightness of my laptop at night when I read something on my external monitor, so I use a <a href="https://github.com/sglavoie/dotfiles/blob/main/.local/bin/toggle_laptop_brightness"><code>toggle_laptop_brightness</code></a> script that I found somewhere online and adapted slightly.</p>
 <h2 id="applications">Applications</h2>
@@ -705,141 +705,141 @@ WM_NAME(STRING) = "47. David Bowie - Best Of Bowie - Heroes (3:36) - Audacious"
 </code></pre></div>
 <p>You may need to switch to tiling windows or make the terminal window that launches <code>xprop</code> a floating window to be able to click on the desired window. Here, we get an output for the Audacious music player. You usually need the second string from <code>WM_CLASS(STRING)</code> but if you don’t want to mess with letter casing being upper vs lowercase, you can prefix with <code>(?i)</code> for “insensitive” as shown below and that will match any window containing that pattern. Sometimes, you’re just after matching a “title” (like it’s done with LibreOffice in the snippet of code below) and you can get that one by showing the container’s border. With this config file, the <code>mod+n</code> keybinding will show the border you want at the top and <code>mod+y</code> will make it disappear again.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Autostart applications</span>
-<span class="nv">$exec</span>  <span class="nv">$brightness</span>-monitor-default
-<span class="nv">$exec</span>  <span class="nv">$default</span>-web-browser
-<span class="nv">$exec</span>  <span class="nv">$launcher</span>-todoist
-<span class="nv">$exec</span>  brightnessctl s <span class="m">20</span>%
-<span class="nv">$exec</span>  compton -CG --config /dev/null
-<span class="nv">$exec</span>  nitrogen --restore
-<span class="nv">$exec</span>  nm-applet
-<span class="nv">$exec</span>  pasystray
-<span class="nv">$exec</span>  xfce4-clipman
+<span class="nv">$exec</span><span class="w">  </span><span class="nv">$brightness</span>-monitor-default
+<span class="nv">$exec</span><span class="w">  </span><span class="nv">$default</span>-web-browser
+<span class="nv">$exec</span><span class="w">  </span><span class="nv">$launcher</span>-todoist
+<span class="nv">$exec</span><span class="w">  </span>brightnessctl<span class="w"> </span>s<span class="w"> </span><span class="m">20</span>%
+<span class="nv">$exec</span><span class="w">  </span>compton<span class="w"> </span>-CG<span class="w"> </span>--config<span class="w"> </span>/dev/null
+<span class="nv">$exec</span><span class="w">  </span>nitrogen<span class="w"> </span>--restore
+<span class="nv">$exec</span><span class="w">  </span>nm-applet
+<span class="nv">$exec</span><span class="w">  </span>pasystray
+<span class="nv">$exec</span><span class="w">  </span>xfce4-clipman
 
 <span class="c1"># First kill it as it doesn't always respect the `--timeout` option otherwise</span>
-exec_always --no-startup-id  <span class="s2">"killall unclutter; unclutter --jitter 40 --ignore-scrolling --timeout 5 &amp;"</span>
+exec_always<span class="w"> </span>--no-startup-id<span class="w">  </span><span class="s2">"killall unclutter; unclutter --jitter 40 --ignore-scrolling --timeout 5 &amp;"</span>
 
 <span class="c1"># Start</span>
-bindsym <span class="nv">$mod</span>+Shift+d --release      <span class="nb">exec</span> <span class="s2">"killall dunst; exec notify-send 'restart dunst'"</span>
-bindsym <span class="nv">$mod</span>+Shift+t                <span class="nb">exec</span> thunar
-bindsym <span class="nv">$mod</span>+Shift+w                <span class="nv">$exec</span> <span class="nv">$default</span>-web-browser
-bindsym <span class="nv">$mod</span>+masculine              <span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$python</span>-term<span class="o">]</span> scratchpad show<span class="p">;</span> move position center
-bindsym <span class="nv">$mod</span>+Shift+masculine        <span class="nv">$exec</span> kitty --name ipythonterm -o <span class="nv">font_size</span><span class="o">=</span><span class="m">22</span> -e <span class="se">\</span>
-                                        <span class="nv">$launcher</span>-python-term -q
-bindsym <span class="nv">$mod</span>+plus                   <span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$temp</span>-notes<span class="o">]</span> scratchpad show<span class="p">;</span> move position center
-bindsym <span class="nv">$mod</span>+Shift+plus             <span class="nv">$exec</span> kitty --name tmpnotes -e <span class="nv">$launcher</span>-temp-notes
-bindsym <span class="nv">$mod</span>+p                      <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Audacious"</span><span class="o">]</span> scratchpad show<span class="p">;</span> move position center
-bindsym <span class="nv">$mod</span>+Shift+p                <span class="nv">$exec</span> audacious
-bindsym <span class="nv">$mod</span>+q                      <span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$todoist</span>-app-name<span class="o">]</span> scratchpad show<span class="p">;</span> move position center
-bindsym <span class="nv">$mod</span>+Shift+q                <span class="nv">$exec</span> <span class="nv">$launcher</span>-todoist
-bindsym Print --release             <span class="nv">$exec</span> flameshot gui --path <span class="nv">$screenshots</span>-folder
-bindsym <span class="nv">$mod</span>+Print --release        <span class="nv">$exec</span> flameshot screen --path <span class="nv">$screenshots</span>-folder
-bindsym mod1+F3                     <span class="nv">$exec</span> kitty -e htop
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+d<span class="w"> </span>--release<span class="w">      </span><span class="nb">exec</span><span class="w"> </span><span class="s2">"killall dunst; exec notify-send 'restart dunst'"</span>
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+t<span class="w">                </span><span class="nb">exec</span><span class="w"> </span>thunar
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+w<span class="w">                </span><span class="nv">$exec</span><span class="w"> </span><span class="nv">$default</span>-web-browser
+bindsym<span class="w"> </span><span class="nv">$mod</span>+masculine<span class="w">              </span><span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$python</span>-term<span class="o">]</span><span class="w"> </span>scratchpad<span class="w"> </span>show<span class="p">;</span><span class="w"> </span>move<span class="w"> </span>position<span class="w"> </span>center
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+masculine<span class="w">        </span><span class="nv">$exec</span><span class="w"> </span>kitty<span class="w"> </span>--name<span class="w"> </span>ipythonterm<span class="w"> </span>-o<span class="w"> </span><span class="nv">font_size</span><span class="o">=</span><span class="m">22</span><span class="w"> </span>-e<span class="w"> </span><span class="se">\</span>
+<span class="w">                                        </span><span class="nv">$launcher</span>-python-term<span class="w"> </span>-q
+bindsym<span class="w"> </span><span class="nv">$mod</span>+plus<span class="w">                   </span><span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$temp</span>-notes<span class="o">]</span><span class="w"> </span>scratchpad<span class="w"> </span>show<span class="p">;</span><span class="w"> </span>move<span class="w"> </span>position<span class="w"> </span>center
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+plus<span class="w">             </span><span class="nv">$exec</span><span class="w"> </span>kitty<span class="w"> </span>--name<span class="w"> </span>tmpnotes<span class="w"> </span>-e<span class="w"> </span><span class="nv">$launcher</span>-temp-notes
+bindsym<span class="w"> </span><span class="nv">$mod</span>+p<span class="w">                      </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Audacious"</span><span class="o">]</span><span class="w"> </span>scratchpad<span class="w"> </span>show<span class="p">;</span><span class="w"> </span>move<span class="w"> </span>position<span class="w"> </span>center
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+p<span class="w">                </span><span class="nv">$exec</span><span class="w"> </span>audacious
+bindsym<span class="w"> </span><span class="nv">$mod</span>+q<span class="w">                      </span><span class="o">[</span><span class="nv">instance</span><span class="o">=</span><span class="nv">$todoist</span>-app-name<span class="o">]</span><span class="w"> </span>scratchpad<span class="w"> </span>show<span class="p">;</span><span class="w"> </span>move<span class="w"> </span>position<span class="w"> </span>center
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Shift+q<span class="w">                </span><span class="nv">$exec</span><span class="w"> </span><span class="nv">$launcher</span>-todoist
+bindsym<span class="w"> </span>Print<span class="w"> </span>--release<span class="w">             </span><span class="nv">$exec</span><span class="w"> </span>flameshot<span class="w"> </span>gui<span class="w"> </span>--path<span class="w"> </span><span class="nv">$screenshots</span>-folder
+bindsym<span class="w"> </span><span class="nv">$mod</span>+Print<span class="w"> </span>--release<span class="w">        </span><span class="nv">$exec</span><span class="w"> </span>flameshot<span class="w"> </span>screen<span class="w"> </span>--path<span class="w"> </span><span class="nv">$screenshots</span>-folder
+bindsym<span class="w"> </span>mod1+F3<span class="w">                     </span><span class="nv">$exec</span><span class="w"> </span>kitty<span class="w"> </span>-e<span class="w"> </span>htop
 
 <span class="c1"># Open applications on specific workspaces</span>
-assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"(?i)code"</span><span class="o">]</span>                  <span class="nv">$ws1</span>
-assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="nv">$default</span>-web-browser<span class="o">]</span>        <span class="nv">$ws3</span>
-assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"(?i)firefox"</span><span class="o">]</span>               <span class="nv">$ws3</span>
-assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="nv">$default</span>-web-browser-class<span class="o">]</span>  <span class="nv">$ws3</span>
-assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Audacity"</span><span class="o">]</span>                  <span class="nv">$ws4</span>
-assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Gimp"</span><span class="o">]</span>                      <span class="nv">$ws4</span>
-assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Inkscape"</span><span class="o">]</span>                  <span class="nv">$ws4</span>
-assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"vlc"</span><span class="o">]</span>                       <span class="nv">$ws4</span>
-assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"(?i)atril"</span><span class="o">]</span>                 <span class="nv">$ws6</span>
-assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"(?i)zathura"</span><span class="o">]</span>               <span class="nv">$ws6</span>
-assign <span class="o">[</span><span class="nv">title</span><span class="o">=</span><span class="s2">"(?i)libreoffice"</span><span class="o">]</span>           <span class="nv">$ws4</span>
-assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Transmission"</span><span class="o">]</span>              <span class="nv">$ws8</span>
-assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"keepassxc"</span><span class="o">]</span>                 <span class="nv">$ws8</span>
-assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"obs"</span><span class="o">]</span>                       <span class="nv">$ws8</span>
+assign<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"(?i)code"</span><span class="o">]</span><span class="w">                  </span><span class="nv">$ws1</span>
+assign<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="nv">$default</span>-web-browser<span class="o">]</span><span class="w">        </span><span class="nv">$ws3</span>
+assign<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"(?i)firefox"</span><span class="o">]</span><span class="w">               </span><span class="nv">$ws3</span>
+assign<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="nv">$default</span>-web-browser-class<span class="o">]</span><span class="w">  </span><span class="nv">$ws3</span>
+assign<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Audacity"</span><span class="o">]</span><span class="w">                  </span><span class="nv">$ws4</span>
+assign<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Gimp"</span><span class="o">]</span><span class="w">                      </span><span class="nv">$ws4</span>
+assign<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Inkscape"</span><span class="o">]</span><span class="w">                  </span><span class="nv">$ws4</span>
+assign<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"vlc"</span><span class="o">]</span><span class="w">                       </span><span class="nv">$ws4</span>
+assign<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"(?i)atril"</span><span class="o">]</span><span class="w">                 </span><span class="nv">$ws6</span>
+assign<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"(?i)zathura"</span><span class="o">]</span><span class="w">               </span><span class="nv">$ws6</span>
+assign<span class="w"> </span><span class="o">[</span><span class="nv">title</span><span class="o">=</span><span class="s2">"(?i)libreoffice"</span><span class="o">]</span><span class="w">           </span><span class="nv">$ws4</span>
+assign<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Transmission"</span><span class="o">]</span><span class="w">              </span><span class="nv">$ws8</span>
+assign<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"keepassxc"</span><span class="o">]</span><span class="w">                 </span><span class="nv">$ws8</span>
+assign<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"obs"</span><span class="o">]</span><span class="w">                       </span><span class="nv">$ws8</span>
 
 <span class="c1"># Automatically switch to workspace when opening those</span>
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"(?i)code"</span><span class="o">]</span>                   workspace <span class="nv">$ws1</span>
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="nv">$default</span>-web-browser<span class="o">]</span>         workspace <span class="nv">$ws3</span>
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="nv">$default</span>-web-browser-class<span class="o">]</span>   workspace <span class="nv">$ws3</span>
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"(?i)firefox"</span><span class="o">]</span>                workspace <span class="nv">$ws3</span>
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Gimp"</span><span class="o">]</span>                       workspace <span class="nv">$ws4</span>
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Inkscape"</span><span class="o">]</span>                   workspace <span class="nv">$ws4</span>
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"audacity"</span><span class="o">]</span>                   workspace <span class="nv">$ws4</span>
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"vlc"</span><span class="o">]</span>                        workspace <span class="nv">$ws4</span>
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"(?i)zathura"</span><span class="o">]</span>                workspace <span class="nv">$ws6</span>
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"(?i)atril"</span><span class="o">]</span>                  workspace <span class="nv">$ws6</span>
-for_window <span class="o">[</span><span class="nv">title</span><span class="o">=</span><span class="s2">"(?i)libreoffice"</span><span class="o">]</span>            workspace <span class="nv">$ws4</span>
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Transmission"</span><span class="o">]</span>               workspace <span class="nv">$ws8</span>
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"keepassxc"</span><span class="o">]</span>                  workspace <span class="nv">$ws8</span>
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"obs"</span><span class="o">]</span>                        workspace <span class="nv">$ws8</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"(?i)code"</span><span class="o">]</span><span class="w">                   </span>workspace<span class="w"> </span><span class="nv">$ws1</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="nv">$default</span>-web-browser<span class="o">]</span><span class="w">         </span>workspace<span class="w"> </span><span class="nv">$ws3</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="nv">$default</span>-web-browser-class<span class="o">]</span><span class="w">   </span>workspace<span class="w"> </span><span class="nv">$ws3</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"(?i)firefox"</span><span class="o">]</span><span class="w">                </span>workspace<span class="w"> </span><span class="nv">$ws3</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Gimp"</span><span class="o">]</span><span class="w">                       </span>workspace<span class="w"> </span><span class="nv">$ws4</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Inkscape"</span><span class="o">]</span><span class="w">                   </span>workspace<span class="w"> </span><span class="nv">$ws4</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"audacity"</span><span class="o">]</span><span class="w">                   </span>workspace<span class="w"> </span><span class="nv">$ws4</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"vlc"</span><span class="o">]</span><span class="w">                        </span>workspace<span class="w"> </span><span class="nv">$ws4</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"(?i)zathura"</span><span class="o">]</span><span class="w">                </span>workspace<span class="w"> </span><span class="nv">$ws6</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"(?i)atril"</span><span class="o">]</span><span class="w">                  </span>workspace<span class="w"> </span><span class="nv">$ws6</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">title</span><span class="o">=</span><span class="s2">"(?i)libreoffice"</span><span class="o">]</span><span class="w">            </span>workspace<span class="w"> </span><span class="nv">$ws4</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Transmission"</span><span class="o">]</span><span class="w">               </span>workspace<span class="w"> </span><span class="nv">$ws8</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"keepassxc"</span><span class="o">]</span><span class="w">                  </span>workspace<span class="w"> </span><span class="nv">$ws8</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"obs"</span><span class="o">]</span><span class="w">                        </span>workspace<span class="w"> </span><span class="nv">$ws8</span>
 
 <span class="c1"># Open specific applications in floating mode</span>
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"(?i)virtualbox"</span><span class="o">]</span>   floating <span class="nb">enable</span> border pixel <span class="m">5</span>
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"GParted"</span><span class="o">]</span>          floating <span class="nb">enable</span> border pixel <span class="m">5</span>
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Lightdm-settings"</span><span class="o">]</span> floating <span class="nb">enable</span> pixel <span class="m">5</span>
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Lxappearance"</span><span class="o">]</span>     floating <span class="nb">enable</span> sticky <span class="nb">enable</span> border pixel <span class="m">5</span>
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Nitrogen"</span><span class="o">]</span>         floating <span class="nb">enable</span> sticky <span class="nb">enable</span> border pixel <span class="m">5</span>
-for_window <span class="o">[</span><span class="nv">title</span><span class="o">=</span><span class="s2">"File Transfer*"</span><span class="o">]</span>   floating <span class="nb">enable</span> border pixel <span class="m">5</span>
-for_window <span class="o">[</span><span class="nv">title</span><span class="o">=</span><span class="s2">"alsamixer"</span><span class="o">]</span>        floating <span class="nb">enable</span> border pixel <span class="m">5</span>
-for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"(?i)zoom"</span><span class="o">]</span>         floating <span class="nb">enable</span> border pixel <span class="m">5</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"(?i)virtualbox"</span><span class="o">]</span><span class="w">   </span>floating<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>border<span class="w"> </span>pixel<span class="w"> </span><span class="m">5</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"GParted"</span><span class="o">]</span><span class="w">          </span>floating<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>border<span class="w"> </span>pixel<span class="w"> </span><span class="m">5</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Lightdm-settings"</span><span class="o">]</span><span class="w"> </span>floating<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>pixel<span class="w"> </span><span class="m">5</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Lxappearance"</span><span class="o">]</span><span class="w">     </span>floating<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>sticky<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>border<span class="w"> </span>pixel<span class="w"> </span><span class="m">5</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Nitrogen"</span><span class="o">]</span><span class="w">         </span>floating<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>sticky<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>border<span class="w"> </span>pixel<span class="w"> </span><span class="m">5</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">title</span><span class="o">=</span><span class="s2">"File Transfer*"</span><span class="o">]</span><span class="w">   </span>floating<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>border<span class="w"> </span>pixel<span class="w"> </span><span class="m">5</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">title</span><span class="o">=</span><span class="s2">"alsamixer"</span><span class="o">]</span><span class="w">        </span>floating<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>border<span class="w"> </span>pixel<span class="w"> </span><span class="m">5</span>
+for_window<span class="w"> </span><span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"(?i)zoom"</span><span class="o">]</span><span class="w">         </span>floating<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>border<span class="w"> </span>pixel<span class="w"> </span><span class="m">5</span>
 </code></pre></div>
 <p>The section <strong>Autostart applications</strong> is the list of applications that launch when you open your X session with i3.</p>
 <h2 id="keyboard-mouse">Keyboard <span class="amp">&amp;</span> mouse</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># Set compose key to Right Ctrl</span>
-exec_always --no-startup-id    setxkbmap -option <span class="nv">$compose</span>-key
+exec_always<span class="w"> </span>--no-startup-id<span class="w">    </span>setxkbmap<span class="w"> </span>-option<span class="w"> </span><span class="nv">$compose</span>-key
 
 <span class="c1"># Delay, interval</span>
-exec_always --no-startup-id    xset r rate <span class="m">250</span> <span class="m">60</span>
+exec_always<span class="w"> </span>--no-startup-id<span class="w">    </span>xset<span class="w"> </span>r<span class="w"> </span>rate<span class="w"> </span><span class="m">250</span><span class="w"> </span><span class="m">60</span>
 </code></pre></div>
 <p>I like to set those options in my config file as they can be modified on the fly if you reload i3. This is thanks to the <code>exec_always --no-startup-id</code> directive which will always run the invoked command when relaunching, not just when logging in to a session.</p>
 <h2 id="colors-theming">Colors <span class="amp">&amp;</span> theming</h2>
 <p>Of interest in this section, apart from the actual colors, is where you will set your i3bar on the screen (top vs bottom) and on which monitor your tray (the space with little icons to show the volume, WiFi connectivity and so on) will be displayed if you have more than one monitor. In this case, the bar displays at the top of the screen <em>à la Mac</em> or <em>à la <span class="caps">GNOME</span></em> with <code>position top</code> and reveals information about system resources with <code>i3blocks</code> (you can find how it can be configured in <a href="https://github.com/sglavoie/dotfiles/tree/main/.config/i3blocks">my dotfiles</a> or in the <a href="https://github.com/vivien/i3blocks/">i3blocks GitHub repo</a>).</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Start i3bar to display a workspace bar (plus the system information i3status if available)</span>
-bar <span class="o">{</span>
-    id bar-1
-    <span class="nv">$font</span>-small
-    <span class="nv">$output</span>-secondary
-    <span class="c1"># mode invisible</span>
-    tray_output none
-    status_command i3blocks
-    position top
+bar<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>id<span class="w"> </span>bar-1
+<span class="w">    </span><span class="nv">$font</span>-small
+<span class="w">    </span><span class="nv">$output</span>-secondary
+<span class="w">    </span><span class="c1"># mode invisible</span>
+<span class="w">    </span>tray_output<span class="w"> </span>none
+<span class="w">    </span>status_command<span class="w"> </span>i3blocks
+<span class="w">    </span>position<span class="w"> </span>top
 
-    colors <span class="o">{</span>
-        background <span class="c1">#000000</span>
-        statusline <span class="c1">#ffffff</span>
-        separator  <span class="c1">#666666</span>
+<span class="w">    </span>colors<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span>background<span class="w"> </span><span class="c1">#000000</span>
+<span class="w">        </span>statusline<span class="w"> </span><span class="c1">#ffffff</span>
+<span class="w">        </span>separator<span class="w">  </span><span class="c1">#666666</span>
 <span class="c1">#                          border  backgr. text</span>
-        focused_workspace  <span class="c1">#4c7899 #285577 #ffffff #ffffff</span>
-        active_workspace   <span class="c1">#333333 #5f676a #ffffff #3c3b37</span>
-        inactive_workspace <span class="c1">#333333 #222222 #888888 #aea79f</span>
-        urgent_workspace   <span class="c1">#2f343a #900000 #ffffff #ffffff</span>
-    <span class="o">}</span>
+<span class="w">        </span>focused_workspace<span class="w">  </span><span class="c1">#4c7899 #285577 #ffffff #ffffff</span>
+<span class="w">        </span>active_workspace<span class="w">   </span><span class="c1">#333333 #5f676a #ffffff #3c3b37</span>
+<span class="w">        </span>inactive_workspace<span class="w"> </span><span class="c1">#333333 #222222 #888888 #aea79f</span>
+<span class="w">        </span>urgent_workspace<span class="w">   </span><span class="c1">#2f343a #900000 #ffffff #ffffff</span>
+<span class="w">    </span><span class="o">}</span>
 <span class="o">}</span>
 
-bar <span class="o">{</span>
-    id bar-0
-    <span class="nv">$font</span>-medium
-    <span class="nv">$output</span>-primary
-    tray_output primary
-    status_command i3blocks
-    position top
-    bindsym button4 nop
-    bindsym button5 nop
+bar<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>id<span class="w"> </span>bar-0
+<span class="w">    </span><span class="nv">$font</span>-medium
+<span class="w">    </span><span class="nv">$output</span>-primary
+<span class="w">    </span>tray_output<span class="w"> </span>primary
+<span class="w">    </span>status_command<span class="w"> </span>i3blocks
+<span class="w">    </span>position<span class="w"> </span>top
+<span class="w">    </span>bindsym<span class="w"> </span>button4<span class="w"> </span>nop
+<span class="w">    </span>bindsym<span class="w"> </span>button5<span class="w"> </span>nop
 
-    colors <span class="o">{</span>
-        background <span class="c1">#000000</span>
-        statusline <span class="c1">#ffffff</span>
-        separator  <span class="c1">#666666</span>
+<span class="w">    </span>colors<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span>background<span class="w"> </span><span class="c1">#000000</span>
+<span class="w">        </span>statusline<span class="w"> </span><span class="c1">#ffffff</span>
+<span class="w">        </span>separator<span class="w">  </span><span class="c1">#666666</span>
 <span class="c1">#                          border  backgr. text</span>
-        focused_workspace  <span class="c1">#4c7899 #285577 #ffffff #ffffff</span>
-        active_workspace   <span class="c1">#333333 #5f676a #ffffff #3c3b37</span>
-        inactive_workspace <span class="c1">#333333 #222222 #888888 #aea79f</span>
-        urgent_workspace   <span class="c1">#2f343a #900000 #ffffff #ffffff</span>
-    <span class="o">}</span>
+<span class="w">        </span>focused_workspace<span class="w">  </span><span class="c1">#4c7899 #285577 #ffffff #ffffff</span>
+<span class="w">        </span>active_workspace<span class="w">   </span><span class="c1">#333333 #5f676a #ffffff #3c3b37</span>
+<span class="w">        </span>inactive_workspace<span class="w"> </span><span class="c1">#333333 #222222 #888888 #aea79f</span>
+<span class="w">        </span>urgent_workspace<span class="w">   </span><span class="c1">#2f343a #900000 #ffffff #ffffff</span>
+<span class="w">    </span><span class="o">}</span>
 <span class="o">}</span>
 
 <span class="c1"># Theme colors</span>
 <span class="c1"># class                   border  backgr. text    indic.  child_border</span>
-  client.focused          <span class="c1">#ffffff #ff0054 #ffffff #2e9ef4</span>
-  client.focused_inactive <span class="c1">#333333 #8338ec #ffffff #484e50</span>
-  client.unfocused        <span class="c1">#333333 #000000 #bbbbbb #292d2e</span>
-  client.urgent           <span class="c1">#2f343a #900000 #ffffff #900000</span>
-  client.placeholder      <span class="c1">#F9FAF9 #061229 #FFFFFF #061229</span>
-  client.background       <span class="c1">#000000</span>
+<span class="w">  </span>client.focused<span class="w">          </span><span class="c1">#ffffff #ff0054 #ffffff #2e9ef4</span>
+<span class="w">  </span>client.focused_inactive<span class="w"> </span><span class="c1">#333333 #8338ec #ffffff #484e50</span>
+<span class="w">  </span>client.unfocused<span class="w">        </span><span class="c1">#333333 #000000 #bbbbbb #292d2e</span>
+<span class="w">  </span>client.urgent<span class="w">           </span><span class="c1">#2f343a #900000 #ffffff #900000</span>
+<span class="w">  </span>client.placeholder<span class="w">      </span><span class="c1">#F9FAF9 #061229 #FFFFFF #061229</span>
+<span class="w">  </span>client.background<span class="w">       </span><span class="c1">#000000</span>
 </code></pre></div>
 <p>What I’ve found particularly useful here is the fact you can have a different “i3 bar” for each screen. I’ve set keybindings in the section <a href="#screens-and-monitors">Screens and monitors</a> so I can toggle them on/off separately too.</p>
 <p>I’ve also switched away from the default <a href="https://github.com/i3/i3status">i3status</a> program to display the status bar(s) to <a href="https://github.com/vivien/i3blocks/">i3blocks</a>, which I’ve found a lot nicer to look at and easier to configure too.</p>

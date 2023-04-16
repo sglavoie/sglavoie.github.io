@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../../../../../theme/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../theme/css/pygments.css" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Sébastien Lavoie" />
+    <meta name="description"
+        content="Posts and writings by Sébastien Lavoie. Customization setups and articles on productivity for developers who like minimalism." />
+    <meta name="title" property="og:title" content="sglavoie.com" />
+    <meta property="og:type" content="Website" />
+    <meta name="image" property="og:image" content="../../../../../theme/images/logo_1200x627.png" />
+
+     <link href="https://www.sglavoie.com/feeds/sglavoie.rss.xml" type="application/rss+xml" rel="alternate"
+        title="sglavoie.com RSS" />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="/theme/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/theme/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/theme/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/theme/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="/theme/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="shortcut icon" href="/theme/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#2d89ef" />
+    <meta name="msapplication-TileImage" content="/theme/favicon/mstile-144x144.png" />
+    <meta name="msapplication-config" content="/theme/favicon/browserconfig.xml" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="msapplication-config" content="/theme/favicon/browserconfig.xml" />
+    <meta name="theme-color" content="#000000" />
+
+<meta name="keywords" content="advice, best practices, career">
+
+<!-- Open graph for social networks -->
+<meta name="og:title" property="og:title" content="no markdown">
+
+    <title>sglavoie.com &ndash; Book summary: The Effective&nbsp;Engineer</title>
+
+    <!-- Enable tracking of web traffic -->
+<script type="text/javascript">
+    var _gaq = _gaq || []
+    _gaq.push(['_setAccount', 'UA-150998392-1'])
+    _gaq.push(['_trackPageview'])
+    ;(function () {
+        var ga = document.createElement('script')
+        ga.type = 'text/javascript'
+        ga.async = true
+        ga.src =
+            ('https:' == document.location.protocol
+                ? 'https://ssl'
+                : 'http://www') + '.google-analytics.com/ga.js'
+        var s = document.getElementsByTagName('script')[0]
+        s.parentNode.insertBefore(ga, s)
+    })()
+</script>
+ </head>
+
+<body>
+    <aside>
+        <div id="user_meta">
+            <a href="../../../../..">
+                <div>
+                    <svg width="24.348mm" height="24.348mm" version="1.1" viewBox="0 0 24.348095 24.347754"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#"
+                        xmlns:dc="http://purl.org/dc/elements/1.1/"
+                        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                        <metadata>
+                            <rdf:RDF>
+                                <cc:Work rdf:about="">
+                                    <dc:format>image/svg+xml</dc:format>
+                                    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                                    <dc:title />
+                                </cc:Work>
+                            </rdf:RDF>
+                        </metadata>
+                        <g transform="translate(81.397 -84.454)">
+                            <path d="m-57.049 105.9v2.9029h-11.173v-2.9029z" fill="#c0c0c0">
+                                <animate attributeName="fill" values="white;grey;white" dur="2s"
+                                    repeatCount="indefinite" />
+                            </path>
+                            <path
+                                d="m-72.272 98.481-9.1246 5.7598v-3.548l5.8658-3.5019v-0.09215l-5.8658-3.5019v-3.548l9.1246 5.7598z"
+                                fill="#c0c0c0" />
+                            <path transform="scale(.26458)"
+                                d="m-273.15 319.2-27.588 14.77 8.498 5.3613 19.09-12.049zm15.309 25.67v44.412h8.8672v-35.635h33.361v-8.7773h-33.783zm25.336 24.66v8.7774h8.0254v10.975h8.8672v-19.752z"
+                                fill="#007bff" />
+                        </g>
+                    </svg>
+                </div>
+            </a>
+            <ul>
+                  <li><a href="../../../../../category/automation.html">automation</a></li>
+                <li><a href="../../../../../category/learnings.html">learnings</a></li>
+                <li><a href="../../../../../category/tips-and-tricks.html">tips-and-tricks</a></li>
+                <li><a href="../../../../../category/tools.html">tools</a></li>
+                <li><a href="../../../../../category/workflow.html">workflow</a></li>
+              </ul>
+        </div>
+    </aside>
+
+    <main>
+        <header>
+            <p>
+                <a href="../../../../..">Home</a> &brvbar;
+                <a href="../../../../../archives.html">Archives</a> &brvbar;
+                <a href="../../../../../tags.html">Tags</a> &brvbar;
+                <a href="../../../../../contact.html">Contact</a> &brvbar;
+                <a href="https://drive.google.com/file/d/1t6GdZjC13naJXVGe6RinGowZLfkRzjy_/view" target="_blank"
+                    rel="noopener noreferrer">Resume</a>
+            </p>
+        </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="../../../../../posts/2023/04/16/book-summary-the-effective-engineer/">Book summary: The Effective&nbsp;Engineer</a></h1>
+  </div>
+  <div class="flex-container">
+    <div class="article_meta">
+      <div>Posted on: Sun 16 April 2023</div>
+      <div>Category: <a href="../../../../../category/learnings.html">learnings</a>
+ &ndash; Tags:
+        <a href="../../../../../tag/advice.html">advice</a>,        <a href="../../../../../tag/best-practices.html">best practices</a>,        <a href="../../../../../tag/career.html">career</a>      </div>
+    </div>
+    <div class="article_readtime">
+      Estimated read time: 9 minutes
+    </div>
+  </div>
+
+  <h2 class="toc-title">Table of contents</h2>
+  </div>
+  <nav class="toc">
+    <div class="toc">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#book-summary">Book summary</a><ul>
+<li><a href="#part-1-adopt-the-right-mindset">Part 1: Adopt the Right Mindset</a><ul>
+<li><a href="#focus-on-high-leverage-activities">Focus on high-leverage activities</a></li>
+<li><a href="#optimize-for-learning">Optimize for learning</a></li>
+<li><a href="#prioritize-regularly">Prioritize regularly</a></li>
+</ul>
+</li>
+<li><a href="#part-2-execute-execute-execute">Part 2: Execute, Execute, Execute</a><ul>
+<li><a href="#invest-in-iteration-speed">Invest in iteration speed</a></li>
+<li><a href="#measure-what-you-want-to-improve">Measure what you want to improve</a></li>
+<li><a href="#validate-your-ideas-early-and-often">Validate your ideas early and often</a></li>
+<li><a href="#improve-your-project-estimation-skills">Improve your project estimation skills</a></li>
+</ul>
+</li>
+<li><a href="#part-3-build-long-term-value">Part 3: Build Long-Term Value</a><ul>
+<li><a href="#balance-quality-with-pragmatism">Balance Quality with Pragmatism</a></li>
+<li><a href="#minimize-operational-burden">Minimize Operational Burden</a></li>
+<li><a href="#invest-in-your-teams-growth">Invest in Your Team’s Growth</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#conclusion">Conclusion</a><ul>
+<li><a href="#resources-and-references">Resources and references</a></li>
+</ul>
+</li>
+</ul>
+</div>
+  </nav>
+  <div class="article_text">
+    
+<hr/>
+<h1 id="introduction">Introduction</h1>
+<p>This wonderful, mostly non-technical book is a compilation of the best practices and lessons learned by the author, <a href="https://edmondlau.co/">Edmond Lau</a>, during his impressive career as a software engineer. It is a must-read for anyone who wants to improve their skills and become more effective at what they do. The following are short excerpts from the condensed knowledge found in the book, sprinkled with some minor comments of my own along the way. These are extracted from the book’s takeaway sections and headings: I wholeheartedly recommend <a href="https://www.effectiveengineer.com/">reading the work</a> in its entirety for an immersive exposure to the fantastic storytelling capabilities of Edmond!</p>
+<hr/>
+<h1 id="book-summary">Book summary</h1>
+<h2 id="part-1-adopt-the-right-mindset">Part 1: Adopt the Right Mindset</h2>
+<h3 id="focus-on-high-leverage-activities">Focus on high-leverage activities</h3>
+<div class="math">$$\text{Leverage} = \frac{\text{Impact produced}}{\text{Time invested}}$$</div>
+<ul>
+<li>Leverage is the <span class="caps">ROI</span> for the effort put in.</li>
+<li><strong>Meta-skills</strong> are important to know where to focus one’s time and energy to translate more of one’s efforts into impact.</li>
+<li>Leverage your time by always finding ways to perform activities quicker and making sure those activities will have a <strong>meaningful impact</strong>.</li>
+</ul>
+<h3 id="optimize-for-learning">Optimize for learning</h3>
+<ul>
+<li><strong>Make your learning rate a priority</strong>: it compounds like interest over time.</li>
+<li>Study code for core abstractions written by the best engineers at your company.</li>
+<li><strong>Write more code</strong>.</li>
+<li>Go through any technical, educational material available internally.</li>
+<li>Master the programming languages that you use.</li>
+<li>Send your code reviews to the harshest critics.</li>
+<li>Enroll in classes on areas where you want to improve.</li>
+<li>Participate in design discussions of projects you’re interested in.</li>
+<li>Work on a diversity of projects.</li>
+<li>Make sure you’re on a team with at least a few senior engineers whom you can learn from.</li>
+<li>Jump fearlessly into code you don’t know.</li>
+<li>Learn new programming languages and frameworks.</li>
+<li>Invest in skills that are in high demand.</li>
+<li><strong>Read books</strong>.</li>
+<li>Join a discussion group.</li>
+<li>Attend talks, conferences, and meetups.</li>
+<li>Build and maintain a strong network of relationships.</li>
+<li>Follow bloggers who teach.</li>
+<li>Write to teach.</li>
+<li><strong>Tinker on side projects</strong>.</li>
+<li><strong>Pursue what you love</strong>.</li>
+</ul>
+<h3 id="prioritize-regularly">Prioritize regularly</h3>
+<ul>
+<li>Track to-dos in a single list.</li>
+<li><strong>Focus on what produces value directly</strong>.</li>
+<li>Focus on the <em>important and non-urgent</em>.</li>
+<li>Limit the amount of work in progress.</li>
+<li><strong>Use implementation intentions</strong> (if-then planning).</li>
+<li><strong>Prioritize</strong> routinely.</li>
+<li>Write down and <em>review</em> to-dos.</li>
+<li>Reduce <em>context switches</em>.</li>
+</ul>
+<h2 id="part-2-execute-execute-execute">Part 2: Execute, Execute, Execute</h2>
+<h3 id="invest-in-iteration-speed">Invest in iteration speed</h3>
+<ul>
+<li>Move fast to learn fast.</li>
+<li><strong>Invest in time-saving tools</strong>.</li>
+<li>Shorten your debugging and validation loops.</li>
+<li>Master your programming environment.</li>
+<li>Get proficient with your favorite text editor or <span class="caps">IDE</span>.</li>
+<li>Learn at least one productive, high-level programming language (<em>scripting</em>).</li>
+<li>Get familiar with <span class="caps">UNIX</span> (or Windows) <em>shell commands</em>.</li>
+<li><em>Prefer the keyboard</em> over the mouse.</li>
+<li>Automate your manual workflows.</li>
+<li>Test out ideas on an interactive interpreter.</li>
+<li>Make it fast and easy to run just the unit tests associated with your current changes.</li>
+<li>Don’t ignore non-engineering bottlenecks.</li>
+</ul>
+<h3 id="measure-what-you-want-to-improve">Measure what you want to improve</h3>
+<ul>
+<li>Use metrics to drive progress.</li>
+<li>Pick the right metric to incentivize the behavior you want.</li>
+<li>Instrument everything to understand what is going on.</li>
+<li>Internalize useful numbers (e.g., number of active users, requests per second, amount of data accessed and written daily, etc.).</li>
+<li>Be skeptical about data integrity.</li>
+<li>Log data liberally, in case it turns out to be useful later on.</li>
+<li>Build tools to iterate on data accuracy sooner.</li>
+<li>Write end-to-end integration tests to validate your entire analytics pipeline.</li>
+<li>Examine collected data sooner.</li>
+<li>Cross-validate data accuracy by computing the same metric in multiple ways.</li>
+<li>When a number does look off, dig into it early.</li>
+</ul>
+<h3 id="validate-your-ideas-early-and-often">Validate your ideas early and often</h3>
+<ul>
+<li>Find low-effort ways to validate your work.<ul>
+<li>Approach a problem iteratively to reduce wasted effort.</li>
+</ul>
+</li>
+<li>Continuously validate product changes with A/B testing.<ul>
+<li>Reduce the risk of large implementations by using small validations.</li>
+</ul>
+</li>
+<li>Beware the one-person team (you need feedback early to make sure you’re working on the right thing!).</li>
+<li><em>Be open and receptive to feedback</em>.</li>
+<li><em>Commit code early and often</em>.</li>
+<li>Request code reviews from thorough critics.</li>
+<li>Ask to bounce ideas off your teammates.</li>
+<li>Design the interface or <span class="caps">API</span> of a new system first.</li>
+<li>Send out a design document before devoting your energy to your code.</li>
+<li>If possible, structure ongoing projects so that there is some shared context with your teammates.</li>
+<li>Solicit buy-in for controversial features before investing too much time.</li>
+<li><em>Build feedback loops</em> for your decisions.</li>
+</ul>
+<h3 id="improve-your-project-estimation-skills">Improve your project estimation skills</h3>
+<ul>
+<li>Project estimation is one of the hardest skills that an effective engineer needs to learn. <em>But it’s crucial to master</em>.</li>
+<li>To produce accurate estimates:<ul>
+<li><em>Decompose the project</em> into granular tasks.</li>
+<li>Estimate based on how long tasks will take, not on how long you or someone else wants them to take.</li>
+<li>Think of estimates as <em>probability distributions</em>, not best-case scenarios.</li>
+<li>Let the person doing the actual task make the estimate.</li>
+<li>Beware of anchoring bias (e.g., hearing about a low estimate from someone else may skew our own estimate later to be too low).</li>
+<li>Use multiple approaches to estimate the same task (e.g., estimate from past experiences, decompose a larger task into smaller ones and estimate each one).</li>
+<li>Beware the mythical man-month. Having more people on a project doesn’t necessarily mean it will be completed faster. Communication overhead, context switching, and other factors can slow down the team as much as <span class="math">\(O(n^2)\)</span> considering the number of people involved.</li>
+<li>Validate estimates against historical data.</li>
+<li>Use <strong>time-boxing</strong> to constrain tasks that can grow in scope.</li>
+<li>Allow others to challenge estimates.</li>
+</ul>
+</li>
+<li>Allow buffer room for the unknown in the schedule.</li>
+<li>Define measurable milestones.</li>
+<li><em>Do the riskiest tasks first</em>.</li>
+<li>Know the limits of overtime.</li>
+</ul>
+<h2 id="part-3-build-long-term-value">Part 3: Build Long-Term Value</h2>
+<h3 id="balance-quality-with-pragmatism">Balance Quality with Pragmatism</h3>
+<ul>
+<li>Establish a culture of reviewing code.<ul>
+<li>Catch bugs or design shortcomings early.</li>
+<li>Increase accountability for code changes.</li>
+<li>Provide an avenue for sharing best practices.</li>
+<li>Increase long-term agility.</li>
+</ul>
+</li>
+<li>Invest in good software abstractions to simplify difficult problems.<ul>
+<li>Reduce the complexity of the original problem into easier-to-understand primitives.</li>
+<li>Reduce future application maintenance and make it easier to apply future improvements.</li>
+<li><span class="caps">DRY</span> principle: solve the hard problems once and re-use the solutions multiple times.</li>
+</ul>
+</li>
+<li>Scale code quality with <em>automated testing</em>.<ul>
+<li>Make large refactors with confidence.</li>
+<li>Offer executable documentation.</li>
+<li><em>Don’t test everything</em>: focus on the most important parts of the code and make sure everything critical is covered.</li>
+</ul>
+</li>
+<li>Manage your technical debt.<ul>
+<li>Pay it periodically. Incur it when necessary to meet deadlines.</li>
+<li><em>Repay the debts with the highest interest rates first</em> (i.e., focus on what produces the most leverage).</li>
+</ul>
+</li>
+</ul>
+<h3 id="minimize-operational-burden">Minimize Operational Burden</h3>
+<ul>
+<li>Embrace operational simplicity.<ul>
+<li>Increased complexity introduces more potential single points of failure.</li>
+<li>New engineers face a steeper learning curve when learning and understanding the new systems.</li>
+<li>Effort towards improving abstractions, libraries, and tools gets diluted across the different systems.</li>
+<li>Do the simple thing first.</li>
+</ul>
+</li>
+<li><strong>Build systems to fail fast</strong>.<ul>
+<li>Pinpoint the source of errors.</li>
+<li><em>Make debugging easier</em> by not masking your errors and by not deferring failures until later.</li>
+</ul>
+</li>
+<li><strong>Relentlessly automate</strong>.<ul>
+<li>Don’t underestimate the future frequency of the task.</li>
+<li>Internalize the time savings over a long time horizon.</li>
+<li>Automate mechanics over decision-making.</li>
+</ul>
+</li>
+<li><strong>Make batch processes idempotent</strong>.<ul>
+<li>At least, make processes <em>“retryable”</em> if they cannot be made idempotent.</li>
+</ul>
+</li>
+<li>Hone your ability to respond and recover quickly.<ul>
+<li>Plan and practice failure modes.</li>
+</ul>
+</li>
+</ul>
+<h3 id="invest-in-your-teams-growth">Invest in Your Team’s Growth</h3>
+<ul>
+<li>Make hiring everyone’s responsibility.<ul>
+<li>Identify which qualities you care about the most in your colleagues: <em>keep the bar high</em>.</li>
+<li>Make sure the recruiting process is effective.</li>
+<li>Adapt interview problems to different levels of difficulty based on the candidate’s experience.</li>
+</ul>
+</li>
+<li>Design a good onboarding process.<ul>
+<li>Ramp up new engineers as quickly as possible (e.g., with <em>codelabs</em>).<ul>
+<li>Help the people around you be successful.</li>
+</ul>
+</li>
+<li>Impart the team’s culture and values (e.g., have <em>onboarding talks</em>).</li>
+<li>Expose new engineers to the breadth of fundamentals needed to succeed (e.g., with <em>mentorship</em>).</li>
+<li>Socially integrate new engineers onto the team (e.g., give them starter tasks to feel they’re part of the team faster).</li>
+</ul>
+</li>
+<li>Share ownership of code (increase the <em>bus factor</em>).<ul>
+<li>Avoid one-person teams.</li>
+<li>Review each other’s code and software designs.</li>
+<li>Make sure the team is exposed to different types of tasks and responsibilities regularly.</li>
+<li>Focus on readable and high-quality code.</li>
+<li>Share software decisions and architecture clearly.</li>
+<li><em>Make sure code and workflows are documented properly</em>.</li>
+<li><em>Invest in teaching and mentoring</em>.<ul>
+<li>The more effective the team becomes, the more freedom there is to work on new projects.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Build collective wisdom with post-mortems (e.g., at <span class="caps">NASA</span>, these become the user manual).</li>
+<li>Build a great engineering culture.<ul>
+<li>Optimize for iteration speed.</li>
+<li>Always automate.</li>
+<li>Use the right software abstractions.</li>
+<li>Nurture a respectful working environment.</li>
+<li><em>Allot experimentation time</em>.</li>
+<li><em>Foster a culture of learning</em> (<span class="caps">CI</span>/<span class="caps">CD</span>: <em>continuous improvement, continuous delightfulness</em>).</li>
+<li><strong>Hire the best</strong>!</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h1 id="conclusion">Conclusion</h1>
+<p>Edmond opened my eyes to the importance of being an effective engineer, showing what that entails and how to concretely achieve it. His extraordinary technical journey and knowledge of the field are evident throughout the book, and I found myself nodding in agreement with many of his points. He made me think about how I could apply his advice to my own work. Notably, the key concept of <strong>leverage</strong> resonated deeply with me and ended up being the cornerstone of <a href="https://github.com/sglavoie/cm3070-final-project">the final project I built for my bachelor’s degree</a>: <em>ProductiviDo - An efficient task planner focusing on high-leverage activities</em>.</p>
+<h2 id="resources-and-references">Resources and references</h2>
+<ul>
+<li><a href="https://edmondlau.co/">Edmond Lau</a> - The author’s personal website.</li>
+<li><a href="https://github.com/sglavoie/cm3070-final-project">ProductiviDo</a> - A simple and efficient todo-app built with React-Native.</li>
+<li><a href="https://www.goodreads.com/book/show/25238425-the-effective-engineer">The Effective Engineer: How to Leverage Your Efforts In Software Engineering to Make a Disproportionate and Meaningful Impact</a> - goodreads.com.</li>
+<li><a href="https://www.effectiveengineer.com/">The Effective Engineer</a> - by Edmond Lau.</li>
+</ul>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#007bff ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+  </div>
+
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_identifier = "posts/2023/04/16/book-summary-the-effective-engineer/";
+      (function () {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//sglavoie.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </div>
+
+</article>
+  
+        <div id="ending_message">
+            <p>
+                &copy; Sébastien Lavoie. Built with
+                <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Python</a>
+                using
+                <a href="http://getpelican.com" target="_blank" rel="noopener noreferrer">Pelican</a>
+                <span class="badge">v4.8.0</span>. Theme adapted from Giulio Fidente on
+                <a href="https://github.com/gfidente/pelican-svbhack" target="_blank"
+                    rel="noopener noreferrer">GitHub</a>.
+                <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS feed</a>.
+            </p>
+        </div>
+    </main>
+</body>
+
+</html>

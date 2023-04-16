@@ -324,28 +324,28 @@
 <p>A Markdown output to the terminal in the following format:</p>
 <div class="highlight"><pre><span></span><code><span class="gu">## December</span>
 
-<span class="k">-</span> [<span class="nt">Python/C API Reference Manual</span>](<span class="na">https://docs.python.org/3/c-api/index.html</span>)
-<span class="k">-</span> <span class="gs">**Books**</span>
-    <span class="k">-</span> Clean Coder (<span class="ge">_book note_</span>)
-    <span class="k">-</span> <span class="ge">*Software engineering*</span>
-        <span class="k">-</span> Clean Code
-            <span class="k">-</span> ch. 2-10
-<span class="k">-</span> <span class="gs">**Documentation**</span>
-    <span class="k">-</span> <span class="ge">*Python*</span>
-        <span class="k">-</span> [<span class="nt">The Python Tutorial</span>](<span class="na">https://docs.python.org/3/tutorial/index.html</span>)
-            <span class="k">-</span> Sections 1-4
+<span class="k">-</span><span class="w"> </span>[<span class="nt">Python/C API Reference Manual</span>](<span class="na">https://docs.python.org/3/c-api/index.html</span>)
+<span class="k">-</span><span class="w"> </span><span class="gs">**Books**</span>
+<span class="w">    </span><span class="k">-</span><span class="w"> </span>Clean Coder (<span class="ge">_book note_</span>)
+<span class="w">    </span><span class="k">-</span><span class="w"> </span><span class="ge">*Software engineering*</span>
+<span class="w">        </span><span class="k">-</span><span class="w"> </span>Clean Code
+<span class="w">            </span><span class="k">-</span><span class="w"> </span>ch. 2-10
+<span class="k">-</span><span class="w"> </span><span class="gs">**Documentation**</span>
+<span class="w">    </span><span class="k">-</span><span class="w"> </span><span class="ge">*Python*</span>
+<span class="w">        </span><span class="k">-</span><span class="w"> </span>[<span class="nt">The Python Tutorial</span>](<span class="na">https://docs.python.org/3/tutorial/index.html</span>)
+<span class="w">            </span><span class="k">-</span><span class="w"> </span>Sections 1-4
 
 <span class="gu">## November</span>
 
-<span class="k">-</span> <span class="gs">**Articles**</span>
-    <span class="k">-</span> <span class="ge">*Python*</span>
-        <span class="k">-</span> [<span class="nt">Python slots, slots, and object layout</span>](<span class="na">https://www.youtube.com/watch?v=Iwf17zsDAnY</span>) (<span class="ge">_understood that X does Y_</span>)
-<span class="k">-</span> <span class="gs">**Books**</span>
-    <span class="k">-</span> <span class="ge">*Software engineering*</span>
-        <span class="k">-</span> Clean Code
-        <span class="k">-</span> [<span class="nt">The Pragmatic Programmer</span>](<span class="na">https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/</span>)
-            <span class="k">-</span> ch. 1 (<span class="ge">_note 1 here_</span>)
-            <span class="k">-</span> ch. 2 (<span class="ge">_note 2 here too_</span>)
+<span class="k">-</span><span class="w"> </span><span class="gs">**Articles**</span>
+<span class="w">    </span><span class="k">-</span><span class="w"> </span><span class="ge">*Python*</span>
+<span class="w">        </span><span class="k">-</span><span class="w"> </span>[<span class="nt">Python slots, slots, and object layout</span>](<span class="na">https://www.youtube.com/watch?v=Iwf17zsDAnY</span>) (<span class="ge">_understood that X does Y_</span>)
+<span class="k">-</span><span class="w"> </span><span class="gs">**Books**</span>
+<span class="w">    </span><span class="k">-</span><span class="w"> </span><span class="ge">*Software engineering*</span>
+<span class="w">        </span><span class="k">-</span><span class="w"> </span>Clean Code
+<span class="w">        </span><span class="k">-</span><span class="w"> </span>[<span class="nt">The Pragmatic Programmer</span>](<span class="na">https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/</span>)
+<span class="w">            </span><span class="k">-</span><span class="w"> </span>ch. 1 (<span class="ge">_note 1 here_</span>)
+<span class="w">            </span><span class="k">-</span><span class="w"> </span>ch. 2 (<span class="ge">_note 2 here too_</span>)
 </code></pre></div>
 <figure>
 <a href="../../../../../images/posts/0028_google_sheets_as_database_output_markdown/input_output.png"><img alt="input_output_example" class="max-size-img-post" src="../../../../../images/posts/0028_google_sheets_as_database_output_markdown/input_output.png"/></a>
@@ -367,9 +367,9 @@
 </ul>
 <h2 id="how-to-use-this-tool">How to use this tool</h2>
 <p>You will need to create an environment file (default path: <code>~/.learning-logs</code> or edit the path for <code>LEARNING_LOGS_ENV_PATH</code> in <code>get_learning_logs.py</code>). It should look as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="n">SERVICE_ACCOUNT_FILEPATH</span><span class="o">=</span><span class="s2">"/path/to/service_account_learning_logs.json"</span><span class="w"></span>
-<span class="n">SPREADSHEET_ID</span><span class="o">=</span><span class="n">SPREADSHEET_ID</span><span class="w">  </span><span class="c1"># Found in the URL of the document</span><span class="w"></span>
-<span class="n">WORKSHEET_ID</span><span class="o">=</span><span class="mi">0</span><span class="w">  </span><span class="c1"># First sheet is 0 by default, it comes after the URL parameter `gid`</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">SERVICE_ACCOUNT_FILEPATH</span><span class="o">=</span><span class="s2">"/path/to/service_account_learning_logs.json"</span>
+<span class="n">SPREADSHEET_ID</span><span class="o">=</span><span class="n">SPREADSHEET_ID</span><span class="w">  </span><span class="c1"># Found in the URL of the document</span>
+<span class="n">WORKSHEET_ID</span><span class="o">=</span><span class="mi">0</span><span class="w">  </span><span class="c1"># First sheet is 0 by default, it comes after the URL parameter `gid`</span>
 </code></pre></div>
 <p>To set up this project, you will have to:</p>
 <ul>
@@ -383,7 +383,7 @@
 <li>From the spreadsheet document (or from the folder view in Google Drive), share with the email associated with the service account (e.g. <code>learning-logs-something@project-name-12345.iam.gserviceaccount.com</code>). Read access (“Viewer” permission) is enough.</li>
 </ul>
 <p>By now, the script is ready to be called. I just created an alias to execute it more easily by putting the following in <code>~/.bash_aliases</code> (you will have to adapt the paths of course):</p>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span> learning-logs<span class="o">=</span><span class="s1">'~/.local/share/virtualenvs/learning-logs-to-markdown-XJLvhmzn/bin/python3.9 \</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span>learning-logs<span class="o">=</span><span class="s1">'~/.local/share/virtualenvs/learning-logs-to-markdown-XJLvhmzn/bin/python3.9 \</span>
 <span class="s1">  ~/dev/sglavoie/dev-helpers/learning-logs-to-markdown/get_learning_logs.py'</span>
 </code></pre></div>
 <p>This will output the converted data from the spreadsheet to Markdown <a href="#output">as shown above</a>.</p>

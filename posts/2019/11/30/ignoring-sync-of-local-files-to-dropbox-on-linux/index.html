@@ -170,25 +170,25 @@
 <hr/>
 <h1 id="any-simple-example">Any simple example?</h1>
 <p>Getting started is quick and painless. To ignore a file within your Dropbox folder, you only need to use the <code>attr</code> command to <strong>set</strong> (<code>-s</code>) the special attribute <code>com.dropbox.ignored</code> to give it a <strong>value</strong> of <code>1</code> (<code>-V 1</code>) so it ignores a file (<code>file.txt</code> in this example) as follow:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> /path/to/file/in/Dropbox/folder
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/path/to/file/in/Dropbox/folder
 
-attr -s com.dropbox.ignored -V <span class="m">1</span> file.txt
+attr<span class="w"> </span>-s<span class="w"> </span>com.dropbox.ignored<span class="w"> </span>-V<span class="w"> </span><span class="m">1</span><span class="w"> </span>file.txt
 </code></pre></div>
 <h2 id="ignore-all-git-and-node_modules-folders">Ignore all .git and node_modules folders</h2>
 <p>Things get <strong>really</strong> interesting when we can do that automatically by matching a specific pattern (it depends who you ask, anyways). How about exploring recursively the whole directory tree to exclude only hidden <code>.git</code> folders? Suppose you store your Git projects in <code>~/Dropbox/git/</code>. You would then do something like this:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/Dropbox/git/
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Dropbox/git/
 
-find . -type d -name <span class="s2">".git"</span> <span class="p">|</span>
-    xargs -I <span class="o">{}</span> attr -s com.dropbox.ignored -V <span class="m">1</span> <span class="s2">"{}"</span>
+find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-name<span class="w"> </span><span class="s2">".git"</span><span class="w"> </span><span class="p">|</span>
+<span class="w">    </span>xargs<span class="w"> </span>-I<span class="w"> </span><span class="o">{}</span><span class="w"> </span>attr<span class="w"> </span>-s<span class="w"> </span>com.dropbox.ignored<span class="w"> </span>-V<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="s2">"{}"</span>
 </code></pre></div>
 <p>In an instant, you will start getting some feedback printed to the terminal for each <code>.git</code> folder that is being found:</p>
 <div class="highlight"><pre><span></span><code>Attribute "com.dropbox.ignored" set to a 1 byte value for ./path/to/.git:
 1
 </code></pre></div>
 <p>Dealing with <code>node_modules</code> folders is equally easy. Because a message will be printed to the console every time a file attribute is changed, you could want to delete the output (preferably once you are sure you are modifying only the targeted files!) by redirecting it to <code>/dev/null</code>, a <em>null device</em> that discards all data it receives. We can always split a long command onto multiple lines with a backslash character <code>\</code> like so (it’s not required right after the pipe <code>|</code> symbol):</p>
-<div class="highlight"><pre><span></span><code>find . -type d -name <span class="s2">"node_modules"</span> <span class="p">|</span>
-    xargs -I <span class="o">{}</span> attr -s com.dropbox.ignored -V <span class="m">1</span> <span class="se">\</span>
-    <span class="s2">"{}"</span> &gt; /dev/null
+<div class="highlight"><pre><span></span><code>find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-name<span class="w"> </span><span class="s2">"node_modules"</span><span class="w"> </span><span class="p">|</span>
+<span class="w">    </span>xargs<span class="w"> </span>-I<span class="w"> </span><span class="o">{}</span><span class="w"> </span>attr<span class="w"> </span>-s<span class="w"> </span>com.dropbox.ignored<span class="w"> </span>-V<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="s2">"{}"</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/null
 </code></pre></div>
 <hr/>
 <h1 id="can-we-make-this-simpler">Can we make this simpler?</h1>
@@ -197,19 +197,19 @@ find . -type d -name <span class="s2">".git"</span> <span class="p">|</span>
 <p>Now, the following functions could become quite a bit more complicated to take into account various scenarios and custom behaviors, but let’s keep things simple and assume that the user knows what is going to happen. We could have our two functions as follow:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Ignore specific files/directories in Dropbox</span>
 dropbox-ignore<span class="o">(){</span>
-  <span class="nv">arg1</span><span class="o">=</span><span class="nv">$1</span>
-  <span class="nv">arg2</span><span class="o">=</span><span class="nv">$2</span>
-  find . -type <span class="nv">$arg1</span> -name <span class="s2">"</span><span class="nv">$arg2</span><span class="s2">"</span> <span class="p">|</span>
-      xargs -I <span class="o">{}</span> attr -s com.dropbox.ignored -V <span class="m">1</span> <span class="s2">"{}"</span>
+<span class="w">  </span><span class="nv">arg1</span><span class="o">=</span><span class="nv">$1</span>
+<span class="w">  </span><span class="nv">arg2</span><span class="o">=</span><span class="nv">$2</span>
+<span class="w">  </span>find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span><span class="nv">$arg1</span><span class="w"> </span>-name<span class="w"> </span><span class="s2">"</span><span class="nv">$arg2</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span>
+<span class="w">      </span>xargs<span class="w"> </span>-I<span class="w"> </span><span class="o">{}</span><span class="w"> </span>attr<span class="w"> </span>-s<span class="w"> </span>com.dropbox.ignored<span class="w"> </span>-V<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="s2">"{}"</span>
 <span class="o">}</span>
 
 <span class="c1"># Sync specific files/directories in Dropbox</span>
 <span class="c1"># that were previously ignored (or not)</span>
 dropbox-sync<span class="o">(){</span>
-  <span class="nv">arg1</span><span class="o">=</span><span class="nv">$1</span>
-  <span class="nv">arg2</span><span class="o">=</span><span class="nv">$2</span>
-  find . -type <span class="nv">$arg1</span> -name <span class="s2">"</span><span class="nv">$arg2</span><span class="s2">"</span> <span class="p">|</span>
-      xargs -I <span class="o">{}</span> attr -s com.dropbox.ignored -V <span class="m">0</span> <span class="s2">"{}"</span>
+<span class="w">  </span><span class="nv">arg1</span><span class="o">=</span><span class="nv">$1</span>
+<span class="w">  </span><span class="nv">arg2</span><span class="o">=</span><span class="nv">$2</span>
+<span class="w">  </span>find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span><span class="nv">$arg1</span><span class="w"> </span>-name<span class="w"> </span><span class="s2">"</span><span class="nv">$arg2</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span>
+<span class="w">      </span>xargs<span class="w"> </span>-I<span class="w"> </span><span class="o">{}</span><span class="w"> </span>attr<span class="w"> </span>-s<span class="w"> </span>com.dropbox.ignored<span class="w"> </span>-V<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="s2">"{}"</span>
 <span class="o">}</span>
 </code></pre></div>
 <h2 id="how-do-you-use-those-functions">How do you use those functions?</h2>
@@ -217,13 +217,13 @@ dropbox-sync<span class="o">(){</span>
 <p><sub>Note: For simplicity and practicality, keep in mind that those commands will search <strong>recursively from the current working directory</strong>. It’s also good to know that if you set an attribute value to <code>1</code> then back to <code>0</code> again, Dropbox will need to re-sync the affected files and directories.</sub></p>
 <p>We need to pass them two arguments: the first is the type of search to perform (pass <code>f</code> for <strong>files</strong> and <code>d</code> for <strong>directories</strong>) and the second is the pattern to match in the name (<code>node_modules</code> or <code>.git</code> would fit here, no need to use quotes). Concretely, that will look like this:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># To ignore a file matching the pattern `myfile`</span>
-dropbox-ignore f myfile
+dropbox-ignore<span class="w"> </span>f<span class="w"> </span>myfile
 
 <span class="c1"># To avoid syncing node_modules/ directory</span>
-dropbox-ignore d node_modules
+dropbox-ignore<span class="w"> </span>d<span class="w"> </span>node_modules
 
 <span class="c1"># Te re-add a .git/ folder to Dropbox</span>
-dropbox-sync d .git
+dropbox-sync<span class="w"> </span>d<span class="w"> </span>.git
 </code></pre></div>
 <hr/>
 <h1 id="conclusion">Conclusion</h1>

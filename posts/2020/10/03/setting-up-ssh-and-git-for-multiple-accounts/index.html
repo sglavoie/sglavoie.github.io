@@ -175,45 +175,45 @@
 <hr/>
 <h1 id="setting-ssh-locally">Setting <span class="caps">SSH</span> locally</h1>
 <p>First, let’s make sure we have some <span class="caps">SSH</span> keys to work with. The default location is <code>~/.ssh/id_rsa</code> (you can just press <code>Enter</code> when asked to save to a path):</p>
-<div class="highlight"><pre><span></span><code>$ ssh-keygen -t rsa -C <span class="s2">"email@personal.com"</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-C<span class="w"> </span><span class="s2">"email@personal.com"</span>
 </code></pre></div>
 <p>The next key should have a different path:</p>
-<div class="highlight"><pre><span></span><code>$ ssh-keygen -t rsa -C <span class="s2">"email@work.com"</span>
-$ Enter file <span class="k">in</span> which to save the key
-  <span class="o">(</span>/home/sglavoie/.ssh/id_rsa<span class="o">)</span>: /home/sglavoie/.ssh/id_rsa_work
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-C<span class="w"> </span><span class="s2">"email@work.com"</span>
+$<span class="w"> </span>Enter<span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>which<span class="w"> </span>to<span class="w"> </span>save<span class="w"> </span>the<span class="w"> </span>key
+<span class="w">  </span><span class="o">(</span>/home/sglavoie/.ssh/id_rsa<span class="o">)</span>:<span class="w"> </span>/home/sglavoie/.ssh/id_rsa_work
 </code></pre></div>
 <p>Add the keys to the authentication agent like so:</p>
-<div class="highlight"><pre><span></span><code>$ ssh-add /.ssh/id_rsa
-$ ssh-add /.ssh/id_rsa_work
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ssh-add<span class="w"> </span>/.ssh/id_rsa
+$<span class="w"> </span>ssh-add<span class="w"> </span>/.ssh/id_rsa_work
 </code></pre></div>
 <p>See which keys were added:</p>
-<div class="highlight"><pre><span></span><code>$ ssh-add -l  <span class="c1"># list the keys</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ssh-add<span class="w"> </span>-l<span class="w">  </span><span class="c1"># list the keys</span>
 </code></pre></div>
 <p>If you need to delete any keys that were cached prior to that:</p>
-<div class="highlight"><pre><span></span><code>$ ssh-add -D
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ssh-add<span class="w"> </span>-D
 </code></pre></div>
 <p>Now, we need a configuration file:</p>
-<div class="highlight"><pre><span></span><code>$ touch ~/.ssh/config
-$ chmod <span class="m">600</span> ~/.ssh/config
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>touch<span class="w"> </span>~/.ssh/config
+$<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>~/.ssh/config
 </code></pre></div>
 <p>Let’s add some content in there, assuming we deal with GitHub and GitLab, both with a personal account and a work account:</p>
-<div class="highlight"><pre><span></span><code>AddKeysToAgent yes
-Host github
-   HostName github.com
-   User git
-   IdentityFile ~/.ssh/id_rsa
-Host github-work
-   HostName github.com
-   User git
-   IdentityFile ~/.ssh/id_rsa_work
-Host gitlab
-   HostName gitlab.com
-   User git
-   IdentityFile ~/.ssh/id_rsa
-Host gitlab-work
-   HostName gitlab.com
-   User git
-   IdentityFile ~/.ssh/id_rsa_work
+<div class="highlight"><pre><span></span><code>AddKeysToAgent<span class="w"> </span>yes
+Host<span class="w"> </span>github
+<span class="w">   </span>HostName<span class="w"> </span>github.com
+<span class="w">   </span>User<span class="w"> </span>git
+<span class="w">   </span>IdentityFile<span class="w"> </span>~/.ssh/id_rsa
+Host<span class="w"> </span>github-work
+<span class="w">   </span>HostName<span class="w"> </span>github.com
+<span class="w">   </span>User<span class="w"> </span>git
+<span class="w">   </span>IdentityFile<span class="w"> </span>~/.ssh/id_rsa_work
+Host<span class="w"> </span>gitlab
+<span class="w">   </span>HostName<span class="w"> </span>gitlab.com
+<span class="w">   </span>User<span class="w"> </span>git
+<span class="w">   </span>IdentityFile<span class="w"> </span>~/.ssh/id_rsa
+Host<span class="w"> </span>gitlab-work
+<span class="w">   </span>HostName<span class="w"> </span>gitlab.com
+<span class="w">   </span>User<span class="w"> </span>git
+<span class="w">   </span>IdentityFile<span class="w"> </span>~/.ssh/id_rsa_work
 </code></pre></div>
 <ul>
 <li>The directive <code>AddKeysToAgent yes</code> is useful to avoid typing <code>ssh-add path_to_key</code> every time <span class="caps">SSH</span> is needed.</li>
@@ -225,13 +225,13 @@ Host gitlab-work
 <h2 id="automatically-load-the-keys-from-the-shell">Automatically load the keys from the Shell</h2>
 <p>For Zsh, the following can be added near the top of <code>~/.zshrc</code> when using the <code>ssh-agent</code> plugin:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Load multiple SSH keys</span>
-zstyle :omz:plugins:ssh-agent identities id_rsa id_rsa_work
+zstyle<span class="w"> </span>:omz:plugins:ssh-agent<span class="w"> </span>identities<span class="w"> </span>id_rsa<span class="w"> </span>id_rsa_work
 </code></pre></div>
 <p>With <a href="https://ohmyz.sh/">Oh-My-Zsh</a>, the <code>ssh-agent</code> plugin should be contained in <code>plugins</code> like so:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">plugins</span><span class="o">=(</span>git ssh-agent fzf gitignore zsh-autosuggestions history-substring-search<span class="o">)</span>
+<div class="highlight"><pre><span></span><code><span class="nv">plugins</span><span class="o">=(</span>git<span class="w"> </span>ssh-agent<span class="w"> </span>fzf<span class="w"> </span>gitignore<span class="w"> </span>zsh-autosuggestions<span class="w"> </span>history-substring-search<span class="o">)</span>
 
 <span class="c1"># Somewhere below</span>
-<span class="nb">source</span> <span class="nv">$ZSH</span>/oh-my-zsh.sh
+<span class="nb">source</span><span class="w"> </span><span class="nv">$ZSH</span>/oh-my-zsh.sh
 </code></pre></div>
 <p>With this setup, the <span class="caps">SSH</span> keys will be loaded when opening a terminal after booting up and those will be available for any subsequent terminal sessions until the user session is exited.</p>
 <hr/>
@@ -248,17 +248,17 @@ zstyle :omz:plugins:ssh-agent identities id_rsa id_rsa_work
 <h2 id="minimal-gitconfig">Minimal <code>~/.gitconfig</code></h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># default configuration settings to load</span>
 <span class="o">[</span>include<span class="o">]</span>
-  <span class="nv">path</span> <span class="o">=</span> ~/.gitconfig-personal
+<span class="w">  </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>~/.gitconfig-personal
 
 <span class="c1"># when working with company-x</span>
 <span class="c1"># those settings are loaded only when the</span>
 <span class="c1"># directory matches the pattern defined</span>
-<span class="o">[</span>includeIf <span class="s2">"gitdir:**/company-x/**/.git"</span><span class="o">]</span>
-  <span class="nv">path</span> <span class="o">=</span> ~/.gitconfig-company-x
+<span class="o">[</span>includeIf<span class="w"> </span><span class="s2">"gitdir:**/company-x/**/.git"</span><span class="o">]</span>
+<span class="w">  </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>~/.gitconfig-company-x
 <span class="o">[</span>gpg<span class="o">]</span>
-    <span class="nv">program</span> <span class="o">=</span> gpg
+<span class="w">    </span><span class="nv">program</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gpg
 <span class="o">[</span>credential<span class="o">]</span>
-    <span class="nv">helper</span> <span class="o">=</span> store
+<span class="w">    </span><span class="nv">helper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>store
 </code></pre></div>
 <ul>
 <li>The <code>[credential]</code> section with the setting <code>helper = store</code> will store your username/password combination when using <span class="caps">HTTPS</span> so you don’t have to type it over and over again. You could also set this to <code>helper = cache</code> if you don’t want to permanently store credentials.</li>
@@ -268,31 +268,31 @@ zstyle :omz:plugins:ssh-agent identities id_rsa id_rsa_work
 <h2 id="minimal-gitconfig-personal-and-gitconfig-company-x">Minimal <code>~/.gitconfig-personal</code> and <code>~/.gitconfig-company-x</code></h2>
 <p>Example for one of those:</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>user<span class="o">]</span>
-  <span class="nv">email</span> <span class="o">=</span> email@work.com
-  <span class="nv">name</span> <span class="o">=</span> Sébastien Lavoie
-  <span class="nv">signingkey</span> <span class="o">=</span> A343702EBE11E0C2
+<span class="w">  </span><span class="nv">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>email@work.com
+<span class="w">  </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Sébastien<span class="w"> </span>Lavoie
+<span class="w">  </span><span class="nv">signingkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>A343702EBE11E0C2
 <span class="o">[</span>commit<span class="o">]</span>
-  <span class="nv">gpgsign</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="w">  </span><span class="nv">gpgsign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
 </code></pre></div>
 <p>If you don’t have a <span class="caps">GPG</span> key already, you can generate one with this command:</p>
-<div class="highlight"><pre><span></span><code>gpg --gen-key
+<div class="highlight"><pre><span></span><code>gpg<span class="w"> </span>--gen-key
 </code></pre></div>
 <p>To list existing <span class="caps">GPG</span> keys to determine the <code>signinkey</code> value to use in those files, you can type:</p>
-<div class="highlight"><pre><span></span><code>gpg --list-secret-keys --keyid-format LONG
+<div class="highlight"><pre><span></span><code>gpg<span class="w"> </span>--list-secret-keys<span class="w"> </span>--keyid-format<span class="w"> </span>LONG
 </code></pre></div>
 <p>You might get an output similar to the following (this one is showing only one key):</p>
-<div class="highlight"><pre><span></span><code>sec   rsa3072/A343702EBE11E0C2 <span class="m">2020</span>-10-03 <span class="o">[</span>SC<span class="o">]</span> <span class="o">[</span>expires: <span class="m">2022</span>-10-03<span class="o">]</span>
-      EF731EFC008D47D176C05910A343702EBE11E0C2
-uid                 <span class="o">[</span>ultimate<span class="o">]</span> Sébastien Lavoie &lt;email@work.com&gt;
-ssb   rsa3072/718726CCFED43B47 <span class="m">2020</span>-10-03 <span class="o">[</span>E<span class="o">]</span> <span class="o">[</span>expires: <span class="m">2022</span>-10-03<span class="o">]</span>
+<div class="highlight"><pre><span></span><code>sec<span class="w">   </span>rsa3072/A343702EBE11E0C2<span class="w"> </span><span class="m">2020</span>-10-03<span class="w"> </span><span class="o">[</span>SC<span class="o">]</span><span class="w"> </span><span class="o">[</span>expires:<span class="w"> </span><span class="m">2022</span>-10-03<span class="o">]</span>
+<span class="w">      </span>EF731EFC008D47D176C05910A343702EBE11E0C2
+uid<span class="w">                 </span><span class="o">[</span>ultimate<span class="o">]</span><span class="w"> </span>Sébastien<span class="w"> </span>Lavoie<span class="w"> </span>&lt;email@work.com&gt;
+ssb<span class="w">   </span>rsa3072/718726CCFED43B47<span class="w"> </span><span class="m">2020</span>-10-03<span class="w"> </span><span class="o">[</span>E<span class="o">]</span><span class="w"> </span><span class="o">[</span>expires:<span class="w"> </span><span class="m">2022</span>-10-03<span class="o">]</span>
 </code></pre></div>
 <p>The bit you need to retrieve for the <code>signingkey</code> value comes after the type of encryption, here it’s <code>rsa3072</code> and the bit we want is <code>A343702EBE11E0C2</code>.</p>
 <p>If you need to edit a key, there are plenty of options described with <code>man gpg</code> or <code>man gpg2</code>. For instance, to remove the expiration date for the above key:</p>
-<div class="highlight"><pre><span></span><code>gpg2 --edit-key EF731EFC008D47D176C05910A343702EBE11E0C2
+<div class="highlight"><pre><span></span><code>gpg2<span class="w"> </span>--edit-key<span class="w"> </span>EF731EFC008D47D176C05910A343702EBE11E0C2
 </code></pre></div>
 <p>At the <code>gpg&gt;</code> prompt, type <code>expire</code> and follow the instructions.</p>
 <p>To delete a key, you can do so by referring to the email address like this:</p>
-<div class="highlight"><pre><span></span><code>gpg --delete-secret-and-public-key email@work.com
+<div class="highlight"><pre><span></span><code>gpg<span class="w"> </span>--delete-secret-and-public-key<span class="w"> </span>email@work.com
 </code></pre></div>
 <p>Just follow the instructions from there. You may need to repeat the process multiple times if your email address is associated with more than one key.</p>
 <hr/>
@@ -308,16 +308,16 @@ ssb   rsa3072/718726CCFED43B47 <span class="m">2020</span>-10-03 <span class="o"
 <p>Now that the Git configuration is set up and we have <span class="caps">SSH</span> and <span class="caps">GPG</span> keys to authenticate ourselves and verify our identity when committing, respectively, we can start interacting with remote repositories. From the example we have been following, the file <code>~/.gitconfig-personal</code> will be used by default (and by consequence, our personal account).</p>
 <h2 id="the-ssh-part">The <span class="caps">SSH</span> part</h2>
 <p>When first cloning, change the host so that it reflects what you have in <code>~/.ssh/id_rsa_correct_key_file</code>. For your personal account, no change would be required:</p>
-<div class="highlight"><pre><span></span><code>git clone git@github.com:organization/repo.git
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:organization/repo.git
 </code></pre></div>
 <p>For a repository at work requiring the <span class="caps">SSH</span> key set up for the work account, you would need to change to the appropriate host like so (we still use the <code>git</code> user for convenience):</p>
-<div class="highlight"><pre><span></span><code>git clone git@github-work:organization/repo.git
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github-work:organization/repo.git
 </code></pre></div>
 <p>For a refresher, the following are the hosts we have set in <code>~/.ssh/config</code>: <code>github</code>, <code>github-work</code>, <code>gitlab</code>, <code>gitlab-work</code>.</p>
 <p>The difference will be noticed when pushing/pulling as seen with <code>git remote -v</code>:</p>
-<div class="highlight"><pre><span></span><code>$ git remote -v
-origin  git@github-work:organization/repo.git <span class="o">(</span>fetch<span class="o">)</span>
-origin  git@github-work:organization/repo.git <span class="o">(</span>push<span class="o">)</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>-v
+origin<span class="w">  </span>git@github-work:organization/repo.git<span class="w"> </span><span class="o">(</span>fetch<span class="o">)</span>
+origin<span class="w">  </span>git@github-work:organization/repo.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
 </code></pre></div>
 <p>Whereas the personal account will have the same host as usual, for instance <code>git@github.com:organization/repo.git</code>.</p>
 <h2 id="the-gpg-part">The <span class="caps">GPG</span> part</h2>

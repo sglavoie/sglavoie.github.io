@@ -192,8 +192,8 @@
 <h1 id="global-and-local-gitignore">Global and local <code>.gitignore</code></h1>
 <p>There are files we never care about adding to Git repositories, such as a thumbnail cache file <code>Thumbs.db</code> on Windows or a <code>.DS_Store</code> file storing custom attributes for folders on macOS. Instead of ignoring these kinds of entries in a per-repository <code>.gitignore</code> file which might not contain everything we would like to exclude, it can be simpler and more efficient to use a global <code>.gitignore</code>, which serves the same purpose but for <em>any</em> Git repository regardless of the presence of a <code>.gitignore</code> in that specific repository! In other words, this serves as a permanent list of things to ignore so that there is no need to remember about them later.</p>
 <p>The setup is straightforward: create a file <code>~/.gitignore</code>, fill it as usual with patterns you are sure to want to exclude globally and set a configuration option to use that file – for instance by adding the following to <code>.gitconfig</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[core]</span><span class="w"></span>
-<span class="w">    </span><span class="na">excludesfile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">~/.gitignore</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">[core]</span>
+<span class="w">    </span><span class="na">excludesfile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">~/.gitignore</span>
 </code></pre></div>
 <p><a href="https://www.toptal.com/">Toptal</a> provides <a href="https://docs.gitignore.io/install/command-line">a nice tool on the command-line</a> that can be used to easily exclude patterns. With it, typing <code>gi python &gt;&gt; .gitignore</code> would append a bunch of common patterns to a <code>.gitignore</code> file – in this case, for Python.</p>
 <hr/>
@@ -212,8 +212,8 @@
 # Include a link to the ticket, if any.
 </code></pre></div>
 <p>Then, this can be added to the config file under the <code>[commit]</code> section like so:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[commit]</span><span class="w"></span>
-<span class="w">    </span><span class="na">template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">~/.gitmessage</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">[commit]</span>
+<span class="w">    </span><span class="na">template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">~/.gitmessage</span>
 </code></pre></div>
 <p>All lines starting with a hash symbol (<code>#</code>) will be ignored, so there is no need to manually delete all of this verbose content when saving the commit message. Sweet!</p>
 <hr/>
@@ -225,9 +225,9 @@
 <div class="highlight"><pre><span></span><code>ref: refs/heads/main
 </code></pre></div>
 <p>Then, in <code>~/.gitconfig</code>, the following section is used to read the templates:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[init]</span><span class="w"></span>
-<span class="w">    </span><span class="na">defaultBranch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">main</span><span class="w"></span>
-<span class="w">    </span><span class="na">templateDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">~/.git-templates</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">[init]</span>
+<span class="w">    </span><span class="na">defaultBranch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">main</span>
+<span class="w">    </span><span class="na">templateDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">~/.git-templates</span>
 </code></pre></div>
 <p>I have this template since before <code>init.defaultBranch</code> was introduced in Git 2.28.0 back in July 2020: now just having the option <code>defaultBranch</code> will do the trick. Still, it’s good to have a <code>templateDir</code> configured for other purposes! Although admittedly, I don’t use them at all and would rather create a custom command to more easily script what I need for each repository: more on this in the section <a href="#custom-git-sub-commands">Custom Git sub-commands</a>.</p>
 <h2 id="committing-to-an-existing-project">Committing to an existing project</h2>
@@ -236,127 +236,127 @@
 <h3 id="being-committed">Being committed</h3>
 <p>The basic workflow might look like this, with a couple of different options thrown in to cover more scenarios:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Check the current state of the repo</span>
-git status
+git<span class="w"> </span>status
 
 <span class="c1"># Inspect the changes to commit (before staging)</span>
-git diff
+git<span class="w"> </span>diff
 
 <span class="c1"># Stage a file to be committed</span>
-git add SOME_FILE
+git<span class="w"> </span>add<span class="w"> </span>SOME_FILE
 
 <span class="c1"># Stage all new/modified files, (i.e., --all)</span>
-git add -A
+git<span class="w"> </span>add<span class="w"> </span>-A
 
 <span class="c1"># Stage all modified files (not any new ones, i.e., --update)</span>
-git add -u
+git<span class="w"> </span>add<span class="w"> </span>-u
 
 <span class="c1"># Get fancy with adding patches only (part of files)</span>
-git add -p
+git<span class="w"> </span>add<span class="w"> </span>-p
 
 <span class="c1"># Undo changes done to a tracked file</span>
-git restore -- FILE_NAME
+git<span class="w"> </span>restore<span class="w"> </span>--<span class="w"> </span>FILE_NAME
 
 <span class="c1"># Inspect staged changes to commit</span>
-git diff --staged
+git<span class="w"> </span>diff<span class="w"> </span>--staged
 
 <span class="c1"># Unstage files</span>
-git reset HEAD --
+git<span class="w"> </span>reset<span class="w"> </span>HEAD<span class="w"> </span>--
 
 <span class="c1"># or just 'git commit' to open a text editor</span>
-git commit -m <span class="s2">"SOME_MESSAGE"</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"SOME_MESSAGE"</span>
 
 <span class="c1"># See the changes done in the latest commit</span>
-git show
+git<span class="w"> </span>show
 
 <span class="c1"># or a specific commit hash from earlier</span>
-git show COMMIT_HASH  <span class="c1"># or ref like HEAD^</span>
+git<span class="w"> </span>show<span class="w"> </span>COMMIT_HASH<span class="w">  </span><span class="c1"># or ref like HEAD^</span>
 
 <span class="c1"># Forgot to add something?</span>
-git add SOME_OTHER_FILE
-git commit --amend --no-edit
+git<span class="w"> </span>add<span class="w"> </span>SOME_OTHER_FILE
+git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w"> </span>--no-edit
 
 <span class="c1"># Want to rephrase the last commit?</span>
-git commit --amend
+git<span class="w"> </span>commit<span class="w"> </span>--amend
 
 <span class="c1"># Tag the latest commit</span>
-git tag TAG_NAME
+git<span class="w"> </span>tag<span class="w"> </span>TAG_NAME
 
 <span class="c1"># Tag earlier commit with annotation</span>
-git tag -a TAG_NAME COMMIT_HASH -m <span class="s2">"MESSAGE"</span>
+git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>TAG_NAME<span class="w"> </span>COMMIT_HASH<span class="w"> </span>-m<span class="w"> </span><span class="s2">"MESSAGE"</span>
 
 <span class="c1"># Undo a commit, keeping changes in the work tree</span>
-git reset HEAD^
+git<span class="w"> </span>reset<span class="w"> </span>HEAD^
 
 <span class="c1"># Undo a commit and DO NOT keep changes</span>
-git reset --hard HEAD^
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD^
 
 <span class="c1"># Oops, get back a commit that was "lost"</span>
-git reflog  <span class="c1"># find the relevant commit hash</span>
-git cherry-pick COMMIT_HASH  <span class="c1"># or git checkout COMMIT_HASH</span>
+git<span class="w"> </span>reflog<span class="w">  </span><span class="c1"># find the relevant commit hash</span>
+git<span class="w"> </span>cherry-pick<span class="w"> </span>COMMIT_HASH<span class="w">  </span><span class="c1"># or git checkout COMMIT_HASH</span>
 
 <span class="c1"># Explore the repo at an earlier commit</span>
-git checkout COMMIT_HASH
+git<span class="w"> </span>checkout<span class="w"> </span>COMMIT_HASH
 
 <span class="c1"># Committed some changes while checking out an old commit?</span>
 <span class="c1"># Save the changes to a new branch, then potentially merge them back</span>
-git switch -c NEW_BRANCH_NAME
-git switch OTHER_BRANCH
-git merge NEW_BRANCH_NAME
+git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>NEW_BRANCH_NAME
+git<span class="w"> </span>switch<span class="w"> </span>OTHER_BRANCH
+git<span class="w"> </span>merge<span class="w"> </span>NEW_BRANCH_NAME
 
 <span class="c1"># Undo a merge</span>
-git reflog  <span class="c1"># find the commit hash before the merge</span>
-git reset --hard COMMIT_HASH
+git<span class="w"> </span>reflog<span class="w">  </span><span class="c1"># find the commit hash before the merge</span>
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>COMMIT_HASH
 
 <span class="c1"># Or undo to a known point from a remote branch</span>
-git reset --hard origin/main
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>origin/main
 
 <span class="c1"># Stop tracking a file/directory (remove) but keep it on disk</span>
-git rm --cached FILE_OR_DIRECTORY
+git<span class="w"> </span>rm<span class="w"> </span>--cached<span class="w"> </span>FILE_OR_DIRECTORY
 
 <span class="c1"># Remove stuff that hasn't been committed yet (interactive mode is nice)</span>
 <span class="c1"># Don't forget about -n for a dry run first!</span>
-git clean -i
+git<span class="w"> </span>clean<span class="w"> </span>-i
 
 <span class="c1"># Want to undo a change that's already pushed?</span>
 <span class="c1"># Add a new commit without rewriting history</span>
-git revert COMMIT_HASH
+git<span class="w"> </span>revert<span class="w"> </span>COMMIT_HASH
 
 <span class="c1"># See who did what to which file and when</span>
-git blame FILE_NAME
+git<span class="w"> </span>blame<span class="w"> </span>FILE_NAME
 </code></pre></div>
 <p>Arguably, basic editing doesn’t require stashing, but that can be helpful for a quick modification, like temporarily saving changes to quickly switch to another branch or pull some remote changes without having to commit first.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># git stash --help - "Stash the changes in a dirty working directory away"</span>
 
 <span class="c1"># Maybe you want to keep changes around without committing</span>
 <span class="c1"># --include-untracked and --keep-index might be needed!</span>
-git stash
+git<span class="w"> </span>stash
 
 <span class="c1"># Stash changes with a clearer name/purpose</span>
-git stash save <span class="s2">"SOME MESSAGE"</span>
+git<span class="w"> </span>stash<span class="w"> </span>save<span class="w"> </span><span class="s2">"SOME MESSAGE"</span>
 
 <span class="c1"># Selectively stash changes (keep specific lines)</span>
-git stash save -p
+git<span class="w"> </span>stash<span class="w"> </span>save<span class="w"> </span>-p
 
 <span class="c1"># List existing stashes</span>
-git stash list
+git<span class="w"> </span>stash<span class="w"> </span>list
 
 <span class="c1"># See the summary of a stash</span>
-git stash show
+git<span class="w"> </span>stash<span class="w"> </span>show
 
 <span class="c1"># See all changes made in a stash (patch)</span>
-git stash show -p
+git<span class="w"> </span>stash<span class="w"> </span>show<span class="w"> </span>-p
 
 <span class="c1"># Apply changes from a stash (TAB completion after `apply` is useful)</span>
-git stash apply stash@<span class="se">\{</span>SOME_ID<span class="se">\}</span>
+git<span class="w"> </span>stash<span class="w"> </span>apply<span class="w"> </span>stash@<span class="se">\{</span>SOME_ID<span class="se">\}</span>
 
 <span class="c1"># Apply and remove the last stash at the same time</span>
-git stash pop
+git<span class="w"> </span>stash<span class="w"> </span>pop
 
 <span class="c1"># Remove a single stash</span>
-git stash drop stash@<span class="se">\{</span>SOME_ID<span class="se">\}</span>
+git<span class="w"> </span>stash<span class="w"> </span>drop<span class="w"> </span>stash@<span class="se">\{</span>SOME_ID<span class="se">\}</span>
 
 <span class="c1"># Remove all stashes</span>
-git stash clear
+git<span class="w"> </span>stash<span class="w"> </span>clear
 </code></pre></div>
 <h3 id="rebase"><code>rebase</code></h3>
 <p>When working locally with changes that are not yet part of the “permanent” Git history, I like to <code>git rebase</code> very much to clean things up before making a <code>git push</code>, which I like to view as an irrevocable decision. Because I <em>commit small and often</em>, it’s often the case that I end up with a couple of very simple commits which really belong together and should form a bigger commit. While committing a big chunk of code at once avoids having to do any <code>rebase</code> in the first place, it’s also inconvenient to undo a substantial amount of work when you’re experimenting and/or working on an unfamiliar codebase. So in the end, my preference goes towards smaller commits because rebasing is actually fun to do and lets you believe that you came up with brilliant solutions on your first attempt :). That makes for a cleaner Git history for sure, although you will lose some context if you never <code>merge</code>. Meaning, rebasing creates a “linear” history while merging from different branches shows a more complete picture of how a repository really took shape over time. My simple rule of thumb on the matter is this: use <code>rebase</code> to consistently ship meaningful commits (good descriptions, fewer typos, changes chunked logically and precisely, etc.) and use <code>merge</code> to incorporate somewhat larger pieces of history, like a new feature coming from a “feature branch”.</p>
@@ -364,28 +364,28 @@ git stash clear
 <div class="highlight"><pre><span></span><code><span class="c1"># git rebase --help - "Reapply commits on top of another base tip"</span>
 
 <span class="c1"># Include all commits up to COMMIT_HASH, included</span>
-git rebase -i COMMIT_HASH^
+git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>COMMIT_HASH^
 
 <span class="c1"># Include most recent commit only</span>
-git rebase -i HEAD^
+git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>HEAD^
 
 <span class="c1"># Include 2 most recent commits</span>
-git rebase -i HEAD^^
+git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>HEAD^^
 
 <span class="c1"># Include 3 most recent commits</span>
-git rebase -i HEAD~3
+git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>HEAD~3
 
 <span class="c1"># make BRANCH have the history up to COMMIT_OR_BRANCH, included</span>
-git rebase COMMIT_OR_BRANCH BRANCH
+git<span class="w"> </span>rebase<span class="w"> </span>COMMIT_OR_BRANCH<span class="w"> </span>BRANCH
 
 <span class="c1"># Used after resolving a conflict</span>
-git rebase --continue
+git<span class="w"> </span>rebase<span class="w"> </span>--continue
 
 <span class="c1"># Reset to where you were before rebasing (move HEAD)</span>
-git rebase --abort
+git<span class="w"> </span>rebase<span class="w"> </span>--abort
 
 <span class="c1"># To update the next actions to be taken on the remaining commits</span>
-git rebase --edit-todo
+git<span class="w"> </span>rebase<span class="w"> </span>--edit-todo
 </code></pre></div>
 <p>There are a bunch of obscure options just like almost any other Git command in existence, but for that there is help available for each command (such as <code>git rebase --help</code>) from the terminal and the trusty Stack Overflow ;).</p>
 <h4 id="sample-workflow">Sample workflow</h4>
@@ -412,22 +412,22 @@ git rebase --edit-todo
 <div class="highlight"><pre><span></span><code><span class="c1"># git merge --help - "Join two or more development histories together"</span>
 
 <span class="c1"># Get commits from BRANCH_NAME into the currently checked one</span>
-git merge BRANCH_NAME
+git<span class="w"> </span>merge<span class="w"> </span>BRANCH_NAME
 
 <span class="c1"># Merge one branch into another</span>
-git merge SOURCE_BRANCH_NAME DESTINATION_BRANCH_NAME
+git<span class="w"> </span>merge<span class="w"> </span>SOURCE_BRANCH_NAME<span class="w"> </span>DESTINATION_BRANCH_NAME
 
 <span class="c1"># Get out of conflicts...</span>
-git merge --abort
+git<span class="w"> </span>merge<span class="w"> </span>--abort
 
 <span class="c1"># Continue after resolving conflicts</span>
-git merge --continue
+git<span class="w"> </span>merge<span class="w"> </span>--continue
 
 <span class="c1"># Keep the "merge commit" in the history</span>
-git merge --no-ff BRANCH_NAME
+git<span class="w"> </span>merge<span class="w"> </span>--no-ff<span class="w"> </span>BRANCH_NAME
 
 <span class="c1"># Set a custom commit message for a "merge commit"</span>
-git merge -m <span class="s2">"MESSAGE"</span> BRANCH
+git<span class="w"> </span>merge<span class="w"> </span>-m<span class="w"> </span><span class="s2">"MESSAGE"</span><span class="w"> </span>BRANCH
 </code></pre></div>
 <p><sub>Tip: The command <code>git merge --help</code> describes some nice examples about the whole process of conflict resolution.</sub></p>
 <h4 id="sample-workflow-kinda">Sample workflow (kinda)</h4>
@@ -439,111 +439,111 @@ git merge -m <span class="s2">"MESSAGE"</span> BRANCH
 <div class="highlight"><pre><span></span><code><span class="c1"># git branch --help - "List, create, or delete branches"</span>
 
 <span class="c1"># List local branches</span>
-git branch
+git<span class="w"> </span>branch
 
 <span class="c1"># List only remote branches</span>
-git branch -r
+git<span class="w"> </span>branch<span class="w"> </span>-r
 
 <span class="c1"># List all branches</span>
-git branch -a
+git<span class="w"> </span>branch<span class="w"> </span>-a
 
 <span class="c1"># Delete a branch</span>
-git branch -d BRANCH_NAME
+git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>BRANCH_NAME
 
 <span class="c1"># Delete a branch forcefully</span>
-git branch -D BRANCH_NAME
+git<span class="w"> </span>branch<span class="w"> </span>-D<span class="w"> </span>BRANCH_NAME
 
 <span class="c1"># Delete a remote branch (doesn't matter if the local branch was deleted)</span>
-git push origin --delete REMOTE_NAME/BRANCH_NAME
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--delete<span class="w"> </span>REMOTE_NAME/BRANCH_NAME
 
 <span class="c1"># Rename a branch</span>
-git branch -m BRANCH_NAME NEW_BRANCH_NAME
+git<span class="w"> </span>branch<span class="w"> </span>-m<span class="w"> </span>BRANCH_NAME<span class="w"> </span>NEW_BRANCH_NAME
 
 <span class="c1"># Track a specific remote branch</span>
-git branch BRANCH_NAME -u UPSTREAM_NAME
+git<span class="w"> </span>branch<span class="w"> </span>BRANCH_NAME<span class="w"> </span>-u<span class="w"> </span>UPSTREAM_NAME
 
 <span class="c1"># See which branches have been merged or not</span>
-git branch --merged
-git branch --no-merged
+git<span class="w"> </span>branch<span class="w"> </span>--merged
+git<span class="w"> </span>branch<span class="w"> </span>--no-merged
 
 <span class="c1"># Switch to the branch last checked out</span>
-git checkout -
+git<span class="w"> </span>checkout<span class="w"> </span>-
 
 <span class="c1"># Compare changes between branches</span>
-git diff BRANCH_ONE..BRANCH_TWO
+git<span class="w"> </span>diff<span class="w"> </span>BRANCH_ONE..BRANCH_TWO
 
 <span class="c1"># Compare a file across branches</span>
-git diff BRANCH_ONE:FILE_NAME BRANCH_TWO:FILE_NAME
+git<span class="w"> </span>diff<span class="w"> </span>BRANCH_ONE:FILE_NAME<span class="w"> </span>BRANCH_TWO:FILE_NAME
 
 <span class="c1"># See a file from another branch</span>
-git show BRANCH_NAME:FILE_NAME
+git<span class="w"> </span>show<span class="w"> </span>BRANCH_NAME:FILE_NAME
 
 <span class="c1"># Get a file from a different branch</span>
-git restore --source OTHER_BRANCH_NAME path/to/file.txt
+git<span class="w"> </span>restore<span class="w"> </span>--source<span class="w"> </span>OTHER_BRANCH_NAME<span class="w"> </span>path/to/file.txt
 </code></pre></div>
 <hr/>
 <h1 id="aliases">Aliases</h1>
 <p>While I believe it’s good practice to type complete commands to remember them better, I also tend to use Git aliases for two reasons: because some deeply ingrained concepts don’t need as much reinforcement and because some obscure operations can be made so much more accessible with a pertinent mnemonic device.</p>
 <p>Some commands like <code>add</code> just become unforgettable over time, while others – e.g., <code>unstage</code> – just don’t exist yet. Without further ado, here is a list of the aliases I currently rely on when using Git, which comes straight from <code>~/.gitconfig</code>.</p>
 <p>For instance, instead of typing <code>git add</code>, by setting the alias <code>a = add</code> (see below), it is now possible to type <code>git a</code> to get the same result.</p>
-<div class="highlight"><pre><span></span><code><span class="k">[alias]</span><span class="w"></span>
-<span class="w">    </span><span class="na">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">add</span><span class="w"></span>
-<span class="w">    </span><span class="na">br</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">branch</span><span class="w"></span>
-<span class="w">    </span><span class="na">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">commit</span><span class="w"></span>
-<span class="w">    </span><span class="na">ca</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">commit --amend</span><span class="w"></span>
-<span class="w">    </span><span class="na">can</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">commit --amend --no-edit</span><span class="w"></span>
-<span class="w">    </span><span class="na">ch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">checkout</span><span class="w"></span>
-<span class="w">    </span><span class="na">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">diff</span><span class="w"></span>
-<span class="w">    </span><span class="na">ds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">diff --staged</span><span class="w"></span>
-<span class="w">    </span><span class="na">po</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">push origin</span><span class="w"></span>
-<span class="w">    </span><span class="na">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">push --set-upstream origin main</span><span class="w"></span>
-<span class="w">    </span><span class="na">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rebase --continue</span><span class="w"></span>
-<span class="w">    </span><span class="na">ri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rebase -i</span><span class="w"></span>
-<span class="w">    </span><span class="na">rl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">reflog</span><span class="w"></span>
-<span class="w">    </span><span class="na">sh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">show</span><span class="w"></span>
-<span class="w">    </span><span class="na">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">status --short</span><span class="w"></span>
-<span class="w">    </span><span class="na">st</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">status</span><span class="w"></span>
-<span class="w">    </span><span class="na">sw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">switch</span><span class="w"></span>
-<span class="w">    </span><span class="na">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">tag</span><span class="w"></span>
-<span class="w">    </span><span class="na">unstage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">reset HEAD --</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">[alias]</span>
+<span class="w">    </span><span class="na">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">add</span>
+<span class="w">    </span><span class="na">br</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">branch</span>
+<span class="w">    </span><span class="na">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">commit</span>
+<span class="w">    </span><span class="na">ca</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">commit --amend</span>
+<span class="w">    </span><span class="na">can</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">commit --amend --no-edit</span>
+<span class="w">    </span><span class="na">ch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">checkout</span>
+<span class="w">    </span><span class="na">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">diff</span>
+<span class="w">    </span><span class="na">ds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">diff --staged</span>
+<span class="w">    </span><span class="na">po</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">push origin</span>
+<span class="w">    </span><span class="na">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">push --set-upstream origin main</span>
+<span class="w">    </span><span class="na">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rebase --continue</span>
+<span class="w">    </span><span class="na">ri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rebase -i</span>
+<span class="w">    </span><span class="na">rl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">reflog</span>
+<span class="w">    </span><span class="na">sh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">show</span>
+<span class="w">    </span><span class="na">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">status --short</span>
+<span class="w">    </span><span class="na">st</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">status</span>
+<span class="w">    </span><span class="na">sw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">switch</span>
+<span class="w">    </span><span class="na">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">tag</span>
+<span class="w">    </span><span class="na">unstage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">reset HEAD --</span>
 
-<span class="w">    </span><span class="c1">; show changes since last commit</span><span class="w"></span>
-<span class="w">    </span><span class="na">difflast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">diff --cached HEAD^</span><span class="w"></span>
+<span class="w">    </span><span class="c1">; show changes since last commit</span>
+<span class="w">    </span><span class="na">difflast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">diff --cached HEAD^</span>
 
-<span class="w">    </span><span class="c1">; show last commit</span><span class="w"></span>
-<span class="w">    </span><span class="na">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">l -1 HEAD</span><span class="w"></span>
+<span class="w">    </span><span class="c1">; show last commit</span>
+<span class="w">    </span><span class="na">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">l -1 HEAD</span>
 
-<span class="w">    </span><span class="c1">; undo last commit</span><span class="w"></span>
-<span class="w">    </span><span class="na">undo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"!f() { git reset --hard $(git rev-parse \</span><span class="w"></span>
-<span class="na">--abbrev-ref HEAD)@{${1-1}}; }; f"</span><span class="w"></span>
+<span class="w">    </span><span class="c1">; undo last commit</span>
+<span class="w">    </span><span class="na">undo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"!f() { git reset --hard $(git rev-parse </span>\
+<span class="s">--abbrev-ref HEAD)@{${1-1}}; }; f"</span>
 
-<span class="w">    </span><span class="na">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">log</span><span class="w"></span>
+<span class="w">    </span><span class="na">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">log</span>
 
-<span class="w">    </span><span class="c1">; short log</span><span class="w"></span>
-<span class="w">    </span><span class="na">sl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">shortlog</span><span class="w"></span>
+<span class="w">    </span><span class="c1">; short log</span>
+<span class="w">    </span><span class="na">sl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">shortlog</span>
 
-<span class="w">    </span><span class="c1">; log graph</span><span class="w"></span>
-<span class="w">    </span><span class="na">lg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">l --color --graph --pretty=format:'%Cred%h%Creset \</span><span class="w"></span>
-<span class="na">-%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit</span><span class="w"></span>
+<span class="w">    </span><span class="c1">; log graph</span>
+<span class="w">    </span><span class="na">lg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">l --color --graph --pretty=format:'%Cred%h%Creset </span>\
+<span class="s">-%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit</span>
 
-<span class="w">    </span><span class="c1">; log name</span><span class="w"></span>
-<span class="w">    </span><span class="na">ln</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">l --name-only</span><span class="w"></span>
+<span class="w">    </span><span class="c1">; log name</span>
+<span class="w">    </span><span class="na">ln</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">l --name-only</span>
 
-<span class="w">    </span><span class="c1">; log decorate all</span><span class="w"></span>
-<span class="w">    </span><span class="na">logda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">l --oneline --decorate --graph --all</span><span class="w"></span>
+<span class="w">    </span><span class="c1">; log decorate all</span>
+<span class="w">    </span><span class="na">logda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">l --oneline --decorate --graph --all</span>
 
-<span class="w">    </span><span class="c1">; log stat</span><span class="w"></span>
-<span class="w">    </span><span class="na">ls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">l --stat</span><span class="w"></span>
+<span class="w">    </span><span class="c1">; log stat</span>
+<span class="w">    </span><span class="na">ls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">l --stat</span>
 
-<span class="w">    </span><span class="c1">; log pretty</span><span class="w"></span>
-<span class="w">    </span><span class="na">lp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">log --pretty='%C(yellow)%h %C(cyan)%ad %Cblue%aN%C(auto)%d \</span><span class="w"></span>
-<span class="na">%Creset%s' --date</span><span class="o">=</span><span class="s">relative --date-order --graph</span><span class="w"></span>
+<span class="w">    </span><span class="c1">; log pretty</span>
+<span class="w">    </span><span class="na">lp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">log --pretty='%C(yellow)%h %C(cyan)%ad %Cblue%aN%C(auto)%d </span>\
+<span class="s">%Creset%s' --date=relative --date-order --graph</span>
 </code></pre></div>
 <p>At some point, using Git aliases will become second nature, but until then, it can be useful to have a separate terminal alias to list them all (or maybe you forgot the command an alias is using under the hood!). For this, you can set the following alias in a file like <code>~/.bash_aliases</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">gitaliases</span><span class="o">=</span><span class="s1">'git config -l | grep alias | sed "s/^alias\.//g"'</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">gitaliases</span><span class="o">=</span><span class="s1">'git config -l | grep alias | sed "s/^alias\.//g"'</span>
 
 <span class="c1"># For a fancier version displaying aliases in two columns neatly aligned:</span>
-<span class="nb">alias</span> <span class="nv">gitaliases</span><span class="o">=</span><span class="s1">'git config -l | grep alias | sed "s/^alias\.//g" \</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gitaliases</span><span class="o">=</span><span class="s1">'git config -l | grep alias | sed "s/^alias\.//g" \</span>
 <span class="s1">  | sed "s/=/Ω/" | column -t -s "Ω"'</span>
 </code></pre></div>
 <p>That command will look in the Git configuration, extract all the lines containing “alias” and remove the “<code>alias.</code>” prefix so that you can see all aliases in the form <code>a=add</code> in the case of <code>git add</code> being aliased to <code>git a</code>. If you have a ton of aliases (which is probably a red flag…), finding a specific one is just a matter of doing <code>gitaliases | grep keyword</code>, of course replacing <code>keyword</code> with something else ;).</p>
@@ -555,23 +555,23 @@ git restore --source OTHER_BRANCH_NAME path/to/file.txt
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1"># Act as custom command `git addlearning` and perform all that follows</span>
 <span class="c1"># Assumes that `pelican` command is available</span>
-<span class="nb">cd</span> ~/dev/sglavoie/sglavoie.github.io-source
-git add .
-git commit -m <span class="s2">"Add learning progress"</span>
-git push origin main
+<span class="nb">cd</span><span class="w"> </span>~/dev/sglavoie/sglavoie.github.io-source
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add learning progress"</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
 pelican
 
-cp -r <span class="se">\</span>
-    ~/dev/sglavoie/sglavoie.github.io-source/output/* <span class="se">\</span>
-    ~/dev/sglavoie/sglavoie.github.io/ <span class="o">&amp;&amp;</span> <span class="se">\</span>
-    <span class="nb">cd</span> ~/dev/sglavoie/sglavoie.github.io <span class="o">&amp;&amp;</span> git add .
-git commit -m <span class="s2">"Add learning progress"</span>
-git push origin main
-<span class="nb">cd</span> ~/dev/sglavoie/sglavoie.github.io-source
+cp<span class="w"> </span>-r<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>~/dev/sglavoie/sglavoie.github.io-source/output/*<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>~/dev/sglavoie/sglavoie.github.io/<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span>~/dev/sglavoie/sglavoie.github.io<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add learning progress"</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+<span class="nb">cd</span><span class="w"> </span>~/dev/sglavoie/sglavoie.github.io-source
 </code></pre></div>
 <p>It is noteworthy to know that any kind of executable programs can be used, such as Ruby, Python and so on, as long as they are made available in the <code>$PATH</code>. This will be somewhat similar on most <span class="caps">UNIX</span>-based system where the <code>PATH</code> variable needs to be exported (usually in a file like <code>.bashrc</code> or <code>.zshrc</code>), for instance:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># $HOME refers to a place like /home/user on Linux or /Users/user on macOS</span>
-<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/dev/git-scripts:</span><span class="nv">$PATH</span><span class="s2">"</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/dev/git-scripts:</span><span class="nv">$PATH</span><span class="s2">"</span>
 </code></pre></div>
 <p>On Windows, there are <a href="https://superuser.com/a/143121/1032549">separate instructions to be followed</a>. With that done, there’s also a need to make sure the file is executable, which can be done on the command-line with <code>chmod +x FILENAME_HERE</code>.</p>
 <hr/>
@@ -583,82 +583,82 @@ git push origin main
 <hr/>
 <h1 id="a-word-on-the-configuration-file">A word on the configuration file</h1>
 <p>At the very minimum, setting a name and email will be necessary to use Git:</p>
-<div class="highlight"><pre><span></span><code>git config --global user.name <span class="s2">"Your Name"</span>
-git config --global user.email <span class="s2">"email@example.com"</span>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">"Your Name"</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">"email@example.com"</span>
 </code></pre></div>
 <p>Seeing the current configuration can come in handy, too:</p>
-<div class="highlight"><pre><span></span><code>git config --global --list
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--list
 </code></pre></div>
 <p>And in the case of this particular command, <code>git config</code>, it can’t be emphasized enough how useful searching through the help page in the terminal will be: <code>git config --help</code>.</p>
 <p>I’d be remiss if I didn’t include an example of my own configuration at this point, so here it goes! To make it so that it is convenient to commit this configuration file publicly, some private settings can be “included” from other paths inside the <code>[include]</code> block. For clarity, I’ll show what that file looks like below the main configuration file.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># This is the content of ~/.gitconfig</span>
 
 <span class="o">[</span>include<span class="o">]</span>
-    <span class="p">;</span> This file can add more information to extend the main configuration.
-    <span class="p">;</span> For example, when inside a directory that match a certain pattern,
-    <span class="p">;</span> we can tell Git to change our name or email <span class="o">(</span>e.g., when committing
-    <span class="p">;</span> with different credentials from a work email<span class="o">)</span>
-    <span class="nv">path</span> <span class="o">=</span> ~/Dropbox/.custom/.gitconfig
+<span class="w">    </span><span class="p">;</span><span class="w"> </span>This<span class="w"> </span>file<span class="w"> </span>can<span class="w"> </span>add<span class="w"> </span>more<span class="w"> </span>information<span class="w"> </span>to<span class="w"> </span>extend<span class="w"> </span>the<span class="w"> </span>main<span class="w"> </span>configuration.
+<span class="w">    </span><span class="p">;</span><span class="w"> </span>For<span class="w"> </span>example,<span class="w"> </span>when<span class="w"> </span>inside<span class="w"> </span>a<span class="w"> </span>directory<span class="w"> </span>that<span class="w"> </span>match<span class="w"> </span>a<span class="w"> </span>certain<span class="w"> </span>pattern,
+<span class="w">    </span><span class="p">;</span><span class="w"> </span>we<span class="w"> </span>can<span class="w"> </span>tell<span class="w"> </span>Git<span class="w"> </span>to<span class="w"> </span>change<span class="w"> </span>our<span class="w"> </span>name<span class="w"> </span>or<span class="w"> </span>email<span class="w"> </span><span class="o">(</span>e.g.,<span class="w"> </span>when<span class="w"> </span>committing
+<span class="w">    </span><span class="p">;</span><span class="w"> </span>with<span class="w"> </span>different<span class="w"> </span>credentials<span class="w"> </span>from<span class="w"> </span>a<span class="w"> </span>work<span class="w"> </span>email<span class="o">)</span>
+<span class="w">    </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>~/Dropbox/.custom/.gitconfig
 <span class="o">[</span>color<span class="o">]</span>
-    <span class="nv">branch</span> <span class="o">=</span> auto
-    <span class="nv">diff</span> <span class="o">=</span> auto
-    <span class="nv">grep</span> <span class="o">=</span> auto
-    <span class="nv">interactive</span> <span class="o">=</span> auto
-    <span class="nv">status</span> <span class="o">=</span> auto
-    <span class="nv">ui</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="w">    </span><span class="nv">branch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>auto
+<span class="w">    </span><span class="nv">diff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>auto
+<span class="w">    </span><span class="nv">grep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>auto
+<span class="w">    </span><span class="nv">interactive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>auto
+<span class="w">    </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>auto
+<span class="w">    </span><span class="nv">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
 <span class="o">[</span>alias<span class="o">]</span>
-    <span class="c1"># cut out for brevity, see the section on Aliases</span>
+<span class="w">    </span><span class="c1"># cut out for brevity, see the section on Aliases</span>
 <span class="o">[</span>core<span class="o">]</span>
-    <span class="nv">editor</span> <span class="o">=</span> nvim
-    <span class="nv">excludesfile</span> <span class="o">=</span> ~/.gitignore
-    <span class="nv">pager</span> <span class="o">=</span> diff-so-fancy <span class="p">|</span> less --tabs<span class="o">=</span><span class="m">4</span> -RFX
+<span class="w">    </span><span class="nv">editor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>nvim
+<span class="w">    </span><span class="nv">excludesfile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>~/.gitignore
+<span class="w">    </span><span class="nv">pager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>diff-so-fancy<span class="w"> </span><span class="p">|</span><span class="w"> </span>less<span class="w"> </span>--tabs<span class="o">=</span><span class="m">4</span><span class="w"> </span>-RFX
 <span class="o">[</span>commit<span class="o">]</span>
-    <span class="nv">gpgsign</span> <span class="o">=</span> <span class="nb">true</span>
-    <span class="nv">template</span> <span class="o">=</span> ~/.gitmessage
-<span class="o">[</span>mergetool <span class="s2">"nvim"</span><span class="o">]</span>
-    <span class="nv">cmd</span> <span class="o">=</span> nvim <span class="nv">$MERGED</span>
-<span class="o">[</span>difftool <span class="s2">"vscode"</span><span class="o">]</span>
-    <span class="nv">cmd</span> <span class="o">=</span> code --wait --diff <span class="nv">$LOCAL</span> <span class="nv">$REMOTE</span>
+<span class="w">    </span><span class="nv">gpgsign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="w">    </span><span class="nv">template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>~/.gitmessage
+<span class="o">[</span>mergetool<span class="w"> </span><span class="s2">"nvim"</span><span class="o">]</span>
+<span class="w">    </span><span class="nv">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>nvim<span class="w"> </span><span class="nv">$MERGED</span>
+<span class="o">[</span>difftool<span class="w"> </span><span class="s2">"vscode"</span><span class="o">]</span>
+<span class="w">    </span><span class="nv">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>code<span class="w"> </span>--wait<span class="w"> </span>--diff<span class="w"> </span><span class="nv">$LOCAL</span><span class="w"> </span><span class="nv">$REMOTE</span>
 <span class="o">[</span>mergetool<span class="o">]</span>
-  <span class="nv">prompt</span> <span class="o">=</span> <span class="nb">false</span>
-<span class="o">[</span>color <span class="s2">"diff-highlight"</span><span class="o">]</span>
-    <span class="nv">oldNormal</span> <span class="o">=</span> red bold
-    <span class="nv">oldHighlight</span> <span class="o">=</span> red bold <span class="m">52</span>
-    <span class="nv">newNormal</span> <span class="o">=</span> green bold
-    <span class="nv">newHighlight</span> <span class="o">=</span> green bold <span class="m">22</span>
-<span class="o">[</span>color <span class="s2">"diff"</span><span class="o">]</span>
-    <span class="nv">commit</span> <span class="o">=</span> yellow bold
-    <span class="nv">frag</span> <span class="o">=</span> magenta bold
-    <span class="nv">meta</span> <span class="o">=</span> <span class="m">11</span>
-    <span class="nv">new</span> <span class="o">=</span> green bold
-    <span class="nv">old</span> <span class="o">=</span> red bold
-    <span class="nv">whitespace</span> <span class="o">=</span> red reverse
+<span class="w">  </span><span class="nv">prompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span>
+<span class="o">[</span>color<span class="w"> </span><span class="s2">"diff-highlight"</span><span class="o">]</span>
+<span class="w">    </span><span class="nv">oldNormal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>red<span class="w"> </span>bold
+<span class="w">    </span><span class="nv">oldHighlight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>red<span class="w"> </span>bold<span class="w"> </span><span class="m">52</span>
+<span class="w">    </span><span class="nv">newNormal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>green<span class="w"> </span>bold
+<span class="w">    </span><span class="nv">newHighlight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>green<span class="w"> </span>bold<span class="w"> </span><span class="m">22</span>
+<span class="o">[</span>color<span class="w"> </span><span class="s2">"diff"</span><span class="o">]</span>
+<span class="w">    </span><span class="nv">commit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yellow<span class="w"> </span>bold
+<span class="w">    </span><span class="nv">frag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>magenta<span class="w"> </span>bold
+<span class="w">    </span><span class="nv">meta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">11</span>
+<span class="w">    </span><span class="nv">new</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>green<span class="w"> </span>bold
+<span class="w">    </span><span class="nv">old</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>red<span class="w"> </span>bold
+<span class="w">    </span><span class="nv">whitespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>red<span class="w"> </span>reverse
 <span class="o">[</span>push<span class="o">]</span>
-    <span class="nv">recurseSubmodules</span> <span class="o">=</span> on-demand
+<span class="w">    </span><span class="nv">recurseSubmodules</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>on-demand
 <span class="o">[</span>gpg<span class="o">]</span>
-    <span class="nv">program</span> <span class="o">=</span> gpg2
-<span class="o">[</span>filter <span class="s2">"lfs"</span><span class="o">]</span>
-    <span class="nv">clean</span> <span class="o">=</span> git-lfs clean -- %f
-    <span class="nv">smudge</span> <span class="o">=</span> git-lfs smudge --skip -- %f
-    <span class="nv">process</span> <span class="o">=</span> git-lfs filter-process --skip
-    <span class="nv">required</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="w">    </span><span class="nv">program</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gpg2
+<span class="o">[</span>filter<span class="w"> </span><span class="s2">"lfs"</span><span class="o">]</span>
+<span class="w">    </span><span class="nv">clean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>git-lfs<span class="w"> </span>clean<span class="w"> </span>--<span class="w"> </span>%f
+<span class="w">    </span><span class="nv">smudge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>git-lfs<span class="w"> </span>smudge<span class="w"> </span>--skip<span class="w"> </span>--<span class="w"> </span>%f
+<span class="w">    </span><span class="nv">process</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>git-lfs<span class="w"> </span>filter-process<span class="w"> </span>--skip
+<span class="w">    </span><span class="nv">required</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
 <span class="o">[</span>pull<span class="o">]</span>
-    <span class="nv">rebase</span> <span class="o">=</span> <span class="nb">false</span>
+<span class="w">    </span><span class="nv">rebase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span>
 <span class="o">[</span>credential<span class="o">]</span>
-    <span class="nv">helper</span> <span class="o">=</span> store
+<span class="w">    </span><span class="nv">helper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>store
 <span class="o">[</span>init<span class="o">]</span>
-    <span class="nv">defaultBranch</span> <span class="o">=</span> main
-    <span class="nv">templateDir</span> <span class="o">=</span> ~/.git-templates
+<span class="w">    </span><span class="nv">defaultBranch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>main
+<span class="w">    </span><span class="nv">templateDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>~/.git-templates
 <span class="o">[</span>diff<span class="o">]</span>
-    <span class="nv">tool</span> <span class="o">=</span> vscode
+<span class="w">    </span><span class="nv">tool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>vscode
 </code></pre></div>
 <p>The file being referenced/included here, <code>~/Dropbox/.custom/.gitconfig</code>, looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>user<span class="o">]</span>
-  <span class="nv">email</span> <span class="o">=</span> email@example.com
-  <span class="nv">name</span> <span class="o">=</span> Your Name
-  <span class="nv">signingkey</span> <span class="o">=</span> 798034F11B2ADED2
+<span class="w">  </span><span class="nv">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>email@example.com
+<span class="w">  </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Your<span class="w"> </span>Name
+<span class="w">  </span><span class="nv">signingkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>798034F11B2ADED2
 <span class="o">[</span>commit<span class="o">]</span>
-  <span class="nv">gpgsign</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="w">  </span><span class="nv">gpgsign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
 
 <span class="c1"># The following block could be used to update credentials when committing</span>
 <span class="c1"># depending on what directory is opened. So, if you work for COMPANY_NAME</span>
@@ -667,9 +667,9 @@ git config --global user.email <span class="s2">"email@example.com"</span>
 <span class="c1"># something like the previous block so that the original email, name,</span>
 <span class="c1"># signingkey and possibly other config options are overwritten.</span>
 
-<span class="p">;</span> when working at COMPANY_NAME
-<span class="o">[</span>includeIf <span class="s2">"gitdir:**/COMPANY_NAME/**/.git"</span><span class="o">]</span>
-  <span class="nv">path</span> <span class="o">=</span> ~/Dropbox/.custom/.gitconfig-COMPANY_NAME
+<span class="p">;</span><span class="w"> </span>when<span class="w"> </span>working<span class="w"> </span>at<span class="w"> </span>COMPANY_NAME
+<span class="o">[</span>includeIf<span class="w"> </span><span class="s2">"gitdir:**/COMPANY_NAME/**/.git"</span><span class="o">]</span>
+<span class="w">  </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>~/Dropbox/.custom/.gitconfig-COMPANY_NAME
 </code></pre></div>
 <p>So this section briefly points out how custom tools like <code>diff-so-fancy</code> can be used, how diff output colors can be customized, how specific code editors like Neovim and <span class="caps">VS</span> Code can be opened when committing or dealing with merge conflicts and generally just how the file is meant to be structured.</p>
 <p>A lot more on configuring Git can be found in <a href="https://git-scm.com/docs/git-config">the official documentation on <code>git config</code></a>.</p>

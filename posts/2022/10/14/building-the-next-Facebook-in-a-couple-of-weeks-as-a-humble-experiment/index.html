@@ -189,7 +189,7 @@
 <h1 id="meeting-the-requirements">Meeting the requirements</h1>
 <p>In order to meet all the requirements when building this application, a few different techniques, strategies and concepts were put to good use. Firstly, all <a href="https://www.djangoproject.com/">Django</a> views are class-based and rely on <a href="https://www.django-rest-framework.org/">Django <span class="caps">REST</span> Framework</a> to reduce the boilerplate needed to write the views. One such (simple) view is shown below:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Profiles</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
-    <span class="sd">"""Used when listing all profiles at once."""</span>
+<span class="w">    </span><span class="sd">"""Used when listing all profiles at once."""</span>
 
     <span class="c1"># allow everyone to see all basic profiles</span>
     <span class="n">permission_classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">IsOwnerOrReadOnly</span><span class="p">]</span>
@@ -201,7 +201,7 @@
 </code></pre></div>
 <p>All views in turn rely on serializers to parse incoming data and to transform it into appropriate structures that can be used internally by Django. Some serializers are obviously more complex than others, but for demonstration purposes and for the sake of brevity, an example of a class-based serializer is reproduced here:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">UserPublicSerializer</span><span class="p">(</span><span class="n">ModelSerializer</span><span class="p">):</span>
-    <span class="sd">"""Serializer the User model to get back user information that can</span>
+<span class="w">    </span><span class="sd">"""Serializer the User model to get back user information that can</span>
 <span class="sd">    safely be shared around in the application to other users."""</span>
 
     <span class="c1"># We need easy access to the profile image when listing all profiles</span>
@@ -220,7 +220,7 @@
 <p><img alt="Git log extract" src="../../../../../images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/commits.png"/></p>
 <p>Defensive coding strategies were used, both in Python and in JavaScript. In the backend, exceptions were raised directly where no appropriate actions could be taken:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">clean_email</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="sd">"""Verify that the email is available."""</span>
+<span class="w">    </span><span class="sd">"""Verify that the email is available."""</span>
     <span class="n">email</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"email"</span><span class="p">)</span>
     <span class="n">query_set</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">query_set</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
@@ -248,26 +248,26 @@
 <span class="c1"># ...</span>
 </code></pre></div>
 <p>On the frontend, a kindred approach was used to assemble robust requests:</p>
-<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="w"></span>
-<span class="w">    </span><span class="sb">`</span><span class="si">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_API_URL</span><span class="si">}</span><span class="sb">/auth/jwt/verify/`</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">body</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">config</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">code</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">"token_not_valid"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">dispatch</span><span class="p">({</span><span class="w"></span>
-<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nx">AUTHENTICATED_SUCCESS</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="p">})</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">dispatch</span><span class="p">({</span><span class="w"></span>
-<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nx">AUTHENTICATED_FAIL</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="p">})</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">dispatch</span><span class="p">({</span><span class="w"></span>
-<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nx">AUTHENTICATED_FAIL</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="p">})</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
+<span class="w">    </span><span class="sb">`</span><span class="si">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_API_URL</span><span class="si">}</span><span class="sb">/auth/jwt/verify/`</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">body</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">config</span><span class="p">,</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">code</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">"token_not_valid"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">dispatch</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nx">AUTHENTICATED_SUCCESS</span><span class="p">,</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">dispatch</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nx">AUTHENTICATED_FAIL</span><span class="p">,</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">dispatch</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nx">AUTHENTICATED_FAIL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>With security in mind, views were by default protected and accessible only to authenticated users unless a statement such as the following allows all users to read an endpoint:</p>
 <div class="highlight"><pre><span></span><code><span class="n">permission_classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">IsOwnerOrReadOnly</span><span class="p">]</span>
@@ -323,43 +323,43 @@ Tuan       tuan@gmail.com
 <span class="c1"># }</span>
 </code></pre></div>
 <p>Then, a simple way to get Redis running would be to launch it with Docker:</p>
-<div class="highlight"><pre><span></span><code>docker run -d -p <span class="m">6379</span>:6379 redis
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6379</span>:6379<span class="w"> </span>redis
 </code></pre></div>
 <p>Moving on to installing Django and the rest of the dependencies for the backend:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> backend
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>backend
 
 <span class="c1"># Activate a virtual environment, e.g.:</span>
-python3 -m venv .venv <span class="o">&amp;&amp;</span> <span class="nb">source</span> .venv/bin/activate
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
 
 <span class="c1"># Install dependencies</span>
-pip install -r requirements.txt
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 
 <span class="c1"># Run the server on port 8000 with existing data</span>
-python manage.py runserver
+python<span class="w"> </span>manage.py<span class="w"> </span>runserver
 </code></pre></div>
 <p>Dependencies can also be installed with Poetry thanks to the provided files <code>pyproject.toml</code> and <code>poetry.lock</code> with the following command:</p>
-<div class="highlight"><pre><span></span><code>poetry install
+<div class="highlight"><pre><span></span><code>poetry<span class="w"> </span>install
 </code></pre></div>
 <p>To keep the Docker image simple, <code>pip</code> is used to install the requirements, although beware that Poetry’s dependency resolver will be more predictable in a production application.</p>
 <h4 id="frontend">Frontend</h4>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> frontend
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>frontend
 
 <span class="c1"># Install dependencies</span>
-npm install
+npm<span class="w"> </span>install
 
 <span class="c1"># Run the server on port 3000</span>
-npm run start
+npm<span class="w"> </span>run<span class="w"> </span>start
 </code></pre></div>
 <p>Access the application at <a href="http://localhost:3000">http://localhost:3000</a>.</p>
 <h4 id="using-docker">Using Docker</h4>
 <p>A <code>docker-compose.yaml</code> has been prepared to launch all the required parts at once (Redis, Django and React).</p>
-<div class="highlight"><pre><span></span><code>docker-compose build
-docker-compose up -d
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>build
+docker-compose<span class="w"> </span>up<span class="w"> </span>-d
 </code></pre></div>
 <p>Some other useful commands:</p>
-<div class="highlight"><pre><span></span><code>docker-compose down
-docker-compose logs
-docker-compose ps -a
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>down
+docker-compose<span class="w"> </span>logs
+docker-compose<span class="w"> </span>ps<span class="w"> </span>-a
 </code></pre></div>
 <p>This container could be set up to run in a cloud infrastructure such as Google Cloud Platform inside a virtual machine. This setup goes above and beyond what was taught in this module, though, therefore resources were not allocated to the actual deployment.</p>
 <h3 id="local-deployment">Local deployment</h3>
@@ -440,16 +440,16 @@ api/ posts/
 <hr/>
 <h1 id="executing-the-unit-tests">Executing the unit tests</h1>
 <p>To run the unit tests, it is a matter of activating a virtual environment (as described in the section <a href="#running-locally">Running locally</a>) and using the built-in <code>test</code> command provided by Django in the following manner, which must be run from within the <code>backend</code> directory:</p>
-<div class="highlight"><pre><span></span><code>$ python manage.py <span class="nb">test</span>
-Found <span class="m">119</span> test<span class="o">(</span>s<span class="o">)</span>.
-Creating <span class="nb">test</span> database <span class="k">for</span> <span class="nb">alias</span> <span class="s1">'default'</span>...
-System check identified no issues <span class="o">(</span><span class="m">0</span> silenced<span class="o">)</span>.
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span><span class="nb">test</span>
+Found<span class="w"> </span><span class="m">119</span><span class="w"> </span>test<span class="o">(</span>s<span class="o">)</span>.
+Creating<span class="w"> </span><span class="nb">test</span><span class="w"> </span>database<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">alias</span><span class="w"> </span><span class="s1">'default'</span>...
+System<span class="w"> </span>check<span class="w"> </span>identified<span class="w"> </span>no<span class="w"> </span>issues<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="w"> </span>silenced<span class="o">)</span>.
 ..............................................................
 --------------------------------------------------------------
-Ran <span class="m">119</span> tests <span class="k">in</span> <span class="m">0</span>.584s
+Ran<span class="w"> </span><span class="m">119</span><span class="w"> </span>tests<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.584s
 
 OK
-Destroying <span class="nb">test</span> database <span class="k">for</span> <span class="nb">alias</span> <span class="s1">'default'</span>...
+Destroying<span class="w"> </span><span class="nb">test</span><span class="w"> </span>database<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">alias</span><span class="w"> </span><span class="s1">'default'</span>...
 </code></pre></div>
 <hr/>
 <h1 id="logical-approach">Logical approach</h1>
