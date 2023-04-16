@@ -123,7 +123,16 @@ GOOGLE_ANALYTICS = "UA-150998392-1"
 
 # Plugins
 PLUGIN_PATHS = ["plugins"]
-PLUGINS = ["readtime", "extract_toc", "div_around_tables", "tag_cloud"]
+PLUGINS = [
+    "div_around_tables",
+    "extract_toc",
+    "readtime",
+    "render_math",
+    "tag_cloud",
+]
+
+# render_math plugin
+MATH_JAX = {"color": "#007bff"}
 
 # https://github.com/pelican-plugins/tag-cloud
 TAG_CLOUD_BADGE = True
