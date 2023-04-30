@@ -1,0 +1,31 @@
+@startuml dailyReview
+scale 5
+!pragma useVerticalIf on
+
+start
+partition #aliceBlue "Daily review " {
+    note
+        Where a //"check"// is any
+        of the following actions
+        taken on each task:
+
+        • Remove
+        • Delegate
+        • Postpone
+        • Keep
+
+        As well as the ideal time
+        to ask the following questions:
+
+        • Am I well hydrated?
+        • Am I well fed?
+        • Am I well rested?
+        • Am I well exercised?
+        • Am I maintaining good posture?
+        • Am I stretching enough?
+    end note
+    :1pm check;
+    :7pm check;
+}
+end
+@enduml
