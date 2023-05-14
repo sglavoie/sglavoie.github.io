@@ -78,6 +78,10 @@ hr {
   margin: 2.5em 0.25em;
 }
 
+div.image {
+  text-align: center;
+}
+
 img {
   max-width: 100%;
 }

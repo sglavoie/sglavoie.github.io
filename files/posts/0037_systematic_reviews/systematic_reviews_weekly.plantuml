@@ -1,0 +1,107 @@
+@startuml weeklyReview
+scale 5
+!pragma useVerticalIf on
+
+start
+partition #Moccasin "Weekly review " {
+    partition #LightSkyBlue "**1. Declutter** " {
+        :**Physical space**;
+        split
+        :Clean desk and workspace;
+        split again
+        :Tidy random items;
+        split again
+        :Remove garbage and recycling;
+        end split
+        
+        :**Mental space**;
+        split
+            :Emails (//Mail//);
+            :Archive, tag, delete;
+        split again
+            :Text messages (//Messages//);
+            ://Slack//;
+            ://WhatsApp//;
+            :Reply, archive;
+        split again
+            :Idea dump (personal/professional);
+            ://Apple Notes//;
+            ://Apple Reminders//;
+        end split
+
+        :**Digital space**;
+        split
+            :File away items from desktop;
+        split again
+            :Run desktop cleaner tools (optimize storage);
+            :Remove large, unused files;
+            :Optimize backup storage;
+        end split
+    }
+
+    partition #TECHNOLOGY "**2. Reflect** " {
+        split
+            :**Todos** (//Apple Reminders//);
+            :Review completed tasks;
+            :Jot down small wins;
+        split again
+            :**Calendar** (//Apple Calendar//);
+            :Review all items;
+        split again
+            :**Notes** (//Apple Notes//);
+            :Review all notes;
+            :Archive, tag, delete;
+        end split
+    }
+
+    partition #GoldenRod "**3. Check goals and projects** " {
+        split
+            :**Goals**;
+            :Review weekly progress;
+            :Adjust to meet monthly/annual goals;
+        split again
+            :**Areas of responsibilities**;
+            :At home;
+            :At work;
+        split again
+            :**Key metrics**;
+            :Track progress on large projects;
+            :Revise tasks, re-prioritize;
+        end split
+    }
+
+    partition #Thistle "**4. Plan ahead** " {
+        split
+            :**Tasks**;
+            :Plan out the week;
+        split again
+            :**Goals**;
+            :Set weekly objectives;
+        end split
+    }
+
+    partition #Cornsilk "**5. Map the future** " {
+        split
+            :**Review existing items**;
+            ://Apple Reminders//;
+            ://Apple Calendar//;
+            ://Apple Notes//;
+        split again
+            :**Update future plans**;
+            ://Apple Notes//;
+            :VS Code (//life-trail// repo);
+        end split
+    }
+
+    partition #Salmon "**6. Question the status quo** " {
+        ://How do I feel I did this week overall?//;
+        ://What enabled me to reach my goals this week?//;
+        ://Has anything stopped me from reaching my goals this week?//;
+        ://Which actions did I take this week that will propel me towards my long-term goals?//;
+        ://How can I improve for next week?//;
+        ://What can I do next week that will set me up for my long-term goals?//;
+        ://What should I plan for in the next month? Year? 5 Years?//;
+    }
+}
+end
+@enduml
