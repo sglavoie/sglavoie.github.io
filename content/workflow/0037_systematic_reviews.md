@@ -1,5 +1,6 @@
 Title: Systematic reviews
 Date: 2023-05-14 15:58
+Modified: 2023-05-17 21:02
 Tags: processes, planning
 Slug: systematic-reviews
 Authors: Sébastien Lavoie
@@ -61,7 +62,9 @@ Another major component of the way I organize tasks (currently with Apple Remind
 <img style="max-width: 462px" src="{static}/images/posts/0037_systematic_reviews/apple_reminders_daily_focus.png" alt="Apple Reminders: Daily focus lists" />
 </div>
 
-So in this case, everything being scheduled for today or that has been flagged manually will appear in the **Today** list. Anything else that has a deadline in the near future will appear in the **Scheduled** list. Then, I simply divide my set of "work in progress tasks" into work and personal and will drag and drop tasks from other lists/projects as needed to re-prioritize them.
+So in this case, everything being scheduled for today or that has been flagged manually will appear in the **Today** list. Anything else that has a deadline in the near future will appear in the **Scheduled** list. Then, I simply divide my set of _work in progress_ (**WIP**) tasks into work and personal and will drag and drop tasks from other lists/projects as needed to re-prioritize them. To avoid having a large list of items in the **WIP** lists, I use two separate lists to keep track of the **Next** actions: these are tasks that do not require immediate attention but used to be scheduled as being more urgent, since priorities will often need to shift under a set of constantly new circumstances.
+
+These tasks will be dragged out of other lists as needed -- either from the backlog of tasks or from the **WIP** tasks to declutter other lists. They will be prioritized as the **Next** actions to ensure that once the **WIP** is done, there is a continuity to the system. Just as with other lists, order matters, so that the most important tasks are at the top and the least important ones are at the bottom. This is a simple way to ensure that the most important tasks are always visible and that the least important ones are not forgotten.
 
 ---
 
