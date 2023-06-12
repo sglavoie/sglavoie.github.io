@@ -1,7 +1,7 @@
 Title: Book summary: Letters to a New Developer
 Date: 2021-11-08 10:12
 Modified: 2023-04-16 15:04
-Tags: advice, best practices, career
+Tags: advice, best practices, books, career
 Slug: book-summary-letters-to-a-new-developer
 Authors: Sébastien Lavoie
 Summary: If you are still early in your career as a software developer (or not so much!), I think you might enjoy reading *Letters to a New Developer: What I Wish I Had Known When Starting My Development Career* written by Dan Moore, who also features [a very insightful blog](https://letterstoanewdeveloper.com/).

@@ -1,6 +1,6 @@
 Title: Book summary: The Effective Engineer
 Date: 2023-04-16 14:49
-Tags: advice, best practices, career
+Tags: advice, best practices, books, career
 Slug: book-summary-the-effective-engineer
 Authors: Sébastien Lavoie
 Summary: After reading [Letters to a New Developer]({filename}/learnings/0027_letters_to_a_new_developer_book_summary.md), one of the next logical steps on this learning path was to read [The Effective Engineer](https://www.effectiveengineer.com/). I hope you enjoy this simple yet effective book summary!
