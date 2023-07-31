@@ -223,6 +223,8 @@ On the soft skills side, a mistake was made by not sharing the original concept 
 
 # Resources and references
 
+If you like this type and format of content, you might also enjoy [a follow-up story about building a task planner]({filename}/learnings/0039_productivido_task_planner.md), also brought to life with the help of React Native!
+
 - [Annual Reviews, Psychology of Habit](https://www.annualreviews.org/doi/abs/10.1146/annurev-psych-122414-033417)
 - [ESLint, Find and fix problems in your JavaScript code](https://eslint.org/)
 - [Expo, Make any app. Run it everywhere](https://expo.dev)
