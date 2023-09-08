@@ -18,15 +18,15 @@ From its [GitHub repository](https://github.com/python/black):
 
 **Black** will take less than ideal code and will automatically reformat it according to the [PEP-8 style guide](https://www.python.org/dev/peps/pep-0008/). It will take care of many things, including the following (taken in that order from `README.md` in **Black**'s repo):
 
--   Wrapping lines properly by shortening as much as possible single statements;
--   Break long lines;
--   Remove superfluous empty lines;
--   Take care of adding trailing commas where necessary;
--   Convert single quotes (`'`) to double quotes (`"`);
--   Convert numeric literals to lowercase (`0XAB` to `0xAB`);
--   Superfluous parentheses are removed;
--   Split call chains on different lines;
--   Works from the terminal and support many code editor integrations (Emacs, Vim, VS Code, Sublime, etc.).
+- Wrapping lines properly by shortening as much as possible single statements;
+- Break long lines;
+- Remove superfluous empty lines;
+- Take care of adding trailing commas where necessary;
+- Convert single quotes (`'`) to double quotes (`"`);
+- Convert numeric literals to lowercase (`0XAB` to `0xAB`);
+- Superfluous parentheses are removed;
+- Split call chains on different lines;
+- Works from the terminal and support many code editor integrations (Emacs, Vim, VS Code, Sublime, etc.).
 
 Now that it's clear _why_ it can be a good idea to use it, let's see how it works with Vim and the terminal.
 

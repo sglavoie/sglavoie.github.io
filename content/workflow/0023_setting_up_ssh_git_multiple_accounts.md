@@ -17,11 +17,11 @@ To work effectively with services such as GitHub and GitLab, it is useful to set
 
 In short, we need to do the following:
 
-* Set up SSH locally (in `~/.ssh/`);
-* Set up SSH keys remotely (GitLab, GitHub, Bitbucket, etc.);
-* Set up Git locally (in `~/.gitconfig`);
-* Set up GPG keys remotely (add our keys(s) to GitLab, GitHub, etc.);
-* Start interacting with remote repositories.
+- Set up SSH locally (in `~/.ssh/`);
+- Set up SSH keys remotely (GitLab, GitHub, Bitbucket, etc.);
+- Set up Git locally (in `~/.gitconfig`);
+- Set up GPG keys remotely (add our keys(s) to GitLab, GitHub, etc.);
+- Start interacting with remote repositories.
 
 ---
 
@@ -34,6 +34,7 @@ $ ssh-keygen -t rsa -C "email@personal.com"
 ```
 
 The next key should have a different path:
+
 ```{.bash}
 $ ssh-keygen -t rsa -C "email@work.com"
 $ Enter file in which to save the key
@@ -41,22 +42,26 @@ $ Enter file in which to save the key
 ```
 
 Add the keys to the authentication agent like so:
+
 ```{.bash}
 $ ssh-add /.ssh/id_rsa
 $ ssh-add /.ssh/id_rsa_work
 ```
 
 See which keys were added:
+
 ```{.bash}
 $ ssh-add -l  # list the keys
 ```
 
 If you need to delete any keys that were cached prior to that:
+
 ```{.bash}
 $ ssh-add -D
 ```
 
 Now, we need a configuration file:
+
 ```{.bash}
 $ touch ~/.ssh/config
 $ chmod 600 ~/.ssh/config
@@ -84,11 +89,11 @@ Host gitlab-work
    IdentityFile ~/.ssh/id_rsa_work
 ```
 
-* The directive `AddKeysToAgent yes` is useful to avoid typing `ssh-add path_to_key` every time SSH is needed.
-* The `Host` can have any name we want, it doesn't need to match the `HostName`.
-* The `HostName` is the address we need to access. This should be the same thing for all accounts using a particular service (here, GitHub or GitLab).
-* We can set the user to be `git` by default.
-* For each `Host`, we indicate which `IdentityFile` to use when trying to work with a remote repository.
+- The directive `AddKeysToAgent yes` is useful to avoid typing `ssh-add path_to_key` every time SSH is needed.
+- The `Host` can have any name we want, it doesn't need to match the `HostName`.
+- The `HostName` is the address we need to access. This should be the same thing for all accounts using a particular service (here, GitHub or GitLab).
+- We can set the user to be `git` by default.
+- For each `Host`, we indicate which `IdentityFile` to use when trying to work with a remote repository.
 
 ## Automatically load the keys from the Shell
 
@@ -116,15 +121,15 @@ With this setup, the SSH keys will be loaded when opening a terminal after booti
 
 The process will be slightly different on each platform on which we want to authenticate, but the gist of it is to paste the content of the public SSH key in the field when asked to do so.
 
-* [Instructions for GitLab](https://gitlab.com/help/ssh/README).
-* [Instructions for GitHub](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh).
-* [Instructions for Bitbucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/).
+- [Instructions for GitLab](https://gitlab.com/help/ssh/README).
+- [Instructions for GitHub](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh).
+- [Instructions for Bitbucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/).
 
 ---
 
 # Setting Git locally
 
-The idea is to have a `~/.gitconfig` file from which we load the main Git configuration by default (let's say, our personal account) and then we load another account  – overwriting the Git settings of the personal account with the settings defined for that other account – whenever we navigate to a directory that relates to that other account. Let's see this in action.
+The idea is to have a `~/.gitconfig` file from which we load the main Git configuration by default (let's say, our personal account) and then we load another account – overwriting the Git settings of the personal account with the settings defined for that other account – whenever we navigate to a directory that relates to that other account. Let's see this in action.
 
 ## Minimal `~/.gitconfig`
 
@@ -144,13 +149,14 @@ The idea is to have a `~/.gitconfig` file from which we load the main Git config
 	helper = store
 ```
 
-* The `[credential]` section with the setting `helper = store` will store your username/password combination when using HTTPS so you don't have to type it over and over again. You could also set this to `helper = cache` if you don't want to permanently store credentials.
-* The `includeIf` directive will be triggered whenever you are in a directory containing `company-x` in this case so that your correct GPG key and Git settings will be used instead of the default settings for your personal account.
-* In the block `[gpg]`, your system may be using the program `gpg2` instead of `gpg`.
+- The `[credential]` section with the setting `helper = store` will store your username/password combination when using HTTPS so you don't have to type it over and over again. You could also set this to `helper = cache` if you don't want to permanently store credentials.
+- The `includeIf` directive will be triggered whenever you are in a directory containing `company-x` in this case so that your correct GPG key and Git settings will be used instead of the default settings for your personal account.
+- In the block `[gpg]`, your system may be using the program `gpg2` instead of `gpg`.
 
 ## Minimal `~/.gitconfig-personal` and `~/.gitconfig-company-x`
 
 Example for one of those:
+
 ```{.bash}
 [user]
   email = email@work.com
@@ -205,9 +211,9 @@ Just follow the instructions from there. You may need to repeat the process mult
 
 Just like with the SSH keys, the process differs from one platform to the other.
 
-* [Instructions for GitLab](https://docs.gitlab.com/ee/user/project/repository/gpg_signed_commits/).
-* [Instructions for GitHub](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account).
-* [Instructions for Bitbucket](https://confluence.atlassian.com/bitbucketserver/using-gpg-keys-913477014.html).
+- [Instructions for GitLab](https://docs.gitlab.com/ee/user/project/repository/gpg_signed_commits/).
+- [Instructions for GitHub](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account).
+- [Instructions for Bitbucket](https://confluence.atlassian.com/bitbucketserver/using-gpg-keys-913477014.html).
 
 ---
 
@@ -253,8 +259,8 @@ If you type `git config --list` and search for the word "email" in the output, i
 
 This is one possible kind of setup we can use to work with SSH and GPG comfortably. This is pretty much a "set it and forget it" approach as long as you remember the following:
 
-* **SSH**: Change the SSH host when cloning. If the repository is not publicly available, it would fail anyways (or you may realize you can clone it if it's a public repo but have no `push` access).
-* **Git**: Make sure you are in a directory where the `includeIf` directive will kick in to set up the email, GPG key and so on.
+- **SSH**: Change the SSH host when cloning. If the repository is not publicly available, it would fail anyways (or you may realize you can clone it if it's a public repo but have no `push` access).
+- **Git**: Make sure you are in a directory where the `includeIf` directive will kick in to set up the email, GPG key and so on.
 
 One nice tip to help with the latter bullet point could be to define an alias, say in `~/.bash_aliases`, something like what follows:
 

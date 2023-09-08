@@ -19,19 +19,19 @@ regular expression and can also remove any line starting with an alias.
 
 The idea behind this small utility was simple:
 
--   The Bash history file (usually located in `~/.bash_history`) contains
-    much of the work one ends up doing in the terminal.
--   The history can grow large over time and it becomes more cumbersome to
-    find interesting information in all that clutter, such as a rarely used
-    command with specific flags.
--   By removing all superfluous commands that are repeated often and which
-    give no real benefit in certain contexts (such as `ls`, `cd`, `cat`,
-    etc.), the history is much cleaner and easier to navigate and actually
-    becomes much more useful in my opinion.
--   True, it will be harder to follow the bread crumbs for everything
-    you did, but I haven't come across a situation where having access
-    to yet another empty `ls` or `cd` has proven necessary and reading
-    `.bash_history` doesn't make for a great narrative story either.
+- The Bash history file (usually located in `~/.bash_history`) contains
+  much of the work one ends up doing in the terminal.
+- The history can grow large over time and it becomes more cumbersome to
+  find interesting information in all that clutter, such as a rarely used
+  command with specific flags.
+- By removing all superfluous commands that are repeated often and which
+  give no real benefit in certain contexts (such as `ls`, `cd`, `cat`,
+  etc.), the history is much cleaner and easier to navigate and actually
+  becomes much more useful in my opinion.
+- True, it will be harder to follow the bread crumbs for everything
+  you did, but I haven't come across a situation where having access
+  to yet another empty `ls` or `cd` has proven necessary and reading
+  `.bash_history` doesn't make for a great narrative story either.
 
 ---
 
@@ -65,10 +65,10 @@ PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 And here is the script in question \*. It comes in two files that need to be in the same directory:
 
--   One is a Python file that needs to be launched from the terminal with
-    Python 3.
--   The other file, `settings.json`, is a JSON file used to store the
-    settings of the script, which will be detailed below.
+- One is a Python file that needs to be launched from the terminal with
+  Python 3.
+- The other file, `settings.json`, is a JSON file used to store the
+  settings of the script, which will be detailed below.
 
 \* <sub>Improvements to the original script can be found on <a
 href="https://github.com/sglavoie/python-utilities/tree/main/bash_history_cleaner">Github</a>. To keep this

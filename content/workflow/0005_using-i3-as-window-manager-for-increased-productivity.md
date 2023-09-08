@@ -38,27 +38,27 @@ windows possible, like moving, resizing, minimizing or closing them.
 
 Desktop environments are very useful in many ways:
 
--   They are usually very easy to set up as they come fully functional out
-    of the box. Like opening a user session on macOS or Windows.
--   They are sometimes quite customizable, but you don't have to change
-    anything to get them to work, as they normally set default applications
-    to open with certain file types.
--   They automatically integrate services such as WiFi network detection,
-    automatic mounting of drives when you plug them in, etc.
--   You can enable [virtual
-    desktops](https://en.wikipedia.org/wiki/Virtual_desktop)
-    to split your work
-    across different spaces. This concept can grow to
-    _[Activities](https://docs.kde.org/trunk5/en/kde-workspace/plasma-deskto
-    p/activities-interface.html)_, which is a feature implemented in KDE
-    that allows you to use virtual spaces literally for different activities
-    by having settings that are specific to each activity (like launching
-    one application or keeping widgets in determined positions), plus the
-    ability to use multiple virtual desktops inside each _activity_.
--   They integrate with applications that are specifically designed to
-    take advantage of the desktop environment in question by adapting
-    colors and themes perfectly to match the general look of the system and
-    arranging settings in a common location for all applications.
+- They are usually very easy to set up as they come fully functional out
+  of the box. Like opening a user session on macOS or Windows.
+- They are sometimes quite customizable, but you don't have to change
+  anything to get them to work, as they normally set default applications
+  to open with certain file types.
+- They automatically integrate services such as WiFi network detection,
+  automatic mounting of drives when you plug them in, etc.
+- You can enable [virtual
+  desktops](https://en.wikipedia.org/wiki/Virtual_desktop)
+  to split your work
+  across different spaces. This concept can grow to
+  _[Activities](https://docs.kde.org/trunk5/en/kde-workspace/plasma-deskto
+  p/activities-interface.html)_, which is a feature implemented in KDE
+  that allows you to use virtual spaces literally for different activities
+  by having settings that are specific to each activity (like launching
+  one application or keeping widgets in determined positions), plus the
+  ability to use multiple virtual desktops inside each _activity_.
+- They integrate with applications that are specifically designed to
+  take advantage of the desktop environment in question by adapting
+  colors and themes perfectly to match the general look of the system and
+  arranging settings in a common location for all applications.
 
 ---
 
@@ -246,6 +246,6 @@ I have found the following screencasts on YouTube to be quite useful in
 learning how to configure `i3` (apart from the official documentation
 which is very comprehensive):
 
--   [i3wm: Jump Start (1/3)](https://www.youtube.com/watch?v=j1I63wGcvU4)
--   [i3wm: Configuration (2/3)](https://www.youtube.com/watch?v=8-S0cWnLBKg)
--   [i3wm: How To "Rice" Your Desktop (3/3)](https://www.youtube.com/watch?v=ARKIwOlazKI)
+- [i3wm: Jump Start (1/3)](https://www.youtube.com/watch?v=j1I63wGcvU4)
+- [i3wm: Configuration (2/3)](https://www.youtube.com/watch?v=8-S0cWnLBKg)
+- [i3wm: How To "Rice" Your Desktop (3/3)](https://www.youtube.com/watch?v=ARKIwOlazKI)

@@ -40,10 +40,10 @@ This tool should:
 - Format the output:
   - `Date` should become headers (`##`).
   - `Category` should be **bolded**.
-  - `Sub-category` should be *emphasized*.
+  - `Sub-category` should be _emphasized_.
   - `Title` should become a [link](https://example.com) if the `Link` column contains a valid URL.
   - `Activity` should be nested under `Title`, occupying a new line for each activity.
-  - `Notes` should appear (*italicized and inside parentheses*) next to the activity.
+  - `Notes` should appear (_italicized and inside parentheses_) next to the activity.
     - If there is a value for `Notes` but no value for `Activity`, the output would be next to the `Title`.
 
 ### Input
@@ -73,26 +73,26 @@ A Markdown output to the terminal in the following format:
 
 - [Python/C API Reference Manual](https://docs.python.org/3/c-api/index.html)
 - **Books**
-    - Clean Coder (_book note_)
-    - *Software engineering*
-        - Clean Code
-            - ch. 2-10
+  - Clean Coder (_book note_)
+  - _Software engineering_
+    - Clean Code
+      - ch. 2-10
 - **Documentation**
-    - *Python*
-        - [The Python Tutorial](https://docs.python.org/3/tutorial/index.html)
-            - Sections 1-4
+  - _Python_
+    - [The Python Tutorial](https://docs.python.org/3/tutorial/index.html)
+      - Sections 1-4
 
 ## November
 
 - **Articles**
-    - *Python*
-        - [Python slots, slots, and object layout](https://www.youtube.com/watch?v=Iwf17zsDAnY) (_understood that X does Y_)
+  - _Python_
+    - [Python slots, slots, and object layout](https://www.youtube.com/watch?v=Iwf17zsDAnY) (_understood that X does Y_)
 - **Books**
-    - *Software engineering*
-        - Clean Code
-        - [The Pragmatic Programmer](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/)
-            - ch. 1 (_note 1 here_)
-            - ch. 2 (_note 2 here too_)
+  - _Software engineering_
+    - Clean Code
+    - [The Pragmatic Programmer](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/)
+      - ch. 1 (_note 1 here_)
+      - ch. 2 (_note 2 here too_)
 ```
 
 <figure>
@@ -102,7 +102,7 @@ A Markdown output to the terminal in the following format:
 
 ## Installing this tool
 
-*Tested only under Python 3.9.7*, requires at least Python 3.7+.
+_Tested only under Python 3.9.7_, requires at least Python 3.7+.
 
 ### Using `pip`
 

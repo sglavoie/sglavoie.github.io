@@ -369,7 +369,7 @@ A few notes on the **Navigation** section:
 
 ### Nice addition to make the mouse follow any focused container
 
-By default, the focus of the mouse in i3 will go to the active screen, but it won't follow the focus if switching to different containers on the *same* screen. I found this little hack using the `center-mouse` script after running commands like `move` and `focus` to force the mouse to move to any focused container. For convenience, [here is the content of that script](https://github.com/sglavoie/dotfiles/blob/main/.config/i3/center-mouse). You will need the program `xdotool` to use it.
+By default, the focus of the mouse in i3 will go to the active screen, but it won't follow the focus if switching to different containers on the _same_ screen. I found this little hack using the `center-mouse` script after running commands like `move` and `focus` to force the mouse to move to any focused container. For convenience, [here is the content of that script](https://github.com/sglavoie/dotfiles/blob/main/.config/i3/center-mouse). You will need the program `xdotool` to use it.
 
 ## Layout
 
@@ -453,6 +453,7 @@ for_window [instance=$todoist-app-name]  floating enable
 for_window [instance=$todoist-app-name]  move scratchpad
 for_window [instance=$todoist-app-name]  resize set $scratchpad-size
 ```
+
 A note on the **Scratchpad** section:
 
 - In my setup, I have two screens with the same resolution of 1920x1080, so the same "resize" command works on both screens. You might want to use two different keybindings if you want to bring a scratchpad back to a screen with a different resolution.
@@ -484,7 +485,6 @@ A few notes on the **Borders** section:
     <a href="{static}/images/posts/0022_guided-tour-i3/demo_dark_light_background_thick_border.png"><img src="{static}/images/posts/0022_guided-tour-i3/demo_dark_light_background_thick_border.png" alt="demo_dark_light_background_thick_border_i3" class="max-size-img-post"></a>
     <figcaption>Bashtop on the left with a dark background, LibreOffice on the right with a light background, Neofetch floating window on top featuring a thick, blue border.</figcaption>
 </figure>
-
 
 ## dmenu
 
@@ -677,6 +677,7 @@ for_window [title="File Transfer*"]   floating enable border pixel 5
 for_window [title="alsamixer"]        floating enable border pixel 5
 for_window [class="(?i)zoom"]         floating enable border pixel 5
 ```
+
 The section **Autostart applications** is the list of applications that launch when you open your X session with i3.
 
 ## Keyboard & mouse

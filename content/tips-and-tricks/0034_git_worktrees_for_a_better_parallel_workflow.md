@@ -118,7 +118,7 @@ I have briefly touched upon a downside of worktrees, which is that it's almost l
 - [`git-worktree` / Examples - git-scm.com](https://git-scm.com/docs/git-worktree#_examples)
 - [`git-clone` on `--bare` - git-scm.com](https://git-scm.com/docs/git-clone#Documentation/git-clone.txt---bare)
 - [Git's Best And Most Unknown Feature - ThePrimeagen, YouTube](https://www.youtube.com/watch?v=2uEqYw-N8uE)
-- [Git Worktree Tutorial -  Redhwan Nacef, YouTube](https://www.youtube.com/watch?v=4_p1OdLeDLE)
+- [Git Worktree Tutorial - Redhwan Nacef, YouTube](https://www.youtube.com/watch?v=4_p1OdLeDLE)
 
 ### From this website
 

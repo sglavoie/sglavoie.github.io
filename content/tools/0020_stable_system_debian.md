@@ -105,13 +105,13 @@ Because no company backs Debian directly, it relies on a community effort to kee
 
 # Resources to Get Started
 
--   [Debian Documentation](https://www.debian.org/doc/)
--   [Debian User Forums](http://forums.debian.net/)
--   [Debian Wiki](https://wiki.debian.org/)
--   Developer-oriented: [resources for contributing to Debian](https://www.debian.org/doc/manuals/developers-reference/resources.html)
--   Cloud-oriented: [tutorials for Debian on Digital Ocean](https://www.digitalocean.com/community/tags/debian)
--   [i3 tiling window manager](https://i3wm.org/)
--   [Xfce Desktop Environment](https://www.xfce.org/)
+- [Debian Documentation](https://www.debian.org/doc/)
+- [Debian User Forums](http://forums.debian.net/)
+- [Debian Wiki](https://wiki.debian.org/)
+- Developer-oriented: [resources for contributing to Debian](https://www.debian.org/doc/manuals/developers-reference/resources.html)
+- Cloud-oriented: [tutorials for Debian on Digital Ocean](https://www.digitalocean.com/community/tags/debian)
+- [i3 tiling window manager](https://i3wm.org/)
+- [Xfce Desktop Environment](https://www.xfce.org/)
 
 ---
 

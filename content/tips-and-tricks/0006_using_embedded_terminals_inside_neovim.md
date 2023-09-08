@@ -48,33 +48,33 @@ as always.
 This is getting exciting (at least for me). Now, having a terminal with
 more power is useful in many cases:
 
--   A whole terminal session can be saved to another file easily by
-    copying the desired range (`:%y` to copy everything, for example).
+- A whole terminal session can be saved to another file easily by
+  copying the desired range (`:%y` to copy everything, for example).
 
--   Instead of having to scroll with the mouse, all Vim commands are
-    available to search and navigate through the buffer: `gg` to go to the
-    beginning of the session, `G` to go to the end, `12G` to go to line
-    number **12**, `/` or `?` to search forward and backward respectively.
-    You can even set local or global marks to jump back and forth to precise
-    lines consistently!
+- Instead of having to scroll with the mouse, all Vim commands are
+  available to search and navigate through the buffer: `gg` to go to the
+  beginning of the session, `G` to go to the end, `12G` to go to line
+  number **12**, `/` or `?` to search forward and backward respectively.
+  You can even set local or global marks to jump back and forth to precise
+  lines consistently!
 
--   It's even possible to send commands directly to a specific
-    terminal or set up a REPL to execute any code, either a
-    selection, a line or a range of lines. I don't personally
-    use that feature yet, but I see how useful that can be and
-    you can too if you watch this [screencast presented by Drew
-    Neil](https://thoughtbot.com/upcase/videos/neovim-sending-commands-to-a-
-    terminal-buffer) on
-    [thoughtbot.com](https://thoughtbot.com).
+- It's even possible to send commands directly to a specific
+  terminal or set up a REPL to execute any code, either a
+  selection, a line or a range of lines. I don't personally
+  use that feature yet, but I see how useful that can be and
+  you can too if you watch this [screencast presented by Drew
+  Neil](https://thoughtbot.com/upcase/videos/neovim-sending-commands-to-a-
+  terminal-buffer) on
+  [thoughtbot.com](https://thoughtbot.com).
 
--   If the terminal is opened in `Normal` mode, the cursor and the current
-    position are kept intact even though new output could appear, such as
-    would be the case if you are running a server in the background or
-    waiting for a system update to finish. This is especially nice for
-    instance if you are trying to debug a web application: you can leave the
-    cursor exactly where you would like to keep reading the output and never
-    get lost... Plus you have the ability to easily move around, search and
-    copy like a ninja!
+- If the terminal is opened in `Normal` mode, the cursor and the current
+  position are kept intact even though new output could appear, such as
+  would be the case if you are running a server in the background or
+  waiting for a system update to finish. This is especially nice for
+  instance if you are trying to debug a web application: you can leave the
+  cursor exactly where you would like to keep reading the output and never
+  get lost... Plus you have the ability to easily move around, search and
+  copy like a ninja!
 
 ### The workflow is more compact and centralized
 

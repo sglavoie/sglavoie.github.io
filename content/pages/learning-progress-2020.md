@@ -20,43 +20,43 @@ save_as: learning-progress-2020.html
 
 ### 30
 
--   University of London
-    -   **Agile Software Projects**
-        -   Converting user stories to use case diagrams.
+- University of London
+  - **Agile Software Projects**
+    - Converting user stories to use case diagrams.
 - Vim: Run multiple Ex Commands as a batch.
 - [Fundamentals of TDD](https://thoughtbot.com/upcase/videos/fundamentals-of-tdd-overview): Red-Green-Refactor by Example.
 
 ### 29
 
--   University of London
-    -   **Agile Software Projects**
-        -   Converting user stories to use case diagrams.
+- University of London
+  - **Agile Software Projects**
+    - Converting user stories to use case diagrams.
 - Vim: Running commands in the shell.
 - [Fundamentals of TDD](https://thoughtbot.com/upcase/videos/fundamentals-of-tdd-overview): Overview.
 
 ### 28
 
--   University of London
-    -   **Agile Software Projects**
-        -   Use case diagrams.
+- University of London
+  - **Agile Software Projects**
+    - Use case diagrams.
 - Vim: Tab-complete Ex commands; insert word under the cursor in command mode; recall commands from history.
 - [Mastering the shell](https://thoughtbot.com/upcase/videos/mastering-the-shell-overview): configure the shell.
 
 ### 27
 
--   University of London
-    -   **Agile Software Projects**
-        -   Market research.
-    -   **Programming With Data**
-        -   Python: Error handling; plotting in Matplotlib.
+- University of London
+  - **Agile Software Projects**
+    - Market research.
+  - **Programming With Data**
+    - Python: Error handling; plotting in Matplotlib.
 - Vim: Running normal commands across a range.
 - [Mastering the shell](https://thoughtbot.com/upcase/videos/mastering-the-shell-overview): Shell scripting.
 
 ### 26
 
--   University of London
-    -   **Programming With Data**
-        -   Python: Cleaning data.
+- University of London
+  - **Programming With Data**
+    - Python: Cleaning data.
 - Vim: Duplicating and moving lines with `:t` and `:m`.
 - [Mastering the shell](https://thoughtbot.com/upcase/videos/mastering-the-shell-overview): Pipes; inputs; outputs.
 - [betaveros on Advent of Code](https://blog.vero.site/post/advent-leaderboard).
@@ -68,52 +68,52 @@ save_as: learning-progress-2020.html
 
 ### 23
 
--   University of London
-    -   **Agile Software Projects**
-        -   Market research.
-    -   **Programming With Data**
-        -   Python: Cleaning data.
+- University of London
+  - **Agile Software Projects**
+    - Market research.
+  - **Programming With Data**
+    - Python: Cleaning data.
 - Vim: Editing tabular data with visual block mode.
 - tmux: `man` page, commands, keybindings.
 - [Mastering the shell](https://thoughtbot.com/upcase/videos/mastering-the-shell-overview): `man` page, commands, keybindings.
 
 ### 22
 
--   University of London
-    -   **Agile Software Projects**
-        -   Market research.
-    -   **Programming With Data**
-        -   Python: Defensive programming with error handling.
+- University of London
+  - **Agile Software Projects**
+    - Market research.
+  - **Programming With Data**
+    - Python: Defensive programming with error handling.
 - Vim: More on Visual mode.
 - tmux: Advanced workflows.
 
 ### 21
 
--   University of London
-    -   **Agile Software Projects**
-        -   Market research; testing in context, types of tests; measuring aims and objectives.
+- University of London
+  - **Agile Software Projects**
+    - Market research; testing in context, types of tests; measuring aims and objectives.
 - Vim: Inserting unusual characters by character code and digraph; overwriting existing text in Replace mode.
 - tmux: Vim integration.
 - Setting up `cloud_sql_proxy` inside Docker.
 
 ### 20
 
--   University of London
-    -   **Agile Software Projects**
-        -   Market research, user survey.
-    -   **Programming With Data**
-        -   Python: Scraping data.
+- University of London
+  - **Agile Software Projects**
+    - Market research, user survey.
+  - **Programming With Data**
+    - Python: Scraping data.
 - Vim: Make corrections instantly from Insert mode; paste from a register without leaving insert mode.
 - tmux: Configuration; layout & navigation.
 - How to set up live streaming on YouTube with OBS.
 
 ### 19
 
--   University of London
-    -   **Agile Software Projects**
-        -   Requirements gathering/elicitation.
-    -   **Programming With Data**
-        -   Python: Scraping data.
+- University of London
+  - **Agile Software Projects**
+    - Requirements gathering/elicitation.
+  - **Programming With Data**
+    - Python: Scraping data.
 - Basics of command handlers with Discord bot.
 - Configuring basic Docker images.
 - Vim: Operator-pending mode.
@@ -121,118 +121,118 @@ save_as: learning-progress-2020.html
 
 ### 18
 
--   University of London
-    -   **Programming With Data**
-        -   Python: Scraping data.
+- University of London
+  - **Programming With Data**
+    - Python: Scraping data.
 
 ### 17
 
--   University of London
-    -   **Agile Software Projects**
-        -   [Project] Researching state of worldwide broadband access.
-    -   **Programming With Data**
-        -   Python: Scraping data.
+- University of London
+  - **Agile Software Projects**
+    - [Project] Researching state of worldwide broadband access.
+  - **Programming With Data**
+    - Python: Scraping data.
 
 ### 16
 
--   University of London
-    -   **Agile Software Projects**
-        -   [Project] Researching state of worldwide broadband access.
-    -   **Programming With Data**
-        -   Python: Integrating Jupytext with pre-commit hook.
+- University of London
+  - **Agile Software Projects**
+    - [Project] Researching state of worldwide broadband access.
+  - **Programming With Data**
+    - Python: Integrating Jupytext with pre-commit hook.
 
 ### 15
 
--   University of London
-    -   **Agile Software Projects**
-        -   [Project] Researching state of worldwide broadband access.
-    -   **Programming With Data**
-        -   Python: VCS with Jupyter Notebooks using Jupytext.
+- University of London
+  - **Agile Software Projects**
+    - [Project] Researching state of worldwide broadband access.
+  - **Programming With Data**
+    - Python: VCS with Jupyter Notebooks using Jupytext.
 
 ### 14
 
--   University of London
-    -   **Agile Software Projects**
-        -   Creating a user survey.
-    -   **Programming With Data**
-        -   Python, `pandas`: concatenate; merge; compare.
-        -   Python: Data visualisation principles, `seaborn`.
-        -   Git.
+- University of London
+  - **Agile Software Projects**
+    - Creating a user survey.
+  - **Programming With Data**
+    - Python, `pandas`: concatenate; merge; compare.
+    - Python: Data visualisation principles, `seaborn`.
+    - Git.
 - Vim: use counts to do simple arithmetic and repeat commands.
 
 ### 13
 
--   University of London
-    -   **Agile Software Projects**
-        -   Introduction to testing, evaluation methods, unit tests, software proposal.
-    -   **Programming With Data**
-        -   Python, `pandas`: dummy variables; exploding values; merge; join; concatenate.
-        -   Python: `unittest` module.
+- University of London
+  - **Agile Software Projects**
+    - Introduction to testing, evaluation methods, unit tests, software proposal.
+  - **Programming With Data**
+    - Python, `pandas`: dummy variables; exploding values; merge; join; concatenate.
+    - Python: `unittest` module.
 - Vim: Comparing buffers with `vimdiff`; updating config on the fly; compose repeatable changes.
 - tmux: Managing sessions.
 - i3: Review how containers are stored and managed with trees.
 
 ### 12
 
--   University of London
-    -   **Graphics Programming**
-        -  `p5.js`: Interview with Memo Atken (computer vision).
+- University of London
+  - **Graphics Programming**
+    - `p5.js`: Interview with Memo Atken (computer vision).
 - Vim: Find and replace by hand; using the "dot" command; chunking undos.
 - tmux: Keybindings.
 
 ### 10
 
--   University of London
-    -   **Agile Software Projects**
-        -   Agile in practice, lean approach, Kanban basics, Scrum and sprints, software proposal.
-    -   **Graphics Programming**
-        -  `p5.js`: Optical flow; face detection.
-    -   **Programming With Data**
-        -   Python, `pandas`: Pivot tables; cross tabulation.
+- University of London
+  - **Agile Software Projects**
+    - Agile in practice, lean approach, Kanban basics, Scrum and sprints, software proposal.
+  - **Graphics Programming**
+    - `p5.js`: Optical flow; face detection.
+  - **Programming With Data**
+    - Python, `pandas`: Pivot tables; cross tabulation.
 - Figma: Scroll between elements in prototypes.
 - Vim: Repeating and reversing operations.
 - tmux: Keybindings.
 
 ### 9
 
--   University of London
-    -   **Agile Software Projects**
-        -   Software proposal.
-    -   **Graphics Programming**
-        -  `p5.js`: Background subtraction; frame differencing.
+- University of London
+  - **Agile Software Projects**
+    - Software proposal.
+  - **Graphics Programming**
+    - `p5.js`: Background subtraction; frame differencing.
 - Vim: [Project-wide search & replace](http://vimcasts.org/episodes/project-wide-find-and-replace/).
 
 ### 8
 
--   University of London
-    -   **Agile Software Projects**
-        -   Defining Agile, software proposal.
-    -   **Graphics Programming**
-        -  `p5.js`: Computer vision and its applications; brightness tracking; colour tracking.
+- University of London
+  - **Agile Software Projects**
+    - Defining Agile, software proposal.
+  - **Graphics Programming**
+    - `p5.js`: Computer vision and its applications; brightness tracking; colour tracking.
 
 ### 7
 
--   University of London
-    -   **Agile Software Projects**
-        -   Predictive models; prototyping.
-    -   **Programming With Data**
-        -   Python, `pandas`: Reshaping and pivot tables.
+- University of London
+  - **Agile Software Projects**
+    - Predictive models; prototyping.
+  - **Programming With Data**
+    - Python, `pandas`: Reshaping and pivot tables.
 
 ### 6
 
--   University of London
-    -   **Agile Software Projects**
-        -   A/B testing; predictive models.
-    -   **Graphics Programming**
-        -  `p5.js`: Instagram filter.
+- University of London
+  - **Agile Software Projects**
+    - A/B testing; predictive models.
+  - **Graphics Programming**
+    - `p5.js`: Instagram filter.
 
 ### 5
 
--   University of London
-    -   **Agile Software Projects**
-        -   Heuristic evaluation; walk-throughs; analytics and A/B testing.
-    -   **Graphics Programming**
-        -  `p5.js`: Instagram filter.
+- University of London
+  - **Agile Software Projects**
+    - Heuristic evaluation; walk-throughs; analytics and A/B testing.
+  - **Graphics Programming**
+    - `p5.js`: Instagram filter.
 - Python: quick review of packing and unpacking.
 
 ### 3
@@ -252,105 +252,105 @@ save_as: learning-progress-2020.html
 
 ### 30
 
--   University of London
-    -   **Agile Software Projects**
-        -   Design patterns; open source resources; tools for interaction design.
-    -   **Graphics Programming**
-        -  `p5.js`: Instagram filter.
+- University of London
+  - **Agile Software Projects**
+    - Design patterns; open source resources; tools for interaction design.
+  - **Graphics Programming**
+    - `p5.js`: Instagram filter.
 - Figma: layout grids; scrollable content on mobile; building a navigation menu with components.
 
 ### 29
 
--   University of London
-    -   **Agile Software Projects**
-        -   Introduction to user-centred design.
-    -   **Graphics Programming**
-        -  `p5.js`: Instagram filter.
+- University of London
+  - **Agile Software Projects**
+    - Introduction to user-centred design.
+  - **Graphics Programming**
+    - `p5.js`: Instagram filter.
 
 ### 28
 
--   University of London
-    -   **Agile Software Projects**
-        -   Introduction to user-centred design; agileUX; design patterns.
-    -   **Graphics Programming**
-        -  `p5.js`: Instagram filter.
-    -   **Programming With Data**
-        -   Python, `pandas`: Reshaping and pivot tables.
+- University of London
+  - **Agile Software Projects**
+    - Introduction to user-centred design; agileUX; design patterns.
+  - **Graphics Programming**
+    - `p5.js`: Instagram filter.
+  - **Programming With Data**
+    - Python, `pandas`: Reshaping and pivot tables.
 
 ### 27
 
--   University of London
-    -   **Graphics Programming**
-        -  `p5.js`: filters (edge detection, sharpen, in GIMP).
-    -   **Programming With Data**
-        -   Python, `pandas`: Reshaping and pivot tables.
+- University of London
+  - **Graphics Programming**
+    - `p5.js`: filters (edge detection, sharpen, in GIMP).
+  - **Programming With Data**
+    - Python, `pandas`: Reshaping and pivot tables.
 - Figma: review shapes and tools; Bézier tool; masks; text; layers; components; variants.
 
 ### 26
 
--   University of London
-    -   **Agile Software Projects**
-        -   Market analysis.
-    -   **Graphics Programming**
-        -  `p5.js`: Digital image processing; filters (invert, grayscale, threshold, blur); convolution.
+- University of London
+  - **Agile Software Projects**
+    - Market analysis.
+  - **Graphics Programming**
+    - `p5.js`: Digital image processing; filters (invert, grayscale, threshold, blur); convolution.
 - Figma: vectors; variants; constraints; shapes; gradients; auto layout; styles; guides; components; masks.
 - Very brief intro to TypeScript.
 
 ### 25
 
--   University of London
-    -   **Graphics Programming**
-        -  `p5.js`: working with images; pixels; averaging images.
+- University of London
+  - **Graphics Programming**
+    - `p5.js`: working with images; pixels; averaging images.
 - Mocking in Python.
 
 ### 24
 
--   University of London
-    -   **Agile Software Projects**
-        -   Requirements gathering, market analysis.
-    -   **Graphics Programming**
-        -  `p5.js`: working with images; pixels; averaging images.
+- University of London
+  - **Agile Software Projects**
+    - Requirements gathering, market analysis.
+  - **Graphics Programming**
+    - `p5.js`: working with images; pixels; averaging images.
 - Review how to undo actions in Git.
 
 ### 23
 
--   University of London
-    -   **Agile Software Projects**
-        -   Requirements gathering, market analysis.
-    -   **Graphics Programming**
-        -  `p5.js`: working with images; pixels; averaging images.
+- University of London
+  - **Agile Software Projects**
+    - Requirements gathering, market analysis.
+  - **Graphics Programming**
+    - `p5.js`: working with images; pixels; averaging images.
 
 ### 22
 
--   University of London
-    -   **Agile Software Projects**
-        -   Introduction to user centred design; interaction design in practice.
-    -   **Graphics Programming**
-        -  `p5.js`: working with images; pixels.
+- University of London
+  - **Agile Software Projects**
+    - Introduction to user centred design; interaction design in practice.
+  - **Graphics Programming**
+    - `p5.js`: working with images; pixels.
 
 ### 21
 
--   University of London
-    -   **Agile Software Projects**
-        -   Research questions.
-    -   **Graphics Programming**
-        -  `p5.js`: 3D and WebGL; colour harmony; working with images; pixels.
-    -   **Programming With Data**
-        -   Python: data cleaning and preparation; SQL injections.
+- University of London
+  - **Agile Software Projects**
+    - Research questions.
+  - **Graphics Programming**
+    - `p5.js`: 3D and WebGL; colour harmony; working with images; pixels.
+  - **Programming With Data**
+    - Python: data cleaning and preparation; SQL injections.
 
 ### 20
 
--   University of London
-    -   **Graphics Programming**
-        -  `p5.js`: 3D and WebGL.
-    -   **Programming With Data**
-        -   Python: data cleaning and preparation.
+- University of London
+  - **Graphics Programming**
+    - `p5.js`: 3D and WebGL.
+  - **Programming With Data**
+    - Python: data cleaning and preparation.
 
 ### 19
 
--   University of London
-    -   **Agile Software Projects**
-        -   Research questions.
+- University of London
+  - **Agile Software Projects**
+    - Research questions.
 
 ### 17
 
@@ -358,324 +358,325 @@ save_as: learning-progress-2020.html
 
 ### 16
 
--   University of London
-    -   **Agile Software Projects**
-        -   Research questions.
-    -   **Graphics Programming**
-        -  `p5.js`: 3D and WebGL.
+- University of London
+  - **Agile Software Projects**
+    - Research questions.
+  - **Graphics Programming**
+    - `p5.js`: 3D and WebGL.
 
 ### 15
 
--   University of London
-    -   **Agile Software Projects**
-        -   User stories, choosing a tech stack.
-    -   **Programming With Data**
-        -   Python: data cleaning and preparation.
-    -   **Graphics Programming**
-        -  `matter.js`: Graphics in video games; graphics in films and art; introduction to 3D graphics with materials and lights; camera and perspective; texture.
+- University of London
+  - **Agile Software Projects**
+    - User stories, choosing a tech stack.
+  - **Programming With Data**
+    - Python: data cleaning and preparation.
+  - **Graphics Programming**
+    - `matter.js`: Graphics in video games; graphics in films and art; introduction to 3D graphics with materials and lights; camera and perspective; texture.
 
 ### 14
 
--   University of London
-    -   **Programming With Data**
-        -   Python: data cleaning and preparation.
-    -   **Graphics Programming**
-        -  `matter.js`: Additive syntesis; fractals; Sierpinski carpet.
+- University of London
+  - **Programming With Data**
+    - Python: data cleaning and preparation.
+  - **Graphics Programming**
+    - `matter.js`: Additive syntesis; fractals; Sierpinski carpet.
 - Review [cron/crontab](https://www.youtube.com/watch?v=QZJ1drMQz1A) with Corey Schafer.
 
 ### 13
 
--   University of London
-    -   **Agile Software Projects**
-        -   Department for Education [Realising the potential of technology in education: A strategy for education providers and the technology industry](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/791931/DfE-Education_Technology_Strategy.pdf).
-    -   **Graphics Programming**
-        -  `matter.js`: Oscillation.
+- University of London
+  - **Agile Software Projects**
+    - Department for Education [Realising the potential of technology in education: A strategy for education providers and the technology industry](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/791931/DfE-Education_Technology_Strategy.pdf).
+  - **Graphics Programming**
+    - `matter.js`: Oscillation.
 - Review the [`grep` command](https://www.youtube.com/watch?v=VGgTmxXp7xQ) and the [`find` command](https://www.youtube.com/watch?v=KCVaNb_zOuw) with Corey Schafer.
 
 ### 12
 
--   University of London
-    -   **Agile Software Projects**
-        -   Department for Education [Realising the potential of technology in education: A strategy for education providers and the technology industry](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/791931/DfE-Education_Technology_Strategy.pdf).
-    -   **Graphics Programming**
-        -  `matter.js`: Trigonometry.
-    -   **Programming With Data**
-        -   Python: data cleaning and preparation.
+- University of London
+  - **Agile Software Projects**
+    - Department for Education [Realising the potential of technology in education: A strategy for education providers and the technology industry](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/791931/DfE-Education_Technology_Strategy.pdf).
+  - **Graphics Programming**
+    - `matter.js`: Trigonometry.
+  - **Programming With Data**
+    - Python: data cleaning and preparation.
 
 ### 11
 
--   University of London
-    -   **Agile Software Projects**
-        -   User stories.
-    -   **Graphics Programming**
-        -  `matter.js`: Perlin noise; 2D noise; 3D noise.
-    -   **Programming With Data**
-        -   Python: Errors and exceptions; exploring the problem space of cleaning data.
+- University of London
+  - **Agile Software Projects**
+    - User stories.
+  - **Graphics Programming**
+    - `matter.js`: Perlin noise; 2D noise; 3D noise.
+  - **Programming With Data**
+    - Python: Errors and exceptions; exploring the problem space of cleaning data.
 
 ### 10
 
--   University of London
-    -   **Agile Software Projects**
-        -   Design and prototyping.
-    -   **Graphics Programming**
-        -  `matter.js`: Perlin noise; 2D noise; 3D noise.
-    -   **Programming With Data**
-        -   Python: Working with missing data in `pandas`, `assert`, errors and exceptions.
+- University of London
+  - **Agile Software Projects**
+    - Design and prototyping.
+  - **Graphics Programming**
+    - `matter.js`: Perlin noise; 2D noise; 3D noise.
+  - **Programming With Data**
+    - Python: Working with missing data in `pandas`, `assert`, errors and exceptions.
 
 ### 9
 
--   University of London
-    -   **Graphics Programming**
-        -  `matter.js`: Perlin noise; 2D noise; 3D noise.
+- University of London
+  - **Graphics Programming**
+    - `matter.js`: Perlin noise; 2D noise; 3D noise.
 
 ### 8
 
--   University of London
-    -   **Agile Software Projects**
-        -   Market analysis.
-    -   **Graphics Programming**
-        -  `matter.js`: Working with time and progress bars; generative art.
-    -   **Programming With Data**
-        -   Python: Cleaning and restructuring data.
+- University of London
+  - **Agile Software Projects**
+    - Market analysis.
+  - **Graphics Programming**
+    - `matter.js`: Working with time and progress bars; generative art.
+  - **Programming With Data**
+    - Python: Cleaning and restructuring data.
 
 ### 7
 
--   University of London
-    -   **Graphics Programming**
-        -  `matter.js`: Working with time and progress bars.
+- University of London
+  - **Graphics Programming**
+    - `matter.js`: Working with time and progress bars.
 
 ### 6
 
--   University of London
-    -   **Agile Software Projects**
-        -   Design, prototyping, and construction.
-    -   **Graphics Programming**
-        -  `matter.js`: Working with time and progress bars.
+- University of London
+  - **Agile Software Projects**
+    - Design, prototyping, and construction.
+  - **Graphics Programming**
+    - `matter.js`: Working with time and progress bars.
 
 ### 5
 
--   University of London
-    -   **Graphics Programming**
-        -  `matter.js`: Working with time and progress bars.
+- University of London
+  - **Graphics Programming**
+    - `matter.js`: Working with time and progress bars.
 
 ### 4
 
--   University of London
-    -   **Agile Software Projects**
-        -   Design, prototyping, and construction.
-    -   **Graphics Programming**
-        -  `matter.js`: Constraints.
-    -   **Programming With Data**
-        -   Python: Retrieving data from databases using query languages; getting to grips with the basics, working with missing data in Pandas, asserts and exceptions.
+- University of London
+  - **Agile Software Projects**
+    - Design, prototyping, and construction.
+  - **Graphics Programming**
+    - `matter.js`: Constraints.
+  - **Programming With Data**
+    - Python: Retrieving data from databases using query languages; getting to grips with the basics, working with missing data in Pandas, asserts and exceptions.
 
 ### 3
 
--   University of London
-    -   **Agile Software Projects**
-        -   User-centred design in a nutshell; design, prototyping, and construction.
-    -   **Graphics Programming**
-        -  `matter.js`: Constraints.
-    -   **Programming With Data**
-        -   SQL and connection handling in Python.
+- University of London
+  - **Agile Software Projects**
+    - User-centred design in a nutshell; design, prototyping, and construction.
+  - **Graphics Programming**
+    - `matter.js`: Constraints.
+  - **Programming With Data**
+    - SQL and connection handling in Python.
+
 ### 3
 
--   University of London
-    -   **Agile Software Projects**
-        -   User-centred design in a nutshell; design, prototyping, and construction.
-    -   **Graphics Programming**
-        -  `matter.js`: Constraints.
-    -   **Programming With Data**
-        -   SQL and connection handling in Python.
+- University of London
+  - **Agile Software Projects**
+    - User-centred design in a nutshell; design, prototyping, and construction.
+  - **Graphics Programming**
+    - `matter.js`: Constraints.
+  - **Programming With Data**
+    - SQL and connection handling in Python.
 
 ### 2
 
--   University of London
-    -   **Agile Software Projects**
-        -   User-centred design in a nutshell.
-    -   **Graphics Programming**
-        -  `matter.js`: Static objects and composites.
-    -   **Programming With Data**
-        -   Introduction to SQL.
+- University of London
+  - **Agile Software Projects**
+    - User-centred design in a nutshell.
+  - **Graphics Programming**
+    - `matter.js`: Static objects and composites.
+  - **Programming With Data**
+    - Introduction to SQL.
 
 ### 1
 
--   University of London
-    -   **Agile Software Projects**
-        -   Competitor analysis; alternative models to SWOT/STEEPLE.
-    -   **Graphics Programming**
-        -  `matter.js`: Static objects and composites.
-    -   **Programming With Data**
-        -   Introduction to HTML, DOM, web scraping, HTTP, file formats on the web; regular expressions; introduction to databases.
+- University of London
+  - **Agile Software Projects**
+    - Competitor analysis; alternative models to SWOT/STEEPLE.
+  - **Graphics Programming**
+    - `matter.js`: Static objects and composites.
+  - **Programming With Data**
+    - Introduction to HTML, DOM, web scraping, HTTP, file formats on the web; regular expressions; introduction to databases.
 
 ## October
 
 ### 31
 
--   University of London
-    -   **Graphics Programming**
-        -  Introduction to `matter.js`; constraints.
+- University of London
+  - **Graphics Programming**
+    - Introduction to `matter.js`; constraints.
 
 ### 30
 
--   University of London
-    -   **Agile Software Projects**
-        -   Data analysis, interpretation & presentation; planning for research; analysing the competition; SWOT analysis.
-    -   **Graphics Programming**
-        -  Introduction to `matter.js`.
-    -   **Programming With Data**
-        -   Python: Working with CSV; data processing libraries; working with JSON; retrieving data from the web; walrus operator (assignment expression).
+- University of London
+  - **Agile Software Projects**
+    - Data analysis, interpretation & presentation; planning for research; analysing the competition; SWOT analysis.
+  - **Graphics Programming**
+    - Introduction to `matter.js`.
+  - **Programming With Data**
+    - Python: Working with CSV; data processing libraries; working with JSON; retrieving data from the web; walrus operator (assignment expression).
 
 ### 29
 
--   University of London
-    -   **Agile Software Projects**
-        -   Data analysis, interpretation & presentation.
-    -   **Graphics Programming**
-        -  `p5.js`: particle systems.
-    -   **Programming With Data**
-        -   Python: data loading, storage and file formats with `pandas`.
+- University of London
+  - **Agile Software Projects**
+    - Data analysis, interpretation & presentation.
+  - **Graphics Programming**
+    - `p5.js`: particle systems.
+  - **Programming With Data**
+    - Python: data loading, storage and file formats with `pandas`.
 
 ### 28
 
--   University of London
-    -   **Agile Software Projects**
-        -   Data analysis, interpretation & presentation.
-    -   **Graphics Programming**
-        -  `p5.js`: particle systems.
-    -   **Programming With Data**
-        -   Python: working with different file formats in `pandas`.
+- University of London
+  - **Agile Software Projects**
+    - Data analysis, interpretation & presentation.
+  - **Graphics Programming**
+    - `p5.js`: particle systems.
+  - **Programming With Data**
+    - Python: working with different file formats in `pandas`.
 
 ### 27
 
--   University of London
-    -   **Agile Software Projects**
-        -   Introduction to research methods; data analysis, interpretation & presentation.
-    -   **Graphics Programming**
-        -   Basics of physics engine: designing simple asteroid shooting game.
+- University of London
+  - **Agile Software Projects**
+    - Introduction to research methods; data analysis, interpretation & presentation.
+  - **Graphics Programming**
+    - Basics of physics engine: designing simple asteroid shooting game.
 
 ### 26
 
--   University of London
-    -   **Agile Software Projects**
-        -   Introduction to research methods.
-    -   **Programming With Data**
-        -   Python: working with CSV with `pandas`.
+- University of London
+  - **Agile Software Projects**
+    - Introduction to research methods.
+  - **Programming With Data**
+    - Python: working with CSV with `pandas`.
 
 ### 25
 
--   University of London
-    -   **Agile Software Projects**
-        -   Introduction to research methods.
-    -   **Graphics Programming**
-        -   Basics of physics engine: collision detection.
-    -   **Programming With Data**
-        -   Python: accessing text corpora and lexical resources with NLTK, `matplotlib` heatmaps; working with data.
+- University of London
+  - **Agile Software Projects**
+    - Introduction to research methods.
+  - **Graphics Programming**
+    - Basics of physics engine: collision detection.
+  - **Programming With Data**
+    - Python: accessing text corpora and lexical resources with NLTK, `matplotlib` heatmaps; working with data.
 - Review: `@property` in Python.
 
 ### 24
 
--   University of London
-    -   **Agile Software Projects**
-        -   Introduction to research methods.
-    -   **Graphics Programming**
-        -   Basics of physics engine: collision detection.
+- University of London
+  - **Agile Software Projects**
+    - Introduction to research methods.
+  - **Graphics Programming**
+    - Basics of physics engine: collision detection.
 
 ### 23
 
--   University of London
-    -   **Agile Software Projects**
-        -   Introduction to research methods.
-    -   **Graphics Programming**
-        -   Basics of physics engine: collision detection.
+- University of London
+  - **Agile Software Projects**
+    - Introduction to research methods.
+  - **Graphics Programming**
+    - Basics of physics engine: collision detection.
 
 ### 22
 
--   University of London
-    -   **Agile Software Projects**
-        -   Capturing interaction with use cases; modelling requirements; user-centred design; quantitative and qualitative research.
+- University of London
+  - **Agile Software Projects**
+    - Capturing interaction with use cases; modelling requirements; user-centred design; quantitative and qualitative research.
 
 ### 20
 
--   University of London
-    -   **Graphics Programming**
-        -   Basics of physics engine: forces; gravity & friction.
+- University of London
+  - **Graphics Programming**
+    - Basics of physics engine: forces; gravity & friction.
 
 ### 19
 
--   University of London
-    -   **Graphics Programming**
-        -   2D transformations, basics of physics engine.
-    -   **Agile Software Projects**
-        -   Requirements gathering; creating personas; scenarios; design fiction.
+- University of London
+  - **Graphics Programming**
+    - 2D transformations, basics of physics engine.
+  - **Agile Software Projects**
+    - Requirements gathering; creating personas; scenarios; design fiction.
 
 ### 18
 
--   University of London
-    -   **Programming With Data**
-        -   Python: inverse document frequency, accessing text corpora and lexical resources with NLTK.
-    -   **Graphics Programming**
-        -   Vector arithmetic.
-    -   **Agile Software Projects**
-        -   Requirements and specification; requirements gathering.
+- University of London
+  - **Programming With Data**
+    - Python: inverse document frequency, accessing text corpora and lexical resources with NLTK.
+  - **Graphics Programming**
+    - Vector arithmetic.
+  - **Agile Software Projects**
+    - Requirements and specification; requirements gathering.
 - Pluralsight: [So You Want to Be an Entrepreneur?](https://app.pluralsight.com/library/courses/want-to-be-entrepreneur/table-of-contents); [Unit Testing with Python](https://app.pluralsight.com/library/courses/using-unit-testing-python/table-of-contents).
 
 ### 17
 
--   University of London
-    -   **Programming With Data**
-        -   Regular expressions; data handling with dictionaries.
-    -   **Graphics Programming**
-        -   2D transformations.
-    -   **Agile Software Projects**
-        -   Requirements and specification; requirements gathering.
+- University of London
+  - **Programming With Data**
+    - Regular expressions; data handling with dictionaries.
+  - **Graphics Programming**
+    - 2D transformations.
+  - **Agile Software Projects**
+    - Requirements and specification; requirements gathering.
 - Pluralsight: [Prioritizing Tasks and Managing Time for Greater Productivity](https://app.pluralsight.com/library/courses/prioritizing-tasks-managing-time-greater-productivity/table-of-contents); [So You Want to Be an Entrepreneur?](https://app.pluralsight.com/library/courses/want-to-be-entrepreneur/table-of-contents).
 
 ### 16
 
--   University of London
-    -   **Programming With Data**
-        -   Python: natural language processing with NLTK.
+- University of London
+  - **Programming With Data**
+    - Python: natural language processing with NLTK.
 - Pluralsight: [Docker and Kubernetes: The Big Picture](https://app.pluralsight.com/library/courses/docker-kubernetes-big-picture/table-of-contents); [The Future of Technology Careers](https://app.pluralsight.com/library/courses/future-technology-careers/table-of-contents); [Learning Technology in the Information Age](https://app.pluralsight.com/library/courses/learning-technology-information-age/table-of-contents); [Prioritizing Tasks and Managing Time for Greater Productivity](https://app.pluralsight.com/library/courses/prioritizing-tasks-managing-time-greater-productivity/table-of-contents).
 
 ### 15
 
--   University of London
-    -   **Programming With Data**
-        -   Python: currying (partial argument application); generators; `itertools` module; errors and exception handling; working with files.
-    -   **Graphics Programming**
-        -   Review 2D transformations.
-    -   **Agile Software Projects**
-        -   Project management; tracking progress, Gantt charts; managing resources and time; version control systems.
+- University of London
+  - **Programming With Data**
+    - Python: currying (partial argument application); generators; `itertools` module; errors and exception handling; working with files.
+  - **Graphics Programming**
+    - Review 2D transformations.
+  - **Agile Software Projects**
+    - Project management; tracking progress, Gantt charts; managing resources and time; version control systems.
 
 ### 14
 
--   University of London
-    -   **Programming With Data**
-        -   Python: data structures and sequences.
-    -   **Agile Software Projects**
-        -   Design principles; user experience.
-    -   **Graphics Programming**
-        -   Object Oriented Programming in Javascript (OOP); vectors.
+- University of London
+  - **Programming With Data**
+    - Python: data structures and sequences.
+  - **Agile Software Projects**
+    - Design principles; user experience.
+  - **Graphics Programming**
+    - Object Oriented Programming in Javascript (OOP); vectors.
 
 ### 13
 
--   University of London
-    -   **Programming With Data**
-        -   Python: conditional logic; lists, loops & iterations; functions libraries and dependencies.
-    -   **Agile Software Projects**
-        -   User experience; accessibility, usability.
-    -   **Graphics Programming**
-        -   `p5.js`: 2D transformations.
+- University of London
+  - **Programming With Data**
+    - Python: conditional logic; lists, loops & iterations; functions libraries and dependencies.
+  - **Agile Software Projects**
+    - User experience; accessibility, usability.
+  - **Graphics Programming**
+    - `p5.js`: 2D transformations.
 
 ### 12
 
--   University of London
-    -   **Programming With Data**
-        -   Introduction to development environments in Python; Jupyter Notebook.
-    -   **Agile Software Projects**
-        -   Basics of interaction design; user experience.
-    -   **Graphics Programming**
-        -   `p5.js`: 2D transformations.
+- University of London
+  - **Programming With Data**
+    - Introduction to development environments in Python; Jupyter Notebook.
+  - **Agile Software Projects**
+    - Basics of interaction design; user experience.
+  - **Graphics Programming**
+    - `p5.js`: 2D transformations.
 
 ### 11
 
@@ -704,7 +705,6 @@ save_as: learning-progress-2020.html
 
 - Book JavaScript Definitive Guide: expressions and operators.
 - Book Python for Data Analysis: pivoting data; plotting and visualization.
-
 
 ### 5
 
@@ -745,173 +745,167 @@ save_as: learning-progress-2020.html
 
 ### 28
 
--   [Foundations of Data Science: K-Means Clustering](https://www.coursera.org/learn/data-science-k-means-clustering-python/): using the Pandas library to read, sort and filter data; plotting and labelling data; interpreting data; organizing the work.
+- [Foundations of Data Science: K-Means Clustering](https://www.coursera.org/learn/data-science-k-means-clustering-python/): using the Pandas library to read, sort and filter data; plotting and labelling data; interpreting data; organizing the work.
 - Book Python for Data Analysis: built-in data structures; currying; files and the operating system; bytes and Unicode with files; NumPy basics arrays and vectorized computation.
 
 ### 27
 
--   [Foundations of Data Science: K-Means Clustering](https://www.coursera.org/learn/data-science-k-means-clustering-python/): Working with multidimensional data in Python; using the Pandas library to read, sort and filter data.
+- [Foundations of Data Science: K-Means Clustering](https://www.coursera.org/learn/data-science-k-means-clustering-python/): Working with multidimensional data in Python; using the Pandas library to read, sort and filter data.
 - Book Python for Data Analysis: Review basics of Python; built-in data structures.
-
 
 ### 26
 
--   [Foundations of Data Science: K-Means Clustering](https://www.coursera.org/learn/data-science-k-means-clustering-python/): Clustering with K-Means; supervised vs unsupervised learning; mean, variance & standard deviation; Jupyter Notebooks; multidimensional data (matrices); covariance; normalization.
+- [Foundations of Data Science: K-Means Clustering](https://www.coursera.org/learn/data-science-k-means-clustering-python/): Clustering with K-Means; supervised vs unsupervised learning; mean, variance & standard deviation; Jupyter Notebooks; multidimensional data (matrices); covariance; normalization.
 - Book Python for Data Analysis: Review basics of Python.
 
 ### 25
 
--   [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/), i18n JavaScript library.
-
+- [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/), i18n JavaScript library.
 
 ### 24
 
--   NumPy Fundamentals.
+- NumPy Fundamentals.
 
 ### 22
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Review: proof by contradiction; counting; Chomsky Normal Form; finite state machines; regular expressions; Turing machines; pigeonhole principle; permutations; combinations.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Review: proof by contradiction; counting; Chomsky Normal Form; finite state machines; regular expressions; Turing machines; pigeonhole principle; permutations; combinations.
 
 ### 21
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Review: Propositional logic; tautology; De Morgan's law; quantifiers; direct proof; proof by contradiction.
-
+- University of London
+  - **Fundamentals of Computer Science**
+    - Review: Propositional logic; tautology; De Morgan's law; quantifiers; direct proof; proof by contradiction.
 
 ### 20
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++ (JUCE framework): Working with XML and playlist library.
-
+- University of London
+  - **Object-Oriented Programming**
+    - C++ (JUCE framework): Working with XML and playlist library.
 
 ### 19
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++ (JUCE framework): Working with XML and playlist library.
+- University of London
+  - **Object-Oriented Programming**
+    - C++ (JUCE framework): Working with XML and playlist library.
 
 ### 18
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++ (JUCE framework): Working with XML and playlist library.
+- University of London
+  - **Object-Oriented Programming**
+    - C++ (JUCE framework): Working with XML and playlist library.
 
 ### 17
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Review: Negating formulae; Turing machines; combinatorics.
-    -   **Object-Oriented Programming**
-        -   C++ (JUCE framework): Working with XML and loading files.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Review: Negating formulae; Turing machines; combinatorics.
+  - **Object-Oriented Programming**
+    - C++ (JUCE framework): Working with XML and loading files.
 
 ### 16
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Review: Negating formulae; Turing machines.
-    -   **Object-Oriented Programming**
-        -   C++ (JUCE framework): Working with XML and loading files.
-
+- University of London
+  - **Fundamentals of Computer Science**
+    - Review: Negating formulae; Turing machines.
+  - **Object-Oriented Programming**
+    - C++ (JUCE framework): Working with XML and loading files.
 
 ### 15
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++ (JUCE framework): Working with XML and loading files.
+- University of London
+  - **Object-Oriented Programming**
+    - C++ (JUCE framework): Working with XML and loading files.
 
 ### 14
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Review: trees; binary search trees; heaps; graphs; recurrence relations.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Review: trees; binary search trees; heaps; graphs; recurrence relations.
 - Theming with CKAN.
 
 ### 13
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Review: linked lists; stacks; queues; trees; depth-first traversal; binary search trees; heaps; heapsort; graphs; minimum spanning trees; Dijkstra's algorithm.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Review: linked lists; stacks; queues; trees; depth-first traversal; binary search trees; heaps; heapsort; graphs; minimum spanning trees; Dijkstra's algorithm.
 - [Getting started with Nvim + LSP](https://www.youtube.com/watch?v=tOjVHXaUrzo).
 - [Configuring Passwordless Server Login Using SSH](https://www.youtube.com/watch?v=tRJBC9rWH3A).
 
-
 ### 12
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Review: Comparison and non-comparison sorting algorithms (selection sort, quicksort, mergesort, counting sort, radix sort, bucket sort); hashing; collisions in hash tables; linked lists.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Review: Comparison and non-comparison sorting algorithms (selection sort, quicksort, mergesort, counting sort, radix sort, bucket sort); hashing; collisions in hash tables; linked lists.
 - Using a backslash to bypass Bash aliases on the command-line.
 
 ### 11
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Review: Comparison and non-comparison sorting algorithms.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Review: Comparison and non-comparison sorting algorithms.
 
 ### 10
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Review: Recurrence equations; master theorem.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Review: Recurrence equations; master theorem.
 - Vim: review `dot` command.
 
 ### 9
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Review: Structure of recursive algorithms; time complexity of recursive algorithms; recurrence equations.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Review: Structure of recursive algorithms; time complexity of recursive algorithms; recurrence equations.
 - Vim: Review Fugitive.vim - working with the git index - [Vimcasts](http://vimcasts.org/episodes/fugitive-vim-working-with-the-git-index/).
 
 ### 8
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Review: Growth of functions; worst and best cases; asymptotic analysis.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Review: Growth of functions; worst and best cases; asymptotic analysis.
 - Vim: Review Using `:argdo` to change multiple files - [Vimcasts](http://vimcasts.org/episodes/using-argdo-to-change-multiple-files/).
 
 ### 7
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Review: Augmented BST; time & space complexity.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Review: Augmented BST; time & space complexity.
 
 ### 6
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++ (JUCE framework): Add features to speed component, adjusting playback.
--   [Hosting a website from home](https://www.youtube.com/watch?v=zdVgBhze1JI).
--   [Node’s Streams](https://jscomplete.com/learn/node-beyond-basics/node-streams).
--   [Event loop in JavaScript](https://www.youtube.com/watch?v=8aGhZQkoFbQ).
+- University of London
+  - **Object-Oriented Programming**
+    - C++ (JUCE framework): Add features to speed component, adjusting playback.
+- [Hosting a website from home](https://www.youtube.com/watch?v=zdVgBhze1JI).
+- [Node’s Streams](https://jscomplete.com/learn/node-beyond-basics/node-streams).
+- [Event loop in JavaScript](https://www.youtube.com/watch?v=8aGhZQkoFbQ).
 
 ### 5
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++ (JUCE framework): Refactor code into separate components; customize layout and buttons.
-  -   Career Planning micro-module.
+- University of London
+  - **Object-Oriented Programming**
+    - C++ (JUCE framework): Refactor code into separate components; customize layout and buttons.
+- Career Planning micro-module.
 
 ### 3
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Review: Building heaps in place; augmented binary search trees.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Review: Building heaps in place; augmented binary search trees.
 
 ### 2
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Review: Sorting algorithms; hash table collisions with linear probing; binary search tree.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Review: Sorting algorithms; hash table collisions with linear probing; binary search tree.
 
 ### 1
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Review: Minimum spanning trees; Dijkstra's algorithm.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Review: Minimum spanning trees; Dijkstra's algorithm.
 - Review: basics of Node.js.
 - [Docker to Serverless](https://www.youtube.com/watch?v=3OP-q55hOUI).
 
@@ -919,742 +913,742 @@ save_as: learning-progress-2020.html
 
 ### 31
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Review: Context-free grammar and languages.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Review: Context-free grammar and languages.
 
 ### 30
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Review: Prim's and Kruskal's algorithms.
-    -   **Object-Oriented Programming**
-        -   C++ (JUCE framework): Customize layout and buttons.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Review: Prim's and Kruskal's algorithms.
+  - **Object-Oriented Programming**
+    - C++ (JUCE framework): Customize layout and buttons.
 - [Production Logs: How To Get The Most Out Of Them](https://www.youtube.com/watch?v=9lhU9zG8c44) - Semicolon&Sons
 - Review Python: OOP paradigm; polymorphism; classes; class properties.
 
 ### 29
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++ (JUCE framework): Customize layout and buttons.
+- University of London
+  - **Object-Oriented Programming**
+    - C++ (JUCE framework): Customize layout and buttons.
 
 ### 28
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++ (JUCE framework): Customize layout and buttons.
+- University of London
+  - **Object-Oriented Programming**
+    - C++ (JUCE framework): Customize layout and buttons.
 
 ### 27
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Dijkstra's algorithm; minimum spanning trees.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Dijkstra's algorithm; minimum spanning trees.
 
 ### 26
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Review: Context-free grammar and languages.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Review: Context-free grammar and languages.
 
 ### 25
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Minimum spanning trees (Kruskal's algorithm); Dijkstra's algorithm.
-    -   **Fundamentals of Computer Science**
-        -   Review: GNFA; regular expressions; nonregular languages; pumping lemma.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Minimum spanning trees (Kruskal's algorithm); Dijkstra's algorithm.
+  - **Fundamentals of Computer Science**
+    - Review: GNFA; regular expressions; nonregular languages; pumping lemma.
 
 ### 24
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Review: Regular expressions.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Review: Regular expressions.
 
 ### 23
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++ (JUCE framework): Customize labels and components.
+- University of London
+  - **Object-Oriented Programming**
+    - C++ (JUCE framework): Customize labels and components.
 
 ### 20
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Minimum spanning trees (Prim's algorithm, Kruskal's algorithm).
+- University of London
+  - **Algorithms and Data Structures II**
+    - Minimum spanning trees (Prim's algorithm, Kruskal's algorithm).
 
 ### 19
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Review: Context-free languages; regular languages.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Review: Context-free languages; regular languages.
 
 ### 18
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Priority queues, implementing heaps in C++, introduction to graphs.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Priority queues, implementing heaps in C++, introduction to graphs.
 
 ### 17
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Review: Finite automata; regular expressions.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Review: Finite automata; regular expressions.
 
 ### 16
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++: Refactoring a project with the JUCE framework.
+- University of London
+  - **Object-Oriented Programming**
+    - C++: Refactoring a project with the JUCE framework.
 
 ### 15
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++: Reviewing how to set up a project with the JUCE framework.
+- University of London
+  - **Object-Oriented Programming**
+    - C++: Reviewing how to set up a project with the JUCE framework.
 
 ### 13
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Heaps, heapsort and priority queues.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Heaps, heapsort and priority queues.
 
 ### 12
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Review: Heaps.
-        -   Heapsort & its time complexity.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Review: Heaps.
+    - Heapsort & its time complexity.
 
 ### 11
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Review: Recurrence relations; master theorem.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Review: Recurrence relations; master theorem.
 
 ### 10
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Review: Merge sort; divide & conquer; recurrence relations; master theorem.
-    -   **Fundamentals of Computer Science**
-        -   Review: Searching: sequential search; binary search; comparison trees; Fibonacci search.
-        -   Review: Sorting: selection sort; insertion sort; bubble sort; quick sort; heap sort; merge sort; shell sort; radix sort.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Review: Merge sort; divide & conquer; recurrence relations; master theorem.
+  - **Fundamentals of Computer Science**
+    - Review: Searching: sequential search; binary search; comparison trees; Fibonacci search.
+    - Review: Sorting: selection sort; insertion sort; bubble sort; quick sort; heap sort; merge sort; shell sort; radix sort.
 
 ### 9
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Operations in heaps.
-    -   **Object-Oriented Programming**
-        -   C++: work with a table component (JUCE framework).
+- University of London
+  - **Algorithms and Data Structures II**
+    - Operations in heaps.
+  - **Object-Oriented Programming**
+    - C++: work with a table component (JUCE framework).
 
 ### 8
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Review: Merge sort; the algorithm of happiness (Lloyd Shapley); review time complexity of algorithms & Big O notation; recursion.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Review: Merge sort; the algorithm of happiness (Lloyd Shapley); review time complexity of algorithms & Big O notation; recursion.
 
 ### 6
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Recursive algorithms; recursion & iteration.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Recursive algorithms; recursion & iteration.
 
 ### 5
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++: implement a moveable play head with a timer (JUCE framework); threads; add a playlist component with a table; implement a play button.
+- University of London
+  - **Object-Oriented Programming**
+    - C++: implement a moveable play head with a timer (JUCE framework); threads; add a playlist component with a table; implement a play button.
 
 ### 4
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++: implement a moveable play head (JUCE framework).
+- University of London
+  - **Object-Oriented Programming**
+    - C++: implement a moveable play head (JUCE framework).
 
 ### 3
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Binary search trees; heaps.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Binary search trees; heaps.
 
 ### 2
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Greedy algorithms, halting problem, binary search, heap sort, recursion, quick sort, merge sort.
--   [How to Avoid Dumb Code Mistakes Part II](https://www.youtube.com/watch?v=rP04uAx5A28)
+- University of London
+  - **Fundamentals of Computer Science**
+    - Greedy algorithms, halting problem, binary search, heap sort, recursion, quick sort, merge sort.
+- [How to Avoid Dumb Code Mistakes Part II](https://www.youtube.com/watch?v=rP04uAx5A28)
 
 ### 1
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++: implement a waveform display (JUCE framework).
--   [21 JavaScript tricks](https://www.youtube.com/watch?v=3vLCthTptY0) with Aaron Jack.
--   Using VS Code debugger.
+- University of London
+  - **Object-Oriented Programming**
+    - C++: implement a waveform display (JUCE framework).
+- [21 JavaScript tricks](https://www.youtube.com/watch?v=3vLCthTptY0) with Aaron Jack.
+- Using VS Code debugger.
 
 ## July
 
 ### 31
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++: Member initializer lists; implement a waveform display (JUCE framework).
+- University of London
+  - **Object-Oriented Programming**
+    - C++: Member initializer lists; implement a waveform display (JUCE framework).
 
 ### 30
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Binary search trees.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Binary search trees.
 
 ### 29
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Review: Of simple algorithms for sorting.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Review: Of simple algorithms for sorting.
 
 ### 28
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++: Virtual functions; polymorphism; creating a new GUI component class for audio player control; implementing drag and drop.
+- University of London
+  - **Object-Oriented Programming**
+    - C++: Virtual functions; polymorphism; creating a new GUI component class for audio player control; implementing drag and drop.
 
 ### 27
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Binary search trees.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Binary search trees.
 
 ### 26
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Review: Chomsky Normal Form.
-        -   Turing machines, review of simple algorithms for sorting.
--   [How To Make Less Dumb Mistakes When Programming](https://www.semicolonandsons.com/episode/how-to-make-less-mistakes-when-programming).
+- University of London
+  - **Fundamentals of Computer Science**
+    - Review: Chomsky Normal Form.
+    - Turing machines, review of simple algorithms for sorting.
+- [How To Make Less Dumb Mistakes When Programming](https://www.semicolonandsons.com/episode/how-to-make-less-mistakes-when-programming).
 
 ### 25
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Context-free grammar & languages; parse trees; ambiguity in grammars & languages; Chomsky Normal Form.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Context-free grammar & languages; parse trees; ambiguity in grammars & languages; Chomsky Normal Form.
 
 ### 24
 
--   Creating a Chrome extension.
+- Creating a Chrome extension.
 
 ### 23
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++: pointers & references; audio playback with the [JUCE framework](https://juce.com).
+- University of London
+  - **Object-Oriented Programming**
+    - C++: pointers & references; audio playback with the [JUCE framework](https://juce.com).
 
 ### 22
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Trees and their implementation; binary search trees.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Trees and their implementation; binary search trees.
 
 ### 21
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Regular languages; context-free grammar; Chomsky Normal Form.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Regular languages; context-free grammar; Chomsky Normal Form.
 
 ### 20
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Grammar, regular languages.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Grammar, regular languages.
 
 ### 19
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Stacks; queues.
-    -   **Object-Oriented Programming**
-        -   C++: Inheritance and virtual functions; audio play back & basic synthesis; sound synthesis in JUCE; play back of files; module coupling; module cohesion; pointers & references.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Stacks; queues.
+  - **Object-Oriented Programming**
+    - C++: Inheritance and virtual functions; audio play back & basic synthesis; sound synthesis in JUCE; play back of files; module coupling; module cohesion; pointers & references.
 
 ### 18
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Review: Propositional logic; formal proofs; permutations & combinations; automata theory; regular expressions; pumping lemma.
-        -   Context-free grammar.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Review: Propositional logic; formal proofs; permutations & combinations; automata theory; regular expressions; pumping lemma.
+    - Context-free grammar.
 
 ### 17
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Context-free grammar.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Context-free grammar.
 
 ### 16
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Introduction to data structures; linked lists; stacks.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Introduction to data structures; linked lists; stacks.
 
 ### 15
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++: JUCE application and macros; event listener pattern; implement a slider listener; pure virtual functions.
+- University of London
+  - **Object-Oriented Programming**
+    - C++: JUCE application and macros; event listener pattern; implement a slider listener; pure virtual functions.
 
 ### 14
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++: Getting started with JUCE framework; adding a GUI widget; inheritance; arrays; `for` loops.
+- University of London
+  - **Object-Oriented Programming**
+    - C++: Getting started with JUCE framework; adding a GUI widget; inheritance; arrays; `for` loops.
 
 ### 13
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++: Getting started with JUCE framework.
--   Helm package manager.
+- University of London
+  - **Object-Oriented Programming**
+    - C++: Getting started with JUCE framework.
+- Helm package manager.
 
 ### 12
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++: Arrays; implementing an Exponential Moving Average (EMA) algorithm; using `std::chrono`; maps.
+- University of London
+  - **Object-Oriented Programming**
+    - C++: Arrays; implementing an Exponential Moving Average (EMA) algorithm; using `std::chrono`; maps.
 
 ### 11
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++: `this` keyword; stack & scope lifetime; arrow operator; optimizing usage of `std::vector`; `auto` keyword; casting; logging.
+- University of London
+  - **Object-Oriented Programming**
+    - C++: `this` keyword; stack & scope lifetime; arrow operator; optimizing usage of `std::vector`; `auto` keyword; casting; logging.
 
 ### 10
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++: How the compiler works; how linking works; variables; functions; loops; pointers; references; classes; structs; static vs local static; enums; constructors; destructors; inheritance; virtual functions; interfaces; visibility; arrays; strings; string literals; `const` keyword; `mutable` keyword; ternary operators; instantiate objects; `new` keyword; implicit conversion; `explicit` keyword; operator overloading.
+- University of London
+  - **Object-Oriented Programming**
+    - C++: How the compiler works; how linking works; variables; functions; loops; pointers; references; classes; structs; static vs local static; enums; constructors; destructors; inheritance; virtual functions; interfaces; visibility; arrays; strings; string literals; `const` keyword; `mutable` keyword; ternary operators; instantiate objects; `new` keyword; implicit conversion; `explicit` keyword; operator overloading.
 
 ### 9
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   Control flow, setting up projects with Makefiles.
+- University of London
+  - **Object-Oriented Programming**
+    - Control flow, setting up projects with Makefiles.
 
 ### 8
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   Integrating new classes into skeleton project; functions and user input.
+- University of London
+  - **Object-Oriented Programming**
+    - Integrating new classes into skeleton project; functions and user input.
 
 ### 7
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Review: Hashing algorithms.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Review: Hashing algorithms.
 
 ### 6
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Review: Hashing algorithms.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Review: Hashing algorithms.
 
 ### 5
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Review: Hashing algorithms.
--   [Continuous Integration Testing: Basics + What to Test](https://www.semicolonandsons.com/episode/continuous-integration-testing-basics-and-what-to-test).
+- University of London
+  - **Algorithms and Data Structures II**
+    - Review: Hashing algorithms.
+- [Continuous Integration Testing: Basics + What to Test](https://www.semicolonandsons.com/episode/continuous-integration-testing-basics-and-what-to-test).
 
 ### 4
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Growth of functions; Asymptotic notation; time complexity.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Growth of functions; Asymptotic notation; time complexity.
 
 ### 3
 
--   Publishing a package to PyPi through continuous integration.
+- Publishing a package to PyPi through continuous integration.
 
 ### 1
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Growth of functions; Asymptotic notation; time complexity.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Growth of functions; Asymptotic notation; time complexity.
 
 ## June
 
 ### 30
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Growth of functions; Asymptotic notation; time complexity.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Growth of functions; Asymptotic notation; time complexity.
 
 ### 29
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Growth of functions; Asymptotic notation; time complexity.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Growth of functions; Asymptotic notation; time complexity.
 
 ### 28
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Growth of functions; Asymptotic notation; frequency count method; time complexity.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Growth of functions; Asymptotic notation; frequency count method; time complexity.
 
 ### 27
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Review: Propositional logic; proof by contrapositive; combinations & permutations; finite automata; regular expressions.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Review: Propositional logic; proof by contrapositive; combinations & permutations; finite automata; regular expressions.
 
 ### 25
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   Refactoring C++ application.
--   [How to Publish an Open-Source Python Package to PyPI](https://realpython.com/pypi-publish-python-package/).
+- University of London
+  - **Object-Oriented Programming**
+    - Refactoring C++ application.
+- [How to Publish an Open-Source Python Package to PyPI](https://realpython.com/pypi-publish-python-package/).
 
 ### 24
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   Refactoring C++ application.
+- University of London
+  - **Object-Oriented Programming**
+    - Refactoring C++ application.
 
 ### 23
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Hashing algorithm.
-    -   **Fundamentals of Computer Science**
-        -   Non-regular languages & pumping lemma.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Hashing algorithm.
+  - **Fundamentals of Computer Science**
+    - Non-regular languages & pumping lemma.
 
 ### 22
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Regular expressions & finite automata, regular & non-regular languages; pumping lemma.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Regular expressions & finite automata, regular & non-regular languages; pumping lemma.
 
 ### 21
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Regular expressions.
-    -   **Object-Oriented Programming**
-        -   Matching algorithm: implementing print and remove functions in wallet; static and non-static functions.
--   Setting up Python language server with `coc.nvim`.
--   Tip: Opening file in Neovim from CLI with `nvim **`, then `<TAB>` to fuzzy search.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Regular expressions.
+  - **Object-Oriented Programming**
+    - Matching algorithm: implementing print and remove functions in wallet; static and non-static functions.
+- Setting up Python language server with `coc.nvim`.
+- Tip: Opening file in Neovim from CLI with `nvim **`, then `<TAB>` to fuzzy search.
 
 ### 20
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   Implementing matching algorithm for cryptocurrency trading; testing the matching algorithm; implementing "wallet" functionality.
--   Review: Absolute vs relative imports in Python; property-based testing with Hypothesis; Mocking and Patching Pitfalls.
+- University of London
+  - **Object-Oriented Programming**
+    - Implementing matching algorithm for cryptocurrency trading; testing the matching algorithm; implementing "wallet" functionality.
+- Review: Absolute vs relative imports in Python; property-based testing with Hypothesis; Mocking and Patching Pitfalls.
 
 ### 19
 
--   Python with `pytest`: Mocking; fixtures; monkeypatching.
+- Python with `pytest`: Mocking; fixtures; monkeypatching.
 
 ### 18
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   C++: Appending to vectors and sorting them.
+- University of London
+  - **Object-Oriented Programming**
+    - C++: Appending to vectors and sorting them.
 
 ### 17
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Open addressing.
-    -   **Object-Oriented Programming**
-        -   C++: Reading user input; exception handling.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Open addressing.
+  - **Object-Oriented Programming**
+    - C++: Reading user input; exception handling.
 
 ### 16
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Hash functions (division method, multiplication method), open addressing (linear probing, quadratic probing, double hashing).
+- University of London
+  - **Algorithms and Data Structures II**
+    - Hash functions (division method, multiplication method), open addressing (linear probing, quadratic probing, double hashing).
 
 ### 15
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Collisions in hash tables (extend & re-hash, linear probing, separate chaining).
+- University of London
+  - **Algorithms and Data Structures II**
+    - Collisions in hash tables (extend & re-hash, linear probing, separate chaining).
 
 ### 14
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Hash tables, collisions in hash tables (extend & re-hash, linear probing, separate chaining).
+- University of London
+  - **Algorithms and Data Structures II**
+    - Hash tables, collisions in hash tables (extend & re-hash, linear probing, separate chaining).
 
 ### 13
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Introduction to hashing and hash tables.
-    -   **Fundamentals of Computer Science**
-        -   Automata theory (regular operations [union, concatenation]), nondeterminism.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Introduction to hashing and hash tables.
+  - **Fundamentals of Computer Science**
+    - Automata theory (regular operations [union, concatenation]), nondeterminism.
 
 ### 12
 
--   Setting up CKAN and working with its API.
+- Setting up CKAN and working with its API.
 
 ### 11
 
--   Setting up Apache Airflow and creating basic DAGs.
+- Setting up Apache Airflow and creating basic DAGs.
 
 ### 10
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Automata theory (finite automata, designing them).
+- University of London
+  - **Fundamentals of Computer Science**
+    - Automata theory (finite automata, designing them).
 
 ### 9
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Combinatorial principles; automata theory (finite automata).
+- University of London
+  - **Fundamentals of Computer Science**
+    - Combinatorial principles; automata theory (finite automata).
 
 ### 8
 
--   Managing various Git and SSH identities.
+- Managing various Git and SSH identities.
 
 ### 7
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Combinations & permutations.
--   TDD: pytest patterns and examples.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Combinations & permutations.
+- TDD: pytest patterns and examples.
 
 ### 6
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Combinations & permutations.
--   C fundamentals: Strings & function pointers.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Combinations & permutations.
+- C fundamentals: Strings & function pointers.
 
 ### 4
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Bucket sort.
-    -   **Fundamentals of Computer Science**
-        -   Permutations; combinations.
--   Manage multiple SSH keys at once. Configuration with IPv6.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Bucket sort.
+  - **Fundamentals of Computer Science**
+    - Permutations; combinations.
+- Manage multiple SSH keys at once. Configuration with IPv6.
 
 ### 3
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Radix sort; bucket sort.
--   TDD: Debugging with `pdb` using pytest; using `Coverage.py`; raising errors in parametrized tests.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Radix sort; bucket sort.
+- TDD: Debugging with `pdb` using pytest; using `Coverage.py`; raising errors in parametrized tests.
 
 ### 2
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   The limits of comparison sorts; lower bounds for comparison sorts; sorting in linear time; counting sort; radix sort.
-    -   **Object-Oriented Programming**
-        -   Iterating over vectors and memory.
--   TDD: Pytest configuration; test discovery; use with `pdb`.
+- University of London
+  - **Algorithms and Data Structures II**
+    - The limits of comparison sorts; lower bounds for comparison sorts; sorting in linear time; counting sort; radix sort.
+  - **Object-Oriented Programming**
+    - Iterating over vectors and memory.
+- TDD: Pytest configuration; test discovery; use with `pdb`.
 
 ### 1
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   Implementing basic statistical functions; operator overloading.
--   Scripting with Rofi.
+- University of London
+  - **Object-Oriented Programming**
+    - Implementing basic statistical functions; operator overloading.
+- Scripting with Rofi.
 
 ## May
 
 ### 31
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Combinations & permutations.
-    -   **Object-Oriented Programming**
-        -   Modularizing program, constructor functions.
--   Vim: Jumps (`'"`, `''`, <code>``</code>) & other movements.
--   [Agile Manifesto Principles](https://agilemanifesto.org/principles.html).
+- University of London
+  - **Fundamentals of Computer Science**
+    - Combinations & permutations.
+  - **Object-Oriented Programming**
+    - Modularizing program, constructor functions.
+- Vim: Jumps (`'"`, `''`, <code>``</code>) & other movements.
+- [Agile Manifesto Principles](https://agilemanifesto.org/principles.html).
 
 ### 30
 
--   More on Git grep.
--   TDD: Unit Tests (from _Clean Code_, by Robert C. Martin); [Unit Tests in Python](https://www.youtube.com/watch?v=1Lfv5tUGsn8) (Socratica); review parametrization, fixtures, setup/teardown.
+- More on Git grep.
+- TDD: Unit Tests (from _Clean Code_, by Robert C. Martin); [Unit Tests in Python](https://www.youtube.com/watch?v=1Lfv5tUGsn8) (Socratica); review parametrization, fixtures, setup/teardown.
 
 ### 29
 
--   TDD: [Agile in Practice](https://www.youtube.com/watch?v=uGaNkTahrIw&feature=youtu.be); [Testing your Python Code with PyTest | Scipy 2019 Tutorial](https://www.youtube.com/watch?v=LX2ksGYXJ80&feature=youtu.be).
+- TDD: [Agile in Practice](https://www.youtube.com/watch?v=uGaNkTahrIw&feature=youtu.be); [Testing your Python Code with PyTest | Scipy 2019 Tutorial](https://www.youtube.com/watch?v=LX2ksGYXJ80&feature=youtu.be).
 
 ### 28
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Counting: subtraction rule; division rule; pigeonhole principle; permutations & combinations.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Counting: subtraction rule; division rule; pigeonhole principle; permutations & combinations.
 
 ### 27
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Combinations; basic counting principles (product rule, sum rule).
--   TDD: Mocking instances of a class.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Combinations; basic counting principles (product rule, sum rule).
+- TDD: Mocking instances of a class.
 
 ### 26
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Review: Of comparison sorting algorithms.
-    -   **Fundamentals of Computer Science**
-        -   Permutations, combinations.
--   How to save patch from Git stash with `git stash show -p > patch`.
--   TDD: Read Python Testing with pytest (plugins).
+- University of London
+  - **Algorithms and Data Structures II**
+    - Review: Of comparison sorting algorithms.
+  - **Fundamentals of Computer Science**
+    - Permutations, combinations.
+- How to save patch from Git stash with `git stash show -p > patch`.
+- TDD: Read Python Testing with pytest (plugins).
 
 ### 25
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Analyzing divide-and-conquer algorithms.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Analyzing divide-and-conquer algorithms.
 
 ### 24
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Merge sort.
--   TDD: Read Python Testing with pytest (builtin fixtures [`tmpdir`, `pytestconfig`, `cache`, `capsys`, `monkeypatch`, `doctest_namespace`, `recwarn`]).
+- University of London
+  - **Algorithms and Data Structures II**
+    - Merge sort.
+- TDD: Read Python Testing with pytest (builtin fixtures [`tmpdir`, `pytestconfig`, `cache`, `capsys`, `monkeypatch`, `doctest_namespace`, `recwarn`]).
 
 ### 23
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Analysis of insertion sort; selection sort; quicksort; performance of quicksort; mergesort.
--   TDD: Read Python Testing with pytest (parametrize tests; fixtures; fixture scope; parametrize fixtures).
+- University of London
+  - **Algorithms and Data Structures II**
+    - Analysis of insertion sort; selection sort; quicksort; performance of quicksort; mergesort.
+- TDD: Read Python Testing with pytest (parametrize tests; fixtures; fixture scope; parametrize fixtures).
 
 ### 22
 
--   TDD: Read Python Testing with pytest (markers; fixtures; running subset of tests).
+- TDD: Read Python Testing with pytest (markers; fixtures; running subset of tests).
 
 ### 21
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Insertion sort; analyzing algorithms.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Insertion sort; analyzing algorithms.
 
 ### 19
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Overview of sorting algorithms and bubble sort.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Overview of sorting algorithms and bubble sort.
 
 ### 18
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   File parsing functions.
-    -   **Fundamentals of Computer Science**
-        -   Combinatorial principles, pigeonhole principle.
+- University of London
+  - **Object-Oriented Programming**
+    - File parsing functions.
+  - **Fundamentals of Computer Science**
+    - Combinatorial principles, pigeonhole principle.
 
 ### 17
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   Linking header files.
+- University of London
+  - **Object-Oriented Programming**
+    - Linking header files.
 
 ### 16
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   Tokenise output; exception handling.
--   Learn about Deno (Node.js replacement).
--   TDD: Read Python Testing with pytest (getting started; marking test functions).
+- University of London
+  - **Object-Oriented Programming**
+    - Tokenise output; exception handling.
+- Learn about Deno (Node.js replacement).
+- TDD: Read Python Testing with pytest (getting started; marking test functions).
 
 ### 14
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Recurrence relations; master theorem.
-    -   **Object-Oriented Programming**
-        -   Implementing a tokenise function.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Recurrence relations; master theorem.
+  - **Object-Oriented Programming**
+    - Implementing a tokenise function.
 
 ### 13
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Recurrence relations; master theorem.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Recurrence relations; master theorem.
 
 ### 12
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Proofs: direct; by contraposition; by contradiction.
-        -   Propositional logic; predicate logic.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Proofs: direct; by contraposition; by contradiction.
+    - Propositional logic; predicate logic.
 
 ### 11
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Solving recurrences: substitution method; recursion-tree method; master method.
-    -   **Fundamentals of Computer Science**
-        -   Inductive proof.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Solving recurrences: substitution method; recursion-tree method; master method.
+  - **Fundamentals of Computer Science**
+    - Inductive proof.
 
 ### 10
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   Implementing a tokenise function.
+- University of London
+  - **Object-Oriented Programming**
+    - Implementing a tokenise function.
 
 ### 9
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Recurrence relations, Strassen's algorithm.
--   Configure FZF, COC.nvim and UltiSnips with Neovim.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Recurrence relations, Strassen's algorithm.
+- Configure FZF, COC.nvim and UltiSnips with Neovim.
 
 ### 7
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Master theorem; recurrence relations.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Master theorem; recurrence relations.
 
 ### 6
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Master theorem; recurrence relations.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Master theorem; recurrence relations.
 
 ### 5
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Analysis of recursive algorithms.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Analysis of recursive algorithms.
 
 ### 4
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   Classes and functions.
--   [Downgrading packages by date with `aptitude`](https://unix.stackexchange.com/a/236711/319677).
+- University of London
+  - **Object-Oriented Programming**
+    - Classes and functions.
+- [Downgrading packages by date with `aptitude`](https://unix.stackexchange.com/a/236711/319677).
 
 ### 3
 
--   [Managing dotfiles with bare Git repository](https://www.youtube.com/watch?v=tBoLDpTWVOM).
+- [Managing dotfiles with bare Git repository](https://www.youtube.com/watch?v=tBoLDpTWVOM).
 
 ### 2
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   Creating classes.
+- University of London
+  - **Object-Oriented Programming**
+    - Creating classes.
 
 ### 2
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   Creating classes.
+- University of London
+  - **Object-Oriented Programming**
+    - Creating classes.
 
 ### 1
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   Creating classes.
--   Git: using submodules and Git LFS; [move files from one repo to another while preserving history](https://medium.com/@ayushya/move-directory-from-one-repository-to-another-preserving-git-history-d210fa049d4b).
--   Vim review: text motions; tags; jump list; change list.
+- University of London
+  - **Object-Oriented Programming**
+    - Creating classes.
+- Git: using submodules and Git LFS; [move files from one repo to another while preserving history](https://medium.com/@ayushya/move-directory-from-one-repository-to-another-preserving-git-history-d210fa049d4b).
+- Vim review: text motions; tags; jump list; change list.
 
 ---
 
@@ -1662,234 +1656,234 @@ save_as: learning-progress-2020.html
 
 ### 30
 
--   University of London
-    -   **Object-Oriented Programming**
-        -   Using header files and making a class with functions.
+- University of London
+  - **Object-Oriented Programming**
+    - Using header files and making a class with functions.
 
 ### 29
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Proof by contradiction.
-    -   **Object-Oriented Programming**
-        -   Using header files and making a class with functions.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Proof by contradiction.
+  - **Object-Oriented Programming**
+    - Using header files and making a class with functions.
 
 ### 28
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Structure of recursive algorithms; writing recursive algorithms.
-    -   **Fundamentals of Computer Science**
-        -   Formal proof.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Structure of recursive algorithms; writing recursive algorithms.
+  - **Fundamentals of Computer Science**
+    - Formal proof.
 
 ### 27
 
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Structure of recursive algorithms.
-    -   **Object-Oriented Programming**
-        -   Floating-point numbers.
--   Vim: `mksession`.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Structure of recursive algorithms.
+  - **Object-Oriented Programming**
+    - Floating-point numbers.
+- Vim: `mksession`.
 
 ### 26
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Predicates and quantifiers; nested quantifiers; First-order logic; introduction to proofs.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Predicates and quantifiers; nested quantifiers; First-order logic; introduction to proofs.
 
 ### 25
 
--   University of London
-    -   **Fundamentals of Computer Science**
-        -   Logical equivalences.
-    -   **Object-Oriented Programming**
-        -   Variables; data types: strings, enum class, vectors, numbers; introduction to classes: constructors.
+- University of London
+  - **Fundamentals of Computer Science**
+    - Logical equivalences.
+  - **Object-Oriented Programming**
+    - Variables; data types: strings, enum class, vectors, numbers; introduction to classes: constructors.
 
 ### 24
 
--   Datopian
-    -   Parsing files in Python with regular expressions & exporting to CSV.
--   University of London
-    -   **Object-Oriented Programming**
-        -   Types; floating-point numbers.
+- Datopian
+  - Parsing files in Python with regular expressions & exporting to CSV.
+- University of London
+  - **Object-Oriented Programming**
+    - Types; floating-point numbers.
 
 ### 23
 
--   Datopian
-    -   Deploying to Heroku; customize CKAN frontend.
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Introduction to asymptotic analysis.
-    -   **Fundamentals of Computer Science**
-        -   First-order logic; propositional equivalences.
+- Datopian
+  - Deploying to Heroku; customize CKAN frontend.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Introduction to asymptotic analysis.
+  - **Fundamentals of Computer Science**
+    - First-order logic; propositional equivalences.
 
 ### 22
 
--   Datopian
-    -   Working with `dataflows`.
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Worst and best case analysis; introduction to asymptotic analysis.
+- Datopian
+  - Working with `dataflows`.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Worst and best case analysis; introduction to asymptotic analysis.
 
 ### 21
 
--   Datopian
-    -   Review: Vim regular expressions.
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Growth of functions.
-    -   **Fundamentals of Computer Science**
-        -   Propositional logic; tautology.
-    -   **Object-Oriented Programming**
-        -   Text-based programs; more on functions.
+- Datopian
+  - Review: Vim regular expressions.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Growth of functions.
+  - **Fundamentals of Computer Science**
+    - Propositional logic; tautology.
+  - **Object-Oriented Programming**
+    - Text-based programs; more on functions.
 
 ### 20
 
--   Datopian
-    -   Review: Vim regular expressions.
--   University of London
-    -   **Algorithms and Data Structures II**
-        -   Introduction to the analysis of algorithms; growth of functions.
-    -   **Object-Oriented Programming**
-        -   Introduction to C++; extraction operator.
+- Datopian
+  - Review: Vim regular expressions.
+- University of London
+  - **Algorithms and Data Structures II**
+    - Introduction to the analysis of algorithms; growth of functions.
+  - **Object-Oriented Programming**
+    - Introduction to C++; extraction operator.
 
 ### 19
 
--   Pandas: working with dates and time series data, reading/writing data to different sources - Excel, JSON, SQL.
+- Pandas: working with dates and time series data, reading/writing data to different sources - Excel, JSON, SQL.
 
 ### 18
 
--   Pandas: updating rows and columns; add/remove rows and columns; sorting; grouping and aggregating, cleaning data.
+- Pandas: updating rows and columns; add/remove rows and columns; sorting; grouping and aggregating, cleaning data.
 
 ### 17
 
--   Pandas: unpivot data; creating dataframes from CSV files; set, reset, and use indexes; using conditionals to filter rows and columns; updating rows and columns.
--   Use and configure [spectrwm](https://github.com/conformal/spectrwm).
+- Pandas: unpivot data; creating dataframes from CSV files; set, reset, and use indexes; using conditionals to filter rows and columns; updating rows and columns.
+- Use and configure [spectrwm](https://github.com/conformal/spectrwm).
 
 ### 16
 
--   Datopian
-    -   Publishing to DataHub.io with `data-cli`; learning about CKAN, trying a local instance, getting to know the API and building an extension.
+- Datopian
+  - Publishing to DataHub.io with `data-cli`; learning about CKAN, trying a local instance, getting to know the API and building an extension.
 
 ### 15
 
--   Datopian
-    -   Job stories and Data Packages; updating NodeJS as part of the package manager on Debian.
+- Datopian
+  - Job stories and Data Packages; updating NodeJS as part of the package manager on Debian.
 
 ### 14
 
--   Datopian
-    -   Job stories; GTD methodology.
-    -   Converting regex patterns in search & replace to uppercase in VS Code ([stackoverflow answer](https://stackoverflow.com/a/50467298/8787680)).
-    -   Fixing launch error with Yarn ([stackoverflow answer](https://stackoverflow.com/a/60752997/8787680)).
-    -   How to properly rebase a branch ([jeffkreeftmeijer.com](https://jeffkreeftmeijer.com/git-rebase/)).
+- Datopian
+  - Job stories; GTD methodology.
+  - Converting regex patterns in search & replace to uppercase in VS Code ([stackoverflow answer](https://stackoverflow.com/a/50467298/8787680)).
+  - Fixing launch error with Yarn ([stackoverflow answer](https://stackoverflow.com/a/60752997/8787680)).
+  - How to properly rebase a branch ([jeffkreeftmeijer.com](https://jeffkreeftmeijer.com/git-rebase/)).
 
 ### 13
 
--   Datopian
-    -   GitLab: maintaining various GPG/SSH keys for different accounts; working with merge requests.
-    -   Creating functional timesheet with Google Sheets.
+- Datopian
+  - GitLab: maintaining various GPG/SSH keys for different accounts; working with merge requests.
+  - Creating functional timesheet with Google Sheets.
 
 ### 12
 
--   Datopian
-    -   Review: GitLab ([from GitLab](https://docs.gitlab.com/ee/topics/gitlab_flow.html)): Git flow; GitHub flow; GitLab flow; merge requests; issue tracking; squashing; committing; testing commits; feature branches.
-    -   Read [Style Guides](https://playbook.datopian.com/style-guide/#style-guides).
-    -   [Importing Data: Python Data Playbook](https://app.pluralsight.com/library/courses/python-importing-data-playbook).
-        -   Importing text with NumPy.
-        -   Importing CSV with `csv` module and Pandas.
--   Read [Git team workflows: merge or rebase?](https://www.atlassian.com/blog/git/git-team-workflows-merge-or-rebase) from Atlassian.
--   Review: [A Note About Git Commit Messages](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) from Tim Pope.
--   Review: [Linux Command Line Pipes and Redirection](https://www.youtube.com/watch?v=mV_8GbzwZMM).
+- Datopian
+  - Review: GitLab ([from GitLab](https://docs.gitlab.com/ee/topics/gitlab_flow.html)): Git flow; GitHub flow; GitLab flow; merge requests; issue tracking; squashing; committing; testing commits; feature branches.
+  - Read [Style Guides](https://playbook.datopian.com/style-guide/#style-guides).
+  - [Importing Data: Python Data Playbook](https://app.pluralsight.com/library/courses/python-importing-data-playbook).
+    - Importing text with NumPy.
+    - Importing CSV with `csv` module and Pandas.
+- Read [Git team workflows: merge or rebase?](https://www.atlassian.com/blog/git/git-team-workflows-merge-or-rebase) from Atlassian.
+- Review: [A Note About Git Commit Messages](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) from Tim Pope.
+- Review: [Linux Command Line Pipes and Redirection](https://www.youtube.com/watch?v=mV_8GbzwZMM).
 
 ### 11
 
--   Datopian
-    -   Review: [Python: Beyond the Basics on Pluralsight](https://app.pluralsight.com/library/courses/python-beyond-basics/table-of-contents).
-    -   [Setting up multiple email addresses with Git](https://www.kevinkuszyk.com/2018/12/10/git-tips-6-using-git-with-multiple-email-addresses/).
+- Datopian
+  - Review: [Python: Beyond the Basics on Pluralsight](https://app.pluralsight.com/library/courses/python-beyond-basics/table-of-contents).
+  - [Setting up multiple email addresses with Git](https://www.kevinkuszyk.com/2018/12/10/git-tips-6-using-git-with-multiple-email-addresses/).
 
 ### 10
 
--   Datopian
-    -   Review: [Python: Beyond the Basics on Pluralsight](https://app.pluralsight.com/library/courses/python-beyond-basics/table-of-contents).
-        -   Inheritance and subtype polymorphism: `object` class.
-        -   Implementing collections: collection construction; container protocol (`in`, `not in`, `__contains__()`); sized protocol (`len`, `__len__()`); iterable protocol (`iter()`, `__iter__()`); sequence protocol (dunder `add`, `mul`, `rmul`, `reversed`); set protocol ().
-        -   Exceptions & errors: specifying exceptions; payloads; defining new exceptions; chaining exception; chaining exceptions; tracebacks; assertions.
-        -   Defining context managers: protocol (`__enter__()`, `__exit__()`); `contextlib`.
-        -   Introspection: object types; introspecting objects & scopes; `inspect` module.
-    -   Setting boot parameters to fix occasional screen tear (Debian boot option used: `intel_idle.max_cstate=4` in `/etc/default/grub` and `Option "TearFree" "true"` in `20-intel.conf`).
+- Datopian
+  - Review: [Python: Beyond the Basics on Pluralsight](https://app.pluralsight.com/library/courses/python-beyond-basics/table-of-contents).
+    - Inheritance and subtype polymorphism: `object` class.
+    - Implementing collections: collection construction; container protocol (`in`, `not in`, `__contains__()`); sized protocol (`len`, `__len__()`); iterable protocol (`iter()`, `__iter__()`); sequence protocol (dunder `add`, `mul`, `rmul`, `reversed`); set protocol ().
+    - Exceptions & errors: specifying exceptions; payloads; defining new exceptions; chaining exception; chaining exceptions; tracebacks; assertions.
+    - Defining context managers: protocol (`__enter__()`, `__exit__()`); `contextlib`.
+    - Introspection: object types; introspecting objects & scopes; `inspect` module.
+  - Setting boot parameters to fix occasional screen tear (Debian boot option used: `intel_idle.max_cstate=4` in `/etc/default/grub` and `Option "TearFree" "true"` in `20-intel.conf`).
 
 ### 9
 
--   Datopian
-    -   Review: [Python: Beyond the Basics on Pluralsight](https://app.pluralsight.com/library/courses/python-beyond-basics/table-of-contents).
-        -   Numeric and scalar types: `complex`, `abs`; number base conversions; `datetime`; `time`; `timedelta`; time zones; computational geometry.
-        -   Iterables & iteration: list, dictionary, set & generator comprehensions; nested comprehensions; `map()`; `filter()`; `functools.reduce()`.
-        -   Inheritance and subtype polymorphism: `isinstance()`; `issubclass()`; multiple inheritance; `super()`; bound proxies.
+- Datopian
+  - Review: [Python: Beyond the Basics on Pluralsight](https://app.pluralsight.com/library/courses/python-beyond-basics/table-of-contents).
+    - Numeric and scalar types: `complex`, `abs`; number base conversions; `datetime`; `time`; `timedelta`; time zones; computational geometry.
+    - Iterables & iteration: list, dictionary, set & generator comprehensions; nested comprehensions; `map()`; `filter()`; `functools.reduce()`.
+    - Inheritance and subtype polymorphism: `isinstance()`; `issubclass()`; multiple inheritance; `super()`; bound proxies.
 
 ### 8
 
--   Datopian
-    -   Review: [Python: Beyond the Basics on Pluralsight](https://app.pluralsight.com/library/courses/python-beyond-basics/table-of-contents).
-        -   Functions: extended argument syntax (`*args`, `**kwargs`); forwarding arguments.
-        -   Closures & decorators: local functions; returning functions; function factories; `nonlocal` keyword; decorators; `functools.wrap()`; validating arguments.
-        -   Properties & class methods: class attributes; `@staticmethod`; `@classmethod`; inheritance, `@property`.
-        -   Strings and representations: `repr`; `str`; `format`; `reprlib`; `ascii`; `ord`; `chr`.
-        -   Numeric and scalar types: `int`, `float`; `decimal`; `fraction`; `complex`.
+- Datopian
+  - Review: [Python: Beyond the Basics on Pluralsight](https://app.pluralsight.com/library/courses/python-beyond-basics/table-of-contents).
+    - Functions: extended argument syntax (`*args`, `**kwargs`); forwarding arguments.
+    - Closures & decorators: local functions; returning functions; function factories; `nonlocal` keyword; decorators; `functools.wrap()`; validating arguments.
+    - Properties & class methods: class attributes; `@staticmethod`; `@classmethod`; inheritance, `@property`.
+    - Strings and representations: `repr`; `str`; `format`; `reprlib`; `ascii`; `ord`; `chr`.
+    - Numeric and scalar types: `int`, `float`; `decimal`; `fraction`; `complex`.
 
 ### 7
 
--   Datopian
-    -   Review: [Python: Beyond the Basics on Pluralsight](https://app.pluralsight.com/library/courses/python-beyond-basics/table-of-contents).
-        -   Organizing larger programs: packages; subpackages; imports; namespaces.
-        -   Functions: callable objects; calling classes; lambdas; arguments.
+- Datopian
+  - Review: [Python: Beyond the Basics on Pluralsight](https://app.pluralsight.com/library/courses/python-beyond-basics/table-of-contents).
+    - Organizing larger programs: packages; subpackages; imports; namespaces.
+    - Functions: callable objects; calling classes; lambdas; arguments.
 
 ### 6
 
--   Datopian
-    -   [Python on Pluralsight](https://app.pluralsight.com/library/courses/advanced-python/table-of-contents).
-        -   Metaclasses: class allocation and initialisation; keyword arguments; `__prepare__`; `__new__`; `__init__`; inheritance.
-        -   Class decorators: enforcing class invariant; wrapping properties; chaining class decorators.
-        -   Abstract base classes basics.
-    -   [Best Practices for Code Quality](https://app.pluralsight.com/library/courses/python-best-practices-code-quality/table-of-contents): PEP8; Pylint; Pycodestyle; documenting a project with Sphinx and Apidoc; introduction to type checking.
-    -   [Managing Python Packages and Virtual Environments](https://app.pluralsight.com/library/courses/managing-python-packages-virtual-environments/table-of-contents): manage packages with `pip`; setting up virtual environments; short introduction to `tox`; `virtualenvwrapper`; `pipenv`; `poetry`.
+- Datopian
+  - [Python on Pluralsight](https://app.pluralsight.com/library/courses/advanced-python/table-of-contents).
+    - Metaclasses: class allocation and initialisation; keyword arguments; `__prepare__`; `__new__`; `__init__`; inheritance.
+    - Class decorators: enforcing class invariant; wrapping properties; chaining class decorators.
+    - Abstract base classes basics.
+  - [Best Practices for Code Quality](https://app.pluralsight.com/library/courses/python-best-practices-code-quality/table-of-contents): PEP8; Pylint; Pycodestyle; documenting a project with Sphinx and Apidoc; introduction to type checking.
+  - [Managing Python Packages and Virtual Environments](https://app.pluralsight.com/library/courses/managing-python-packages-virtual-environments/table-of-contents): manage packages with `pip`; setting up virtual environments; short introduction to `tox`; `virtualenvwrapper`; `pipenv`; `poetry`.
 
 ### 5
 
--   Datopian
-    -   [Python on Pluralsight](https://app.pluralsight.com/library/courses/advanced-python/table-of-contents).
-        -   Byte-oriented programming overview: Memory-mapped files.
-        -   Objects internals and custom attributes overview: `__dict__`; `__getattr__()`; `__hasattr__()`; `__delattr__()`; `__setattr__()`; attribute storage; `__getattribute__`.
-        -   Descriptors overview: properties; implementation.
-        -   Instance creation overview: allocation with `__new__()`.
-    -   Setting up virtual environments properly in Neovim.
+- Datopian
+  - [Python on Pluralsight](https://app.pluralsight.com/library/courses/advanced-python/table-of-contents).
+    - Byte-oriented programming overview: Memory-mapped files.
+    - Objects internals and custom attributes overview: `__dict__`; `__getattr__()`; `__hasattr__()`; `__delattr__()`; `__setattr__()`; attribute storage; `__getattribute__`.
+    - Descriptors overview: properties; implementation.
+    - Instance creation overview: allocation with `__new__()`.
+  - Setting up virtual environments properly in Neovim.
 
 ### 4
 
--   Configuring Markdown Preview in Neovim.
--   Using Kali Linux to monitor nearby wireless devices.
--   Using Neovim as `difftool` with Git.
+- Configuring Markdown Preview in Neovim.
+- Using Kali Linux to monitor nearby wireless devices.
+- Using Neovim as `difftool` with Git.
 
 ### 3
 
--   Datopian
-    -   [Python on Pluralsight](https://app.pluralsight.com/library/courses/advanced-python/table-of-contents).
-        -   Byte-oriented programming: `memoryview` type; memory-mapped files.
-    -   Setting up `coc.nvim` autocompletion in Neovim.
+- Datopian
+  - [Python on Pluralsight](https://app.pluralsight.com/library/courses/advanced-python/table-of-contents).
+    - Byte-oriented programming: `memoryview` type; memory-mapped files.
+  - Setting up `coc.nvim` autocompletion in Neovim.
 
 ### 2
 
--   Datopian
-    -   [Python on Pluralsight](https://app.pluralsight.com/library/courses/advanced-python/table-of-contents)
-        -   Advanced flow control: `loop-else` clauses [nobreak]; `try-else` clauses; emulating `switch` statements; dispatching on types (`singledispatch` decorator).
-        -   Byte-oriented programming: bitwise operations on integers; byte-wise operations with integers; bytearray type; `struct` module.
--   Setting up Neo Vim plugin in VS Code.
+- Datopian
+  - [Python on Pluralsight](https://app.pluralsight.com/library/courses/advanced-python/table-of-contents)
+    - Advanced flow control: `loop-else` clauses [nobreak]; `try-else` clauses; emulating `switch` statements; dispatching on types (`singledispatch` decorator).
+    - Byte-oriented programming: bitwise operations on integers; byte-wise operations with integers; bytearray type; `struct` module.
+- Setting up Neo Vim plugin in VS Code.
 
 ### 1
 
--   Datopian
-    -   JavaScript review: more on equality.
-    -   Python review: basic data types (numbers, strings); lists; dictionaries; [Pandas Tutorial (Part 1): Getting Started with Data Analysis](https://www.youtube.com/watch?v=ZyhVh-qRZPA).
+- Datopian
+  - JavaScript review: more on equality.
+  - Python review: basic data types (numbers, strings); lists; dictionaries; [Pandas Tutorial (Part 1): Getting Started with Data Analysis](https://www.youtube.com/watch?v=ZyhVh-qRZPA).
 
 ---
 
@@ -1897,153 +1891,153 @@ save_as: learning-progress-2020.html
 
 ### 31
 
--   Datopian
-    -   JavaScript review: more on coercion; equality.
+- Datopian
+  - JavaScript review: more on coercion; equality.
 
 ### 30
 
--   Datopian
-    -   JavaScript review: coercion.
-    -   Review: Regular expressions and SVG concepts.
+- Datopian
+  - JavaScript review: coercion.
+  - Review: Regular expressions and SVG concepts.
 
 ### 29
 
--   Datopian
-    -   Getting started with CI.
-    -   JavaScript review: primitive types; `typeof`, `NaN`, `isNaN`; type checking.
+- Datopian
+  - Getting started with CI.
+  - JavaScript review: primitive types; `typeof`, `NaN`, `isNaN`; type checking.
 
 ### 28
 
--   Datopian
-    -   JavaScript: factory functions; prototype chain; `hasOwnProperty`; `this`, `new` and `class` keywords.
+- Datopian
+  - JavaScript: factory functions; prototype chain; `hasOwnProperty`; `this`, `new` and `class` keywords.
 
 ### 27
 
--   Datopian
-    -   JavaScript: classes & prototypes; object dot notation.
--   Desktop environments: Setting up `KDE Plasma 5.18` and `GNOME 3.36`.
+- Datopian
+  - JavaScript: classes & prototypes; object dot notation.
+- Desktop environments: Setting up `KDE Plasma 5.18` and `GNOME 3.36`.
 
 ### 26
 
--   Datopian
-    -   JavaScript: asynchronous features; web API; event loop; promises.
--   Desktop environment: `XFCE`.
+- Datopian
+  - JavaScript: asynchronous features; web API; event loop; promises.
+- Desktop environment: `XFCE`.
 
 ### 25
 
--   Window manager: `bspwm`.
+- Window manager: `bspwm`.
 
 ### 24
 
--   Datopian
-    -   Python: data wrangling with `xlrd` Python module; tabular data packages.
+- Datopian
+  - Python: data wrangling with `xlrd` Python module; tabular data packages.
 
 ### 23
 
--   Datopian
-    -   JavaScript: closures.
--   Extending `st` terminal with patches.
+- Datopian
+  - JavaScript: closures.
+- Extending `st` terminal with patches.
 
 ### 21
 
--   Datopian
-    -   JavaScript: arrow functions; closures.
+- Datopian
+  - JavaScript: arrow functions; closures.
 
 ### 20
 
--   Datopian
-    -   Chrome developer tools: `Node.js` profiling; performance monitoring; image performance; page jank; memory leaks.
-    -   JavaScript: thread of execution; functions (higher order, arrow); call stack.
+- Datopian
+  - Chrome developer tools: `Node.js` profiling; performance monitoring; image performance; page jank; memory leaks.
+  - JavaScript: thread of execution; functions (higher order, arrow); call stack.
 
 ### 19
 
--   Datopian
-    -   Chrome developer tools: auditing.
-    -   Review: Bash: exit codes and logical operators.
+- Datopian
+  - Chrome developer tools: auditing.
+  - Review: Bash: exit codes and logical operators.
 
 ### 18
 
--   Datopian
-    -   JavaScript: more on scope; callbacks.
-    -   Chrome developer tools: editing; DOM breakpoints; debugging; networking.
+- Datopian
+  - JavaScript: more on scope; callbacks.
+  - Chrome developer tools: editing; DOM breakpoints; debugging; networking.
 
 ### 17
 
--   Datopian
-    -   JavaScript: objects & arrays; destructuring; scoping.
-    -   General overview of React, Angular & Vue.
--   Setting up Awesome window manager.
+- Datopian
+  - JavaScript: objects & arrays; destructuring; scoping.
+  - General overview of React, Angular & Vue.
+- Setting up Awesome window manager.
 
 ### 16
 
--   Datopian
-    -   JavaScript: types & coercion; scope; `this` & Prototypes.
-    -   Review: Git: rebase & amend; forks & remote repos; destroy & recover.
-    -   Review: JavaScript: events & listeners; event delegation; AJAX; `Node.js`.
+- Datopian
+  - JavaScript: types & coercion; scope; `this` & Prototypes.
+  - Review: Git: rebase & amend; forks & remote repos; destroy & recover.
+  - Review: JavaScript: events & listeners; event delegation; AJAX; `Node.js`.
 
 ### 15
 
--   Datopian
-    -   Review: Git: data storage model; areas & staging; stashing; references, commits & branches; merging & rebasing; history & diffs; fixing mistakes; rebase & amend.
-    -   Sass: functions; control flow; data structures (maps); BEM.
-    -   VS Code: code navigation & refactoring; type checking; debugging.
+- Datopian
+  - Review: Git: data storage model; areas & staging; stashing; references, commits & branches; merging & rebasing; history & diffs; fixing mistakes; rebase & amend.
+  - Sass: functions; control flow; data structures (maps); BEM.
+  - VS Code: code navigation & refactoring; type checking; debugging.
 
 ### 14
 
--   CSS: background and borders; gradients; transforms; transitions; animations; columns; SVG masking.
--   Sass: basics; variables; mixins; functions.
+- CSS: background and borders; gradients; transforms; transitions; animations; columns; SVG masking.
+- Sass: basics; variables; mixins; functions.
 
 ### 13
 
--   CSS: generated content; media queries; working with colors; flexbox; tables; grids.
--   Review: Emmet.
+- CSS: generated content; media queries; working with colors; flexbox; tables; grids.
+- Review: Emmet.
 
 ### 12
 
--   CSS: selectors; pseudo-elements; generated content.
+- CSS: selectors; pseudo-elements; generated content.
 
 ### 11
 
--   CSS: grids; grid-area; grid offsets; grid fallbacks; selectors; levels; specificity.
+- CSS: grids; grid-area; grid offsets; grid fallbacks; selectors; levels; specificity.
 
 ### 10
 
--   CSS: flexbox re-ordering; responsive images; CSS grids.
--   JavaScript/TypeScript: type checking.
+- CSS: flexbox re-ordering; responsive images; CSS grids.
+- JavaScript/TypeScript: type checking.
 
 ### 9
 
--   CSS: flexbox grid.
--   Linux file permissions & attributes.
--   VS Code: setting up formatting & debugging tools.
+- CSS: flexbox grid.
+- Linux file permissions & attributes.
+- VS Code: setting up formatting & debugging tools.
 
 ### 6
 
--   CSS: floats; flexbox.
+- CSS: floats; flexbox.
 
 ### 4
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Review: General overview of past topics.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Review: General overview of past topics.
 
 ### 3
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Review: General overview of past topics.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Review: General overview of past topics.
 
 ### 2
 
--   University of London
-    -   **Discrete mathematics**
-        -   Review: Mathematical induction; strong induction; recursion; recurrence relations; graph theory; relations; equivalence relations; combinatorics.
+- University of London
+  - **Discrete mathematics**
+    - Review: Mathematical induction; strong induction; recursion; recurrence relations; graph theory; relations; equivalence relations; combinatorics.
 
 ### 1
 
--   University of London
-    -   **Discrete mathematics**
-        -   Review: Set theory; functions; propositional logic; predicate logic; rules of inference; Boolean algebra; logic gates; Karnaugh maps; mathematical induction.
+- University of London
+  - **Discrete mathematics**
+    - Review: Set theory; functions; propositional logic; predicate logic; rules of inference; Boolean algebra; logic gates; Karnaugh maps; mathematical induction.
 
 ---
 
@@ -2051,206 +2045,206 @@ save_as: learning-progress-2020.html
 
 ### 29
 
--   University of London
-    -   **Discrete mathematics**
-        -   Review: Equivalence relations; graphs; trees.
+- University of London
+  - **Discrete mathematics**
+    - Review: Equivalence relations; graphs; trees.
 
 ### 28
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Review: Growth of functions; Big O notation; analysing algorithms; binary search.
-    -   **Discrete mathematics**
-        -   Review: Recurrence relations; inclusion-exclusion principle; relations & matrices; relations with digraphs; equivalence relations.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Review: Growth of functions; Big O notation; analysing algorithms; binary search.
+  - **Discrete mathematics**
+    - Review: Recurrence relations; inclusion-exclusion principle; relations & matrices; relations with digraphs; equivalence relations.
 
 ### 27
 
--   University of London
-    -   **Discrete mathematics**
-        -   Review: Mathematical induction; well ordering principle; strong induction; recursion; structural induction; permutations & combinations; binomial theorem; Pascal's identity.
+- University of London
+  - **Discrete mathematics**
+    - Review: Mathematical induction; well ordering principle; strong induction; recursion; structural induction; permutations & combinations; binomial theorem; Pascal's identity.
 
 ### 26
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Review: Bubble sort; insertion sort; RAM model; growth of functions.
-    -   **Discrete mathematics**
-        -   Review: Proofs of existence and uniqueness; sets; set operations; set identities; proving set identities; functions; sequences; recurrence relations; summations; matrices; optimization (greedy) algorithms.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Review: Bubble sort; insertion sort; RAM model; growth of functions.
+  - **Discrete mathematics**
+    - Review: Proofs of existence and uniqueness; sets; set operations; set identities; proving set identities; functions; sequences; recurrence relations; summations; matrices; optimization (greedy) algorithms.
 
 ### 25
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Review: Bubble sort.
-    -   **Discrete mathematics**
-        -   Review: Propositional logic; propositional equivalences; predicates & quantifiers; nested quantifiers; inference with quantifiers; direct proof; proof by contraposition; proof by contradiction; proof by cases.
--   Set up [XAMPP](https://www.apachefriends.org) with a [Laravel](https://laravel.com) project.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Review: Bubble sort.
+  - **Discrete mathematics**
+    - Review: Propositional logic; propositional equivalences; predicates & quantifiers; nested quantifiers; inference with quantifiers; direct proof; proof by contraposition; proof by contradiction; proof by cases.
+- Set up [XAMPP](https://www.apachefriends.org) with a [Laravel](https://laravel.com) project.
 
 ### 24
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Review: Stacks; linked lists; arrays; Heron's method algorithm; vectors; queues; dynamic arrays; linear search algorithms.
-    -   **Discrete mathematics**
-        -   Review: Graph theory; relations; trees; sets; logic & sequences.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Review: Stacks; linked lists; arrays; Heron's method algorithm; vectors; queues; dynamic arrays; linear search algorithms.
+  - **Discrete mathematics**
+    - Review: Graph theory; relations; trees; sets; logic & sequences.
 
 ### 23
 
--   University of London
-    -   **Discrete mathematics**
-        -   Review: Dijkstra's, Prim's & Kruskal's algorithms.
+- University of London
+  - **Discrete mathematics**
+    - Review: Dijkstra's, Prim's & Kruskal's algorithms.
 
 ### 22
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Review: Arrays; vectors; stacks; queues; linked lists.
-    -   **Discrete mathematics**
-        -   Review: Functions; induction; graph theory; trees; relations.
--   Creating a light/dark theme toggle with CSS and JavaScript.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Review: Arrays; vectors; stacks; queues; linked lists.
+  - **Discrete mathematics**
+    - Review: Functions; induction; graph theory; trees; relations.
+- Creating a light/dark theme toggle with CSS and JavaScript.
 
 ### 21
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Review: Worst-case time complexity in search algorithms.
-    -   **Discrete mathematics**
-        -   Review: Sets operations; relations; propositional logic; functions; Boolean algebra; recursion.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Review: Worst-case time complexity in search algorithms.
+  - **Discrete mathematics**
+    - Review: Sets operations; relations; propositional logic; functions; Boolean algebra; recursion.
 
 ### 20
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Review: Search algorithms and their JavaScript implementation; time complexity and big-O notation.
-    -   **Discrete mathematics**
-        -   Review: Circuits in Boolean algebra; mathematical induction; K-maps.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Review: Search algorithms and their JavaScript implementation; time complexity and big-O notation.
+  - **Discrete mathematics**
+    - Review: Circuits in Boolean algebra; mathematical induction; K-maps.
 
 ### 19
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Review: Binary search; recursive algorithms.
-    -   **Discrete mathematics**
-        -   Review: Boolean algebra; mathematical induction (proofs by contradiction, direct proofs, false proofs, well ordering principle).
+- University of London
+  - **Algorithms and Data Structures I**
+    - Review: Binary search; recursive algorithms.
+  - **Discrete mathematics**
+    - Review: Boolean algebra; mathematical induction (proofs by contradiction, direct proofs, false proofs, well ordering principle).
 
 ### 18
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Review: Linear data structures.
-    -   **Discrete mathematics**
-        -   Review: Boolean identities; definition of Boolean algebra; functional completeness; logic gates; adders; minimization of circuits; Karnaugh maps; Quine–McCluskey method.
--   Python review: built-in type gotchas.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Review: Linear data structures.
+  - **Discrete mathematics**
+    - Review: Boolean identities; definition of Boolean algebra; functional completeness; logic gates; adders; minimization of circuits; Karnaugh maps; Quine–McCluskey method.
+- Python review: built-in type gotchas.
 
 ### 17
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Review: Binary search algorithm; linked lists; linear search.
-    -   **Discrete mathematics**
-        -   Review: Rules of inference; fallacies; rules of inference for quantified statements; Boolean identities.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Review: Binary search algorithm; linked lists; linear search.
+  - **Discrete mathematics**
+    - Review: Rules of inference; fallacies; rules of inference for quantified statements; Boolean identities.
 
 ### 16
 
--   University of London
-    -   **Discrete mathematics**
-        -   Review: Nested quantifiers; negating nested quantifiers; rules of inference.
+- University of London
+  - **Discrete mathematics**
+    - Review: Nested quantifiers; negating nested quantifiers; rules of inference.
 
 ### 15
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Review: Searching algorithms.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Review: Searching algorithms.
 
 ### 14
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Review: Search algorithms (`quickSort`).
-    -   **Discrete mathematics**
-        -   Review: Compound propositions; logical implication; converse, contrapositive & inverse; equivalence; laws of propositional logic (including De Morgan's laws); precedence of logical operators; definition of predicates; quantifiers; logical operators; nested quantifiers.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Review: Search algorithms (`quickSort`).
+  - **Discrete mathematics**
+    - Review: Compound propositions; logical implication; converse, contrapositive & inverse; equivalence; laws of propositional logic (including De Morgan's laws); precedence of logical operators; definition of predicates; quantifiers; logical operators; nested quantifiers.
 
 ### 13
 
--   University of London
-    -   **Discrete mathematics**
-        -   Review: Function composition; bijections; floor & ceiling functions; definition of a proposition; truth tables & truth sets; compound propositions; logical implication; converse, contrapositive & inverse; equivalence; laws of propositional logic; De Morgan's laws; precedence of logical operators.
+- University of London
+  - **Discrete mathematics**
+    - Review: Function composition; bijections; floor & ceiling functions; definition of a proposition; truth tables & truth sets; compound propositions; logical implication; converse, contrapositive & inverse; equivalence; laws of propositional logic; De Morgan's laws; precedence of logical operators.
 
 ### 12
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Review: Dynamic arrays; stacks.
-    -   **Discrete mathematics**
-        -   Review: The domain and co-domain; the range; injection (one-to-one); surjection (onto); function composition; bijections; floor & ceiling functions.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Review: Dynamic arrays; stacks.
+  - **Discrete mathematics**
+    - Review: The domain and co-domain; the range; injection (one-to-one); surjection (onto); function composition; bijections; floor & ceiling functions.
 
 ### 11
 
--   University of London
-    -   **Discrete mathematics**
-        -   Review: Set operations; membership tables; Venn diagrams; the complement of a set; De Morgan's laws; set properties; definition of function; the domain and co-domain; the range; injection (one-to-one); surjection (onto).
+- University of London
+  - **Discrete mathematics**
+    - Review: Set operations; membership tables; Venn diagrams; the complement of a set; De Morgan's laws; set properties; definition of function; the domain and co-domain; the range; injection (one-to-one); surjection (onto).
 
 ### 10
 
--   University of London
-    -   **Discrete mathematics**
-        -   Review: Definition of a set; elements of a set; cardinality of a set; listing method; set builder method; subsets of a set; power sets.
--   Pluralsight courses: [Working with JavaScript Modules](https://app.pluralsight.com/library/courses/working-javascript-modules/table-of-contents); [JavaScript Promises and Async Programming](https://app.pluralsight.com/library/courses/javascript-promises-async-programming/table-of-contents).
+- University of London
+  - **Discrete mathematics**
+    - Review: Definition of a set; elements of a set; cardinality of a set; listing method; set builder method; subsets of a set; power sets.
+- Pluralsight courses: [Working with JavaScript Modules](https://app.pluralsight.com/library/courses/working-javascript-modules/table-of-contents); [JavaScript Promises and Async Programming](https://app.pluralsight.com/library/courses/javascript-promises-async-programming/table-of-contents).
 
 ### 9
 
--   Pluralsight courses: [Advanced Git Tips and Tricks](https://app.pluralsight.com/library/courses/git-advanced-tips-tricks/table-of-contents) (rewriting history); [Increasing Productivity by Beating Procrastination](https://app.pluralsight.com/library/courses/increasing-productivity-beating-procrastination/table-of-contents); [Rapid ES6 Training](https://app.pluralsight.com/library/courses/rapid-es6-training/table-of-contents); [Practical Design Patterns in JavaScript](https://app.pluralsight.com/courses/a08f57bc-ff55-4f2d-b209-fb00e88dbece/table-of-contents) (creational design patterns).
+- Pluralsight courses: [Advanced Git Tips and Tricks](https://app.pluralsight.com/library/courses/git-advanced-tips-tricks/table-of-contents) (rewriting history); [Increasing Productivity by Beating Procrastination](https://app.pluralsight.com/library/courses/increasing-productivity-beating-procrastination/table-of-contents); [Rapid ES6 Training](https://app.pluralsight.com/library/courses/rapid-es6-training/table-of-contents); [Practical Design Patterns in JavaScript](https://app.pluralsight.com/courses/a08f57bc-ff55-4f2d-b209-fb00e88dbece/table-of-contents) (creational design patterns).
 
 ### 8
 
--   Pluralsight courses: [Advanced Git Techniques](https://app.pluralsight.com/library/courses/advanced-git-techniques/table-of-contents) (submodules, custom commands, hooks, `git bisect`); [Working with Git Branches](https://app.pluralsight.com/library/courses/working-git-branches/table-of-contents); [Rewriting Git History](https://app.pluralsight.com/library/courses/rewriting-git-history/table-of-contents); [Code School: Git Real 2](https://app.pluralsight.com/library/courses/code-school-git-real-2/table-of-contents); [Advanced Git Tips and Tricks](https://app.pluralsight.com/library/courses/git-advanced-tips-tricks/table-of-contents).
--   Using [all-contributors-bot](https://github.com/all-contributors/all-contributors-bot) on GitHub.
+- Pluralsight courses: [Advanced Git Techniques](https://app.pluralsight.com/library/courses/advanced-git-techniques/table-of-contents) (submodules, custom commands, hooks, `git bisect`); [Working with Git Branches](https://app.pluralsight.com/library/courses/working-git-branches/table-of-contents); [Rewriting Git History](https://app.pluralsight.com/library/courses/rewriting-git-history/table-of-contents); [Code School: Git Real 2](https://app.pluralsight.com/library/courses/code-school-git-real-2/table-of-contents); [Advanced Git Tips and Tricks](https://app.pluralsight.com/library/courses/git-advanced-tips-tricks/table-of-contents).
+- Using [all-contributors-bot](https://github.com/all-contributors/all-contributors-bot) on GitHub.
 
 ### 7
 
--   Pluralsight courses: [What Is TDD and Why It Is Not Unit Testing](https://app.pluralsight.com/library/courses/tdd-is-not-unit-testing-executive-briefing/table-of-contents); [Test-driven Development: The Big Picture](https://app.pluralsight.com/library/courses/test-driven-development-big-picture/table-of-contents); [Agile Fundamentals](https://app.pluralsight.com/library/courses/agile-fundamentals/table-of-contents); [Advanced Git Techniques](https://app.pluralsight.com/library/courses/advanced-git-techniques/table-of-contents).
+- Pluralsight courses: [What Is TDD and Why It Is Not Unit Testing](https://app.pluralsight.com/library/courses/tdd-is-not-unit-testing-executive-briefing/table-of-contents); [Test-driven Development: The Big Picture](https://app.pluralsight.com/library/courses/test-driven-development-big-picture/table-of-contents); [Agile Fundamentals](https://app.pluralsight.com/library/courses/agile-fundamentals/table-of-contents); [Advanced Git Techniques](https://app.pluralsight.com/library/courses/advanced-git-techniques/table-of-contents).
 
 ### 6
 
--   University of London
-    -   **Discrete mathematics**
-        -   Review: Permutations with/without repetition; distinguishable objects; binomial coefficients; Pascal's identity.
+- University of London
+  - **Discrete mathematics**
+    - Review: Permutations with/without repetition; distinguishable objects; binomial coefficients; Pascal's identity.
 
 ### 5
 
--   University of London
-    -   **Discrete mathematics**
-        -   Review: Of counting rules: Inclusion-exclusion of sets; Pascal's identity.
-        -   Review: Of probability: sample space & outcomes; probability space; probability trees; conditional probability.
-    -   **Introduction to Programming II**
-        -   Showing and hiding DOM elements in `p5.js` based on events.
+- University of London
+  - **Discrete mathematics**
+    - Review: Of counting rules: Inclusion-exclusion of sets; Pascal's identity.
+    - Review: Of probability: sample space & outcomes; probability space; probability trees; conditional probability.
+  - **Introduction to Programming II**
+    - Showing and hiding DOM elements in `p5.js` based on events.
 
 ### 4
 
--   University of London
-    -   **Discrete mathematics**
-        -   Review: Lexicographic ordering; Hasse diagrams; linear recurrences; sequences; permutations; functions (surjective, bijective, injective); mapping rule; generalized pigeonhole principle; division rule; product rule; product of sets; sum rule.
-    -   **Introduction to Programming II**
-        -   Review: Working with DOM elements with `p5.js`.
+- University of London
+  - **Discrete mathematics**
+    - Review: Lexicographic ordering; Hasse diagrams; linear recurrences; sequences; permutations; functions (surjective, bijective, injective); mapping rule; generalized pigeonhole principle; division rule; product rule; product of sets; sum rule.
+  - **Introduction to Programming II**
+    - Review: Working with DOM elements with `p5.js`.
 
 ### 3
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Review: Queues; stacks.
-    -   **Discrete mathematics**
-        -   Permutations, combinations, binomial theorem, Pascal's identity, divide & conquer recurrences.
-    -   **Introduction to Programming II**
-        -   Working with hamburger menus.
--   Solve [problem 49](https://projecteuler.net/problem=49) on Project Euler: Prime permutations.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Review: Queues; stacks.
+  - **Discrete mathematics**
+    - Permutations, combinations, binomial theorem, Pascal's identity, divide & conquer recurrences.
+  - **Introduction to Programming II**
+    - Working with hamburger menus.
+- Solve [problem 49](https://projecteuler.net/problem=49) on Project Euler: Prime permutations.
 
 ### 1
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Review: Heron's algorithm; discretisation & pseudocode; vectors.
-    -   **Discrete mathematics**
-        -   Combinatorics: product rule; addition rule; combining sum & product rules; subtraction rule (principle of inclusion-exclusion); division rule; pigeonhole principle; permutations & combinations.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Review: Heron's algorithm; discretisation & pseudocode; vectors.
+  - **Discrete mathematics**
+    - Combinatorics: product rule; addition rule; combining sum & product rules; subtraction rule (principle of inclusion-exclusion); division rule; pigeonhole principle; permutations & combinations.
 
 ---
 
@@ -2258,220 +2252,220 @@ save_as: learning-progress-2020.html
 
 ### 31
 
--   University of London
-    -   **Discrete mathematics**
-        -   Partial orderings, lexicographic order, equivalence relations, parallel task scheduling, Hasse diagram, sums, asymptotic notation.
+- University of London
+  - **Discrete mathematics**
+    - Partial orderings, lexicographic order, equivalence relations, parallel task scheduling, Hasse diagram, sums, asymptotic notation.
 
 ### 30
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Computational complexity, NP problems and searching.
-    -   **Discrete mathematics**
-        -   Equivalence relations, equivalence classes, partial order, total order, n-ary relations, closures of relations.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Computational complexity, NP problems and searching.
+  - **Discrete mathematics**
+    - Equivalence relations, equivalence classes, partial order, total order, n-ary relations, closures of relations.
 
 ### 29
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Complexity classes, P vs EXP vs NP.
-    -   **Discrete mathematics**
-        -   Strong & weak partial orders, total order, Hasse diagram, binary relations, surjective and injective relations, equivalence relations, partitions, transitive closure.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Complexity classes, P vs EXP vs NP.
+  - **Discrete mathematics**
+    - Strong & weak partial orders, total order, Hasse diagram, binary relations, surjective and injective relations, equivalence relations, partitions, transitive closure.
 
 ### 28
 
--   University of London
-    -   **Discrete mathematics**
-    -   Relations and their properties, equivalence relations, equivalence classes.
+- University of London
+  - **Discrete mathematics**
+  - Relations and their properties, equivalence relations, equivalence classes.
 
 ### 27
 
--   University of London
-    -   **Discrete mathematics**
-        -   Relations, relation properties (symmetry, transitivity, anti-symmetry, reflexivity), Cartesian product, relations using matrices, graph representations of a relation, transitive closure.
+- University of London
+  - **Discrete mathematics**
+    - Relations, relation properties (symmetry, transitivity, anti-symmetry, reflexivity), Cartesian product, relations using matrices, graph representations of a relation, transitive closure.
 
 ### 26
 
--   University of London
-    -   **Algorithms and Data Structures I**
-    -   Computational complexity: complexity classes.
+- University of London
+  - **Algorithms and Data Structures I**
+  - Computational complexity: complexity classes.
 
 ### 25
 
--   University of London
-    -   **Discrete mathematics**
-    -   Trees: Prim's algorithm; Kruskal's algorithm; tree traversal; binary search trees.
--   Solve [problem 55](https://projecteuler.net/problem=55) on Project Euler: Lychrel numbers.
+- University of London
+  - **Discrete mathematics**
+  - Trees: Prim's algorithm; Kruskal's algorithm; tree traversal; binary search trees.
+- Solve [problem 55](https://projecteuler.net/problem=55) on Project Euler: Lychrel numbers.
 
 ### 24
 
--   University of London
-    -   **Algorithms and Data Structures I**
-    -   Analysis of `quickSort`.
-    -   **Discrete mathematics**
-    -   Trees: Tree traversal; universal address system; traversal algorithms (preorder, inorder, postorder); spanning trees; depth-first search; breath-first search.
--   Using `git bisect` and `git bisect run`.
+- University of London
+  - **Algorithms and Data Structures I**
+  - Analysis of `quickSort`.
+  - **Discrete mathematics**
+  - Trees: Tree traversal; universal address system; traversal algorithms (preorder, inorder, postorder); spanning trees; depth-first search; breath-first search.
+- Using `git bisect` and `git bisect run`.
 
 ### 23
 
--   University of London
-    -   **Discrete mathematics**
-        -   Graph theory: Dijkstra's algorithm in real-world scenarios.
-        -   Trees: Definitions; spanning trees; minimum spanning trees (Kruskal's algorithm, Prim's algorithm); rooted trees; binary search trees; Huffman coding; game trees.
-    -   **Introduction to Programming II**
-        -   `p5.js`: Loading many assets at once, managing waiting time with loading screen.
+- University of London
+  - **Discrete mathematics**
+    - Graph theory: Dijkstra's algorithm in real-world scenarios.
+    - Trees: Definitions; spanning trees; minimum spanning trees (Kruskal's algorithm, Prim's algorithm); rooted trees; binary search trees; Huffman coding; game trees.
+  - **Introduction to Programming II**
+    - `p5.js`: Loading many assets at once, managing waiting time with loading screen.
 
 ### 22
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Analysis of `quickSort`.
-    -   **Discrete mathematics**
-        -   Graph theory: Dijkstra's algorithm; bipartite graphs; matching.
--   Solve [problem 53](https://projecteuler.net/problem=53) on Project Euler: Combinatoric selections.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Analysis of `quickSort`.
+  - **Discrete mathematics**
+    - Graph theory: Dijkstra's algorithm; bipartite graphs; matching.
+- Solve [problem 53](https://projecteuler.net/problem=53) on Project Euler: Combinatoric selections.
 
 ### 21
 
--   University of London
-    -   **Discrete mathematics**
-        -   Graph theory: matching in bipartite graphs; graph isomorphism; adjacency matrices; connectivity; shortest-path algorithm.
-    -   **Introduction to Programming II**
-        -   JavaScript: pass by value and by reference.
+- University of London
+  - **Discrete mathematics**
+    - Graph theory: matching in bipartite graphs; graph isomorphism; adjacency matrices; connectivity; shortest-path algorithm.
+  - **Introduction to Programming II**
+    - JavaScript: pass by value and by reference.
 
 ### 20
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Worst-case time complexity of `quickSort` and `mergeSort`.
-    -   **Discrete mathematics**
-        -   Graph theory: bipartite graphs; adjacency list; adjacency matrix; Dijkstra's algorithm.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Worst-case time complexity of `quickSort` and `mergeSort`.
+  - **Discrete mathematics**
+    - Graph theory: bipartite graphs; adjacency list; adjacency matrix; Dijkstra's algorithm.
 
 ### 19
 
--   University of London
-    -   **Discrete mathematics**
-    -   Graph theory: Euler & Hamiltonian paths, shortest-path problems.
+- University of London
+  - **Discrete mathematics**
+  - Graph theory: Euler & Hamiltonian paths, shortest-path problems.
 
 ### 18
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Substitution cipher with `mergeSort`.
-    -   **Discrete mathematics**
-        -   More on graph theory (common graphs, subgraphs, weighted graphs, adjacency matrices, matching).
-    -   **Introduction to Programming II**
-        -   JavaScript modules, [Callbacks, Promises, Async Await](https://www.youtube.com/watch?v=PoRJizFvM7s).
+- University of London
+  - **Algorithms and Data Structures I**
+    - Substitution cipher with `mergeSort`.
+  - **Discrete mathematics**
+    - More on graph theory (common graphs, subgraphs, weighted graphs, adjacency matrices, matching).
+  - **Introduction to Programming II**
+    - JavaScript modules, [Callbacks, Promises, Async Await](https://www.youtube.com/watch?v=PoRJizFvM7s).
 
 ### 17
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Review: `mergeSort` algorithm.
-    -   **Discrete mathematics**
-        -   Communication networks (including Butterfly and Benes), graph theory.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Review: `mergeSort` algorithm.
+  - **Discrete mathematics**
+    - Communication networks (including Butterfly and Benes), graph theory.
 
 ### 16
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   `mergeSort` algorithm.
-        -   Review: `quickSort` algorithm and time complexity.
-    -   **Discrete mathematics**
-        -   Graph theory and coloring, matching problems, spanning trees (ST) & minimum spanning trees (MST).
-    -   **Introduction to Programming II**
-        -   Breakpoint and stepping.
+- University of London
+  - **Algorithms and Data Structures I**
+    - `mergeSort` algorithm.
+    - Review: `quickSort` algorithm and time complexity.
+  - **Discrete mathematics**
+    - Graph theory and coloring, matching problems, spanning trees (ST) & minimum spanning trees (MST).
+  - **Introduction to Programming II**
+    - Breakpoint and stepping.
 
 ### 15
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Call stack, quick sort algorithm.
-    -   **Discrete mathematics**
-        -   Induction, strong induction.
--   Python: review namespaces; scopes; decomposition (splits into functions, classes, modules, packages); encapsulation.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Call stack, quick sort algorithm.
+  - **Discrete mathematics**
+    - Induction, strong induction.
+- Python: review namespaces; scopes; decomposition (splits into functions, classes, modules, packages); encapsulation.
 
 ### 14
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Decrease & conquer, recursive Euclidean algorithm, recursive searching and sorting, permutations, recursive binary search.
-        -   Review: Insertion sort; bubble sort.
-    -   **Discrete mathematics**
-        -   Isomorphic graphs, bipartite graphs, Hopcroft-Karp algorithm, introduction to proofs.
-    -   **Introduction to Programming II**
-        -   JavaScript: Asynchronous function calls; using callbacks; error handling.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Decrease & conquer, recursive Euclidean algorithm, recursive searching and sorting, permutations, recursive binary search.
+    - Review: Insertion sort; bubble sort.
+  - **Discrete mathematics**
+    - Isomorphic graphs, bipartite graphs, Hopcroft-Karp algorithm, introduction to proofs.
+  - **Introduction to Programming II**
+    - JavaScript: Asynchronous function calls; using callbacks; error handling.
 
 ### 13
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Abstraction and linked lists, recursion.
-    -   **Discrete mathematics**
-        -   Graph theory: union of graphs; graph isomorphism; incidence matrices; graph invariant; graph connectivity; review special types of graphs.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Abstraction and linked lists, recursion.
+  - **Discrete mathematics**
+    - Graph theory: union of graphs; graph isomorphism; incidence matrices; graph invariant; graph connectivity; review special types of graphs.
 
 ### 11
 
--   University of London
-    -   **Discrete mathematics**
-        -   Review: Graph theory: special types of graphs; simple graphs; bipartite graphs & matchings; complete bipartite graphs.
--   Git: Read article [Trunk-based development](https://dzone.com/articles/why-i-prefer-trunk-based-development-over-feature).
+- University of London
+  - **Discrete mathematics**
+    - Review: Graph theory: special types of graphs; simple graphs; bipartite graphs & matchings; complete bipartite graphs.
+- Git: Read article [Trunk-based development](https://dzone.com/articles/why-i-prefer-trunk-based-development-over-feature).
 
 ### 10
 
--   University of London
-    -   **Discrete mathematics**
-        -   Review: Graph theory: terminology; special types of graphs.
--   Review: Walrus operator in Python 3.8.
+- University of London
+  - **Discrete mathematics**
+    - Review: Graph theory: terminology; special types of graphs.
+- Review: Walrus operator in Python 3.8.
 
 ### 8
 
--   Git: Committing file patches; adding changes to old commits; recovering dropped hash references.
+- Git: Committing file patches; adding changes to old commits; recovering dropped hash references.
 
 ### 7
 
--   University of London
-    -   **Discrete mathematics**
-        -   Review: Again some propositional logic, predicate logic, Boolean algebra, set theory, functions.
+- University of London
+  - **Discrete mathematics**
+    - Review: Again some propositional logic, predicate logic, Boolean algebra, set theory, functions.
 
 ### 6
 
--   University of London
-    -   **Discrete mathematics**
-        -   Review: Propositional logic, predicate logic, Boolean algebra, set theory, functions.
+- University of London
+  - **Discrete mathematics**
+    - Review: Propositional logic, predicate logic, Boolean algebra, set theory, functions.
 
 ### 5
 
--   University of London
-    -   **Discrete mathematics**
-        -   Review: Predicate logic and Boolean algebra.
+- University of London
+  - **Discrete mathematics**
+    - Review: Predicate logic and Boolean algebra.
 
 ### 4
 
--   University of London
-    -   **Discrete mathematics**
-        -   Graph theory: terminology; types of graphs (simple, r-regular, complete graphs); graph models.
+- University of London
+  - **Discrete mathematics**
+    - Graph theory: terminology; types of graphs (simple, r-regular, complete graphs); graph models.
 
 ### 3
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   Binary search, search problems and abstraction.
-    -   **Discrete mathematics**
-        -   Introduction to graph theory, degree sequence of a graph.
+- University of London
+  - **Algorithms and Data Structures I**
+    - Binary search, search problems and abstraction.
+  - **Discrete mathematics**
+    - Introduction to graph theory, degree sequence of a graph.
 
 ### 2
 
--   University of London
-    -   **Algorithms and Data Structures I**
-        -   RAM model, time complexity, insertion sort, running time of algorithms, binary search.
-    -   **Discrete mathematics**
-        -   Recursion: recursively defined functions, structural induction.
+- University of London
+  - **Algorithms and Data Structures I**
+    - RAM model, time complexity, insertion sort, running time of algorithms, binary search.
+  - **Discrete mathematics**
+    - Recursion: recursively defined functions, structural induction.
 
 ### 1
 
--   University of London
-    -   **Discrete mathematics**
-        -   Recursion: recursively defined functions.
+- University of London
+  - **Discrete mathematics**
+    - Recursion: recursively defined functions.
 
 ---
 

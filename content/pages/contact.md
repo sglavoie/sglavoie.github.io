@@ -10,8 +10,8 @@ The easiest way to contact me is by email: <a href='m&#97;&#105;lto&#58;%73ebas%
 
 You can also find me on the following websites:
 
-* [GitHub](https://github.com/sglavoie)
-* [HackerRank](https://www.hackerrank.com/sglavoie)
-* [LinkedIn](https://www.linkedin.com/in/sglavoie/)
-* [Stack Overflow](https://stackoverflow.com/users/8787680/s%c3%a9bastien-lavoie)
-* [Twitter](https://twitter.com/sgdlavoie)
+- [GitHub](https://github.com/sglavoie)
+- [HackerRank](https://www.hackerrank.com/sglavoie)
+- [LinkedIn](https://www.linkedin.com/in/sglavoie/)
+- [Stack Overflow](https://stackoverflow.com/users/8787680/s%c3%a9bastien-lavoie)
+- [Twitter](https://twitter.com/sgdlavoie)

@@ -105,11 +105,11 @@ You can also install it from your distribution's package manager if available or
 
 Here are a couple of ways I like to use `dmenu` to open a menu with a list of:
 
--   cheat sheets;
--   filesystem paths;
--   most used documents;
--   documents & books I read at the university;
--   custom scripts I want to run in the background.
+- cheat sheets;
+- filesystem paths;
+- most used documents;
+- documents & books I read at the university;
+- custom scripts I want to run in the background.
 
 Here are a few screenshots of how it currently looks like in my daily usage so you get a better idea.
 
@@ -127,11 +127,11 @@ Here are a few screenshots of how it currently looks like in my daily usage so y
 
 So, how does that all work? As a starting point, all of those menus are launched through a specific keyboard shortcut that uses a mnemonic for each one (`mod` being the "modifier" key on **i3**, which is set to `Super/Windows`):
 
--   `mod + Alt + c`: **c**heat sheets;
--   `mod + Alt + d`: **d**ocuments;
--   `mod + Alt + f`: **f**ile manager;
--   `mod + Alt + s`: **s**cripts;
--   `mod + Alt + u`: **u**niversity.
+- `mod + Alt + c`: **c**heat sheets;
+- `mod + Alt + d`: **d**ocuments;
+- `mod + Alt + f`: **f**ile manager;
+- `mod + Alt + s`: **s**cripts;
+- `mod + Alt + u`: **u**niversity.
 
 Let's take the cheat sheets example, which is a bit more interesting since it launches different applications.
 
@@ -232,9 +232,9 @@ zathura path/to/github.pdf
 
 If we were to type this in the terminal (assuming the file exists and **zathura** is installed!), that would do the trick and it would open with the specified document viewer. **Pipe 2** and subsequent pipes before we execute something is where the filtering magic happen. In short:
 
--   Everything **before** `| dmenu` is how our input will look like when we run `dmenu`;
--   Everything **after** `| dmenu [options here] |` is what we need to do to our input so that it is converted into a working shell command;
--   Finally, what comes **after the last pipe** (either `xargs`, `sh` or a combination of both) is our way to redirect our string to the shell so it can be executed.
+- Everything **before** `| dmenu` is how our input will look like when we run `dmenu`;
+- Everything **after** `| dmenu [options here] |` is what we need to do to our input so that it is converted into a working shell command;
+- Finally, what comes **after the last pipe** (either `xargs`, `sh` or a combination of both) is our way to redirect our string to the shell so it can be executed.
 
 Once we are visually satisfied with how our command is supposed to look like (it has to be something that works when typed directly in the terminal), the next step is to pipe it again so it can be executed.
 

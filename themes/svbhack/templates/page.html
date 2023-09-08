@@ -1,14 +1,10 @@
-{% extends "base.html" %}
-{% block title %}&ndash; {{ page.title }}{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block title %}&ndash; {{ page.title }}{% endblock
+%} {% block content %}
 <article>
   <div class="article_title">
     <h1><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></h1>
   </div>
-  <div class="article_text">
-    {{ page.content }}
-  </div>
+  <div class="article_text">{{ page.content }}</div>
 
   <!-- Skip the display of updated date on some pages -->
   {% if page.url not in ["contact.html"] %}
