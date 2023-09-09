@@ -1,116 +1,174 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <link rel="stylesheet" type="text/css" href="../../../../../theme/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../../theme/css/pygments.css" />
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../../../../theme/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../../../../theme/css/pygments.css"
+    />
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Sébastien Lavoie" />
-    <meta name="description"
-        content="Posts and writings by Sébastien Lavoie. Customization setups and articles on productivity for developers who like minimalism." />
+    <meta
+      name="description"
+      content="Posts and writings by Sébastien Lavoie. Customization setups and articles on productivity for developers who like minimalism."
+    />
     <meta name="title" property="og:title" content="sglavoie.com" />
     <meta property="og:type" content="Website" />
-    <meta name="image" property="og:image" content="../../../../../theme/images/logo_1200x627.png" />
+    <meta
+      name="image"
+      property="og:image"
+      content="../../../../../theme/images/logo_1200x627.png"
+    />
 
-     <link href="https://www.sglavoie.com/feeds/sglavoie.rss.xml" type="application/rss+xml" rel="alternate"
-        title="sglavoie.com RSS" />
+     <link
+      href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
+      type="application/rss+xml"
+      rel="alternate"
+      title="sglavoie.com RSS"
+    />
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" href="/theme/favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/theme/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/theme/favicon/favicon-16x16.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/theme/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/theme/favicon/favicon-16x16.png"
+    />
     <link rel="manifest" href="/theme/favicon/site.webmanifest" />
-    <link rel="mask-icon" href="/theme/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link
+      rel="mask-icon"
+      href="/theme/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
     <link rel="shortcut icon" href="/theme/favicon/favicon.ico" />
     <meta name="msapplication-TileColor" content="#2d89ef" />
-    <meta name="msapplication-TileImage" content="/theme/favicon/mstile-144x144.png" />
-    <meta name="msapplication-config" content="/theme/favicon/browserconfig.xml" />
+    <meta
+      name="msapplication-TileImage"
+      content="/theme/favicon/mstile-144x144.png"
+    />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
     <meta name="theme-color" content="#000000" />
-    <meta name="msapplication-config" content="/theme/favicon/browserconfig.xml" />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
     <meta name="theme-color" content="#000000" />
 
-<meta name="keywords" content="git, productivity, terminal">
+<meta name="keywords" content="git, productivity, terminal" />
 
 <!-- Open graph for social networks -->
-<meta name="og:title" property="og:title" content="Git is such a fascinating piece of software. It is not the only distributed version control system out there, but it is certainly ubiquitous in that category and has become a tool that must be mastered by any software developer in the modern era.">
-
+<meta name="og:title" property="og:title" content="Git is such a fascinating piece of software. It is not the only distributed version control system out there, but it is certainly ubiquitous in that category and has become a tool that must be mastered by any software developer in the modern era." />
+ 
     <title>sglavoie.com &ndash; Git the gist of it: common commands for a working&nbsp;workflow</title>
 
     <!-- Enable tracking of web traffic -->
 <script type="text/javascript">
-    var _gaq = _gaq || []
-    _gaq.push(['_setAccount', 'UA-150998392-1'])
-    _gaq.push(['_trackPageview'])
-    ;(function () {
-        var ga = document.createElement('script')
-        ga.type = 'text/javascript'
-        ga.async = true
-        ga.src =
-            ('https:' == document.location.protocol
-                ? 'https://ssl'
-                : 'http://www') + '.google-analytics.com/ga.js'
-        var s = document.getElementsByTagName('script')[0]
-        s.parentNode.insertBefore(ga, s)
-    })()
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-150998392-1"]);
+  _gaq.push(["_trackPageview"]);
+  (function () {
+    var ga = document.createElement("script");
+    ga.type = "text/javascript";
+    ga.async = true;
+    ga.src =
+      ("https:" == document.location.protocol ? "https://ssl" : "http://www") +
+      ".google-analytics.com/ga.js";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(ga, s);
+  })();
 </script>
- </head>
+   </head>
 
-<body>
+  <body>
     <aside>
-        <div id="user_meta">
-            <a href="../../../../..">
-                <div>
-                    <svg width="24.348mm" height="24.348mm" version="1.1" viewBox="0 0 24.348095 24.347754"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#"
-                        xmlns:dc="http://purl.org/dc/elements/1.1/"
-                        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-                        <metadata>
-                            <rdf:RDF>
-                                <cc:Work rdf:about="">
-                                    <dc:format>image/svg+xml</dc:format>
-                                    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-                                    <dc:title />
-                                </cc:Work>
-                            </rdf:RDF>
-                        </metadata>
-                        <g transform="translate(81.397 -84.454)">
-                            <path d="m-57.049 105.9v2.9029h-11.173v-2.9029z" fill="#c0c0c0">
-                                <animate attributeName="fill" values="white;grey;white" dur="2s"
-                                    repeatCount="indefinite" />
-                            </path>
-                            <path
-                                d="m-72.272 98.481-9.1246 5.7598v-3.548l5.8658-3.5019v-0.09215l-5.8658-3.5019v-3.548l9.1246 5.7598z"
-                                fill="#c0c0c0" />
-                            <path transform="scale(.26458)"
-                                d="m-273.15 319.2-27.588 14.77 8.498 5.3613 19.09-12.049zm15.309 25.67v44.412h8.8672v-35.635h33.361v-8.7773h-33.783zm25.336 24.66v8.7774h8.0254v10.975h8.8672v-19.752z"
-                                fill="#007bff" />
-                        </g>
-                    </svg>
-                </div>
-            </a>
-            <ul>
-                  <li><a href="../../../../../category/automation.html">automation</a></li>
-                <li><a href="../../../../../category/learnings.html">learnings</a></li>
-                <li><a href="../../../../../category/tips-and-tricks.html">tips-and-tricks</a></li>
-                <li><a href="../../../../../category/tools.html">tools</a></li>
-                <li><a href="../../../../../category/workflow.html">workflow</a></li>
-              </ul>
-        </div>
+      <div id="user_meta">
+        <a href="../../../../..">
+          <div>
+            <svg
+              width="24.348mm"
+              height="24.348mm"
+              version="1.1"
+              viewBox="0 0 24.348095 24.347754"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:cc="http://creativecommons.org/ns#"
+              xmlns:dc="http://purl.org/dc/elements/1.1/"
+              xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+            >
+              <metadata>
+                <rdf:RDF>
+                  <cc:Work rdf:about="">
+                    <dc:format>image/svg+xml</dc:format>
+                    <dc:type
+                      rdf:resource="http://purl.org/dc/dcmitype/StillImage"
+                    />
+                    <dc:title />
+                  </cc:Work>
+                </rdf:RDF>
+              </metadata>
+              <g transform="translate(81.397 -84.454)">
+                <path d="m-57.049 105.9v2.9029h-11.173v-2.9029z" fill="#c0c0c0">
+                  <animate
+                    attributeName="fill"
+                    values="white;grey;white"
+                    dur="2s"
+                    repeatCount="indefinite"
+                  />
+                </path>
+                <path
+                  d="m-72.272 98.481-9.1246 5.7598v-3.548l5.8658-3.5019v-0.09215l-5.8658-3.5019v-3.548l9.1246 5.7598z"
+                  fill="#c0c0c0"
+                />
+                <path
+                  transform="scale(.26458)"
+                  d="m-273.15 319.2-27.588 14.77 8.498 5.3613 19.09-12.049zm15.309 25.67v44.412h8.8672v-35.635h33.361v-8.7773h-33.783zm25.336 24.66v8.7774h8.0254v10.975h8.8672v-19.752z"
+                  fill="#007bff"
+                />
+              </g>
+            </svg>
+          </div>
+        </a>
+        <ul>
+            <li><a href="../../../../../category/automation.html">automation</a></li>
+          <li><a href="../../../../../category/learnings.html">learnings</a></li>
+          <li><a href="../../../../../category/tips-and-tricks.html">tips-and-tricks</a></li>
+          <li><a href="../../../../../category/tools.html">tools</a></li>
+          <li><a href="../../../../../category/workflow.html">workflow</a></li>
+          </ul>
+      </div>
     </aside>
 
     <main>
-        <header>
-            <p>
-                <a href="../../../../..">Home</a> &brvbar;
-                <a href="../../../../../archives.html">Archives</a> &brvbar;
-                <a href="../../../../../tags.html">Tags</a> &brvbar;
-                <a href="../../../../../contact.html">Contact</a> &brvbar;
-                <a href="https://drive.google.com/file/d/1t6GdZjC13naJXVGe6RinGowZLfkRzjy_/view" target="_blank"
-                    rel="noopener noreferrer">Resume</a>
-            </p>
-        </header>
+      <header>
+        <p>
+          <a href="../../../../..">Home</a> &brvbar;
+          <a href="../../../../../archives.html">Archives</a> &brvbar;
+          <a href="../../../../../tags.html">Tags</a> &brvbar;
+          <a href="../../../../../contact.html">Contact</a> &brvbar;
+          <a
+            href="https://drive.google.com/file/d/1t6GdZjC13naJXVGe6RinGowZLfkRzjy_/view"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Resume</a
+          >
+        </p>
+      </header>
 
 <article>
   <div class="article_title">
@@ -124,9 +182,12 @@
           Modified on: Mon 31 October 2022
         </time>
       </div>
-      <div>Category: <a href="../../../../../category/workflow.html">workflow</a>
- &ndash; Tags:
-        <a href="../../../../../tag/git.html">git</a>,        <a href="../../../../../tag/productivity.html">productivity</a>,        <a href="../../../../../tag/terminal.html">terminal</a>      </div>
+      <div>
+        Category:
+        <a href="../../../../../category/workflow.html"
+          >workflow</a
+        >
+ &ndash; Tags:         <a href="../../../../../tag/git.html">git</a>,         <a href="../../../../../tag/productivity.html">productivity</a>,         <a href="../../../../../tag/terminal.html">terminal</a>        </div>
     </div>
     <div class="article_readtime">
       Estimated read time: 30 minutes
@@ -134,9 +195,7 @@
   </div>
 
   <h2 class="toc-title">Table of contents</h2>
-  </div>
-  <nav class="toc">
-    <div class="toc">
+  <nav class="toc"><div class="toc">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#global-and-local-gitignore">Global and local .gitignore</a></li>
@@ -177,10 +236,8 @@
 </ul>
 </li>
 </ul>
-</div>
-  </nav>
+</div></nav>
   <div class="article_text">
-    
 <hr/>
 <h1 id="introduction">Introduction</h1>
 <p>Git, the friend you wish you had met earlier, when organizing files like <code>report 1.pdf</code>, <code>report 2.pdf</code> and <code>report final 1.pdf</code> still made sense somehow. It’s undoubtedly complicated to wrap one’s head around it at first, although there exist some GUIs to make the journey smoother – the best examples that come to mind would include <a href="https://www.gitkraken.com/">GitKraken</a> and <a href="https://www.git-tower.com/">Tower</a> at the top of the list. I have been advised to learn to use Git from the terminal and I would, without flinching, recommend anyone to do the same to really grok this tool and get an intuitive feel for what it does.</p>
@@ -394,13 +451,11 @@ git<span class="w"> </span>rebase<span class="w"> </span>--edit-todo
 <li>Make small commits, maybe 5 to 10 depending on the complexity of the project – usually as long as a series of commits relates to a single topic whenever possible.</li>
 <li>Have a peak at the recent history with <code>git log</code> to have a good idea of what just happened.</li>
 <li>Realize that the history can be improved. Find the oldest commit hash (not pushed yet!), take note of it and run <code>git rebase -i COMMIT_HASH^</code> (with the “hat” <code>^</code> at the end to reference the parent of that commit).</li>
-<li>This opens up a text editor with some explanations on how to proceed (for more on this, have a look at this great article on <a href="https://www.atlassian.com/git/tutorials/rewriting-history">Rewriting history</a>). From there, I usually use <code>r</code> to reword, <code>s</code> to squash, <code>e</code> to edit and sometimes <code>f</code> to fixup, besides also re-ordering commits and from time to time deleting one by removing the line entirely.<ul>
+<li>This opens up a text editor with some explanations on how to proceed (for more on this, have a look at this great article on <a href="https://www.atlassian.com/git/tutorials/rewriting-history">Rewriting history</a>). From there, I usually use <code>r</code> to reword, <code>s</code> to squash, <code>e</code> to edit and sometimes <code>f</code> to fixup, besides also re-ordering commits and from time to time deleting one by removing the line entirely.</li>
 <li><code>r</code> is pretty harmless as it will just show up a new window where the commit message and description can be modified.</li>
 <li><code>s</code> is more destructive because commits will be “merged” together! No actual change is lost, but if you squash a ton of commits by accident, it will create huge commits and you might want to undo that with <code>reflog</code> before it’s too late (Atlassian has more to say about this in <a href="https://www.atlassian.com/git/tutorials/rewriting-history/git-reflog">git reflog</a>). The <code>s</code> option is also nice because it keeps all commit messages, so you can edit the final log message as needed without discarding messages.</li>
 <li><code>e</code> is used to modify the actual source code being committed, maybe to fix a typo or a minor bug after realizing that the test suite no longer passes (assuming you are not programming blindly without tests :)). This can cause some “conflicts” if you change some lines which are also part of other commits in the selection you made originally, so one has to be careful with that. This can also be used in conjunction with <code>git reset HEAD^</code> to “cancel” the current commit when doing the rebase in order to split it into multiple smaller commits, which can then be “<code>git add</code>ed” back, followed by a <code>git rebase --continue</code> to keep going.</li>
 <li><code>f</code> is a quick way of squashing commits together while discarding messages you don’t need. So maybe the last commit has a proper description (“Implemented something…”) and a few commits before that one were just temporary “savepoints” with non-sensical commit messages (things like “testing…” or “new commit”) that were done until you reached a final solution that’s worth committing. So of course in that case the history would be pretty ugly and hard to understand if all commits were kept intact, so these can be added to the latest change which encompasses a working solution as a whole. Just as well, maybe that last commit didn’t have a complete message just yet, so it could also be rewritten with the <code>r</code> prefix.</li>
-</ul>
-</li>
 <li>When individual commits make the <code>rebase</code> stop temporarily (such as when a commit is to be edited with <code>e</code> and waits for changes to be made), then it’s time to do <code>git rebase --continue</code> once the necessary changes are made.</li>
 <li>If something goes wrong along the way, there’s always a way back to the place you were right before rebasing with <code>git rebase --abort</code>. It’s worth noting that Git itself will output some useful messages all along so it’s not necessary to remember all of this: it quickly becomes intuitive.</li>
 </ol>
@@ -722,36 +777,52 @@ git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"
 <li><a href="https://www.atlassian.com/git/tutorials/rewriting-history">Rewriting history</a> - Atlassian.</li>
 <li><a href="https://about.gitlab.com/blog/2021/03/10/new-git-default-branch-name">The new Git default branch name</a> - GitLab.</li>
 <li><a href="https://stackoverflow.com/a/49501436/8787680">What is git-rerere and how does it work?</a> - Stack Overflow.</li>
-</ul>
-  </div>
+</ul></div>
 
   <div id="article_comments">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
       var disqus_identifier = "posts/2022/04/03/git-the-gist-of-it-common-commands-for-a-working-workflow/";
       (function () {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//sglavoie.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        var dsq = document.createElement("script");
+        dsq.type = "text/javascript";
+        dsq.async = true;
+        dsq.src = "//sglavoie.disqus.com/embed.js";
+        (
+          document.getElementsByTagName("head")[0] ||
+          document.getElementsByTagName("body")[0]
+        ).appendChild(dsq);
       })();
     </script>
   </div>
-
 </article>
   
-        <div id="ending_message">
-            <p>
-                &copy; Sébastien Lavoie. Built with
-                <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Python</a>
-                using
-                <a href="http://getpelican.com" target="_blank" rel="noopener noreferrer">Pelican</a>
-                <span class="badge">v4.8.0</span>. Theme adapted from Giulio Fidente on
-                <a href="https://github.com/gfidente/pelican-svbhack" target="_blank"
-                    rel="noopener noreferrer">GitHub</a>.
-                <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS feed</a>.
-            </p>
-        </div>
+      <div id="ending_message">
+        <p>
+          &copy; Sébastien Lavoie. Built with
+          <a
+            href="https://www.python.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Python</a
+          >
+          using
+          <a
+            href="http://getpelican.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Pelican</a
+          >
+          <span class="badge">v4.8.0</span>. Theme adapted from
+          Giulio Fidente on
+          <a
+            href="https://github.com/gfidente/pelican-svbhack"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >. <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS feed</a>.
+        </p>
+      </div>
     </main>
-</body>
-
+  </body>
 </html>

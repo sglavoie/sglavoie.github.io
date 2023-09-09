@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../../../../theme/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../../../../theme/css/pygments.css"
+    />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Sébastien Lavoie" />
+    <meta
+      name="description"
+      content="Posts and writings by Sébastien Lavoie. Customization setups and articles on productivity for developers who like minimalism."
+    />
+    <meta name="title" property="og:title" content="sglavoie.com" />
+    <meta property="og:type" content="Website" />
+    <meta
+      name="image"
+      property="og:image"
+      content="../../../../../theme/images/logo_1200x627.png"
+    />
+
+     <link
+      href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
+      type="application/rss+xml"
+      rel="alternate"
+      title="sglavoie.com RSS"
+    />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="/theme/favicon/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/theme/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/theme/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/theme/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/theme/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="/theme/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#2d89ef" />
+    <meta
+      name="msapplication-TileImage"
+      content="/theme/favicon/mstile-144x144.png"
+    />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#000000" />
+
+<meta name="keywords" content="best practices, books, design, refactoring, ui" />
+
+<!-- Open graph for social networks -->
+<meta name="og:title" property="og:title" content="Refactoring UI provides guidance for non-designers on how to create polished, professional visual interfaces without formal graphic design skills." />
+ 
+    <title>sglavoie.com &ndash; Book summary: Refactoring <span class="caps">UI</span></title>
+
+    <!-- Enable tracking of web traffic -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-150998392-1"]);
+  _gaq.push(["_trackPageview"]);
+  (function () {
+    var ga = document.createElement("script");
+    ga.type = "text/javascript";
+    ga.async = true;
+    ga.src =
+      ("https:" == document.location.protocol ? "https://ssl" : "http://www") +
+      ".google-analytics.com/ga.js";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+   </head>
+
+  <body>
+    <aside>
+      <div id="user_meta">
+        <a href="../../../../..">
+          <div>
+            <svg
+              width="24.348mm"
+              height="24.348mm"
+              version="1.1"
+              viewBox="0 0 24.348095 24.347754"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:cc="http://creativecommons.org/ns#"
+              xmlns:dc="http://purl.org/dc/elements/1.1/"
+              xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+            >
+              <metadata>
+                <rdf:RDF>
+                  <cc:Work rdf:about="">
+                    <dc:format>image/svg+xml</dc:format>
+                    <dc:type
+                      rdf:resource="http://purl.org/dc/dcmitype/StillImage"
+                    />
+                    <dc:title />
+                  </cc:Work>
+                </rdf:RDF>
+              </metadata>
+              <g transform="translate(81.397 -84.454)">
+                <path d="m-57.049 105.9v2.9029h-11.173v-2.9029z" fill="#c0c0c0">
+                  <animate
+                    attributeName="fill"
+                    values="white;grey;white"
+                    dur="2s"
+                    repeatCount="indefinite"
+                  />
+                </path>
+                <path
+                  d="m-72.272 98.481-9.1246 5.7598v-3.548l5.8658-3.5019v-0.09215l-5.8658-3.5019v-3.548l9.1246 5.7598z"
+                  fill="#c0c0c0"
+                />
+                <path
+                  transform="scale(.26458)"
+                  d="m-273.15 319.2-27.588 14.77 8.498 5.3613 19.09-12.049zm15.309 25.67v44.412h8.8672v-35.635h33.361v-8.7773h-33.783zm25.336 24.66v8.7774h8.0254v10.975h8.8672v-19.752z"
+                  fill="#007bff"
+                />
+              </g>
+            </svg>
+          </div>
+        </a>
+        <ul>
+            <li><a href="../../../../../category/automation.html">automation</a></li>
+          <li><a href="../../../../../category/learnings.html">learnings</a></li>
+          <li><a href="../../../../../category/tips-and-tricks.html">tips-and-tricks</a></li>
+          <li><a href="../../../../../category/tools.html">tools</a></li>
+          <li><a href="../../../../../category/workflow.html">workflow</a></li>
+          </ul>
+      </div>
+    </aside>
+
+    <main>
+      <header>
+        <p>
+          <a href="../../../../..">Home</a> &brvbar;
+          <a href="../../../../../archives.html">Archives</a> &brvbar;
+          <a href="../../../../../tags.html">Tags</a> &brvbar;
+          <a href="../../../../../contact.html">Contact</a> &brvbar;
+          <a
+            href="https://drive.google.com/file/d/1t6GdZjC13naJXVGe6RinGowZLfkRzjy_/view"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Resume</a
+          >
+        </p>
+      </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="../../../../../posts/2023/09/09/book-summary-refactoring-ui/">Book summary: Refactoring <span class="caps">UI</span></a></h1>
+  </div>
+  <div class="flex-container">
+    <div class="article_meta">
+      <div>Posted on: Sat 09 September 2023</div>
+      <div>
+        Category:
+        <a href="../../../../../category/learnings.html"
+          >learnings</a
+        >
+ &ndash; Tags:         <a href="../../../../../tag/best-practices.html">best practices</a>,         <a href="../../../../../tag/books.html">books</a>,         <a href="../../../../../tag/design.html">design</a>,         <a href="../../../../../tag/refactoring.html">refactoring</a>,         <a href="../../../../../tag/ui.html">ui</a>        </div>
+    </div>
+    <div class="article_readtime">
+      Estimated read time: 13 minutes
+    </div>
+  </div>
+
+  <h2 class="toc-title">Table of contents</h2>
+  <nav class="toc"><div class="toc">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#starting-from-scratch">Starting from scratch</a><ul>
+<li><a href="#choose-a-personality">Choose a personality</a></li>
+<li><a href="#limit-your-choices">Limit your choices</a></li>
+</ul>
+</li>
+<li><a href="#hierarchy">Hierarchy</a></li>
+<li><a href="#layout-and-spacing">Layout and spacing</a></li>
+<li><a href="#text">Text</a></li>
+<li><a href="#colors">Colors</a><ul>
+<li><a href="#a-good-color-palette">A good color palette</a></li>
+<li><a href="#building-a-color-palette">Building a color palette</a></li>
+<li><a href="#perceived-brightness">Perceived brightness</a></li>
+<li><a href="#a-word-on-accessibility">A word on accessibility</a></li>
+</ul>
+</li>
+<li><a href="#depth">Depth</a><ul>
+<li><a href="#shadows">Shadows</a></li>
+</ul>
+</li>
+<li><a href="#images-and-contrast">Images and contrast</a></li>
+<li><a href="#scale">Scale</a></li>
+<li><a href="#finishing-touches">Finishing touches</a></li>
+<li><a href="#next-level">Next level</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</div></nav>
+  <div class="article_text">
+<hr/>
+<h1 id="introduction">Introduction</h1>
+<ul>
+<li>It covers core principles like establishing consistent systems for recurring elements such as spacing and typography.</li>
+<li>It advises generous use of white space and thoughtful visual hierarchy.</li>
+<li>Steps for adding depth through lighting, shadows, and layers are outlined.</li>
+<li>Recommendations are provided for working with images and illustrations effectively.</li>
+<li>Tips on elevating default elements and breaking conventions to avoid typical, cookie-cutter designs are included.</li>
+<li>Studying other designers’ work and unintuitive decisions is encouraged to expand one’s skills.</li>
+<li>The goal is to equip readers with knowledge to thoughtfully craft interfaces that appear purposefully designed without simply mimicking common graphical tropes.</li>
+<li>By learning fundamental visual design concepts tailored to user interfaces, anyone can create clean, functional, and visually engaging digital experiences.</li>
+</ul>
+<hr/>
+<h1 id="starting-from-scratch">Starting from scratch</h1>
+<ul>
+<li><strong>Start with a feature, not a layout</strong><ul>
+<li>Design the shell and navigation later once you know what features you need.</li>
+</ul>
+</li>
+<li><strong>Detail comes later</strong><ul>
+<li>Design with a big sharpie.</li>
+<li>Design in grayscale to use spacing, contrast and size to do the heavy lifting.</li>
+</ul>
+</li>
+<li><strong>Don’t over-invest</strong><ul>
+<li>Go with low-fidelity sketches and wireframes first to move fast. Don’t get bogged down with details like fonts and colors early on.</li>
+</ul>
+</li>
+<li><strong>Don’t design too much</strong><ul>
+<li><strong>Work in cycles</strong>: design a feature simply, build it, fix errors.</li>
+<li><strong>Be a pessimist</strong>: expect it to be hard to build, and postpone building it (e.g., commenting system without attachments at first).</li>
+</ul>
+</li>
+</ul>
+<h2 id="choose-a-personality">Choose a personality</h2>
+<ul>
+<li>Font choice<ul>
+<li><em>Elegant/classic</em>: serif</li>
+<li><em>Playful</em>: Sans-serif</li>
+<li><em>Plain</em>: neutral sans-serif</li>
+</ul>
+</li>
+<li>Color<ul>
+<li>Blue: safe and familiar, good overall pick.</li>
+<li>Gold: expensive, sophisticated.</li>
+<li>Pink: more fun, less serious.</li>
+</ul>
+</li>
+<li>Border radius<ul>
+<li><em>Small</em> — neutral, not much personality.</li>
+<li><em>Large</em> — more playful.</li>
+<li><em>None</em> — more serious/formal.</li>
+<li><strong>Stay consistent</strong> — either rounded or not, same everywhere.</li>
+</ul>
+</li>
+<li>Language<ul>
+<li>Choose the right words for the desired tone.</li>
+</ul>
+</li>
+<li>Decide what you actually want<ul>
+<li>Look at the websites your expected customers use? Serious, then that’s the feel. Playful? Then that.</li>
+</ul>
+</li>
+</ul>
+<h2 id="limit-your-choices">Limit your choices</h2>
+<ul>
+<li><strong>Define systems in advance</strong><ul>
+<li>Have a working palette color and limit yourself to it.</li>
+<li>Use a type scale to avoid picking specific font sizes.</li>
+</ul>
+</li>
+<li>Designing by process of elimination.</li>
+<li><strong>Systematize</strong> as much as possible to avoid repetitive low-level decisions.</li>
+</ul>
+<hr/>
+<h1 id="hierarchy">Hierarchy</h1>
+<ul>
+<li>Visual hierarchy refers to how elements appear in importance relative to one another.</li>
+<li>Don’t let <span class="caps">HTML</span> semantics dictate visual styling — style based on visual hierarchy.</li>
+<li>Size isn’t everything. Bold font communicates importance. <em>De-emphasize</em> secondary/tertiary information to highlight the most important elements.</li>
+<li>Rely on <em>font weight</em> and <em>color</em>, not just font size, to create hierarchy.</li>
+<li>Limit yourself to <em>2-3 colors</em> and font weights to define hierarchy.</li>
+<li>On colored backgrounds, pick a color with similar hue but lower saturation/lightness rather than just making text gray.</li>
+<li><strong>Avoid label</strong>: value formats — use formats, context, and combined labels/values for clarity without labels.</li>
+<li>Treat labels as secondary content when needed — smaller, lower contrast, lighter weight.</li>
+<li>De-emphasize competing elements instead of just emphasizing the key element.</li>
+<li><em>Combine labels and values</em>: e.g., instead of “<em>In stock: 12</em>“, use “<em>12 left in stock</em>“.</li>
+<li>Treat labels as supporting content.</li>
+<li>Design buttons based on hierarchy, not just semantics. Primary/destructive actions don’t always need prominence.</li>
+</ul>
+<hr/>
+<h1 id="layout-and-spacing">Layout and spacing</h1>
+<ul>
+<li><strong>Start with too much white space</strong>, then remove until happy — often ends up being “just enough”.</li>
+<li>Compact layouts have their place but should be a deliberate choice, not the default.</li>
+<li><strong>Establish a spacing and sizing system</strong><ul>
+<li>A linear scale won’t work</li>
+<li>Create a constrained spacing/sizing system based on a base unit (like <code>16px</code>) to work faster with more consistency.</li>
+</ul>
+</li>
+<li><em>Don’t feel the need to fill the whole screen</em> — give elements only the space they need.</li>
+<li><strong>Grids are overrated</strong><ul>
+<li>Not all elements should be fluid</li>
+<li>Don’t shrink an element until you need to.</li>
+<li>Grids can bring order but don’t have to dictate every layout decision.</li>
+</ul>
+</li>
+<li><em>Balance layouts in columns</em> instead of just making things wider.</li>
+<li><em>Relative sizing doesn’t scale</em>.<ul>
+<li>Fix element widths when flexibility isn’t needed.</li>
+<li>Scale elements independently — don’t rely on relative units like <code>em</code>.</li>
+</ul>
+</li>
+<li><strong>Avoid ambiguous spacing</strong>: increase spacing between groups and reduce spacing within groups to show relationships.</li>
+</ul>
+<hr/>
+<h1 id="text">Text</h1>
+<ul>
+<li><strong>Establish a constrained type scale</strong> to speed up font size decisions and add consistency. Avoid strict modular scales.</li>
+<li>Use <em>pixel</em> or <code>rem</code> units — not <code>em</code> — to guarantee sizes match the scale.</li>
+<li>For <span class="caps">UI</span> design, <em>pick scale values by hand</em> instead of using a mathematical ratio.</li>
+<li><strong>Use high quality fonts</strong> — safe bets are neutral sans-serifs and system fonts.</li>
+<li>Use the system stack if not sure: <code>-apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue;</code></li>
+<li>Favor fonts with <em>5+ weights</em> and optimized for legibility.</li>
+<li><strong>Keep line length between 45-75 characters</strong> (20-35 <code>em</code>) for optimal readability.</li>
+<li><strong>Align mixed font sizes by their baselines</strong>, not centers.</li>
+<li>Use taller line-heights for small text and shorter line-heights for large text.</li>
+<li>Subtly emphasize links in UIs, no need for high contrast colors.</li>
+<li>Left align most text, right align numbers in tables. Justify only with hyphenation.</li>
+<li>Don’t center long form text.</li>
+<li>Tighten letter-spacing for headlines set in text faces. Loosen letter-spacing for all-caps.</li>
+<li>Not all links need to be emphasized boldly, especially in UIs where there is plenty of interactivity.</li>
+</ul>
+<hr/>
+<h1 id="colors">Colors</h1>
+<ul>
+<li><strong><span class="caps">HSL</span></strong> (<em>hue</em>, <em>saturation</em>, <em>lightness</em>) is more intuitive to the human eye: use it instead of <strong><span class="caps">HEX</span></strong> and <strong><span class="caps">RGB</span></strong>.<ul>
+<li><em>Hue</em> is the color position on the color wheel. 0° is red, 120° is green, and 240° is blue.</li>
+<li><em>Saturation</em> represents the vividness. 0% is grey while 100% is vibrant and intense.</li>
+<li><em>Lightness</em> measures how close a closer is to black (0%) or white (100%), where 50% is the pure color.</li>
+</ul>
+</li>
+<li><strong><span class="caps">HSL</span></strong> is not the same as <strong><span class="caps">HSB</span></strong> (<code>lightness != brightness</code>). In <strong><span class="caps">HSB</span></strong>, 0% brightness is always black but 100% brightness is white when saturation is set to 0%.<ul>
+<li>With 100% saturation in both <span class="caps">HSL</span> and <span class="caps">HSB</span>, 100% brightness is equivalent to 50% lightness (pure color).</li>
+</ul>
+</li>
+<li><em>Don’t rely solely on color to convey information</em> - support it with other indicators.</li>
+</ul>
+<h2 id="a-good-color-palette">A good color palette</h2>
+<ul>
+<li>You need more colors than you think - aim for <em>10+ shades</em> of <em>greys</em>, <em>primary colors</em>, and <em>accent colors</em>.</li>
+<li><em>Grey</em><ul>
+<li>There is a lot of grey in UIs: between <em>8-10 shades of grey</em> is a good array of options to pick from. Use very dark grey instead of true black so it looks more natural.</li>
+</ul>
+</li>
+<li><em>Primary colors</em><ul>
+<li><em>1 or 2 is great, with 5-10 different shades</em> (e.g., Facebook is basically blue). A very light shade is good for a tinted background (e.g., alerts), darker shades work great for text.</li>
+</ul>
+</li>
+<li><em>Accent colors</em><ul>
+<li><em>Use sparingly</em>.</li>
+<li>Needed to bring <em>semantic meaning</em>, such as red for danger, yellow for warnings and green for positive trends.</li>
+<li>For a complex <span class="caps">UI</span>, can be as many as 10 different colors, each with 5-10 shades.</li>
+</ul>
+</li>
+</ul>
+<h2 id="building-a-color-palette">Building a color palette</h2>
+<ul>
+<li>Define color shades upfront instead of generating on the fly. Pick base, darkest, lightest, then fill in gaps.</li>
+<li>Don’t rely purely on math to generate shades - trust your eyes and tweak if needed.</li>
+<li>Choose the base color first. This is the color in the middle that light and dark shades are derived from.</li>
+<li>Center: pick a shade that would work well as a button background.</li>
+<li>Extremes: pick the lightness color to work as a background and the darkest to work on top as text to get enough contrast.</li>
+<li>Repeat the process to pick the remaining colors in between. <em>9 shades is a good sweet spot as it divides cleanly</em>.</li>
+<li>For grays, the base color doesn’t matter nearly as much: same process.</li>
+</ul>
+<h2 id="perceived-brightness">Perceived brightness</h2>
+<ul>
+<li>In the <span class="caps">HSL</span> system, the further away a color is from 50% lightness, the more saturated it should be so it doesn’t look washed out.</li>
+<li>The perceived brightness of a color to the human eye can be calculated as follows:</li>
+</ul>
+<div class="math">$$\frac{{\sqrt{0.299 r^2 + 0.587 g^2 + 0.114 b^2}}}{255}$$</div>
+<ul>
+<li>Green is perceived as more bright than red, which in turn is perceived as more bright than blue. With this data point, we can tweak the perceived brightness of a color by rotating the color wheel towards the desired perceived brightness.</li>
+<li><em>Grays aren’t usually totally desaturated</em>.<ul>
+<li>To make them feel “<em>cool</em>” saturate them with some blue.</li>
+<li>To make them feel “<em>warm</em>“, saturate them with yellow or orange.</li>
+<li>The same “<em>saturation curve</em>” applies to grays: the further away from 50% brightness, the more they should be saturated to avoid looking washed out.</li>
+</ul>
+</li>
+</ul>
+<h2 id="a-word-on-accessibility">A word on accessibility</h2>
+<ul>
+<li>Instead of having elements like dark-colored pills with a white foreground color, flip the contrast by having light-colored pills with a dark version of the color in the foreground so they won’t grab too much attention.</li>
+<li><strong>Rotate the hue to make the color pop more</strong>. For instance, instead of cranking up the lightness to meet ideal contrast ratios, rotate the hue and possibly keep the saturation high for a vibrant contrast.</li>
+<li><strong>Don’t rely on color alone</strong><ul>
+<li>Add visual cues (like arrows for upward/downward trends). Designing in grayscale first will help spot these kinds of issues.</li>
+<li>For things like a graph, playing with contrast will produce clearer results.</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h1 id="depth">Depth</h1>
+<ul>
+<li>Mimic how light works in the real world.<ul>
+<li>Emulate a light source coming from above to make elements appear raised or inset.</li>
+<li>For instance, with a button, if light comes from above, then the top should be lighter (e.g., <code>box-shadow inset</code>) than the bottom (<code>box-shadow</code>, casting shadow only below).</li>
+<li>For elements that are “inset” (I.e., more depth in the center), the opposite effect should happen: more light reaches the bottom part (vertical <code>box-shadow</code>, going up) than the top part (<code>box-shadow inset</code> such that it casts some shadow towards the bottom).</li>
+</ul>
+</li>
+<li><em>Don’t overdo it</em>.</li>
+</ul>
+<hr/>
+<h2 id="shadows">Shadows</h2>
+<ul>
+<li><em>Use shadows to convey elevation</em><ul>
+<li>When something appears to be raised from the background (e.g., bigger <code>drop-shadow</code>), <em>it attracts the user’s focus</em>.</li>
+<li><em>Small shadows</em> are useful to attract attention to the primary action to be performed.</li>
+<li><em>Medium shadows</em> are useful for things like a dropdown so it looks separate from the background.</li>
+<li><em>Large shadows</em> are great for modals.</li>
+<li><em>5 options</em> is usually plenty.</li>
+<li>Can be used for interactivity, like when dragging a row from a table.</li>
+<li>A button can feel like it’s being “pressed” by reducing its shadow on click (i.e., it gets closer to the page or farther away from the user).</li>
+<li>Casting shadows<ul>
+<li>To simulate a shadow cast by <em>direct light</em> (e.g., a long shadow behind a plant getting some sunlight), use a larger, more diffuse and subtle shadow.</li>
+<li>To simulate a shadow cast by <em>ambient light</em> (e.g., the shadow right below the plant’s pot where light can’t hardly reach), use a narrow and darker shadow.</li>
+<li>Apply both types of shadow casting at once to create visually compelling effects.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Define a fixed set of shadows as an elevation system for consistency.</li>
+<li>Even flat designs can have depth<ul>
+<li>Flat design does not convey depth with shadows and gradients.</li>
+<li>Create depth with color: lighter colors feel closer.</li>
+<li>Can use short, offset shadows with no blur at all.</li>
+</ul>
+</li>
+<li>Overlap elements to create layers<ul>
+<li>E.g., position a block with a negative margin so it appears on top of two different sections.</li>
+<li>For smaller elements like avatars, an invisible border around it can make it pop better.</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h1 id="images-and-contrast">Images and contrast</h1>
+<ul>
+<li>Images<ul>
+<li><em>Use high quality photos</em> - hire a pro or use stock sites for generics. Don’t expect good results from phone pics.</li>
+</ul>
+</li>
+<li><strong>Text needs consistent contrast</strong><ul>
+<li>Add an overlay to background images to get readable headlines.</li>
+<li>Lower the image contrast. Adjust the brightness to compensate.</li>
+<li>Colorize the image with a single color.</li>
+<li>Use text shadows instead of overlays to preserve image dynamics.</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h1 id="scale">Scale</h1>
+<ul>
+<li><strong>Don’t scale up icons</strong></li>
+<li>Even for SVGs, they will lack detail if they were designed correctly at a smaller scale: use a more detailed icon instead.</li>
+<li>If updating the icon is not an option, enclose it inside another shape (e.g., a circle with a background color) to occupy more space.</li>
+<li><strong>Don’t scale down screenshots</strong></li>
+<li>Details will be distorted and hard to read.</li>
+<li>Either use a presentation from a smaller device (e.g., the tablet version on a desktop) or take a partial screenshot (e.g., “zoom in” effect with a circle or simply crop the original image).</li>
+<li>If a more complex <span class="caps">UI</span> needs to be presented, simplify the original image so the user doesn’t try to read a 4px font size but instead sees simpler shapes.</li>
+<li><strong>Don’t scale down icons</strong></li>
+<li>E.g. for a favicon, redraw a simplified version instead: details will look fuzzy at a small size.</li>
+<li>User-submitted content (e.g., Instagram feed)</li>
+<li><em>Control the size and shape</em>: crop images to keep the aspect ratio of containers  so they don’t disturb layout (e.g., background-size: cover).</li>
+<li>Add inner shadows or borders to user images to prevent background bleed.</li>
+</ul>
+<hr/>
+<h1 id="finishing-touches">Finishing touches</h1>
+<ul>
+<li>Use icons instead of bullets in a bulleted list.</li>
+<li>Play with size and colors. E.g., you can have huge quotes around the block of text representing a testimonial.</li>
+<li>Links deserve special styling.</li>
+<li>Use custom checkboxes and radio buttons in forms: integrate the brand’s primary color(s).</li>
+<li>Add color with accent borders, e.g. across the top of a card element, when highlighting active elements in the <span class="caps">UI</span> or to the left of alert messages.</li>
+<li><em>Decorate backgrounds</em><ul>
+<li>Change the background color. Works great for different page sections.</li>
+<li>Can use gradients: use two hues that are within 30˚ of each other.</li>
+<li>Use repeating patterns.</li>
+</ul>
+</li>
+<li><strong>Consider the empty state carefully</strong>, especially when the user is meant to fill the <span class="caps">UI</span> with data.<ul>
+<li>Prioritize empty states with illustrations and clear calls to action.</li>
+<li>I.e., a contact page with no contacts should feel welcoming, with some icon and button to add a contact instead of a blank page with an error-like statement.</li>
+<li>Similarly, things like dashboard may present a bunch of options that won’t apply until there is something to show: simplify the user experience.</li>
+</ul>
+</li>
+<li><strong>Use less borders</strong><ul>
+<li>Use box shadows, spacing, and color instead of borders to distinguish elements.</li>
+<li>Have two background colors for containers (e.g., darker footer that looks separate from the main content).</li>
+<li>Replace borders with additional spacing.</li>
+</ul>
+</li>
+<li><em>Make components more exciting</em><ul>
+<li>E.g., a table  may not need all its columns if a particular column does not need to be sorted and could instead be part of another one (e.g., combining a dollar amount with a plan type or a person’s name with its title).</li>
+<li>Radio buttons could be cards instead if they are an important part of the <span class="caps">UI</span>.</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h1 id="next-level">Next level</h1>
+<ul>
+<li>Look for unintuitive decisions in designs you admire to find new ideas.</li>
+<li>Rebuild interfaces you love to discover small details that make them exceptional.</li>
+<li>Study others to build a solid foundation.</li>
+</ul>
+<hr/>
+<h1 id="conclusion">Conclusion</h1>
+<p>The concepts covered in this book demonstrate that effective visual design does not require innate artistic talent or formal training. By approaching interfaces methodically, establishing constraints through systems for recurring elements, and learning to strategically apply principles like visual hierarchy, white space, and depth cues, anyone can create designs that appear polished and purposeful. While internalizing these fundamentals does take practice, the ideas presented remove much of the subjective, nuanced expertise needed for things like picking complementary colors or balancing composition in illustrations.</p>
+<p>By focusing on interfaces rather than free-form graphical work, the required skills become more structured and intentional choices drive outcomes. While studying formally can provide more breadth, the core principles in this text are enough to equip non-designers with the ability to build clean, intuitive, and aesthetically pleasing digital products. By implementing the recommendations covered, engineers and others new to design can gain confidence in their interface design skills. A great, concise read!</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#007bff ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></div>
+
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_identifier = "posts/2023/09/09/book-summary-refactoring-ui/";
+      (function () {
+        var dsq = document.createElement("script");
+        dsq.type = "text/javascript";
+        dsq.async = true;
+        dsq.src = "//sglavoie.disqus.com/embed.js";
+        (
+          document.getElementsByTagName("head")[0] ||
+          document.getElementsByTagName("body")[0]
+        ).appendChild(dsq);
+      })();
+    </script>
+  </div>
+</article>
+  
+      <div id="ending_message">
+        <p>
+          &copy; Sébastien Lavoie. Built with
+          <a
+            href="https://www.python.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Python</a
+          >
+          using
+          <a
+            href="http://getpelican.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Pelican</a
+          >
+          <span class="badge">v4.8.0</span>. Theme adapted from
+          Giulio Fidente on
+          <a
+            href="https://github.com/gfidente/pelican-svbhack"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >. <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS feed</a>.
+        </p>
+      </div>
+    </main>
+  </body>
+</html>

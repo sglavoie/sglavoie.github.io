@@ -1,116 +1,174 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <link rel="stylesheet" type="text/css" href="../../../../../theme/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../../theme/css/pygments.css" />
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../../../../theme/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../../../../theme/css/pygments.css"
+    />
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Sébastien Lavoie" />
-    <meta name="description"
-        content="Posts and writings by Sébastien Lavoie. Customization setups and articles on productivity for developers who like minimalism." />
+    <meta
+      name="description"
+      content="Posts and writings by Sébastien Lavoie. Customization setups and articles on productivity for developers who like minimalism."
+    />
     <meta name="title" property="og:title" content="sglavoie.com" />
     <meta property="og:type" content="Website" />
-    <meta name="image" property="og:image" content="../../../../../theme/images/logo_1200x627.png" />
+    <meta
+      name="image"
+      property="og:image"
+      content="../../../../../theme/images/logo_1200x627.png"
+    />
 
-     <link href="https://www.sglavoie.com/feeds/sglavoie.rss.xml" type="application/rss+xml" rel="alternate"
-        title="sglavoie.com RSS" />
+     <link
+      href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
+      type="application/rss+xml"
+      rel="alternate"
+      title="sglavoie.com RSS"
+    />
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" href="/theme/favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/theme/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/theme/favicon/favicon-16x16.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/theme/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/theme/favicon/favicon-16x16.png"
+    />
     <link rel="manifest" href="/theme/favicon/site.webmanifest" />
-    <link rel="mask-icon" href="/theme/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link
+      rel="mask-icon"
+      href="/theme/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
     <link rel="shortcut icon" href="/theme/favicon/favicon.ico" />
     <meta name="msapplication-TileColor" content="#2d89ef" />
-    <meta name="msapplication-TileImage" content="/theme/favicon/mstile-144x144.png" />
-    <meta name="msapplication-config" content="/theme/favicon/browserconfig.xml" />
+    <meta
+      name="msapplication-TileImage"
+      content="/theme/favicon/mstile-144x144.png"
+    />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
     <meta name="theme-color" content="#000000" />
-    <meta name="msapplication-config" content="/theme/favicon/browserconfig.xml" />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
     <meta name="theme-color" content="#000000" />
 
-<meta name="keywords" content="git, terminal">
+<meta name="keywords" content="git, terminal" />
 
 <!-- Open graph for social networks -->
-<meta name="og:title" property="og:title" content="Git leads to a wealth of discoveries. Once SSH and GPG are set up, once dotfiles are under control and once a reasonable Git workflow has been adopted, there's still room to be amazed by something like Git worktrees!">
-
+<meta name="og:title" property="og:title" content="Git leads to a wealth of discoveries. Once SSH and GPG are set up, once dotfiles are under control and once a reasonable Git workflow has been adopted, there's still room to be amazed by something like Git worktrees!" />
+ 
     <title>sglavoie.com &ndash; Git worktrees for a better parallel&nbsp;workflow</title>
 
     <!-- Enable tracking of web traffic -->
 <script type="text/javascript">
-    var _gaq = _gaq || []
-    _gaq.push(['_setAccount', 'UA-150998392-1'])
-    _gaq.push(['_trackPageview'])
-    ;(function () {
-        var ga = document.createElement('script')
-        ga.type = 'text/javascript'
-        ga.async = true
-        ga.src =
-            ('https:' == document.location.protocol
-                ? 'https://ssl'
-                : 'http://www') + '.google-analytics.com/ga.js'
-        var s = document.getElementsByTagName('script')[0]
-        s.parentNode.insertBefore(ga, s)
-    })()
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-150998392-1"]);
+  _gaq.push(["_trackPageview"]);
+  (function () {
+    var ga = document.createElement("script");
+    ga.type = "text/javascript";
+    ga.async = true;
+    ga.src =
+      ("https:" == document.location.protocol ? "https://ssl" : "http://www") +
+      ".google-analytics.com/ga.js";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(ga, s);
+  })();
 </script>
- </head>
+   </head>
 
-<body>
+  <body>
     <aside>
-        <div id="user_meta">
-            <a href="../../../../..">
-                <div>
-                    <svg width="24.348mm" height="24.348mm" version="1.1" viewBox="0 0 24.348095 24.347754"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#"
-                        xmlns:dc="http://purl.org/dc/elements/1.1/"
-                        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-                        <metadata>
-                            <rdf:RDF>
-                                <cc:Work rdf:about="">
-                                    <dc:format>image/svg+xml</dc:format>
-                                    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-                                    <dc:title />
-                                </cc:Work>
-                            </rdf:RDF>
-                        </metadata>
-                        <g transform="translate(81.397 -84.454)">
-                            <path d="m-57.049 105.9v2.9029h-11.173v-2.9029z" fill="#c0c0c0">
-                                <animate attributeName="fill" values="white;grey;white" dur="2s"
-                                    repeatCount="indefinite" />
-                            </path>
-                            <path
-                                d="m-72.272 98.481-9.1246 5.7598v-3.548l5.8658-3.5019v-0.09215l-5.8658-3.5019v-3.548l9.1246 5.7598z"
-                                fill="#c0c0c0" />
-                            <path transform="scale(.26458)"
-                                d="m-273.15 319.2-27.588 14.77 8.498 5.3613 19.09-12.049zm15.309 25.67v44.412h8.8672v-35.635h33.361v-8.7773h-33.783zm25.336 24.66v8.7774h8.0254v10.975h8.8672v-19.752z"
-                                fill="#007bff" />
-                        </g>
-                    </svg>
-                </div>
-            </a>
-            <ul>
-                  <li><a href="../../../../../category/automation.html">automation</a></li>
-                <li><a href="../../../../../category/learnings.html">learnings</a></li>
-                <li><a href="../../../../../category/tips-and-tricks.html">tips-and-tricks</a></li>
-                <li><a href="../../../../../category/tools.html">tools</a></li>
-                <li><a href="../../../../../category/workflow.html">workflow</a></li>
-              </ul>
-        </div>
+      <div id="user_meta">
+        <a href="../../../../..">
+          <div>
+            <svg
+              width="24.348mm"
+              height="24.348mm"
+              version="1.1"
+              viewBox="0 0 24.348095 24.347754"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:cc="http://creativecommons.org/ns#"
+              xmlns:dc="http://purl.org/dc/elements/1.1/"
+              xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+            >
+              <metadata>
+                <rdf:RDF>
+                  <cc:Work rdf:about="">
+                    <dc:format>image/svg+xml</dc:format>
+                    <dc:type
+                      rdf:resource="http://purl.org/dc/dcmitype/StillImage"
+                    />
+                    <dc:title />
+                  </cc:Work>
+                </rdf:RDF>
+              </metadata>
+              <g transform="translate(81.397 -84.454)">
+                <path d="m-57.049 105.9v2.9029h-11.173v-2.9029z" fill="#c0c0c0">
+                  <animate
+                    attributeName="fill"
+                    values="white;grey;white"
+                    dur="2s"
+                    repeatCount="indefinite"
+                  />
+                </path>
+                <path
+                  d="m-72.272 98.481-9.1246 5.7598v-3.548l5.8658-3.5019v-0.09215l-5.8658-3.5019v-3.548l9.1246 5.7598z"
+                  fill="#c0c0c0"
+                />
+                <path
+                  transform="scale(.26458)"
+                  d="m-273.15 319.2-27.588 14.77 8.498 5.3613 19.09-12.049zm15.309 25.67v44.412h8.8672v-35.635h33.361v-8.7773h-33.783zm25.336 24.66v8.7774h8.0254v10.975h8.8672v-19.752z"
+                  fill="#007bff"
+                />
+              </g>
+            </svg>
+          </div>
+        </a>
+        <ul>
+            <li><a href="../../../../../category/automation.html">automation</a></li>
+          <li><a href="../../../../../category/learnings.html">learnings</a></li>
+          <li><a href="../../../../../category/tips-and-tricks.html">tips-and-tricks</a></li>
+          <li><a href="../../../../../category/tools.html">tools</a></li>
+          <li><a href="../../../../../category/workflow.html">workflow</a></li>
+          </ul>
+      </div>
     </aside>
 
     <main>
-        <header>
-            <p>
-                <a href="../../../../..">Home</a> &brvbar;
-                <a href="../../../../../archives.html">Archives</a> &brvbar;
-                <a href="../../../../../tags.html">Tags</a> &brvbar;
-                <a href="../../../../../contact.html">Contact</a> &brvbar;
-                <a href="https://drive.google.com/file/d/1t6GdZjC13naJXVGe6RinGowZLfkRzjy_/view" target="_blank"
-                    rel="noopener noreferrer">Resume</a>
-            </p>
-        </header>
+      <header>
+        <p>
+          <a href="../../../../..">Home</a> &brvbar;
+          <a href="../../../../../archives.html">Archives</a> &brvbar;
+          <a href="../../../../../tags.html">Tags</a> &brvbar;
+          <a href="../../../../../contact.html">Contact</a> &brvbar;
+          <a
+            href="https://drive.google.com/file/d/1t6GdZjC13naJXVGe6RinGowZLfkRzjy_/view"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Resume</a
+          >
+        </p>
+      </header>
 
 <article>
   <div class="article_title">
@@ -119,9 +177,12 @@
   <div class="flex-container">
     <div class="article_meta">
       <div>Posted on: Mon 02 January 2023</div>
-      <div>Category: <a href="../../../../../category/tips-and-tricks.html">tips-and-tricks</a>
- &ndash; Tags:
-        <a href="../../../../../tag/git.html">git</a>,        <a href="../../../../../tag/terminal.html">terminal</a>      </div>
+      <div>
+        Category:
+        <a href="../../../../../category/tips-and-tricks.html"
+          >tips-and-tricks</a
+        >
+ &ndash; Tags:         <a href="../../../../../tag/git.html">git</a>,         <a href="../../../../../tag/terminal.html">terminal</a>        </div>
     </div>
     <div class="article_readtime">
       Estimated read time: 10 minutes
@@ -129,9 +190,7 @@
   </div>
 
   <h2 class="toc-title">Table of contents</h2>
-  </div>
-  <nav class="toc">
-    <div class="toc">
+  <nav class="toc"><div class="toc">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#why-is-git-stash-not-enough">Why is git stash not enough?</a><ul>
@@ -158,10 +217,8 @@
 </ul>
 </li>
 </ul>
-</div>
-  </nav>
+</div></nav>
   <div class="article_text">
-    
 <hr/>
 <h1 id="introduction">Introduction</h1>
 <p>Why are Git worktrees needed in the first place? Well, there are certainly a couple of different use cases where they come in handy, but the reason they exist is to allow a developer to check out multiple branches at once without having to do any kind of cleanup when switching branches. Introduced back in <a href="https://github.blog/2015-07-29-git-2-5-including-multiple-worktrees-and-triangular-workflows/">2015 in Git 2.5</a>, it’s certainly not a new feature anymore, yet it seems like its adoption really took off more recently. I was an avid user of <a href="https://git-scm.com/docs/git-stash"><code>git stash</code></a> but I often got myself cornered in some specific situations where it was not as convenient as I thought it was… and <a href="https://git-scm.com/docs/git-worktree"><code>git worktree</code></a> was for me a pretty good solution without much overhead.</p>
@@ -228,43 +285,59 @@
 <li><a href="https://git-scm.com/docs/git-worktree#_examples"><code>git-worktree</code> / Examples - git-scm.com</a></li>
 <li><a href="https://git-scm.com/docs/git-clone#Documentation/git-clone.txt---bare"><code>git-clone</code> on <code>--bare</code> - git-scm.com</a></li>
 <li><a href="https://www.youtube.com/watch?v=2uEqYw-N8uE">Git’s Best And Most Unknown Feature - ThePrimeagen, YouTube</a></li>
-<li><a href="https://www.youtube.com/watch?v=4_p1OdLeDLE">Git Worktree Tutorial -  Redhwan Nacef, YouTube</a></li>
+<li><a href="https://www.youtube.com/watch?v=4_p1OdLeDLE">Git Worktree Tutorial - Redhwan Nacef, YouTube</a></li>
 </ul>
 <h3 id="from-this-website">From this website</h3>
 <ul>
 <li><a href="../../../../../posts/2022/04/03/git-the-gist-of-it-common-commands-for-a-working-workflow/">Git the gist of it: common commands for a working workflow</a></li>
 <li><a href="../../../../../posts/2021/05/30/managing-dotfiles-with-git-bare-repository/">Managing dotfiles with a Git bare repository</a></li>
 <li><a href="../../../../../posts/2020/10/03/setting-up-ssh-and-git-for-multiple-accounts/">Setting up <span class="caps">SSH</span> and Git for Multiple Accounts</a></li>
-</ul>
-  </div>
+</ul></div>
 
   <div id="article_comments">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
       var disqus_identifier = "posts/2023/01/02/git-worktrees-for-a-better-parallel-workflow/";
       (function () {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//sglavoie.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        var dsq = document.createElement("script");
+        dsq.type = "text/javascript";
+        dsq.async = true;
+        dsq.src = "//sglavoie.disqus.com/embed.js";
+        (
+          document.getElementsByTagName("head")[0] ||
+          document.getElementsByTagName("body")[0]
+        ).appendChild(dsq);
       })();
     </script>
   </div>
-
 </article>
   
-        <div id="ending_message">
-            <p>
-                &copy; Sébastien Lavoie. Built with
-                <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Python</a>
-                using
-                <a href="http://getpelican.com" target="_blank" rel="noopener noreferrer">Pelican</a>
-                <span class="badge">v4.8.0</span>. Theme adapted from Giulio Fidente on
-                <a href="https://github.com/gfidente/pelican-svbhack" target="_blank"
-                    rel="noopener noreferrer">GitHub</a>.
-                <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS feed</a>.
-            </p>
-        </div>
+      <div id="ending_message">
+        <p>
+          &copy; Sébastien Lavoie. Built with
+          <a
+            href="https://www.python.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Python</a
+          >
+          using
+          <a
+            href="http://getpelican.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Pelican</a
+          >
+          <span class="badge">v4.8.0</span>. Theme adapted from
+          Giulio Fidente on
+          <a
+            href="https://github.com/gfidente/pelican-svbhack"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >. <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS feed</a>.
+        </p>
+      </div>
     </main>
-</body>
-
+  </body>
 </html>

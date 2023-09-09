@@ -1,116 +1,174 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <link rel="stylesheet" type="text/css" href="../../../../../theme/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../../theme/css/pygments.css" />
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../../../../theme/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../../../../theme/css/pygments.css"
+    />
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Sébastien Lavoie" />
-    <meta name="description"
-        content="Posts and writings by Sébastien Lavoie. Customization setups and articles on productivity for developers who like minimalism." />
+    <meta
+      name="description"
+      content="Posts and writings by Sébastien Lavoie. Customization setups and articles on productivity for developers who like minimalism."
+    />
     <meta name="title" property="og:title" content="sglavoie.com" />
     <meta property="og:type" content="Website" />
-    <meta name="image" property="og:image" content="../../../../../theme/images/logo_1200x627.png" />
+    <meta
+      name="image"
+      property="og:image"
+      content="../../../../../theme/images/logo_1200x627.png"
+    />
 
-     <link href="https://www.sglavoie.com/feeds/sglavoie.rss.xml" type="application/rss+xml" rel="alternate"
-        title="sglavoie.com RSS" />
+     <link
+      href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
+      type="application/rss+xml"
+      rel="alternate"
+      title="sglavoie.com RSS"
+    />
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" href="/theme/favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/theme/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/theme/favicon/favicon-16x16.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/theme/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/theme/favicon/favicon-16x16.png"
+    />
     <link rel="manifest" href="/theme/favicon/site.webmanifest" />
-    <link rel="mask-icon" href="/theme/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link
+      rel="mask-icon"
+      href="/theme/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
     <link rel="shortcut icon" href="/theme/favicon/favicon.ico" />
     <meta name="msapplication-TileColor" content="#2d89ef" />
-    <meta name="msapplication-TileImage" content="/theme/favicon/mstile-144x144.png" />
-    <meta name="msapplication-config" content="/theme/favicon/browserconfig.xml" />
+    <meta
+      name="msapplication-TileImage"
+      content="/theme/favicon/mstile-144x144.png"
+    />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
     <meta name="theme-color" content="#000000" />
-    <meta name="msapplication-config" content="/theme/favicon/browserconfig.xml" />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
     <meta name="theme-color" content="#000000" />
 
-<meta name="keywords" content="bsc, lessons, mobile-dev, react-native">
+<meta name="keywords" content="bsc, lessons, mobile-dev, react-native" />
 
 <!-- Open graph for social networks -->
-<meta name="og:title" property="og:title" content="After having built a somewhat original habit tracker, I was keen on coming up with a solution to a much more common problem: task management. This is the story of how I built a task planner with React Native, explored from an academic perspective first and foremost.">
-
+<meta name="og:title" property="og:title" content="After having built a somewhat original habit tracker, I was keen on coming up with a solution to a much more common problem: task management. This is the story of how I built a task planner with React Native, explored from an academic perspective first and foremost." />
+ 
     <title>sglavoie.com &ndash; Building a task planner with React Native: an academic&nbsp;journey</title>
 
     <!-- Enable tracking of web traffic -->
 <script type="text/javascript">
-    var _gaq = _gaq || []
-    _gaq.push(['_setAccount', 'UA-150998392-1'])
-    _gaq.push(['_trackPageview'])
-    ;(function () {
-        var ga = document.createElement('script')
-        ga.type = 'text/javascript'
-        ga.async = true
-        ga.src =
-            ('https:' == document.location.protocol
-                ? 'https://ssl'
-                : 'http://www') + '.google-analytics.com/ga.js'
-        var s = document.getElementsByTagName('script')[0]
-        s.parentNode.insertBefore(ga, s)
-    })()
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-150998392-1"]);
+  _gaq.push(["_trackPageview"]);
+  (function () {
+    var ga = document.createElement("script");
+    ga.type = "text/javascript";
+    ga.async = true;
+    ga.src =
+      ("https:" == document.location.protocol ? "https://ssl" : "http://www") +
+      ".google-analytics.com/ga.js";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(ga, s);
+  })();
 </script>
- </head>
+   </head>
 
-<body>
+  <body>
     <aside>
-        <div id="user_meta">
-            <a href="../../../../..">
-                <div>
-                    <svg width="24.348mm" height="24.348mm" version="1.1" viewBox="0 0 24.348095 24.347754"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#"
-                        xmlns:dc="http://purl.org/dc/elements/1.1/"
-                        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-                        <metadata>
-                            <rdf:RDF>
-                                <cc:Work rdf:about="">
-                                    <dc:format>image/svg+xml</dc:format>
-                                    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-                                    <dc:title />
-                                </cc:Work>
-                            </rdf:RDF>
-                        </metadata>
-                        <g transform="translate(81.397 -84.454)">
-                            <path d="m-57.049 105.9v2.9029h-11.173v-2.9029z" fill="#c0c0c0">
-                                <animate attributeName="fill" values="white;grey;white" dur="2s"
-                                    repeatCount="indefinite" />
-                            </path>
-                            <path
-                                d="m-72.272 98.481-9.1246 5.7598v-3.548l5.8658-3.5019v-0.09215l-5.8658-3.5019v-3.548l9.1246 5.7598z"
-                                fill="#c0c0c0" />
-                            <path transform="scale(.26458)"
-                                d="m-273.15 319.2-27.588 14.77 8.498 5.3613 19.09-12.049zm15.309 25.67v44.412h8.8672v-35.635h33.361v-8.7773h-33.783zm25.336 24.66v8.7774h8.0254v10.975h8.8672v-19.752z"
-                                fill="#007bff" />
-                        </g>
-                    </svg>
-                </div>
-            </a>
-            <ul>
-                  <li><a href="../../../../../category/automation.html">automation</a></li>
-                <li><a href="../../../../../category/learnings.html">learnings</a></li>
-                <li><a href="../../../../../category/tips-and-tricks.html">tips-and-tricks</a></li>
-                <li><a href="../../../../../category/tools.html">tools</a></li>
-                <li><a href="../../../../../category/workflow.html">workflow</a></li>
-              </ul>
-        </div>
+      <div id="user_meta">
+        <a href="../../../../..">
+          <div>
+            <svg
+              width="24.348mm"
+              height="24.348mm"
+              version="1.1"
+              viewBox="0 0 24.348095 24.347754"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:cc="http://creativecommons.org/ns#"
+              xmlns:dc="http://purl.org/dc/elements/1.1/"
+              xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+            >
+              <metadata>
+                <rdf:RDF>
+                  <cc:Work rdf:about="">
+                    <dc:format>image/svg+xml</dc:format>
+                    <dc:type
+                      rdf:resource="http://purl.org/dc/dcmitype/StillImage"
+                    />
+                    <dc:title />
+                  </cc:Work>
+                </rdf:RDF>
+              </metadata>
+              <g transform="translate(81.397 -84.454)">
+                <path d="m-57.049 105.9v2.9029h-11.173v-2.9029z" fill="#c0c0c0">
+                  <animate
+                    attributeName="fill"
+                    values="white;grey;white"
+                    dur="2s"
+                    repeatCount="indefinite"
+                  />
+                </path>
+                <path
+                  d="m-72.272 98.481-9.1246 5.7598v-3.548l5.8658-3.5019v-0.09215l-5.8658-3.5019v-3.548l9.1246 5.7598z"
+                  fill="#c0c0c0"
+                />
+                <path
+                  transform="scale(.26458)"
+                  d="m-273.15 319.2-27.588 14.77 8.498 5.3613 19.09-12.049zm15.309 25.67v44.412h8.8672v-35.635h33.361v-8.7773h-33.783zm25.336 24.66v8.7774h8.0254v10.975h8.8672v-19.752z"
+                  fill="#007bff"
+                />
+              </g>
+            </svg>
+          </div>
+        </a>
+        <ul>
+            <li><a href="../../../../../category/automation.html">automation</a></li>
+          <li><a href="../../../../../category/learnings.html">learnings</a></li>
+          <li><a href="../../../../../category/tips-and-tricks.html">tips-and-tricks</a></li>
+          <li><a href="../../../../../category/tools.html">tools</a></li>
+          <li><a href="../../../../../category/workflow.html">workflow</a></li>
+          </ul>
+      </div>
     </aside>
 
     <main>
-        <header>
-            <p>
-                <a href="../../../../..">Home</a> &brvbar;
-                <a href="../../../../../archives.html">Archives</a> &brvbar;
-                <a href="../../../../../tags.html">Tags</a> &brvbar;
-                <a href="../../../../../contact.html">Contact</a> &brvbar;
-                <a href="https://drive.google.com/file/d/1t6GdZjC13naJXVGe6RinGowZLfkRzjy_/view" target="_blank"
-                    rel="noopener noreferrer">Resume</a>
-            </p>
-        </header>
+      <header>
+        <p>
+          <a href="../../../../..">Home</a> &brvbar;
+          <a href="../../../../../archives.html">Archives</a> &brvbar;
+          <a href="../../../../../tags.html">Tags</a> &brvbar;
+          <a href="../../../../../contact.html">Contact</a> &brvbar;
+          <a
+            href="https://drive.google.com/file/d/1t6GdZjC13naJXVGe6RinGowZLfkRzjy_/view"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Resume</a
+          >
+        </p>
+      </header>
 
 <article>
   <div class="article_title">
@@ -119,9 +177,12 @@
   <div class="flex-container">
     <div class="article_meta">
       <div>Posted on: Sun 30 July 2023</div>
-      <div>Category: <a href="../../../../../category/learnings.html">learnings</a>
- &ndash; Tags:
-        <a href="../../../../../tag/bsc.html">bsc</a>,        <a href="../../../../../tag/lessons.html">lessons</a>,        <a href="../../../../../tag/mobile-dev.html">mobile-dev</a>,        <a href="../../../../../tag/react-native.html">react-native</a>      </div>
+      <div>
+        Category:
+        <a href="../../../../../category/learnings.html"
+          >learnings</a
+        >
+ &ndash; Tags:         <a href="../../../../../tag/bsc.html">bsc</a>,         <a href="../../../../../tag/lessons.html">lessons</a>,         <a href="../../../../../tag/mobile-dev.html">mobile-dev</a>,         <a href="../../../../../tag/react-native.html">react-native</a>        </div>
     </div>
     <div class="article_readtime">
       Estimated read time: 50 minutes
@@ -129,9 +190,7 @@
   </div>
 
   <h2 class="toc-title">Table of contents</h2>
-  </div>
-  <nav class="toc">
-    <div class="toc">
+  <nav class="toc"><div class="toc">
 <ul>
 <li><a href="#preamble">Preamble</a></li>
 <li><a href="#1-introduction">1 Introduction</a><ul>
@@ -196,10 +255,8 @@
 </li>
 <li><a href="#demo-of-the-app">Demo of the app</a></li>
 </ul>
-</div>
-  </nav>
+</div></nav>
   <div class="article_text">
-    
 <hr/>
 <h1 id="preamble">Preamble</h1>
 <p>For my last assignment in a <a href="https://www.london.ac.uk/courses/computer-science">BSc in Computer Science at the University of London</a>, I decided to get involved in the world of task management to tackle one of the most common challenges usually offered to programmers, but with a twist based on scientific evidence. The result ended up being a cross-platform mobile application built with React Native, named ProductiviDo. Due to intellectual property concerns, I will not be able to share the source code of the application, but I hope you will nonetheless find joy in reading about the process of building it through the lens of the report I submitted for the assignment. For a complete list of references and appendices in context, please refer to <a href="../../../../../files/posts/0039_productivido/productivido.pdf">the original report</a>.</p>
@@ -249,7 +306,7 @@
 <h2 id="21-previous-work">2.1 Previous work</h2>
 <p>As alluded to in section 1.1, the current work found inspiration in well-established task management software. There are numerous alternatives available on the market: only the most well-known and relevant ones for this project will be covered. Evaluating such products in depth goes beyond the scope of this report: key points will be highlighted to justify the need for a new solution.</p>
 <h2 id="211-todoist">2.1.1 Todoist</h2>
-<p><strong>Todoist</strong> is one of the most popular task management software, with over 20 million users. It is a web-based application that allows users to create tasks, organize them into projects, and assign them to specific dates. It also features a priority system that allows users to sort tasks by importance, and a reminder system that will notify users of upcoming tasks. While <strong>Todoist</strong> is a very popular solution, it has some shortcomings. Its design is arguably polished, yet its dark theme lacks contrast, recurring tasks don’t show immediately on which schedule they recur  and tasks with comments or attachments are difficult to locate. Other functional deficiencies include the fact that the “Upcoming” view shows all tasks from all projects as a large, single list of items without allowing filtering or that the app has a concept of “due date” with no “start date” such that duration is not taken into account nor can be visually represented meaningfully in a calendar. Equally relevant when comparing to what <strong>ProductiviDo</strong> will offer is the fact that there is no way to apply “time boxing” as there is no calendar view and only a functionally limited Google Calendar integration, task filtering is not intuitive due to the custom query language syntax used by the app and there is no easy way to find recurring or routine tasks without setting up a custom labelling system on one’s own.</p>
+<p><strong>Todoist</strong> is one of the most popular task management software, with over 20 million users. It is a web-based application that allows users to create tasks, organize them into projects, and assign them to specific dates. It also features a priority system that allows users to sort tasks by importance, and a reminder system that will notify users of upcoming tasks. While <strong>Todoist</strong> is a very popular solution, it has some shortcomings. Its design is arguably polished, yet its dark theme lacks contrast, recurring tasks don’t show immediately on which schedule they recur and tasks with comments or attachments are difficult to locate. Other functional deficiencies include the fact that the “Upcoming” view shows all tasks from all projects as a large, single list of items without allowing filtering or that the app has a concept of “due date” with no “start date” such that duration is not taken into account nor can be visually represented meaningfully in a calendar. Equally relevant when comparing to what <strong>ProductiviDo</strong> will offer is the fact that there is no way to apply “time boxing” as there is no calendar view and only a functionally limited Google Calendar integration, task filtering is not intuitive due to the custom query language syntax used by the app and there is no easy way to find recurring or routine tasks without setting up a custom labelling system on one’s own.</p>
 <figure>
 <a href="../../../../../images/posts/0039_productivido/todoist-upcoming-view.png"><img alt="todoist upcoming view" src="../../../../../images/posts/0039_productivido/todoist-upcoming-view.png" style="max-width: 500px"/></a>
 <figcaption>Todoist upcoming view.</figcaption>
@@ -364,7 +421,7 @@ Principles of Design” inform how the application has been thought out, marked
 In terms of software user-facing dependencies, the application will use the following libraries:</p>
 <ul>
 <li><code>react-native-async-storage/async-storage</code>: The application will use this library to store data
-locally on the device;</li>
+  locally on the device;</li>
 <li><code>react-native-community/datetimepicker</code>: This library will be used to display the date and time pickers;</li>
 <li><code>React Navigation</code>: This library will be used to implement the navigation system;</li>
 <li><code>Redux</code>: This library will be used to manage the state of the application;</li>
@@ -372,10 +429,10 @@ locally on the device;</li>
 <li><code>redux-persist</code>: This library will be used to persist the state of the application locally on the device;</li>
 <li><code>redux-thunk</code>: This library will be used to implement asynchronous actions in the application;</li>
 <li><code>react-native-collapsible</code>: This library will be used to implement all the collapsible sections to
-provide progressive disclosure;</li>
+  provide progressive disclosure;</li>
 <li><code>react-native-extended-stylesheet</code>: This library will be used to implement the theming system;</li>
 <li><code>nandorojo/anchor</code>: This library will be used to implement the anchor system so that users can jump
-from one section to another in the help system.</li>
+  from one section to another in the help system.</li>
 </ul>
 <p>The application will also use the following libraries to support the development process:</p>
 <ul>
@@ -390,7 +447,7 @@ from one section to another in the help system.</li>
 <p>On the backend side, the application will make use mainly of the following services:</p>
 <ul>
 <li><code>Firebase</code>: This service will be used to implement the authentication system needed to deal with
-Google accounts as an optional add-on;</li>
+  Google accounts as an optional add-on;</li>
 <li><code>Google Calendar</code>: This service will be used to implement the calendar system;</li>
 <li><code>SQLite</code>: It will be used to implement the database system locally and will be backed up to the cloud.</li>
 </ul>
@@ -502,36 +559,52 @@ Google accounts as an optional add-on;</li>
 <h1 id="demo-of-the-app">Demo of the app</h1>
 <div class="youtube youtube-16x9">
 <iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/l_5JRL1UDzY"></iframe>
-</div>
-  </div>
+</div></div>
 
   <div id="article_comments">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
       var disqus_identifier = "posts/2023/07/30/building-task-planner-react-native/";
       (function () {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//sglavoie.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        var dsq = document.createElement("script");
+        dsq.type = "text/javascript";
+        dsq.async = true;
+        dsq.src = "//sglavoie.disqus.com/embed.js";
+        (
+          document.getElementsByTagName("head")[0] ||
+          document.getElementsByTagName("body")[0]
+        ).appendChild(dsq);
       })();
     </script>
   </div>
-
 </article>
   
-        <div id="ending_message">
-            <p>
-                &copy; Sébastien Lavoie. Built with
-                <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Python</a>
-                using
-                <a href="http://getpelican.com" target="_blank" rel="noopener noreferrer">Pelican</a>
-                <span class="badge">v4.8.0</span>. Theme adapted from Giulio Fidente on
-                <a href="https://github.com/gfidente/pelican-svbhack" target="_blank"
-                    rel="noopener noreferrer">GitHub</a>.
-                <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS feed</a>.
-            </p>
-        </div>
+      <div id="ending_message">
+        <p>
+          &copy; Sébastien Lavoie. Built with
+          <a
+            href="https://www.python.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Python</a
+          >
+          using
+          <a
+            href="http://getpelican.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Pelican</a
+          >
+          <span class="badge">v4.8.0</span>. Theme adapted from
+          Giulio Fidente on
+          <a
+            href="https://github.com/gfidente/pelican-svbhack"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >. <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS feed</a>.
+        </p>
+      </div>
     </main>
-</body>
-
+  </body>
 </html>

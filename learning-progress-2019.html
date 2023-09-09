@@ -1,34 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <link rel="stylesheet" type="text/css" href="./theme/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="./theme/css/pygments.css" />
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./theme/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./theme/css/pygments.css"
+    />
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Sébastien Lavoie" />
-    <meta name="description"
-        content="Posts and writings by Sébastien Lavoie. Customization setups and articles on productivity for developers who like minimalism." />
+    <meta
+      name="description"
+      content="Posts and writings by Sébastien Lavoie. Customization setups and articles on productivity for developers who like minimalism."
+    />
     <meta name="title" property="og:title" content="sglavoie.com" />
     <meta property="og:type" content="Website" />
-    <meta name="image" property="og:image" content="./theme/images/logo_1200x627.png" />
+    <meta
+      name="image"
+      property="og:image"
+      content="./theme/images/logo_1200x627.png"
+    />
 
-     <link href="https://www.sglavoie.com/feeds/sglavoie.rss.xml" type="application/rss+xml" rel="alternate"
-        title="sglavoie.com RSS" />
+     <link
+      href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
+      type="application/rss+xml"
+      rel="alternate"
+      title="sglavoie.com RSS"
+    />
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" href="/theme/favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/theme/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/theme/favicon/favicon-16x16.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/theme/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/theme/favicon/favicon-16x16.png"
+    />
     <link rel="manifest" href="/theme/favicon/site.webmanifest" />
-    <link rel="mask-icon" href="/theme/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link
+      rel="mask-icon"
+      href="/theme/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
     <link rel="shortcut icon" href="/theme/favicon/favicon.ico" />
     <meta name="msapplication-TileColor" content="#2d89ef" />
-    <meta name="msapplication-TileImage" content="/theme/favicon/mstile-144x144.png" />
-    <meta name="msapplication-config" content="/theme/favicon/browserconfig.xml" />
+    <meta
+      name="msapplication-TileImage"
+      content="/theme/favicon/mstile-144x144.png"
+    />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
     <meta name="theme-color" content="#000000" />
-    <meta name="msapplication-config" content="/theme/favicon/browserconfig.xml" />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
     <meta name="theme-color" content="#000000" />
 
  
@@ -36,84 +76,101 @@
 
     <!-- Enable tracking of web traffic -->
 <script type="text/javascript">
-    var _gaq = _gaq || []
-    _gaq.push(['_setAccount', 'UA-150998392-1'])
-    _gaq.push(['_trackPageview'])
-    ;(function () {
-        var ga = document.createElement('script')
-        ga.type = 'text/javascript'
-        ga.async = true
-        ga.src =
-            ('https:' == document.location.protocol
-                ? 'https://ssl'
-                : 'http://www') + '.google-analytics.com/ga.js'
-        var s = document.getElementsByTagName('script')[0]
-        s.parentNode.insertBefore(ga, s)
-    })()
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-150998392-1"]);
+  _gaq.push(["_trackPageview"]);
+  (function () {
+    var ga = document.createElement("script");
+    ga.type = "text/javascript";
+    ga.async = true;
+    ga.src =
+      ("https:" == document.location.protocol ? "https://ssl" : "http://www") +
+      ".google-analytics.com/ga.js";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(ga, s);
+  })();
 </script>
- </head>
+   </head>
 
-<body>
+  <body>
     <aside>
-        <div id="user_meta">
-            <a href=".">
-                <div>
-                    <svg width="24.348mm" height="24.348mm" version="1.1" viewBox="0 0 24.348095 24.347754"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#"
-                        xmlns:dc="http://purl.org/dc/elements/1.1/"
-                        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-                        <metadata>
-                            <rdf:RDF>
-                                <cc:Work rdf:about="">
-                                    <dc:format>image/svg+xml</dc:format>
-                                    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-                                    <dc:title />
-                                </cc:Work>
-                            </rdf:RDF>
-                        </metadata>
-                        <g transform="translate(81.397 -84.454)">
-                            <path d="m-57.049 105.9v2.9029h-11.173v-2.9029z" fill="#c0c0c0">
-                                <animate attributeName="fill" values="white;grey;white" dur="2s"
-                                    repeatCount="indefinite" />
-                            </path>
-                            <path
-                                d="m-72.272 98.481-9.1246 5.7598v-3.548l5.8658-3.5019v-0.09215l-5.8658-3.5019v-3.548l9.1246 5.7598z"
-                                fill="#c0c0c0" />
-                            <path transform="scale(.26458)"
-                                d="m-273.15 319.2-27.588 14.77 8.498 5.3613 19.09-12.049zm15.309 25.67v44.412h8.8672v-35.635h33.361v-8.7773h-33.783zm25.336 24.66v8.7774h8.0254v10.975h8.8672v-19.752z"
-                                fill="#007bff" />
-                        </g>
-                    </svg>
-                </div>
-            </a>
-            <ul>
-                  <li><a href="./category/automation.html">automation</a></li>
-                <li><a href="./category/learnings.html">learnings</a></li>
-                <li><a href="./category/tips-and-tricks.html">tips-and-tricks</a></li>
-                <li><a href="./category/tools.html">tools</a></li>
-                <li><a href="./category/workflow.html">workflow</a></li>
-              </ul>
-        </div>
+      <div id="user_meta">
+        <a href=".">
+          <div>
+            <svg
+              width="24.348mm"
+              height="24.348mm"
+              version="1.1"
+              viewBox="0 0 24.348095 24.347754"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:cc="http://creativecommons.org/ns#"
+              xmlns:dc="http://purl.org/dc/elements/1.1/"
+              xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+            >
+              <metadata>
+                <rdf:RDF>
+                  <cc:Work rdf:about="">
+                    <dc:format>image/svg+xml</dc:format>
+                    <dc:type
+                      rdf:resource="http://purl.org/dc/dcmitype/StillImage"
+                    />
+                    <dc:title />
+                  </cc:Work>
+                </rdf:RDF>
+              </metadata>
+              <g transform="translate(81.397 -84.454)">
+                <path d="m-57.049 105.9v2.9029h-11.173v-2.9029z" fill="#c0c0c0">
+                  <animate
+                    attributeName="fill"
+                    values="white;grey;white"
+                    dur="2s"
+                    repeatCount="indefinite"
+                  />
+                </path>
+                <path
+                  d="m-72.272 98.481-9.1246 5.7598v-3.548l5.8658-3.5019v-0.09215l-5.8658-3.5019v-3.548l9.1246 5.7598z"
+                  fill="#c0c0c0"
+                />
+                <path
+                  transform="scale(.26458)"
+                  d="m-273.15 319.2-27.588 14.77 8.498 5.3613 19.09-12.049zm15.309 25.67v44.412h8.8672v-35.635h33.361v-8.7773h-33.783zm25.336 24.66v8.7774h8.0254v10.975h8.8672v-19.752z"
+                  fill="#007bff"
+                />
+              </g>
+            </svg>
+          </div>
+        </a>
+        <ul>
+            <li><a href="./category/automation.html">automation</a></li>
+          <li><a href="./category/learnings.html">learnings</a></li>
+          <li><a href="./category/tips-and-tricks.html">tips-and-tricks</a></li>
+          <li><a href="./category/tools.html">tools</a></li>
+          <li><a href="./category/workflow.html">workflow</a></li>
+          </ul>
+      </div>
     </aside>
 
     <main>
-        <header>
-            <p>
-                <a href=".">Home</a> &brvbar;
-                <a href="./archives.html">Archives</a> &brvbar;
-                <a href="./tags.html">Tags</a> &brvbar;
-                <a href="./contact.html">Contact</a> &brvbar;
-                <a href="https://drive.google.com/file/d/1t6GdZjC13naJXVGe6RinGowZLfkRzjy_/view" target="_blank"
-                    rel="noopener noreferrer">Resume</a>
-            </p>
-        </header>
+      <header>
+        <p>
+          <a href=".">Home</a> &brvbar;
+          <a href="./archives.html">Archives</a> &brvbar;
+          <a href="./tags.html">Tags</a> &brvbar;
+          <a href="./contact.html">Contact</a> &brvbar;
+          <a
+            href="https://drive.google.com/file/d/1t6GdZjC13naJXVGe6RinGowZLfkRzjy_/view"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Resume</a
+          >
+        </p>
+      </header>
 
 <article>
   <div class="article_title">
     <h1><a href="./learning-progress-2019.html">Learning Progress&nbsp;2019</a></h1>
   </div>
-  <div class="article_text">
-    <blockquote>
+  <div class="article_text"><blockquote>
 <p>Learning is an eternal path. I wanted to share my own adventure
 primarily for the following practical reasons: to help me remember
 what I have supposedly been working on technology-wise and
@@ -128,49 +185,41 @@ hope you may find some inspiration too.</p>
 <h2 id="december">December</h2>
 <h3 id="30">30</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Recursion: recurrence relations, structural induction.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="29">29</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Mathematical induction, strong induction, well-ordering principle.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="28">28</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Induction (proof by induction, strong induction), recursion.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>Review Git concepts: branching workflows; rebasing; interactive staging; rewriting history; submodules.</li>
 </ul>
 <h3 id="27">27</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li>Particle system and beat detector in <code>p5.js</code>.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>Patching <code>st</code> to get scrollback and transparency.</li>
 </ul>
 <h3 id="26">26</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Review rules of inference, inferences with quantifiers, direct proof, proof by contraposition, proof by contradiction, proof by cases.</li>
 </ul>
@@ -179,25 +228,21 @@ hope you may find some inspiration too.</p>
 <li>Working with a beat detector in <code>p5.js</code>.</li>
 </ul>
 </li>
-</ul>
-</li>
 <li>Review Python: regex; zip function.</li>
 <li>Setting up <code>AUR</code> in Manjaro.</li>
 </ul>
 <h3 id="25">25</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Introduction to proofs (direct, contrapositive, contradiction), mathematical induction, proof by induction.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>Setting dual-screen workflow with <code>i3</code>.</li>
 </ul>
 <h3 id="23">23</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li>JavaScript: Review <span class="caps">IIFE</span>, arrow functions, <code>map</code>, <code>fill</code>, <code>reduce</code>, <code>filter</code>, <code>sort</code>.</li>
 </ul>
@@ -207,11 +252,9 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="22">22</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li>More on <span class="caps">OOP</span> in JavaScript, async and await functions.</li>
 </ul>
@@ -221,11 +264,9 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="21">21</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li>Dealing with memory leaks in JavaScript.</li>
 </ul>
@@ -235,11 +276,9 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="20">20</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li>Analyzing sounds in <code>p5.js</code> with fast Fourier transform.</li>
 </ul>
@@ -248,25 +287,21 @@ hope you may find some inspiration too.</p>
 <li>Review boolean algebra, predicate logic and quantifiers.</li>
 </ul>
 </li>
-</ul>
-</li>
 <li><a href="https://docs.python-guide.org/writing/gotchas">Common Gotchas</a> from The Hitchhiker’s Guide to Python.</li>
 <li>Using <a href="https://deepsource.io">DeepSource</a> static code analysis tool for Python and Go.</li>
 <li>Using <a href="https://vifm.info">Vifm</a> as terminal file manager.</li>
 </ul>
 <h3 id="19">19</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Review propositional logic: propositional satisfiability; logical equivalences.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="18">18</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li>JavaScript: delaying actions with <code>setTimeout</code>.</li>
 </ul>
@@ -276,170 +311,136 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="17">17</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Algorithms and Data Structures I</strong><ul>
 <li>Sudoku assignment: Heap’s algorithm, recursive functions in Python.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>Configuring and compiling <span class="caps">DWM</span>.</li>
 </ul>
 <h3 id="16">16</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Algorithms and Data Structures I</strong><ul>
 <li>Sudoku assignment: Recursive algorithm to set blank characters in solved puzzle.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>Understanding window placement and tags in <span class="caps">DWM</span>.</li>
 </ul>
 <h3 id="15">15</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Algorithms and Data Structures I</strong><ul>
 <li>Sudoku assignment: Depth-search algorithm, symmetry in Sudoku.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="14">14</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Algorithms and Data Structures I</strong><ul>
 <li>Sudoku assignment: Dancing links and backtracking algorithms.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="13">13</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li>Review JavaScript: arrow functions, loops with <code>forEach</code> structure, modules in <span class="caps">ES6</span>, <span class="caps">IIFE</span>.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="12">12</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Working with LaTeX expressions with LibreOffice extension.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>Getting to know Xmonad, bspwm and dwm.</li>
 </ul>
 <h3 id="11">11</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Review injective and surjective functions, bijective functions, inverse functions, exponential and logarithm functions.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="10">10</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Review sets, set builder notation, functions, set partitions, injective and surjective functions, bijective functions, inverse functions.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="9">9</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li>Positioning elements in <span class="caps">CSS3</span>, fullscreen <span class="caps">API</span>, <span class="caps">CSS3</span> hover effects.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="8">8</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li>Promises in JavaScript, adding autocompletion to forms elements, working with applications that toggle fullscreen.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>Batch renaming files in Bash functions.</li>
 </ul>
 <h3 id="7">7</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li>Add loading animations to <code>p5.js</code> application.</li>
 <li>Work with <code>p5.GUI</code> library.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="6">6</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li>Working with sound files properties (pitch, volume, playback rate), conditional ternary operator, SweetAlert2 events, asynchronous functions.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="5">5</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Algorithms and Data Structures I</strong><ul>
 <li>Sudoku assignment: Dancing links and backtracking algorithms, mathematics of Sudoku.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="4">4</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Algorithms and Data Structures I</strong><ul>
 <li>Sudoku assignment: Working with a coordinate system inside vectors (pseudocode) and lists (Python).</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="3">3</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Algorithms and Data Structures I</strong><ul>
 <li>Sudoku assignment: Permuting elements with queues.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="2">2</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Algorithms and Data Structures I</strong><ul>
 <li>Sudoku assignment: Converting Python functions to pseudo code and vice versa.</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -447,38 +448,32 @@ hope you may find some inspiration too.</p>
 <h2 id="november">November</h2>
 <h3 id="30_1">30</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li><code>p5.js</code>: Manipulating the <span class="caps">DOM</span>, working with media files, working with <a href="https://sweetalert2.github.io">SweetAlert</a> library.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="29_1">29</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li><code>p5.js</code>: File dropper, manipulating the <span class="caps">DOM</span>, working with media files.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>Read article <a href="https://neilkakkar.com/things-I-learnt-from-a-senior-dev.html">Things I Learnt from a Senior Software Engineer</a>.</li>
 </ul>
 <h3 id="28_1">28</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Review: Boolean algebra, Boolean functions, logic gates, combinational circuits, simplification of circuits.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="27_1">27</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Review: Logic gates, postulates of Boolean algebra, Boolean functions.</li>
 </ul>
@@ -487,13 +482,11 @@ hope you may find some inspiration too.</p>
 <li>Comparing function growth, big O notation, worst-case time complexity, input size.</li>
 </ul>
 </li>
-</ul>
-</li>
 <li>Solve <a href="https://projecteuler.net/problem=52">permuted multiples</a>, Project Euler.</li>
 </ul>
 <h3 id="26_1">26</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Review: Karnaugh maps, De Morgan’s Theorem, logic gates, combinational circuits, simplification of circuits, Boolean algebra, adders.</li>
 </ul>
@@ -503,21 +496,17 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="25_1">25</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Review: Morgan’s laws in Boolean algebra, modular properties in Boolean algebra, laws of Boolean algebra, Karnaugh maps.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="24">24</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li>Finish <a href="https://app.pluralsight.com/library/courses/javascript-practical-design-patterns">Practical Design Patterns in JavaScript</a> course at Pluralsight (mediator pattern, command pattern).</li>
 <li>Finish <a href="https://app.pluralsight.com/library/courses/javascript-best-practices">JavaScript Best Pratices</a> course at Pluralsight (why best practices, syntax, behaviors, async patterns, production code).</li>
@@ -525,11 +514,9 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="23_1">23</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li>Finish <a href="https://app.pluralsight.com/library/courses/javascript-fundamentals">JavaScript Fundamentals</a> course at Pluralsight (programming the <span class="caps">BOM</span> and <span class="caps">DOM</span>, promises <span class="amp">&amp;</span> error handling, data access using <span class="caps">HTTP</span>, forms, security and building for production).</li>
 <li>Finish <a href="https://app.pluralsight.com/library/courses/javascript-objects-prototypes">JavaScript Objects and Prototypes</a> course at Pluralsight (creating JavaScript objects, object properties, prototypes and inheritance).</li>
@@ -537,11 +524,9 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="22_1">22</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Review: Operations in Boolean algebra.</li>
 <li><a href="https://www.youtube.com/watch?v=RO5alU6PpSU">Introduction to Karnaugh Maps</a> with The Organic Chemistry Tutor.</li>
@@ -554,11 +539,9 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="21_1">21</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Finish watching <a href="https://www.youtube.com/watch?v=RhS-AL2ZcyE">Logic gates</a> with The Organic Chemistry Tutor.</li>
 </ul>
@@ -568,11 +551,9 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="20_1">20</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Algorithms and Data Structures I</strong><ul>
 <li>Review: bubble sort <span class="amp">&amp;</span> insertion sort, loops in JavaScript.</li>
 </ul>
@@ -582,22 +563,18 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="19_1">19</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Algorithms and Data Structures I</strong><ul>
 <li>Review: elementary data structures; bubble sort <span class="amp">&amp;</span> insertion sort.</li>
 <li><a href="https://www.youtube.com/watch?v=njTh_OwMljA">Linked lists</a> (HackerRank), <a href="https://www.youtube.com/watch?v=DyG9S9nAlUM">Arrays vs Linked lists</a> (Computerphile), <a href="https://www.youtube.com/watch?v=_jQhALI4ujg">Linked lists</a> (Computerphile).</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="18_1">18</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Boolean expressions, Boolean functions, identities of Boolean algebra, duality.</li>
 </ul>
@@ -607,22 +584,18 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="17_1">17</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li>Software architecture patterns.</li>
 <li><strong><span class="caps">SOLID</span></strong> principle (Single Responsibility, Open Closed, Liskov substitution, Interface Segregation and Dependency Inversion Principles).</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="16_1">16</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Review: De Morgan’s laws for quantifiers; rules of inference.</li>
 <li>Boolean algebra, postulates of Boolean algebra, Boolean functions.</li>
@@ -633,22 +606,18 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="15_1">15</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Review: De Morgan’s laws for quantifiers; rules of inference.</li>
 <li>Propositional satisfiability.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="14_1">14</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Review: laws of propositional logic; predicate logic; predicates; quantification; nested quantifiers; De Morgan’s laws for quantifiers; rules of inference with/without quantifiers.</li>
 </ul>
@@ -659,11 +628,9 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="13_1">13</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Review: logical equivalences; predicates <span class="amp">&amp;</span> quantifiers; De Morgan’s laws; rules of inference with/without quantifiers.</li>
 </ul>
@@ -678,11 +645,9 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="12_1">12</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>De Morgan’s law for quantifiers, rules of inference with/without quantifiers.</li>
 </ul>
@@ -692,11 +657,9 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="11_1">11</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Predicates and quantifiers, De Morgan’s law for quantifiers.</li>
 </ul>
@@ -710,21 +673,17 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="10_1">10</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Algorithms and Data Structures I</strong><ul>
 <li>Linked lists.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="9_1">9</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Definition of predicates, quantifiers, logical operators and nested quantifiers.</li>
 </ul>
@@ -734,11 +693,9 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="8_1">8</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Review: logical implications; logical equivalence; laws of propositional logic.</li>
 <li>Predicate logic, quantification (universal, existential, uniqueness quantifiers), nested quantifiers.</li>
@@ -749,11 +706,9 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="7_1">7</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Review: logical implications; logical equivalence; laws of propositional logic.</li>
 </ul>
@@ -763,11 +718,9 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="6_1">6</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Logical implications, logical equivalence, laws of propositional logic.</li>
 </ul>
@@ -776,43 +729,33 @@ hope you may find some inspiration too.</p>
 <li>Using stacks to check for palindromes, dynamic sets (stack, queue).</li>
 </ul>
 </li>
-</ul>
-</li>
 <li>Review how to use <code>crontab</code> to schedule tasks with Bash and Python scripts.</li>
 </ul>
 <h3 id="5_1">5</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Algorithms and Data Structures I</strong><ul>
 <li>Data structure: Queues; stacks.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="4_1">4</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Algorithms and Data Structures I</strong><ul>
 <li>Data structure: vectors.</li>
 </ul>
 </li>
-</ul>
-</li>
-<li>Read <a href="https://www.vimfromscratch.com/articles/awesome-command-line-tools/">Awesome Command-Line Tools</a> from Vim from Scratch.<ul>
+<li>Read <a href="https://www.vimfromscratch.com/articles/awesome-command-line-tools/">Awesome Command-Line Tools</a> from Vim from Scratch.</li>
 <li>Learn about <a href="https://github.com/rupa/z">z</a>, a tool to jump around in the terminal by ‘frecency’ (frequency <span class="amp">&amp;</span> recency).</li>
 <li>Learn about <a href="https://github.com/sharkdp/bat">bat</a>, a <code>cat</code> with wings.</li>
-</ul>
-</li>
 <li>Use <a href="https://github.com/wfxr/forgit">Forgit</a> (fuzzy finder for Git).</li>
 </ul>
 <h3 id="3_1">3</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Algorithms and Data Structures I</strong><ul>
 <li>Examples in pseudocode.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>Configure and use <a href="http://todotxt.org">todo.txt</a>.</li>
@@ -820,19 +763,17 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="2_1">2</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li>Using <code>Function.prototype.bind()</code> instead of <code>that = this</code>.</li>
 <li><a href="https://www.destroyallsoftware.com/compendium/software-structure">Software structure</a> on Destroy All Software.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>Piping Linux commands like a real plumber.</li>
 </ul>
 <h3 id="1">1</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Review: powerset of a set; set operations; sets representation with Venn diagrams; De Morgan’s laws; laws of sets.</li>
 </ul>
@@ -842,13 +783,11 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <hr/>
 <h2 id="october">October</h2>
 <h3 id="31">31</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Review: powerset of a set; set operations; sets representation with Venn diagrams; De Morgan’s laws; laws of sets.</li>
 <li>Propositional logic, propositions, truth tables, truth sets, compound propositions, logical implication (converse, contrapositive, inverse).</li>
@@ -858,28 +797,22 @@ hope you may find some inspiration too.</p>
 <li><code>p5.js</code> sound: amplitude; frequency, creating a “ridge plots” visualization. <code>p5.js</code> data.</li>
 </ul>
 </li>
-</ul>
-</li>
 <li>Review basics of <a href="https://palletsprojects.com/p/flask/">Flask</a> web framework (routes, templates with Jinja2).</li>
 <li>Vimwiki: managing tags, creating tables.</li>
 </ul>
 <h3 id="30_2">30</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Bijective functions, logarithmic functions, floor <span class="amp">&amp;</span> ceiling functions.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="29_2">29</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Partial functions, function compositions, bijective functions.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>Configure <a href="https://activitywatch.net">ActivityWatch</a> with extra watchers.</li>
@@ -887,35 +820,29 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="28_2">28</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Review graph of functions.</li>
 <li>Partial functions.</li>
 <li><a href="https://www.youtube.com/watch?v=V5tUc-J124s">Four Basic Proof Techniques Used in Mathematics</a> with patrickJMT (direct, by contradiction, by induction, by contrapositive).</li>
 </ul>
 </li>
-</ul>
-</li>
 <li><strong>Git</strong> review: Merging branches (fast-forwarding), cherry picking, <code>git push</code>, <code>git pull</code>, tracking branches, aliases.</li>
 </ul>
 <h3 id="27_2">27</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Injective, bijective <span class="amp">&amp;</span> surjective functions, inverse functions, composition of functions.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>On <a href="https://learngitbranching.js.org/">Learn Git Branching</a>: Working with remote branches, working with diverged history, <code>pull --rebase</code>, merging feature branches, remote-tracking branches, <code>fetch</code> arguments, <code>pull</code> arguments.</li>
 </ul>
 <h3 id="26_2">26</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Injective <span class="amp">&amp;</span> surjective functions.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>Basics of WebRTC.</li>
@@ -926,11 +853,9 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="25_2">25</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Introduction to functions (one-to-one [injective] and onto [surjective] functions), plotting functions, set operations, set notations.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>How patterns are matched in <code>.gitignore</code>.</li>
@@ -938,28 +863,24 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="23_2">23</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Propositional equivalences, De Morgan’s laws, applications of satisfiability.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>Review Git basics.</li>
 </ul>
 <h3 id="22_2">22</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Applications of propositional logic, propositional equivalences.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="21_2">21</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Logic and proofs (propositional logic), applications of propositional logic, Set theory from scratch.</li>
 </ul>
@@ -970,31 +891,25 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="20_2">20</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li>Making a website from Vimwiki.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="19_2">19</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li>Study case 2 (music visualizer): <code>p5.dom</code> (handling events), anonymous functions.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="18_2">18</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Review aspects of set theory.</li>
 </ul>
@@ -1004,33 +919,27 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="17_2">17</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Introduction to set theory, set builder method, powerset of a set, cardinality of powerset, set operations, De Morgan’s laws.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="16_2">16</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Algorithms and Data Structures I</strong><ul>
 <li>Birthday Party problem, discretisation and pseudocode, pseudocode and functions, loops in pseudocode, Euclidean algorithm in pseudocode, converting flowcharts to pseudocode and vice versa.</li>
 <li>Introduction to algorithms, flowcharts, Heron’s method, pseudocode.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>Solve <a href="https://www.codewars.com/kata/5a49f074b3bfa89b4c00002b">String subpattern recognition I</a> on Codewars.</li>
 </ul>
 <h3 id="15_2">15</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li>Study case 1: Drawing application – under the hood, introduction to <code>p5.dom</code>, handling events in <code>p5.dom</code>.</li>
 <li>Study case 2: Music visualizer.</li>
@@ -1039,19 +948,15 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="14_2">14</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Set theory.</li>
 </ul>
 </li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li>Introducing case study 1: drawing app.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li><a href="https://www.coursera.org/learn/version-control-with-git">Version Control with Git</a> on Coursera: Rebasing; rewriting history (amending a commit, interactive rebase); pull requests; Git workflows (centralized, feature branch, forking, Gitflow).</li>
@@ -1063,37 +968,31 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="13_2">13</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Set operations, set identities, set builder notation.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="12_2">12</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Injective and surjective properties, introduction to functions, Heron’s method.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="11_2">11</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Set theory: partition; set operations; set identities; set builder notation.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="10_2">10</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Venn diagrams representations of sets, set representation and manipulation (complement of a set), De Morgan’s laws, Laws of sets (commutative, associative and distributive).</li>
 </ul>
@@ -1103,21 +1002,17 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="9_2">9</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Discrete mathematics</strong><ul>
 <li>Introduction to set theory, set builder method, powerset of a set, cardinality of powerset, set operations.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="8_2">8</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to Programming <span class="caps">II</span></strong><ul>
 <li>Object orientation in practice, organizing code.</li>
 </ul>
@@ -1127,15 +1022,11 @@ hope you may find some inspiration too.</p>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="7_2">7</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Algorithms and Data Structures I</strong><ul>
 <li>Problems, algorithms and flowcharts.</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -1230,263 +1121,205 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="14_3">14</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Web development</strong><ul>
 <li>Working with Slick carousel, Lightbox plugin for Bootstrap, touch events in JavaScript, event handlers <span class="amp">&amp;</span> event listeners.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="13_3">13</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Web development</strong><ul>
 <li>General review of Bootstrap 4 framework, Slick JavaScript library, Lightbox library.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="12_3">12</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Web development</strong><ul>
 <li>General review of Bootstrap 4 framework.</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
 <h3 id="11_3">11</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Web development</strong><ul>
 <li>General review of Bootstrap 4 framework.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>Using progress bars with <a href="https://click.palletsprojects.com/">Click</a>, compiling <span class="caps">SASS</span> with <code>ruby-sass</code> Using <a href="http://kenwheeler.github.io/slick/">Slick</a> and <a href="https://ashleydw.github.io/lightbox/">Lightbox</a> as JavaScript plugins.</li>
 </ul>
 <h3 id="10_3">10</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Web development</strong><ul>
 <li>Bootstrap 4 framework: List group items, badges, forms, input groups, alerts, progress bars, tables, pagination, cards, media objects, grid system flexbox, JavaScript widgets, collapse widget, accordion widget, tooltips, popovers, modals.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li><code>Gulp</code> with <code>node.js</code>, Emmet syntax.</li>
 </ul>
 <h3 id="9_3">9</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Web development</strong><ul>
 <li>Review how Bootstrap 4 framework works: setup; typography; alignment; positioning; <span class="caps">CSS</span> breakpoints; buttons; nav bars.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>Recursion in <code>p5.js</code>: <a href="https://www.youtube.com/watch?v=jPsZwrV9ld0">Coding Challenge #77: Recursion</a>.</li>
 </ul>
 <h3 id="8_3">8</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to programming</strong>: Working with realistic physics in <code>p5.js</code>.</li>
-</ul>
-</li>
 </ul>
 <h3 id="7_3">7</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to programming</strong>: Working with realistic physics animations, particle systems (fireworks), working with the <span class="caps">DOM</span> inside <code>p5.js</code>.</li>
-</ul>
-</li>
 <li>Closures in JavaScript.</li>
 </ul>
 <h3 id="6_2">6</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to programming</strong>: Layering canvases in <code>p5.js</code>, calling scripts dynamically.</li>
-</ul>
-</li>
 <li>Python: Unit testing, importing modules.</li>
 </ul>
 <h3 id="5_3">5</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to programming</strong>: Splitting application into modules, working with sound in <code>p5.js</code>.</li>
-</ul>
-</li>
 </ul>
 <h3 id="4_3">4</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to programming</strong>: Constructor functions, working with sound and <code>DOM</code> functions in <code>p5.js</code>.</li>
-</ul>
-</li>
 <li>Logging in Python.</li>
 <li>Setting up Mailgun with custom domains.</li>
 </ul>
 <h3 id="3_3">3</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Calculus, linear algebra, sequences <span class="amp">&amp;</span> series, probability, number bases, modular arithmetic.</li>
-</ul>
-</li>
 <li>Creating a watchdog in Python.</li>
 </ul>
 <h3 id="2_3">2</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Calculus, linear algebra, sequences <span class="amp">&amp;</span> series, probability, number bases, modular arithmetic.</li>
-</ul>
-</li>
 </ul>
 <h3 id="1_2">1</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Graph transformations, probability, binomial probability, linear algebra, affine transformations, number bases, modular arithmetic.</li>
-</ul>
-</li>
 </ul>
 <hr/>
 <h2 id="august">August</h2>
 <h3 id="31_1">31</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Sequences and series, modular arithmetic, number bases, probability.</li>
-</ul>
-</li>
 </ul>
 <h3 id="30_4">30</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: <span class="caps">SUVAT</span> equations, local minima and maxima with first derivative test, sequences and series.</li>
-</ul>
-</li>
 </ul>
 <h3 id="29_4">29</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Calculus and derivatives, limits and continuous functions, inverse functions and their derivatives, <span class="caps">SUVAT</span> equations.</li>
-</ul>
-</li>
 </ul>
 <h3 id="28_4">28</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Calculus and derivatives, product rule, quotient rule, chain rule.</li>
-</ul>
-</li>
 <li>Read <a href="https://dev.to/jacobherrington/git-bisect-is-easy-44ol">Git Guides - Jacob Herrington - Git Bisect is Easy (How to Initiate the Robot Uprising)</a> and <code>git cherry-pick</code>.</li>
 </ul>
 <h3 id="27_4">27</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Geometric progressions, sequences, calculus and derivatives.</li>
-</ul>
-</li>
 <li>Read <a href="https://dev.to/jacobherrington/10-git-tricks-to-save-your-time-and-sanity-289h">Git Guides - Jacob Herrington - 10 Git Tricks to Save Your Time and Sanity</a>.</li>
 </ul>
 <h3 id="26_4">26</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Linear dependence and independence, linear subspaces, number bases, number base conversions, modular arithmetic, patterns in sequences.</li>
-</ul>
-</li>
 </ul>
 <h3 id="25_4">25</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Systems of equations with matrices, inverse matrices, permutations in matrices, basic operations on vectors, linear combinations of vectors, span, linear independence.</li>
-</ul>
-</li>
 </ul>
 <h3 id="24_2">24</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Law of sine, Law of cosine, triangles with ambiguous cases, matrices (linear transformations, systems of equations).</li>
-</ul>
-</li>
 </ul>
 <h3 id="22_3">22</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Dot product and angle between two vectors, polar coordinates, <span class="caps">SUVAT</span> equations, derivatives.</li>
-</ul>
-</li>
 </ul>
 <h3 id="21_4">21</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Inverse of matrices, probability of an event, mutually exclusive events, independent events, conditional probability, fundamental counting principle.</li>
-</ul>
-</li>
 </ul>
 <h3 id="20_4">20</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Simple machine learning model, Bayes’ Theorem (likelihood, prior, evidence, posterior), Bayesian inference.</li>
-</ul>
-</li>
 </ul>
 <h3 id="19_4">19</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to programming</strong>: JavaScript arrays, debugging techniques, methods, vector objects in <code>p5.js</code>.</li>
 <li><strong>Numerical mathematics</strong>: Probability <span class="amp">&amp;</span> statistics: independent events, complement of an event, averages (mean, median, mode), variance, standard deviation, conditional probability, sets.</li>
 </ul>
-</li>
-</ul>
 <h3 id="17_4">17</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Introduction to combinatorics and probability, counting principles, independent events (multiplication law), permutations, mutually exclusive events, complement of an event, combinations.</li>
 <li><strong>Web development</strong></li>
-</ul>
-</li>
 <li>JavaScript basics: Execution context, execution stack (creation and execution phases), hoisting, scoping and scoping chain, <span class="caps">DOM</span> manipulation and events, <code>this</code> keyword in practice, events handlers <span class="amp">&amp;</span> events listeners.</li>
 </ul>
 <h3 id="16_3">16</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Affine transformations, kaleidoscopes and tilings, solving simultaneous equations using matrices, linear transformations of matrices, homogeneous coordinates.</li>
 <li><strong>Web development</strong></li>
-</ul>
-</li>
 <li>JavaScript basics: basic operators, operator precedence, conditional statements, boolean logic, ternary operators, switch statement, truthy <span class="amp">&amp;</span> falsy values, equality operators, functions, arrays, objects, properties and methods, loops and iterations, continue, break, <span class="caps">ES5</span>, <span class="caps">ES2015</span>+.</li>
 </ul>
 <h3 id="15_3">15</h3>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: Linear transformations of matrices.</li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: Linear transformations of matrices.</p>
 </li>
 <li>
 <p><strong>Neovim</strong>: Using the <code>dot</code> command (dot formula).</p>
 </li>
 <li><a href="https://www.youtube.com/watch?v=0NO3MJkxm2g">Comments in Python: Best Practices</a> with Real Python.
-    -Equality testing, review JavaScript arrays on <a href="https://www.executeprogram.com">Execute Program</a>.</li>
+  -Equality testing, review JavaScript arrays on <a href="https://www.executeprogram.com">Execute Program</a>.</li>
 </ul>
 <h3 id="14_4">14</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Multiplying matrices and column vectors, linear transformations of matrices, homogeneous coordinates.</li>
-</ul>
-</li>
 </ul>
 <h3 id="13_4">13</h3>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: Cross product of vectors, inverse of a matrix, multiply matrices and column vectors.</li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: Cross product of vectors, inverse of a matrix, multiply matrices and column vectors.</p>
 </li>
 <li>
 <p><a href="https://www.youtube.com/watch?v=6tNS--WetLI">Python Tutorial: Unit Testing Your Code with the unittest Module</a> with Corey Schafer.</p>
@@ -1496,9 +1329,9 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: Homogeneous coordinates, cross product of two vectors, triple scalar product, vector product, inverse of a matrix with cofactor method and Jordan-Gauss method.</li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: Homogeneous coordinates, cross product of two vectors, triple scalar product, vector product, inverse of a matrix with cofactor method and Jordan-Gauss method.</p>
 </li>
 <li>
 <p>Using primary (<code>Shift + Insert</code>) and default (<code>Ctrl + Shift + v</code>) clipboard in terminal.</p>
@@ -1509,9 +1342,9 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: Solving a matrix equation, inverse of a square matrix, system of linear equations.</li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: Solving a matrix equation, inverse of a square matrix, system of linear equations.</p>
 </li>
 <li>
 <p>Dot product and cross product in Python.</p>
@@ -1521,10 +1354,12 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: matrices <span class="amp">&amp;</span> systems of equations, elementary row operations, Gaussian elimination with back-substitution, Gauss-Jordan elimination, operations with matrices.</li>
-<li><strong>Introduction to programming</strong>: Working with <code>this</code> keyword, vectors in <code>p5.js</code>.</li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: matrices <span class="amp">&amp;</span> systems of equations, elementary row operations, Gaussian elimination with back-substitution, Gauss-Jordan elimination, operations with matrices.</p>
+</li>
+<li>
+<p><strong>Introduction to programming</strong>: Working with <code>this</code> keyword, vectors in <code>p5.js</code>.</p>
 </li>
 <li>
 <p>Python concepts: <code>sys.path</code>, creating packages and subpackages.</p>
@@ -1534,9 +1369,9 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: matrices (linear combinations, multiplication), determinant.</li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: matrices (linear combinations, multiplication), determinant.</p>
 </li>
 <li>
 <p>Using <code>git stash</code>, <code>git commit --amend</code>, <code>git diff</code>, <code>.gitignore</code> and <code>.git/info/exclude</code> files, <code>git blame</code>.</p>
@@ -1544,19 +1379,15 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="8_4">8</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: <strong><span class="caps">SUVAT</span></strong> equations in vector form, Operations with 2D vectors, dot product, angle between vectors, operations with 3D vectors.</li>
 <li><strong>Web development</strong></li>
-</ul>
-</li>
 <li>More on <code>Handlebars.js</code>: Custom expressions, partials.</li>
 </ul>
 <h3 id="7_4">7</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Triple scalar product, cross-product of two vectors.</li>
-</ul>
-</li>
 <li>
 <p><a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">Essence of linear algebra</a> with 3Blue1Brown: determinant; cross products.</p>
 </li>
@@ -1569,10 +1400,12 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: Vectors in space, cross-product of two vectors, Analytic geometry.</li>
-<li><strong>Web development</strong>: <code>Handlebars.js</code> helpers.</li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: Vectors in space, cross-product of two vectors, Analytic geometry.</p>
+</li>
+<li>
+<p><strong>Web development</strong>: <code>Handlebars.js</code> helpers.</p>
 </li>
 <li>
 <p><a href="https://www.youtube.com/watch?v=mO_dS3rXDIs">Python Quick Tip: The Difference Between “==” and “is” (Equality vs Identity)</a> with Corey Schafer.</p>
@@ -1583,10 +1416,12 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Introduction to programming</strong>: Working with <code>this</code> keyword.</li>
-<li><strong>Numerical mathematics</strong>: Vectors, dot product, matrices <span class="amp">&amp;</span> determinants, elementary row operations, Gaussian elemination with back-substitution, matrices with row-echelon form, analytic geometry in three dimensions.</li>
-</ul>
+</li>
+<li>
+<p><strong>Introduction to programming</strong>: Working with <code>this</code> keyword.</p>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: Vectors, dot product, matrices <span class="amp">&amp;</span> determinants, elementary row operations, Gaussian elemination with back-substitution, matrices with row-echelon form, analytic geometry in three dimensions.</p>
 </li>
 <li>
 <p>Review JavaScript arrays on <a href="https://www.executeprogram.com">Execute Program</a>, <code>forEach</code> iterations.</p>
@@ -1596,11 +1431,13 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Introduction to programming</strong>: More on constructor functions, creating a particle system with an emitter (holds, adds and removes particles), making platforms in a <code>p5.js</code> game.</li>
+</li>
+<li>
+<p><strong>Introduction to programming</strong>: More on constructor functions, creating a particle system with an emitter (holds, adds and removes particles), making platforms in a <code>p5.js</code> game.</p>
+</li>
 <li><strong>Numerical mathematics</strong>: More on vectors, dot product.</li>
-<li><strong>Web development</strong>: Web template systems (Mustache and <code>Handlebars.js</code>).</li>
-</ul>
+<li>
+<p><strong>Web development</strong>: Web template systems (Mustache and <code>Handlebars.js</code>).</p>
 </li>
 <li>
 <p>JavaScript arrays on <a href="https://www.executeprogram.com">Execute Program</a>.</p>
@@ -1610,10 +1447,12 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Introduction to programming</strong>: Vector objects and adding sound in <code>p5.js</code>, factory pattern, constructor functions.</li>
-<li><strong>Numerical mathematics</strong>: Matrices, inverse matrices.</li>
-</ul>
+</li>
+<li>
+<p><strong>Introduction to programming</strong>: Vector objects and adding sound in <code>p5.js</code>, factory pattern, constructor functions.</p>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: Matrices, inverse matrices.</p>
 </li>
 <li>
 <p>Solve <a href="https://projecteuler.net/problem=30">digit fifth powers</a>, Project Euler.</p>
@@ -1621,21 +1460,17 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="2_4">2</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong><ul>
 <li><a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">Essence of linear algebra</a> with 3Blue1Brown: Matrix multiplication as composition, three-dimensional linear transformations, the determinant, inverse matrices, column space and null space, nonsquare matrices as transformations between dimensions, dot products and duality, cross products.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="1_3">1</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: addition, subtraction, scalar product (dot product) with vectors and matrices.<ul>
 <li><a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">Essence of linear algebra</a> with 3Blue1Brown: vectors — what even are they, linear combinations, span, and basis vectors, linear transformations and matrices.</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -1643,47 +1478,39 @@ hope you may find some inspiration too.</p>
 <h2 id="july">July</h2>
 <h3 id="31_2">31</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong><ul>
 <li>Calculus: Differentiating exponential functions, find maxima, minima, turning points and asymptotes of graphs of trigonometric, exponential and logarithmic functions.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="30_5">30</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong><ul>
 <li>Calculus: Using differentiation to analyse the behaviour of a function, differentiating trigonometric functions.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="29_5">29</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong><ul>
 <li><a href="https://www.youtube.com/watch?v=UcWsDwg1XwM&amp;list=PLBE9407EA64E2C318"><span class="caps">MIT</span> Highlights of Calculus</a> by <span class="caps">MIT</span>: Limits and continuous functions, inverse funtions and the natural logarithm, derivatives of natural logarithms and sine inverse, growth rates <span class="amp">&amp;</span> log graphs, linear approximation <span class="amp">&amp;</span> Newton’s method, chains f(g(x)) and the chain rule.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="28_5">28</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong><ul>
 <li><a href="https://www.youtube.com/watch?v=UcWsDwg1XwM&amp;list=PLBE9407EA64E2C318"><span class="caps">MIT</span> Highlights of Calculus</a> by <span class="caps">MIT</span>: Big picture of calculus, big picture of derivatives, max and min and second derivative, the exponential function, product rule, quotient rule, big picture of integrals, derivative of <code>sin(x)</code> and <code>cos(x)</code>.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="27_5">27</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong><ul>
 <li>Calculus: The quotient rule, product rule, chain rule.</li>
 <li><a href="https://www.youtube.com/watch?v=yQrKXo89nHA">Chains f(g(x)) and the chain rule</a> by <span class="caps">MIT</span></li>
@@ -1692,25 +1519,19 @@ hope you may find some inspiration too.</p>
 <li><strong>Web development</strong>: On JavaScript: touch events, orientation events.</li>
 <li><strong>Introduction to programming</strong>: JavaScript methods.</li>
 </ul>
-</li>
-</ul>
 <h3 id="26_5">26</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong><ul>
 <li>Calculus: The quotient rule, product rule, chain rule.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="25_5">25</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong><ul>
 <li>Calculus: Differentiating compositions of functions with the chain rule, differentiation of polynomial, rational and algebraic functions.</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -1718,11 +1539,11 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong><ul>
-<li>Calculus: Differentiating polynomials and rational functions, limits of functions, chords and lines tangent to graphs.</li>
-</ul>
 </li>
+<li>
+<p><strong>Numerical mathematics</strong></p>
+<ul>
+<li>Calculus: Differentiating polynomials and rational functions, limits of functions, chords and lines tangent to graphs.</li>
 </ul>
 </li>
 <li>
@@ -1731,31 +1552,25 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="23_4">23</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong><ul>
 <li>Calculus: Limits of functions, chords and lines tangent to graphs.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="22_4">22</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong><ul>
 <li>Calculus: Limits of sequences, limits of summations, evaluating limits at infinity.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="21_5">21</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong><ul>
 <li>Calculus: Limits at infinity <span class="amp">&amp;</span> limits of sequences.</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -1763,13 +1578,15 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong></p>
 <ul>
-<li><strong>Numerical mathematics</strong><ul>
 <li>Calculus: Introduction to limits.</li>
 </ul>
 </li>
-<li><strong>Web development</strong>: On JavaScript: Event listeners.</li>
-</ul>
+<li>
+<p><strong>Web development</strong>: On JavaScript: Event listeners.</p>
 </li>
 <li>
 <p>How references work (<code>HEAD</code>, detached <code>HEAD</code>), <code>git reflog</code>, tags, annotated tags.</p>
@@ -1777,11 +1594,9 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="19_5">19</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong><ul>
 <li>Calculus: The quotient rule, product rule, chain rule, introduction to limits.</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -1789,11 +1604,11 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: The product rule.<ul>
-<li><a href="https://www.youtube.com/watch?v=WUvTyaaNkzM&amp;list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr">Essence of Calculus</a> with 3Blue1Brown: Higher order derivatives, Taylor series, what they don’t teach you in calculus.</li>
-</ul>
 </li>
+<li>
+<p><strong>Numerical mathematics</strong>: The product rule.</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=WUvTyaaNkzM&amp;list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr">Essence of Calculus</a> with 3Blue1Brown: Higher order derivatives, Taylor series, what they don’t teach you in calculus.</li>
 </ul>
 </li>
 <li>
@@ -1805,11 +1620,11 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong><ul>
-<li><a href="https://www.youtube.com/watch?v=WUvTyaaNkzM&amp;list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr">Essence of Calculus</a> with 3Blue1Brown: What’s so special about Euler’s number <strong>e</strong>, implicit differentiation, limits, l’Hopital’s rule <span class="amp">&amp;</span> epsilon delta definitions, integration <span class="amp">&amp;</span> the fundamental theorem of calculus and what does area have to do with slope.</li>
-</ul>
 </li>
+<li>
+<p><strong>Numerical mathematics</strong></p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=WUvTyaaNkzM&amp;list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr">Essence of Calculus</a> with 3Blue1Brown: What’s so special about Euler’s number <strong>e</strong>, implicit differentiation, limits, l’Hopital’s rule <span class="amp">&amp;</span> epsilon delta definitions, integration <span class="amp">&amp;</span> the fundamental theorem of calculus and what does area have to do with slope.</li>
 </ul>
 </li>
 <li>
@@ -1818,61 +1633,51 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="16_4">16</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong><ul>
 <li><a href="https://www.youtube.com/watch?v=WUvTyaaNkzM&amp;list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr">Essence of Calculus</a> with 3Blue1Brown: Visualizing the chain rule and product rule.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="15_4">15</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to programming</strong>: Create a <em>simple</em> yet complete game with <code>p5.js</code>.</li>
 <li><strong>Numerical mathematics</strong>: Introduction to calculus: limits and differentiation, exponential and logarithmic functions.<ul>
 <li><a href="https://www.youtube.com/watch?v=WUvTyaaNkzM&amp;list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr">Essence of Calculus</a> with 3Blue1Brown: Introduction; the paradox of the derivative; derivative formulas through geometry.</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <h3 id="14_5">14</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Introduction to calculus: limits and differentiation, exponential and logarithmic functions.</li>
-</ul>
-</li>
 </ul>
 <h3 id="13_5">13</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Web development</strong>: Manipulating the <span class="caps">DOM</span>, events and events handlers, JavaScript syntax.</li>
-</ul>
-</li>
 </ul>
 <h3 id="12_5">12</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Logarithmic functions.</li>
-</ul>
-</li>
 </ul>
 <h3 id="11_5">11</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Logarithmic functions.</li>
-</ul>
-</li>
 </ul>
 <h3 id="10_5">10</h3>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Introduction to programming</strong>: JavaScript: Nesting objects and arrays, search patterns, debugging techniques (common errors with data, iterative coding).</li>
-<li><strong>Numerical mathematics</strong>: Exponential <span class="amp">&amp;</span> logarithmic functions.</li>
-</ul>
+</li>
+<li>
+<p><strong>Introduction to programming</strong>: JavaScript: Nesting objects and arrays, search patterns, debugging techniques (common errors with data, iterative coding).</p>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: Exponential <span class="amp">&amp;</span> logarithmic functions.</p>
 </li>
 <li>
 <p>Read article on new features in Python 3 at <a href="https://python-catalin.blogspot.com/2019/07/python-373-about-python-version-373.html">python-catalin</a>.</p>
@@ -1882,10 +1687,12 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Introduction to programming</strong>: JavaScript: Variables and scopes, two dimensional arrays.</li>
-<li><strong>Numerical mathematics</strong>: Exponential functions, logarithmic functions.</li>
-</ul>
+</li>
+<li>
+<p><strong>Introduction to programming</strong>: JavaScript: Variables and scopes, two dimensional arrays.</p>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: Exponential functions, logarithmic functions.</p>
 </li>
 <li>
 <p><code>Vim</code> global substitution features, tags stack, <code>CTRL + F</code> in command mode to search previous commands.</p>
@@ -1894,18 +1701,16 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="8_5">8</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Web development</strong>: Introduction to JavaScript for the web: client-side JavaScript, roles of the language.</li>
-</ul>
-</li>
 </ul>
 <h3 id="7_5">7</h3>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Web development</strong>: Describe the experience of building a website with a remote team from multiple continents.</li>
-</ul>
+</li>
+<li>
+<p><strong>Web development</strong>: Describe the experience of building a website with a remote team from multiple continents.</p>
 </li>
 <li>
 <p>Learn the technical differences between Live <span class="caps">CD</span>/<span class="caps">USB</span>, persistent Live <span class="caps">CD</span>/<span class="caps">USB</span>, full installation on drive and inside virtual machines with fixed or dynamically allocated storage space.</p>
@@ -1913,19 +1718,19 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="6_4">6</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Web development</strong>: More on building a responsive website from scratch.</li>
-</ul>
-</li>
 </ul>
 <h3 id="5_5">5</h3>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Introduction to programming</strong>: Traversing arrays.</li>
-<li><strong>Web development</strong>: More on building a responsive website from scratch.</li>
-</ul>
+</li>
+<li>
+<p><strong>Introduction to programming</strong>: Traversing arrays.</p>
+</li>
+<li>
+<p><strong>Web development</strong>: More on building a responsive website from scratch.</p>
 </li>
 <li>
 <p>Read article <a href="https://hackernoon.com/is-there-such-a-thing-as-bug-free-software-320cd862af17">Is There Such a Thing As Bug-free Software?</a> on Hacker Noon.</p>
@@ -1934,18 +1739,16 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="4_5">4</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Exponential <span class="amp">&amp;</span> logarithmic models, more on exponential and logarithmic functions.</li>
-</ul>
-</li>
 </ul>
 <h3 id="3_5">3</h3>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: More on exponential and logarithmic functions.</li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: More on exponential and logarithmic functions.</p>
 </li>
 <li>
 <p>Configure <code>unclutter</code> to hide cursor automatically.</p>
@@ -1956,9 +1759,9 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: Inverse functions, exponential and logarithmic functions.</li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: Inverse functions, exponential and logarithmic functions.</p>
 </li>
 <li>
 <p><a href="https://www.youtube.com/watch?v=l8iXMgk2nnY"><span class="caps">VIM</span> tutorial: linux terminal tools for bug bounty pentest and redteams with @tomnomnom</a> with STÖK.</p>
@@ -1968,9 +1771,9 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Introduction to programming</strong>: Refactoring code, user-defined functions, function input <span class="amp">&amp;</span> output.</li>
-</ul>
+</li>
+<li>
+<p><strong>Introduction to programming</strong>: Refactoring code, user-defined functions, function input <span class="amp">&amp;</span> output.</p>
 </li>
 <li>
 <p><a href="https://www.youtube.com/watch?v=AOeRbuwCd-Y">My Biggest Challenge With Programming (Q&amp;A #11)</a> with sentdex.</p>
@@ -1981,25 +1784,21 @@ hope you may find some inspiration too.</p>
 <h2 id="june">June</h2>
 <h3 id="30_6">30</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Steganography, <span class="caps">RSA</span> algorithm, sequences <span class="amp">&amp;</span> series.</li>
-</ul>
-</li>
 </ul>
 <h3 id="29_6">29</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Sequences <span class="amp">&amp;</span> series.</li>
-</ul>
-</li>
 </ul>
 <h3 id="28_6">28</h3>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: Sequences <span class="amp">&amp;</span> series.</li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: Sequences <span class="amp">&amp;</span> series.</p>
 </li>
 <li>
 <p><a href="https://www.youtube.com/watch?v=E-ZbrtoSuzw">Talk on going mouseless with Vim, Tmux, and Hotkeys</a> with Leeren.</p>
@@ -2007,18 +1806,16 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="27_6">27</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Sequences <span class="amp">&amp;</span> series, transformation of graphs.</li>
-</ul>
-</li>
 </ul>
 <h3 id="26_6">26</h3>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: Transformation of graphs.</li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: Transformation of graphs.</p>
 </li>
 <li>
 <p><a href="https://www.youtube.com/watch?v=bam83Xv4VMA">Responsive <span class="caps">CSS</span> grid with no media queries</a> with DesignCourse.</p>
@@ -2026,46 +1823,36 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="25_6">25</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: <span class="caps">RSA</span> algorithm, transformation of graphs.</li>
-</ul>
-</li>
 </ul>
 <h3 id="24_4">24</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Web development</strong>: More on <span class="caps">CSS</span> grid layouts and redesigning a website from scratch.</li>
-</ul>
-</li>
 </ul>
 <h3 id="23_5">23</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Web development</strong>: <span class="caps">CSS</span> grid layouts, redesigning a website from scratch.</li>
-</ul>
-</li>
 </ul>
 <h3 id="22_5">22</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: <span class="caps">RSA</span> algorithm.</li>
-</ul>
-</li>
 </ul>
 <h3 id="21_6">21</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Steganography, modular arithmetic, encryption <span class="amp">&amp;</span> <span class="caps">RSA</span> algorithm, transformation of graphs.</li>
-</ul>
-</li>
 </ul>
 <h3 id="20_6">20</h3>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Web development</strong>: <span class="caps">CSS</span> animations, <span class="caps">CSS</span> <code>grid-area</code>, <code>@font-face</code>, <code>@media</code> queries.</li>
-</ul>
+</li>
+<li>
+<p><strong>Web development</strong>: <span class="caps">CSS</span> animations, <span class="caps">CSS</span> <code>grid-area</code>, <code>@font-face</code>, <code>@media</code> queries.</p>
 </li>
 <li>
 <p><a href="https://www.youtube.com/watch?v=Zuwa8zlfXSY">8 super heroic Linux commands that you probably aren’t using</a> with Engineer Man.</p>
@@ -2075,10 +1862,12 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: Steganography, modular arithmetic.</li>
-<li><strong>Web development</strong>: <span class="caps">CSS</span> frameworks, accessibility.</li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: Steganography, modular arithmetic.</p>
+</li>
+<li>
+<p><strong>Web development</strong>: <span class="caps">CSS</span> frameworks, accessibility.</p>
 </li>
 <li>
 <p><a href="https://classicproblems.com/">Classic Computer Science Problems in Python</a>, by David Kopec: Missionaries and cannibals problem with <code>BFS</code>.</p>
@@ -2089,10 +1878,12 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Introduction to programming</strong>: Advanced work with arrays, nested iteration for drawing patterns.</li>
-<li><strong>Numerical mathematics</strong>: Exponential and logarithmic functions.</li>
-</ul>
+</li>
+<li>
+<p><strong>Introduction to programming</strong>: Advanced work with arrays, nested iteration for drawing patterns.</p>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: Exponential and logarithmic functions.</p>
 </li>
 <li>
 <p><a href="https://classicproblems.com/">Classic Computer Science Problems in Python</a>, by David Kopec: More on search algorithms (<code>BFS</code>, <code>DFS</code>, <code>A*</code>).</p>
@@ -2103,12 +1894,14 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Introduction to programming</strong>: Advanced work with arrays, nested iteration for drawing patterns.</li>
+</li>
+<li>
+<p><strong>Introduction to programming</strong>: Advanced work with arrays, nested iteration for drawing patterns.</p>
+</li>
 <li><strong>Numerical mathematics</strong>: Steganography.</li>
 <li><strong>Web development</strong>: Coding responsive behavior.</li>
-<li>More on Core study skills course.</li>
-</ul>
+<li>
+<p>More on Core study skills course.</p>
 </li>
 <li>
 <p><a href="https://classicproblems.com/">Classic Computer Science Problems in Python</a>, by David Kopec: More on search algorithms.</p>
@@ -2119,10 +1912,12 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: Plotting, transformation of graphs.</li>
-<li>More on Core study skills course.</li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: Plotting, transformation of graphs.</p>
+</li>
+<li>
+<p>More on Core study skills course.</p>
 </li>
 <li>
 <p><a href="https://classicproblems.com/">Classic Computer Science Problems in Python</a>, by David Kopec: Search algorithms.</p>
@@ -2134,10 +1929,12 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: Plotting, transformation of graphs.</li>
-<li>Core study skills course.</li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: Plotting, transformation of graphs.</p>
+</li>
+<li>
+<p>Core study skills course.</p>
 </li>
 <li>
 <p><a href="https://classicproblems.com/">Classic Computer Science Problems in Python</a>, by David Kopec: Search algorithms.</p>
@@ -2148,9 +1945,9 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: <a href="https://www.khanacademy.org/">Cryptography on Khan Academy</a>: Fundamental theorem of arithmetic, public key cryptography, Diffie-hellman key exchange, <span class="caps">RSA</span> encryption, Euler’s totient function, primality tests.</li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: <a href="https://www.khanacademy.org/">Cryptography on Khan Academy</a>: Fundamental theorem of arithmetic, public key cryptography, Diffie-hellman key exchange, <span class="caps">RSA</span> encryption, Euler’s totient function, primality tests.</p>
 </li>
 <li>
 <p><a href="https://www.youtube.com/watch?v=x0Uguu7gqgk">Matplotlib Tutorial (Part 5): Filling Area on Line Plots</a> with Corey Schafer.</p>
@@ -2160,9 +1957,9 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: Polar coordinates, solving trigonometric equations, damped trigonometric graphs, trigonometric ratios and functions, number bases with rational and irrational numbers.</li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: Polar coordinates, solving trigonometric equations, damped trigonometric graphs, trigonometric ratios and functions, number bases with rational and irrational numbers.</p>
 </li>
 <li>
 <p><a href="https://www.youtube.com/watch?v=xN-Supd4H38">Matplotlib Tutorial (Part 4): Stack Plots</a> with Corey Schafer.</p>
@@ -2172,10 +1969,12 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: trigonometric ratios and functions.</li>
-<li><strong>Web development</strong>: Creating a responsive website from scratch.</li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: trigonometric ratios and functions.</p>
+</li>
+<li>
+<p><strong>Web development</strong>: Creating a responsive website from scratch.</p>
 </li>
 <li>
 <p><a href="https://classicproblems.com/">Classic Computer Science Problems in Python</a>, by David Kopec: Encryption with <code>XOR</code> bit operation.</p>
@@ -2186,9 +1985,9 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Introduction to programming</strong>: Create a <em>very</em> simple side-scrolling game with <code>p5.js</code>.</li>
-</ul>
+</li>
+<li>
+<p><strong>Introduction to programming</strong>: Create a <em>very</em> simple side-scrolling game with <code>p5.js</code>.</p>
 </li>
 <li>
 <p><a href="https://classicproblems.com/">Classic Computer Science Problems in Python</a>, by David Kopec: Recursive functions, memoization, generators, compressing and decompressing data.</p>
@@ -2199,9 +1998,9 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: trigonometric ratios and functions.</li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: trigonometric ratios and functions.</p>
 </li>
 <li>
 <p><a href="https://classicproblems.com/">Classic Computer Science Problems in Python</a>, by David Kopec: Recursive functions.</p>
@@ -2213,9 +2012,9 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: Analytic trigonometry, unit circle, law of sines, law of cosines.</li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: Analytic trigonometry, unit circle, law of sines, law of cosines.</p>
 </li>
 <li>
 <p>Flask: <a href="https://www.youtube.com/watch?v=Z1RJmh_OqeA">Learn Flask for Python</a> with FreeCodeCamp.org.</p>
@@ -2224,51 +2023,41 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="8_6">8</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to programming</strong>: JavaScript <code>for</code> loops, arrays.</li>
 <li><strong>Numerical mathematics</strong>: Trigonometry.</li>
 <li><strong>Web development</strong>: <span class="caps">CSS</span> grids and columns, <span class="caps">CSS</span> animations, accessibility in <span class="caps">CSS</span>.</li>
 </ul>
-</li>
-</ul>
 <h3 id="7_6">7</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Trigonometry.</li>
-</ul>
-</li>
 </ul>
 <h3 id="6_5">6</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Compositions with inverse trigonometric functions, inverse trigonometric functions, trigonometrical functions.</li>
 <li><strong>Web development</strong>: <span class="caps">CSS</span> box model, <span class="caps">CSS</span> layout.</li>
 </ul>
-</li>
-</ul>
 <h3 id="5_6">5</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to programming</strong>: Game project.</li>
 <li><strong>Numerical mathematics</strong>: Trigonometrical functions.</li>
 </ul>
-</li>
-</ul>
 <h3 id="4_6">4</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Trigonometrical functions, identities <span class="amp">&amp;</span> equations.</li>
 <li><strong>Web development</strong>: <span class="caps">CSS</span> colouring, <span class="caps">CSS</span> typography.</li>
-</ul>
-</li>
 </ul>
 <h3 id="3_6">3</h3>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Web development</strong>: <span class="caps">CSS</span> selectors, <span class="caps">CSS</span> typography.</li>
-</ul>
+</li>
+<li>
+<p><strong>Web development</strong>: <span class="caps">CSS</span> selectors, <span class="caps">CSS</span> typography.</p>
 </li>
 <li>
 <p><a href="https://www.youtube.com/watch?v=fMJflV_GUpU">Tribonacci Numbers (and the Rauzy Fractal)</a> with Numberphile.</p>
@@ -2276,35 +2065,31 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="2_6">2</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Web development</strong>: <span class="caps">CSS</span> selectors.</li>
-</ul>
-</li>
 </ul>
 <h3 id="1_5">1</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Plotting, transformation of graphs.</li>
-</ul>
-</li>
 </ul>
 <hr/>
 <h2 id="may">May</h2>
 <h3 id="31_3">31</h3>
 <ul>
-<li>University of London<ul>
-<li><strong>Numerical mathematics</strong>: Angles and triangles, trigonometry.</li></ul></li>
-</ul>
-
+<li>University of London</li>
+<li><strong>Numerical mathematics</strong>: Angles and triangles, trigonometry.</li></ul>
 
 <h3 id="30_7">30</h3>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: Angles and triangles.</li>
-<li><strong>Web development</strong>: <span class="caps">HTML</span> prototype.</li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: Angles and triangles.</p>
+</li>
+<li>
+<p><strong>Web development</strong>: <span class="caps">HTML</span> prototype.</p>
 </li>
 <li>
 <p><a href="https://www.youtube.com/watch?v=yMk_XtIEzH8">Q Learning Intro/Table - Reinforcement Learning p.1</a> with sentdex.</p>
@@ -2312,55 +2097,45 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="29_7">29</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: <a href="https://www.khanacademy.org/math/trigonometry">Trigonometry on Khan Academy</a>, angles and triangles.</li>
-</ul>
-</li>
 </ul>
 <h3 id="28_7">28</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to programming</strong>: Game project (working with extra canvas in <code>p5.js</code>).</li>
-<li><strong>Numerical mathematics</strong>: Trigonometry.</li></ul></li>
-</ul>
-
+<li><strong>Numerical mathematics</strong>: Trigonometry.</li></ul>
 
 <h3 id="27_7">27</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to programming</strong>: Interaction with game character (movement, gravity).</li>
-</ul>
-</li>
 <li><a href="https://www.youtube.com/watch?v=3yAYjz4Q9Ak">Simple steps to help shut down scammers</a> with Engineer Man.</li>
 </ul>
 <h3 id="26_7">26</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to programming</strong>: Conditionals with types, debugging techniques.</li>
-</ul>
-</li>
 <li>
 <p><a href="https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw">The Coding Train</a>: nested loops, functions, function parameters <span class="amp">&amp;</span> arguments, functions <span class="amp">&amp;</span> returns, classes in JavaScript with <span class="caps">ES6</span>, constructor arguments with classes in JavaScript, web editor: adding JavaScript files, what is an array, arrays <span class="amp">&amp;</span> loops, arrays of objects, for of loops, mouse interactions with objects, removing objects from arrays, while <span class="amp">&amp;</span> for loops.</p>
-<ul>
-<li><strong>Web development</strong>: <span class="caps">HTML</span> body, introduction to <span class="caps">CSS</span>.</li>
-</ul>
+</li>
+<li>
+<p><strong>Web development</strong>: <span class="caps">HTML</span> body, introduction to <span class="caps">CSS</span>.</p>
 </li>
 </ul>
 <h3 id="25_7">25</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to programming</strong>: Conditional logic, template literals.</li>
-</ul>
-</li>
 <li><a href="https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw">The Coding Train</a>: checking objects intersection/collisions, object communication part 2, while <span class="amp">&amp;</span> for loops.</li>
 </ul>
 <h3 id="24_5">24</h3>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: Kinematic equations, angles, triangles, trigonometry.</li></ul></li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: Kinematic equations, angles, triangles, trigonometry.</p></li></ul>
 
 <li>
 <p><a href="https://www.youtube.com/watch?v=vt33Hp-4RXg">Custom commands with fzf in Linux terminal</a> with Luke Smith.</p>
@@ -2369,18 +2144,16 @@ hope you may find some inspiration too.</p>
 
 <h3 id="23_6">23</h3>
 <ul>
-<li>University of London<ul>
-<li><strong>Numerical mathematics</strong>: Plotting, transformation of graphs, Fibonacci spiral.</li></ul></li>
-</ul>
-
+<li>University of London</li>
+<li><strong>Numerical mathematics</strong>: Plotting, transformation of graphs, Fibonacci spiral.</li></ul>
 
 <h3 id="22_6">22</h3>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: <code>suvat</code> equations.</li></ul></li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: <code>suvat</code> equations.</p></li></ul>
 
 <li>
 <p><a href="https://www.youtube.com/watch?v=unqsQJaECv0">Suckless’s dwm: So easy even a caveman could do it!</a> with Luke Smith.</p>
@@ -2390,9 +2163,9 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p>University of London</p>
-<ul>
-<li><strong>Numerical mathematics</strong>: Polynomial and rational functions, motions (distance and speed, displacement and velocity, acceleration).</li></ul></li>
-</ul>
+</li>
+<li>
+<p><strong>Numerical mathematics</strong>: Polynomial and rational functions, motions (distance and speed, displacement and velocity, acceleration).</p></li></ul>
 
 <li>
 <p><a href="https://www.youtube.com/watch?v=ojyOVRAPT3Y">For Loops - JavaScript Programming Basics p.6</a> with sentdex.</p>
@@ -2402,20 +2175,16 @@ hope you may find some inspiration too.</p>
 
 <h3 id="20_7">20</h3>
 <ul>
-<li>University of London<ul>
-<li><strong>Numerical mathematics</strong>: Polynomial and rational functions.</li></ul></li>
-</ul>
-
+<li>University of London</li>
+<li><strong>Numerical mathematics</strong>: Polynomial and rational functions.</li></ul>
 <li><a href="https://www.youtube.com/watch?v=IsyyRKbFi7w">Object Oriented Programming in js - JavaScript Programming Basics p.5</a> with sentdex.</li>
 <li><a href="https://www.youtube.com/watch?v=A0hoqSkyY7o"><span class="caps">JSON</span>, not Jason</a> with Computerphile.</li>
 <li><a href="https://www.youtube.com/watch?v=PsGUEj4w9Cc">The Plastic Ratio</a> with Numberphile.</li>
 
 <h3 id="19_7">19</h3>
 <ul>
-<li>University of London<ul>
-<li><strong>Numerical mathematics</strong>: Distance formula, midpoint formula, linear extrapolation, step functions, transformations of functions, composition of functions, polynomial and rational functions, <a href="https://www.youtube.com/watch?v=nz058Hil6rA">Criss Cross Factoring</a> with Steven Kliemann.</li></ul></li>
-</ul>
-
+<li>University of London</li>
+<li><strong>Numerical mathematics</strong>: Distance formula, midpoint formula, linear extrapolation, step functions, transformations of functions, composition of functions, polynomial and rational functions, <a href="https://www.youtube.com/watch?v=nz058Hil6rA">Criss Cross Factoring</a> with Steven Kliemann.</li></ul>
 <li><a href="https://www.youtube.com/watch?v=2ClckQzJTlk">Binding Keys <em>Universally</em> in Linux</a> with Luke Smith.</li>
 <li><a href="https://www.youtube.com/watch?v=_2vW0JE18pY">Running functions on an Interval with setInterval - JavaScript Programming Basics p.3</a> with sentdex.</li>
 <li><a href="https://www.youtube.com/watch?v=HQTUwz1slAQ">Conditionals (if statement) - JavaScript Programming Basics p.4</a> with sentdex.</li>
@@ -2423,115 +2192,87 @@ hope you may find some inspiration too.</p>
 
 <h3 id="18_6">18</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to programming</strong>: Type casting in JavaScript.</li>
-<li><strong>Numerical mathematics</strong>: Cartesian coordinates, 2D <span class="amp">&amp;</span> 3D shapes in planes.</li></ul></li>
-</ul>
-
+<li><strong>Numerical mathematics</strong>: Cartesian coordinates, 2D <span class="amp">&amp;</span> 3D shapes in planes.</li></ul>
 
 <h3 id="17_7">17</h3>
 <ul>
-<li>University of London<ul>
-<li><strong>Numerical mathematics</strong>: More on functions, graphs of functions, piecewise functions, composite functions.</li></ul></li>
-</ul>
-
+<li>University of London</li>
+<li><strong>Numerical mathematics</strong>: More on functions, graphs of functions, piecewise functions, composite functions.</li></ul>
 <li><a href="https://www.youtube.com/watch?v=dxv3k4EIGfc">Functions and more Canvas - JavaScript Programming Basics p.2</a> with sentdex.</li>
 
 <h3 id="16_6">16</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Functions, graphs of functions, piecewise functions, composite functions.</li>
-</ul>
-</li>
 <li><a href="https://www.youtube.com/watch?v=GRtSc2Mp0WI">Introduction - JavaScript Programming Basics p.1</a> with sentdex.</li>
 </ul>
 <h3 id="15_6">15</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Web development</strong>: <span class="caps">HTML</span> body.</li>
-</ul>
-</li>
 <li>Setting up VirtualBox on Manjaro.</li>
 <li>Creating wireframes in Adobe <span class="caps">XD</span>.</li>
 </ul>
 <h3 id="14_7">14</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to programming</strong>: drawing more objects in <code>p5.js</code>.</li>
 <li><strong>Web development</strong>: <span class="caps">HTML</span> markup history, meta tags, open graphs tags, <span class="caps">SEO</span>.</li>
 </ul>
-</li>
-</ul>
 <h3 id="13_7">13</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to programming</strong>: drawing more objects in <code>p5.js</code>.</li>
-</ul>
-</li>
 <li>Reconfigure hardware and software on macOS from scratch with external backup.</li>
 </ul>
 <h3 id="12_7">12</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Web development</strong>: Introduction to <span class="caps">HTML</span>.</li>
-</ul>
-</li>
 </ul>
 <h3 id="11_7">11</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Series, convergence, divergence.</li>
 <li><strong>Web development</strong>: Basics of <span class="caps">HTML</span> wireframes, <span class="caps">CSS</span>, <span class="caps">PWA</span> (Progressive Web App) <span class="amp">&amp;</span> service workers.</li>
 </ul>
-</li>
-</ul>
 <h3 id="10_7">10</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Series, convergence, divergence.</li>
-</ul>
-</li>
 </ul>
 <h3 id="9_7">9</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Generating random numbers, arithmetic <span class="amp">&amp;</span> geometric progressions.</li>
-</ul>
-</li>
 <li><a href="https://www.coursera.org/learn/python-data-analysis/home">Introduction to Data Science in Python</a> on Coursera: Python fundamentals, Pandas.</li>
 </ul>
 <h3 id="8_7">8</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Arithmetic <span class="amp">&amp;</span> geometric progressions, series.</li>
-</ul>
-</li>
 <li><a href="https://www.coursera.org/learn/python-data-analysis/home">Introduction to Data Science in Python</a> on Coursera: Python fundamentals.</li>
 <li><a href="https://www.youtube.com/watch?v=iGFdh6_FePU">Learn Pandas in about 10 minutes! A great python module for Data Science!</a> with Python Programmer.</li>
 </ul>
 <h3 id="7_7">7</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Arithmetic sequences <span class="amp">&amp;</span> partial sums.</li>
-</ul>
-</li>
 <li><a href="https://www.youtube.com/watch?v=msNAEaCTleQ">Creating Search Over Time Video Graphs - Data Analysis of Google Takeout p.2</a> with sentdex.</li>
 </ul>
 <h3 id="6_6">6</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Recursive series, finite <span class="amp">&amp;</span> infinite series.</li>
-</ul>
-</li>
 <li>Configure <a href="https://dunst-project.org/">Dunst</a>.</li>
 <li><a href="https://www.youtube.com/watch?v=Siyg1Wn5VDs">Building Search Word Database - Data Analysis of Google Tracking Takeout p.1</a> with sentdex.</li>
 </ul>
 <h3 id="5_7">5</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Infinite series, limits.</li>
-</ul>
-</li>
 <li>Setting up <code>Neomake</code> <span class="amp">&amp;</span> <code>Black</code> with <a href="https://neovim.io/">Neovim</a>.</li>
 </ul>
 <h3 id="4_7">4</h3>
@@ -2564,27 +2305,21 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="28_8">28</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: simplified <span class="caps">RSA</span> algorithm, finding encryption and decryption keys for any <em>mod</em>.</li>
-</ul>
-</li>
 <li><a href="https://www.coursera.org/learn/python-data-analysis/home">Introduction to Data Science in Python</a> on Coursera: Introduction to <code>NumPy</code>.</li>
 </ul>
 <h3 id="27_8">27</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Python algorithm to calculate congruence for very large numbers, <span class="caps">RSA</span> algorithm, number bases, modular arithmetic, sequences <span class="amp">&amp;</span> series.</li>
-</ul>
-</li>
 <li><a href="https://www.coursera.org/learn/python-data-analysis/home">Introduction to Data Science in Python</a> on Coursera: Python fundamentals, introduction to <code>NumPy</code>.</li>
 <li><a href="https://www.youtube.com/watch?v=w_37upFE-qw">Working with pipes in shell scripts - Part 2</a> with Luke Smith.</li>
 </ul>
 <h3 id="26_8">26</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: <span class="caps">RSA</span> algorithm.</li>
-</ul>
-</li>
 <li><a href="https://www.youtube.com/watch?v=8E8sUNHdzG8">Working with pipes in shell scripts</a> with Luke Smith.</li>
 <li><a href="https://www.youtube.com/watch?v=hsnch676Lco">Scheduling tasks/functions/methods - Kivy Mobile and Desktop App Dev w/ Python</a> with sentdex.</li>
 <li><a href="https://www.youtube.com/watch?v=LdF2RcelRg0">15 <span class="caps">VS</span> Code Extensions For Front-End Developers in 2019</a> with Traversy Media.</li>
@@ -2593,10 +2328,8 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="25_8">25</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: <span class="caps">RSA</span> algorithm.</li>
-</ul>
-</li>
 <li><a href="https://www.youtube.com/watch?v=sJmkhV02lnM">Changing Screen/view/page - Kivy Mobile and Desktop App Dev w/ Python</a> with sentdex.</li>
 </ul>
 <h3 id="24_6">24</h3>
@@ -2606,137 +2339,103 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="23_7">23</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Sequences and series, linear congruence, modular exponentiation, modular inverses.</li>
-</ul>
-</li>
 <li><a href="https://www.youtube.com/watch?v=FjwD0SOGQ1k">Kivy Intro - Mobile and Desktop App Dev w/ Python</a> with sentdex.</li>
 </ul>
 <h3 id="22_7">22</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Linear congruence, modular exponentiation, <span class="caps">RSA</span> encryption.</li>
-</ul>
-</li>
 <li>Skim through <a href="https://automatetheboringstuff.com/">Automate the Boring Stuff with Python</a>, by Al Sweigart: Reading <span class="amp">&amp;</span> writing files.</li>
 <li><a href="https://www.youtube.com/watch?v=zdJEYhA2AZQ">5 Common Python Mistakes and How to Fix Them</a> with Corey Schafer.</li>
 </ul>
 <h3 id="21_8">21</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Euclidean algorithm, extended Euclidean algorithm, modular inverses.</li>
-</ul>
-</li>
 <li>Skim through <a href="https://automatetheboringstuff.com/">Automate the Boring Stuff with Python</a>, by Al Sweigart: Python programming basics, regular expressions.</li>
 </ul>
 <h3 id="20_8">20</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Euclidean algorithm, extended Euclidean algorithm, modular inverses.</li>
-</ul>
-</li>
 <li>Using string formatting to evaluate hexadecimal, binary, decimal and octal versions of a value (<a href="https://stackoverflow.com/a/55779060/8787680">Stackoverflow answer</a>).</li>
 </ul>
 <h3 id="19_8">19</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Euclidean algorithm.</li>
-</ul>
-</li>
 </ul>
 <h3 id="18_7">18</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Modular arithmetic, number theory, Euclidean algorithm.</li>
-</ul>
-</li>
 <li>Configuring <a href="https://st.suckless.org/">st (simple terminal)</a> and <a href="https://tools.suckless.org/dmenu/">dmenu</a>.</li>
 </ul>
 <h3 id="17_8">17</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to programming</strong>: <code>p5.js</code> with functions, loops <span class="amp">&amp;</span> objects.</li>
-</ul>
-</li>
 <li>Batch convert and rename images and videos in terminal with <code>ImageMagick</code>, <code>ffmpeg</code> and <code>rename</code>.</li>
 </ul>
 <h3 id="16_7">16</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Modular arithmetic.</li>
-</ul>
-</li>
 </ul>
 <h3 id="15_7">15</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Arithmetic in any base, modular arithmetic, theory of divisibility, theory of congruences.</li>
-</ul>
-</li>
 <li><a href="https://www.youtube.com/watch?v=kIdiWut8eD8">How I Setup a New Development Machine - Using Scripts to Automate Installs and Save Time</a> with Corey Schafer.</li>
 <li><a href="https://www.youtube.com/watch?v=JBjjnqG0BP8">Bjarne Stroustrup: Why I Created C++</a> with Big Think.</li>
 </ul>
 <h3 id="14_8">14</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Steganography, arithmetic in hexadecimal and octal.</li>
-</ul>
-</li>
 </ul>
 <h3 id="13_8">13</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Octal and hexadecimal.</li>
-</ul>
-</li>
 <li>Linking variables from different functions to print them (<a href="https://stackoverflow.com/a/55661226/8787680">Stackoverflow answer</a>).</li>
 </ul>
 <h3 id="12_8">12</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Numerical mathematics</strong>: Arithmetic in binary.</li>
-</ul>
-</li>
 </ul>
 <h3 id="11_8">11</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to programming</strong>: JavaScript objects, conditionals and variable types.</li>
 <li><strong>Web development</strong>: How a web browser works; the importance of design; content, structure <span class="amp">&amp;</span> storytelling.</li>
 </ul>
-</li>
-</ul>
 <h3 id="10_8">10</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to programming</strong>: built-in variables, JavaScript objects.</li>
 <li><strong>Web development</strong>: Delivering Web content.</li>
 </ul>
-</li>
-</ul>
 <h3 id="9_8">9</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to programming</strong>: built-in variables, JavaScript objects.</li>
 <li><strong>Numerical mathematics</strong>: Algorithms for converting binary from/to decimal with fractional part.</li>
-</ul>
-</li>
 <li><a href="https://www.youtube.com/watch?v=1lxrb_ezP-g">How to Write Python Scripts to Analyze <span class="caps">JSON</span> APIs and Sort Results</a> with Corey Schafer.</li>
 </ul>
 <h3 id="8_8">8</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Introduction to programming</strong>: development environment, drawing in 2D.</li>
 <li><strong>Numerical mathematics</strong>: Introduction to number bases and modular arithmetic, number bases, octal and hexadecimal with fractional parts.</li>
 </ul>
-</li>
-</ul>
 <h3 id="7_8">7</h3>
 <ul>
-<li>University of London<ul>
+<li>University of London</li>
 <li><strong>Web development</strong>: Introduction to the Web.</li>
-</ul>
-</li>
 <li>How to fix SyntaxError in a module that gives an error upon import? (<a href="https://stackoverflow.com/a/55555026/8787680">Stackoverflow answer</a>).</li>
 </ul>
 <h3 id="6_7">6</h3>
@@ -3128,9 +2827,9 @@ hope you may find some inspiration too.</p>
 <ul>
 <li>
 <p><em>Google <span class="caps">IT</span></em></p>
-<ul>
-<li><span class="caps">IT</span> Security: Review of security measures.</li>
-</ul>
+</li>
+<li>
+<p><span class="caps">IT</span> Security: Review of security measures.</p>
 </li>
 <li>
 <p>Creating collapsible, responsive content in <span class="caps">CSS</span> with Bootstrap 4.</p>
@@ -3138,73 +2837,55 @@ hope you may find some inspiration too.</p>
 </ul>
 <h3 id="10_11">10</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em><ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li><span class="caps">IT</span> Security: Secure network architecture, wireless security, network monitoring, system hardening, application hardening, security model of Chrome <span class="caps">OS</span>.</li>
-</ul>
-</li>
 </ul>
 <h3 id="9_11">9</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em><ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li><span class="caps">IT</span> Security: <span class="caps">AAA</span> (Authentication, Authorization, Accounting).</li>
-</ul>
-</li>
 </ul>
 <h3 id="8_11">8</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em><ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li><span class="caps">IT</span> Security: Symmetric encryption, asymmetric encryption, hashing, cryptography applications.</li>
-</ul>
-</li>
 <li>Standard functions in <span class="caps">SQL</span>.</li>
 </ul>
 <h3 id="7_11">7</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em><ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li><span class="caps">IT</span> Security: Malicious software, network attacks, other types of attacks.</li>
-</ul>
-</li>
 <li>Statistics (Poisson distribution, geometric distribution, binomial distribution).</li>
 </ul>
 <h3 id="6_10">6</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em><ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li>System administration consultation (process improvements).</li>
-</ul>
-</li>
 <li>Finish reading <a href="https://amzn.to/2Y0QGis">Atomic Habits</a>, by <a href="https://jamesclear.com/">James Clear</a>.</li>
 <li>Managing duplicates in Python (<a href="https://github.com/sglavoie/dev-helpers/tree/main/bash_history_cleaner">Bash History Cleaner</a>).</li>
 </ul>
 <h3 id="5_11">5</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em><ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li>Disaster recovery plans <span class="amp">&amp;</span> post-mortems.</li>
-</ul>
-</li>
 <li>Statistics (conditional probability).</li>
 </ul>
 <h3 id="4_11">4</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em><ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li>Setting a backup server (BackupPC) on Linux. Disaster recovery plans.</li>
-</ul>
-</li>
 <li>Bitwise operations (Python).</li>
 </ul>
 <h3 id="3_10">3</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em><ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li>Data recovery plans, types of backups.</li>
-</ul>
-</li>
 <li>Primality testing algorithm in Python.</li>
 </ul>
 <h3 id="2_11">2</h3>
 <ul>
-<li><em>Google <span class="caps">IT</span></em><ul>
+<li><em>Google <span class="caps">IT</span></em></li>
 <li>Active Directory (managing users and passwords, group policy), OpenLDAP.</li>
-</ul>
-</li>
 <li>Began reading <a href="https://jamesclear.com/atomic-habits">Atomic Habits</a>, by <a href="https://jamesclear.com/">James Clear</a>.</li>
 </ul>
 <h3 id="1_9">1</h3>
@@ -3213,8 +2894,7 @@ hope you may find some inspiration too.</p>
 <li>Finish <span class="caps">SQL</span> Fundamentals Course on <a href="https://www.sololearn.com/">SoloLearn</a>.</li>
 </ul>
 <hr/>
-<p><a href="./learning-progress-2018-earlier.html">2018 and earlier</a></p>
-  </div>
+<p><a href="./learning-progress-2018-earlier.html">2018 and earlier</a></p></div>
 
   <!-- Skip the display of updated date on some pages -->
   <div class="article_meta">
@@ -3222,19 +2902,32 @@ hope you may find some inspiration too.</p>
   </div>
 </article>
   
-        <div id="ending_message">
-            <p>
-                &copy; Sébastien Lavoie. Built with
-                <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Python</a>
-                using
-                <a href="http://getpelican.com" target="_blank" rel="noopener noreferrer">Pelican</a>
-                <span class="badge">v4.8.0</span>. Theme adapted from Giulio Fidente on
-                <a href="https://github.com/gfidente/pelican-svbhack" target="_blank"
-                    rel="noopener noreferrer">GitHub</a>.
-                <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS feed</a>.
-            </p>
-        </div>
+      <div id="ending_message">
+        <p>
+          &copy; Sébastien Lavoie. Built with
+          <a
+            href="https://www.python.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Python</a
+          >
+          using
+          <a
+            href="http://getpelican.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Pelican</a
+          >
+          <span class="badge">v4.8.0</span>. Theme adapted from
+          Giulio Fidente on
+          <a
+            href="https://github.com/gfidente/pelican-svbhack"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >. <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS feed</a>.
+        </p>
+      </div>
     </main>
-</body>
-
+  </body>
 </html>
