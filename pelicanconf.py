@@ -166,7 +166,7 @@ AUTHOR_FEED_RSS = None
 FEED_ATOM = None
 FEED_ATOM_URL = None
 FEED_RSS = None
-FEED_ALL_RSS = "feeds/sglavoie.rss.xml"
+FEED_ALL_RSS = None
 CATEGORY_FEED_RSS = None
 
 # Pages to render as templates directly in HTML (no Markdown parsing)

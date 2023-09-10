@@ -11,8 +11,16 @@ from pelicanconf import *
 SITEURL = "https://www.sglavoie.com"
 RELATIVE_URLS = False
 
-FEED_ALL_ATOM = "feeds/all.atom.xml"
+FEED_ALL_ATOM = "feeds/sglavoie.atom.xml"
 CATEGORY_FEED_ATOM = "feeds/{slug}.atom.xml"
+TRANSLATION_FEED_ATOM = None
+AUTHOR_FEED_ATOM = None
+AUTHOR_FEED_RSS = None
+FEED_ATOM = None
+FEED_ATOM_URL = None
+FEED_RSS = None
+FEED_ALL_RSS = "feeds/sglavoie.rss.xml"
+CATEGORY_FEED_RSS = "feeds/{slug}.rss.xml"
 
 DELETE_OUTPUT_DIRECTORY = True
 
