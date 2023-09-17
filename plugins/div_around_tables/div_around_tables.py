@@ -12,7 +12,7 @@ def div_around_tables(content):
     soup = BeautifulSoup(content._content, "html.parser")
 
     for table in soup.findAll("table"):
-        table.wrap(soup.new_tag("div", attrs={"style": "overflow-x: auto"}))
+        table.wrap(soup.new_tag("div", attrs={"class": "table-wrapper"}))
 
     soup.renderContents()
     content._content = soup.decode()

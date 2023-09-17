@@ -1,0 +1,26 @@
+{% if DEFAULT_PAGINATION %}
+<div id="paginator">
+  <ul>
+    {% if articles_page.has_next() %}
+    <li>
+      <a
+        href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html"
+        >&larr; Older Posts</a
+      >
+    </li>
+    {% endif %} {% if articles_page.has_previous() %} {% if
+    articles_page.previous_page_number() == 1 %}
+    <li>
+      <a href="{{ SITEURL }}/{{ page_name }}.html">Newer Posts &rarr;</a>
+      {% else %}
+    </li>
+    <li>
+      <a
+        href="{{ SITEURL }}/{{ page_name }}{{ articles_page.previous_page_number() }}.html"
+        >Newer Posts &rarr;</a
+      >
+    </li>
+    {% endif %} {% endif %}
+  </ul>
+</div>
+{% endif %}

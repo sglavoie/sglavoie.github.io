@@ -1,4 +1,4 @@
-Title: Contact me
+Title: Get in touch
 Slug: contact-me
 Authors: Sébastien Lavoie
 URL: contact.html

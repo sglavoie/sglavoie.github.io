@@ -107,6 +107,7 @@ RELATIVE_URLS = True
 
 # Site-specific
 AUTHOR = "Sébastien Lavoie"
+DEFAULT_DATE_FORMAT = "%B %-d, %Y"
 DEFAULT_LANG = "en"
 DISQUS_SITENAME = "sglavoie"
 LOCALE = "en_US.UTF-8"
@@ -115,7 +116,7 @@ SITEURL = "https://www.sglavoie.com"
 TIMEZONE = "America/Mexico_City"
 
 # Theme-specific
-THEME = "themes/svbhack"
+THEME = "theme"
 USER_LOGO_URL = SITEURL + "/theme/images/logo.png"
 
 # Enable tracking of web traffic

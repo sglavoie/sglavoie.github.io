@@ -1,0 +1,114 @@
+{% extends "base.html" %} {% block head %}
+<meta name="keywords" content="{{ article.tags|join(', ')  }}" />
+{% if article.description %}
+
+<!-- Open graph for social networks -->
+<meta name="og:title" property="og:title" content="{{article.description}}" />
+{% endif %} {% endblock %} {% block title %}&ndash; {{ article.title }}{%
+endblock %} {% block content %}
+<article>
+  <div class="article_title">
+    <h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
+  </div>
+  <div class="meta_container_hrs">
+    <hr />
+    <div class="meta_container">
+      <div class="article_meta">
+        <div>
+          Posted on <strong>{{ article.locale_date }}</strong> in
+          <span id="category-article">
+            <a href="{{ SITEURL }}/{{ article.category.url }}"
+              ><svg
+                class="article-category-icon"
+                width="1em"
+                height="1em"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  opacity="1"
+                  d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z"
+                  fill="hsl(211, 100%, 95%)"
+                />
+                <path
+                  opacity="1"
+                  d="M7.24 13.4302H5.34C3.15 13.4302 2 14.5802 2 16.7602V18.6602C2 20.8502 3.15 22.0002 5.33 22.0002H7.23C9.41 22.0002 10.56 20.8502 10.56 18.6702V16.7702C10.57 14.5802 9.42 13.4302 7.24 13.4302Z"
+                  fill="hsl(211, 100%, 95%)"
+                />
+                <path
+                  d="M6.29 10.58C8.6593 10.58 10.58 8.6593 10.58 6.29C10.58 3.9207 8.6593 2 6.29 2C3.9207 2 2 3.9207 2 6.29C2 8.6593 3.9207 10.58 6.29 10.58Z"
+                  fill="hsl(211, 100%, 95%)"
+                />
+                <path
+                  d="M17.7099 21.9999C20.0792 21.9999 21.9999 20.0792 21.9999 17.7099C21.9999 15.3406 20.0792 13.4199 17.7099 13.4199C15.3406 13.4199 13.4199 15.3406 13.4199 17.7099C13.4199 20.0792 15.3406 21.9999 17.7099 21.9999Z"
+                  fill="hsl(211, 100%, 95%)"
+                />
+              </svg>
+              {{ article.category }}</a
+            >
+          </span>
+        </div>
+        {% if article.modified %}
+        <div>
+          <time class="modified" datetime="{{ article.modified.isoformat() }}">
+            Modified on <strong>{{ article.locale_modified }}</strong>
+          </time>
+        </div>
+        {% endif %}
+        <div class="article_tags">
+          {% if article.tags %} {% for tag in article.tags %}
+          <a href="{{ SITEURL }}/{{ tag.url }}"
+            ><svg
+              class="tag-icon"
+              fill="hsl(211, 100%, 95%)"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
+              />
+            </svg>
+            {{ tag }}</a
+          >{% endfor %} {% endif %}
+        </div>
+      </div>
+      {% if article.readtime %}
+      <div class="article_readtime">
+        <span class="readtime_tilde">~</span
+        ><span class="readtime_minutes">{{article.readtime.minutes}}</span>
+        minutes to read
+      </div>
+      {% endif %}
+    </div>
+    <hr />
+  </div>
+  {% if article.toc %}
+
+  <h2 class="toc-title">Table of contents</h2>
+  <nav class="toc">{{ article.toc }}</nav>
+  {% endif %}
+  <div class="article_text">{{ article.content }}</div>
+
+  {% if DISQUS_SITENAME %}
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_identifier = "{{ article.url }}";
+      (function () {
+        var dsq = document.createElement("script");
+        dsq.type = "text/javascript";
+        dsq.async = true;
+        dsq.src = "//{{ DISQUS_SITENAME }}.disqus.com/embed.js";
+        (
+          document.getElementsByTagName("head")[0] ||
+          document.getElementsByTagName("body")[0]
+        ).appendChild(dsq);
+      })();
+    </script>
+  </div>
+  {% endif %}
+</article>
+{% endblock %}
