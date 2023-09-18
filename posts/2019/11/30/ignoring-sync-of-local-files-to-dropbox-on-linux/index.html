@@ -1,15 +1,74 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <link
-      rel="stylesheet"
-      type="text/css"
-      href="../../../../../theme/css/style.css"
+      rel="preload"
+      href="/theme/css/fonts/lato-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/ubuntu-regular-webfont.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/ubuntu-bold-webfont.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/ubuntu-regular-italic-webfont.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/ubuntu-bold-italic-webfont.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/SourceCodePro-Regular.ttf.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/SourceCodePro-Bold.ttf.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/SourceCodePro-It.ttf.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/SourceCodePro-BoldIt.ttf.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" as="style" href="/theme/css/main.css" />
     <link
       rel="stylesheet"
       type="text/css"
-      href="../../../../../theme/css/pygments.css"
+      href="/theme/css/styles.css"
     />
 
     <meta charset="utf-8" />
@@ -27,15 +86,12 @@
       content="../../../../../theme/images/logo_1200x627.png"
     />
 
-     <link
-      href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
-      type="application/rss+xml"
-      rel="alternate"
-      title="sglavoie.com RSS"
-    />
-
+ 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" href="/theme/favicon/apple-touch-icon.png" />
+    <link
+      rel="apple-touch-icon"
+      href="/theme/favicon/apple-touch-icon.png"
+    />
     <link
       rel="icon"
       type="image/png"
@@ -64,12 +120,12 @@
       name="msapplication-config"
       content="/theme/favicon/browserconfig.xml"
     />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#232323" />
     <meta
       name="msapplication-config"
       content="/theme/favicon/browserconfig.xml"
     />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#232323" />
 
 <meta name="keywords" content="aliases, linux, shell, terminal" />
 
@@ -97,11 +153,12 @@
    </head>
 
   <body>
-    <aside>
-      <div id="user_meta">
-        <a href="../../../../..">
+    <div id="pageContainer">
+      <aside id="sidebar">
+        <a id="websiteLogo" href="../../../../..">
           <div>
             <svg
+              class="svgLogo"
               width="24.348mm"
               height="24.348mm"
               version="1.1"
@@ -144,49 +201,412 @@
             </svg>
           </div>
         </a>
-        <ul>
-            <li><a href="../../../../../category/automation.html">automation</a></li>
-          <li><a href="../../../../../category/learnings.html">learnings</a></li>
-          <li><a href="../../../../../category/tips-and-tricks.html">tips-and-tricks</a></li>
-          <li><a href="../../../../../category/tools.html">tools</a></li>
-          <li><a href="../../../../../category/workflow.html">workflow</a></li>
+
+        <nav id="navCategories">
+          <ul>
+              <li>
+              <a href="../../../../../category/automation.html"
+                >automation
+                <svg
+                  class="sidebar-category-icon"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="1"
+                    d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    opacity="1"
+                    d="M7.24 13.4302H5.34C3.15 13.4302 2 14.5802 2 16.7602V18.6602C2 20.8502 3.15 22.0002 5.33 22.0002H7.23C9.41 22.0002 10.56 20.8502 10.56 18.6702V16.7702C10.57 14.5802 9.42 13.4302 7.24 13.4302Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M6.29 10.58C8.6593 10.58 10.58 8.6593 10.58 6.29C10.58 3.9207 8.6593 2 6.29 2C3.9207 2 2 3.9207 2 6.29C2 8.6593 3.9207 10.58 6.29 10.58Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M17.7099 21.9999C20.0792 21.9999 21.9999 20.0792 21.9999 17.7099C21.9999 15.3406 20.0792 13.4199 17.7099 13.4199C15.3406 13.4199 13.4199 15.3406 13.4199 17.7099C13.4199 20.0792 15.3406 21.9999 17.7099 21.9999Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="../../../../../category/learnings.html"
+                >learnings
+                <svg
+                  class="sidebar-category-icon"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="1"
+                    d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    opacity="1"
+                    d="M7.24 13.4302H5.34C3.15 13.4302 2 14.5802 2 16.7602V18.6602C2 20.8502 3.15 22.0002 5.33 22.0002H7.23C9.41 22.0002 10.56 20.8502 10.56 18.6702V16.7702C10.57 14.5802 9.42 13.4302 7.24 13.4302Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M6.29 10.58C8.6593 10.58 10.58 8.6593 10.58 6.29C10.58 3.9207 8.6593 2 6.29 2C3.9207 2 2 3.9207 2 6.29C2 8.6593 3.9207 10.58 6.29 10.58Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M17.7099 21.9999C20.0792 21.9999 21.9999 20.0792 21.9999 17.7099C21.9999 15.3406 20.0792 13.4199 17.7099 13.4199C15.3406 13.4199 13.4199 15.3406 13.4199 17.7099C13.4199 20.0792 15.3406 21.9999 17.7099 21.9999Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="../../../../../category/tips-and-tricks.html"
+                >tips-and-tricks
+                <svg
+                  class="sidebar-category-icon"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="1"
+                    d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    opacity="1"
+                    d="M7.24 13.4302H5.34C3.15 13.4302 2 14.5802 2 16.7602V18.6602C2 20.8502 3.15 22.0002 5.33 22.0002H7.23C9.41 22.0002 10.56 20.8502 10.56 18.6702V16.7702C10.57 14.5802 9.42 13.4302 7.24 13.4302Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M6.29 10.58C8.6593 10.58 10.58 8.6593 10.58 6.29C10.58 3.9207 8.6593 2 6.29 2C3.9207 2 2 3.9207 2 6.29C2 8.6593 3.9207 10.58 6.29 10.58Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M17.7099 21.9999C20.0792 21.9999 21.9999 20.0792 21.9999 17.7099C21.9999 15.3406 20.0792 13.4199 17.7099 13.4199C15.3406 13.4199 13.4199 15.3406 13.4199 17.7099C13.4199 20.0792 15.3406 21.9999 17.7099 21.9999Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="../../../../../category/tools.html"
+                >tools
+                <svg
+                  class="sidebar-category-icon"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="1"
+                    d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    opacity="1"
+                    d="M7.24 13.4302H5.34C3.15 13.4302 2 14.5802 2 16.7602V18.6602C2 20.8502 3.15 22.0002 5.33 22.0002H7.23C9.41 22.0002 10.56 20.8502 10.56 18.6702V16.7702C10.57 14.5802 9.42 13.4302 7.24 13.4302Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M6.29 10.58C8.6593 10.58 10.58 8.6593 10.58 6.29C10.58 3.9207 8.6593 2 6.29 2C3.9207 2 2 3.9207 2 6.29C2 8.6593 3.9207 10.58 6.29 10.58Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M17.7099 21.9999C20.0792 21.9999 21.9999 20.0792 21.9999 17.7099C21.9999 15.3406 20.0792 13.4199 17.7099 13.4199C15.3406 13.4199 13.4199 15.3406 13.4199 17.7099C13.4199 20.0792 15.3406 21.9999 17.7099 21.9999Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="../../../../../category/workflow.html"
+                >workflow
+                <svg
+                  class="sidebar-category-icon"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="1"
+                    d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    opacity="1"
+                    d="M7.24 13.4302H5.34C3.15 13.4302 2 14.5802 2 16.7602V18.6602C2 20.8502 3.15 22.0002 5.33 22.0002H7.23C9.41 22.0002 10.56 20.8502 10.56 18.6702V16.7702C10.57 14.5802 9.42 13.4302 7.24 13.4302Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M6.29 10.58C8.6593 10.58 10.58 8.6593 10.58 6.29C10.58 3.9207 8.6593 2 6.29 2C3.9207 2 2 3.9207 2 6.29C2 8.6593 3.9207 10.58 6.29 10.58Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M17.7099 21.9999C20.0792 21.9999 21.9999 20.0792 21.9999 17.7099C21.9999 15.3406 20.0792 13.4199 17.7099 13.4199C15.3406 13.4199 13.4199 15.3406 13.4199 17.7099C13.4199 20.0792 15.3406 21.9999 17.7099 21.9999Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                </svg>
+              </a>
+            </li>
+           </ul>
+        </nav>
+      </aside>
+
+      <aside id="pageNavigation">
+        <nav>
+          <ul>
+            <li>
+              <a href="../../../../.."
+                ><svg
+                  class="navigation-icon"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18.5 3H16C15.7239 3 15.5 3.22386 15.5 3.5V3.55891L19 6.35891V3.5C19 3.22386 18.7762 3 18.5 3Z"
+                    fill="#FFFFFF"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10.75 9.5C10.75 8.80964 11.3097 8.25 12 8.25C12.6904 8.25 13.25 8.80964 13.25 9.5C13.25 10.1904 12.6904 10.75 12 10.75C11.3097 10.75 10.75 10.1904 10.75 9.5Z"
+                    fill="#FFFFFF"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M20.75 10.9605L21.5315 11.5857C21.855 11.8444 22.3269 11.792 22.5857 11.4685C22.8444 11.1451 22.792 10.6731 22.4685 10.4143L14.3426 3.91362C12.9731 2.81796 11.027 2.81796 9.65742 3.91362L1.53151 10.4143C1.20806 10.6731 1.15562 11.1451 1.41438 11.4685C1.67313 11.792 2.1451 11.8444 2.46855 11.5857L3.25003 10.9605V21.25H2.00003C1.58581 21.25 1.25003 21.5858 1.25003 22C1.25003 22.4142 1.58581 22.75 2.00003 22.75H22C22.4142 22.75 22.75 22.4142 22.75 22C22.75 21.5858 22.4142 21.25 22 21.25H20.75V10.9605ZM9.25003 9.5C9.25003 7.98122 10.4812 6.75 12 6.75C13.5188 6.75 14.75 7.98122 14.75 9.5C14.75 11.0188 13.5188 12.25 12 12.25C10.4812 12.25 9.25003 11.0188 9.25003 9.5ZM12.0494 13.25C12.7143 13.25 13.2871 13.2499 13.7459 13.3116C14.2375 13.3777 14.7088 13.5268 15.091 13.909C15.4733 14.2913 15.6223 14.7625 15.6884 15.2542C15.7462 15.6842 15.7498 16.2146 15.75 16.827C15.75 16.8679 15.75 16.9091 15.75 16.9506L15.75 21.25H14.25V17C14.25 16.2717 14.2484 15.8009 14.2018 15.454C14.1581 15.1287 14.0875 15.0268 14.0304 14.9697C13.9733 14.9126 13.8713 14.842 13.546 14.7982C13.1991 14.7516 12.7283 14.75 12 14.75C11.2717 14.75 10.8009 14.7516 10.4541 14.7982C10.1288 14.842 10.0268 14.9126 9.9697 14.9697C9.9126 15.0268 9.84199 15.1287 9.79826 15.454C9.75162 15.8009 9.75003 16.2717 9.75003 17V21.25H8.25003L8.25003 16.9506C8.24999 16.2858 8.24996 15.7129 8.31163 15.2542C8.37773 14.7625 8.52679 14.2913 8.90904 13.909C9.29128 13.5268 9.76255 13.3777 10.2542 13.3116C10.7129 13.2499 11.2858 13.25 11.9507 13.25H12.0494Z"
+                    fill="#FFFFFF"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10.75 9.5C10.75 8.80964 11.3097 8.25 12 8.25C12.6904 8.25 13.25 8.80964 13.25 9.5C13.25 10.1904 12.6904 10.75 12 10.75C11.3097 10.75 10.75 10.1904 10.75 9.5Z"
+                    fill="#FFFFFF"
+                  />
+                </svg>
+                Home</a
+              >
+            </li>
+            <li>
+              <a href="../../../../../archives.html"
+                ><svg
+                  class="navigation-icon"
+                  fill="#FFFFFF"
+                  width="0.8em"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3 6v8h10V6H3zM1 6H0V0h16v6h-1v10H1V6zm4 2h6v2H5V8zM2 2v2h12V2H2z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+                Archives</a
+              >
+            </li>
+            <li>
+              <a href="../../../../../tags.html"
+                ><svg
+                  class="navigation-icon"
+                  fill="hsl(211, 100%, 95%)"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
+                  />
+                </svg>
+                Tags</a
+              >
+            </li>
+            <li>
+              <a href="../../../../../contact.html"
+                ><svg
+                  class="navigation-icon"
+                  fill="#FFFFFF"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4,21a1,1,0,0,0,1,1H19a1,1,0,0,0,1-1V3a1,1,0,0,0-1-1H5A1,1,0,0,0,4,3ZM12,7.5a2,2,0,1,1-2,2A2,2,0,0,1,12,7.5ZM8.211,16.215a4,4,0,0,1,7.578,0A.993.993,0,0,1,14.83,17.5H9.18A1,1,0,0,1,8.211,16.215Z"
+                  />
+                </svg>
+                Contact</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://drive.google.com/file/d/1t6GdZjC13naJXVGe6RinGowZLfkRzjy_/view"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><svg
+                  class="navigation-icon"
+                  fill="#FFFFFF"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 846.66 846.66"
+                  style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  "
+                  version="1.1"
+                  xml:space="preserve"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <g id="Layer_x0020_1">
+                    <path
+                      class="fil0"
+                      d="M305.08 127c-27.16,0 -27.16,-41.29 0,-41.29l60.83 0 0 -54.93c0,-11.4 9.25,-20.64 20.65,-20.64l190.32 0c11.4,0 20.65,9.24 20.65,20.64l0 54.93 106.1 0c11.4,0 20.65,9.25 20.65,20.65l0 709.52c0,11.4 -9.25,20.64 -20.65,20.64l-560.6 0c-11.4,0 -20.65,-9.24 -20.65,-20.64l0 -709.52c0,-11.4 9.25,-20.65 20.65,-20.65l67.88 0c27.15,0 27.15,41.29 0,41.29l-47.24 0 0 668.23 519.32 0 0 -668.23c-125.97,0 -251.94,0 -377.91,0zm102.12 -41.29l149.04 0 0 -34.28 -149.04 0 0 34.28zm-191.92 480.71c-27.15,0 -27.15,-41.29 0,-41.29l188.46 0c27.16,0 27.16,41.29 0,41.29l-188.46 0zm0 156.73c-27.15,0 -27.15,-41.29 0,-41.29l188.46 0c27.16,0 27.16,41.29 0,41.29l-188.46 0zm0 -78.36c-27.15,0 -27.15,-41.29 0,-41.29l188.46 0c27.16,0 27.16,41.29 0,41.29l-188.46 0zm294.81 -101.94l121.29 0c11.4,0 20.64,9.25 20.64,20.65l0 121.28c0,11.4 -9.24,20.65 -20.64,20.65l-121.29 0c-11.4,0 -20.64,-9.25 -20.64,-20.65l0 -121.28c0,-11.4 9.24,-20.65 20.64,-20.65zm100.64 41.29l-79.99 0 0 80 79.99 0 0 -80zm-243.28 -252.09c13.62,0.23 24.62,-11.16 24.62,-24.62 0,-13.72 -10.9,-24.63 -24.62,-24.63 -13.69,0 -24.62,10.94 -24.62,24.63 0,13.48 10.98,24.85 24.62,24.62zm20.65 37.98l0 59.74c47.81,-9.73 82.31,-51.95 82.31,-100.88 0,-56.87 -46.09,-102.96 -102.96,-102.96 -56.86,0 -102.95,46.09 -102.95,102.96 0,48.93 34.49,91.15 82.31,100.88l0 -59.75c-26.78,-8.89 -45.28,-34.08 -45.28,-62.59 0,-36.3 29.62,-65.92 65.92,-65.92 36.29,0 65.92,29.63 65.92,65.92 0,28.49 -18.49,53.73 -45.27,62.6zm-20.65 -185.39c79.67,0 144.25,64.58 144.25,144.25 0,79.66 -64.58,144.24 -144.25,144.24 -79.66,0 -144.24,-64.58 -144.24,-144.24 0,-79.67 64.58,-144.25 144.24,-144.25z"
+                    />
+                  </g>
+                </svg>
+                Resume</a
+              >
+            </li>
           </ul>
-      </div>
-    </aside>
+        </nav>
+      </aside>
 
-    <main>
-      <header>
-        <p>
-          <a href="../../../../..">Home</a> &brvbar;
-          <a href="../../../../../archives.html">Archives</a> &brvbar;
-          <a href="../../../../../tags.html">Tags</a> &brvbar;
-          <a href="../../../../../contact.html">Contact</a> &brvbar;
-          <a
-            href="https://drive.google.com/file/d/1t6GdZjC13naJXVGe6RinGowZLfkRzjy_/view"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Resume</a
-          >
-        </p>
-      </header>
-
+      <!-- Content area -->
+      <main>
 <article>
   <div class="article_title">
     <h1><a href="../../../../../posts/2019/11/30/ignoring-sync-of-local-files-to-dropbox-on-linux/">Ignoring Sync of Local Files to Dropbox on&nbsp;Linux</a></h1>
   </div>
-  <div class="flex-container">
-    <div class="article_meta">
-      <div>Posted on: Sat 30 November 2019</div>
-      <div>
-        Category:
-        <a href="../../../../../category/tips-and-tricks.html"
-          >tips-and-tricks</a
-        >
- &ndash; Tags:         <a href="../../../../../tag/aliases.html">aliases</a>,         <a href="../../../../../tag/linux.html">linux</a>,         <a href="../../../../../tag/shell.html">shell</a>,         <a href="../../../../../tag/terminal.html">terminal</a>        </div>
+  <div class="meta_container_hrs">
+    <hr />
+    <div class="meta_container">
+      <div class="article_meta">
+        <div>
+          Posted on <strong>November 30, 2019</strong> in
+          <span id="category-article">
+            <a href="../../../../../category/tips-and-tricks.html"
+              ><svg
+                class="article-category-icon"
+                width="1em"
+                height="1em"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  opacity="1"
+                  d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z"
+                  fill="hsl(211, 100%, 95%)"
+                />
+                <path
+                  opacity="1"
+                  d="M7.24 13.4302H5.34C3.15 13.4302 2 14.5802 2 16.7602V18.6602C2 20.8502 3.15 22.0002 5.33 22.0002H7.23C9.41 22.0002 10.56 20.8502 10.56 18.6702V16.7702C10.57 14.5802 9.42 13.4302 7.24 13.4302Z"
+                  fill="hsl(211, 100%, 95%)"
+                />
+                <path
+                  d="M6.29 10.58C8.6593 10.58 10.58 8.6593 10.58 6.29C10.58 3.9207 8.6593 2 6.29 2C3.9207 2 2 3.9207 2 6.29C2 8.6593 3.9207 10.58 6.29 10.58Z"
+                  fill="hsl(211, 100%, 95%)"
+                />
+                <path
+                  d="M17.7099 21.9999C20.0792 21.9999 21.9999 20.0792 21.9999 17.7099C21.9999 15.3406 20.0792 13.4199 17.7099 13.4199C15.3406 13.4199 13.4199 15.3406 13.4199 17.7099C13.4199 20.0792 15.3406 21.9999 17.7099 21.9999Z"
+                  fill="hsl(211, 100%, 95%)"
+                />
+              </svg>
+              tips-and-tricks</a
+            >
+          </span>
+        </div>
+        <div class="article_tags">
+           <a href="../../../../../tag/aliases.html"
+            ><svg
+              class="tag-icon"
+              fill="hsl(211, 100%, 95%)"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
+              />
+            </svg>
+            aliases</a
+          >          <a href="../../../../../tag/linux.html"
+            ><svg
+              class="tag-icon"
+              fill="hsl(211, 100%, 95%)"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
+              />
+            </svg>
+            linux</a
+          >          <a href="../../../../../tag/shell.html"
+            ><svg
+              class="tag-icon"
+              fill="hsl(211, 100%, 95%)"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
+              />
+            </svg>
+            shell</a
+          >          <a href="../../../../../tag/terminal.html"
+            ><svg
+              class="tag-icon"
+              fill="hsl(211, 100%, 95%)"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
+              />
+            </svg>
+            terminal</a
+          >         </div>
+      </div>
+      <div class="article_readtime">
+        <span class="readtime_tilde">~</span
+        ><span class="readtime_minutes">7</span>
+        minutes to read
+      </div>
     </div>
-    <div class="article_readtime">
-      Estimated read time: 7 minutes
-    </div>
+    <hr />
   </div>
 
   <h2 class="toc-title">Table of contents</h2>
@@ -304,33 +724,118 @@ dropbox-sync<span class="w"> </span>d<span class="w"> </span>.git
     </script>
   </div>
 </article>
-  
-      <div id="ending_message">
-        <p>
-          &copy; Sébastien Lavoie. Built with
-          <a
-            href="https://www.python.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Python</a
+        </main>
+    </div>
+
+    <footer>
+      <hr />
+      <p>
+        &copy; Sébastien Lavoie. Built with
+        <a
+          href="https://www.python.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><svg
+            width="1em"
+            height="1em"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
-          using
-          <a
-            href="http://getpelican.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Pelican</a
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M13.0164 2C10.8193 2 9.03825 3.72453 9.03825 5.85185V8.51852H15.9235V9.25926H5.97814C3.78107 9.25926 2 10.9838 2 13.1111L2 18.8889C2 21.0162 3.78107 22.7407 5.97814 22.7407H8.27322V19.4815C8.27322 17.3542 10.0543 15.6296 12.2514 15.6296H19.5956C21.4547 15.6296 22.9617 14.1704 22.9617 12.3704V5.85185C22.9617 3.72453 21.1807 2 18.9836 2H13.0164ZM12.0984 6.74074C12.8589 6.74074 13.4754 6.14378 13.4754 5.40741C13.4754 4.67103 12.8589 4.07407 12.0984 4.07407C11.3378 4.07407 10.7213 4.67103 10.7213 5.40741C10.7213 6.14378 11.3378 6.74074 12.0984 6.74074Z"
+              fill="url(#paint0_linear_87_8204)"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M18.9834 30C21.1805 30 22.9616 28.2755 22.9616 26.1482V23.4815L16.0763 23.4815L16.0763 22.7408L26.0217 22.7408C28.2188 22.7408 29.9998 21.0162 29.9998 18.8889V13.1111C29.9998 10.9838 28.2188 9.25928 26.0217 9.25928L23.7266 9.25928V12.5185C23.7266 14.6459 21.9455 16.3704 19.7485 16.3704L12.4042 16.3704C10.5451 16.3704 9.03809 17.8296 9.03809 19.6296L9.03809 26.1482C9.03809 28.2755 10.8192 30 13.0162 30H18.9834ZM19.9015 25.2593C19.1409 25.2593 18.5244 25.8562 18.5244 26.5926C18.5244 27.329 19.1409 27.9259 19.9015 27.9259C20.662 27.9259 21.2785 27.329 21.2785 26.5926C21.2785 25.8562 20.662 25.2593 19.9015 25.2593Z"
+              fill="url(#paint1_linear_87_8204)"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear_87_8204"
+                x1="12.4809"
+                y1="2"
+                x2="12.4809"
+                y2="22.7407"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#327EBD" />
+                <stop offset="1" stop-color="#1565A7" />
+              </linearGradient>
+              <linearGradient
+                id="paint1_linear_87_8204"
+                x1="19.519"
+                y1="9.25928"
+                x2="19.519"
+                y2="30"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#FFDA4B" />
+                <stop offset="1" stop-color="#F9C600" />
+              </linearGradient>
+            </defs>
+          </svg>
+          Python</a
+        >
+        using
+        <a
+          href="http://getpelican.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><svg
+            fill="#FFFFFF"
+            width="1em"
+            height="1em"
+            viewBox="0 0 24 24"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
           >
-          <span class="badge">v4.8.0</span>. Theme adapted from
-          Giulio Fidente on
-          <a
-            href="https://github.com/gfidente/pelican-svbhack"
-            target="_blank"
-            rel="noopener noreferrer"
-            >GitHub</a
-          >. <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml">RSS feed</a>.
-        </p>
-      </div>
-    </main>
+            <title>Pelican icon</title>
+            <path
+              d="M.9418 0c.342 1.0548 1.8764 2.1857 2.9063 2.6238 1.3134.5583 2.5984.6849 3.7501.8122.895.0963 1.7019.2014 2.3439.4998.1622.0726.3288.148.4688.2499.4586.3364.9464.9876 1.2813 1.4368.7186.9583.5858 1.7451 1.4375 2.2178.089.0492.1683.083.2813.125.271.1018.667.2273.8437-.1563a.788.788 0 00.0625-.1874c-.0712-.229-.321-.4327-.4687-.531-.2618-.171-.3735-.274-.5625-.4685-.3494-.3583-.348-.9508-.5938-1.3744.3092-.131 1.9392-.3597 2.2813-.3124.7313.0326 1.31.0782 1.75.531.1727.1365.2497.2567.4064.3749.011.009.0202.024.0312.0312.6933.5037 1.3388.6705 1.9063.8434.1496.0454.2988.1054.4375.1562.213.0763.4065.1594.5938.281.2222.1474.6089.542.625.8747-.5587-.1783-.207.0323-1.0313-.0312-.4019-.0456-.8058-.0647-1.2187-.0937-.6422-.0454-1.273-.1043-1.8751-.2187-.1002-.0184-.2146-.0388-.3125-.0625-.0766-.0163-.146-.011-.2188-.0312-.0018.0308 0 .0353 0 .0625-.0166.6292.4214.9586-.5938 2.1553-.009.0127-.0204.0167-.0312.0312-.2695.3147-1.657.9163-2.0938 1.0308-1.8593.3728-3.292-.828-5.5315-.2187-.7877.2928-1.3567 1.5756-1.7188 2.5302-.482 1.2677-.8758 2.7956-1.3126 4.3106-.2.6982-.4178 1.4015-.6562 2.0616-.575 1.584-1.3113 2.9428-2.4064 3.717-.1638.1256-.787.41-.8125.6248.404.2037 4.185.056 4.8127 0 2.5033-.2184 3.6468-1.7733 4.4689-3.9045.5659-1.462 1.065-3.9864 2.0313-5.3102.0128-.0182.0183-.015.0313-.0312.1456-.1967.327-.3691.5-.4998.0454-.0347.0775-.0648.125-.0937.0344-.0219.1566-.0592.3438-.0937 1.7357-.3074 9.3491-1.3474 9.844-6.872.051-.5581.0158-1.1588-.0937-1.8117-.0543-.3364-.115-.6653-.2187-1.0308-.2457-.8691-.7981-1.614-1.5313-2.2177-.1926-.16-.405-.3285-.625-.4686-.846-.54-1.8774-.921-2.969-1.1557-.7332-.1582-1.4874-.239-2.25-.25C9.8402.0326 6.3978.2075.9418 0zm1.625 4.2169c.0235.0382.0389.0574.0625.0937C4.2284 6.8382 6.239 6.8135 8.067 7.0281c.666.0782 1.317.1849 1.9063.4686.262.1235.5116.2649.75.4685-.0292-.131-.076-.2564-.125-.3748-.444-1.0763-1.6487-1.6661-2.6875-1.9679-1.3938-.4984-2.4038-.0181-5.344-1.4056zm1.4063 3.186c.0107.0528.0094.0946.0313.1563.2199.6346 1.0403 1.6503 2.0938 1.8741.4567.1636.315.1174 1.0938.0937 1.1406-.0581 1.692-.0793 2.5.25-.02-.0493-.0423-.1091-.0624-.1563C9.0074 8.175 8.2593 8.421 5.8794 8.2464c-1.0188-.3074-1.2587-.3415-1.9063-.8434z"
+            />
+          </svg>
+          Pelican</a
+        >.
+      </p>
+      <p id="rss-feed">
+        <a href="https://www.sglavoie.com/None"
+          ><svg
+            width="1em"
+            height="1em"
+            viewBox="0 0 44 44"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <title>RSS Feed</title>
+            <desc>Created with Sketch.</desc>
+            <defs></defs>
+            <g
+              id="Icons"
+              stroke="none"
+              stroke-width="1"
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <g
+                id="Color-"
+                transform="translate(-800.000000, -760.000000)"
+                fill="#FF9A00"
+              >
+                <path
+                  d="M800.000471,797.714286 C800.000471,794.243 802.81487,791.428571 806.286118,791.428571 C809.757367,791.428571 812.571765,794.243 812.571765,797.714286 C812.571765,801.185571 809.757367,804 806.286118,804 C802.81487,804 800.000471,801.185571 800.000471,797.714286 Z M844,804 L835.619661,804 C835.619661,784.358714 819.641547,768.380429 800.000471,768.380429 L800.000471,760 C824.261497,760 844,779.738714 844,804 Z M829.333543,804 L820.953204,804 C820.953204,792.446857 811.553019,783.048143 800,783.048143 L800,774.666143 C816.174541,774.666143 829.333543,787.825286 829.333543,804 Z"
+                  id="RSS"
+                ></path>
+              </g>
+            </g>
+          </svg>
+        </a>
+      </p>
+    </footer>
   </body>
 </html>
