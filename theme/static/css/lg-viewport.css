@@ -175,6 +175,11 @@
     width: 100%;
   }
 
+  aside#pageNavigation .navigation-icon,
+  aside#sidebar .sidebar-category-icon {
+    top: 0.4em;
+  }
+
   h1 {
     font-size: var(--type-scale-11-lg-size);
     letter-spacing: var(--type-scale-lg-spacing);
