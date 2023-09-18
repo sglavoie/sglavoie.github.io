@@ -836,13 +836,13 @@ main article .article-category-icon {
 aside#pageNavigation .navigation-icon {
   margin-right: 0.3em;
   position: relative;
-  top: 0.4em;
+  top: 0.1em;
 }
 
 aside#sidebar .sidebar-category-icon {
   margin-left: 0.3em;
   position: relative;
-  top: 0.4em;
+  top: 0.1em;
 }
 
 #category-article {
