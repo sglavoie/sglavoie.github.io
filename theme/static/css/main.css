@@ -468,6 +468,7 @@ figcaption {
 }
 
 img {
+  background-color: var(--tint-100);
   margin: 0 1rem;
   width: calc(100% - 2rem);
   -webkit-box-shadow: 0px 0px 8px 4px var(--shade-600);
@@ -568,7 +569,9 @@ main article.archives a {
   border-bottom: 1px dashed transparent;
 }
 
-main article .article_text a:hover {
+main article .article_text a:hover,
+ul.tagcloud a:hover,
+main article.archives a:hover {
   text-decoration: none;
   color: var(--square-2);
   background-color: transparent;

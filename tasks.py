@@ -14,7 +14,7 @@ from pelican.server import ComplexHTTPRequestHandler, RootedHTTPServer
 from pelican.settings import DEFAULT_CONFIG, get_settings_from_file
 
 HERE = Path(__file__).resolve().parent
-OPEN_BROWSER_ON_SERVE = True
+OPEN_BROWSER_ON_SERVE = False
 SETTINGS_FILE_BASE = "pelicanconf.py"
 SETTINGS = {}
 SETTINGS.update(DEFAULT_CONFIG)
@@ -28,9 +28,7 @@ CONFIG = {
     "deploy_path": SETTINGS["OUTPUT_PATH"],
     # Github Pages configuration
     "github_pages_branch": "main",
-    "commit_message": "'Publish site on {}'".format(
-        datetime.date.today().isoformat()
-    ),
+    "commit_message": "'Publish site on {}'".format(datetime.date.today().isoformat()),
     # Host and port for `serve`
     "host": "localhost",
     "port": 8000,
@@ -105,9 +103,7 @@ def livereload(c):
     from livereload import Server
 
     def cached_build():
-        cmd = (
-            "-s {settings_base} -e CACHE_CONTENT=true LOAD_CONTENT_CACHE=true"
-        )
+        cmd = "-s {settings_base} -e CACHE_CONTENT=true LOAD_CONTENT_CACHE=true"
         pelican_run(cmd.format(**CONFIG))
 
     cached_build()
@@ -137,9 +133,7 @@ def livereload(c):
 
         webbrowser.open("http://{host}:{port}".format(**CONFIG))
 
-    server.serve(
-        host=CONFIG["host"], port=CONFIG["port"], root=CONFIG["deploy_path"]
-    )
+    server.serve(host=CONFIG["host"], port=CONFIG["port"], root=CONFIG["deploy_path"])
 
 
 @task
@@ -149,7 +143,5 @@ def publish(c):
 
 
 def pelican_run(cmd):
-    cmd += (
-        " " + program.core.remainder
-    )  # allows to pass-through args to pelican
+    cmd += " " + program.core.remainder  # allows to pass-through args to pelican
     pelican_main(shlex.split(cmd))

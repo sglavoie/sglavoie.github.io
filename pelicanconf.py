@@ -3,11 +3,6 @@ import csv
 import os
 import shutil
 
-# Third-party libraries
-from pelican import __version__
-
-PELICAN_VERSION = __version__
-
 
 def delete_existing_redirects_output() -> None:
     """Get a list of the redirects we last generated and remove only those in output/"""
@@ -70,6 +65,9 @@ def generate_redirect_pages_on_the_fly() -> None:
     delete_existing_redirects_output()
 
     write_redirect_html_templates(redirects)
+
+    if not os.path.exists("output"):
+        os.mkdir("output")
 
     # Copy the redirect HTML files to the output/ directory
     for filename in sorted(os.listdir("redirects")):
@@ -159,16 +157,16 @@ MARKDOWN = {
 
 # Feed generation is usually not desired when developing
 # FEED_DOMAIN = SITEURL
-FEED_ALL_ATOM = None
-CATEGORY_FEED_ATOM = None
+FEED_ALL_ATOM = "feeds/sglavoie.atom.xml"
+CATEGORY_FEED_ATOM = "feeds/{slug}.atom.xml"
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 FEED_ATOM = None
 FEED_ATOM_URL = None
 FEED_RSS = None
-FEED_ALL_RSS = None
-CATEGORY_FEED_RSS = None
+FEED_ALL_RSS = "feeds/sglavoie.rss.xml"
+CATEGORY_FEED_RSS = "feeds/{slug}.rss.xml"
 
 # Pages to render as templates directly in HTML (no Markdown parsing)
 generate_redirect_pages_on_the_fly()
