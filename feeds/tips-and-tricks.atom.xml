@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>sglavoie.com - tips-and-tricks</title><link href="https://www.sglavoie.com/" rel="alternate"></link><link href="https://www.sglavoie.com/feeds/tips-and-tricks.atom.xml" rel="self"></link><id>https://www.sglavoie.com/</id><updated>2023-01-02T09:52:00-06:00</updated><entry><title>Git worktrees for a better parallel workflow</title><link href="https://www.sglavoie.com/posts/2023/01/02/git-worktrees-for-a-better-parallel-workflow/" rel="alternate"></link><published>2023-01-02T09:52:00-06:00</published><updated>2023-01-02T09:52:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2023-01-02:/posts/2023/01/02/git-worktrees-for-a-better-parallel-workflow/</id><summary type="html">&lt;p&gt;Git leads to a wealth of discoveries. Once &lt;a href="https://www.sglavoie.com/posts/2020/10/03/setting-up-ssh-and-git-for-multiple-accounts/"&gt;&lt;span class="caps"&gt;SSH&lt;/span&gt; and &lt;span class="caps"&gt;GPG&lt;/span&gt; are set up&lt;/a&gt;, once &lt;a href="https://www.sglavoie.com/posts/2021/05/30/managing-dotfiles-with-git-bare-repository/"&gt;dotfiles are under control&lt;/a&gt; and a reasonable &lt;a href="https://www.sglavoie.com/posts/2022/04/03/git-the-gist-of-it-common-commands-for-a-working-workflow/"&gt;Git workflow has been adopted&lt;/a&gt;, there&amp;#8217;s still room to be amazed by a feature like Git&amp;nbsp;worktrees!&lt;/p&gt;</summary><content type="html">
+&lt;hr/&gt;
+&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Why are Git worktrees needed in the first place? Well, there are certainly a couple of different use cases where they come in handy, but the reason they exist is to allow a developer to check out multiple branches at once without having to do any kind of cleanup when switching branches. Introduced back in &lt;a href="https://github.blog/2015-07-29-git-2-5-including-multiple-worktrees-and-triangular-workflows/"&gt;2015 in Git 2.5&lt;/a&gt;, it’s certainly not a new feature anymore, yet it seems like its adoption really took off more recently. I was an avid user of &lt;a href="https://git-scm.com/docs/git-stash"&gt;&lt;code&gt;git stash&lt;/code&gt;&lt;/a&gt; but I often got myself cornered in some specific situations where it was not as convenient as I thought it was… and &lt;a href="https://git-scm.com/docs/git-worktree"&gt;&lt;code&gt;git worktree&lt;/code&gt;&lt;/a&gt; was for me a pretty good solution without much overhead.&lt;/p&gt;
+&lt;h1 id="why-is-git-stash-not-enough"&gt;Why is &lt;code&gt;git stash&lt;/code&gt; not enough?&lt;/h1&gt;
+&lt;p&gt;It &lt;em&gt;can&lt;/em&gt; be enough, but there are edge cases where it falls short of its promise of keeping stuff neatly around without too much fuss.&lt;/p&gt;
+&lt;h2 id="switching-context"&gt;Switching context&lt;/h2&gt;
+&lt;p&gt;One particular use case in favor of &lt;code&gt;git worktree&lt;/code&gt; is when you have to quickly switch context and you have a dirty branch checked out — which is basically the same use case advertised in the &lt;a href="https://git-scm.com/docs/git-worktree#_examples"&gt;Git documentation&lt;/a&gt;. Committing changes away might be a bit risky if those aren’t ready to be pushed to the remote server and stashing files might be annoying because there could be newer files to include with &lt;code&gt;git stash --include-untracked&lt;/code&gt; or some files already staged in the middle of the work where a &lt;code&gt;git stash --keep-index&lt;/code&gt; is also appropriate, or maybe even a case where you have created temporary files that match ignored files where &lt;code&gt;git stash --all&lt;/code&gt; might do. It gets even messier if you want to leave things in a clean state with only the changes you need with &lt;code&gt;git stash --patch&lt;/code&gt; where it would be needed to select interactively all your hunks. And then, you might already have multiple stashes or you might have forgotten to give one or more stash(es) a name, which makes it harder to &lt;code&gt;git stash pop&lt;/code&gt; or &lt;code&gt;git stash apply&lt;/code&gt; your changes later without having to inspect the content of your stashes with something like &lt;code&gt;git stash show -p&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;With &lt;code&gt;git worktree&lt;/code&gt;, this is no longer an issue! If you don’t already have a new worktree you can switch to, creating one with &lt;code&gt;git worktree add&lt;/code&gt; is quick and easy, as shown in the docs:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt; &lt;/span&gt;worktree&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;-b&lt;span class="w"&gt; &lt;/span&gt;emergency-fix&lt;span class="w"&gt; &lt;/span&gt;../temp&lt;span class="w"&gt; &lt;/span&gt;master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will create a branch named &lt;code&gt;emergency-fix&lt;/code&gt;, creating a new worktree at &lt;code&gt;../temp&lt;/code&gt; checking the branch &lt;code&gt;emergency-fix&lt;/code&gt; that will be based off the &lt;code&gt;master&lt;/code&gt; branch. Then, you would switch to that branch which is managed with a new worktree by changing directory into it (or &lt;code&gt;pushd ../temp&lt;/code&gt; to put the directory into a stack so you can come back later to your current branch with &lt;code&gt;popd&lt;/code&gt;). You would add changes and commit them, likely pushing them to a remote, then you could resume your work by going back to the original directory for your &lt;code&gt;master&lt;/code&gt; branch. Now, you could leave behind the &lt;code&gt;emergency-fix&lt;/code&gt; branch but if that was meant as a temporary one, you could just delete the worktree with &lt;code&gt;git worktree remove ../temp&lt;/code&gt;. Besides being removed by path, worktrees can also be removed by the name they are associated with, which is the branch name shown in square brackets when issuing the command &lt;code&gt;git worktree list&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Arguably, it’s not too hard to see that dealing with temporary changes in this way is a lot more straightforward since the current changes can be left intact without having to commit or stash them.&lt;/p&gt;
+&lt;h2 id="running-tasks-in-the-background"&gt;Running tasks in the background&lt;/h2&gt;
+&lt;p&gt;Whether that be running a test suite that takes a while to execute or leaving the build of a system untouched while it is happening (like building a Docker image), it can be really useful to go work on something else while leaving the original task in the background. More than this, it allows one to go on another branch and make changes to the repository while files from the other branch are being accessed. In the case of building a Docker image for instance, it could cause hard-to-find bugs if the build is stopped or failed and meanwhile files were modified in the repo on the same branch to then be copied back in the next build of the Docker image only to realize that the files being copied have changed prior to being copied.&lt;/p&gt;
+&lt;p&gt;More generally though, I find I just like to leave my terminal windows open into a specific path (branch) while having the freedom to go work elsewhere. This way, a virtual environment (for instance, in Python) can be left “activated” and ready to use when context is switched again. Often, different branches in a project might have slightly different requirements and so a distinct virtual environment must be activated. Having them entirely separated by path in separate worktrees makes this kind of workflow a lot simpler to manage.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h1 id="how-i-operate-worktrees"&gt;How I operate worktrees&lt;/h1&gt;
+&lt;h2 id="first-other-approaches-in-the-wild"&gt;First, other approaches in the wild&lt;/h2&gt;
+&lt;p&gt;I have seen some great programmers use them within a “&lt;a href="https://git-scm.com/docs/git-clone#Documentation/git-clone.txt---bare"&gt;bare repository&lt;/a&gt;“, notably &lt;strong&gt;ThePrimeagen&lt;/strong&gt; in his YouTube video titled &lt;a href="https://www.youtube.com/watch?v=2uEqYw-N8uE"&gt;Git’s Best And Most Unknown Feature&lt;/a&gt;. This works by creating different directories inside the bare repository, effectively having all worktrees at the same level. There is a slight chance of colliding with a reserved directory name by Git, though, since all the metadata is stored there too.&lt;/p&gt;
+&lt;p&gt;Another interesting approach I’ve witnessed is the use of a &lt;code&gt;.worktrees&lt;/code&gt; directory inside the directory containing the main branch of the project, which works by adding a match for &lt;code&gt;.worktrees/&lt;/code&gt; in a global &lt;code&gt;.gitignore&lt;/code&gt; file (kudos to &lt;strong&gt;Redhwan Nacef&lt;/strong&gt; in his &lt;a href="https://www.youtube.com/watch?v=4_p1OdLeDLE"&gt;Git Worktree Tutorial&lt;/a&gt;!). I like this approach because it can list all working trees anyways with &lt;code&gt;git worktree list&lt;/code&gt; and there’s nothing really cluttering the directory structure. However, there might be some huge build files or environments and nesting everything that way might require creating a script to find all worktrees as it is not immediately obvious where they would be stored, if at all.&lt;/p&gt;
+&lt;h2 id="what-i-actually-do-these-days"&gt;What I actually do these days&lt;/h2&gt;
+&lt;p&gt;The approach I have adopted is very simple and requires almost no setup at all.&lt;/p&gt;
+&lt;h3 id="starting-with-a-project-with-existing-branches"&gt;Starting with a project with existing branches&lt;/h3&gt;
+&lt;p&gt;Assuming a project is already cloned and worked on with no additional worktrees, then it leads to a minor hiccup because the project will need to be renamed. So what I currently do is create a top-level directory for the project, say &lt;code&gt;sglavoie.github.io&lt;/code&gt; for this website. Then, I will literally reuse the branch name to create some hierarchy inside that project. Let’s say that right now, I’m writing multiple articles in different branches and I keep my &lt;code&gt;main&lt;/code&gt; branch as always, then I would first &lt;code&gt;mkdir sglavoie.github.io/main&lt;/code&gt; and put the project’s content in there with its &lt;code&gt;.git&lt;/code&gt; folder. Mind you, this is a one-time thing when not already using worktrees!&lt;/p&gt;
+&lt;p&gt;At this stage, the project structure is laid out nicely and ready to accommodate new worktrees. So for instance, if I want to work on a new branch to create a new article without touching the &lt;code&gt;main&lt;/code&gt; branch, I would &lt;code&gt;git worktree add ../articles/article-name-here article-name-here&lt;/code&gt; from the &lt;code&gt;main&lt;/code&gt; branch and voilà, a new worktree will be ready to use. Once a couple of worktrees are created in this way, the directory structure might look as follows:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;~/dev/sglavoie/sglavoie.github.io
+├── articles
+│   ├── adv-web-dev-social-network-app
+│   ├── git-worktree
+│   ├── react-native-app
+│   └── text-based-diagrams
+└── main
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In this way, it’s just a matter of changing directory and opening the worktree in your editor of choice (e.g., &lt;code&gt;nvim&lt;/code&gt; for neovim or &lt;code&gt;code .&lt;/code&gt; with &lt;span class="caps"&gt;VS&lt;/span&gt; Code). From now on, it’s easy to switch between branches of a project right from the editor by searching for the “topic” (e.g., &lt;code&gt;main&lt;/code&gt; or &lt;code&gt;articles&lt;/code&gt; in this case, but that could be &lt;code&gt;hotfix&lt;/code&gt; or &lt;code&gt;feat&lt;/code&gt; depending on how your name your branches) or for a project name directory, which would show all the branches that have been opened previously to allow further filtering. This is what &lt;code&gt;git worktree list&lt;/code&gt; would display in this example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;/some/path/sglavoie.github.io/main                                     d67dd8d2 [main]
+/some/path/sglavoie.github.io/articles/adv-web-dev-social-network-app  666a0b43 [articles/adv-web-dev-social-network-app]
+/some/path/sglavoie.github.io/articles/git-worktree                    d67dd8d2 [git-worktree]
+/some/path/sglavoie.github.io/articles/react-native-app                bcfac34e [articles/react-native-app]
+/some/path/sglavoie.github.io/articles/text-based-diagrams             4b25371d [articles/text-based-diagrams]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="new-worktrees-from-a-project-already-using-worktrees"&gt;New worktrees from a project already using worktrees&lt;/h3&gt;
+&lt;p&gt;If you’ve already embraced this approach, then the next time you want to create a worktree, it will just be a matter of switching to the “base” branch you want to create a worktree from and creating one at whatever location you fancy outside the current directory. For instance, for this article:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt; &lt;/span&gt;worktree&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;../articles/git-worktree&lt;span class="w"&gt; &lt;/span&gt;articles/git-worktree
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This would take care of using the branch name “nesting” convention (e.g., &lt;code&gt;feat/feature-name&lt;/code&gt;, &lt;code&gt;hotfix/bug-name&lt;/code&gt;, etc.) and create sub-directories as needed too. Assuming a worktree has been merged in another branch and/or is no longer necessary, it can be removed with &lt;code&gt;git worktree remove git-worktree&lt;/code&gt; in this example (where &lt;code&gt;git-worktree&lt;/code&gt; is the name given to the worktree… a bit confusing here, you’re right).&lt;/p&gt;
+&lt;h3 id="keeping-worktrees-around"&gt;Keeping worktrees around&lt;/h3&gt;
+&lt;p&gt;Although the official Git documentation presents a useful case for a temporary fix where the worktree is almost immediately deleted upon the completion of a task, I have found myself in a situation where I’d rather have multiple longstanding worktrees. For example, I regularly need to boot a web application from a different branch, either because the currently checked out branch does not have the necessary requirements installed or because I want to leave a web application running in the background without affecting my current work. In my case, I use it to process some data when it arrives and come back to the work I was doing earlier, doing practically the same thing shown in the Git docs but keeping the worktree around for future use.&lt;/p&gt;
+&lt;p&gt;On a large project, I might have a couple of worktrees, but still I would keep branches around without them being part of worktrees when these are meant to be short-lived feature branches that share the same dependencies as other branches as long as they won’t need to be checked out at the same time. Another time I might have separate branches like this could be to avoid having to duplicate gigantic &lt;code&gt;node_modules&lt;/code&gt; or &lt;code&gt;.venv&lt;/code&gt; directories when not needed, because working with different worktrees is pretty much like cloning an entire repository in a separate folder and having to reinstall requirements. There is also a nice Git feature where worktrees are prefixed with a plus sign when issuing &lt;code&gt;git branch&lt;/code&gt;, so that makes them distinctly different from regular branches:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;branch
++&lt;span class="w"&gt; &lt;/span&gt;articles/react-native-app&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="c1"&gt;# worktree&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;gh-pages&lt;span class="w"&gt;                    &lt;/span&gt;&lt;span class="c1"&gt;# other regular branch&lt;/span&gt;
++&lt;span class="w"&gt; &lt;/span&gt;git-worktree&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="c1"&gt;# worktree&lt;/span&gt;
+*&lt;span class="w"&gt; &lt;/span&gt;main&lt;span class="w"&gt;                        &lt;/span&gt;&lt;span class="c1"&gt;# currently checked out&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr/&gt;
+&lt;h1 id="conclusion"&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;I have briefly touched upon a downside of worktrees, which is that it’s almost like cloning over and over a repository, which can take up a lot of disk space with large projects. Nevertheless, this is a tradeoff I am entirely willing to make given the advantages Git worktrees bring with them! If you’re not already using them, maybe this little post might have inspired you to give them a go!&lt;/p&gt;
+&lt;h2 id="resources-and-references"&gt;Resources and references&lt;/h2&gt;
+&lt;h3 id="external-links"&gt;External links&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.blog/2015-07-29-git-2-5-including-multiple-worktrees-and-triangular-workflows/"&gt;Git 2.5, including multiple worktrees and triangular workflows - github.blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://git-scm.com/docs/git-stash"&gt;&lt;code&gt;git-stash&lt;/code&gt; - git-scm.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://git-scm.com/docs/git-worktree"&gt;&lt;code&gt;git-worktree&lt;/code&gt; - git-scm.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://git-scm.com/docs/git-worktree#_examples"&gt;&lt;code&gt;git-worktree&lt;/code&gt; / Examples - git-scm.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://git-scm.com/docs/git-clone#Documentation/git-clone.txt---bare"&gt;&lt;code&gt;git-clone&lt;/code&gt; on &lt;code&gt;--bare&lt;/code&gt; - git-scm.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=2uEqYw-N8uE"&gt;Git’s Best And Most Unknown Feature - ThePrimeagen, YouTube&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=4_p1OdLeDLE"&gt;Git Worktree Tutorial - Redhwan Nacef, YouTube&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="from-this-website"&gt;From this website&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.sglavoie.com/posts/2022/04/03/git-the-gist-of-it-common-commands-for-a-working-workflow/"&gt;Git the gist of it: common commands for a working workflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.sglavoie.com/posts/2021/05/30/managing-dotfiles-with-git-bare-repository/"&gt;Managing dotfiles with a Git bare repository&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.sglavoie.com/posts/2020/10/03/setting-up-ssh-and-git-for-multiple-accounts/"&gt;Setting up &lt;span class="caps"&gt;SSH&lt;/span&gt; and Git for Multiple Accounts&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="tips-and-tricks"></category><category term="git"></category><category term="terminal"></category></entry><entry><title>Ignoring Sync of Local Files to Dropbox on Linux</title><link href="https://www.sglavoie.com/posts/2019/11/30/ignoring-sync-of-local-files-to-dropbox-on-linux/" rel="alternate"></link><published>2019-11-30T13:22:00-06:00</published><updated>2019-11-30T13:22:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2019-11-30:/posts/2019/11/30/ignoring-sync-of-local-files-to-dropbox-on-linux/</id><summary type="html">&lt;p&gt;To make the most of Dropbox, it can make sense to backup the files you care the most about and skip the ones that simply take too long to upload and eat up all your space. Such candidates could be hidden &lt;code&gt;.git/&lt;/code&gt; folders and &lt;code&gt;node_modules/&lt;/code&gt;, but how do you exclude them locally? Let&amp;#8217;s find&amp;nbsp;out.&lt;/p&gt;</summary><content type="html">
+&lt;hr/&gt;
+&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://www.dropbox.com"&gt;Dropbox&lt;/a&gt; is an awesome company which has been until recently the working home of none other than &lt;a href="https://gvanrossum.github.io"&gt;Guido van Rossum&lt;/a&gt;, the creator of the &lt;a href="https://www.python.org"&gt;Python&lt;/a&gt; programming language. It works like a charm out of the box on Linux and can be installed easily enough through the package manager that comes with your chosen distribution.&lt;/p&gt;
+&lt;h2 id="why-dropbox"&gt;Why Dropbox?&lt;/h2&gt;
+&lt;p&gt;In my experience, it has been working flawlessly and syncs consistently faster than Google Drive. It’s also worth mentioning that there is still no official Google Drive Linux client to this day: some users of the &lt;a href="https://www.gnome.org"&gt;&lt;span class="caps"&gt;GNOME&lt;/span&gt;&lt;/a&gt; desktop environment will connect to their Google account and mount Google Drive within the file manager &lt;a href="https://wiki.gnome.org/Apps/Files"&gt;Nautilus/Files&lt;/a&gt;; other users will use the paid software &lt;a href="https://www.insynchq.com"&gt;Insync&lt;/a&gt; or the free software alternative &lt;a href="https://liberodark.github.io/ODrive/"&gt;ODrive&lt;/a&gt;. No thanks.&lt;/p&gt;
+&lt;p&gt;On the other hand, Dropbox is easy to use with any flavor of Linux and also syncs seamlessly with mobile devices. I use Dropbox for its convenience, but other solutions exist like &lt;a href="https://syncthing.net"&gt;Syncthing&lt;/a&gt; that do not depend on proprietary software and third-party cloud services. I store mostly insensitive information in my Dropbox account and for the few files that happen to be a bit more sensitive (such as the password database I synchronize on both desktop and mobile with &lt;a href="https://keepassxc.org"&gt;KeePassXC&lt;/a&gt; and &lt;a href="https://github.com/PhilippC/keepass2android"&gt;Keepass2Android&lt;/a&gt;, respectively), they are of course encrypted (hopefully in a secure way).&lt;/p&gt;
+&lt;p&gt;Because I like to keep things simple and light on system resources, I do not let Dropbox run in the background (it only syncs once a day in the evening). Since all one needs to do in order to use it is to create and modify files inside a specific folder (such as &lt;code&gt;~/Dropbox&lt;/code&gt; by default), it can just synchronize at any moment and conflicts will be handled automatically if you make changes in more than one place that’s being synced.&lt;/p&gt;
+&lt;h2 id="so-whats-wrong-with-dropbox"&gt;So, what’s wrong with Dropbox?&lt;/h2&gt;
+&lt;p&gt;With all that said, there’s one little feature that I find missing with Dropbox when using the official Linux client and that’s the &lt;strong&gt;ability to selectively sync local files&lt;/strong&gt;. Yes, there is a &lt;a href="https://help.dropbox.com/installs-integrations/sync-uploads/selective-sync-overview"&gt;selective sync&lt;/a&gt; feature available, but that will delete the local copy of your files and store them in the cloud only, &lt;em&gt;not the other way around by keeping your local files intact and prevent uploading them to the cloud&lt;/em&gt;. There are some hacks you can do to avoid this, but this isn’t a particularly enticing work flow, because we can do better.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.sglavoie.com/images/posts/0019_ignoring-local-files-to-sync-with-dropbox-on-linux/dropbox_selective_sync.png"&gt;&lt;img alt="dropbox_selective_sync" class="max-size-img-post" src="https://www.sglavoie.com/images/posts/0019_ignoring-local-files-to-sync-with-dropbox-on-linux/dropbox_selective_sync.png"/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You may have heard of other alternatives like &lt;a href="https://www.goodsync.com"&gt;GoodSync&lt;/a&gt; that allow, through yet another third-party proprietary software, to ignore specific files at your request. That’s not what we are after here: instead, there’s something you can do from the terminal that works quite well, too. At the time of this writing, it is still a &lt;em&gt;beta feature&lt;/em&gt; &lt;a href="https://help.dropbox.com/files-folders/restore-delete/ignored-files"&gt;according to this page&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This feature is currently in beta and not available to all Dropbox users. It will be rolled out to more users in the future.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Yet, because you can work with this feature programmatically to ignore and &lt;em&gt;un-ignore&lt;/em&gt; files from your Dropbox directory, I thought it was worth giving it a try. Here is how I’m using it to give you a few ideas.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h1 id="any-simple-example"&gt;Any simple example?&lt;/h1&gt;
+&lt;p&gt;Getting started is quick and painless. To ignore a file within your Dropbox folder, you only need to use the &lt;code&gt;attr&lt;/code&gt; command to &lt;strong&gt;set&lt;/strong&gt; (&lt;code&gt;-s&lt;/code&gt;) the special attribute &lt;code&gt;com.dropbox.ignored&lt;/code&gt; to give it a &lt;strong&gt;value&lt;/strong&gt; of &lt;code&gt;1&lt;/code&gt; (&lt;code&gt;-V 1&lt;/code&gt;) so it ignores a file (&lt;code&gt;file.txt&lt;/code&gt; in this example) as follow:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;/path/to/file/in/Dropbox/folder
+
+attr&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;com.dropbox.ignored&lt;span class="w"&gt; &lt;/span&gt;-V&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;file.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="ignore-all-git-and-node_modules-folders"&gt;Ignore all .git and node_modules folders&lt;/h2&gt;
+&lt;p&gt;Things get &lt;strong&gt;really&lt;/strong&gt; interesting when we can do that automatically by matching a specific pattern (it depends who you ask, anyways). How about exploring recursively the whole directory tree to exclude only hidden &lt;code&gt;.git&lt;/code&gt; folders? Suppose you store your Git projects in &lt;code&gt;~/Dropbox/git/&lt;/code&gt;. You would then do something like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;~/Dropbox/git/
+
+find&lt;span class="w"&gt; &lt;/span&gt;.&lt;span class="w"&gt; &lt;/span&gt;-type&lt;span class="w"&gt; &lt;/span&gt;d&lt;span class="w"&gt; &lt;/span&gt;-name&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;".git"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;xargs&lt;span class="w"&gt; &lt;/span&gt;-I&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;attr&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;com.dropbox.ignored&lt;span class="w"&gt; &lt;/span&gt;-V&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"{}"&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In an instant, you will start getting some feedback printed to the terminal for each &lt;code&gt;.git&lt;/code&gt; folder that is being found:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Attribute "com.dropbox.ignored" set to a 1 byte value for ./path/to/.git:
+1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Dealing with &lt;code&gt;node_modules&lt;/code&gt; folders is equally easy. Because a message will be printed to the console every time a file attribute is changed, you could want to delete the output (preferably once you are sure you are modifying only the targeted files!) by redirecting it to &lt;code&gt;/dev/null&lt;/code&gt;, a &lt;em&gt;null device&lt;/em&gt; that discards all data it receives. We can always split a long command onto multiple lines with a backslash character &lt;code&gt;\&lt;/code&gt; like so (it’s not required right after the pipe &lt;code&gt;|&lt;/code&gt; symbol):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;find&lt;span class="w"&gt; &lt;/span&gt;.&lt;span class="w"&gt; &lt;/span&gt;-type&lt;span class="w"&gt; &lt;/span&gt;d&lt;span class="w"&gt; &lt;/span&gt;-name&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"node_modules"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;xargs&lt;span class="w"&gt; &lt;/span&gt;-I&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;attr&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;com.dropbox.ignored&lt;span class="w"&gt; &lt;/span&gt;-V&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s2"&gt;"{}"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;/dev/null
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr/&gt;
+&lt;h1 id="can-we-make-this-simpler"&gt;Can we make this simpler?&lt;/h1&gt;
+&lt;p&gt;Yes we can! An &lt;code&gt;alias&lt;/code&gt; might be a bit hard to manage, but we can definitely create a set of functions that will be accessible from anywhere in the terminal. It suffices to add them to your shell configuration file, which could be located in &lt;code&gt;~/.profile&lt;/code&gt;, &lt;code&gt;~/.bash_profile&lt;/code&gt;, &lt;code&gt;~/.zshrc&lt;/code&gt; or something else depending on your shell.&lt;/p&gt;
+&lt;p&gt;One solution that I see fit for this purpose is to have two distinct functions that have antagonistic effects so that we can revert our changes in a pinch. Basically, setting a value of &lt;code&gt;1&lt;/code&gt; for the attribute &lt;code&gt;com.dropbox.ignored&lt;/code&gt; ignores a file while setting it back to &lt;code&gt;0&lt;/code&gt; tells Dropbox to sync it again. Our functions could be conveniently called &lt;code&gt;dropbox-ignore&lt;/code&gt; and &lt;code&gt;dropbox-sync&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Now, the following functions could become quite a bit more complicated to take into account various scenarios and custom behaviors, but let’s keep things simple and assume that the user knows what is going to happen. We could have our two functions as follow:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Ignore specific files/directories in Dropbox&lt;/span&gt;
+dropbox-ignore&lt;span class="o"&gt;(){&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nv"&gt;arg1&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nv"&gt;arg2&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;find&lt;span class="w"&gt; &lt;/span&gt;.&lt;span class="w"&gt; &lt;/span&gt;-type&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$arg1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-name&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$arg2&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;xargs&lt;span class="w"&gt; &lt;/span&gt;-I&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;attr&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;com.dropbox.ignored&lt;span class="w"&gt; &lt;/span&gt;-V&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"{}"&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Sync specific files/directories in Dropbox&lt;/span&gt;
+&lt;span class="c1"&gt;# that were previously ignored (or not)&lt;/span&gt;
+dropbox-sync&lt;span class="o"&gt;(){&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nv"&gt;arg1&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nv"&gt;arg2&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;find&lt;span class="w"&gt; &lt;/span&gt;.&lt;span class="w"&gt; &lt;/span&gt;-type&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$arg1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-name&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$arg2&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;xargs&lt;span class="w"&gt; &lt;/span&gt;-I&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;attr&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;com.dropbox.ignored&lt;span class="w"&gt; &lt;/span&gt;-V&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"{}"&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="how-do-you-use-those-functions"&gt;How do you use those functions?&lt;/h2&gt;
+&lt;p&gt;Our commands will be accessible by typing &lt;code&gt;dropbox-ignore&lt;/code&gt; and &lt;code&gt;dropbox-sync&lt;/code&gt; the next time we open a terminal window. Both functions do exactly the same thing, but &lt;code&gt;dropbox-ignore&lt;/code&gt; sets the attribute value to &lt;code&gt;1&lt;/code&gt; to ignore files and &lt;code&gt;dropbox-sync&lt;/code&gt; sets the attribute to &lt;code&gt;0&lt;/code&gt; to allow syncing to happen.&lt;/p&gt;
+&lt;p&gt;&lt;sub&gt;Note: For simplicity and practicality, keep in mind that those commands will search &lt;strong&gt;recursively from the current working directory&lt;/strong&gt;. It’s also good to know that if you set an attribute value to &lt;code&gt;1&lt;/code&gt; then back to &lt;code&gt;0&lt;/code&gt; again, Dropbox will need to re-sync the affected files and directories.&lt;/sub&gt;&lt;/p&gt;
+&lt;p&gt;We need to pass them two arguments: the first is the type of search to perform (pass &lt;code&gt;f&lt;/code&gt; for &lt;strong&gt;files&lt;/strong&gt; and &lt;code&gt;d&lt;/code&gt; for &lt;strong&gt;directories&lt;/strong&gt;) and the second is the pattern to match in the name (&lt;code&gt;node_modules&lt;/code&gt; or &lt;code&gt;.git&lt;/code&gt; would fit here, no need to use quotes). Concretely, that will look like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# To ignore a file matching the pattern `myfile`&lt;/span&gt;
+dropbox-ignore&lt;span class="w"&gt; &lt;/span&gt;f&lt;span class="w"&gt; &lt;/span&gt;myfile
+
+&lt;span class="c1"&gt;# To avoid syncing node_modules/ directory&lt;/span&gt;
+dropbox-ignore&lt;span class="w"&gt; &lt;/span&gt;d&lt;span class="w"&gt; &lt;/span&gt;node_modules
+
+&lt;span class="c1"&gt;# Te re-add a .git/ folder to Dropbox&lt;/span&gt;
+dropbox-sync&lt;span class="w"&gt; &lt;/span&gt;d&lt;span class="w"&gt; &lt;/span&gt;.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr/&gt;
+&lt;h1 id="conclusion"&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;This tip may certainly not be the best approach to solving this particular issue with Dropbox on Linux, but I hope you find it useful nevertheless as it worked out very nicely on my end! One could store files and directories elsewhere, working with symbolic links or hard links as necessary to reference files or simply give up on making a backup with Dropbox in some circumstances. But I like to keep an extra copy of projects I’m working on in Dropbox and that can include potentially large files that don’t need to be backed up, so ignoring what’s not indispensable can speed up the syncing process tremendously while keeping disk usage in the cloud possibly much lower.&lt;/p&gt;
+&lt;p&gt;Dropbox only calculates the size of the files being synced in the cloud, so you can end up needing a lot more space locally if you ignore a number of big files or, conversely, selectively syncing many files will result in a cloud storage larger than what’s needed locally.&lt;/p&gt;</content><category term="tips-and-tricks"></category><category term="aliases"></category><category term="linux"></category><category term="shell"></category><category term="terminal"></category></entry><entry><title>Using dmenu to Optimize Common Tasks</title><link href="https://www.sglavoie.com/posts/2019/11/10/using-dmenu-to-optimize-common-tasks/" rel="alternate"></link><published>2019-11-10T09:02:00-06:00</published><updated>2021-06-27T09:54:00-05:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2019-11-10:/posts/2019/11/10/using-dmenu-to-optimize-common-tasks/</id><summary type="html">&lt;p&gt;If remembering dozens of keyboard shortcuts isn&amp;#8217;t your forte, let &lt;a href="https://tools.suckless.org/dmenu"&gt;dmenu&lt;/a&gt; come to the rescue! With this awesome tool, you will be able to create menus from plain text files swiftly and effortlessly&amp;nbsp;(almost).&lt;/p&gt;</summary><content type="html">
+&lt;hr/&gt;
+&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://tools.suckless.org/dmenu"&gt;dmenu&lt;/a&gt; is one of those tools that look a little unimpressive at first but can accomplish so much! It’s a program that you can use to receive any output redirected from other programs (through pipes in the terminal, the symbol &lt;code&gt;|&lt;/code&gt;) and treat that output so that it can pop up within a simple menu to make it available for execution. If you want to know more about other fantastic tools from &lt;a href="https://suckless.org"&gt;suckless.org&lt;/a&gt;, I &lt;a href="https://www.sglavoie.com/posts/2019/11/10/using-dmenu-to-optimize-common-tasks/"&gt;went over some of them before&lt;/a&gt;, such as the &lt;code&gt;st&lt;/code&gt; terminal and &lt;code&gt;slock&lt;/code&gt;, a dead simple screen locker.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h1 id="any-simple-example"&gt;Any Simple Example?&lt;/h1&gt;
+&lt;p&gt;You bet! Before diving in with how to install it and some more concrete examples, you could give &lt;code&gt;dmenu&lt;/code&gt; a go with a simple command such as the following (assuming the program is installed on your machine).&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ls&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;dmenu
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will effectively “pipe” the output of &lt;code&gt;ls&lt;/code&gt; into &lt;code&gt;dmenu&lt;/code&gt; and a menu like the following would appear (by default, it shows as a thin stripe at the top covering the width of the screen):&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_ls_command.png"&gt;&lt;img alt="dmenu_ls_command" class="max-size-img-post" src="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_ls_command.png"/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you start typing, the displayed list will be filtered down like so:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_ls_command_typing.png"&gt;&lt;img alt="dmenu_ls_command_typing" class="max-size-img-post" src="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_ls_command_typing.png"/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can also switch to the next item to be highlighted by typing &lt;code&gt;Ctrl + n&lt;/code&gt;, to the previous item by typing &lt;code&gt;Ctrl + p&lt;/code&gt; and exit by reaching for the &lt;code&gt;Escape&lt;/code&gt; key. For now, if you type &lt;code&gt;Enter&lt;/code&gt; once your desired selection is highlighted, the selection will be outputted to the terminal and that will be the end of it. Let’s convert this into a practical thing, then.&lt;/p&gt;
+&lt;p&gt;Keeping the same output as before which only contained directories, we could open a file manager (here, I’m going with &lt;code&gt;pcmanfm&lt;/code&gt;) and do something like this (bear with me, the explanation follows!):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ls&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;dmenu&lt;span class="w"&gt; &lt;/span&gt;-l&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;xargs&lt;span class="w"&gt; &lt;/span&gt;-I&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;pcmanfm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"{}"&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is now a fully functional example, albeit its practicality is debatable. What will happen, exactly?&lt;/p&gt;
+&lt;p&gt;First, &lt;code&gt;ls&lt;/code&gt; will output a list of directories in the current working directory. That is, the following would be printed in the terminal without any piping:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Desktop    Downloads  Learning  Pictures     Public   Templates  virtualbox_vms
+Documents  Dropbox    Music     Programming  SortOut  Videos
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When we &lt;em&gt;pipe&lt;/em&gt; this into &lt;code&gt;dmenu&lt;/code&gt;, we will get a menu with all that output nicely formatted vertically, which is what the &lt;code&gt;-l 5&lt;/code&gt; options does (here, we want only &lt;strong&gt;5&lt;/strong&gt; lines to show). We will see a maximum of &lt;strong&gt;5&lt;/strong&gt; items as this is the value we passed to the &lt;code&gt;-l&lt;/code&gt; option:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_ls_command_vertical_5_items.png"&gt;&lt;img alt="dmenu_ls_command_vertical_5_items" class="max-size-img-post" src="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_ls_command_vertical_5_items.png"/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;We can still start typing a word that doesn’t show up in this list like &lt;code&gt;Mu&lt;/code&gt; and we will see that this list is filtered to only include the matching directory &lt;code&gt;Music&lt;/code&gt; even though we couldn’t see it before since we limited our results to &lt;strong&gt;5&lt;/strong&gt; items. We could also use the same technique with &lt;code&gt;Ctrl + n&lt;/code&gt; and &lt;code&gt;Ctrl + p&lt;/code&gt; to cycle between the elements.&lt;/p&gt;
+&lt;p&gt;Up to this point, we are getting our selection outputted to the terminal. Next, we pipe it into &lt;code&gt;xargs&lt;/code&gt;, which will allow us to specify a command to which we will pass our result (what is printed to the terminal) as an argument (we could make use of more arguments depending on the output we get, but let’s start simple). The &lt;code&gt;-I {}&lt;/code&gt; option will make it possible to “quote” our result so it is read as a single argument and properly &lt;em&gt;escaped&lt;/em&gt;. This means that without this option, if we have spaces or other special characters in the argument (such as a folder called &lt;code&gt;My Music&lt;/code&gt;), it would try to pass each word as a new argument to &lt;code&gt;pcmanfm&lt;/code&gt;, trying to open both &lt;code&gt;My&lt;/code&gt; and &lt;code&gt;Music&lt;/code&gt; directories at once.&lt;/p&gt;
+&lt;p&gt;We are representing our output as &lt;code&gt;{}&lt;/code&gt; and when we quote it with &lt;code&gt;pcmanfm "{}"&lt;/code&gt;, spaces are interpreted without any trouble. If we wanted to use various arguments instead, we could try something like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"file1.txt file2.txt\nfile3.txt file4.txt"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;dmenu&lt;span class="w"&gt; &lt;/span&gt;-l&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;xargs&lt;span class="w"&gt; &lt;/span&gt;cat
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The part before the first pipe character will print to the terminal those two lines:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;file1.txt file2.txt
+file3.txt file4.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When we pipe this into &lt;code&gt;dmenu -l 2&lt;/code&gt;, we will get this menu:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_echo_command_filenames.png"&gt;&lt;img alt="dmenu_echo_command_filenames" class="max-size-img-post" src="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_echo_command_filenames.png"/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Typing &lt;code&gt;Enter&lt;/code&gt; on one of the highlighted items would then trigger &lt;code&gt;xargs&lt;/code&gt; to pass the content literally to &lt;code&gt;cat&lt;/code&gt; as arguments, which would then print to the terminal the content of both &lt;code&gt;file1.txt&lt;/code&gt; and &lt;code&gt;file2.txt&lt;/code&gt; (the first line containing two arguments for &lt;code&gt;cat&lt;/code&gt;) or the content of both &lt;code&gt;file3.txt&lt;/code&gt; and &lt;code&gt;file4.txt&lt;/code&gt; (the second line also containing two arguments for &lt;code&gt;cat&lt;/code&gt;) in succession.&lt;/p&gt;
+&lt;p&gt;Now that we got our feet wet with what &lt;code&gt;dmenu&lt;/code&gt; does (&lt;em&gt;displays a menu&lt;/em&gt;), we might want to install it.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h1 id="how-do-you-install-it"&gt;How do You Install It?&lt;/h1&gt;
+&lt;p&gt;In Manjaro Linux, it comes with &lt;code&gt;i3&lt;/code&gt; if you use that flavor of the distribution and can be opened by pressing the modifier key (either &lt;code&gt;Super/Windows&lt;/code&gt; key or &lt;code&gt;Alt&lt;/code&gt; key) along with the letter &lt;code&gt;d&lt;/code&gt;, as in the shortcut &lt;code&gt;mod + d&lt;/code&gt;, or by typing &lt;code&gt;dmenu_run&lt;/code&gt; in a terminal, which will present a list of installed applications to launch. Otherwise:&lt;/p&gt;
+&lt;h2 id="debian-based-such-as-ubuntu"&gt;Debian-based (such as Ubuntu)&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;apt&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;dmenu
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="arch-based-such-as-manjaro"&gt;Arch-based (such as Manjaro)&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pacman&lt;span class="w"&gt; &lt;/span&gt;-Syu&lt;span class="w"&gt; &lt;/span&gt;dmenu
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You can also install it from your distribution’s package manager if available or &lt;a href="https://tools.suckless.org/dmenu"&gt;from source&lt;/a&gt;.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h1 id="useful-real-world-examples"&gt;Useful Real-World Examples&lt;/h1&gt;
+&lt;p&gt;Here are a couple of ways I like to use &lt;code&gt;dmenu&lt;/code&gt; to open a menu with a list of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;cheat sheets;&lt;/li&gt;
+&lt;li&gt;filesystem paths;&lt;/li&gt;
+&lt;li&gt;most used documents;&lt;/li&gt;
+&lt;li&gt;documents &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; books I read at the university;&lt;/li&gt;
+&lt;li&gt;custom scripts I want to run in the background.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here are a few screenshots of how it currently looks like in my daily usage so you get a better idea.&lt;/p&gt;
+&lt;h2 id="cheat-sheets"&gt;Cheat sheets&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_cheat_sheets.png"&gt;&lt;img alt="dmenu_cheat_sheets" class="max-size-img-post" src="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_cheat_sheets.png"/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="university-shortcuts"&gt;University shortcuts&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_university_shortcuts.png"&gt;&lt;img alt="dmenu_university_shortcuts" class="max-size-img-post" src="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_university_shortcuts.png"/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="file-manager-shortcuts"&gt;File manager shortcuts&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_file_manager_shortcuts.png"&gt;&lt;img alt="dmenu_file_manager_shortcuts" class="max-size-img-post" src="https://www.sglavoie.com/images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_file_manager_shortcuts.png"/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;So, how does that all work? As a starting point, all of those menus are launched through a specific keyboard shortcut that uses a mnemonic for each one (&lt;code&gt;mod&lt;/code&gt; being the “modifier” key on &lt;strong&gt;i3&lt;/strong&gt;, which is set to &lt;code&gt;Super/Windows&lt;/code&gt;):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mod + Alt + c&lt;/code&gt;: &lt;strong&gt;c&lt;/strong&gt;heat sheets;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mod + Alt + d&lt;/code&gt;: &lt;strong&gt;d&lt;/strong&gt;ocuments;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mod + Alt + f&lt;/code&gt;: &lt;strong&gt;f&lt;/strong&gt;ile manager;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mod + Alt + s&lt;/code&gt;: &lt;strong&gt;s&lt;/strong&gt;cripts;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mod + Alt + u&lt;/code&gt;: &lt;strong&gt;u&lt;/strong&gt;niversity.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let’s take the cheat sheets example, which is a bit more interesting since it launches different applications.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h2 id="setting-up-a-custom-command"&gt;Setting Up a Custom Command&lt;/h2&gt;
+&lt;h3 id="configuration-for-i3-bind-a-keyboard-shortcut"&gt;Configuration for i3 (bind a keyboard shortcut)&lt;/h3&gt;
+&lt;p&gt;Here, I’m using &lt;a href="https://i3wm.org"&gt;i3&lt;/a&gt; to set a keyboard shortcut to run a specific command, but this will be a similar experience on other window managers and desktop environments.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# i3config file&lt;/span&gt;
+&lt;span class="c1"&gt;# The backslash at the end of the line allows us&lt;/span&gt;
+&lt;span class="c1"&gt;# to split the line to increase readability&lt;/span&gt;
+
+&lt;span class="c1"&gt;## Cheatsheets&lt;/span&gt;
+
+bindsym&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$mod&lt;/span&gt;+Mod1+c&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;exec&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;--no-startup-id&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+cat&lt;span class="w"&gt; &lt;/span&gt;path/to/cheatsheets.conf&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;dmenu&lt;span class="w"&gt; &lt;/span&gt;-l&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'s/.*    \+//'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You would usually be able to launch a custom command from your environment through a keyboard shortcut. If passing a direct command such as the above one isn’t an option, you can always store it in a Bash script and run that Bash script instead as the designated custom command. The script would then contain the following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class="c1"&gt;## Cheatsheets&lt;/span&gt;
+cat&lt;span class="w"&gt; &lt;/span&gt;path/to/cheatsheets.conf&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;dmenu&lt;span class="w"&gt; &lt;/span&gt;-l&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'s/.*    \+//'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;As far as &lt;strong&gt;i3&lt;/strong&gt; is concerned, that’s all you need to do. You would need to reload the configuration file (by default: &lt;em&gt;i3config&lt;/em&gt;) where the previous &lt;code&gt;bindsym&lt;/code&gt; command has been set up to apply the changes (default shortcut to reload: &lt;code&gt;mod + Shift + c&lt;/code&gt;).&lt;/p&gt;
+&lt;h3 id="configuration-for-cheatsheetsconf"&gt;Configuration for cheatsheets.conf&lt;/h3&gt;
+&lt;p&gt;The content of this file is literally what will be shown when &lt;strong&gt;dmenu&lt;/strong&gt; opens it. An excerpt:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;#---------- Cheat Sheets -------------------------------------------------------
+bash         st -e nvim path/to/bash.sh
+git          zathura path/to/github.pdf
+vimwiki      firefox path/to/vimwiki.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here, we have set a maximum of &lt;strong&gt;30&lt;/strong&gt; lines to be displayed (&lt;code&gt;-l 30&lt;/code&gt;). What follows after an element has been selected with &lt;strong&gt;dmenu&lt;/strong&gt; allows us to parse the content of the line and retrieve only the command we are interested in with &lt;code&gt;sed&lt;/code&gt; before passing that filtered content around to &lt;code&gt;sh&lt;/code&gt; to execute it as a shell command. With more complex commands requiring multiples arguments to be received, we could add one more pipe between &lt;code&gt;sed&lt;/code&gt; and &lt;code&gt;sh&lt;/code&gt; like this (or with &lt;code&gt;xargs -I {}&lt;/code&gt; to avoid problems with spaces):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;cat&lt;span class="w"&gt; &lt;/span&gt;path/to/cheatsheets.conf&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;dmenu&lt;span class="w"&gt; &lt;/span&gt;-l&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'s/.*    \+//'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;xargs&lt;span class="w"&gt; &lt;/span&gt;-r&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If the line we want to run only includes a path to a file as in:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;myshortcut      path/to/file.pdf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We could instead pipe it into an external command of choice if the same program applies to all items presented in the menu, say Firefox:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;cat&lt;span class="w"&gt; &lt;/span&gt;path/to/file.conf&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;dmenu&lt;span class="w"&gt; &lt;/span&gt;-l&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'s/.*    \+//'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;xargs&lt;span class="w"&gt; &lt;/span&gt;-I&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;firefox&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"{}"&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;What’s nice with the way pipes work in a Unix-like system is that we can chain harmless commands until the very end so they will simply be printed to the terminal. In this example, if we want to see how to filter our lines before running a command, we can do so as follow.&lt;/p&gt;
+&lt;h4 id="pipe-1"&gt;Pipe 1&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;cat&lt;span class="w"&gt; &lt;/span&gt;path/to/cheatsheets.conf&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;dmenu&lt;span class="w"&gt; &lt;/span&gt;-l&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you remember from the menu we saw earlier, there’s a shortcut to open a cheat sheet for Git. Let’s say we selected that one with &lt;strong&gt;dmenu&lt;/strong&gt;. Because our command isn’t doing anything with the result, it will be outputted to the terminal like so (just like in the excerpt of &lt;code&gt;cheatsheets.conf&lt;/code&gt;):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt;      &lt;/span&gt;zathura&lt;span class="w"&gt; &lt;/span&gt;path/to/github.pdf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;What &lt;code&gt;sed&lt;/code&gt; does here is to cut everything from the beginning of the line up to where the command starts (that’s where we find &lt;a href="https://pwmt.org/projects/zathura/"&gt;zathura&lt;/a&gt;, which is a powerful document viewer), because we need to isolate that part of the line so it looks like a shell command we could run on its own. Let’s add a new pipe to our command and see what &lt;code&gt;sed&lt;/code&gt; does with it*.&lt;/p&gt;
+&lt;p&gt;* &lt;sub&gt;We could have used other tools to parse the string like &lt;code&gt;awk&lt;/code&gt;, &lt;code&gt;grep&lt;/code&gt;, &lt;code&gt;cut&lt;/code&gt;, etc.&lt;/sub&gt;&lt;/p&gt;
+&lt;h4 id="pipe-2"&gt;Pipe 2&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;cat&lt;span class="w"&gt; &lt;/span&gt;path/to/cheatsheets.conf&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;dmenu&lt;span class="w"&gt; &lt;/span&gt;-l&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'s/.*    \+//'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If we select the same item as before with &lt;strong&gt;dmenu&lt;/strong&gt; to illustrate more clearly what this new addition does, we will get this output:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;zathura&lt;span class="w"&gt; &lt;/span&gt;path/to/github.pdf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If we were to type this in the terminal (assuming the file exists and &lt;strong&gt;zathura&lt;/strong&gt; is installed!), that would do the trick and it would open with the specified document viewer. &lt;strong&gt;Pipe 2&lt;/strong&gt; and subsequent pipes before we execute something is where the filtering magic happen. In short:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Everything &lt;strong&gt;before&lt;/strong&gt; &lt;code&gt;| dmenu&lt;/code&gt; is how our input will look like when we run &lt;code&gt;dmenu&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Everything &lt;strong&gt;after&lt;/strong&gt; &lt;code&gt;| dmenu [options here] |&lt;/code&gt; is what we need to do to our input so that it is converted into a working shell command;&lt;/li&gt;
+&lt;li&gt;Finally, what comes &lt;strong&gt;after the last pipe&lt;/strong&gt; (either &lt;code&gt;xargs&lt;/code&gt;, &lt;code&gt;sh&lt;/code&gt; or a combination of both) is our way to redirect our string to the shell so it can be executed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Once we are visually satisfied with how our command is supposed to look like (it has to be something that works when typed directly in the terminal), the next step is to pipe it again so it can be executed.&lt;/p&gt;
+&lt;h4 id="pipe-3"&gt;Pipe 3&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;cat&lt;span class="w"&gt; &lt;/span&gt;path/to/cheatsheets.conf&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;dmenu&lt;span class="w"&gt; &lt;/span&gt;-l&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'s/.*    \+//'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;There we go, the command is launched. If we keep the same simple syntax in all of our &lt;code&gt;.conf&lt;/code&gt; files —or whatever extension we choose— where the content of our menus is stored in plain text, we can quickly and painlessly create keyboard shortcuts to run custom lists of commands that can be edited on the fly. Once our shortcuts are active, it’s only a matter of editing one of those &lt;code&gt;.conf&lt;/code&gt; files and automatically our lists will be up-to-date when we trigger the shortcut again.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h2 id="running-a-custom-script"&gt;Running a Custom Script&lt;/h2&gt;
+&lt;p&gt;If we want to run custom scripts, we need to indicate a command that would work in the terminal, such as &lt;code&gt;python myscrypt.py&lt;/code&gt; or &lt;code&gt;./myscript.sh&lt;/code&gt;. When it comes to shell scripts, we have to make sure they are executable. We can do so through a file manager or within the terminal like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;chmod&lt;span class="w"&gt; &lt;/span&gt;+x&lt;span class="w"&gt; &lt;/span&gt;path/to/script.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will add the necessary permissions for the user to execute the script. As we already know, we would then need to add a keyboard shortcut to launch our custom menu and store our command in a file like &lt;code&gt;scripts.conf&lt;/code&gt; that would contain the following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;#---------- scripts.conf -------------------------------------------------------
+myscript      script.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And that’s all there is to know to get piping with &lt;code&gt;dmenu&lt;/code&gt;! You may also find &lt;a href="https://www.youtube.com/watch?v=8E8sUNHdzG8"&gt;this video from Luke Smith&lt;/a&gt; on YouTube to be quite helpful as well, which is where the inspiration for this post came from. He also &lt;a href="https://www.youtube.com/watch?v=R9m723tAurA"&gt;posted a complementary video&lt;/a&gt; about adding prompts to your commands which is a nice way to add interactivity to your scripts!&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h2 id="chaining-dmenu-prompts"&gt;Chaining dmenu prompts&lt;/h2&gt;
+&lt;p&gt;Another useful scenario is when you want to take a specific action based on the output of a previous command. For instance, let’s say you want to read a book but when you choose a &lt;code&gt;pdf&lt;/code&gt; with &lt;code&gt;dmenu&lt;/code&gt;, you want to be prompted for which reader to use while you want to let the system choose the default application for other types of files (e.g. &lt;code&gt;epub&lt;/code&gt; or &lt;code&gt;mobi&lt;/code&gt;). This could be achieved with a script similar to the following one:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="nv"&gt;FILE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;find&lt;span class="w"&gt; &lt;/span&gt;~/Documents/calibre_library&lt;span class="w"&gt; &lt;/span&gt;-type&lt;span class="w"&gt; &lt;/span&gt;f&lt;span class="w"&gt; &lt;/span&gt;-iname&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"*.pdf"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-o&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;-iname&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"*.epub"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-o&lt;span class="w"&gt; &lt;/span&gt;-iname&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"*.mobi"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;dmenu&lt;span class="w"&gt; &lt;/span&gt;-l&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$FILE&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;*.pdf&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]]&lt;/span&gt;
+&lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;READER&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-e&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"zathura\natril"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;dmenu&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"Which reader?"&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;$READER&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$FILE&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;xdg-open&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$FILE&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here’s what’s happening:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;We &lt;code&gt;find&lt;/code&gt; all the files (&lt;code&gt;-type f&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;in the directory &lt;code&gt;~/Documents/calibre_library&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;that match a pattern that’s case-insensitive with &lt;code&gt;-iname&lt;/code&gt; (here, ending in either &lt;code&gt;pdf&lt;/code&gt;, &lt;code&gt;mobi&lt;/code&gt; or &lt;code&gt;epub&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;matching one file at a time (&lt;code&gt;-o&lt;/code&gt; can be interpreted to mean “only” and will keep searching if the previous file extension was not matched)&lt;/li&gt;
+&lt;li&gt;then presenting 30 lines (&lt;code&gt;-l 30&lt;/code&gt;) of results at a time with &lt;code&gt;dmenu&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;then, if the file is a &lt;span class="caps"&gt;PDF&lt;/span&gt;, prompts whether to use &lt;code&gt;atril&lt;/code&gt; or &lt;code&gt;zathura&lt;/code&gt; as the file reader and open with the chosen program&lt;/li&gt;
+&lt;li&gt;otherwise, open the file with the default application.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr/&gt;
+&lt;h1 id="customize-the-look-of-dmenu"&gt;Customize the Look of dmenu&lt;/h1&gt;
+&lt;p&gt;As they say, &lt;em&gt;“beauty is in the eye of the beholder”&lt;/em&gt;. If you would rather make some changes to how dmenu look, you can. &lt;strong&gt;dmenu&lt;/strong&gt; will be searching for the configuration file located at &lt;code&gt;~/.dmenurc&lt;/code&gt;, which could contain something as put below (with this configuration, it will look like the screenshots shown previously):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#&lt;/span&gt;
+&lt;span class="c1"&gt;# ~/.dmenurc&lt;/span&gt;
+&lt;span class="c1"&gt;#&lt;/span&gt;
+
+&lt;span class="c1"&gt;# define the font for dmenu to be used&lt;/span&gt;
+&lt;span class="nv"&gt;DMENU_FN&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"NotoSans-10.5"&lt;/span&gt;
+
+&lt;span class="c1"&gt;# background colour for unselected menu-items&lt;/span&gt;
+&lt;span class="nv"&gt;DMENU_NB&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"#161925"&lt;/span&gt;
+
+&lt;span class="c1"&gt;# textcolour for unselected menu-items&lt;/span&gt;
+&lt;span class="nv"&gt;DMENU_NF&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"#fdfffc"&lt;/span&gt;
+
+&lt;span class="c1"&gt;# background colour for selected menu-items&lt;/span&gt;
+&lt;span class="nv"&gt;DMENU_SB&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"#235789"&lt;/span&gt;
+
+&lt;span class="c1"&gt;# textcolour for selected menu-items&lt;/span&gt;
+&lt;span class="nv"&gt;DMENU_SF&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"#fdfffc"&lt;/span&gt;
+
+&lt;span class="c1"&gt;# command for the terminal application to be used:&lt;/span&gt;
+&lt;span class="nv"&gt;TERMINAL_CMD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"st -e"&lt;/span&gt;
+
+&lt;span class="c1"&gt;# export our variables&lt;/span&gt;
+&lt;span class="nv"&gt;DMENU_OPTIONS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"-fn &lt;/span&gt;&lt;span class="nv"&gt;$DMENU_FN&lt;/span&gt;&lt;span class="s2"&gt; -nb &lt;/span&gt;&lt;span class="nv"&gt;$DMENU_NB&lt;/span&gt;&lt;span class="s2"&gt; -nf &lt;/span&gt;&lt;span class="nv"&gt;$DMENU_NF&lt;/span&gt;&lt;span class="s2"&gt; -sf &lt;/span&gt;&lt;span class="nv"&gt;$DMENU_SF&lt;/span&gt;&lt;span class="s2"&gt; -sb &lt;/span&gt;&lt;span class="nv"&gt;$DMENU_SB&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr/&gt;
+&lt;h1 id="conclusion"&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;Hopefully this introduction to what &lt;strong&gt;dmenu&lt;/strong&gt; has to offer gave you some ideas. I hope you’ll find many ways to adapt the examples so you can benefit from this amazing tool. You can find more configuration details in my &lt;a href="https://github.com/sglavoie/dotfiles/"&gt;dotfiles on GitHub&lt;/a&gt; for anything related to &lt;strong&gt;i3&lt;/strong&gt;, &lt;strong&gt;dmenu&lt;/strong&gt;, &lt;strong&gt;zathura&lt;/strong&gt;, &lt;strong&gt;st&lt;/strong&gt;, &lt;strong&gt;slock&lt;/strong&gt; and many more useful programs.&lt;/p&gt;
+&lt;p&gt;Have a good time automating your digital life!&lt;/p&gt;</content><category term="tips-and-tricks"></category><category term="bash"></category><category term="dmenu"></category><category term="i3"></category><category term="linux"></category><category term="productivity"></category><category term="script"></category></entry><entry><title>Tag Navigation in Vim</title><link href="https://www.sglavoie.com/posts/2019/04/19/tag-navigation-in-vim/" rel="alternate"></link><published>2019-04-19T17:52:00-05:00</published><updated>2019-04-19T17:52:00-05:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2019-04-19:/posts/2019/04/19/tag-navigation-in-vim/</id><summary type="html">&lt;p&gt;A quick introduction to tag navigation in&amp;nbsp;Vim/Neovim.&lt;/p&gt;</summary><content type="html">
+&lt;hr/&gt;
+&lt;h2 id="navigate-inside-the-current-buffer"&gt;Navigate inside the current buffer&lt;/h2&gt;
+&lt;p&gt;There is a command &lt;code&gt;gd&lt;/code&gt; that stands for &lt;strong&gt;Goto local Declaration&lt;/strong&gt;. It is quite useful when looking for a variable inside the current buffer as it allows to jump to where it is declared when the variable is under the cursor. Using that command, you can also find where a function is declared and it will find the first occurrence in the current function. If looking for the first occurrence in the buffer, &lt;code&gt;gD&lt;/code&gt; (&lt;strong&gt;Goto global Declaration&lt;/strong&gt;) will do the trick. You can jump back and forth to where you were with the commands &lt;code&gt;Ctrl + O&lt;/code&gt; (older position) and &lt;code&gt;Ctrl + I&lt;/code&gt; (newer position) in normal mode.&lt;/p&gt;
+&lt;h2 id="navigate-inside-all-buffers-within-the-current-project"&gt;Navigate inside all buffers within the current project&lt;/h2&gt;
+&lt;p&gt;To be able to jump between buffers and go back to the origin of a declaration when it is imported in the current module, generating tags comes in very handy as it allows you to use the command &lt;code&gt;Ctrl + ]&lt;/code&gt; to jump to a tag, just like when using the help pages in &lt;strong&gt;Vim&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;To make this work, we can conveniently use &lt;code&gt;ctags&lt;/code&gt;. First, we need to make sure it’s installed on the system as follow:&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h3 id="debianubuntu"&gt;Debian/Ubuntu&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;apt-get&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;ctags
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;or&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;apt-get&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;exuberant-ctags
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="os-x"&gt;&lt;span class="caps"&gt;OS&lt;/span&gt; X&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;brew&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;ctags
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr/&gt;
+&lt;p&gt;You can put the following command in your configuration file to be able to generate the necessary tags inside &lt;strong&gt;Vim&lt;/strong&gt; by typing &lt;code&gt;MakeTags&lt;/code&gt; in command mode:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;command&lt;span class="p"&gt;!&lt;/span&gt; MakeTags &lt;span class="p"&gt;!&lt;/span&gt;ctags &lt;span class="p"&gt;-&lt;/span&gt;R .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will make it easy to remember how to do it. After that, open an existing project in its root directory and use this newly created &lt;code&gt;MakeTags&lt;/code&gt; command to generate the tags. This will create a file named &lt;code&gt;tags&lt;/code&gt; in the current working directory*. Now, you will be able to open any file inside your project and jump to all the available declarations with &lt;code&gt;Ctrl + ]&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;* &lt;sub&gt;Note: This will create tags recursively from the &lt;em&gt;current working directory&lt;/em&gt;, &lt;strong&gt;not&lt;/strong&gt; from the path matching the current buffer.&lt;/sub&gt;&lt;/p&gt;
+&lt;p&gt;If you go to a tag that leads you a few declarations away in one file or another, you can come back with &lt;code&gt;Ctrl + T&lt;/code&gt;. Here is a clear explanation from Vim’s help:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;The&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;most&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;obvious&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;way&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;use&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;is&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;browsing&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;through&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;the&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;call&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;graph&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;of&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;program&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;Consider&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;the&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;following&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;call&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nl"&gt;graph&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;---&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;FuncA&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;---&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;FuncC&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="o"&gt;---&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;FuncB&lt;/span&gt;
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nl"&gt;Explanation&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;calls&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;FuncA&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;and&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;FuncB&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;FuncA&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;calls&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;FuncC&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;
+&lt;span class="n"&gt;You&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;can&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;FuncA&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;by&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;using&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;CTRL&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="err"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;on&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;the&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;call&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;FuncA&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="k"&gt;Then&lt;/span&gt;
+&lt;span class="n"&gt;you&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;can&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;CTRL&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="err"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;FuncC&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="k"&gt;If&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;you&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;want&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;go&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;back&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;you&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;can&lt;/span&gt;
+&lt;span class="k"&gt;use&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;CTRL&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;twice&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="k"&gt;Then&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;you&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;can&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;CTRL&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="err"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;FuncB&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To keep those tags useful when you update your project, you can map a sequence that saves the buffer you are working on and then regenerates the tags automatically. Here is an example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;nnoremap&lt;/span&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;leader&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;W :&lt;span class="k"&gt;w&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;CR&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;:MakeTags&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;CR&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;:echo &lt;span class="s1"&gt;'ctags have been updated.'&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;CR&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And on this note, we’re ready to conquer the world.&lt;/p&gt;</content><category term="tips-and-tricks"></category><category term="productivity"></category><category term="vim"></category></entry><entry><title>Dispose of Spam with Disposable Emails And More!</title><link href="https://www.sglavoie.com/posts/2019/04/03/dispose-of-spam-with-disposable-emails-and-more/" rel="alternate"></link><published>2019-04-03T20:08:00-06:00</published><updated>2019-04-03T20:08:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2019-04-03:/posts/2019/04/03/dispose-of-spam-with-disposable-emails-and-more/</id><summary type="html">&lt;p&gt;Have you ever received spam to your email address? Unless you are extremely lucky or are actually disconnected from the Internet and thus most probably not reading this, chances are you might have had an offer or two to receive gold from a Nigerian prince in the past. Before those princes and princesses generously start giving away their cryptocurrency in the near future in exchange for a trip to Western Union, get prepared and hide away your precious&amp;nbsp;address!&lt;/p&gt;</summary><content type="html">
+&lt;hr/&gt;
+&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;If your privacy matters to you even just a little, read on, if you dare.
+There are easy solutions you can apply right now to filter those fools
+out of your digital life.&lt;/p&gt;
+&lt;h2 id="why-should-i-care"&gt;Why should I care?&lt;/h2&gt;
+&lt;p&gt;Once your main email address is exposed to attacks because it was
+leaked in a data breach or your data was somehow sold to a third-party
+service, it is a hard and time-consuming process to try to unsubscribe
+to everything or apply filters to automatically delete most of the
+bad stuff coming in. Many websites won’t respect your privacy and
+will go ahead and share your email, which can eventually have a
+snowball effect and you end up getting more emails than there are trees
+available to print them. As with printing emails, you must agree this
+is totally irresponsible and should be punished by law .&lt;/p&gt;
+&lt;p&gt;Because attackers can often retrieve your complete name from your
+email address (either because you signed up for a service sharing your
+information from another provider or it’s easy to associate it with you
+on social media, for example), they can craft advanced phishing emails
+or create content that’s magically relevant to you thanks to social
+engineering and if you don’t look close enough, you can fall into their trap.&lt;/p&gt;
+&lt;p&gt;Then suddenly, because you opened an attachment or went into the
+&lt;strong&gt;dark&lt;/strong&gt; corners of the Web unbeknownst to you, your laptop fan is
+spinning all the time at full speed or you get a colorful pop-up telling
+you that all your files have been encrypted and a ransom, along with
+only unrecognizable files on your system, convincingly dictates what
+your destiny looks like. At this point, &lt;em&gt;you are doomed&lt;/em&gt;, unless you
+actually take pleasure in formatting your computer once in a while for
+the shear joy of it.&lt;/p&gt;
+&lt;p&gt;So what shall we do about it?&lt;/p&gt;
+&lt;h1 id="solution-1-use-a-temporary-email"&gt;Solution #1: Use a temporary email&lt;/h1&gt;
+&lt;p&gt;This one is quick and easy. You can use a variety of services,
+including &lt;a href="https://www.tempmailaddress.com/"&gt;Temp Mail Address&lt;/a&gt;,
+&lt;a href="https://temp-mail.org/"&gt;Temp Mail&lt;/a&gt; and
+&lt;a href="https://www.throwawaymail.com/"&gt;ThrowAwayMail&lt;/a&gt; to name a few. Those
+are all free services and allow you to get access to a temporary email
+address and its associated inbox.&lt;/p&gt;
+&lt;p&gt;Perfect for all those cases when you want to receive a freebie or have
+access to a specific page that asks for an email and a &lt;em&gt;real&lt;/em&gt; name. You
+simply give a fake but working email address and you’re good to go.
+Don’t even set it and forget it.&lt;/p&gt;
+&lt;h1 id="solution-2-use-a-more-controlled-approach"&gt;Solution #2: Use a more controlled approach&lt;/h1&gt;
+&lt;p&gt;There is one particular service that I have been using for almost
+a decade now that eats your spam away on demand. That service is
+appropriately called &lt;a href="https://www.spamgourmet.com"&gt;Spamgourmet&lt;/a&gt;. Does it
+work? Here are my personal stats:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Your message stats: 805 forwarded, 14,191 eaten. You have 245 spamgourmet address(es).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="does-it-really-work"&gt;Does it really work?&lt;/h2&gt;
+&lt;p&gt;Oh yes! From the above stats, you can see that from a total of
+&lt;strong&gt;14,996&lt;/strong&gt; messages being sent to me, I have not received almost &lt;strong&gt;95%&lt;/strong&gt;
+of it thanks to Spamgourmet working on auto-pilot all the time… And
+it’s important to mention that &lt;strong&gt;the other 5%, I actually wanted to
+receive it&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id="how-does-it-work"&gt;How does it work?&lt;/h2&gt;
+&lt;p&gt;You can create as many email addresses as you require to login to most
+websites that you do not intend to use regularly and create a label
+&lt;code&gt;Filtered mail&lt;/code&gt; in your inbox or something similar that matches anything
+sent to &lt;code&gt;*@spamgourmet.com&lt;/code&gt;. You can create addresses on the fly without
+ever needing to log into your Spamgourmet account and set how many
+emails can be sent to a specific address all at once.&lt;/p&gt;
+&lt;p&gt;With very few extra steps, you can manage your email addresses on
+Spamgourmet, remove the ones you don’t want anymore, reset how many
+emails can be received (increase/decrease that number), etc. You can
+find out exactly how it works on the main page of Spamgourmet.&lt;/p&gt;
+&lt;h2 id="why-consider-this-approach-instead-of-solution-1"&gt;Why consider this approach instead of solution #1?&lt;/h2&gt;
+&lt;p&gt;This approach has the advantage that you can know exactly where your
+spam is coming from and exactly when, as your email may be used quite a
+long time after your original registration with a service to spam you.
+If you have created an account on, say, &lt;code&gt;clouds.com&lt;/code&gt; with your special
+email &lt;em&gt;created on the fly without ever needing to go to Spamgourmet&lt;/em&gt;,
+let’s say it’s &lt;code&gt;clouds.my_username@spamgourmet.com&lt;/code&gt;, if you receive
+spammy content sent to that address six months later, don’t look too
+hard: you know who did it.&lt;/p&gt;
+&lt;p&gt;Not only you know this, but you can keep on using this made up email
+for as long as you wish. Need to be in touch with a person who
+doesn’t fall into any of the categories &lt;code&gt;['friend', 'acquaintance', 'work', 'intimate', 'trustworthy']&lt;/code&gt;?
+No worries, instantly claim &lt;code&gt;something.my_username@spamgourmet.com&lt;/code&gt; and
+that’s the email you give that person. Since it doesn’t expire and you
+have full control over how many more emails you can receive at that
+address at any time, it can simplify a few exchanges where you don’t
+really want to share your real email, not even to the Nigerian Prince.
+This way, you can even receive attachments just as normal!&lt;/p&gt;
+&lt;p&gt;You can even go as far as having trusted senders (from whom you can
+receive as many emails as you define) and &lt;strong&gt;send mail from your custom
+Spamgourmet emails, including with attachments&lt;/strong&gt;! For this, you can
+visit Spamgourmet and generate an email of your choice that will be
+sending to a specific address email. You will simply send the email to
+this specially generated address from your email account and voilà!
+The person on the other end will have a hard time figuring out your
+real address, except if you added it in your signature.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.sglavoie.com/images/posts/0012_dispose-of-spam/spamgourmet_getting_through.png"&gt;&lt;img alt="spamgourmet_getting_through" class="max-size-img-post" src="https://www.sglavoie.com/images/posts/0012_dispose-of-spam/spamgourmet_getting_through.png"/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id="solution-3-using-filters"&gt;Solution #3: Using filters&lt;/h1&gt;
+&lt;p&gt;Gmail is one email service that allows you to create filters as you
+wish: let’s take advantage of that. What you could do is delete only
+messages that match exactly the groups of terms you never want to read
+as to not exclude important emails. To create one filter for all of
+them, you can use the field &lt;code&gt;has words&lt;/code&gt; and enter something like the
+following in the case of &lt;span class="caps"&gt;GDPR&lt;/span&gt; policy updates:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="s"&gt;"Privacy Policy Update"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;OR&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"GDPR"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;OR&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"General Data protection regulation"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;OR&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"Updates to our terms of use"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;OR&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"Updates to our privacy"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;OR&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"updating our privacy"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;OR&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"updated our privacy"&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you know more specifically how the words you are looking for appear,
+you can check for turns of phrases such as &lt;code&gt;Updates to X's Privacy Policy&lt;/code&gt; and manage them with the keyword &lt;code&gt;AROUND &amp;lt;number&amp;gt;&lt;/code&gt;, where
+&lt;code&gt;&amp;lt;number&amp;gt;&lt;/code&gt; is how many words can be around what you are searching:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;"privacy policy" AROUND 3 update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will look anywhere in the subject or in the content of the email
+and find the word &lt;code&gt;update&lt;/code&gt; as well as &lt;code&gt;updates&lt;/code&gt; near the match &lt;code&gt;privacy policy&lt;/code&gt;. If you are interested in looking for the word &lt;code&gt;update&lt;/code&gt; but not
+&lt;code&gt;updates&lt;/code&gt;, you can specify an exact match with the &lt;code&gt;+&lt;/code&gt; sign right in
+front of it: &lt;code&gt;+update&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;sub&gt;Note: If you go too broad with the chosen keywords, you may not be able to reply to everything you would like to…&lt;/sub&gt;&lt;/p&gt;
+&lt;p&gt;A next step could be to filter potentially important emails with more
+keywords but instead of deleting them, you can select a few options for
+your filter such as &lt;strong&gt;Skip the Inbox&lt;/strong&gt; (Archive it), &lt;strong&gt;Mark as read&lt;/strong&gt;,
+&lt;strong&gt;Apply the label&lt;/strong&gt; and &lt;strong&gt;Never mark it as important&lt;/strong&gt;. That way, you
+still have access to all those emails and you can review them separately
+and quickly at your convenience.&lt;/p&gt;
+&lt;p&gt;For a list of available search operators, you can refer to
+this &lt;a href="https://support.google.com/mail/answer/7190?hl=en&amp;amp;topic=1668965&amp;amp;ctx=topic"&gt;Gmail help page — Search operators you can use with Gmail&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id="solution-4-use-the-symbol-in-your-email"&gt;Solution #4: Use the &lt;code&gt;+&lt;/code&gt; symbol in your email&lt;/h1&gt;
+&lt;p&gt;Gmail lets you add a &lt;code&gt;+&lt;/code&gt; symbol in your email address. For
+example, you can set up your &lt;code&gt;ServiceNameHere&lt;/code&gt; email to be
+&lt;code&gt;username+ServiceNameHere@gmail.com&lt;/code&gt;. That way, you know where your spam
+may be coming from, but it is always more effective to just use a unique
+address with the above service or even forward emails from another Gmail
+account so you never have to give away your main email. By doing this,
+you can then set up filters for individual services. This doesn’t work
+for all websites as sometimes the &lt;code&gt;+&lt;/code&gt; symbol isn’t allowed. In that
+scenario, there is another way…&lt;/p&gt;
+&lt;h1 id="solution-5-forward-secondary-emails-to-your-main-email"&gt;Solution #5: Forward secondary emails to your main email&lt;/h1&gt;
+&lt;p&gt;This is pretty straightforward and even though you initially have to do
+more work to set things up, this can work very well for various reasons:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;You get &lt;span class="caps"&gt;15GB&lt;/span&gt; on each Gmail account. This can be useful, as long as you don’t abuse it and get banned for life without the possibility of ever communicating through email ever again in your lifetime.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can apply custom filters such as &lt;code&gt;send to trash&lt;/code&gt; for each secondary account before forwarding what’s left to your main account. You can then apply a filter in your main account to visually get a hint of where the email is coming from, like a label &lt;code&gt;my.second.email@gmail.com&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can stop forwarding emails at any moment if you decide. You will have to log into your secondary account and click a few buttons there, but it’s easy, almost painless and you shouldn’t have to repeat the process so often that it gets boring.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can even set up your main account so that you are able to send messages from your main account as if it were coming from any of your secondary accounts. No more account switching: you get something sent to &lt;code&gt;my.second.email@gmail.com&lt;/code&gt; in your main account and you can have it set up so that when you reply to that email, it is automatically sent from that secondary email instead of the main one.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id="conclusion"&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;I hope you found something useful in this rambling about spam.
+I don’t like spam myself, so if you have any tips or tricks you
+would like to share with me to help in this quest for freedom,
+please reach out to me at my email shared in plain text at
+&lt;a href="mailto:sebastien39571@gmail.com"&gt;sebastien39571@gmail.com&lt;/a&gt;.&lt;/p&gt;</content><category term="tips-and-tricks"></category><category term="productivity"></category><category term="web"></category></entry><entry><title>Executing Shell Commands in a Python Script</title><link href="https://www.sglavoie.com/posts/2019/03/08/executing-shell-commands-in-a-python-script/" rel="alternate"></link><published>2019-03-08T14:34:00-06:00</published><updated>2019-03-08T14:34:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2019-03-08:/posts/2019/03/08/executing-shell-commands-in-a-python-script/</id><summary type="html">&lt;p&gt;Even for simple tasks, it is often worth basing one&amp;#8217;s work on existing solutions when it is an appropriate option&amp;#8230; And such can be the case when writing Python&amp;nbsp;scripts!&lt;/p&gt;</summary><content type="html">
+&lt;hr/&gt;
+&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Python is awesome for producing high-quality code quickly
+and efficiently, but it is not necessary to reinvent the
+wheel in each project: this is why the third-party library on
+&lt;a href="https://pypi.org/"&gt;PyPI&lt;/a&gt; is so extensive. There are also occasions when
+it is convenient to execute shell commands available in the terminal,
+either to retrieve its output or to perform some work in the background.
+I have wanted to do both when building this website, so here is one way
+to accomplish this!&lt;/p&gt;
+&lt;h1 id="retrieve-the-output"&gt;Retrieve the output&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;read_tree&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="sd"&gt;'''Execute `tree` command and store the output in&lt;/span&gt;
+&lt;span class="sd"&gt;    `tree.txt`.'''&lt;/span&gt;
+    &lt;span class="n"&gt;tree&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getoutput&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;'tree .'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'./tree.txt'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'w'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="n"&gt;read_tree&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In this example, the structure from the current directory is printed
+when executing the code and it is later stored in a file. The output
+could look something like the following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;.
+├── database_example
+│   ├── example.sqlite
+│   ├── db_manager.py
+│   ├── review
+│   │   └── sql_queries.txt
+│   └── settings.py
+├── database_sql.py
+├── dump.sql
+├── example.db
+├── example.db.sql
+├── example_info.txt
+├── example_old.db
+├── example_old.db.sql
+├── sample
+│   ├── chinook.db
+│   └── sqlite-sample-database-diagram-color.pdf
+├── test.db
+└── test.sql
+
+3 directories, 15 files
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 id="execute-a-command-in-the-background"&gt;Execute a command in the background&lt;/h1&gt;
+&lt;p&gt;There are also instances in which is it useful to execute a program
+from the terminal inside a Python script. This website, for example,
+currently exports daily Git statistics in the &lt;code&gt;output/&lt;/code&gt; folder. This
+looks like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;daily_stats&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="sd"&gt;'''Execute `Gitstats` once a day based on the date found in&lt;/span&gt;
+&lt;span class="sd"&gt;    `stats_counter.txt`. Very simple with a caveat: it won't check if&lt;/span&gt;
+&lt;span class="sd"&gt;    there are new commits on the same day if stats have already been&lt;/span&gt;
+&lt;span class="sd"&gt;    generated on that day.'''&lt;/span&gt;
+    &lt;span class="n"&gt;today&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;today&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strftime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'%Y%m&lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'stats_counter.txt'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;content&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readline&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="n"&gt;today&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;current_loc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;current_path&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="n"&gt;cmd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"gitstats"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"-c"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"project_name='sglavoie.com'"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+               &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;current_loc&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;current_loc&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;/output/stats/"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+        &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cmd&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'stats_counter.txt'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'w'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;today&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is an automated process, which is something Python is easy to use
+for. However, it won’t be necessary to program everything: it all gets
+generated on demand!&lt;/p&gt;
+&lt;h1 id="conclusion"&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;I am always amazed at how easy it can be to automate simple tasks like
+those mentioned above. Programming can be very rewarding regardless of
+initial abilities. Just beyond the most basic stuff, suddenly there is a
+world that opens up to those that stay curious long enough.&lt;/p&gt;</content><category term="tips-and-tricks"></category><category term="python"></category><category term="script"></category></entry><entry><title>Using Embedded Terminals Inside Neovim</title><link href="https://www.sglavoie.com/posts/2019/01/16/using-embedded-terminals-inside-neovim/" rel="alternate"></link><published>2019-01-16T17:32:00-06:00</published><updated>2019-01-16T17:32:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2019-01-16:/posts/2019/01/16/using-embedded-terminals-inside-neovim/</id><summary type="html">&lt;p&gt;Because every pixel counts, this neat trick will allow to use terminals inside Neovim and maximize the screen estate for a flawless integration with one of the best text editor&amp;nbsp;available.&lt;/p&gt;</summary><content type="html">
+&lt;hr/&gt;
+&lt;h2 id="terminals-neovim"&gt;Terminals &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; Neovim&lt;/h2&gt;
+&lt;p&gt;Terminal buffers are a built-in feature of &lt;code&gt;Neovim&lt;/code&gt;. This means that
+terminals can be launched inside Neovim just like any other buffer, may
+it be a split window, a new tab or an independent buffer. Why is this so
+useful? Be prepared to be amazed.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.sglavoie.com/images/posts/0006_using-embedded-terminals-inside-neovim/work_on_article.png"&gt;&lt;img alt="embedded-terminal" class="max-size-img-post" src="https://www.sglavoie.com/images/posts/0006_using-embedded-terminals-inside-neovim/work_on_article.png"/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.sglavoie.com/images/posts/0006_using-embedded-terminals-inside-neovim/terminal_buffers.png"&gt;&lt;img alt="terminal-buffers" class="max-size-img-post" src="https://www.sglavoie.com/images/posts/0006_using-embedded-terminals-inside-neovim/terminal_buffers.png"/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;(click to open)&lt;/p&gt;
+&lt;h3 id="seamless-integration-with-vim-commands"&gt;Seamless integration with Vim commands&lt;/h3&gt;
+&lt;p&gt;For a start, terminals are not just &lt;em&gt;opened&lt;/em&gt; inside Neovim: they are
+truly integrated. When you type the letter &lt;code&gt;i&lt;/code&gt; in a terminal buffer,
+it switches to a new mode, &lt;code&gt;Terminal&lt;/code&gt;, where you have access to all
+underlying features of a regular Bash terminal, such as &lt;code&gt;CTRL + r&lt;/code&gt;
+to search, tab completion of commands, &lt;code&gt;CTRL + w&lt;/code&gt; to delete a word
+backwards or &lt;code&gt;CTRL + u&lt;/code&gt; to delete the whole line backwards.&lt;/p&gt;
+&lt;p&gt;When you escape the &lt;code&gt;Terminal&lt;/code&gt; mode, you switch back to &lt;code&gt;Normal&lt;/code&gt; mode,
+where all Vim commands are available as usual, such as navigation,
+search, etc. Where this gets interesting is when you consider that the
+terminal is just like any other buffer (except it’s not &lt;em&gt;modifiable&lt;/em&gt;)
+and so you can for instance copy its content or paste into it from
+different registers. You can split them, view the line number, get
+automatic scrolling when output appears in &lt;code&gt;Insert&lt;/code&gt; mode, you can switch
+back to &lt;code&gt;Normal&lt;/code&gt; mode at any time even if a command hasn’t completed…
+and of course all commands like &lt;code&gt;gt&lt;/code&gt; to &lt;strong&gt;g&lt;/strong&gt;o to another &lt;strong&gt;t&lt;/strong&gt;ab work
+as always.&lt;/p&gt;
+&lt;h3 id="terminals-get-supercharged-with-the-power-of-vim"&gt;Terminals get supercharged with the power of Vim&lt;/h3&gt;
+&lt;p&gt;This is getting exciting (at least for me). Now, having a terminal with
+more power is useful in many cases:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A whole terminal session can be saved to another file easily by
+  copying the desired range (&lt;code&gt;:%y&lt;/code&gt; to copy everything, for example).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Instead of having to scroll with the mouse, all Vim commands are
+  available to search and navigate through the buffer: &lt;code&gt;gg&lt;/code&gt; to go to the
+  beginning of the session, &lt;code&gt;G&lt;/code&gt; to go to the end, &lt;code&gt;12G&lt;/code&gt; to go to line
+  number &lt;strong&gt;12&lt;/strong&gt;, &lt;code&gt;/&lt;/code&gt; or &lt;code&gt;?&lt;/code&gt; to search forward and backward respectively.
+  You can even set local or global marks to jump back and forth to precise
+  lines consistently!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;It’s even possible to send commands directly to a specific
+  terminal or set up a &lt;span class="caps"&gt;REPL&lt;/span&gt; to execute any code, either a
+  selection, a line or a range of lines. I don’t personally
+  use that feature yet, but I see how useful that can be and
+  you can too if you watch this &lt;a href="https://thoughtbot.com/upcase/videos/neovim-sending-commands-to-a-
+  terminal-buffer"&gt;screencast presented by Drew
+  Neil&lt;/a&gt; on
+  &lt;a href="https://thoughtbot.com"&gt;thoughtbot.com&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If the terminal is opened in &lt;code&gt;Normal&lt;/code&gt; mode, the cursor and the current
+  position are kept intact even though new output could appear, such as
+  would be the case if you are running a server in the background or
+  waiting for a system update to finish. This is especially nice for
+  instance if you are trying to debug a web application: you can leave the
+  cursor exactly where you would like to keep reading the output and never
+  get lost… Plus you have the ability to easily move around, search and
+  copy like a ninja!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="the-workflow-is-more-compact-and-centralized"&gt;The workflow is more compact and centralized&lt;/h3&gt;
+&lt;p&gt;Because the terminals are running with one Neovim instance, you get
+everything in the same place, which is usually how you need to access
+your work anyway. If for some reasons you need to have multiple
+instances of Neovim running, this is possible too and in that situation
+you could simply split them into different workspaces.&lt;/p&gt;
+&lt;p&gt;Because everything is launched with Neovim, every terminal left open
+will also be exited when you close Neovim, shutting down any server
+or quitting any background interaction going on in the terminals. I
+have found that this behaviour is what I expect pretty much all the
+time because the idea of having a terminal inside a working session
+of Neovim is to work on something related, so it makes sense to close
+everything that’s to do with a single project or task when you exit the
+text editor. No need for &lt;code&gt;CTRL + d&lt;/code&gt; or &lt;code&gt;exit&lt;/code&gt; anymore!&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h2 id="terminal-settings-to-consider"&gt;Terminal settings to consider&lt;/h2&gt;
+&lt;p&gt;I don’t use many settings or mappings related to terminals, but I guess
+the nicest one is to remap the &lt;code&gt;Escape&lt;/code&gt; key because by default, this is
+a weird mapping that leads to twisted fingers (&lt;code&gt;&amp;lt;C-\&amp;gt;&amp;lt;C-n&amp;gt;&lt;/code&gt;). Here is
+what I currently have in my &lt;code&gt;init.vim&lt;/code&gt; file (the equivalent of &lt;code&gt;.vimrc&lt;/code&gt;
+for Neovim):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;set&lt;/span&gt; termguicolors  &lt;span class="c"&gt;" Make colors look better in terminal&lt;/span&gt;
+
+&lt;span class="c"&gt;" Exit from terminal buffer (Neovim) more easily (remaps Esc key in&lt;/span&gt;
+&lt;span class="c"&gt;" terminal)&lt;/span&gt;
+tnoremap &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;[&lt;span class="p"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;\&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="k"&gt;n&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class="c"&gt;" Open terminal buffer (M stands for the Alt key)&lt;/span&gt;
+&lt;span class="nb"&gt;nnoremap&lt;/span&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;M&lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="k"&gt;t&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt; :&lt;span class="k"&gt;te&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;CR&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class="c"&gt;" Switch to terminal buffer automatically (when only one terminal is&lt;/span&gt;
+&lt;span class="c"&gt;" open)&lt;/span&gt;
+&lt;span class="nb"&gt;nnoremap&lt;/span&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;M&lt;span class="m"&gt;-0&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt; :&lt;span class="k"&gt;b&lt;/span&gt; &lt;span class="nb"&gt;term&lt;/span&gt;:&lt;span class="sr"&gt;//&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;CR&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class="c"&gt;" Move between windows exactly the same way as usual&lt;/span&gt;
+tnoremap &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="k"&gt;j&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="k"&gt;k&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;\&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;N&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+tnoremap &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="k"&gt;h&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;\&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;N&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="k"&gt;w&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;&lt;span class="k"&gt;h&lt;/span&gt;
+tnoremap &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="k"&gt;j&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;\&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;N&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="k"&gt;w&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;&lt;span class="k"&gt;j&lt;/span&gt;
+tnoremap &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="k"&gt;k&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;\&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;N&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="k"&gt;w&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;&lt;span class="k"&gt;k&lt;/span&gt;
+tnoremap &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="k"&gt;l&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;\&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;N&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="k"&gt;w&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;&lt;span class="k"&gt;l&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr/&gt;
+&lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;This was a quick overview of a feature that I have neglected for some
+time but recently realized how well it integrates with my workflow. You
+can find some more information by typing &lt;code&gt;:h terminal&lt;/code&gt;. If you already
+use Neovim, it’s worth giving it a try! Otherwise, it’s worth giving
+&lt;a href="https://neovim.io/"&gt;Neovim&lt;/a&gt; a try.&lt;/p&gt;</content><category term="tips-and-tricks"></category><category term="neovim"></category><category term="productivity"></category><category term="terminal"></category></entry><entry><title>Aliases: Also Known as Terminal User’s Best Friends</title><link href="https://www.sglavoie.com/posts/2018/12/08/aliases-also-known-as-terminal-users-best-friends/" rel="alternate"></link><published>2018-12-08T13:52:00-06:00</published><updated>2018-12-08T13:52:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2018-12-08:/posts/2018/12/08/aliases-also-known-as-terminal-users-best-friends/</id><summary type="html">&lt;p&gt;Here are presented a few terminal aliases that I find myself using&amp;nbsp;regularly.&lt;/p&gt;</summary><content type="html">
+&lt;hr/&gt;
+&lt;h2 id="some-aliases-that-i-find-useful"&gt;Some aliases that I find useful&lt;/h2&gt;
+&lt;hr/&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In all the following examples, the dollar sign &lt;code&gt;$&lt;/code&gt; at the beginning of
+commands represents the prompt, it should not be typed.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="general-purpose"&gt;General-purpose&lt;/h3&gt;
+&lt;hr/&gt;
+&lt;h4 id="list-all-aliases"&gt;List all aliases&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Prints all of your aliases. If you have plenty of those, you might
+prefer to pipe this command with &lt;code&gt;less&lt;/code&gt; to get a nice pager that allows
+you to easily nagivate them:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;less
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr/&gt;
+&lt;h4 id="setting-an-alias-in-bash_aliases"&gt;Setting an alias in &lt;code&gt;~/.bash_aliases&lt;/code&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'clear'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This would set &lt;code&gt;c&lt;/code&gt; as a shortcut to &lt;code&gt;clear&lt;/code&gt;. In order to use the
+newly created alias, you would have to close the terminal or type the
+following command in the terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;source&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;~/.bash_aliases
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr/&gt;
+&lt;h4 id="clear-the-screen"&gt;Clear the screen&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'clear'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I like being absorbed into the emptiness of the terminal, so this one
+comes in handy to tidy up the work space.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h4 id="reset-the-terminal"&gt;Reset the terminal&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;re&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'tput reset'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If for some reasons the terminal displays badly or display funky
+characters, it can usually be reset this way.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h4 id="exit-from-the-terminal"&gt;Exit from the terminal&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;q&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'exit'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;For exiting the terminal as if you were still in Vim!&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h4 id="display-all-file-extensions-recursively-from-the-current-directory"&gt;Display all file extensions recursively from the current directory&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;allextensions&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"find . -type f -name '*.*' | sed 's|.*\.||' | sort -u"&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It comes in handy to spot if a file shouldn’t be there or to check for
+lower or uppercase extensions.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h4 id="find-text-inside-files-including-filenames"&gt;Find text inside files, including filenames&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;findinfiles&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'ag --nobreak --nonumbers --noheading . | fzf'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In this example, the alias is set up with
+&lt;a href="https://github.com/ggreer/the_silver_searcher"&gt;ag&lt;/a&gt;, a fast
+code-searching tool and &lt;a href="https://github.com/junegunn/fzf"&gt;fzf&lt;/a&gt;, a great
+fuzzy finder.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h4 id="reboot-and-shutdown-the-system"&gt;Reboot and shutdown the system&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;reboot&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'systemctl reboot'&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;shutdown&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'systemctl poweroff'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will reboot or power off the system without needing root privileges
+in most working conditions.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h4 id="list-and-sort-files-and-directories-by-modification-time"&gt;List and sort files and directories by modification time&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;treeold&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'tree -hDF | less'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This requires the command &lt;code&gt;tree&lt;/code&gt; to be installed. The parameters are
+(descriptions taken from &lt;code&gt;man tree&lt;/code&gt;):&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-h&lt;/code&gt;: Print the size of files in a human readable way.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-D&lt;/code&gt;: Print the date of the last modification time.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-F&lt;/code&gt;: Append a ‘&lt;code&gt;/&lt;/code&gt;&lt;span class="quo"&gt;‘&lt;/span&gt; for directories, a ‘&lt;code&gt;=&lt;/code&gt;&lt;span class="quo"&gt;‘&lt;/span&gt; for socket files, a ‘&lt;code&gt;\*&lt;/code&gt;&lt;span class="quo"&gt;‘&lt;/span&gt;
+for executable files, a ‘&lt;code&gt;&amp;gt;&lt;/code&gt;&lt;span class="quo"&gt;‘&lt;/span&gt; for doors (Solaris) and a ‘&lt;code&gt;|&lt;/code&gt;&lt;span class="quo"&gt;‘&lt;/span&gt; for
+&lt;span class="caps"&gt;FIFO&lt;/span&gt;’s, as per &lt;code&gt;ls -F&lt;/code&gt;.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h4 id="open-files-quickly-with-default-applications"&gt;Open files quickly with default applications&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;o&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'xdg-open'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will open files and URLs specified as argument in the default
+application detected.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h4 id="moving-around"&gt;Moving around&lt;/h4&gt;
+&lt;p&gt;If you are going to be working on projects for some time and require to
+&lt;code&gt;cd&lt;/code&gt; into them, I have found the following to be useful:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;cdnameOfProject&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# instead of having to do cd /path/to/project/&lt;/span&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# More examples:&lt;/span&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;cdcodeabbey&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# For codeabbey.com&lt;/span&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;cdhackerrank&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# For hackerrank.com&lt;/span&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;cdeuler&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# For projecteuler.net&lt;/span&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;cdgit&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# For all Github repositories&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is not advanced by any means, but it helps quite regularly! Since
+you can take advantage of tab completion, you can type &lt;code&gt;cd&lt;/code&gt; (without
+adding a space) and then press &lt;code&gt;TAB&lt;/code&gt; key to autocomplete the aliases.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;...&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'cd ../..'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Make it easier to navigate into deep directory structures by basically
+doing &lt;code&gt;cd .. &amp;amp;&amp;amp; cd ..&lt;/code&gt; to go back up two directories at once.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h4 id="listing-files"&gt;Listing files&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;l&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'ls -CFh'&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;la&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'ls -Ah'&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;ll&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'ls -ahlF'&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;ls&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'ls --color=auto'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Different ways to set up the command ls to quickly see the needed files.
+The parameters are (descriptions taken from &lt;code&gt;man ls&lt;/code&gt;):&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-A&lt;/code&gt;: &lt;em&gt;Do not list implied &lt;code&gt;.&lt;/code&gt; and &lt;code&gt;..&lt;/code&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-C&lt;/code&gt;: &lt;em&gt;List entries by columns.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-F&lt;/code&gt;: &lt;em&gt;Append indicator (one of &lt;code&gt;\*/=&amp;gt;@|&lt;/code&gt;) to entries.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-a&lt;/code&gt;: &lt;em&gt;Do not ignore entries starting with .&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-h&lt;/code&gt;: &lt;em&gt;With &lt;code&gt;-l&lt;/code&gt; and/or &lt;code&gt;-s&lt;/code&gt;, print human readable sizes (e.g., 1K 234M 2G).&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-l&lt;/code&gt;: &lt;em&gt;Use a long listing format.&lt;/em&gt;&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h3 id="python-related"&gt;Python-related&lt;/h3&gt;
+&lt;hr/&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;aNameOfProject&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'source /path/to/project/bin/activate'&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;aa&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'source ~/Programming/anaconda3/bin/activate'&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# Example using Anaconda distribution&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The purpose is to activate a specific virtual environment quickly. The
+command &lt;code&gt;cd&lt;/code&gt; could be added to go to the related project also:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;gNameOfProject&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'cd /path/to/project/ &amp;amp;&amp;amp; ./.venv/bin/activate'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Where &lt;code&gt;.venv&lt;/code&gt; would be the name of the virtual environment.&lt;/p&gt;
+&lt;p&gt;I like to &lt;strong&gt;a&lt;/strong&gt;ctivate environments starting aliases with &lt;code&gt;a&lt;/code&gt; and &lt;strong&gt;go&lt;/strong&gt;
+and activate at the same time starting aliases with &lt;code&gt;g&lt;/code&gt;. This way, it
+feels like I am speaking the Vim language (&lt;code&gt;cw&lt;/code&gt; for &lt;strong&gt;c&lt;/strong&gt;hange &lt;strong&gt;w&lt;/strong&gt;ord,
+for example).&lt;/p&gt;
+&lt;hr/&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;da&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'deactivate'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will deactivate a virtual environment.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;p36&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'python3.6'&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;p&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'python3.7'&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# Simply using `p` for main version of Python&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Practical way to quickly open the desired Python version.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;pyclean&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'find . -regex ".*\(__pycache__\|\.py[co]\)" -delete'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will delete recursively all files and directories that match one of
+the following patterns in their name: &lt;code&gt;__pycache__&lt;/code&gt;, &lt;code&gt;.pyc&lt;/code&gt; or &lt;code&gt;.pyo&lt;/code&gt;.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I hope you will find at least one alias to improve your productivity.
+Of course, you are welcome to chime in with your own suggestions!&lt;/p&gt;</content><category term="tips-and-tricks"></category><category term="aliases"></category><category term="bash"></category><category term="linux"></category><category term="productivity"></category><category term="terminal"></category></entry></feed>

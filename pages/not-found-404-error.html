@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8" />
     <link
       rel="preload"
       href="/theme/css/fonts/lato-regular.woff2"
@@ -70,8 +71,6 @@
       type="text/css"
       href="/theme/css/styles.css"
     />
-
-    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Sébastien Lavoie" />
     <meta
@@ -86,7 +85,19 @@
       content="../theme/images/logo_1200x627.png"
     />
 
- 
+    <link
+      href="https://www.sglavoie.com/feeds/sglavoie.atom.xml"
+      type="application/atom+xml"
+      rel="alternate"
+      title="sglavoie.com Atom"
+    />
+     <link
+      href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
+      type="application/rss+xml"
+      rel="alternate"
+      title="sglavoie.com RSS"
+    />
+
     <!-- Favicon -->
     <link
       rel="apple-touch-icon"
@@ -152,50 +163,51 @@
     <div id="pageContainer">
       <aside id="sidebar">
         <a id="websiteLogo" href="..">
-          <div>
-            <svg
-              class="svgLogo"
-              width="24.348mm"
-              height="24.348mm"
-              version="1.1"
-              viewBox="0 0 24.348095 24.347754"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:cc="http://creativecommons.org/ns#"
-              xmlns:dc="http://purl.org/dc/elements/1.1/"
-              xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-            >
-              <metadata>
-                <rdf:RDF>
-                  <cc:Work rdf:about="">
-                    <dc:format>image/svg+xml</dc:format>
-                    <dc:type
-                      rdf:resource="http://purl.org/dc/dcmitype/StillImage"
-                    />
-                    <dc:title />
-                  </cc:Work>
-                </rdf:RDF>
-              </metadata>
-              <g transform="translate(81.397 -84.454)">
-                <path d="m-57.049 105.9v2.9029h-11.173v-2.9029z" fill="#c0c0c0">
-                  <animate
-                    attributeName="fill"
-                    values="white;grey;white"
-                    dur="2s"
-                    repeatCount="indefinite"
+          <svg
+            aria-labelledby="sglavoie.com's logo"
+            class="svgLogo"
+            width="24.348mm"
+            height="24.348mm"
+            version="1.1"
+            viewBox="0 0 24.348095 24.347754"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:cc="http://creativecommons.org/ns#"
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+          >
+            <title id="svgTitle">sglavoie.com's logo</title>
+            <desc id="svgDesc">The website's logo.</desc>
+            <metadata>
+              <rdf:RDF>
+                <cc:Work rdf:about="">
+                  <dc:format>image/svg+xml</dc:format>
+                  <dc:type
+                    rdf:resource="http://purl.org/dc/dcmitype/StillImage"
                   />
-                </path>
-                <path
-                  d="m-72.272 98.481-9.1246 5.7598v-3.548l5.8658-3.5019v-0.09215l-5.8658-3.5019v-3.548l9.1246 5.7598z"
-                  fill="#c0c0c0"
+                  <dc:title />
+                </cc:Work>
+              </rdf:RDF>
+            </metadata>
+            <g transform="translate(81.397 -84.454)">
+              <path d="m-57.049 105.9v2.9029h-11.173v-2.9029z" fill="#c0c0c0">
+                <animate
+                  attributeName="fill"
+                  values="white;grey;white"
+                  dur="2s"
+                  repeatCount="indefinite"
                 />
-                <path
-                  transform="scale(.26458)"
-                  d="m-273.15 319.2-27.588 14.77 8.498 5.3613 19.09-12.049zm15.309 25.67v44.412h8.8672v-35.635h33.361v-8.7773h-33.783zm25.336 24.66v8.7774h8.0254v10.975h8.8672v-19.752z"
-                  fill="#007bff"
-                />
-              </g>
-            </svg>
-          </div>
+              </path>
+              <path
+                d="m-72.272 98.481-9.1246 5.7598v-3.548l5.8658-3.5019v-0.09215l-5.8658-3.5019v-3.548l9.1246 5.7598z"
+                fill="#c0c0c0"
+              />
+              <path
+                transform="scale(.26458)"
+                d="m-273.15 319.2-27.588 14.77 8.498 5.3613 19.09-12.049zm15.309 25.67v44.412h8.8672v-35.635h33.361v-8.7773h-33.783zm25.336 24.66v8.7774h8.0254v10.975h8.8672v-19.752z"
+                fill="#007bff"
+              />
+            </g>
+          </svg>
         </a>
 
         <nav id="navCategories">
@@ -584,7 +596,7 @@
         >.
       </p>
       <p id="rss-feed">
-        <a href="https://www.sglavoie.com/None"
+        <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
           ><svg
             width="1em"
             height="1em"
