@@ -119,7 +119,7 @@
     -ms-flex-align: start;
     align-items: flex-start;
     margin-right: 1em;
-    margin-top: 9rem;
+    margin-top: 127px; /* 109px logo + 18px ul margin-top */
   }
 
   aside#pageNavigation li {
@@ -172,6 +172,7 @@
     flex-direction: column;
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
+    margin-top: 0;
     width: 100%;
   }
 
