@@ -2,7 +2,7 @@
 #   pip install pygments
 
 # https://pygments.org/styles/
-STYLE = monokai
+STYLE = one-dark
 
 pygments:
 	pygmentize -S ${STYLE} -f html > ./static/css/pygments.css
