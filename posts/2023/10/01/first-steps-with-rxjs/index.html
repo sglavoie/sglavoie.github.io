@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/lato-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/ubuntu-regular-webfont.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/ubuntu-bold-webfont.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/ubuntu-regular-italic-webfont.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/ubuntu-bold-italic-webfont.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/SourceCodePro-Regular.ttf.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/SourceCodePro-Bold.ttf.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/SourceCodePro-It.ttf.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/SourceCodePro-BoldIt.ttf.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" as="style" href="/theme/css/main.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/theme/css/styles.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Sébastien Lavoie" />
+    <meta
+      name="description"
+      content="Posts and writings by Sébastien Lavoie. Customization setups and articles on productivity for developers who like minimalism."
+    />
+    <meta name="title" property="og:title" content="sglavoie.com" />
+    <meta property="og:type" content="Website" />
+    <meta
+      name="image"
+      property="og:image"
+      content="../../../../../theme/images/logo_1200x627.png"
+    />
+
+    <link
+      href="https://www.sglavoie.com/feeds/sglavoie.atom.xml"
+      type="application/atom+xml"
+      rel="alternate"
+      title="sglavoie.com Atom"
+    />
+     <link
+      href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
+      type="application/rss+xml"
+      rel="alternate"
+      title="sglavoie.com RSS"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      href="/theme/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/theme/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/theme/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/theme/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/theme/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="/theme/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#2d89ef" />
+    <meta
+      name="msapplication-TileImage"
+      content="/theme/favicon/mstile-144x144.png"
+    />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#232323" />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#232323" />
+
+<meta name="keywords" content="functional-programming, reactive-programming, rxjs, typescript" />
+
+<!-- Open graph for social networks -->
+<meta name="og:title" property="og:title" content="An introduction to RxJS, a library for reactive programming in JavaScript/TypeScript. We'll cover core concepts like observables, operators, testing, and tips for managing asynchronous data flows." />
+ 
+    <title>sglavoie.com &ndash; First Steps with&nbsp;RxJS</title>
+
+    <!-- Enable tracking of web traffic -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-150998392-1"]);
+  _gaq.push(["_trackPageview"]);
+  (function () {
+    var ga = document.createElement("script");
+    ga.type = "text/javascript";
+    ga.async = true;
+    ga.src =
+      ("https:" == document.location.protocol ? "https://ssl" : "http://www") +
+      ".google-analytics.com/ga.js";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+   </head>
+
+  <body>
+    <div id="pageContainer">
+      <aside id="sidebar">
+        <a id="websiteLogo" href="../../../../..">
+          <svg
+            aria-labelledby="sglavoie.com's logo"
+            class="svgLogo"
+            width="100px"
+            height="100px"
+            version="1.1"
+            viewBox="0 0 24.348095 24.347754"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:cc="http://creativecommons.org/ns#"
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+          >
+            <title id="svgTitle">sglavoie.com's logo</title>
+            <desc id="svgDesc">The website's logo.</desc>
+            <metadata>
+              <rdf:RDF>
+                <cc:Work rdf:about="">
+                  <dc:format>image/svg+xml</dc:format>
+                  <dc:type
+                    rdf:resource="http://purl.org/dc/dcmitype/StillImage"
+                  />
+                  <dc:title />
+                </cc:Work>
+              </rdf:RDF>
+            </metadata>
+            <g transform="translate(81.397 -84.454)">
+              <path d="m-57.049 105.9v2.9029h-11.173v-2.9029z" fill="#c0c0c0">
+                <animate
+                  attributeName="fill"
+                  values="white;grey;white"
+                  dur="2s"
+                  repeatCount="indefinite"
+                />
+              </path>
+              <path
+                d="m-72.272 98.481-9.1246 5.7598v-3.548l5.8658-3.5019v-0.09215l-5.8658-3.5019v-3.548l9.1246 5.7598z"
+                fill="#c0c0c0"
+              />
+              <path
+                transform="scale(.26458)"
+                d="m-273.15 319.2-27.588 14.77 8.498 5.3613 19.09-12.049zm15.309 25.67v44.412h8.8672v-35.635h33.361v-8.7773h-33.783zm25.336 24.66v8.7774h8.0254v10.975h8.8672v-19.752z"
+                fill="#007bff"
+              />
+            </g>
+          </svg>
+        </a>
+
+        <nav id="navCategories">
+          <ul>
+              <li>
+              <a href="../../../../../category/automation.html"
+                >automation
+                <svg
+                  class="sidebar-category-icon"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="1"
+                    d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    opacity="1"
+                    d="M7.24 13.4302H5.34C3.15 13.4302 2 14.5802 2 16.7602V18.6602C2 20.8502 3.15 22.0002 5.33 22.0002H7.23C9.41 22.0002 10.56 20.8502 10.56 18.6702V16.7702C10.57 14.5802 9.42 13.4302 7.24 13.4302Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M6.29 10.58C8.6593 10.58 10.58 8.6593 10.58 6.29C10.58 3.9207 8.6593 2 6.29 2C3.9207 2 2 3.9207 2 6.29C2 8.6593 3.9207 10.58 6.29 10.58Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M17.7099 21.9999C20.0792 21.9999 21.9999 20.0792 21.9999 17.7099C21.9999 15.3406 20.0792 13.4199 17.7099 13.4199C15.3406 13.4199 13.4199 15.3406 13.4199 17.7099C13.4199 20.0792 15.3406 21.9999 17.7099 21.9999Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="../../../../../category/learnings.html"
+                >learnings
+                <svg
+                  class="sidebar-category-icon"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="1"
+                    d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    opacity="1"
+                    d="M7.24 13.4302H5.34C3.15 13.4302 2 14.5802 2 16.7602V18.6602C2 20.8502 3.15 22.0002 5.33 22.0002H7.23C9.41 22.0002 10.56 20.8502 10.56 18.6702V16.7702C10.57 14.5802 9.42 13.4302 7.24 13.4302Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M6.29 10.58C8.6593 10.58 10.58 8.6593 10.58 6.29C10.58 3.9207 8.6593 2 6.29 2C3.9207 2 2 3.9207 2 6.29C2 8.6593 3.9207 10.58 6.29 10.58Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M17.7099 21.9999C20.0792 21.9999 21.9999 20.0792 21.9999 17.7099C21.9999 15.3406 20.0792 13.4199 17.7099 13.4199C15.3406 13.4199 13.4199 15.3406 13.4199 17.7099C13.4199 20.0792 15.3406 21.9999 17.7099 21.9999Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="../../../../../category/tips-and-tricks.html"
+                >tips-and-tricks
+                <svg
+                  class="sidebar-category-icon"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="1"
+                    d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    opacity="1"
+                    d="M7.24 13.4302H5.34C3.15 13.4302 2 14.5802 2 16.7602V18.6602C2 20.8502 3.15 22.0002 5.33 22.0002H7.23C9.41 22.0002 10.56 20.8502 10.56 18.6702V16.7702C10.57 14.5802 9.42 13.4302 7.24 13.4302Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M6.29 10.58C8.6593 10.58 10.58 8.6593 10.58 6.29C10.58 3.9207 8.6593 2 6.29 2C3.9207 2 2 3.9207 2 6.29C2 8.6593 3.9207 10.58 6.29 10.58Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M17.7099 21.9999C20.0792 21.9999 21.9999 20.0792 21.9999 17.7099C21.9999 15.3406 20.0792 13.4199 17.7099 13.4199C15.3406 13.4199 13.4199 15.3406 13.4199 17.7099C13.4199 20.0792 15.3406 21.9999 17.7099 21.9999Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="../../../../../category/tools.html"
+                >tools
+                <svg
+                  class="sidebar-category-icon"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="1"
+                    d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    opacity="1"
+                    d="M7.24 13.4302H5.34C3.15 13.4302 2 14.5802 2 16.7602V18.6602C2 20.8502 3.15 22.0002 5.33 22.0002H7.23C9.41 22.0002 10.56 20.8502 10.56 18.6702V16.7702C10.57 14.5802 9.42 13.4302 7.24 13.4302Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M6.29 10.58C8.6593 10.58 10.58 8.6593 10.58 6.29C10.58 3.9207 8.6593 2 6.29 2C3.9207 2 2 3.9207 2 6.29C2 8.6593 3.9207 10.58 6.29 10.58Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M17.7099 21.9999C20.0792 21.9999 21.9999 20.0792 21.9999 17.7099C21.9999 15.3406 20.0792 13.4199 17.7099 13.4199C15.3406 13.4199 13.4199 15.3406 13.4199 17.7099C13.4199 20.0792 15.3406 21.9999 17.7099 21.9999Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="../../../../../category/workflow.html"
+                >workflow
+                <svg
+                  class="sidebar-category-icon"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="1"
+                    d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    opacity="1"
+                    d="M7.24 13.4302H5.34C3.15 13.4302 2 14.5802 2 16.7602V18.6602C2 20.8502 3.15 22.0002 5.33 22.0002H7.23C9.41 22.0002 10.56 20.8502 10.56 18.6702V16.7702C10.57 14.5802 9.42 13.4302 7.24 13.4302Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M6.29 10.58C8.6593 10.58 10.58 8.6593 10.58 6.29C10.58 3.9207 8.6593 2 6.29 2C3.9207 2 2 3.9207 2 6.29C2 8.6593 3.9207 10.58 6.29 10.58Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M17.7099 21.9999C20.0792 21.9999 21.9999 20.0792 21.9999 17.7099C21.9999 15.3406 20.0792 13.4199 17.7099 13.4199C15.3406 13.4199 13.4199 15.3406 13.4199 17.7099C13.4199 20.0792 15.3406 21.9999 17.7099 21.9999Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                </svg>
+              </a>
+            </li>
+           </ul>
+        </nav>
+      </aside>
+
+      <aside id="pageNavigation">
+        <nav>
+          <ul>
+            <li>
+              <a href="../../../../.."
+                ><svg
+                  class="navigation-icon"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18.5 3H16C15.7239 3 15.5 3.22386 15.5 3.5V3.55891L19 6.35891V3.5C19 3.22386 18.7762 3 18.5 3Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10.75 9.5C10.75 8.80964 11.3097 8.25 12 8.25C12.6904 8.25 13.25 8.80964 13.25 9.5C13.25 10.1904 12.6904 10.75 12 10.75C11.3097 10.75 10.75 10.1904 10.75 9.5Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M20.75 10.9605L21.5315 11.5857C21.855 11.8444 22.3269 11.792 22.5857 11.4685C22.8444 11.1451 22.792 10.6731 22.4685 10.4143L14.3426 3.91362C12.9731 2.81796 11.027 2.81796 9.65742 3.91362L1.53151 10.4143C1.20806 10.6731 1.15562 11.1451 1.41438 11.4685C1.67313 11.792 2.1451 11.8444 2.46855 11.5857L3.25003 10.9605V21.25H2.00003C1.58581 21.25 1.25003 21.5858 1.25003 22C1.25003 22.4142 1.58581 22.75 2.00003 22.75H22C22.4142 22.75 22.75 22.4142 22.75 22C22.75 21.5858 22.4142 21.25 22 21.25H20.75V10.9605ZM9.25003 9.5C9.25003 7.98122 10.4812 6.75 12 6.75C13.5188 6.75 14.75 7.98122 14.75 9.5C14.75 11.0188 13.5188 12.25 12 12.25C10.4812 12.25 9.25003 11.0188 9.25003 9.5ZM12.0494 13.25C12.7143 13.25 13.2871 13.2499 13.7459 13.3116C14.2375 13.3777 14.7088 13.5268 15.091 13.909C15.4733 14.2913 15.6223 14.7625 15.6884 15.2542C15.7462 15.6842 15.7498 16.2146 15.75 16.827C15.75 16.8679 15.75 16.9091 15.75 16.9506L15.75 21.25H14.25V17C14.25 16.2717 14.2484 15.8009 14.2018 15.454C14.1581 15.1287 14.0875 15.0268 14.0304 14.9697C13.9733 14.9126 13.8713 14.842 13.546 14.7982C13.1991 14.7516 12.7283 14.75 12 14.75C11.2717 14.75 10.8009 14.7516 10.4541 14.7982C10.1288 14.842 10.0268 14.9126 9.9697 14.9697C9.9126 15.0268 9.84199 15.1287 9.79826 15.454C9.75162 15.8009 9.75003 16.2717 9.75003 17V21.25H8.25003L8.25003 16.9506C8.24999 16.2858 8.24996 15.7129 8.31163 15.2542C8.37773 14.7625 8.52679 14.2913 8.90904 13.909C9.29128 13.5268 9.76255 13.3777 10.2542 13.3116C10.7129 13.2499 11.2858 13.25 11.9507 13.25H12.0494Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10.75 9.5C10.75 8.80964 11.3097 8.25 12 8.25C12.6904 8.25 13.25 8.80964 13.25 9.5C13.25 10.1904 12.6904 10.75 12 10.75C11.3097 10.75 10.75 10.1904 10.75 9.5Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                </svg>
+                Home</a
+              >
+            </li>
+            <li>
+              <a href="../../../../../archives.html"
+                ><svg
+                  class="navigation-icon"
+                  fill="hsl(211, 100%, 95%)"
+                  width="0.8em"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3 6v8h10V6H3zM1 6H0V0h16v6h-1v10H1V6zm4 2h6v2H5V8zM2 2v2h12V2H2z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+                Archives</a
+              >
+            </li>
+            <li>
+              <a href="../../../../../tags.html"
+                ><svg
+                  class="navigation-icon"
+                  fill="hsl(211, 100%, 95%)"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
+                  />
+                </svg>
+                Tags</a
+              >
+            </li>
+            <li>
+              <a href="../../../../../contact.html"
+                ><svg
+                  class="navigation-icon"
+                  fill="hsl(211, 100%, 95%)"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4,21a1,1,0,0,0,1,1H19a1,1,0,0,0,1-1V3a1,1,0,0,0-1-1H5A1,1,0,0,0,4,3ZM12,7.5a2,2,0,1,1-2,2A2,2,0,0,1,12,7.5ZM8.211,16.215a4,4,0,0,1,7.578,0A.993.993,0,0,1,14.83,17.5H9.18A1,1,0,0,1,8.211,16.215Z"
+                  />
+                </svg>
+                Contact</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://drive.google.com/file/d/1t6GdZjC13naJXVGe6RinGowZLfkRzjy_/view"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><svg
+                  class="navigation-icon"
+                  fill="hsl(211, 100%, 95%)"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 846.66 846.66"
+                  style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  "
+                  version="1.1"
+                  xml:space="preserve"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <g id="Layer_x0020_1">
+                    <path
+                      class="fil0"
+                      d="M305.08 127c-27.16,0 -27.16,-41.29 0,-41.29l60.83 0 0 -54.93c0,-11.4 9.25,-20.64 20.65,-20.64l190.32 0c11.4,0 20.65,9.24 20.65,20.64l0 54.93 106.1 0c11.4,0 20.65,9.25 20.65,20.65l0 709.52c0,11.4 -9.25,20.64 -20.65,20.64l-560.6 0c-11.4,0 -20.65,-9.24 -20.65,-20.64l0 -709.52c0,-11.4 9.25,-20.65 20.65,-20.65l67.88 0c27.15,0 27.15,41.29 0,41.29l-47.24 0 0 668.23 519.32 0 0 -668.23c-125.97,0 -251.94,0 -377.91,0zm102.12 -41.29l149.04 0 0 -34.28 -149.04 0 0 34.28zm-191.92 480.71c-27.15,0 -27.15,-41.29 0,-41.29l188.46 0c27.16,0 27.16,41.29 0,41.29l-188.46 0zm0 156.73c-27.15,0 -27.15,-41.29 0,-41.29l188.46 0c27.16,0 27.16,41.29 0,41.29l-188.46 0zm0 -78.36c-27.15,0 -27.15,-41.29 0,-41.29l188.46 0c27.16,0 27.16,41.29 0,41.29l-188.46 0zm294.81 -101.94l121.29 0c11.4,0 20.64,9.25 20.64,20.65l0 121.28c0,11.4 -9.24,20.65 -20.64,20.65l-121.29 0c-11.4,0 -20.64,-9.25 -20.64,-20.65l0 -121.28c0,-11.4 9.24,-20.65 20.64,-20.65zm100.64 41.29l-79.99 0 0 80 79.99 0 0 -80zm-243.28 -252.09c13.62,0.23 24.62,-11.16 24.62,-24.62 0,-13.72 -10.9,-24.63 -24.62,-24.63 -13.69,0 -24.62,10.94 -24.62,24.63 0,13.48 10.98,24.85 24.62,24.62zm20.65 37.98l0 59.74c47.81,-9.73 82.31,-51.95 82.31,-100.88 0,-56.87 -46.09,-102.96 -102.96,-102.96 -56.86,0 -102.95,46.09 -102.95,102.96 0,48.93 34.49,91.15 82.31,100.88l0 -59.75c-26.78,-8.89 -45.28,-34.08 -45.28,-62.59 0,-36.3 29.62,-65.92 65.92,-65.92 36.29,0 65.92,29.63 65.92,65.92 0,28.49 -18.49,53.73 -45.27,62.6zm-20.65 -185.39c79.67,0 144.25,64.58 144.25,144.25 0,79.66 -64.58,144.24 -144.25,144.24 -79.66,0 -144.24,-64.58 -144.24,-144.24 0,-79.67 64.58,-144.25 144.24,-144.25z"
+                    />
+                  </g>
+                </svg>
+                Resume</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Content area -->
+      <main>
+<article>
+  <div class="article_title">
+    <h1><a href="../../../../../posts/2023/10/01/first-steps-with-rxjs/">First Steps with&nbsp;RxJS</a></h1>
+  </div>
+  <div class="meta_container_hrs">
+    <hr />
+    <div class="meta_container">
+      <div class="article_meta">
+        <div>
+          Posted on <strong>October 1, 2023</strong> in
+          <span id="category-article">
+            <a href="../../../../../category/tools.html"
+              ><svg
+                class="article-category-icon"
+                width="1em"
+                height="1em"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  opacity="1"
+                  d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z"
+                  fill="hsl(211, 100%, 95%)"
+                />
+                <path
+                  opacity="1"
+                  d="M7.24 13.4302H5.34C3.15 13.4302 2 14.5802 2 16.7602V18.6602C2 20.8502 3.15 22.0002 5.33 22.0002H7.23C9.41 22.0002 10.56 20.8502 10.56 18.6702V16.7702C10.57 14.5802 9.42 13.4302 7.24 13.4302Z"
+                  fill="hsl(211, 100%, 95%)"
+                />
+                <path
+                  d="M6.29 10.58C8.6593 10.58 10.58 8.6593 10.58 6.29C10.58 3.9207 8.6593 2 6.29 2C3.9207 2 2 3.9207 2 6.29C2 8.6593 3.9207 10.58 6.29 10.58Z"
+                  fill="hsl(211, 100%, 95%)"
+                />
+                <path
+                  d="M17.7099 21.9999C20.0792 21.9999 21.9999 20.0792 21.9999 17.7099C21.9999 15.3406 20.0792 13.4199 17.7099 13.4199C15.3406 13.4199 13.4199 15.3406 13.4199 17.7099C13.4199 20.0792 15.3406 21.9999 17.7099 21.9999Z"
+                  fill="hsl(211, 100%, 95%)"
+                />
+              </svg>
+              tools</a
+            >
+          </span>
+        </div>
+        <div class="article_tags">
+           <a href="../../../../../tag/functional-programming.html"
+            ><svg
+              class="tag-icon"
+              fill="hsl(211, 100%, 95%)"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
+              />
+            </svg>
+            functional-programming</a
+          >          <a href="../../../../../tag/reactive-programming.html"
+            ><svg
+              class="tag-icon"
+              fill="hsl(211, 100%, 95%)"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
+              />
+            </svg>
+            reactive-programming</a
+          >          <a href="../../../../../tag/rxjs.html"
+            ><svg
+              class="tag-icon"
+              fill="hsl(211, 100%, 95%)"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
+              />
+            </svg>
+            rxjs</a
+          >          <a href="../../../../../tag/typescript.html"
+            ><svg
+              class="tag-icon"
+              fill="hsl(211, 100%, 95%)"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
+              />
+            </svg>
+            typescript</a
+          >         </div>
+      </div>
+      <div class="article_readtime">
+        <span class="readtime_tilde">~</span
+        ><span class="readtime_minutes">30</span>
+        minutes to read
+      </div>
+    </div>
+    <hr />
+  </div>
+
+  <h2 class="toc-title">Table of contents</h2>
+  <nav class="toc"><div class="toc">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#basic-concepts">Basic concepts</a><ul>
+<li><a href="#everything-is-a-stream">Everything is a stream</a></li>
+</ul>
+</li>
+<li><a href="#operators">Operators</a><ul>
+<li><a href="#creation">Creation</a></li>
+<li><a href="#pipe">Pipe</a></li>
+<li><a href="#filtering">Filtering</a></li>
+<li><a href="#time-based">Time-based</a></li>
+<li><a href="#transformation">Transformation</a></li>
+<li><a href="#combination">Combination</a></li>
+<li><a href="#creating-a-custom-operator">Creating a custom operator</a></li>
+</ul>
+</li>
+<li><a href="#marble-diagrams">Marble diagrams</a></li>
+<li><a href="#subjects">Subjects</a><ul>
+<li><a href="#behaviorsubject">BehaviorSubject</a></li>
+<li><a href="#replaysubject">ReplaySubject</a></li>
+<li><a href="#asyncsubject">AsyncSubject</a></li>
+</ul>
+</li>
+<li><a href="#schedulers">Schedulers</a></li>
+<li><a href="#example-flow">Example flow</a></li>
+<li><a href="#reactive-testing">Reactive testing</a><ul>
+<li><a href="#marble-testing">Marble testing</a><ul>
+<li><a href="#example">Example</a></li>
+</ul>
+</li>
+<li><a href="#subscribe-and-assert-testing">Subscribe and assert testing</a><ul>
+<li><a href="#example_1">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#tips-and-tricks">Tips and tricks</a></li>
+<li><a href="#conclusion">Conclusion</a><ul>
+<li><a href="#resources-and-references">Resources and references</a></li>
+</ul>
+</li>
+</ul>
+</div></nav>
+  <div class="article_text">
+<hr/>
+<h1 id="introduction">Introduction</h1>
+<p>While building an <a href="https://learn.microsoft.com/en-us/office/dev/add-ins/excel/?view=excel-js-preview">Excel add-in</a>, I came across the need for a more reactive style of programming due to the asynchronous nature of the APIs and the unpredictability of some events occurring in the spreadsheet. RxJS is one of those frameworks that can help with that. It’s a library for composing asynchronous and event-based programs by using observable sequences. It provides a set of operators to transform and combine streams of data. It’s a powerful tool that can be used to manage complex flows of data in a declarative fashion. It’s also a bit of a beast to learn, so I thought I’d share some of my notes and learnings along the way.</p>
+<p>We’ll first go over some basic concepts and terminology, move on to an attempt at depicting those various concepts, present common operators, touch upon reactive testing and then cover some tips and tricks.</p>
+<hr/>
+<h1 id="basic-concepts">Basic concepts</h1>
+<ul>
+<li>This is a push-based approach as opposed to a more common pull-based approach.</li>
+<li>The <strong>Observer</strong> design pattern is implemented.</li>
+<li><strong>Observables</strong> are the <strong>producers</strong> of a <strong>stream</strong> (the <strong>Subject</strong>) that you can <strong>subscribe</strong> (listen) to.<ul>
+<li>They are “<em>cold</em>” by default, meaning they don’t emit values until they are subscribed to.</li>
+<li>They can deliver values <em>synchronously</em> and <em>asynchronously</em>.</li>
+<li>They can be cancelled by <em>unsubscribing</em>.</li>
+</ul>
+</li>
+<li><strong>Observers</strong> are the <strong>consumers</strong> of data produced by observables. They “<em>subscribe</em>” via a <strong>subscription</strong> to the stream of events emitted by the observable.<ul>
+<li>They execute some code when a new value is received.</li>
+<li>They implement <code>next</code>, <code>error</code> and/or <code>complete</code>.</li>
+<li>The <code>next</code> method is called whenever a new value is emitted.</li>
+<li>The <code>error</code> method is called whenever an error occurs with an emission from the observable.</li>
+<li>The <code>complete</code> method is called whenever the observable is done, i.e. when no more values will be emitted from the stream in the future.</li>
+<li>By default, this leads to <strong>unicasting</strong>, where a single subscription gets values from the producer.</li>
+</ul>
+</li>
+<li>In the context of an Excel spreadsheet, we could think of the values from cells <code>A1</code> and <code>B1</code> as the producers of a stream of values that can be subscribed to by a cell <code>C1</code> — the consumer — to perform some calculations based on the values from <code>A1</code> and <code>B1</code> which could be updated over time (i.e., emitting new values in the stream of data).</li>
+</ul>
+<p>In an imperative programming paradigm, we would write code that executes a series of steps to produce a result. In a reactive programming paradigm, we would write code that reacts to events as they occur. Here’s a simple example to illustrate this:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Imperative approach</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">);</span><span class="w"> </span><span class="c1">// 5</span>
+
+<span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">);</span><span class="w"> </span><span class="c1">// 5: `a` was updated but `c` was not</span>
+
+<span class="nx">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">);</span><span class="w"> </span><span class="c1">// 6: `c` was updated after `a` was updated</span>
+
+<span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5</span><span class="p">;</span>
+<span class="nx">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">);</span><span class="w"> </span><span class="c1">// 8: `c` was updated after `b` was updated</span>
+
+
+<span class="c1">// Reactive approach</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Subject</span><span class="p">,</span><span class="w"> </span><span class="nx">combineLatest</span><span class="p">,</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"rxjs"</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">a$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Subject</span><span class="p">();</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">b$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Subject</span><span class="p">();</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">c$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">combineLatest</span><span class="p">([</span><span class="nx">a$</span><span class="p">,</span><span class="w"> </span><span class="nx">b$</span><span class="p">]).</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">map</span><span class="p">(([</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">])</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span><span class="p">));</span>
+<span class="nx">c$</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">c</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">));</span>
+<span class="nx">a$</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="mf">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// logs nothing because b$ has not emitted yet</span>
+<span class="nx">b$</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="mf">4</span><span class="p">);</span><span class="w"> </span><span class="c1">// logs 7 at this point (latest a + b)</span>
+<span class="nx">a$</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="mf">4</span><span class="p">);</span><span class="w"> </span><span class="c1">// logs 8 at this point (latest a + b)</span>
+</code></pre></div>
+<hr/>
+<h2 id="everything-is-a-stream">Everything is a stream</h2>
+<p>What follows is a metaphorical drawing designed (as best as I could…) to help you understand the complex world of reactive programming with RxJS. It’s not a one-to-one mapping but aims to give a general feel of how things interconnect.</p>
+<p>Think of reactive programming as managing a complex water supply system for a bustling town and a high-tech factory. Water from the glacier (<code>Producer</code>) flows as a river (<code>Stream</code>) through a landscape filled with dams, turbines, and filters (<code>Operators</code>).</p>
+<p>Town residents and the factory subscribe to this river to fulfill their water needs. A subscription is like turning on a valve at the pumping station to let the water flow into your pipeline.</p>
+<p>Meanwhile, the factory refines the water and feeds it back into the system, acting like a <code>Subject</code> in RxJS. Natural calamities (or dirty, unfiltered water) disrupting the flow signify errors, while the dam’s control room (<code>Schedulers</code>) regulates the rhythm of the entire system.</p>
+<div class="image">
+<img alt="Drawing representing most major concepts found in  RxJS" src="../../../../../images/posts/0041_first_steps_with_rxjs/everything_is_a_stream.svg"/>
+</div>
+<p>A simple drawing like that won’t do justice to the complexity of the RxJS ecosystem. Let’s nevertheless try to break down a bit more how concepts relate to each other.</p>
+<ul>
+<li>The <strong>Producer</strong> (glacier) is the source of the stream. It can be a user action, a network request, a timer, etc. There can be multiple sources of data emitting different types of values. In this example, there is a tributary (a smaller river) that feeds into the main river. By merging the two streams, we can get a single stream of data from both sources.<ul>
+<li>While it may be useful to merge different streams of data and transform them along the way, it is not necessary or always needed. In this drawing, the <strong>ReplaySubject</strong> merely captures raw data as it arrives from the river and makes it available to late subscribers.</li>
+</ul>
+</li>
+<li>The <strong>Stream</strong> is the flow of data. It can be a single value or a sequence of values over time. Here, it may represent the flow of data throughout the whole application, where different events (mouse click, keyboard, etc.) are emitted from different sources (or components) and may be consumed in a modified fashion (e.g., keeping a single property from an object, filtering out some values, etc.).<ul>
+<li>Here, we have the town which subscribes to different streams that have been transformed already (electricity and water subscriptions). The town might be considered a <strong>Consumer</strong> of the stream and is the data that ends up being displayed in the <span class="caps">UI</span> or sent back to a server.</li>
+</ul>
+</li>
+<li><strong>Operators</strong> are functions that transform the stream. They can be used to filter, combine, or modify the data.<ul>
+<li>Our metaphor contains a couple of them. There’s a water turbine — representing a <strong>transformation operator</strong> — that transforms water into electricity (maybe it’s a <code>mergeMap</code> that creates a new observable and maps it to a different structure) or water filters — representing the <strong>filtering operators</strong> — that filter out unwanted particles (maybe it’s a <code>filter</code> that removes some values from the stream).</li>
+</ul>
+</li>
+<li><strong>Subscriptions</strong> are the consumers of the stream. They can be used to listen to the stream and perform actions when new values are emitted.<ul>
+<li>For instance, when the water bottling company receives water via its pipe, it may modify the stream by adding minerals to it (e.g., <code>map</code> operator) and then bottle it up to deliver water. This creates a dependency chain where the bottling company is a consumer of the stream and a producer of a new stream that can be consumed by the town.</li>
+<li>If we zoom in on the water bottling company section, we can see that the water delivery truck “subscribes” to the product of the company and will likely want to deliver a truckload of water bottles once it is full (e.g., <code>buffer</code> operator). If we look at the case where the truck delivers water with a giant container that happens to have a small leak, then we know that once the container starts filling with water, it will start leaking. This is akin to a <strong>hot observable</strong> where the stream starts emitting values immediately, even if there are no subscribers. We could say this is also a stream that uses the <code>throttleTime</code> operator to only emit values every 5 seconds, dropping a small amount of water in the process. Whether the container is nearly empty or full, it will still leak water every 5 seconds. This is different from a <strong>cold observable</strong> where the stream only starts emitting values once a subscriber is listening to it, such as when a well-functioning container is plugged into a destination to deliver water.</li>
+</ul>
+</li>
+<li><strong>Subjects</strong> are both producers and consumers. They can be used to multicast values to multiple subscribers.<ul>
+<li>The water purification factory consumes water from the stream: as such, it is an <strong>observer</strong> as it reacts to the input stream (<code>next</code>, <code>error</code>, <code>complete</code>), but it is also a <strong>producer</strong> (because it can <code>pipe</code> and consumers can <code>subscribe</code> to it) as it emits a new stream of data that can be consumed by the town. This is akin to a <strong>multicast</strong> where a single producer can emit values to multiple consumers. The factory processes the incoming stream and may re-process values (<code>retryWhen</code>) or discard them (<code>filter</code>) before emitting a new stream of purified data.</li>
+</ul>
+</li>
+<li><strong>Schedulers</strong> are used to control the timing of the stream. They can be used to delay, throttle, or debounce emissions.<ul>
+<li>In this thirsty scenario, we can see that if the dam’s control room blocks the flow of water entirely, this will affect the whole system downstream. If the control room were to stop the flow of water at night and schedule it to resume in the morning, this would be akin to a <strong>scheduler</strong> that controls the timing of the stream. This is useful to avoid flooding the system with too much data at once, such as when a user types in a search box and we want to avoid making too many network requests at once. We can use a scheduler to throttle the stream of data to only emit values every 500 milliseconds, for instance, although in many cases we can directly rely on <a href="#time-based">time-based operators</a>.</li>
+</ul>
+</li>
+<li><strong>Unicast</strong> is a one-to-one mapping between the producer and the consumer. It’s the default behavior of RxJS.<ul>
+<li>Assuming our dam blocks and redirects the entire stream coming from the glacier, then the initial part of the diagram would be a unicast with a single producer emitting values to a single consumer.</li>
+</ul>
+</li>
+<li><strong>Multicast</strong> is a one-to-many mapping between the producer and the consumers. It’s the behavior of RxJS when using <strong>Subjects</strong>.<ul>
+<li>If we take each resident of the town to be a subscriber of the water purification factory, then we have a multicast where a single producer emits values to multiple consumers. Likewise, the power utility company is a consumer of the electricity stream and a producer of a new stream that can be consumed by the town.</li>
+</ul>
+</li>
+<li><strong>Cold</strong> observables are lazy and only start emitting values when subscribed to.<ul>
+<li>In the case of the pond, it is a cold observable that only starts emitting values when a subscriber is listening to it, such as when a pump is plugged into it or someone fills a bucket of water from it.</li>
+<li>In the diagram, a person acts as an <code>AsyncSubject</code>: it will work for a time to get water from the pond, but once it’s done, it will emit a single value (the last value, i.e., the bucket) to all subscribers (let’s pretend for the sake of simplicity and for this metaphor to keep working that all subscribers effectively receive the exact same stream/value when it is emitted all at once). This is different from a <code>BehaviorSubject</code> where the last value is emitted to late subscribers upon subscription. Subscribers will not receive any values from an <code>AsyncSubject</code> until it completes and, as depicted, can also unsubscribe before the stream emits any value.</li>
+</ul>
+</li>
+<li><strong>Hot</strong> observables are eager and start emitting values immediately, even if there are no subscribers.</li>
+<li>There is a part of the river that’s identified near the bottom-left corner as a <code>hot observable</code>, because whether there are subscribers or not, it will keep emitting values. A <code>ReplaySubject</code> — the cameraman — was added to capture the values emitted from the river and make them available to late subscribers right upon subscription (e.g., when they watch it live on <span class="caps">TV</span> at some point).</li>
+</ul>
+<p>My representation of the world may be flawed as I haven’t gone out much since the pandemic. Yet, that drawing tried to encapsulate most of the RxJS ecosystem and to some extent, that of reactive programming.</p>
+<hr/>
+<h1 id="operators">Operators</h1>
+<ul>
+<li>Operators allow to hook into a stream, operate on it and even combine it with other streams.</li>
+</ul>
+<h2 id="creation">Creation</h2>
+<ul>
+<li>They are standalone functions to create observables, such as <code>of</code>, <code>from</code>, <code>fromEvent</code>, <code>interval</code>, <code>timer</code> or <code>range</code>.</li>
+<li>You should always clean up subscriptions by unsubscribing when they’re no longer needed to avoid memory leaks and unintended consequences.</li>
+<li><code>fromEvent</code><ul>
+<li>Can create observables from <span class="caps">DOM</span> events or Node.js streams.</li>
+</ul>
+</li>
+<li><code>of</code><ul>
+<li>Values are emitted synchronously, one at a time.</li>
+</ul>
+</li>
+<li><code>from</code><ul>
+<li>Values are emitted synchronously, looping through a provided iterable (i.e., object with a <code>length</code> property). Also works with promises (e.g., <code>from(fetch(url))</code>) or generators (<code>function* () { yield … }</code>).</li>
+</ul>
+</li>
+<li><code>interval</code> and <code>timer</code><ul>
+<li>They can emit values over time as a timer, where <code>timer</code> is useful to specify a different delay on the first value being emitted (e.g., specifying the first argument to <code>timer</code> to be <code>0</code> to emit the first value immediately).</li>
+</ul>
+</li>
+<li><code>mapTo</code><ul>
+<li>This is a shortcut to remap an input to a different output (e.g., a constant string).</li>
+</ul>
+</li>
+<li><code>filter</code><ul>
+<li>It returns values when the evaluate to <code>true</code> from a function that itself returns a boolean value.</li>
+</ul>
+</li>
+<li><code>reduce</code><ul>
+<li>It works exactly like <code>Array.reduce</code>. It will emit the final value once the observable completes. That means it needs a stop condition in the pipeline, such as reaching the end of a synchronous stream or taking a few values only from an infinite stream (e.g., <code>interval(1000).pipe(take(3), reduce((acc, curr) =&gt; acc + curr) …)</code>) to take the the sum of the first three values emitted after 3 seconds.</li>
+</ul>
+</li>
+<li><code>scan</code><ul>
+<li>Just like <code>reduce</code> but emits every time the stream receives a new value, not just once the stream completes.</li>
+</ul>
+</li>
+<li><code>tap</code><ul>
+<li>Used to <em>spy</em> on the observable source to perform side effects without affecting the underlying stream, which is useful when debugging to observe output values at different steps of the pipeline.</li>
+</ul>
+</li>
+</ul>
+<h2 id="pipe">Pipe</h2>
+<ul>
+<li>Operators are comma-separated inside the <code>pipe</code> method that’s called on the observable. Then, the <code>subscribe</code> method is called on the assembled pipeline with a given observer to start producing the values from the stream.</li>
+<li>The operators create a new observable at each step in a “pure” fashion, so that the original observable does not change. Each operator in the pipe is akin to a different step in an assembly line.</li>
+<li>When <code>subscribe</code> is called, each operator in the pipe in turn subscribe to the observable and pass its value(s) along to the next operator in the pipeline.</li>
+<li><code>map</code><ul>
+<li>It’s similar to <code>Array.map</code> but it works on every element emitted from the stream, not on the stream as a whole.</li>
+</ul>
+</li>
+<li><code>finalize</code><ul>
+<li>It is called once on the completion of the observable, which could be used to perform some cleanup logic after an action completes, such as updating a status field.</li>
+</ul>
+</li>
+</ul>
+<h2 id="filtering">Filtering</h2>
+<ul>
+<li><code>take</code><ul>
+<li>Accepts a given number of items from the source before completing.</li>
+</ul>
+</li>
+<li><code>first</code><ul>
+<li>To <code>take</code> a single value based on a filtering condition.</li>
+</ul>
+</li>
+<li><code>takeWhile</code><ul>
+<li>Emits values from the source observable as long as a predicate condition is met. A value of <code>true</code> can be passed to the second argument of the function signature of <code>takeWhile</code> to also emit the value that caused the stream to stop emitting. It is used to limit the lifetime of an observable based on a known condition to apply.</li>
+</ul>
+</li>
+<li><code>takeUntil</code><ul>
+<li>It takes a value until another stream emits a value. It accepts as an argument another observable for this purpose.</li>
+</ul>
+</li>
+<li><code>distinctUntilChanged</code><ul>
+<li>It will emit values only if they are distinct from the previously emitted value from the stream.</li>
+</ul>
+</li>
+<li><code>distinctUntilKeyChanged</code><ul>
+<li>Will compare the previous value emitted with the current value to evaluate whether a given key of an object has changed.</li>
+</ul>
+</li>
+</ul>
+<h2 id="time-based">Time-based</h2>
+<ul>
+<li><code>debounceTime</code><ul>
+<li>Useful when you need the last value emitted within a short period of time, discarding all previously emitted values until enough delay has passed.</li>
+</ul>
+</li>
+<li><code>debounce</code><ul>
+<li>Does the same thing as <code>debounceTime</code>, but allows passing a function so that variables can be used to determine the emission of results.</li>
+</ul>
+</li>
+<li><code>throttleTime</code><ul>
+<li>Ignore values after the last emission for a specified duration, creating a “silence window”. It can help ignore spammy events by reacting after a certain time has passed only, such as listening for scroll events (e.g., do not process values instantly but rather every 20-30 ms).</li>
+<li>We can use <code>asyncScheduler</code> as the second parameter to <code>throttleTime</code>, and give it a config object as the third argument to specify whether we’re interested in emitting the <code>leading</code> (first) or <code>trailing</code> (last) event from the stream within the silence window (e.g., for a scroll event, we want to know the last position).</li>
+</ul>
+</li>
+<li><code>sampleTime</code><ul>
+<li>It “samples” a time window to emit only the last value from that window, doing so at precise intervals.</li>
+</ul>
+</li>
+<li><code>auditTime</code><ul>
+<li>This is like <code>sampleTime</code>, but starting a counter once the stream emits at least one value, keeping the last value emitted within the desired time window. This is the same as <code>throttleTime</code> where <code>leading</code> is set to <code>false</code> and <code>trailing</code> is set to <code>true</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="transformation">Transformation</h2>
+<ul>
+<li>One type of transformation operator is a flattening operator. This type of operator takes an observable that emits an observable to which RxJS internally subscribes to, simplifying the pipeline management. One such operator is <code>mergeAll</code>. Instead of mapping an emitted value to a new observable (e.g., with <code>Ajax.getJSON</code>) and then flattening the pipe to get the emitted value from that nested observable with <code>mergeAll</code>, we can do this in a single step with <code>mergeMap</code>.</li>
+<li><code>mergeMap</code><ul>
+<li>This is good for “fire and forget” type of behavior. For example, we may have an observable of click events from which we save the <code>clientX</code> and <code>clientY</code> coordinates, using these values to make an Ajax request that can perform an operation in the background which we do not want to cancel. Need to be careful with this as long-running observables may need cleanup.</li>
+</ul>
+</li>
+<li><code>switchMap</code><ul>
+<li>While <code>mergeMap</code> can maintain any number of inner subscriptions at a time, <code>switchMap</code> will maintain a single one. Any time a new observable is mapped, the previous one is automatically completed. This is useful if a previous request needs to be cancelled where only the last request makes sense, such as in a type-ahead behavior where we don’t want results from previous requests to be shown, but rather only the last one. This is the safest default for flattening because it won’t create leaks like <code>mergeMap</code>, which will leave other inner observables running in the background unless they are explicitly completed.<ul>
+<li>Great for reset, pause and resume functionality.</li>
+<li>Should avoid it when cancelling a request will have negative side effects, like saving a document.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>concatMap</code><ul>
+<li>Like <code>switchMap</code>, <code>concatMap</code> works on a single observable at a time, queuing up events (<span class="caps">FIFO</span>) from other observables until the first one completes. Should only be used when you have observables with a finite lifespan, otherwise the queue will never empty. This is useful when execution order of requests is important on the client side and when events will have a finite lifespan.</li>
+</ul>
+</li>
+<li><code>exhaustMap</code><ul>
+<li>Only maintains one inner subscription at a time. It will ignore values from new events until the first observable completes, discarding those events while there’s still an ongoing active subscription. This could be used to prevent further requests when clicking a button such as when submitting a form, effectively “disabling” the button while the submission is happening to avoid spamming the server with duplicate requests.</li>
+</ul>
+</li>
+<li><code>catchError</code><ul>
+<li>By default, when an observable throws an error, it will stop emitting values as the errors are not handled. It can catch and return the error or return an empty observable to ignore the current value, which prevents the stream from breaking and will continue emitting values.</li>
+</ul>
+</li>
+</ul>
+<h2 id="combination">Combination</h2>
+<ul>
+<li>Can join multiple observables into a single stream, such as when you need to perform calculations based on multiple stream inputs.</li>
+<li><code>startWith</code><ul>
+<li>Lets you prepend any value(s) at the beginning of the stream.</li>
+</ul>
+</li>
+<li><code>endWith</code><ul>
+<li>Lets you append any value(s) at the end of the stream.</li>
+</ul>
+</li>
+<li><code>concat</code><ul>
+<li>Useful to execute multiple observables in order. When the first one finishes, the second one starts. That may come in handy to manage <span class="caps">UI</span> animations and to complete network requests in order.</li>
+</ul>
+</li>
+<li><code>merge</code><ul>
+<li>Creates a single observable from any other number of observables. This means that it emits all values from all the observables as a single stream as they occur. For example, if we have a countdown related to both a “start” and a “pause” button, we might want the same stream to return “true” values when “start” is clicked and “false” values when “pause” is clicked to determine the next step to take in the pipeline.</li>
+</ul>
+</li>
+<li><code>combineLatest</code><ul>
+<li>Takes two or more observables, combining the latest value received from each one only once all the observables have emitted at least one value. This would be useful when all values depend on each other to produce a common result.</li>
+</ul>
+</li>
+<li><code>forkJoin</code><ul>
+<li>It emits the last produced value from each observable subscribed to as an array. This is like combineLatest, but returning values only once all streams have completed. The observables can be wrapped with brackets to emit an object, where a property (key) can be assigned to the result of each observable (set as a value of the object). This is somewhat equivalent to <code>Promise.all</code>.</li>
+</ul>
+</li>
+<li><code>share</code><ul>
+<li>It is used to “share” the result of a stream to all subscribers. This can be useful to avoid running heavy computations more than once.</li>
+</ul>
+</li>
+</ul>
+<h2 id="creating-a-custom-operator">Creating a custom operator</h2>
+<p>We can create a custom operator by creating a function that returns a function that accepts an observable and returns a new observable. While that might be a bit of an abstract explanation to follow, here is a basic example illustrating this concept.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Observable</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'rxjs'</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">multiplyBy</span><span class="p">(</span><span class="nx">multiplier</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="nx">source</span><span class="o">:</span><span class="w"> </span><span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">Observable</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;</span><span class="w"> </span><span class="p">=&gt;</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">Observable</span><span class="p">((</span><span class="nx">observer</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">subscription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">source</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">({</span>
+<span class="w">        </span><span class="nx">next</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">observer</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="nx">value</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">multiplier</span><span class="p">);</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">observer</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nx">complete</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">observer</span><span class="p">.</span><span class="nx">complete</span><span class="p">();</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">      </span><span class="p">});</span>
+
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">subscription</span><span class="p">.</span><span class="nx">unsubscribe</span><span class="p">();</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="c1">// Usage:</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'rxjs'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">multiplyBy</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./multiplyBy'</span><span class="p">;</span>
+
+<span class="k">of</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">).</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">multiplyBy</span><span class="p">(</span><span class="mf">2</span><span class="p">)).</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">));</span>
+<span class="c1">// logs 2, 4, 6, 8, 10</span>
+</code></pre></div>
+<p>Here is another example combining <code>filter</code>, <code>map</code> and <code>reduce</code> to create a custom operator that will filter out values from a stream, map them to a new value and then reduce them to a single value.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Observable</span><span class="p">,</span><span class="w"> </span><span class="nx">filter</span><span class="p">,</span><span class="w"> </span><span class="nx">map</span><span class="p">,</span><span class="w"> </span><span class="nx">reduce</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'rxjs'</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">filterMapReduce</span><span class="o">&lt;</span><span class="nx">T</span><span class="p">,</span><span class="w"> </span><span class="nx">R</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">  </span><span class="nx">predicate</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="kt">boolean</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">mapFn</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">R</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">reduceFn</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">acc</span><span class="o">:</span><span class="w"> </span><span class="kt">R</span><span class="p">,</span><span class="w"> </span><span class="nx">curr</span><span class="o">:</span><span class="w"> </span><span class="kt">R</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">R</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="nx">source</span><span class="o">:</span><span class="w"> </span><span class="kt">Observable</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">Observable</span><span class="o">&lt;</span><span class="nx">R</span><span class="o">&gt;</span><span class="w"> </span><span class="p">=&gt;</span>
+<span class="w">    </span><span class="nx">source</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+<span class="w">      </span><span class="nx">filter</span><span class="p">(</span><span class="nx">predicate</span><span class="p">),</span>
+<span class="w">      </span><span class="nx">map</span><span class="p">(</span><span class="nx">mapFn</span><span class="p">),</span>
+<span class="w">      </span><span class="nx">reduce</span><span class="p">(</span><span class="nx">reduceFn</span><span class="p">)</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Usage:</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"rxjs"</span><span class="p">;</span>
+
+<span class="k">of</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+<span class="w">    </span><span class="nx">filterMapReduce</span><span class="p">(</span>
+<span class="w">        </span><span class="c1">// keep only even numbers (2 and 4)</span>
+<span class="w">      </span><span class="p">(</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">        </span><span class="c1">// multiply each of these even numbers by 2 (4 and 8)</span>
+<span class="w">      </span><span class="p">(</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span>
+<span class="w">        </span><span class="c1">// sum all these values</span>
+<span class="w">        </span><span class="c1">// accumulator is initialized to 0</span>
+<span class="w">        </span><span class="c1">// so we get 0 + 4 for the first value</span>
+<span class="w">        </span><span class="c1">// then 4 + 8 for the second value, which is returned</span>
+<span class="w">      </span><span class="p">(</span><span class="nx">acc</span><span class="p">,</span><span class="w"> </span><span class="nx">curr</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">acc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">curr</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">));</span><span class="w"> </span><span class="c1">// logs 12</span>
+</code></pre></div>
+<hr/>
+<h1 id="marble-diagrams">Marble diagrams</h1>
+<div class="image">
+<img alt="Showing a basic marble diagram with filter operator" src="../../../../../images/posts/0041_first_steps_with_rxjs/marble_diagram.svg"/>
+</div>
+<p><br/></p>
+<ul>
+<li>They are used to represent the behavior of operators. They can be used to test observables.</li>
+<li>They allow comparing at a glance how a set of inputs maps to a set of outputs (i.e., which transformations are applied to the source stream).</li>
+<li>An <code>X</code> represents an error and a vertical line <code>|</code> represents the end of emission of values from the input stream.</li>
+</ul>
+<p><br/></p>
+<div class="image">
+<img alt="Showing merging of streams with pipeline in the middle flowing towards a single output stream" src="../../../../../images/posts/0041_first_steps_with_rxjs/marble_diagram_pipeline.svg"/>
+</div>
+<hr/>
+<h1 id="subjects">Subjects</h1>
+<ul>
+<li>A <strong>Subject</strong> is an <strong>Observable</strong>: it has both <code>pipe</code> and <code>subscribe</code> methods. A Subject is also an <strong>Observer</strong>: it has <code>next</code>, <code>error</code> and <code>complete</code> methods. Unlike Observables which are unicast (1-to-1 mapping with observers, each observer gets an independent stream of data), Subjects are <strong>multicast</strong>, meaning they broadcast the same information to any “listeners” (observers).</li>
+<li>Multicasting operators include <code>share</code>, <code>shareReplay</code> and <code>multicast</code>.</li>
+</ul>
+<h2 id="behaviorsubject">BehaviorSubject</h2>
+<ul>
+<li>It allows delivering a seed/initial value to late subscribers such that a subscription happening at a later point can still receive the last emitted value upon subscribing.</li>
+</ul>
+<h2 id="replaysubject">ReplaySubject</h2>
+<ul>
+<li>It allows replaying the whole stream (or the last items desired via its first argument) to late subscribers, effectively providing a way to multicast (i.e., the stream is played only once and multiple subscribers can receive the values at once).</li>
+<li><code>shareReplay</code><ul>
+<li>This can be added to a pipeline and any subscriber to that stream will receive updates as if a ReplaySubject has been manually set up. For time sensitive matters where receiving a value too late isn’t useful, a second argument can be passed to <code>shareReplay</code> to only capture events within the last <code>x</code> milliseconds.</li>
+</ul>
+</li>
+</ul>
+<h2 id="asyncsubject">AsyncSubject</h2>
+<ul>
+<li>Only emits the last value to all subscribers when it completes.</li>
+</ul>
+<p>Here is a real-world example of a setup making use of a <code>BehaviorSubject</code> from an Excel add-in. The goal is to perform some actions in the <span class="caps">UI</span> whenever the connection status of a WebSocket changes by using a <strong>subject</strong>, which can be subscribed to from another part of the add-in to perform the needed updates. Omitting the details of the WebSocket connection, the following code snippet shows how we can use a <code>BehaviorSubject</code> to keep track of the connection status and emit the latest value to late subscribers.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">BehaviorSubject</span><span class="p">,</span><span class="w"> </span><span class="nx">Observable</span><span class="p">,</span><span class="w"> </span><span class="nx">distinctUntilChanged</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'rxjs'</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">ConnectionManager</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">apiConnection$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">BehaviorSubject</span><span class="o">&lt;</span><span class="kt">boolean</span><span class="o">&gt;</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">ws</span><span class="o">:</span><span class="w"> </span><span class="kt">WebSocket</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// Expose connection status as an Observable emitting whenever the connection status changes</span>
+<span class="w">  </span><span class="nx">get</span><span class="w"> </span><span class="nx">connectionStatus$</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">Observable</span><span class="o">&lt;</span><span class="kt">boolean</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">apiConnection$</span><span class="p">.</span><span class="nx">asObservable</span><span class="p">().</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">distinctUntilChanged</span><span class="p">());</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// ...</span>
+
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">connect</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">ws</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">WebSocket</span><span class="p">(</span><span class="s1">'ws://localhost:8080/ws'</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">ws</span><span class="p">.</span><span class="nx">onopen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">apiConnection$</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">ws</span><span class="p">.</span><span class="nx">onclose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">apiConnection$</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">ws</span><span class="p">.</span><span class="nx">onerror</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>In other words, we can subscribe to the <code>connectionStatus$</code> observable and react to changes in the connection status. This is useful to update the <span class="caps">UI</span>, for instance, to show a “<em>disconnected</em>” message when the connection is lost.</p>
+<p>In a state manager, this might be dealt with like this to keep track of the sheets we have:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">sheetSubscriptions</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">sheetId</span><span class="p">,</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Subject</span><span class="p">());</span><span class="w">  </span><span class="c1">// track the sheet subscriptions</span>
+
+<span class="c1">// ...</span>
+<span class="c1">// delete the subscriptions to the sheet at some point in the future</span>
+<span class="nx">sheetSubscriptions</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">sheetId</span><span class="p">).</span><span class="nx">next</span><span class="p">();</span><span class="w"> </span><span class="c1">// unsubscribe from all subscriptions for this sheet</span>
+</code></pre></div>
+<p>The implementation details of the <code>sheetSubscriptions</code> map are omitted here, but the idea is that we can use a <code>Subject</code> to keep track of the subscriptions to a given sheet. When we want to unsubscribe from all subscriptions to a given sheet, we can call <code>next</code> on the subject to complete the stream and unsubscribe from all subscriptions.</p>
+<hr/>
+<h1 id="schedulers">Schedulers</h1>
+<ul>
+<li>All schedulers accept three arguments: <code>work</code> (task to execute), <code>delay</code> (in milliseconds) and <code>state</code> (when used, the first argument <code>work</code> defines the function to execute and <code>state</code> the data passed to it).</li>
+<li>Most basic observables (e.g., <code>range</code>) accept as the last argument a scheduler, so this can be set there (e.g., <code>range(1, 5, asapScheduler)</code>).</li>
+<li><code>AsyncScheduler</code><ul>
+<li>Can be used as an equivalent to setTimeout. It’s simpler to just use the <code>delay</code> operator for that purpose. When used with <code>subscribeOn</code> in the pipeline, this is equivalent to wrapping the whole observable with setTimeout.</li>
+</ul>
+</li>
+<li><code>asapScheduler</code><ul>
+<li>This is used to queue micro tasks, which are run after other synchronous pieces of code but before asynchronous code.</li>
+<li>Micro tasks are run after the currently running synchronous code but will block the <span class="caps">UI</span> when run.</li>
+</ul>
+</li>
+<li><code>animationFrameScheduler</code><ul>
+<li>This is similar to requestAnimationFrame. Set no delay or set it to <code>0</code> so that it will not be async and will update before every browser repaint.</li>
+</ul>
+</li>
+<li><code>queueScheduler</code><ul>
+<li>It is synchronous by default. Inner calls to <code>queueScheduler</code> will be executed once the outer calls are done running.</li>
+</ul>
+</li>
+</ul>
+<p>While it’s possible to use schedulers directly to provide fine-grained control over concurrency, it’s often easier to use the <code>delay</code> operator to delay the emission of values from the stream. For instance, we can use <code>delay(1000)</code> to delay the emission of values by 1 second.</p>
+<hr/>
+<h1 id="example-flow">Example flow</h1>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">BehaviorSubject</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">EMPTY</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">Observable</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">Observer</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">Subject</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">catchError</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">distinctUntilChanged</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">filter</span><span class="p">,</span>
+<span class="w">  </span><span class="kr">from</span><span class="p">,</span>
+<span class="w">  </span><span class="k">of</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">switchMap</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">tap</span><span class="p">,</span>
+<span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'rxjs'</span><span class="p">;</span>
+
+<span class="c1">// Create a subject (stream emitting AND receiving values over time) with a default</span>
+<span class="c1">// value. A common pattern is to suffix the variable name with a `$` to indicate that</span>
+<span class="c1">// it's a stream</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">stream1Subject$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">BehaviorSubject</span><span class="o">&lt;</span><span class="kt">boolean</span><span class="o">&gt;</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+
+<span class="c1">// Get the observable (stream emitting values over time) from the subject</span>
+<span class="c1">// Doing this, we can `pipe` and `subscribe` to the observable but we can't emit values</span>
+<span class="c1">// with `next`, `error` or `complete` methods.</span>
+<span class="c1">// We can also use the subject directly to emit values with `next`, `error` or</span>
+<span class="c1">// `complete`.</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">stream1Observable$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stream1Subject$</span><span class="p">.</span><span class="nx">asObservable</span><span class="p">();</span>
+
+<span class="c1">// Will use to send the final result of the status$ observable to this second stream</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">stream2Subject$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">BehaviorSubject</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s1">''</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">stream2Observable$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stream2Subject$</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">asObservable</span><span class="p">()</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">filter</span><span class="p">((</span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s1">''</span><span class="p">));</span><span class="w"> </span><span class="c1">// ignore initial/empty values</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">stream3ObservableForErrorsSubject$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Subject</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">stream3ObservableForErrors$</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="nx">stream3ObservableForErrorsSubject$</span><span class="p">.</span><span class="nx">asObservable</span><span class="p">();</span>
+
+<span class="c1">// Some async operation that will update the connection status</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">asyncFuncOnStatusChanged</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span>
+<span class="w">  </span><span class="nx">isConnected</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span>
+<span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ... `await` some async operation to update the UI with the new connection status</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">` -&gt; onStatusChanged: </span><span class="si">${</span><span class="nx">isConnected</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">isConnected</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s1">'Disconnected!'</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="c1">// Create an observable (stream emitting values over time) from an another observable.</span>
+<span class="c1">// The idea is to transform the original event into another event:</span>
+<span class="c1">// event1 -&gt; event2 -&gt; event3 -&gt; ... -&gt; result</span>
+<span class="c1">// Any observer on these events could push new values into other streams</span>
+<span class="c1">// (e.g. `otherSubject$.next("value")`)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">observable1GetConnectionStatusChangedForRibbon$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span>
+<span class="w">  </span><span class="nx">connectionStatus$</span><span class="o">:</span><span class="w"> </span><span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">boolean</span><span class="o">&gt;</span>
+<span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">Observable</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Transform the original event with `pipe`</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">connectionStatus$</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+<span class="w">    </span><span class="c1">// Prevent the observable from completing when an error is thrown</span>
+<span class="w">    </span><span class="nx">catchError</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Caught error in observable1: </span><span class="si">${</span><span class="nx">error</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="k">of</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}),</span>
+<span class="w">    </span><span class="nx">tap</span><span class="p">((</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">` -&gt; observable start: </span><span class="si">${</span><span class="nx">value</span><span class="si">}</span><span class="sb">`</span><span class="p">)),</span>
+<span class="w">    </span><span class="c1">// If the value is the same as the previous one, don't emit it</span>
+<span class="w">    </span><span class="nx">distinctUntilChanged</span><span class="p">(),</span>
+<span class="w">    </span><span class="c1">// Perform side effects with `tap` (useful for logging/debugging)</span>
+<span class="w">    </span><span class="nx">tap</span><span class="p">((</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">` -&gt; observable before switchMap: </span><span class="si">${</span><span class="nx">value</span><span class="si">}</span><span class="sb">`</span><span class="p">)),</span>
+<span class="w">    </span><span class="c1">// Ensure async execution</span>
+<span class="w">    </span><span class="nx">switchMap</span><span class="p">((</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span>
+<span class="w">      </span><span class="kr">from</span><span class="p">(</span><span class="nx">asyncFuncOnStatusChanged</span><span class="p">(</span><span class="nx">value</span><span class="p">)).</span><span class="nx">pipe</span><span class="p">(</span>
+<span class="w">        </span><span class="c1">// This will catch errors thrown by `asyncFuncOnStatusChanged` in a 'local' way.</span>
+<span class="w">        </span><span class="c1">// We would still need to catch errors thrown directly from the source observable</span>
+<span class="w">        </span><span class="c1">// as we did above</span>
+<span class="w">        </span><span class="nx">catchError</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Caught error: </span><span class="si">${</span><span class="nx">error</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">          </span><span class="c1">// Emit the error to the third observable</span>
+<span class="w">          </span><span class="nx">stream3ObservableForErrorsSubject$</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="s1">'error'</span><span class="p">);</span>
+<span class="w">          </span><span class="c1">// This completes the inner observable</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="nx">EMPTY</span><span class="p">;</span><span class="w"> </span><span class="c1">// EMPTY is an observable that completes immediately</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">      </span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="c1">// In this case, we could just as well have used `status$` directly,</span>
+<span class="c1">// but this could be useful if we want to transform the original event or if we want to</span>
+<span class="c1">// merge multiple observables into one</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">stream1ObservableTransformed$</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="nx">observable1GetConnectionStatusChangedForRibbon$</span><span class="p">(</span><span class="nx">stream1Observable$</span><span class="p">);</span>
+
+<span class="c1">// Create an observer (object with `next`, `error` and `complete` methods) to subscribe</span>
+<span class="c1">// to the observable</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">observer1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">Observer</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">' -&gt; observer: subscription started'</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">next</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">' -&gt; observer: status changed'</span><span class="p">);</span>
+<span class="w">      </span><span class="c1">// We could trigger another event here to continue the pipeline elsewhere, e.g.:</span>
+<span class="w">      </span><span class="c1">// otherSubject$.next("value");</span>
+<span class="w">      </span><span class="c1">// Then, if there's a subscription to `otherSubject$`, it will receive the value</span>
+<span class="w">      </span><span class="c1">// "value" and continue the pipeline</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="sb">` -&gt; observer: subscription errored: </span><span class="si">${</span><span class="nx">error</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">complete</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+<span class="w">        </span><span class="s1">' -&gt; observer: subscription completed, notifying stream2Subject$'</span>
+<span class="w">      </span><span class="p">);</span>
+<span class="w">      </span><span class="nx">stream2Subject$</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span>
+<span class="w">        </span><span class="s1">'observer1 sent this message to observer2 in `.complete()`!'</span>
+<span class="w">      </span><span class="p">);</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">};</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Subscribing to secondObservable$...'</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">observer2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">Observer</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">' -&gt; observer2: subscription started'</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">next</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">` -&gt; observer2: got '</span><span class="si">${</span><span class="nx">value</span><span class="si">}</span><span class="sb">'`</span><span class="p">);</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="sb">` -&gt; observer2: subscription errored: </span><span class="si">${</span><span class="nx">error</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">complete</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">' -&gt; observer2: subscription completed'</span><span class="p">);</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">};</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">stream2ObservableSubscription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stream2Observable$</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">observer2</span><span class="p">());</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'\nSubscribing to thirdObservableForErrors$...'</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">stream3ObservableSubscription$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stream3ObservableForErrors$</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">next</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+<span class="w">      </span><span class="sb">` -&gt; observer3: got value '</span><span class="si">${</span><span class="nx">value</span><span class="si">}</span><span class="sb">' from observer2.complete()`</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="sb">` -&gt; observer3: subscription errored: </span><span class="si">${</span><span class="nx">error</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">complete</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">' -&gt; observer3: subscription completed'</span><span class="p">);</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'\nSubscribing to observable status$...'</span><span class="p">);</span>
+
+<span class="c1">// Subscribe to the observable. Until we subscribe, nothing happens!</span>
+<span class="nx">stream1ObservableTransformed$</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">observer1</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'\nEmitting `true` to stream1Subject$...'</span><span class="p">);</span>
+<span class="nx">stream1Subject$</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'\nEmitting `true` to stream1Subject$...'</span><span class="p">);</span>
+<span class="nx">stream1Subject$</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'\nEmitting an error to stream1Subject$...'</span><span class="p">);</span>
+<span class="nx">stream1Subject$</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'Error emitted from the outside'</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'\nEmitting message to stream2Subject$...'</span><span class="p">);</span>
+<span class="nx">stream2Subject$</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="s1">'Sent unrelated message from the outside'</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'\nEmitting `false` to stream1Subject$...'</span><span class="p">);</span>
+<span class="nx">stream1Subject$</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'\nEmitting `true` again to stream1Subject$...'</span><span class="p">);</span>
+<span class="nx">stream1Subject$</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'\nEmitting `false` again to stream1Subject$, causing error...'</span><span class="p">);</span>
+<span class="nx">stream1Subject$</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'\nStreams keep listening until completion or unhandled error'</span><span class="p">);</span>
+
+<span class="c1">// Add some async behavior so this will happen at the end</span>
+<span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">stream3ObservableForErrorsSubject$</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span>
+<span class="w">    </span><span class="s1">'Will receive one more value before unsubscribing'</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'\nUnsubscribing from thirdObservableSubscription$...'</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">stream3ObservableSubscription$</span><span class="p">.</span><span class="nx">unsubscribe</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">stream3ObservableForErrorsSubject$</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span>
+<span class="w">    </span><span class="s1">'Will not be received after unsubscribe'</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">},</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+
+<span class="nx">stream1Subject$</span><span class="p">.</span><span class="nx">complete</span><span class="p">();</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'\nEmitting `true` to statusSubject$...'</span><span class="p">);</span>
+<span class="c1">// This is ignored because the stream is completed by now</span>
+<span class="nx">stream1Subject$</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+
+<span class="c1">// already unsubscribed since they completed: nothing will happen</span>
+<span class="nx">stream1Subject$</span><span class="p">.</span><span class="nx">unsubscribe</span><span class="p">();</span>
+<span class="nx">stream2ObservableSubscription</span><span class="p">.</span><span class="nx">unsubscribe</span><span class="p">();</span>
+</code></pre></div>
+<p>This will result in the following output being logged to the console:</p>
+<div class="highlight"><pre><span></span><code>Subscribing to secondObservable$...
+ -&gt; observer2: subscription started
+
+Subscribing to thirdObservableForErrors$...
+
+Subscribing to observable status$...
+ -&gt; observer: subscription started
+ -&gt; observable start: false
+ -&gt; observable before switchMap: false
+ -&gt; onStatusChanged: false
+
+Emitting `true` to stream1Subject$...
+ -&gt; observable start: true
+ -&gt; observable before switchMap: true
+ -&gt; onStatusChanged: true
+
+Emitting `true` to stream1Subject$...
+ -&gt; observable start: true
+
+Emitting an error to stream1Subject$...
+Caught error in observable1: Error emitted from the outside
+ -&gt; observable start: false
+ -&gt; observable before switchMap: false
+ -&gt; onStatusChanged: false
+
+Emitting message to stream2Subject$...
+ -&gt; observer2: got 'Sent unrelated message from the outside'
+
+Emitting `false` to stream1Subject$...
+
+Emitting `true` again to stream1Subject$...
+
+Emitting `false` again to stream1Subject$, causing error...
+
+Streams keep listening until completion or unhandled error
+
+Emitting `true` to statusSubject$...
+Caught error: Error: Disconnected!
+ -&gt; observer3: got value 'error' from observer2.complete()
+ -&gt; observer: subscription completed, notifying stream2Subject$
+ -&gt; observer3: got value 'Will receive one more value before unsubscribing' from observer2.complete()
+
+Unsubscribing from thirdObservableSubscription$...
+</code></pre></div>
+<p>While this example is a bit abstract and contrived, RxJS can be used for a bunch of different use cases, including:</p>
+<ul>
+<li>Use <code>debounceTime</code> and <code>switchMap</code> to limit requests and cancel previous searches in a search auto-complete;</li>
+<li>Typeahead search box: <code>fromEvent</code> on keystrokes, combined with <span class="caps">API</span> requests;</li>
+<li>Scroll position can be tracked with <code>fromEvent</code> to lazily load content;</li>
+<li><code>combineLatest</code> and <code>map</code> can be used to validate fields as user fills them out;</li>
+<li>Progress bar updates could be animated using <code>interval</code> and <code>map</code>;</li>
+<li>Use <code>fromEvent</code> to track mouse drags and <code>merge</code> to handle multiple event streams;</li>
+<li>Create a real-time dashboard updating based on WebSocket streams with <code>merge</code>;</li>
+<li>Debounce input changes with <code>debounceTime</code> to trigger saves;</li>
+<li>Create heatmaps from click events using <code>fromEvent</code> and <code>reduce</code>;</li>
+<li>Retry <span class="caps">XHR</span> requests on failure using <code>catchError</code> and <code>retry</code>.</li>
+</ul>
+<p>Going back to the world of Excel add-ins, here is a real-world example of a setup using RxJS to listen to events from the Excel <span class="caps">API</span>. The goal is to listen to selection changes on a table and perform some actions when the selection changes. The <code>fromEventPattern</code> method allows us to create an observable from an <span class="caps">API</span> event. We basically “hook” into the Excel <span class="caps">API</span> event and transform it into an observable. We can then use the <code>filter</code> operator to filter out unrelated events and the <code>takeUntil</code> operator to unsubscribe when the notifier emits (when the table is deleted).</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Observable</span><span class="p">,</span><span class="w"> </span><span class="nx">Subject</span><span class="p">,</span><span class="w"> </span><span class="nx">filter</span><span class="p">,</span><span class="w"> </span><span class="nx">fromEventPattern</span><span class="p">,</span><span class="w"> </span><span class="nx">takeUntil</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'rxjs'</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">notifier$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Subject</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Excel</span><span class="p">.</span><span class="nx">Table</span><span class="p">;</span><span class="w"> </span><span class="c1">// some actual table object (omitted for brevity)</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">getTableOnSelectionChanged$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span>
+<span class="w">  </span><span class="nx">table</span><span class="o">:</span><span class="w"> </span><span class="kt">Excel.Table</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">notifier$</span><span class="o">:</span><span class="w"> </span><span class="kt">Subject</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span>
+<span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">Observable</span><span class="o">&lt;</span><span class="nx">Excel</span><span class="p">.</span><span class="nx">TableSelectionChangedEventArgs</span><span class="o">&gt;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">fromEventPattern</span><span class="o">&lt;</span><span class="nx">Excel</span><span class="p">.</span><span class="nx">TableSelectionChangedEventArgs</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">    </span><span class="p">(</span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="kt">TAnyExcelValue</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">onSelectionChanged</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">handler</span><span class="p">),</span>
+<span class="w">    </span><span class="p">(</span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="kt">TAnyExcelValue</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">onSelectionChanged</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">handler</span><span class="p">)</span>
+<span class="w">  </span><span class="p">).</span><span class="nx">pipe</span><span class="p">(</span>
+<span class="w">    </span><span class="c1">// unsubscribe when notifier emits (table is deleted)</span>
+<span class="w">    </span><span class="nx">takeUntil</span><span class="p">(</span><span class="nx">notifier$</span><span class="p">),</span>
+<span class="w">    </span><span class="nx">filter</span><span class="p">(</span>
+<span class="w">      </span><span class="c1">// filter unrelated events...</span>
+<span class="w">      </span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="kt">Excel.TableSelectionChangedEventArgs</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">address</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">observer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">tableName</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">next</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="kt">Excel.TableSelectionChangedEventArgs</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="sb">`Event triggered at </span><span class="si">${</span><span class="nx">event</span><span class="p">.</span><span class="nx">address</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="sb">`Subscription errored: </span><span class="si">${</span><span class="nx">error</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">complete</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="sb">`Subscription completed for table '</span><span class="si">${</span><span class="nx">tableName</span><span class="si">}</span><span class="sb">'`</span><span class="p">);</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">};</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">selectionChanged$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getTableOnSelectionChanged$</span><span class="p">(</span><span class="nx">table</span><span class="p">,</span><span class="w"> </span><span class="nx">notifier$</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">subscriber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">selectionChanged$</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">observer</span><span class="p">);</span>
+<span class="c1">// ... do something with the subscription</span>
+
+<span class="nx">notifier$</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span><span class="w"> </span><span class="c1">// unsubscribe from the observable and delete the table</span>
+</code></pre></div>
+<hr/>
+<h1 id="reactive-testing">Reactive testing</h1>
+<p><strong>Reactive testing</strong> is a way to test observables. It can be done with marble diagrams or by subscribing and asserting values. While it’s more difficult to wrap one’s head around marble diagrams, they are more accurate and can be used to test timing. Subscribing and asserting values is easier to understand but requires more boilerplate and is less accurate.</p>
+<h2 id="marble-testing">Marble testing</h2>
+<ul>
+<li>We can test streams with expressive <span class="caps">ASCII</span> representations of marble diagrams.</li>
+<li>This allows for greater test accuracy of values and timing.</li>
+<li>It requires quite a bit of setup.</li>
+<li>A dash <code>-</code> represents a frame of virtual time.</li>
+<li>Any character from the set <code>[a-z0-9]</code> represents an emitted value.</li>
+<li>Errors are represented with a <code>#</code>.</li>
+<li><code>()</code> represent synchronous groupings.</li>
+<li>The <code>|</code> represents the completion of the stream.</li>
+</ul>
+<h3 id="example">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">delay</span><span class="p">,</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'rxjs'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">TestScheduler</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'rxjs/testing'</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">testScheduler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TestScheduler</span><span class="p">((</span><span class="nx">actual</span><span class="p">,</span><span class="w"> </span><span class="nx">expected</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">actual</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="nx">expected</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="s1">'testing async behavior'</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">'should test asynchronous operations'</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">testScheduler</span><span class="p">.</span><span class="nx">run</span><span class="p">((</span><span class="nx">helpers</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">expectObservable</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">helpers</span><span class="p">;</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">source$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">from</span><span class="p">([</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">]);</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="kr">final</span><span class="nx">$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">source$</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">delay</span><span class="p">(</span><span class="mf">1000</span><span class="p">));</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">expected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'1s (abc|)'</span><span class="p">;</span>
+<span class="w">      </span><span class="nx">expectObservable</span><span class="p">(</span><span class="kr">final</span><span class="nx">$</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">expected</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">1</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kt">2</span><span class="p">,</span><span class="w"> </span><span class="nx">c</span><span class="o">:</span><span class="w"> </span><span class="kt">3</span><span class="w"> </span><span class="p">});</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+<h2 id="subscribe-and-assert-testing">Subscribe and assert testing</h2>
+<ul>
+<li>Less setup required.</li>
+<li>Can use typical testing APIs and testing patterns.</li>
+<li>Because this runs outside the test scheduler, we must manage async test completion.</li>
+<li>Requires more boilerplate for assertions with multiple items.</li>
+<li>Hard to accurately test timing.</li>
+</ul>
+<h3 id="example_1">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">map</span><span class="p">,</span><span class="w"> </span><span class="k">of</span><span class="p">,</span><span class="w"> </span><span class="nx">toArray</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'rxjs'</span><span class="p">;</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="s1">'testing with subscribe and assert pattern'</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">'compare emitted values on completion'</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">source$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">of</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="kr">final</span><span class="nx">$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">source$</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+<span class="w">      </span><span class="nx">map</span><span class="p">((</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">5</span><span class="p">),</span>
+<span class="w">      </span><span class="nx">toArray</span><span class="p">()</span>
+<span class="w">    </span><span class="p">);</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">expected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">15</span><span class="p">];</span>
+
+<span class="w">    </span><span class="kr">final</span><span class="nx">$</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">actual</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="nx">actual</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="nx">expected</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+<hr/>
+<h1 id="tips-and-tricks">Tips and tricks</h1>
+<ul>
+<li>Using <code>finalize</code> to execute side effects on completion.<ul>
+<li>Do not put side effects to run inside the <code>complete</code> function as it is not called when manually unsubscribing or when an error occurs.</li>
+<li>Instead, we can add the <code>finalize</code> operator tacked onto the end of the pipeline.</li>
+</ul>
+</li>
+<li>Extract common operator logic into standalone functions.<ul>
+<li>These functions will accept an observable source and return a new observable. See <a href="#creating-a-custom-operator">Creating a custom operator</a> for an example.</li>
+</ul>
+</li>
+<li>Use combination operators to access state from secondary streams.<ul>
+<li>Use <code>withLatestFrom(store$)</code> to retrieve the current state. This works when subscribing to a BehaviorSubject which will have emitted the value by the time it’s needed but may be a source of headaches if subscribing to a regular Subject since the last value will not have been emitted by the time the subscription happens.</li>
+</ul>
+</li>
+<li>Automate observable cleanup with <code>takeUntil</code> and <code>Subjects</code>.<ul>
+<li>While we can manually unsubscribe from observables and even unsubscribe from multiple observables at once by having a single subscription to which we add more subscriptions and then unsubscribe from, it is easier to react to a value emitted from a <code>Subject</code> like <code>onDestroy$</code> by appending <code>takeUntil(onDestroy$)</code> to the pipeline. Whenever <code>onDestroy$.next()</code> is called, any subscription depending on it will unsubscribe automatically, then <code>onDestroy$.complete()</code> will clean up unused resources.</li>
+</ul>
+</li>
+<li>Use partition and filter for conditional logic.<ul>
+<li><code>filter</code> can be very useful when a single type of output is expected, filtering values before they reach the end of the stream.</li>
+<li><code>partition</code> will return two observables, which we can destructure. The first one will filter and catch emissions that match our condition and the other stream will contain the values that didn’t match the condition. This is useful to avoid creating two different streams when there’s an <code>if</code>/<code>else</code> situation where two types of outputs would be expected.</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h1 id="conclusion">Conclusion</h1>
+<p>RxJS is a powerful yet complex toolkit for managing asynchronous data flows. While the learning curve can be steep, the benefits are significant for reactive web apps and complex logic with many asynchronous operations. With practice, RxJS makes it possible to write declarative code that reacts to real-time data updates. By modeling everything as streams of data and applying transformations, RxJS helps tackle challenging programming tasks in a maintainable way. While it takes effort to master, reactive programming with RxJS might just be an essential skill for modern JavaScript/TypeScript developers working on reactive web applications!</p>
+<h2 id="resources-and-references">Resources and references</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/office/dev/add-ins/excel/?view=excel-js-preview">Excel add-ins documentation</a>, Microsoft</li>
+<li><a href="https://www.learnrxjs.io/">Learn RxJS</a>, Learn RxJS</li>
+<li><a href="https://rxjs.dev/">RxJS - Reactive Extensions Library for JavaScript</a>, RxJS</li>
+<li><a href="https://www.youtube.com/watch?v=lkUrkNdczpI&amp;list=PLj2oFNVaxfJ8nRFUA2CLyt8TymA0_vQux&amp;index=1">RxJS <span class="amp">&amp;</span> Reactive Programming</a>, Josh Ribakoff</li>
+<li><a href="https://rxjs.dev/guide/testing/marble-testing">RxJS Marbles - Testing</a>, RxJS</li>
+<li><a href="https://rxmarbles.com/">RxJS Marbles</a>, RxJS Marbles</li>
+</ul></div>
+
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_identifier = "posts/2023/10/01/first-steps-with-rxjs/";
+      (function () {
+        var dsq = document.createElement("script");
+        dsq.type = "text/javascript";
+        dsq.async = true;
+        dsq.src = "//sglavoie.disqus.com/embed.js";
+        (
+          document.getElementsByTagName("head")[0] ||
+          document.getElementsByTagName("body")[0]
+        ).appendChild(dsq);
+      })();
+    </script>
+  </div>
+</article>
+        </main>
+    </div>
+
+    <footer>
+      <hr />
+      <p>
+        &copy; Sébastien Lavoie. Built with
+        <a
+          href="https://www.python.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><svg
+            width="1em"
+            height="1em"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M13.0164 2C10.8193 2 9.03825 3.72453 9.03825 5.85185V8.51852H15.9235V9.25926H5.97814C3.78107 9.25926 2 10.9838 2 13.1111L2 18.8889C2 21.0162 3.78107 22.7407 5.97814 22.7407H8.27322V19.4815C8.27322 17.3542 10.0543 15.6296 12.2514 15.6296H19.5956C21.4547 15.6296 22.9617 14.1704 22.9617 12.3704V5.85185C22.9617 3.72453 21.1807 2 18.9836 2H13.0164ZM12.0984 6.74074C12.8589 6.74074 13.4754 6.14378 13.4754 5.40741C13.4754 4.67103 12.8589 4.07407 12.0984 4.07407C11.3378 4.07407 10.7213 4.67103 10.7213 5.40741C10.7213 6.14378 11.3378 6.74074 12.0984 6.74074Z"
+              fill="url(#paint0_linear_87_8204)"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M18.9834 30C21.1805 30 22.9616 28.2755 22.9616 26.1482V23.4815L16.0763 23.4815L16.0763 22.7408L26.0217 22.7408C28.2188 22.7408 29.9998 21.0162 29.9998 18.8889V13.1111C29.9998 10.9838 28.2188 9.25928 26.0217 9.25928L23.7266 9.25928V12.5185C23.7266 14.6459 21.9455 16.3704 19.7485 16.3704L12.4042 16.3704C10.5451 16.3704 9.03809 17.8296 9.03809 19.6296L9.03809 26.1482C9.03809 28.2755 10.8192 30 13.0162 30H18.9834ZM19.9015 25.2593C19.1409 25.2593 18.5244 25.8562 18.5244 26.5926C18.5244 27.329 19.1409 27.9259 19.9015 27.9259C20.662 27.9259 21.2785 27.329 21.2785 26.5926C21.2785 25.8562 20.662 25.2593 19.9015 25.2593Z"
+              fill="url(#paint1_linear_87_8204)"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear_87_8204"
+                x1="12.4809"
+                y1="2"
+                x2="12.4809"
+                y2="22.7407"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#327EBD" />
+                <stop offset="1" stop-color="#1565A7" />
+              </linearGradient>
+              <linearGradient
+                id="paint1_linear_87_8204"
+                x1="19.519"
+                y1="9.25928"
+                x2="19.519"
+                y2="30"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#FFDA4B" />
+                <stop offset="1" stop-color="#F9C600" />
+              </linearGradient>
+            </defs>
+          </svg>
+          Python</a
+        >
+        using
+        <a
+          href="http://getpelican.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><svg
+            fill="hsl(211, 100%, 95%)"
+            width="1em"
+            height="1em"
+            viewBox="0 0 24 24"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Pelican icon</title>
+            <path
+              d="M.9418 0c.342 1.0548 1.8764 2.1857 2.9063 2.6238 1.3134.5583 2.5984.6849 3.7501.8122.895.0963 1.7019.2014 2.3439.4998.1622.0726.3288.148.4688.2499.4586.3364.9464.9876 1.2813 1.4368.7186.9583.5858 1.7451 1.4375 2.2178.089.0492.1683.083.2813.125.271.1018.667.2273.8437-.1563a.788.788 0 00.0625-.1874c-.0712-.229-.321-.4327-.4687-.531-.2618-.171-.3735-.274-.5625-.4685-.3494-.3583-.348-.9508-.5938-1.3744.3092-.131 1.9392-.3597 2.2813-.3124.7313.0326 1.31.0782 1.75.531.1727.1365.2497.2567.4064.3749.011.009.0202.024.0312.0312.6933.5037 1.3388.6705 1.9063.8434.1496.0454.2988.1054.4375.1562.213.0763.4065.1594.5938.281.2222.1474.6089.542.625.8747-.5587-.1783-.207.0323-1.0313-.0312-.4019-.0456-.8058-.0647-1.2187-.0937-.6422-.0454-1.273-.1043-1.8751-.2187-.1002-.0184-.2146-.0388-.3125-.0625-.0766-.0163-.146-.011-.2188-.0312-.0018.0308 0 .0353 0 .0625-.0166.6292.4214.9586-.5938 2.1553-.009.0127-.0204.0167-.0312.0312-.2695.3147-1.657.9163-2.0938 1.0308-1.8593.3728-3.292-.828-5.5315-.2187-.7877.2928-1.3567 1.5756-1.7188 2.5302-.482 1.2677-.8758 2.7956-1.3126 4.3106-.2.6982-.4178 1.4015-.6562 2.0616-.575 1.584-1.3113 2.9428-2.4064 3.717-.1638.1256-.787.41-.8125.6248.404.2037 4.185.056 4.8127 0 2.5033-.2184 3.6468-1.7733 4.4689-3.9045.5659-1.462 1.065-3.9864 2.0313-5.3102.0128-.0182.0183-.015.0313-.0312.1456-.1967.327-.3691.5-.4998.0454-.0347.0775-.0648.125-.0937.0344-.0219.1566-.0592.3438-.0937 1.7357-.3074 9.3491-1.3474 9.844-6.872.051-.5581.0158-1.1588-.0937-1.8117-.0543-.3364-.115-.6653-.2187-1.0308-.2457-.8691-.7981-1.614-1.5313-2.2177-.1926-.16-.405-.3285-.625-.4686-.846-.54-1.8774-.921-2.969-1.1557-.7332-.1582-1.4874-.239-2.25-.25C9.8402.0326 6.3978.2075.9418 0zm1.625 4.2169c.0235.0382.0389.0574.0625.0937C4.2284 6.8382 6.239 6.8135 8.067 7.0281c.666.0782 1.317.1849 1.9063.4686.262.1235.5116.2649.75.4685-.0292-.131-.076-.2564-.125-.3748-.444-1.0763-1.6487-1.6661-2.6875-1.9679-1.3938-.4984-2.4038-.0181-5.344-1.4056zm1.4063 3.186c.0107.0528.0094.0946.0313.1563.2199.6346 1.0403 1.6503 2.0938 1.8741.4567.1636.315.1174 1.0938.0937 1.1406-.0581 1.692-.0793 2.5.25-.02-.0493-.0423-.1091-.0624-.1563C9.0074 8.175 8.2593 8.421 5.8794 8.2464c-1.0188-.3074-1.2587-.3415-1.9063-.8434z"
+            />
+          </svg>
+          Pelican</a
+        >.
+      </p>
+      <p id="rss-feed">
+        <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
+          ><svg
+            width="1em"
+            height="1em"
+            viewBox="0 0 44 44"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <title>RSS Feed</title>
+            <desc>Created with Sketch.</desc>
+            <defs></defs>
+            <g
+              id="Icons"
+              stroke="none"
+              stroke-width="1"
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <g
+                id="Color-"
+                transform="translate(-800.000000, -760.000000)"
+                fill="#FF9A00"
+              >
+                <path
+                  d="M800.000471,797.714286 C800.000471,794.243 802.81487,791.428571 806.286118,791.428571 C809.757367,791.428571 812.571765,794.243 812.571765,797.714286 C812.571765,801.185571 809.757367,804 806.286118,804 C802.81487,804 800.000471,801.185571 800.000471,797.714286 Z M844,804 L835.619661,804 C835.619661,784.358714 819.641547,768.380429 800.000471,768.380429 L800.000471,760 C824.261497,760 844,779.738714 844,804 Z M829.333543,804 L820.953204,804 C820.953204,792.446857 811.553019,783.048143 800,783.048143 L800,774.666143 C816.174541,774.666143 829.333543,787.825286 829.333543,804 Z"
+                  id="RSS"
+                ></path>
+              </g>
+            </g>
+          </svg>
+        </a>
+      </p>
+    </footer>
+  </body>
+</html>
