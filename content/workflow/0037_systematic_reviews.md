@@ -1,7 +1,7 @@
 Title: Systematic reviews
 Date: 2023-05-14 15:58
 Modified: 2023-05-17 21:02
-Tags: processes, planning
+Tags: processes, planning, software
 Slug: systematic-reviews
 Authors: Sébastien Lavoie
 Summary: I find learning about productivity fascinating, yet I'm aware that in the end, a simple set of rules and systems is what works best for me. These systems will continue to evolve over time, but I have found that the simpler they are, the more likely I am to stick with them. This post describes my current digital take on dealing with everyday life.

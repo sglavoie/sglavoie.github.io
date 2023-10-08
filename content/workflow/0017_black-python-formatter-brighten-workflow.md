@@ -1,6 +1,6 @@
 Title: Black: A Python Formatter to Brighten Your Workflow
 Date: 2019-07-13 13:10
-Tags: neovim, plugin, productivity, terminal, vim
+Tags: neovim, plugin, productivity, python, terminal, vim
 Slug: black-a-python-formatter-to-brighten-your-workflow
 Authors: Sébastien Lavoie
 Summary: Meet [Black](https://github.com/python/black), a superb Python code formatter that will automatically reformat your code in accordance to PEP-8 standards.
