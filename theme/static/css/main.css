@@ -944,7 +944,7 @@ ul.tagcloud {
   -ms-flex-pack: distribute;
   justify-content: space-around;
   list-style: none;
-  padding: 0;
+  padding: 2em 0;
   text-align: center;
 }
 ul.tagcloud li {
