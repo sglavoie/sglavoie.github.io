@@ -47,6 +47,15 @@
   font-style: normal;
   font-display: fallback;
 }
+@font-face {
+  font-family: "Lato";
+  font-stretch: 110%;
+  src: url("./fonts/lato-bold.woff2") format("woff2"),
+    url("./fonts/lato-bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: fallback;
+}
 
 @font-face {
   font-family: "SourceCodePro";
@@ -108,6 +117,7 @@
   --tint-700: hsl(211, 100%, 65%);
   --tint-800: hsl(211, 100%, 60%);
   --tint-900: hsl(211, 100%, 55%);
+  --tint-100-shadow: hsla(291, 47%, 60%, 60%);
 
   --tone-100: hsl(211, 90%, 50%);
   --tone-200: hsl(211, 80%, 50%);
@@ -944,7 +954,7 @@ ul.tagcloud {
   -ms-flex-pack: distribute;
   justify-content: space-around;
   list-style: none;
-  padding: 0;
+  padding: 2em 0;
   text-align: center;
 }
 ul.tagcloud li {

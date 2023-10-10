@@ -248,8 +248,8 @@
   main article h4,
   main article h5,
   main article h6 {
-    -webkit-filter: drop-shadow(1px -1px 1px var(--shade-200));
-    filter: drop-shadow(1px -1px 1px var(--shade-200));
+    -webkit-filter: drop-shadow(0px 1px 1px var(--tint-100-shadow));
+    filter: drop-shadow(0px 1px 1px var(--tint-100-shadow));
   }
 
   #pageContainer {
