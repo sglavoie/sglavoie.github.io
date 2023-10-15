@@ -135,7 +135,7 @@ MATH_JAX = {"color": "#007bff"}
 
 # https://github.com/pelican-plugins/tag-cloud
 TAG_CLOUD_BADGE = True
-TAG_CLOUD_SORTING = "alphabetically"
+TAG_CLOUD_SORTING = "random"
 TAG_CLOUD_MAX_ITEMS = 100
 TAG_CLOUD_STEPS = 8
 
