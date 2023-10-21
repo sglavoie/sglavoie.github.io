@@ -1,5 +1,6 @@
 Title: Book summary: Learning Go – An Idiomatic Approach to Real-World Go Programming
 Date: 2023-10-20 20:08
+Modified: 2023-10-21 17:43
 Tags: best practices, books, go
 Slug: book-summary-learning-go-idiomatic-approach-real-world-go-programming
 Authors: Sébastien Lavoie
@@ -46,7 +47,7 @@ build: vet
 .PHONY:build
 ```
 
-Typing `make` will run `fmt`, then `vet`, then `build` since the default task is `build`, which requires `vet` to have run first, which in turn requires `fat` to have run first, which in turn has no dependency, so `fmt` runs and the chain continues.
+Typing `make` will run `fmt`, then `vet`, then `build` since the default task is `build`, which requires `vet` to have run first, which in turn requires `fmt` to have run first, which in turn has no dependency, so `fmt` runs and the chain continues.
 
 - Testing whether a new version of Go works for existing programs compiled on an older version is straightforward:
 
@@ -75,7 +76,7 @@ rm $(go env GOPATH)/bin/go1.x.y
 - Zero value
     - Assigned to a variable that is declared with no initial value (doesn't lead to bugs like in C or C++).
 - Literals
-    - These express different bases, such as `0b` (binary), `0o` (octal) or `0x` (hexadecimal). As in other languages like Python or Java, underscores can be used to express large numbers.
+    - These express different bases, such as `0b` (binary), `0o` (octal) or `0x` (hexadecimal). As in other languages like Python or Java, underscores can be used to express large numbers by separating digits (e.g., `1_000_000`).
     - Floating point literals look like `6.03e23`.
     - Rune literals are represented with single quotes (no double quotes accepted). The most common ones are `('\n')`, tab `('\t')`, single quote `('\'')`, double quote `('\"')` and backslash `('\\')`. Other bases are supported but should be limited to specific contexts (e.g., bit filters for base two).
     - String literals can be written with double quotes, where everything must be escaped.
@@ -87,18 +88,18 @@ rm $(go env GOPATH)/bin/go1.x.y
         - `int8` (aliased `byte`, which is much more common), `int16`, `int32`, `int64`, `uint8`, `uint16`, `uint32`, `uint64`.
         - The zero value is 0.
         - Use the minimum size when needed for specific applications.
-        - Use `int64` and `uint64` for library functions (until generics are available).
+        - Use `int64` and `uint64` for library functions (suggested back when generics weren't available).
         - Otherwise, just use `int`. Other types should be considered a premature optimization until proven otherwise.
         - Variables can be modified like so: `+=`, `-=`, `*=`, `/=` and `%=`.
         - Available comparisons are: `==`, `!=`, `>`, `>=`, `<`, and `<=`.
         - Bit manipulations
             - Shifts: `<<` (left), `>>` (right)
             - Logical bit masks: `&` (`AND`), `|` (`OR`), `^` (`XOR`), `&^` (`AND NOT`)
-            - All operators can be used to modify a variable as well: `&=`, `|=`, `^=`, `&^=`, `<<=`, `>>=`.
+            - These operators can be used to modify a variable as well: `&=`, `|=`, `^=`, `&^=`, `<<=`, `>>=`.
 - Floating point types
     - `float32`, `float64`.
     - The zero value is 0.
-    - If using a floating point number, default to `float64` unless a profiler shows significant improvement with `float32` and the precision is good enough (6-7 decimal places).
+    - If using a floating point number, opt for `float64` unless a profiler shows significant improvement with `float32` and the precision is good enough (6-7 decimal places).
     - Strict equality (or inequality) should not be done on floating point numbers: check the variance instead (less than epsilon).
 - Complex types
     - `complex64` uses `float32` to represent real and imaginary parts, while `complex128` uses `float64`, using the `complex` built-in function and `real` and `image` functions to extract the relevant parts.
@@ -126,9 +127,9 @@ var x, y = 1, "hi"  // different default types
 
 // Declaration list
 var (
-  x   int
-  y       = 2
-  z   string
+    x int
+    y = 2
+    z string
 )
 ```
 
@@ -142,9 +143,9 @@ x := 1    // invalid syntax outside a function
 
 Avoid `:=` in the following situations:
 
-- When explicitly initialize a zero value, like `var x int`.
-- To avoid a type conversion, by writing `var x byte = 8` instead of `x := byte(8)`.
-- To avoid "shadowing" a variable, as `:=` can be used to assign to existing variables. Create new variables with `var`.
+- When explicitly initializing a *zero value*, like `var x int`.
+- To avoid a *type conversion*, by writing `var x byte = 8` instead of `x := byte(8)`.
+- To avoid "*shadowing*" a variable, as `:=` can be used to assign to existing variables. Create new variables with `var`.
 - Non-constant package-level variables are a bad idea. If they're unused, they go unnoticed without raising compile-time errors.
 
 ## `const`
@@ -176,14 +177,14 @@ Avoid `:=` in the following situations:
 - They can be compared (`==` and `!=`).
 - Their length is retrieved with the built-in `len` function.
 - Negative indexing is a compile-time error.
-- Out-of-bounds indexing results in a panic at runtime.
-- Unless there's a very specific need to use a given size of array (e.g., for a cryptographic library), avoid them.
-- They exist basically to provide slices.
-  - There are a few ways of declaring arrays:
+- Out-of-bounds indexing results in a **panic** at runtime.
+- Unless there's a very specific need to use a given size of array (e.g., for a cryptographic library), *avoid them*.
+- They exist basically to *provide slices*.
+    - There are a few ways of declaring arrays:
 
 ```{.go}
 // indicate the size and type
-var x [3]int // 3 integers with zero value
+var x [3]int // 3 integers assigned to the zero value
 
 // array literal
 var x = [3]int{10, 20, 30} // values specified
@@ -207,7 +208,7 @@ fmt.Println(x[2])
 - Reads and assignments are the same as with arrays, using square brackets.
 - Slices can be created without assigning initial values: `var x []int`.
 - Slices aren't comparable, except to check if it is nil (`x == nil`).
-- They're useful for sequential data.
+- They're useful for *sequential data*.
 
 ### `len`
 
@@ -223,6 +224,8 @@ x = append(x, 10) // returns a slice
 x = append(x, 5, 6, 7) // more than one value
 
 // append to another slice with `...`
+// Similar to the spread operator in JavaScript,
+// but it goes after the value to spread
 y := []int{20, 30, 40}
 x = append(x, y...)
 ```
@@ -265,9 +268,9 @@ y := x[:2]
 z := x[1:]
 
 // These are bidirectional changes!
-x[1] = 20              // affects `x`, `y` and `z`
-y[0] = 10              // affects `x` and `y`
-z[1] = 30              // affects `x` and `z`
+x[1] = 20  // affects `x`, `y` and `z`
+y[0] = 10  // affects `x` and `y`
+z[1] = 30  // affects `x` and `z`
 
 // Result:
 // x: [10 20 30 4]
@@ -299,7 +302,7 @@ z = append(z, 70)
 // z is now [30 40 70], length 3, capacity 3
 ```
 
-One way to avoid this issue is to use *full slice expressions- to indicate the capacity of the subslices:
+One way to avoid this issue is to use *full slice expressions* to indicate the capacity of the sub-slices:
 
 ```{.go}
 x := make([]int, 0, 5)
@@ -394,7 +397,7 @@ fmt.Println(s[:2], s[7:]) // He ���: the emoji is 4 bytes long
 - The zero value for a map is `nil`.
 - Writing to a `nil` map results in a runtime panic.
 - `len` on a map returns the number of key/value pairs.
-- Maps are not comparable (can check against `nil`).
+- Maps are not comparable (but they can check against `nil`).
 - The key must be comparable: it cannot be a slice, map or function.
 - Maps are good when the order of the keys doesn't matter: use a slice when it does.
 - All the values must be of the same type, but *the keys can be of different types*.
@@ -408,7 +411,7 @@ var nilMap map[string]int
 // map literal: length of 0
 myMap := map[string]int{}  // allows reads and writes
 
-// Nonempty map
+// Non-empty map
 reposByOrg := map[string][]string{
     "dbeaver":   []string{"dbeaver", "cloudbeaver", "team-edition-deploy"},
     "slidevjs":  []string{"slidev", "slidev-vscode", "themes"},
@@ -446,7 +449,7 @@ value, ok = reposByOrgStars["notfound"]  // 0 false
 delete(reposByOrgStars, "ReactiveX")
 
 // It is safe to delete a key that doesn't exist
-delete(reposByOrgStars, "notfound")    // it returns nothing
+delete(reposByOrgStars, "notfound")  // it returns nothing
 
 // It is safe to delete a key from a nil map
 var nilMap map[string]int
@@ -578,7 +581,7 @@ func main() {
 }
 ```
 
-Usual linters won't catch shadowing, but we can install `shadow`:
+Linters typically won't catch shadowing, but we can install `shadow`:
 
 ```{.bash}
 go install golang.org/x/tools/go/analysis/passes/shadow/cmd/shadow@latest
@@ -596,7 +599,7 @@ lint: fmt
 ## `if` statements
 
 - The condition must be a boolean expression.
-- The usual flow is `if`, `else if`, `else`.
+- The usual flow is `if ... {...} else if ... { ... } else { ... }`.
 - There are no parentheses around the condition.
 - Variables can be scoped to the `if` statement (they'll be available in `else if` and `else` blocks as well). Only use that feature to define new variables!
 
@@ -748,6 +751,16 @@ outer:
         }
         fmt.Println()
     }
+
+/* Output:
+0 104 h
+1 101 e
+2 108 l
+0 119 w
+1 111 o
+2 114 r
+3 108 l
+*/
 ```
 
 This code will skip the remaining letters of both words once the first `l` is printed out for each one.
@@ -840,7 +853,7 @@ func main() {
 - Types are mandatory.
 - The `return` keyword is mandatory (except for `main`) if the function has a return type.
 - Nothing goes between the input parameters and the start of the block if there's no return type.
-- Go has no named or optional input parameters: you can pass structs instead. In practice, that probably means the function is trying to do too much.
+- Go has no named or optional input parameters: you can pass structs instead. In practice, that probably means the function is trying to do too much if you need this feature.
 - Go supports variadic parameters (e.g., the `fmt.Println` function) with `...` right before the type: they are used as a slice inside the function.
 - Functions can return multiple values. They must all be returned, comma-separated. Unlike Python which uses tuples, Go uses the comma to separate the individual values.
 - The error is always the last parameter a function will return. If no error occurred, it will be `nil`.
@@ -882,7 +895,7 @@ func divAndRemainder(numerator int, denominator int) (result int, remainder int,
 
 ## Functions are values
 
-- Functions can be defined as types, e.g. `type aFuncType func(int, int) int`.
+- Functions can be defined as types, e.g., `type aFuncType func(int, int) int`.
 - Anonymous functions can be defined inside other functions and called immediately (IIFE). This comes in handy when using [`defer`](#defer) and [Goroutines](#chapter-10-concurrency-in-go).
 
 ### Closures
@@ -918,7 +931,8 @@ func main() {
 
     // `people` is captured by the closure
     sort.Slice(people, func(i int, j int) bool {
-        // If one person has a pet and the other doesn't, prioritize the one with the pet.
+        // If one person has a pet and the other doesn't,
+        // prioritize the one with the pet.
         if people[i].HasPet != people[j].HasPet {
             return people[i].HasPet
         }
@@ -982,7 +996,7 @@ func getResult(initialValue int) func(int) int {
 
 ### `defer`
 
-- This is used to perform the cleanup code, such as closing a file, after a function has returned. This is similar to the `finally` block in Java or Python.
+- This is used to perform the cleanup code, such as closing a file, after a function has returned. This is similar to the `finally` block in Java or Python but it executes at the very end of the function, not as part of a `try...except` block.
 - It delays the execution of a function until the surrounding function returns.
 - They run in LIFO (last in, first out) order.
 - The code that runs after `defer` is literally the last thing that runs before the function returns, so what is put there is immediately "called" (e.g., `defer close()`) but will run until later.
@@ -997,10 +1011,10 @@ func getResult(initialValue int) func(int) int {
 
 # Chapter 6: Pointers
 
-- A pointer is a variable that holds the address of a value in memory.
+- *A pointer is a variable that holds the address of a value in memory*.
 - The zero value of a pointer is `nil`.
-- `&` is the address-of operator. It goes before the variable name to get its address.
-- `*` is the indirection (dereference) operator. It goes before a pointer to get the value it points to.
+- `&` is the *address-of operator*. It goes before the variable name to get its address.
+- `*` is the *indirection operator* (dereference). It goes before a pointer to get the value it points to.
 - Dereferencing a `nil` pointer will result in a runtime panic.
 - Types with an `*` are pointers to that type ("pointer type").
 - `new` is a built-in function that allocates memory for a type and returns a pointer to it.
@@ -1015,7 +1029,7 @@ func getResult(initialValue int) func(int) int {
 ```{.go}
 var x int = 10
 var y *int = &x
-fmt.Println(x, y) // 10 0xc0000b4008
+fmt.Println(x, y)   // 10 0xc0000b4008
 fmt.Println(&x, *y) // 0xc0000b4008 10
 
 // The zero value of a pointer is nil
@@ -1030,7 +1044,8 @@ var a *int = new(int)
 fmt.Println(a) // 0xc0000b4010
 fmt.Println(*a) // 0
 
-// To turn a constant into a pointer, use a helper function that takes a value and returns a pointer to it
+// To turn a constant into a pointer, use a helper function that takes a value
+// and returns a pointer to it
 func intPtr(i int) *int {
     return &i
 }
@@ -1273,9 +1288,9 @@ func main() {
 func main() {
     var i interface{} = 42
     v1, ok1 := i.(int)
-    fmt.Println(v1, ok1) // 42 true
+    fmt.Println(v1, ok1)      // 42 true
     v2, ok2 := i.(string)
-    fmt.Println(v2, ok2) // "" false
+    fmt.Println(v2, ok2)      // "" false
 
     // type switch
     switch v := i.(type) {
@@ -1283,7 +1298,7 @@ func main() {
         fmt.Println("int", v) // int 42
     case string:
         fmt.Println("string", v)
-    case float64, float32: // check both at once
+    case float64, float32:    // check both at once
         fmt.Println("float", v)
     default:
         fmt.Println("unknown", v)
@@ -1469,7 +1484,7 @@ func main() {
 
 # Chapter 8: Errors
 
-- Go does not have exceptions.
+- *Go does not have exceptions*.
 - Errors are values.
 - They are the last return value of a function (by convention).
 - The `error` interface is defined in the standard library.
@@ -1514,10 +1529,10 @@ func main() {
 
 ## Panic and recover
 
-- A panic is used to indicate that the program cannot continue (e.g., out of memory error or trying to read beyond the end of a slice).
+- A **panic** is used to indicate that the program cannot continue (e.g., out of memory error or trying to read beyond the end of a slice).
 - When a panic occurs, the program stops executing and the stack is unwound, running all deferred functions until the `main` function is reached.
 - `panic` and `recover` are not intended to be used for error handling.
-- It is better to explicitly handle errors than to use `panic` and `recover` because it is not clear in `recover` what failed exactly.
+- It is better to explicitly handle errors than to use `panic` and `recover` because it is not clear when calling `recover` what failed exactly.
 
 ## Getting a Stack Trace from an Error
 
@@ -1539,8 +1554,8 @@ func main() {
 - The minimum version of Go required to build the module can be specified with `go mod init MODULE_PATH GO_VERSION` and it appears in the `go.mod` file below the module declaration.
 - There can be a `require` directive for each dependency.
 - There are also two optional sections: `replace` and `exclude`.
-  - `replace` is used to replace a dependency with a local version.
-  - `exclude` is used to exclude a dependency from the build.
+    - `replace` is used to replace a dependency with a local version.
+    - `exclude` is used to exclude a dependency from the build.
 
 ```{.go}
 // Example of a go.mod file
@@ -1559,18 +1574,18 @@ require (
 ### Imports and exports
 
 - Import statements allow accessing exported constants, variables, functions and types from another package.
-- An exported identifier starts with a capital letter. It cannot be accessed from another package without an import statement.
+- *An exported identifier starts with a capital letter*. It cannot be accessed from another package without an import statement.
 
 ### Creating and accessing packages
 
 - The first line of the file should be `package {PACKAGE_NAME}`. It's a *package clause*.
 - Next is the import section.
-  - Importing from the standard library doesn't require a path.
-  - Any other imports require a path, using the module path as a prefix and appending the path to the package.
-  - Not using any identifier from a path will result in a compiler error. Hence, all code included in the build will be used.
-  - It is best to always use absolute paths for clarity.
-  - The name of a package is determined by its package clause, *not by the path* being imported. In general, the package name should match the last element of the path.
-  - The `main` package cannot be imported as it is the entrypoint of the application.
+    - Importing from the standard library doesn't require a path.
+    - Any other imports require a path, using the module path as a prefix and appending the path to the package.
+    - Not using any identifier from a path will result in a compiler error. Hence, all code included in the build will be used.
+    - It is best to always use absolute paths for clarity.
+    - The name of a package is determined by its package clause, *not by the path* being imported. In general, the package name should match the last element of the path.
+    - The `main` package cannot be imported as it is the entrypoint of the application.
 - Package names are in the file block: the package name is the same for all files in the same directory and must be present.
 
 ### Naming packages
@@ -1584,13 +1599,13 @@ require (
 - There is no official structure.
 - The `cmd` directory is used for executables. There can be multiple executables produced by different applications from a module.
 - When there are a bunch of files at the root to manage deployment and testing, it is a good pattern to put all packages inside a `pkg` directory.
-  - Inside `pkg`, limit dependencies between packages by organizing the code according to the functionality it provides.
-  - A good primer on the topic is [GopherCon 2018: Kat Zien - How Do You Structure Your Go Apps][organize-apps-yt].
+    - Inside `pkg`, limit dependencies between packages by organizing the code according to the functionality it provides.
+    - A good primer on the topic is [GopherCon 2018: Kat Zien - How Do You Structure Your Go Apps][organize-apps-yt].
 
 ### Overriding a package's name
 
 - When names collide, you can use an alias to rename a package.
-  - In the standard library, both `"crypto/rand"` and `"math/rand"` are imported as `"rand"`, but they can be disambiguated with an alias such as `crand "crypto/rand"`.
+    - In the standard library, both `"crypto/rand"` and `"math/rand"` are imported as `"rand"`, but they can be disambiguated with an alias such as `crand "crypto/rand"`.
 - Using the `.` alias is discouraged because it makes it harder to understand where a function is coming from as it will import all exported identifiers from the current namespace (same idea as `import * from ...` in Python).
 - Package names can be shadowed, which renders it inaccessible. Always resolve conflicts by using an alias instead.
 
@@ -1601,7 +1616,7 @@ require (
 - A blank line with `//` is used to create paragraphs.
 - Preformatted text can be inserted with indentation.
 - Comments before the package clause create package-level documentation.
-  - If the package has a lot of documentation, it is better to put it in a separate file called `doc.go`.
+    - If the package has a lot of documentation, it is better to put it in a separate file called `doc.go`.
 - Comments should start with the name of the item being documented.
 
 ### Internal package
@@ -1614,11 +1629,11 @@ require (
 - If there is an `init` function in a package, it runs as soon as the package is referenced by another package.
 - It has not input or output parameters and can only cause side-effects within the package.
 - There can be multiple `init` functions in a package, even in the same file, although this setup is discouraged.
-- A blank import can be used to run the `init` function of a package without using any of its exported identifiers, e.g. `import _ "github.com/lib/pq"`. Explicit is better than implicit: this is an obsolete pattern.
+- A blank import can be used to run the `init` function of a package without using any of its exported identifiers, e.g., `import _ "github.com/lib/pq"`. Explicit is better than implicit: this is an obsolete pattern.
 
 ### Circular dependencies
 
-- They are not allowed to keep the code readable and the compiler fast.
+- They are **not allowed** to keep the code readable and the compiler fast.
 - If two packages depend on each other, they should probably be merged into a single package.
 - If two packages with circular dependencies are still preferred, it may be possible to move only the culprits into a separate package so that both packages can import them.
 
@@ -1641,18 +1656,18 @@ require (
 ### Working with versions
 
 - `go list` is used to list dependencies used by a project.
-  - By default, it lists packages used.
-  - The `-m` flag is used to list modules used.
-  - Appending the `-versions` flag to the previous command lists all versions of the dependencies.
+    - By default, it lists packages used.
+    - The `-m` flag is used to list modules used.
+    - Appending the `-versions` flag to the previous command lists all versions of the dependencies.
 - `go get` can be used to downgrade or upgrade a dependency (e.g., `go get github.com/{USER}/{PROJECT}@v1.0.0`).
-  - It can also be used to add a new dependency.
-  - It can be used to remove a dependency by adding the `-u` flag.
-  - Changes will be reflected in `go.mod` and `go.sum`.
+    - It can also be used to add a new dependency.
+    - It can be used to remove a dependency by adding the `-u` flag.
+    - Changes will be reflected in `go.mod` and `go.sum`.
 - Dependencies might be shown with `// indirect` next to them. This means that the dependency is not used directly by the project, but by one of its dependencies.
-  - It can be added when the project uses that dependency directly with a newer version than what is declared in the dependency's `go.mod` file.
+    - It can be added when the project uses that dependency directly with a newer version than what is declared in the dependency's `go.mod` file.
 - Go follows semantic versioning (*SemVer*).
 - There is an *import compatibility rule*: all minor and patch versions should remain compatible and if not, this is considered a bug.
-  - Instead of importing multiple versions of the same library as with `npm`, Go will import the highest version of the library that satisfies the requirements.
+    - Instead of importing multiple versions of the same library as with `npm`, Go will import the highest version of the library that satisfies the requirements.
 
 ### Updating to compatible versions
 
@@ -1661,7 +1676,7 @@ require (
 
 ### Updating to incompatible versions
 
-- Go follows the *semantic import versioning* rule: for all major versions greater than `1`, the major version is included in the import path, e.g. `"github.com/{USER}/{PROJECT}/v2"`.
+- Go follows the *semantic import versioning* rule: for all major versions greater than `1`, the major version is included in the import path, e.g., `"github.com/{USER}/{PROJECT}/v2"`.
 - Once a new major version is used in the project, `go build` will update the `go.mod` file to use the new major version.
 - Older versions may still be present in `go.mod`: `go mod tidy` can be used to remove them.
 
@@ -1685,16 +1700,16 @@ require (
 
 - Minor and patch versions should be compatible and are easy to manage.
 - Major versions are slightly more difficult to manage. For instance, let's go from `v1` to `v2`.
-  - Create a directory to put all the old code in, named `v2`, including `README` and `LICENSE` files.
-  - Create a branch.
-    - Name the branch `v1` if the old code goes in it.
-    - Name the branch `v2` if the new code goes in it.
-  - Make sure the module path in `go.mod` ends with `/v2`.
-  - Update all import paths to use the new module path.
-  - Create a tag for the new version.
-    - Name the tag `v2.0.0`.
-    - Tag the `main` branch if the new code goes in it.
-    - Otherwise, tag the `v2` branch.
+    - Create a directory to put all the old code in, named `v2`, including `README` and `LICENSE` files.
+    - Create a branch.
+        - Name the branch `v1` if the old code goes in it.
+        - Name the branch `v2` if the new code goes in it.
+    - Make sure the module path in `go.mod` ends with `/v2`.
+    - Update all import paths to use the new module path.
+    - Create a tag for the new version.
+        - Name the tag `v2.0.0`.
+        - Tag the `main` branch if the new code goes in it.
+        - Otherwise, tag the `v2` branch.
 - If breaking changes might be introduced while on the new version, use a pre-release version, e.g., `v2.0.0-alpha.1`.
 - The open source project [`mod`][mod] can be used to automate this process.
 - The Go Blog has a [post][go-blog-modules] on the topic.
@@ -1718,8 +1733,8 @@ require (
 ## When to use concurrency
 
 - *Concurrency is not parallelism*.
-- Concurrency is useful when there are multiple tasks that can be executed independently.
-- Concurrency brings benefits when a process takes a long time to complete.
+- Concurrency is useful *when there are multiple tasks that can be executed independently*.
+- Concurrency brings benefits *when a process takes a long time to complete*.
 - Read [The Art of Concurrency][art-of-concurrency] for more information.
 - The book [Concurrency in Go][concurrency-in-go] is also a great resource.
 
@@ -1730,22 +1745,22 @@ require (
 - They are memory efficient because they are allocated on the stack with small initial sizes.
 - Switching between goroutines is fast because it is managed by the Go runtime within a process.
 - Go optimizes how work is distributed across goroutines.
-  - For more details on this, watch [GopherCon 2018: Kavya Joshi - The Scheduler Saga][scheduler-saga].
+    - For more details on this, watch [GopherCon 2018: Kavya Joshi - The Scheduler Saga][scheduler-saga].
 - A goroutine starts by calling a function with the `go` keyword in front of it.
 
 ## Channels
 
-- Channels are used to communicate between goroutines.
-- They are a built-in type that require the `make` function to create them, e.g. `ch := make(chan int)`.
+- Channels are *used to communicate between goroutines*.
+- They are a built-in type that require the `make` function to create them, e.g., `ch := make(chan int)`.
 - The zero value of a channel is `nil`.
 - They are passed as parameters to functions as a pointer.
 
 ### Reading, writing, buffering
 
-- The `<-` operator is used to send and receive data from a channel. It indicates the direction of the data flow.
-- A function parameter can specify the direction of the channel, e.g. `func f(ch <-chan int)` will make it so that the channel can only be read from. Likewise, `func f(ch chan<- int)` will make it so that the channel can only be written to.
+- The `<-` operator is used to send and receive data from a channel. *It indicates the direction of the data flow*.
+- A function parameter can specify the direction of the channel, e.g., `func f(ch <-chan int)` will make it so that the channel can only be read from. Likewise, `func f(ch chan<- int)` will make it so that the channel can only be written to.
 - By default, channels are *unbuffered*, meaning that they can only hold one value at a time. They should be used most of the time.
-- A channel can be buffered by specifying the buffer size when creating it, e.g. `ch := make(chan int, 10)`.
+- A channel can be buffered by specifying the buffer size when creating it. E.g., `ch := make(chan int, 10)`.
 - `len(ch)` is used to get the number of elements in the channel.
 - `cap(ch)` is used to get the capacity of the channel.
 - The capacity of a channel cannot be changed after it is created.
@@ -1767,8 +1782,8 @@ for v:= range ch {
 - Writing to a closed channel will result in a runtime panic.
 - Attempting to read from a closed unbuffered channel will return the zero value of the channel's type.
 - Reading from a closed buffered channel will return the remaining values in the channel until it is empty, then it will return the zero value of the channel's type.
-- To know if a channel is closed, use the second return value of the receive operation with the *comma ok* idiom, e.g. `v, ok := <-ch`.
-  - `ok` will be `true` if the channel is open and `false` if it is closed.
+- To know if a channel is closed, use the second return value of the receive operation with the *comma ok* idiom, e.g., `v, ok := <-ch`.
+    - `ok` will be `true` if the channel is open and `false` if it is closed.
 
 ### How channels behave
 
@@ -1785,7 +1800,7 @@ for v:= range ch {
 - If multiple `case` statements are ready, one is chosen at random -- with `switch`, the first match is always chosen. This solves the starvation problem since all cases are checked at once.
 - `select` also deals with deadlock issues: if all channels are blocked, it will execute the `default` case.
 - `select` is often used in a loop to keep reading from a channel until it is closed.
-  - Having a `default` case inside a loop for a `select` is most certainly not what is intended as it will run constantly.
+    - Having a `default` case inside a loop for a `select` is most certainly not what is intended as it will run constantly.
 
 ## Concurrency practices and patterns
 
@@ -1821,7 +1836,7 @@ for _, v := range a {
 ### "Done channel pattern"
 
 - If multiple goroutines are running, it is useful to have a way to signal them to stop.
-- A channel (`done`) can be used to signal the goroutines to stop.
+- A channel (named `done`) can be used to signal the goroutines to stop.
 
 ### Using a cancel function to terminate a goroutine
 
@@ -1933,7 +1948,7 @@ func main() {
 - Mutexes limit access to a resource to a single goroutine at a time with a locking mechanism (`Lock` and `Unlock`, which must be used carefully to avoid creating deadlocks, especially in functions implemented recursively).
 - They require to do more bookkeeping than channels.
 - They should never be copied, just like `sync.WaitGroup` and `sync.Once`.
-- Use mutexes when there is a shared resource that needs to be protected, such as a field in a struct.
+- Use mutexes *when there is a shared resource that needs to be protected*, such as a field in a struct.
 - `RWMutex` is used when there are multiple readers and a single writer. The *critical section* is protected by a write lock, while the read lock is used to read the resource by multiple goroutines.
 - Sometimes, performance issues with channels can be solved by using mutexes instead.
 
@@ -1961,7 +1976,7 @@ func main() {
 ## `time`
 
 - `time` is used to work with dates and times.
-- `time.Time` is used to represent a date and time.
+- `time.Time` is used to represent a date and time. It includes the usual constants for days of the week, months, etc.
 - `time.Duration` is used to represent a duration.
 - `time.Parse` is used to parse a string into a `time.Time` value.
 - `time.Format` is used to format a `time.Time` value into a string.
@@ -1977,12 +1992,11 @@ func main() {
 - `time.Until` is used to get the time until a specified time.
 - `time.AfterFunc` is used to execute a function after a specified duration.
 - Use `Equal` to compare two `time.Time` values.
-- `time.Time` includes the usual constants for days of the week, months, etc.
 
 ### Monotonic time
 
 - Go uses a monotonic clock to measure time.
-- A monotonic clock is a clock that counts up from the start of the computer.
+- A monotonic clock is *a clock that counts up from the start of the computer*.
 
 ### Timers and timeouts
 
@@ -2000,7 +2014,7 @@ func main() {
 - They can span only one line, taking the format `` `tagName:"tagValue"` ``.
 - `go vet` can be used to check for struct tags validity.
 - If no struct tag is specified, the field name will be used instead.
-- Use a `-` for a field name to ignore it.
+- Use a `-` (dash) for a field name to ignore it.
 - `,omitempty` can be added right after the field name to omit a field if it is empty.
 - While annotations can make the code more declarative and short, they can also make it harder to read and understand. **Go** for readability first.
 
@@ -2057,15 +2071,15 @@ func main() {
 A server can do a few things to manage its load:
 
 - It can limit the number of concurrent requests it accepts.
-  - It can be done by limiting the number of goroutines.
+    - It can be done by limiting the number of goroutines.
 - It can limit the number of requests queued up.
-  - This can be handled with a buffered channel.
+    - This can be handled with a buffered channel.
 - Limit the amount of time a request can take.
-  - The context can be used to do this.
-  - `context.WithTimeout` is used to create a context that will be cancelled after a specified duration.
-  - `context.WithDeadline` is used to create a context that will be cancelled at a specified time.
+    - The context can be used to do this.
+    - `context.WithTimeout` is used to create a context that will be cancelled after a specified duration.
+    - `context.WithDeadline` is used to create a context that will be cancelled at a specified time.
 - Limit the resources a request can use (memory, disk space...).
-  - There is no built-in solution for this in Go.
+    - There is no built-in solution for this in Go.
 
 ## Values
 
@@ -2092,12 +2106,12 @@ A server can do a few things to manage its load:
 ### Setting up and tearing down
 
 - `TestMain` is used to set up and tear down tests.
-  - It is called *once* before and after all tests, not between each test.
-  - Can be used to set up and tear down a database, for instance.
-  - It can be used when package-level variables need to be initialized, although this probably means the code needs refactoring.
-  - It takes a `*testing.M` parameter. Setup can be done at the beginning, then `exitVal := m.Run()` is called to run tests, then teardown can be done at the end, returning the exit value with `os.Exit(exitVal)`.
+    - It is called *once* before and after all tests, not between each test.
+    - Can be used to set up and tear down a database, for instance.
+    - It can be used when package-level variables need to be initialized, although this probably means the code needs refactoring.
+    - It takes a `*testing.M` parameter. Setup can be done at the beginning, then `exitVal := m.Run()` is called to run tests, then teardown can be done at the end, returning the exit value with `os.Exit(exitVal)`.
 - Individual test functions receive a `*testing.T` parameter, which has a `Cleanup` method that can be used to clean up after a test.
-  - The `Cleanup` method is similar to the `defer` statement but can be useful is the cleanup actions are performed for multiple tests from a helper function.
+    - The `Cleanup` method is similar to the `defer` statement but can be useful is the cleanup actions are performed for multiple tests from a helper function.
 
 ### Storing sample test data
 
@@ -2253,13 +2267,13 @@ func TestFileLen(t *testing.T) {
 
 - This can be used to work with data that didn't exist at compile time.
 - Use cases:
-  - Reading and writing from a database;
-  - Template engines;
-  - `fmt` uses it heavily;
-  - `errors` uses it to implement `errors.Is` and `errors.As`;
-  - `sort` uses it to sort slices of arbitrary types;
-  - Marshalling/unmarshalling JSON and XML;
-  - Comparing maps or slices for deep equality with `reflect.DeepEqual`.
+    - Reading and writing from a database;
+    - Template engines;
+    - `fmt` uses it heavily;
+    - `errors` uses it to implement `errors.Is` and `errors.As`;
+    - `sort` uses it to sort slices of arbitrary types;
+    - Marshalling/unmarshalling JSON and XML;
+    - Comparing maps or slices for deep equality with `reflect.DeepEqual`.
 
 ### Types, kinds, and values
 
@@ -2354,7 +2368,7 @@ type BuiltInOrdered interface {
 # Salient takeaways
 
 - Go is a **practical** language, valuing clarity of intent and readability (e.g., standard formatting is mandatory). It takes the best of other languages and leaves out the rest.
-- Comprehensibility is more important than conciseness in idiomatic Go.
+- Comprehensibility and explicitness is more important than conciseness in idiomatic Go.
 - Go is "*call by value*", meaning it makes copies of function parameters before passing them along.
 - Deployment is a breeze: a single binary file.
 - Go doesn't have classes nor inheritance, but it has structs and interfaces.
