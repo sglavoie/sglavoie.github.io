@@ -560,7 +560,8 @@ main article .article_text {
 
 main article .article_text a,
 ul.tagcloud a,
-main article.archives a {
+main article.archives a,
+a code {
   text-decoration: underline;
   color: var(--square-1);
   background-color: var(--background-dark);
@@ -581,12 +582,13 @@ main article.archives a {
 
 main article .article_text a:hover,
 ul.tagcloud a:hover,
-main article.archives a:hover {
+main article.archives a:hover,
+a code:hover {
   text-decoration: none;
   color: var(--square-2);
   background-color: transparent;
-  -webkit-box-shadow: 0px 0px 10px 6px transparent;
-  box-shadow: 0px 0px 10px 6px transparent;
+  -webkit-box-shadow: 0px 0px 4px 6px transparent;
+  box-shadow: 0px 0px 4px 6px transparent;
   text-underline-offset: 1em;
 }
 
