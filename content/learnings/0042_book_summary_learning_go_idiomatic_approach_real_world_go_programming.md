@@ -1,11 +1,10 @@
 Title: Book summary: Learning Go – An Idiomatic Approach to Real-World Go Programming
-Date: 2023-10-15 14:54
+Date: 2023-10-20 20:08
 Tags: best practices, books, go
 Slug: book-summary-learning-go-idiomatic-approach-real-world-go-programming
 Authors: Sébastien Lavoie
-Summary: [Learning Go](https://www.oreilly.com/library/view/learning-go/9781492077206/) ...
-Description: Learning Go ...
-Status: draft
+Summary: [Learning Go](https://www.oreilly.com/library/view/learning-go/9781492077206/) is a book that teaches idiomatic Go style and best practices through concrete examples. It covers fundamental features like types and control flow, as well as more advanced topics like concurrency and reflection. The goal is to help readers write clear, readable, robust Go code. I think it succeeded at that!
+Description: Learning Go is a book that teaches idiomatic Go style and best practices through concrete examples. It covers fundamental features like types and control flow, as well as more advanced topics like concurrency and reflection. The goal is to help readers write clear, readable, robust Go code. I think it succeeded at that!
 
 [TOC]
 
@@ -13,7 +12,11 @@ Status: draft
 
 # Introduction
 
-...
+Go is a modern programming language developed by Google that has gained immense popularity in recent years. It is a statically typed, compiled language that combines aspects of imperative and object-oriented programming. Go aims to provide simplicity, performance, and reliability.
+
+In his book, Jon provides a comprehensive introduction to Go programming. The book focuses on teaching idiomatic Go code by using concrete examples and focusing on how experienced Go developers structure their code. It covers fundamental language features like primitive types, control structures, and composite types. It also dives into more advanced topics like concurrency through goroutines and channels, writing tests, and using reflection.
+
+This summary highlights the key takeaways from each chapter. It aims to provide an overview of the core concepts and best practices for writing clear, readable, robust Go code. It's written from the perspective of a developer who has experience with other programming languages like Python, Java, and TypeScript but practically none in Go.
 
 ---
 
@@ -215,13 +218,13 @@ fmt.Println(x[2])
 It it used to grow slices:
 
 ```{.go}
-var x []int 
+var x []int
 x = append(x, 10) // returns a slice
 x = append(x, 5, 6, 7) // more than one value
 
 // append to another slice with `...`
 y := []int{20, 30, 40}
-x = append(x, y...) 
+x = append(x, y...)
 ```
 
 ### Capacity
@@ -399,7 +402,7 @@ fmt.Println(s[:2], s[7:]) // He ���: the emoji is 4 bytes long
 
 ```{.go}
 var nilMap map[string]int
-//             ^      ^ 
+//             ^      ^
 //      key type      value type
 
 // map literal: length of 0
@@ -2243,7 +2246,7 @@ func TestFileLen(t *testing.T) {
 - Theses features are not used that often, but they are useful to know about.
 - You cannot make make methods with reflection.
 - It should only be used when there is no other way to do it.
-- It may increase maintenance cost, because crashs can happen in production due to the lack of type safety (Java *cough* Script *cough*).
+- It may increase maintenance cost, because crashes can happen in production due to the lack of type safety (Java *cough* Script *cough*).
 - This summary will only cover their starting point.
 
 ## Reflection to work with types at runtime
@@ -2251,7 +2254,7 @@ func TestFileLen(t *testing.T) {
 - This can be used to work with data that didn't exist at compile time.
 - Use cases:
   - Reading and writing from a database;
-  - Templating engines;
+  - Template engines;
   - `fmt` uses it heavily;
   - `errors` uses it to implement `errors.Is` and `errors.As`;
   - `sort` uses it to sort slices of arbitrary types;
@@ -2357,13 +2360,13 @@ type BuiltInOrdered interface {
 - Go doesn't have classes nor inheritance, but it has structs and interfaces.
 - Professionals use error handling profusely to make their programs more robust.
 
-...
-
 ---
 
 # Conclusion
 
-...
+This book achieves its goal of teaching readers how to write idiomatic Go code that leverages the strengths of the language. It focuses on real-world examples and best practices to structure Go code, rather than just explaining language syntax. The book covers a wide range of topics including primitive types, control structures, composite types like arrays and maps, concurrency, reflection, testing, and more.
+
+We covered the key takeaways from each chapter, providing a broad overview of important concepts. While not a replacement for reading the book in its entirety, this summary may serve as a helpful reference guide on the subject. Whether you are just starting with Go or are looking to improve your skills, [Learning Go][learning-go] is an invaluable resource and I highly recommend it!
 
 ---
 
@@ -2387,6 +2390,7 @@ type BuiltInOrdered interface {
 [go-prog-language]: https://www.oreilly.com/library/view/the-go-programming/9780134190570/
 [go-wiki]: https://github.com/golang/go/wiki
 [gorilla-mux]: https://github.com/gorilla/mux
+[learning-go]: https://www.oreilly.com/library/view/learning-go/9781492077206/
 [marshalling]: https://en.wikipedia.org/wiki/Marshalling_(computer_science)
 [mod]: https://github.com/marwan-at-work/mod
 [organize-apps-yt]: https://www.youtube.com/watch?v=oL6JBUk6tj0
@@ -2406,7 +2410,7 @@ type BuiltInOrdered interface {
 ## Books
 
 - [Concurrency in Go][concurrency-in-go], Katherine Cox-Buday, O'Reilly
-- [Learning Go](https://www.oreilly.com/library/view/learning-go/9781492077206/), Jon Bodner, O'Reilly
+- [Learning Go][learning-go], Jon Bodner, O'Reilly
 - [The Art of Concurrency][art-of-concurrency], Clay Breshears, O'Reilly
 - [The Go Programming Language][go-prog-language], Alan A. A. Donovan and Brian W. Kernighan, Addison-Wesley Professional
 
