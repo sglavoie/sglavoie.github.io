@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>sglavoie.com</title><link href="https://www.sglavoie.com/" rel="alternate"></link><link href="https://www.sglavoie.com/feeds/sglavoie.atom.xml" rel="self"></link><id>https://www.sglavoie.com/</id><updated>2023-10-20T20:08:00-06:00</updated><entry><title>Book summary: Learning Go – An Idiomatic Approach to Real-World Go Programming</title><link href="https://www.sglavoie.com/posts/2023/10/20/book-summary-learning-go-idiomatic-approach-real-world-go-programming/" rel="alternate"></link><published>2023-10-20T20:08:00-06:00</published><updated>2023-10-20T20:08:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2023-10-20:/posts/2023/10/20/book-summary-learning-go-idiomatic-approach-real-world-go-programming/</id><summary type="html">&lt;p&gt;&lt;a href="https://www.oreilly.com/library/view/learning-go/9781492077206/"&gt;Learning Go&lt;/a&gt; is a book that teaches idiomatic Go style and best practices through concrete examples. It covers fundamental features like types and control flow, as well as more advanced topics like concurrency and reflection. The goal is to help readers write clear, readable, robust Go code. I think it succeeded at&amp;nbsp;that!&lt;/p&gt;</summary><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>sglavoie.com</title><link href="https://www.sglavoie.com/" rel="alternate"></link><link href="https://www.sglavoie.com/feeds/sglavoie.atom.xml" rel="self"></link><id>https://www.sglavoie.com/</id><updated>2023-10-21T17:43:00-06:00</updated><entry><title>Book summary: Learning Go – An Idiomatic Approach to Real-World Go Programming</title><link href="https://www.sglavoie.com/posts/2023/10/20/book-summary-learning-go-idiomatic-approach-real-world-go-programming/" rel="alternate"></link><published>2023-10-20T20:08:00-06:00</published><updated>2023-10-21T17:43:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2023-10-20:/posts/2023/10/20/book-summary-learning-go-idiomatic-approach-real-world-go-programming/</id><summary type="html">&lt;p&gt;&lt;a href="https://www.oreilly.com/library/view/learning-go/9781492077206/"&gt;Learning Go&lt;/a&gt; is a book that teaches idiomatic Go style and best practices through concrete examples. It covers fundamental features like types and control flow, as well as more advanced topics like concurrency and reflection. The goal is to help readers write clear, readable, robust Go code. I think it succeeded at&amp;nbsp;that!&lt;/p&gt;</summary><content type="html">
 &lt;hr/&gt;
 &lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Go is a modern programming language developed by Google that has gained immense popularity in recent years. It is a statically typed, compiled language that combines aspects of imperative and object-oriented programming. Go aims to provide simplicity, performance, and reliability.&lt;/p&gt;
@@ -30,7 +30,7 @@
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nf"&gt;go&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="no"&gt;build&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="no"&gt;hello.go&lt;/span&gt;
 &lt;span class="nl"&gt;.PHONY:&lt;/span&gt;&lt;span class="nf"&gt;build&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Typing &lt;code&gt;make&lt;/code&gt; will run &lt;code&gt;fmt&lt;/code&gt;, then &lt;code&gt;vet&lt;/code&gt;, then &lt;code&gt;build&lt;/code&gt; since the default task is &lt;code&gt;build&lt;/code&gt;, which requires &lt;code&gt;vet&lt;/code&gt; to have run first, which in turn requires &lt;code&gt;fat&lt;/code&gt; to have run first, which in turn has no dependency, so &lt;code&gt;fmt&lt;/code&gt; runs and the chain continues.&lt;/p&gt;
+&lt;p&gt;Typing &lt;code&gt;make&lt;/code&gt; will run &lt;code&gt;fmt&lt;/code&gt;, then &lt;code&gt;vet&lt;/code&gt;, then &lt;code&gt;build&lt;/code&gt; since the default task is &lt;code&gt;build&lt;/code&gt;, which requires &lt;code&gt;vet&lt;/code&gt; to have run first, which in turn requires &lt;code&gt;fmt&lt;/code&gt; to have run first, which in turn has no dependency, so &lt;code&gt;fmt&lt;/code&gt; runs and the chain continues.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Testing whether a new version of Go works for existing programs compiled on an older version is straightforward:&lt;/li&gt;
 &lt;/ul&gt;
@@ -57,7 +57,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Literals&lt;ul&gt;
-&lt;li&gt;These express different bases, such as &lt;code&gt;0b&lt;/code&gt; (binary), &lt;code&gt;0o&lt;/code&gt; (octal) or &lt;code&gt;0x&lt;/code&gt; (hexadecimal). As in other languages like Python or Java, underscores can be used to express large numbers.&lt;/li&gt;
+&lt;li&gt;These express different bases, such as &lt;code&gt;0b&lt;/code&gt; (binary), &lt;code&gt;0o&lt;/code&gt; (octal) or &lt;code&gt;0x&lt;/code&gt; (hexadecimal). As in other languages like Python or Java, underscores can be used to express large numbers by separating digits (e.g., &lt;code&gt;1_000_000&lt;/code&gt;).&lt;/li&gt;
 &lt;li&gt;Floating point literals look like &lt;code&gt;6.03e23&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Rune literals are represented with single quotes (no double quotes accepted). The most common ones are &lt;code&gt;('\n')&lt;/code&gt;, tab &lt;code&gt;('\t')&lt;/code&gt;, single quote &lt;code&gt;('\'')&lt;/code&gt;, double quote &lt;code&gt;('\"')&lt;/code&gt; and backslash &lt;code&gt;('\\')&lt;/code&gt;. Other bases are supported but should be limited to specific contexts (e.g., bit filters for base two).&lt;/li&gt;
 &lt;li&gt;String literals can be written with double quotes, where everything must be escaped.&lt;/li&gt;
@@ -73,14 +73,14 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;&lt;code&gt;int8&lt;/code&gt; (aliased &lt;code&gt;byte&lt;/code&gt;, which is much more common), &lt;code&gt;int16&lt;/code&gt;, &lt;code&gt;int32&lt;/code&gt;, &lt;code&gt;int64&lt;/code&gt;, &lt;code&gt;uint8&lt;/code&gt;, &lt;code&gt;uint16&lt;/code&gt;, &lt;code&gt;uint32&lt;/code&gt;, &lt;code&gt;uint64&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;The zero value is 0.&lt;/li&gt;
 &lt;li&gt;Use the minimum size when needed for specific applications.&lt;/li&gt;
-&lt;li&gt;Use &lt;code&gt;int64&lt;/code&gt; and &lt;code&gt;uint64&lt;/code&gt; for library functions (until generics are available).&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;int64&lt;/code&gt; and &lt;code&gt;uint64&lt;/code&gt; for library functions (suggested back when generics weren’t available).&lt;/li&gt;
 &lt;li&gt;Otherwise, just use &lt;code&gt;int&lt;/code&gt;. Other types should be considered a premature optimization until proven otherwise.&lt;/li&gt;
 &lt;li&gt;Variables can be modified like so: &lt;code&gt;+=&lt;/code&gt;, &lt;code&gt;-=&lt;/code&gt;, &lt;code&gt;*=&lt;/code&gt;, &lt;code&gt;/=&lt;/code&gt; and &lt;code&gt;%=&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Available comparisons are: &lt;code&gt;==&lt;/code&gt;, &lt;code&gt;!=&lt;/code&gt;, &lt;code&gt;&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;gt;=&lt;/code&gt;, &lt;code&gt;&amp;lt;&lt;/code&gt;, and &lt;code&gt;&amp;lt;=&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Bit manipulations&lt;ul&gt;
 &lt;li&gt;Shifts: &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; (left), &lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt; (right)&lt;/li&gt;
 &lt;li&gt;Logical bit masks: &lt;code&gt;&amp;amp;&lt;/code&gt; (&lt;code&gt;AND&lt;/code&gt;), &lt;code&gt;|&lt;/code&gt; (&lt;code&gt;OR&lt;/code&gt;), &lt;code&gt;^&lt;/code&gt; (&lt;code&gt;XOR&lt;/code&gt;), &lt;code&gt;&amp;amp;^&lt;/code&gt; (&lt;code&gt;AND NOT&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;All operators can be used to modify a variable as well: &lt;code&gt;&amp;amp;=&lt;/code&gt;, &lt;code&gt;|=&lt;/code&gt;, &lt;code&gt;^=&lt;/code&gt;, &lt;code&gt;&amp;amp;^=&lt;/code&gt;, &lt;code&gt;&amp;lt;&amp;lt;=&lt;/code&gt;, &lt;code&gt;&amp;gt;&amp;gt;=&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;These operators can be used to modify a variable as well: &lt;code&gt;&amp;amp;=&lt;/code&gt;, &lt;code&gt;|=&lt;/code&gt;, &lt;code&gt;^=&lt;/code&gt;, &lt;code&gt;&amp;amp;^=&lt;/code&gt;, &lt;code&gt;&amp;lt;&amp;lt;=&lt;/code&gt;, &lt;code&gt;&amp;gt;&amp;gt;=&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -90,7 +90,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;Floating point types&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;float32&lt;/code&gt;, &lt;code&gt;float64&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;The zero value is 0.&lt;/li&gt;
-&lt;li&gt;If using a floating point number, default to &lt;code&gt;float64&lt;/code&gt; unless a profiler shows significant improvement with &lt;code&gt;float32&lt;/code&gt; and the precision is good enough (6-7 decimal places).&lt;/li&gt;
+&lt;li&gt;If using a floating point number, opt for &lt;code&gt;float64&lt;/code&gt; unless a profiler shows significant improvement with &lt;code&gt;float32&lt;/code&gt; and the precision is good enough (6-7 decimal places).&lt;/li&gt;
 &lt;li&gt;Strict equality (or inequality) should not be done on floating point numbers: check the variance instead (less than epsilon).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -123,9 +123,9 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 
 &lt;span class="c1"&gt;// Declaration list&lt;/span&gt;
 &lt;span class="kd"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;
-&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="w"&gt;       &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
-&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="kt"&gt;string&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;string&lt;/span&gt;
 &lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Type inference can be performed within a function:&lt;/p&gt;
@@ -135,9 +135,9 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Avoid &lt;code&gt;:=&lt;/code&gt; in the following situations:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;When explicitly initialize a zero value, like &lt;code&gt;var x int&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;To avoid a type conversion, by writing &lt;code&gt;var x byte = 8&lt;/code&gt; instead of &lt;code&gt;x := byte(8)&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;To avoid “shadowing” a variable, as &lt;code&gt;:=&lt;/code&gt; can be used to assign to existing variables. Create new variables with &lt;code&gt;var&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;When explicitly initializing a &lt;em&gt;zero value&lt;/em&gt;, like &lt;code&gt;var x int&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;To avoid a &lt;em&gt;type conversion&lt;/em&gt;, by writing &lt;code&gt;var x byte = 8&lt;/code&gt; instead of &lt;code&gt;x := byte(8)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;To avoid “&lt;em&gt;shadowing&lt;/em&gt;” a variable, as &lt;code&gt;:=&lt;/code&gt; can be used to assign to existing variables. Create new variables with &lt;code&gt;var&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Non-constant package-level variables are a bad idea. If they’re unused, they go unnoticed without raising compile-time errors.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="const"&gt;&lt;code&gt;const&lt;/code&gt;&lt;/h2&gt;
@@ -167,13 +167,15 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;They can be compared (&lt;code&gt;==&lt;/code&gt; and &lt;code&gt;!=&lt;/code&gt;).&lt;/li&gt;
 &lt;li&gt;Their length is retrieved with the built-in &lt;code&gt;len&lt;/code&gt; function.&lt;/li&gt;
 &lt;li&gt;Negative indexing is a compile-time error.&lt;/li&gt;
-&lt;li&gt;Out-of-bounds indexing results in a panic at runtime.&lt;/li&gt;
-&lt;li&gt;Unless there’s a very specific need to use a given size of array (e.g., for a cryptographic library), avoid them.&lt;/li&gt;
-&lt;li&gt;They exist basically to provide slices.&lt;/li&gt;
+&lt;li&gt;Out-of-bounds indexing results in a &lt;strong&gt;panic&lt;/strong&gt; at runtime.&lt;/li&gt;
+&lt;li&gt;Unless there’s a very specific need to use a given size of array (e.g., for a cryptographic library), &lt;em&gt;avoid them&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;They exist basically to &lt;em&gt;provide slices&lt;/em&gt;.&lt;ul&gt;
 &lt;li&gt;There are a few ways of declaring arrays:&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;// indicate the size and type&lt;/span&gt;
-&lt;span class="kd"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// 3 integers with zero value&lt;/span&gt;
+&lt;span class="kd"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// 3 integers assigned to the zero value&lt;/span&gt;
 
 &lt;span class="c1"&gt;// array literal&lt;/span&gt;
 &lt;span class="kd"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// values specified&lt;/span&gt;
@@ -196,7 +198,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;Reads and assignments are the same as with arrays, using square brackets.&lt;/li&gt;
 &lt;li&gt;Slices can be created without assigning initial values: &lt;code&gt;var x []int&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Slices aren’t comparable, except to check if it is nil (&lt;code&gt;x == nil&lt;/code&gt;).&lt;/li&gt;
-&lt;li&gt;They’re useful for sequential data.&lt;/li&gt;
+&lt;li&gt;They’re useful for &lt;em&gt;sequential data&lt;/em&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="len"&gt;&lt;code&gt;len&lt;/code&gt;&lt;/h3&gt;
 &lt;ul&gt;
@@ -209,6 +211,8 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// more than one value&lt;/span&gt;
 
 &lt;span class="c1"&gt;// append to another slice with `...`&lt;/span&gt;
+&lt;span class="c1"&gt;// Similar to the spread operator in JavaScript,&lt;/span&gt;
+&lt;span class="c1"&gt;// but it goes after the value to spread&lt;/span&gt;
 &lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -248,9 +252,9 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:]&lt;/span&gt;
 
 &lt;span class="c1"&gt;// These are bidirectional changes!&lt;/span&gt;
-&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="w"&gt;              &lt;/span&gt;&lt;span class="c1"&gt;// affects `x`, `y` and `z`&lt;/span&gt;
-&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="w"&gt;              &lt;/span&gt;&lt;span class="c1"&gt;// affects `x` and `y`&lt;/span&gt;
-&lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="w"&gt;              &lt;/span&gt;&lt;span class="c1"&gt;// affects `x` and `z`&lt;/span&gt;
+&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;// affects `x`, `y` and `z`&lt;/span&gt;
+&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;// affects `x` and `y`&lt;/span&gt;
+&lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;// affects `x` and `z`&lt;/span&gt;
 
 &lt;span class="c1"&gt;// Result:&lt;/span&gt;
 &lt;span class="c1"&gt;// x: [10 20 30 4]&lt;/span&gt;
@@ -278,7 +282,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;span class="c1"&gt;// y is now [1 2 30 40 70], length 5, capacity 5!&lt;/span&gt;
 &lt;span class="c1"&gt;// z is now [30 40 70], length 3, capacity 3&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;One way to avoid this issue is to use *full slice expressions- to indicate the capacity of the subslices:&lt;/p&gt;
+&lt;p&gt;One way to avoid this issue is to use &lt;em&gt;full slice expressions&lt;/em&gt; to indicate the capacity of the sub-slices:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;make&lt;/span&gt;&lt;span class="p"&gt;([]&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;// take a slice of x, up to index 2, with a capacity of 2&lt;/span&gt;
@@ -364,7 +368,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;The zero value for a map is &lt;code&gt;nil&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Writing to a &lt;code&gt;nil&lt;/code&gt; map results in a runtime panic.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;len&lt;/code&gt; on a map returns the number of key/value pairs.&lt;/li&gt;
-&lt;li&gt;Maps are not comparable (can check against &lt;code&gt;nil&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Maps are not comparable (but they can check against &lt;code&gt;nil&lt;/code&gt;).&lt;/li&gt;
 &lt;li&gt;The key must be comparable: it cannot be a slice, map or function.&lt;/li&gt;
 &lt;li&gt;Maps are good when the order of the keys doesn’t matter: use a slice when it does.&lt;/li&gt;
 &lt;li&gt;All the values must be of the same type, but &lt;em&gt;the keys can be of different types&lt;/em&gt;.&lt;/li&gt;
@@ -377,7 +381,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;span class="c1"&gt;// map literal: length of 0&lt;/span&gt;
 &lt;span class="nx"&gt;myMap&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;map&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;{}&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;// allows reads and writes&lt;/span&gt;
 
-&lt;span class="c1"&gt;// Nonempty map&lt;/span&gt;
+&lt;span class="c1"&gt;// Non-empty map&lt;/span&gt;
 &lt;span class="nx"&gt;reposByOrg&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;map&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;][]&lt;/span&gt;&lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s"&gt;"dbeaver"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;&lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;"dbeaver"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"cloudbeaver"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"team-edition-deploy"&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s"&gt;"slidevjs"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;&lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;"slidev"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"slidev-vscode"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"themes"&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
@@ -408,7 +412,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;delete&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;reposByOrgStars&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"ReactiveX"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 &lt;span class="c1"&gt;// It is safe to delete a key that doesn't exist&lt;/span&gt;
-&lt;span class="nb"&gt;delete&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;reposByOrgStars&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"notfound"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// it returns nothing&lt;/span&gt;
+&lt;span class="nb"&gt;delete&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;reposByOrgStars&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"notfound"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;// it returns nothing&lt;/span&gt;
 
 &lt;span class="c1"&gt;// It is safe to delete a key from a nil map&lt;/span&gt;
 &lt;span class="kd"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;nilMap&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;map&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;
@@ -530,7 +534,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;       &lt;/span&gt;&lt;span class="c1"&gt;// undefined!&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Usual linters won’t catch shadowing, but we can install &lt;code&gt;shadow&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Linters typically won’t catch shadowing, but we can install &lt;code&gt;shadow&lt;/code&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;go&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;golang.org/x/tools/go/analysis/passes/shadow/cmd/shadow@latest
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;And we can make it part of the &lt;code&gt;Makefile&lt;/code&gt;:&lt;/p&gt;
@@ -542,7 +546,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;h2 id="if-statements"&gt;&lt;code&gt;if&lt;/code&gt; statements&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;The condition must be a boolean expression.&lt;/li&gt;
-&lt;li&gt;The usual flow is &lt;code&gt;if&lt;/code&gt;, &lt;code&gt;else if&lt;/code&gt;, &lt;code&gt;else&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;The usual flow is &lt;code&gt;if ... {...} else if ... { ... } else { ... }&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;There are no parentheses around the condition.&lt;/li&gt;
 &lt;li&gt;Variables can be scoped to the &lt;code&gt;if&lt;/code&gt; statement (they’ll be available in &lt;code&gt;else if&lt;/code&gt; and &lt;code&gt;else&lt;/code&gt; blocks as well). Only use that feature to define new variables!&lt;/li&gt;
 &lt;/ul&gt;
@@ -677,6 +681,16 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="cm"&gt;/* Output:&lt;/span&gt;
+&lt;span class="cm"&gt;0 104 h&lt;/span&gt;
+&lt;span class="cm"&gt;1 101 e&lt;/span&gt;
+&lt;span class="cm"&gt;2 108 l&lt;/span&gt;
+&lt;span class="cm"&gt;0 119 w&lt;/span&gt;
+&lt;span class="cm"&gt;1 111 o&lt;/span&gt;
+&lt;span class="cm"&gt;2 114 r&lt;/span&gt;
+&lt;span class="cm"&gt;3 108 l&lt;/span&gt;
+&lt;span class="cm"&gt;*/&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This code will skip the remaining letters of both words once the first &lt;code&gt;l&lt;/code&gt; is printed out for each one.&lt;/p&gt;
 &lt;h3 id="the-right-for-statement"&gt;The right &lt;code&gt;for&lt;/code&gt; statement&lt;/h3&gt;
@@ -761,7 +775,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;Types are mandatory.&lt;/li&gt;
 &lt;li&gt;The &lt;code&gt;return&lt;/code&gt; keyword is mandatory (except for &lt;code&gt;main&lt;/code&gt;) if the function has a return type.&lt;/li&gt;
 &lt;li&gt;Nothing goes between the input parameters and the start of the block if there’s no return type.&lt;/li&gt;
-&lt;li&gt;Go has no named or optional input parameters: you can pass structs instead. In practice, that probably means the function is trying to do too much.&lt;/li&gt;
+&lt;li&gt;Go has no named or optional input parameters: you can pass structs instead. In practice, that probably means the function is trying to do too much if you need this feature.&lt;/li&gt;
 &lt;li&gt;Go supports variadic parameters (e.g., the &lt;code&gt;fmt.Println&lt;/code&gt; function) with &lt;code&gt;...&lt;/code&gt; right before the type: they are used as a slice inside the function.&lt;/li&gt;
 &lt;li&gt;Functions can return multiple values. They must all be returned, comma-separated. Unlike Python which uses tuples, Go uses the comma to separate the individual values.&lt;/li&gt;
 &lt;li&gt;The error is always the last parameter a function will return. If no error occurred, it will be &lt;code&gt;nil&lt;/code&gt;.&lt;/li&gt;
@@ -800,7 +814,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id="functions-are-values"&gt;Functions are values&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Functions can be defined as types, e.g. &lt;code&gt;type aFuncType func(int, int) int&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Functions can be defined as types, e.g., &lt;code&gt;type aFuncType func(int, int) int&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Anonymous functions can be defined inside other functions and called immediately (&lt;span class="caps"&gt;IIFE&lt;/span&gt;). This comes in handy when using &lt;a href="#defer"&gt;&lt;code&gt;defer&lt;/code&gt;&lt;/a&gt; and &lt;a href="#chapter-10-concurrency-in-go"&gt;Goroutines&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="closures"&gt;Closures&lt;/h3&gt;
@@ -834,7 +848,8 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// `people` is captured by the closure&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;sort&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Slice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;people&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;j&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="c1"&gt;// If one person has a pet and the other doesn't, prioritize the one with the pet.&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="c1"&gt;// If one person has a pet and the other doesn't,&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="c1"&gt;// prioritize the one with the pet.&lt;/span&gt;
 &lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;people&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;].&lt;/span&gt;&lt;span class="nx"&gt;HasPet&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;!=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;people&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;j&lt;/span&gt;&lt;span class="p"&gt;].&lt;/span&gt;&lt;span class="nx"&gt;HasPet&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
 &lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;people&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;].&lt;/span&gt;&lt;span class="nx"&gt;HasPet&lt;/span&gt;
 &lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
@@ -894,7 +909,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id="defer"&gt;&lt;code&gt;defer&lt;/code&gt;&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;This is used to perform the cleanup code, such as closing a file, after a function has returned. This is similar to the &lt;code&gt;finally&lt;/code&gt; block in Java or Python.&lt;/li&gt;
+&lt;li&gt;This is used to perform the cleanup code, such as closing a file, after a function has returned. This is similar to the &lt;code&gt;finally&lt;/code&gt; block in Java or Python but it executes at the very end of the function, not as part of a &lt;code&gt;try...except&lt;/code&gt; block.&lt;/li&gt;
 &lt;li&gt;It delays the execution of a function until the surrounding function returns.&lt;/li&gt;
 &lt;li&gt;They run in &lt;span class="caps"&gt;LIFO&lt;/span&gt; (last in, first out) order.&lt;/li&gt;
 &lt;li&gt;The code that runs after &lt;code&gt;defer&lt;/code&gt; is literally the last thing that runs before the function returns, so what is put there is immediately “called” (e.g., &lt;code&gt;defer close()&lt;/code&gt;) but will run until later.&lt;/li&gt;
@@ -908,10 +923,10 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;hr/&gt;
 &lt;h1 id="chapter-6-pointers"&gt;Chapter 6: Pointers&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;A pointer is a variable that holds the address of a value in memory.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;A pointer is a variable that holds the address of a value in memory&lt;/em&gt;.&lt;/li&gt;
 &lt;li&gt;The zero value of a pointer is &lt;code&gt;nil&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;amp;&lt;/code&gt; is the address-of operator. It goes before the variable name to get its address.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;*&lt;/code&gt; is the indirection (dereference) operator. It goes before a pointer to get the value it points to.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;amp;&lt;/code&gt; is the &lt;em&gt;address-of operator&lt;/em&gt;. It goes before the variable name to get its address.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;*&lt;/code&gt; is the &lt;em&gt;indirection operator&lt;/em&gt; (dereference). It goes before a pointer to get the value it points to.&lt;/li&gt;
 &lt;li&gt;Dereferencing a &lt;code&gt;nil&lt;/code&gt; pointer will result in a runtime panic.&lt;/li&gt;
 &lt;li&gt;Types with an &lt;code&gt;*&lt;/code&gt; are pointers to that type (“pointer type”).&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;new&lt;/code&gt; is a built-in function that allocates memory for a type and returns a pointer to it.&lt;/li&gt;
@@ -925,7 +940,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;
 &lt;span class="kd"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;
-&lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// 10 0xc0000b4008&lt;/span&gt;
+&lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="c1"&gt;// 10 0xc0000b4008&lt;/span&gt;
 &lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// 0xc0000b4008 10&lt;/span&gt;
 
 &lt;span class="c1"&gt;// The zero value of a pointer is nil&lt;/span&gt;
@@ -940,7 +955,8 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// 0xc0000b4010&lt;/span&gt;
 &lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// 0&lt;/span&gt;
 
-&lt;span class="c1"&gt;// To turn a constant into a pointer, use a helper function that takes a value and returns a pointer to it&lt;/span&gt;
+&lt;span class="c1"&gt;// To turn a constant into a pointer, use a helper function that takes a value&lt;/span&gt;
+&lt;span class="c1"&gt;// and returns a pointer to it&lt;/span&gt;
 &lt;span class="kd"&gt;func&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;intPtr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
@@ -1170,9 +1186,9 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;func&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;interface&lt;/span&gt;&lt;span class="p"&gt;{}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;v1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;ok1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;.(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;v1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;ok1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// 42 true&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;v1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;ok1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="c1"&gt;// 42 true&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;v2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;ok2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;.(&lt;/span&gt;&lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;v2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;ok2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// "" false&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;v2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;ok2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="c1"&gt;// "" false&lt;/span&gt;
 
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// type switch&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;switch&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;v&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;.(&lt;/span&gt;&lt;span class="kd"&gt;type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
@@ -1180,7 +1196,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"int"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;v&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// int 42&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;case&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
 &lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"string"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;v&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;case&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;float64&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;float32&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// check both at once&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;case&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;float64&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;float32&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// check both at once&lt;/span&gt;
 &lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"float"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;v&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;default&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
 &lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"unknown"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;v&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -1353,7 +1369,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;hr/&gt;
 &lt;h1 id="chapter-8-errors"&gt;Chapter 8: Errors&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;Go does not have exceptions.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Go does not have exceptions&lt;/em&gt;.&lt;/li&gt;
 &lt;li&gt;Errors are values.&lt;/li&gt;
 &lt;li&gt;They are the last return value of a function (by convention).&lt;/li&gt;
 &lt;li&gt;The &lt;code&gt;error&lt;/code&gt; interface is defined in the standard library.&lt;/li&gt;
@@ -1398,10 +1414,10 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;/ul&gt;
 &lt;h2 id="panic-and-recover"&gt;Panic and recover&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;A panic is used to indicate that the program cannot continue (e.g., out of memory error or trying to read beyond the end of a slice).&lt;/li&gt;
+&lt;li&gt;A &lt;strong&gt;panic&lt;/strong&gt; is used to indicate that the program cannot continue (e.g., out of memory error or trying to read beyond the end of a slice).&lt;/li&gt;
 &lt;li&gt;When a panic occurs, the program stops executing and the stack is unwound, running all deferred functions until the &lt;code&gt;main&lt;/code&gt; function is reached.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;panic&lt;/code&gt; and &lt;code&gt;recover&lt;/code&gt; are not intended to be used for error handling.&lt;/li&gt;
-&lt;li&gt;It is better to explicitly handle errors than to use &lt;code&gt;panic&lt;/code&gt; and &lt;code&gt;recover&lt;/code&gt; because it is not clear in &lt;code&gt;recover&lt;/code&gt; what failed exactly.&lt;/li&gt;
+&lt;li&gt;It is better to explicitly handle errors than to use &lt;code&gt;panic&lt;/code&gt; and &lt;code&gt;recover&lt;/code&gt; because it is not clear when calling &lt;code&gt;recover&lt;/code&gt; what failed exactly.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="getting-a-stack-trace-from-an-error"&gt;Getting a Stack Trace from an Error&lt;/h2&gt;
 &lt;ul&gt;
@@ -1421,9 +1437,11 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;The module path is case-sensitive.&lt;/li&gt;
 &lt;li&gt;The minimum version of Go required to build the module can be specified with &lt;code&gt;go mod init MODULE_PATH GO_VERSION&lt;/code&gt; and it appears in the &lt;code&gt;go.mod&lt;/code&gt; file below the module declaration.&lt;/li&gt;
 &lt;li&gt;There can be a &lt;code&gt;require&lt;/code&gt; directive for each dependency.&lt;/li&gt;
-&lt;li&gt;There are also two optional sections: &lt;code&gt;replace&lt;/code&gt; and &lt;code&gt;exclude&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;There are also two optional sections: &lt;code&gt;replace&lt;/code&gt; and &lt;code&gt;exclude&lt;/code&gt;.&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;replace&lt;/code&gt; is used to replace a dependency with a local version.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;exclude&lt;/code&gt; is used to exclude a dependency from the build.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;// Example of a go.mod file&lt;/span&gt;
 &lt;span class="nx"&gt;module&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;github&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nx"&gt;USER&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nx"&gt;PROJECT&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
@@ -1439,18 +1457,20 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;h3 id="imports-and-exports"&gt;Imports and exports&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Import statements allow accessing exported constants, variables, functions and types from another package.&lt;/li&gt;
-&lt;li&gt;An exported identifier starts with a capital letter. It cannot be accessed from another package without an import statement.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;An exported identifier starts with a capital letter&lt;/em&gt;. It cannot be accessed from another package without an import statement.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="creating-and-accessing-packages"&gt;Creating and accessing packages&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;The first line of the file should be &lt;code&gt;package {PACKAGE_NAME}&lt;/code&gt;. It’s a &lt;em&gt;package clause&lt;/em&gt;.&lt;/li&gt;
-&lt;li&gt;Next is the import section.&lt;/li&gt;
+&lt;li&gt;Next is the import section.&lt;ul&gt;
 &lt;li&gt;Importing from the standard library doesn’t require a path.&lt;/li&gt;
 &lt;li&gt;Any other imports require a path, using the module path as a prefix and appending the path to the package.&lt;/li&gt;
 &lt;li&gt;Not using any identifier from a path will result in a compiler error. Hence, all code included in the build will be used.&lt;/li&gt;
 &lt;li&gt;It is best to always use absolute paths for clarity.&lt;/li&gt;
 &lt;li&gt;The name of a package is determined by its package clause, &lt;em&gt;not by the path&lt;/em&gt; being imported. In general, the package name should match the last element of the path.&lt;/li&gt;
 &lt;li&gt;The &lt;code&gt;main&lt;/code&gt; package cannot be imported as it is the entrypoint of the application.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;Package names are in the file block: the package name is the same for all files in the same directory and must be present.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="naming-packages"&gt;Naming packages&lt;/h3&gt;
@@ -1463,14 +1483,18 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;ul&gt;
 &lt;li&gt;There is no official structure.&lt;/li&gt;
 &lt;li&gt;The &lt;code&gt;cmd&lt;/code&gt; directory is used for executables. There can be multiple executables produced by different applications from a module.&lt;/li&gt;
-&lt;li&gt;When there are a bunch of files at the root to manage deployment and testing, it is a good pattern to put all packages inside a &lt;code&gt;pkg&lt;/code&gt; directory.&lt;/li&gt;
+&lt;li&gt;When there are a bunch of files at the root to manage deployment and testing, it is a good pattern to put all packages inside a &lt;code&gt;pkg&lt;/code&gt; directory.&lt;ul&gt;
 &lt;li&gt;Inside &lt;code&gt;pkg&lt;/code&gt;, limit dependencies between packages by organizing the code according to the functionality it provides.&lt;/li&gt;
 &lt;li&gt;A good primer on the topic is &lt;a href="https://www.youtube.com/watch?v=oL6JBUk6tj0"&gt;GopherCon 2018: Kat Zien - How Do You Structure Your Go Apps&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id="overriding-a-packages-name"&gt;Overriding a package’s name&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;When names collide, you can use an alias to rename a package.&lt;/li&gt;
+&lt;li&gt;When names collide, you can use an alias to rename a package.&lt;ul&gt;
 &lt;li&gt;In the standard library, both &lt;code&gt;"crypto/rand"&lt;/code&gt; and &lt;code&gt;"math/rand"&lt;/code&gt; are imported as &lt;code&gt;"rand"&lt;/code&gt;, but they can be disambiguated with an alias such as &lt;code&gt;crand "crypto/rand"&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;Using the &lt;code&gt;.&lt;/code&gt; alias is discouraged because it makes it harder to understand where a function is coming from as it will import all exported identifiers from the current namespace (same idea as &lt;code&gt;import * from ...&lt;/code&gt; in Python).&lt;/li&gt;
 &lt;li&gt;Package names can be shadowed, which renders it inaccessible. Always resolve conflicts by using an alias instead.&lt;/li&gt;
 &lt;/ul&gt;
@@ -1480,8 +1504,10 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;Comments start with &lt;code&gt;//&lt;/code&gt; and can be multiline.&lt;/li&gt;
 &lt;li&gt;A blank line with &lt;code&gt;//&lt;/code&gt; is used to create paragraphs.&lt;/li&gt;
 &lt;li&gt;Preformatted text can be inserted with indentation.&lt;/li&gt;
-&lt;li&gt;Comments before the package clause create package-level documentation.&lt;/li&gt;
+&lt;li&gt;Comments before the package clause create package-level documentation.&lt;ul&gt;
 &lt;li&gt;If the package has a lot of documentation, it is better to put it in a separate file called &lt;code&gt;doc.go&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;Comments should start with the name of the item being documented.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="internal-package"&gt;Internal package&lt;/h3&gt;
@@ -1494,11 +1520,11 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;If there is an &lt;code&gt;init&lt;/code&gt; function in a package, it runs as soon as the package is referenced by another package.&lt;/li&gt;
 &lt;li&gt;It has not input or output parameters and can only cause side-effects within the package.&lt;/li&gt;
 &lt;li&gt;There can be multiple &lt;code&gt;init&lt;/code&gt; functions in a package, even in the same file, although this setup is discouraged.&lt;/li&gt;
-&lt;li&gt;A blank import can be used to run the &lt;code&gt;init&lt;/code&gt; function of a package without using any of its exported identifiers, e.g. &lt;code&gt;import _ "github.com/lib/pq"&lt;/code&gt;. Explicit is better than implicit: this is an obsolete pattern.&lt;/li&gt;
+&lt;li&gt;A blank import can be used to run the &lt;code&gt;init&lt;/code&gt; function of a package without using any of its exported identifiers, e.g., &lt;code&gt;import _ "github.com/lib/pq"&lt;/code&gt;. Explicit is better than implicit: this is an obsolete pattern.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="circular-dependencies"&gt;Circular dependencies&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;They are not allowed to keep the code readable and the compiler fast.&lt;/li&gt;
+&lt;li&gt;They are &lt;strong&gt;not allowed&lt;/strong&gt; to keep the code readable and the compiler fast.&lt;/li&gt;
 &lt;li&gt;If two packages depend on each other, they should probably be merged into a single package.&lt;/li&gt;
 &lt;li&gt;If two packages with circular dependencies are still preferred, it may be possible to move only the culprits into a separate package so that both packages can import them.&lt;/li&gt;
 &lt;/ul&gt;
@@ -1519,19 +1545,27 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;/ul&gt;
 &lt;h3 id="working-with-versions"&gt;Working with versions&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;go list&lt;/code&gt; is used to list dependencies used by a project.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;go list&lt;/code&gt; is used to list dependencies used by a project.&lt;ul&gt;
 &lt;li&gt;By default, it lists packages used.&lt;/li&gt;
 &lt;li&gt;The &lt;code&gt;-m&lt;/code&gt; flag is used to list modules used.&lt;/li&gt;
 &lt;li&gt;Appending the &lt;code&gt;-versions&lt;/code&gt; flag to the previous command lists all versions of the dependencies.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;go get&lt;/code&gt; can be used to downgrade or upgrade a dependency (e.g., &lt;code&gt;go get github.com/{USER}/{PROJECT}@v1.0.0&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;go get&lt;/code&gt; can be used to downgrade or upgrade a dependency (e.g., &lt;code&gt;go get github.com/{USER}/{PROJECT}@v1.0.0&lt;/code&gt;).&lt;ul&gt;
 &lt;li&gt;It can also be used to add a new dependency.&lt;/li&gt;
 &lt;li&gt;It can be used to remove a dependency by adding the &lt;code&gt;-u&lt;/code&gt; flag.&lt;/li&gt;
 &lt;li&gt;Changes will be reflected in &lt;code&gt;go.mod&lt;/code&gt; and &lt;code&gt;go.sum&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Dependencies might be shown with &lt;code&gt;// indirect&lt;/code&gt; next to them. This means that the dependency is not used directly by the project, but by one of its dependencies.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Dependencies might be shown with &lt;code&gt;// indirect&lt;/code&gt; next to them. This means that the dependency is not used directly by the project, but by one of its dependencies.&lt;ul&gt;
 &lt;li&gt;It can be added when the project uses that dependency directly with a newer version than what is declared in the dependency’s &lt;code&gt;go.mod&lt;/code&gt; file.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;Go follows semantic versioning (&lt;em&gt;SemVer&lt;/em&gt;).&lt;/li&gt;
-&lt;li&gt;There is an &lt;em&gt;import compatibility rule&lt;/em&gt;: all minor and patch versions should remain compatible and if not, this is considered a bug.&lt;/li&gt;
+&lt;li&gt;There is an &lt;em&gt;import compatibility rule&lt;/em&gt;: all minor and patch versions should remain compatible and if not, this is considered a bug.&lt;ul&gt;
 &lt;li&gt;Instead of importing multiple versions of the same library as with &lt;code&gt;npm&lt;/code&gt;, Go will import the highest version of the library that satisfies the requirements.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="updating-to-compatible-versions"&gt;Updating to compatible versions&lt;/h3&gt;
 &lt;ul&gt;
@@ -1540,7 +1574,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;/ul&gt;
 &lt;h3 id="updating-to-incompatible-versions"&gt;Updating to incompatible versions&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Go follows the &lt;em&gt;semantic import versioning&lt;/em&gt; rule: for all major versions greater than &lt;code&gt;1&lt;/code&gt;, the major version is included in the import path, e.g. &lt;code&gt;"github.com/{USER}/{PROJECT}/v2"&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Go follows the &lt;em&gt;semantic import versioning&lt;/em&gt; rule: for all major versions greater than &lt;code&gt;1&lt;/code&gt;, the major version is included in the import path, e.g., &lt;code&gt;"github.com/{USER}/{PROJECT}/v2"&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Once a new major version is used in the project, &lt;code&gt;go build&lt;/code&gt; will update the &lt;code&gt;go.mod&lt;/code&gt; file to use the new major version.&lt;/li&gt;
 &lt;li&gt;Older versions may still be present in &lt;code&gt;go.mod&lt;/code&gt;: &lt;code&gt;go mod tidy&lt;/code&gt; can be used to remove them.&lt;/li&gt;
 &lt;/ul&gt;
@@ -1563,7 +1597,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;h2 id="versioning-modules"&gt;Versioning modules&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Minor and patch versions should be compatible and are easy to manage.&lt;/li&gt;
-&lt;li&gt;Major versions are slightly more difficult to manage. For instance, let’s go from &lt;code&gt;v1&lt;/code&gt; to &lt;code&gt;v2&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Major versions are slightly more difficult to manage. For instance, let’s go from &lt;code&gt;v1&lt;/code&gt; to &lt;code&gt;v2&lt;/code&gt;.&lt;ul&gt;
 &lt;li&gt;Create a directory to put all the old code in, named &lt;code&gt;v2&lt;/code&gt;, including &lt;code&gt;README&lt;/code&gt; and &lt;code&gt;LICENSE&lt;/code&gt; files.&lt;/li&gt;
 &lt;li&gt;Create a branch.&lt;ul&gt;
 &lt;li&gt;Name the branch &lt;code&gt;v1&lt;/code&gt; if the old code goes in it.&lt;/li&gt;
@@ -1576,6 +1610,8 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;Name the tag &lt;code&gt;v2.0.0&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Tag the &lt;code&gt;main&lt;/code&gt; branch if the new code goes in it.&lt;/li&gt;
 &lt;li&gt;Otherwise, tag the &lt;code&gt;v2&lt;/code&gt; branch.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;If breaking changes might be introduced while on the new version, use a pre-release version, e.g., &lt;code&gt;v2.0.0-alpha.1&lt;/code&gt;.&lt;/li&gt;
@@ -1599,8 +1635,8 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;h2 id="when-to-use-concurrency"&gt;When to use concurrency&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Concurrency is not parallelism&lt;/em&gt;.&lt;/li&gt;
-&lt;li&gt;Concurrency is useful when there are multiple tasks that can be executed independently.&lt;/li&gt;
-&lt;li&gt;Concurrency brings benefits when a process takes a long time to complete.&lt;/li&gt;
+&lt;li&gt;Concurrency is useful &lt;em&gt;when there are multiple tasks that can be executed independently&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Concurrency brings benefits &lt;em&gt;when a process takes a long time to complete&lt;/em&gt;.&lt;/li&gt;
 &lt;li&gt;Read &lt;a href="https://www.oreilly.com/library/view/the-art-of/9780596802424/"&gt;The Art of Concurrency&lt;/a&gt; for more information.&lt;/li&gt;
 &lt;li&gt;The book &lt;a href="https://www.oreilly.com/library/view/concurrency-in-go/9781491941294/"&gt;Concurrency in Go&lt;/a&gt; is also a great resource.&lt;/li&gt;
 &lt;/ul&gt;
@@ -1610,23 +1646,25 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;Because Go manages goroutines, they are cheap to create and destroy (no need to create system-level resources).&lt;/li&gt;
 &lt;li&gt;They are memory efficient because they are allocated on the stack with small initial sizes.&lt;/li&gt;
 &lt;li&gt;Switching between goroutines is fast because it is managed by the Go runtime within a process.&lt;/li&gt;
-&lt;li&gt;Go optimizes how work is distributed across goroutines.&lt;/li&gt;
+&lt;li&gt;Go optimizes how work is distributed across goroutines.&lt;ul&gt;
 &lt;li&gt;For more details on this, watch &lt;a href="https://www.youtube.com/watch?v=YHRO5WQGh0k"&gt;GopherCon 2018: Kavya Joshi - The Scheduler Saga&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;A goroutine starts by calling a function with the &lt;code&gt;go&lt;/code&gt; keyword in front of it.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="channels"&gt;Channels&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Channels are used to communicate between goroutines.&lt;/li&gt;
-&lt;li&gt;They are a built-in type that require the &lt;code&gt;make&lt;/code&gt; function to create them, e.g. &lt;code&gt;ch := make(chan int)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Channels are &lt;em&gt;used to communicate between goroutines&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;They are a built-in type that require the &lt;code&gt;make&lt;/code&gt; function to create them, e.g., &lt;code&gt;ch := make(chan int)&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;The zero value of a channel is &lt;code&gt;nil&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;They are passed as parameters to functions as a pointer.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="reading-writing-buffering"&gt;Reading, writing, buffering&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;The &lt;code&gt;&amp;lt;-&lt;/code&gt; operator is used to send and receive data from a channel. It indicates the direction of the data flow.&lt;/li&gt;
-&lt;li&gt;A function parameter can specify the direction of the channel, e.g. &lt;code&gt;func f(ch &amp;lt;-chan int)&lt;/code&gt; will make it so that the channel can only be read from. Likewise, &lt;code&gt;func f(ch chan&amp;lt;- int)&lt;/code&gt; will make it so that the channel can only be written to.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;&amp;lt;-&lt;/code&gt; operator is used to send and receive data from a channel. &lt;em&gt;It indicates the direction of the data flow&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;A function parameter can specify the direction of the channel, e.g., &lt;code&gt;func f(ch &amp;lt;-chan int)&lt;/code&gt; will make it so that the channel can only be read from. Likewise, &lt;code&gt;func f(ch chan&amp;lt;- int)&lt;/code&gt; will make it so that the channel can only be written to.&lt;/li&gt;
 &lt;li&gt;By default, channels are &lt;em&gt;unbuffered&lt;/em&gt;, meaning that they can only hold one value at a time. They should be used most of the time.&lt;/li&gt;
-&lt;li&gt;A channel can be buffered by specifying the buffer size when creating it, e.g. &lt;code&gt;ch := make(chan int, 10)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;A channel can be buffered by specifying the buffer size when creating it. E.g., &lt;code&gt;ch := make(chan int, 10)&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;len(ch)&lt;/code&gt; is used to get the number of elements in the channel.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;cap(ch)&lt;/code&gt; is used to get the capacity of the channel.&lt;/li&gt;
 &lt;li&gt;The capacity of a channel cannot be changed after it is created.&lt;/li&gt;
@@ -1646,8 +1684,10 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;Writing to a closed channel will result in a runtime panic.&lt;/li&gt;
 &lt;li&gt;Attempting to read from a closed unbuffered channel will return the zero value of the channel’s type.&lt;/li&gt;
 &lt;li&gt;Reading from a closed buffered channel will return the remaining values in the channel until it is empty, then it will return the zero value of the channel’s type.&lt;/li&gt;
-&lt;li&gt;To know if a channel is closed, use the second return value of the receive operation with the &lt;em&gt;comma ok&lt;/em&gt; idiom, e.g. &lt;code&gt;v, ok := &amp;lt;-ch&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;To know if a channel is closed, use the second return value of the receive operation with the &lt;em&gt;comma ok&lt;/em&gt; idiom, e.g., &lt;code&gt;v, ok := &amp;lt;-ch&lt;/code&gt;.&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;ok&lt;/code&gt; will be &lt;code&gt;true&lt;/code&gt; if the channel is open and &lt;code&gt;false&lt;/code&gt; if it is closed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="how-channels-behave"&gt;How channels behave&lt;/h3&gt;
 &lt;ul&gt;
@@ -1663,8 +1703,10 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;A &lt;code&gt;case&lt;/code&gt; in a &lt;code&gt;select&lt;/code&gt; statement is executed when the channel is ready to be read from or written to.&lt;/li&gt;
 &lt;li&gt;If multiple &lt;code&gt;case&lt;/code&gt; statements are ready, one is chosen at random — with &lt;code&gt;switch&lt;/code&gt;, the first match is always chosen. This solves the starvation problem since all cases are checked at once.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;select&lt;/code&gt; also deals with deadlock issues: if all channels are blocked, it will execute the &lt;code&gt;default&lt;/code&gt; case.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;select&lt;/code&gt; is often used in a loop to keep reading from a channel until it is closed.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;select&lt;/code&gt; is often used in a loop to keep reading from a channel until it is closed.&lt;ul&gt;
 &lt;li&gt;Having a &lt;code&gt;default&lt;/code&gt; case inside a loop for a &lt;code&gt;select&lt;/code&gt; is most certainly not what is intended as it will run constantly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="concurrency-practices-and-patterns"&gt;Concurrency practices and patterns&lt;/h2&gt;
 &lt;h3 id="keep-apis-concurrency-free"&gt;Keep APIs concurrency-free&lt;/h3&gt;
@@ -1697,7 +1739,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;h3 id="done-channel-pattern"&gt;&lt;span class="dquo"&gt;“&lt;/span&gt;Done channel pattern”&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;If multiple goroutines are running, it is useful to have a way to signal them to stop.&lt;/li&gt;
-&lt;li&gt;A channel (&lt;code&gt;done&lt;/code&gt;) can be used to signal the goroutines to stop.&lt;/li&gt;
+&lt;li&gt;A channel (named &lt;code&gt;done&lt;/code&gt;) can be used to signal the goroutines to stop.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="using-a-cancel-function-to-terminate-a-goroutine"&gt;Using a cancel function to terminate a goroutine&lt;/h3&gt;
 &lt;ul&gt;
@@ -1801,7 +1843,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;Mutexes limit access to a resource to a single goroutine at a time with a locking mechanism (&lt;code&gt;Lock&lt;/code&gt; and &lt;code&gt;Unlock&lt;/code&gt;, which must be used carefully to avoid creating deadlocks, especially in functions implemented recursively).&lt;/li&gt;
 &lt;li&gt;They require to do more bookkeeping than channels.&lt;/li&gt;
 &lt;li&gt;They should never be copied, just like &lt;code&gt;sync.WaitGroup&lt;/code&gt; and &lt;code&gt;sync.Once&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Use mutexes when there is a shared resource that needs to be protected, such as a field in a struct.&lt;/li&gt;
+&lt;li&gt;Use mutexes &lt;em&gt;when there is a shared resource that needs to be protected&lt;/em&gt;, such as a field in a struct.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;RWMutex&lt;/code&gt; is used when there are multiple readers and a single writer. The &lt;em&gt;critical section&lt;/em&gt; is protected by a write lock, while the read lock is used to read the resource by multiple goroutines.&lt;/li&gt;
 &lt;li&gt;Sometimes, performance issues with channels can be solved by using mutexes instead.&lt;/li&gt;
 &lt;/ul&gt;
@@ -1828,7 +1870,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;h2 id="time"&gt;&lt;code&gt;time&lt;/code&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;time&lt;/code&gt; is used to work with dates and times.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;time.Time&lt;/code&gt; is used to represent a date and time.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;time.Time&lt;/code&gt; is used to represent a date and time. It includes the usual constants for days of the week, months, etc.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;time.Duration&lt;/code&gt; is used to represent a duration.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;time.Parse&lt;/code&gt; is used to parse a string into a &lt;code&gt;time.Time&lt;/code&gt; value.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;time.Format&lt;/code&gt; is used to format a &lt;code&gt;time.Time&lt;/code&gt; value into a string.&lt;/li&gt;
@@ -1844,12 +1886,11 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;&lt;code&gt;time.Until&lt;/code&gt; is used to get the time until a specified time.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;time.AfterFunc&lt;/code&gt; is used to execute a function after a specified duration.&lt;/li&gt;
 &lt;li&gt;Use &lt;code&gt;Equal&lt;/code&gt; to compare two &lt;code&gt;time.Time&lt;/code&gt; values.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;time.Time&lt;/code&gt; includes the usual constants for days of the week, months, etc.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="monotonic-time"&gt;Monotonic time&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Go uses a monotonic clock to measure time.&lt;/li&gt;
-&lt;li&gt;A monotonic clock is a clock that counts up from the start of the computer.&lt;/li&gt;
+&lt;li&gt;A monotonic clock is &lt;em&gt;a clock that counts up from the start of the computer&lt;/em&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="timers-and-timeouts"&gt;Timers and timeouts&lt;/h3&gt;
 &lt;ul&gt;
@@ -1867,7 +1908,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;They can span only one line, taking the format &lt;code&gt;`tagName:"tagValue"`&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;go vet&lt;/code&gt; can be used to check for struct tags validity.&lt;/li&gt;
 &lt;li&gt;If no struct tag is specified, the field name will be used instead.&lt;/li&gt;
-&lt;li&gt;Use a &lt;code&gt;-&lt;/code&gt; for a field name to ignore it.&lt;/li&gt;
+&lt;li&gt;Use a &lt;code&gt;-&lt;/code&gt; (dash) for a field name to ignore it.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;,omitempty&lt;/code&gt; can be added right after the field name to omit a field if it is empty.&lt;/li&gt;
 &lt;li&gt;While annotations can make the code more declarative and short, they can also make it harder to read and understand. &lt;strong&gt;Go&lt;/strong&gt; for readability first.&lt;/li&gt;
 &lt;/ul&gt;
@@ -1921,16 +1962,24 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;h2 id="timers"&gt;Timers&lt;/h2&gt;
 &lt;p&gt;A server can do a few things to manage its load:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;It can limit the number of concurrent requests it accepts.&lt;/li&gt;
+&lt;li&gt;It can limit the number of concurrent requests it accepts.&lt;ul&gt;
 &lt;li&gt;It can be done by limiting the number of goroutines.&lt;/li&gt;
-&lt;li&gt;It can limit the number of requests queued up.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;It can limit the number of requests queued up.&lt;ul&gt;
 &lt;li&gt;This can be handled with a buffered channel.&lt;/li&gt;
-&lt;li&gt;Limit the amount of time a request can take.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Limit the amount of time a request can take.&lt;ul&gt;
 &lt;li&gt;The context can be used to do this.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;context.WithTimeout&lt;/code&gt; is used to create a context that will be cancelled after a specified duration.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;context.WithDeadline&lt;/code&gt; is used to create a context that will be cancelled at a specified time.&lt;/li&gt;
-&lt;li&gt;Limit the resources a request can use (memory, disk space…).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Limit the resources a request can use (memory, disk space…).&lt;ul&gt;
 &lt;li&gt;There is no built-in solution for this in Go.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="values"&gt;Values&lt;/h2&gt;
 &lt;ul&gt;
@@ -1954,13 +2003,17 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;/ul&gt;
 &lt;h3 id="setting-up-and-tearing-down"&gt;Setting up and tearing down&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;TestMain&lt;/code&gt; is used to set up and tear down tests.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;TestMain&lt;/code&gt; is used to set up and tear down tests.&lt;ul&gt;
 &lt;li&gt;It is called &lt;em&gt;once&lt;/em&gt; before and after all tests, not between each test.&lt;/li&gt;
 &lt;li&gt;Can be used to set up and tear down a database, for instance.&lt;/li&gt;
 &lt;li&gt;It can be used when package-level variables need to be initialized, although this probably means the code needs refactoring.&lt;/li&gt;
 &lt;li&gt;It takes a &lt;code&gt;*testing.M&lt;/code&gt; parameter. Setup can be done at the beginning, then &lt;code&gt;exitVal := m.Run()&lt;/code&gt; is called to run tests, then teardown can be done at the end, returning the exit value with &lt;code&gt;os.Exit(exitVal)&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Individual test functions receive a &lt;code&gt;*testing.T&lt;/code&gt; parameter, which has a &lt;code&gt;Cleanup&lt;/code&gt; method that can be used to clean up after a test.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Individual test functions receive a &lt;code&gt;*testing.T&lt;/code&gt; parameter, which has a &lt;code&gt;Cleanup&lt;/code&gt; method that can be used to clean up after a test.&lt;ul&gt;
 &lt;li&gt;The &lt;code&gt;Cleanup&lt;/code&gt; method is similar to the &lt;code&gt;defer&lt;/code&gt; statement but can be useful is the cleanup actions are performed for multiple tests from a helper function.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="storing-sample-test-data"&gt;Storing sample test data&lt;/h3&gt;
 &lt;ul&gt;
@@ -2106,7 +2159,7 @@ ok    github.com/{USER}/{PROJECT}/adder    0.368s
 &lt;h2 id="reflection-to-work-with-types-at-runtime"&gt;Reflection to work with types at runtime&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;This can be used to work with data that didn’t exist at compile time.&lt;/li&gt;
-&lt;li&gt;Use cases:&lt;/li&gt;
+&lt;li&gt;Use cases:&lt;ul&gt;
 &lt;li&gt;Reading and writing from a database;&lt;/li&gt;
 &lt;li&gt;Template engines;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;fmt&lt;/code&gt; uses it heavily;&lt;/li&gt;
@@ -2114,6 +2167,8 @@ ok    github.com/{USER}/{PROJECT}/adder    0.368s
 &lt;li&gt;&lt;code&gt;sort&lt;/code&gt; uses it to sort slices of arbitrary types;&lt;/li&gt;
 &lt;li&gt;Marshalling/unmarshalling &lt;span class="caps"&gt;JSON&lt;/span&gt; and &lt;span class="caps"&gt;XML&lt;/span&gt;;&lt;/li&gt;
 &lt;li&gt;Comparing maps or slices for deep equality with &lt;code&gt;reflect.DeepEqual&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="types-kinds-and-values"&gt;Types, kinds, and values&lt;/h3&gt;
 &lt;ul&gt;
@@ -2204,7 +2259,7 @@ ok    github.com/{USER}/{PROJECT}/adder    0.368s
 &lt;h1 id="salient-takeaways"&gt;Salient takeaways&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;Go is a &lt;strong&gt;practical&lt;/strong&gt; language, valuing clarity of intent and readability (e.g., standard formatting is mandatory). It takes the best of other languages and leaves out the rest.&lt;/li&gt;
-&lt;li&gt;Comprehensibility is more important than conciseness in idiomatic Go.&lt;/li&gt;
+&lt;li&gt;Comprehensibility and explicitness is more important than conciseness in idiomatic Go.&lt;/li&gt;
 &lt;li&gt;Go is “&lt;em&gt;call by value&lt;/em&gt;“, meaning it makes copies of function parameters before passing them along.&lt;/li&gt;
 &lt;li&gt;Deployment is a breeze: a single binary file.&lt;/li&gt;
 &lt;li&gt;Go doesn’t have classes nor inheritance, but it has structs and interfaces.&lt;/li&gt;

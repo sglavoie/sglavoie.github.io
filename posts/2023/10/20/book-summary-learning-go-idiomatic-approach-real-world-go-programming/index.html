@@ -560,6 +560,11 @@
             >
           </span>
         </div>
+        <div>
+          <time class="modified" datetime="2023-10-21T17:43:00-06:00">
+            Modified on <strong>October 21, 2023</strong>
+          </time>
+        </div>
         <div class="article_tags">
            <a href="../../../../../tag/best-practices.html"
             ><svg
@@ -607,7 +612,7 @@
       </div>
       <div class="article_readtime">
         <span class="readtime_tilde">~</span
-        ><span class="readtime_minutes">64</span>
+        ><span class="readtime_minutes">65</span>
         minutes to read
       </div>
     </div>
@@ -893,7 +898,7 @@
 <span class="w">    </span><span class="nf">go</span><span class="w"> </span><span class="no">build</span><span class="w"> </span><span class="no">hello.go</span>
 <span class="nl">.PHONY:</span><span class="nf">build</span>
 </code></pre></div>
-<p>Typing <code>make</code> will run <code>fmt</code>, then <code>vet</code>, then <code>build</code> since the default task is <code>build</code>, which requires <code>vet</code> to have run first, which in turn requires <code>fat</code> to have run first, which in turn has no dependency, so <code>fmt</code> runs and the chain continues.</p>
+<p>Typing <code>make</code> will run <code>fmt</code>, then <code>vet</code>, then <code>build</code> since the default task is <code>build</code>, which requires <code>vet</code> to have run first, which in turn requires <code>fmt</code> to have run first, which in turn has no dependency, so <code>fmt</code> runs and the chain continues.</p>
 <ul>
 <li>Testing whether a new version of Go works for existing programs compiled on an older version is straightforward:</li>
 </ul>
@@ -920,7 +925,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 </ul>
 </li>
 <li>Literals<ul>
-<li>These express different bases, such as <code>0b</code> (binary), <code>0o</code> (octal) or <code>0x</code> (hexadecimal). As in other languages like Python or Java, underscores can be used to express large numbers.</li>
+<li>These express different bases, such as <code>0b</code> (binary), <code>0o</code> (octal) or <code>0x</code> (hexadecimal). As in other languages like Python or Java, underscores can be used to express large numbers by separating digits (e.g., <code>1_000_000</code>).</li>
 <li>Floating point literals look like <code>6.03e23</code>.</li>
 <li>Rune literals are represented with single quotes (no double quotes accepted). The most common ones are <code>('\n')</code>, tab <code>('\t')</code>, single quote <code>('\'')</code>, double quote <code>('\"')</code> and backslash <code>('\\')</code>. Other bases are supported but should be limited to specific contexts (e.g., bit filters for base two).</li>
 <li>String literals can be written with double quotes, where everything must be escaped.</li>
@@ -936,14 +941,14 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <li><code>int8</code> (aliased <code>byte</code>, which is much more common), <code>int16</code>, <code>int32</code>, <code>int64</code>, <code>uint8</code>, <code>uint16</code>, <code>uint32</code>, <code>uint64</code>.</li>
 <li>The zero value is 0.</li>
 <li>Use the minimum size when needed for specific applications.</li>
-<li>Use <code>int64</code> and <code>uint64</code> for library functions (until generics are available).</li>
+<li>Use <code>int64</code> and <code>uint64</code> for library functions (suggested back when generics weren’t available).</li>
 <li>Otherwise, just use <code>int</code>. Other types should be considered a premature optimization until proven otherwise.</li>
 <li>Variables can be modified like so: <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code> and <code>%=</code>.</li>
 <li>Available comparisons are: <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, and <code>&lt;=</code>.</li>
 <li>Bit manipulations<ul>
 <li>Shifts: <code>&lt;&lt;</code> (left), <code>&gt;&gt;</code> (right)</li>
 <li>Logical bit masks: <code>&amp;</code> (<code>AND</code>), <code>|</code> (<code>OR</code>), <code>^</code> (<code>XOR</code>), <code>&amp;^</code> (<code>AND NOT</code>)</li>
-<li>All operators can be used to modify a variable as well: <code>&amp;=</code>, <code>|=</code>, <code>^=</code>, <code>&amp;^=</code>, <code>&lt;&lt;=</code>, <code>&gt;&gt;=</code>.</li>
+<li>These operators can be used to modify a variable as well: <code>&amp;=</code>, <code>|=</code>, <code>^=</code>, <code>&amp;^=</code>, <code>&lt;&lt;=</code>, <code>&gt;&gt;=</code>.</li>
 </ul>
 </li>
 </ul>
@@ -953,7 +958,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <li>Floating point types<ul>
 <li><code>float32</code>, <code>float64</code>.</li>
 <li>The zero value is 0.</li>
-<li>If using a floating point number, default to <code>float64</code> unless a profiler shows significant improvement with <code>float32</code> and the precision is good enough (6-7 decimal places).</li>
+<li>If using a floating point number, opt for <code>float64</code> unless a profiler shows significant improvement with <code>float32</code> and the precision is good enough (6-7 decimal places).</li>
 <li>Strict equality (or inequality) should not be done on floating point numbers: check the variance instead (less than epsilon).</li>
 </ul>
 </li>
@@ -986,9 +991,9 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 
 <span class="c1">// Declaration list</span>
 <span class="kd">var</span><span class="w"> </span><span class="p">(</span>
-<span class="w">  </span><span class="nx">x</span><span class="w">   </span><span class="kt">int</span>
-<span class="w">  </span><span class="nx">y</span><span class="w">       </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span>
-<span class="w">  </span><span class="nx">z</span><span class="w">   </span><span class="kt">string</span>
+<span class="w">    </span><span class="nx">x</span><span class="w"> </span><span class="kt">int</span>
+<span class="w">    </span><span class="nx">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="nx">z</span><span class="w"> </span><span class="kt">string</span>
 <span class="p">)</span>
 </code></pre></div>
 <p>Type inference can be performed within a function:</p>
@@ -998,9 +1003,9 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 </code></pre></div>
 <p>Avoid <code>:=</code> in the following situations:</p>
 <ul>
-<li>When explicitly initialize a zero value, like <code>var x int</code>.</li>
-<li>To avoid a type conversion, by writing <code>var x byte = 8</code> instead of <code>x := byte(8)</code>.</li>
-<li>To avoid “shadowing” a variable, as <code>:=</code> can be used to assign to existing variables. Create new variables with <code>var</code>.</li>
+<li>When explicitly initializing a <em>zero value</em>, like <code>var x int</code>.</li>
+<li>To avoid a <em>type conversion</em>, by writing <code>var x byte = 8</code> instead of <code>x := byte(8)</code>.</li>
+<li>To avoid “<em>shadowing</em>” a variable, as <code>:=</code> can be used to assign to existing variables. Create new variables with <code>var</code>.</li>
 <li>Non-constant package-level variables are a bad idea. If they’re unused, they go unnoticed without raising compile-time errors.</li>
 </ul>
 <h2 id="const"><code>const</code></h2>
@@ -1030,13 +1035,15 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <li>They can be compared (<code>==</code> and <code>!=</code>).</li>
 <li>Their length is retrieved with the built-in <code>len</code> function.</li>
 <li>Negative indexing is a compile-time error.</li>
-<li>Out-of-bounds indexing results in a panic at runtime.</li>
-<li>Unless there’s a very specific need to use a given size of array (e.g., for a cryptographic library), avoid them.</li>
-<li>They exist basically to provide slices.</li>
+<li>Out-of-bounds indexing results in a <strong>panic</strong> at runtime.</li>
+<li>Unless there’s a very specific need to use a given size of array (e.g., for a cryptographic library), <em>avoid them</em>.</li>
+<li>They exist basically to <em>provide slices</em>.<ul>
 <li>There are a few ways of declaring arrays:</li>
 </ul>
+</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="c1">// indicate the size and type</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="kt">int</span><span class="w"> </span><span class="c1">// 3 integers with zero value</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="kt">int</span><span class="w"> </span><span class="c1">// 3 integers assigned to the zero value</span>
 
 <span class="c1">// array literal</span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">}</span><span class="w"> </span><span class="c1">// values specified</span>
@@ -1059,7 +1066,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <li>Reads and assignments are the same as with arrays, using square brackets.</li>
 <li>Slices can be created without assigning initial values: <code>var x []int</code>.</li>
 <li>Slices aren’t comparable, except to check if it is nil (<code>x == nil</code>).</li>
-<li>They’re useful for sequential data.</li>
+<li>They’re useful for <em>sequential data</em>.</li>
 </ul>
 <h3 id="len"><code>len</code></h3>
 <ul>
@@ -1072,6 +1079,8 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <span class="nx">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="c1">// more than one value</span>
 
 <span class="c1">// append to another slice with `...`</span>
+<span class="c1">// Similar to the spread operator in JavaScript,</span>
+<span class="c1">// but it goes after the value to spread</span>
 <span class="nx">y</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">}</span>
 <span class="nx">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">...</span><span class="p">)</span>
 </code></pre></div>
@@ -1111,9 +1120,9 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <span class="nx">z</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 
 <span class="c1">// These are bidirectional changes!</span>
-<span class="nx">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">20</span><span class="w">              </span><span class="c1">// affects `x`, `y` and `z`</span>
-<span class="nx">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span><span class="w">              </span><span class="c1">// affects `x` and `y`</span>
-<span class="nx">z</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">30</span><span class="w">              </span><span class="c1">// affects `x` and `z`</span>
+<span class="nx">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">20</span><span class="w">  </span><span class="c1">// affects `x`, `y` and `z`</span>
+<span class="nx">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span><span class="w">  </span><span class="c1">// affects `x` and `y`</span>
+<span class="nx">z</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">30</span><span class="w">  </span><span class="c1">// affects `x` and `z`</span>
 
 <span class="c1">// Result:</span>
 <span class="c1">// x: [10 20 30 4]</span>
@@ -1141,7 +1150,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <span class="c1">// y is now [1 2 30 40 70], length 5, capacity 5!</span>
 <span class="c1">// z is now [30 40 70], length 3, capacity 3</span>
 </code></pre></div>
-<p>One way to avoid this issue is to use *full slice expressions- to indicate the capacity of the subslices:</p>
+<p>One way to avoid this issue is to use <em>full slice expressions</em> to indicate the capacity of the sub-slices:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
 <span class="nx">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
 <span class="nx">y</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">x</span><span class="p">[:</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="w">  </span><span class="c1">// take a slice of x, up to index 2, with a capacity of 2</span>
@@ -1227,7 +1236,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <li>The zero value for a map is <code>nil</code>.</li>
 <li>Writing to a <code>nil</code> map results in a runtime panic.</li>
 <li><code>len</code> on a map returns the number of key/value pairs.</li>
-<li>Maps are not comparable (can check against <code>nil</code>).</li>
+<li>Maps are not comparable (but they can check against <code>nil</code>).</li>
 <li>The key must be comparable: it cannot be a slice, map or function.</li>
 <li>Maps are good when the order of the keys doesn’t matter: use a slice when it does.</li>
 <li>All the values must be of the same type, but <em>the keys can be of different types</em>.</li>
@@ -1240,7 +1249,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <span class="c1">// map literal: length of 0</span>
 <span class="nx">myMap</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{}</span><span class="w">  </span><span class="c1">// allows reads and writes</span>
 
-<span class="c1">// Nonempty map</span>
+<span class="c1">// Non-empty map</span>
 <span class="nx">reposByOrg</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">{</span>
 <span class="w">    </span><span class="s">"dbeaver"</span><span class="p">:</span><span class="w">   </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"dbeaver"</span><span class="p">,</span><span class="w"> </span><span class="s">"cloudbeaver"</span><span class="p">,</span><span class="w"> </span><span class="s">"team-edition-deploy"</span><span class="p">},</span>
 <span class="w">    </span><span class="s">"slidevjs"</span><span class="p">:</span><span class="w">  </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"slidev"</span><span class="p">,</span><span class="w"> </span><span class="s">"slidev-vscode"</span><span class="p">,</span><span class="w"> </span><span class="s">"themes"</span><span class="p">},</span>
@@ -1271,7 +1280,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <div class="highlight"><pre><span></span><code><span class="nb">delete</span><span class="p">(</span><span class="nx">reposByOrgStars</span><span class="p">,</span><span class="w"> </span><span class="s">"ReactiveX"</span><span class="p">)</span>
 
 <span class="c1">// It is safe to delete a key that doesn't exist</span>
-<span class="nb">delete</span><span class="p">(</span><span class="nx">reposByOrgStars</span><span class="p">,</span><span class="w"> </span><span class="s">"notfound"</span><span class="p">)</span><span class="w">    </span><span class="c1">// it returns nothing</span>
+<span class="nb">delete</span><span class="p">(</span><span class="nx">reposByOrgStars</span><span class="p">,</span><span class="w"> </span><span class="s">"notfound"</span><span class="p">)</span><span class="w">  </span><span class="c1">// it returns nothing</span>
 
 <span class="c1">// It is safe to delete a key from a nil map</span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">nilMap</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span>
@@ -1393,7 +1402,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">fmt</span><span class="p">)</span><span class="w">       </span><span class="c1">// undefined!</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Usual linters won’t catch shadowing, but we can install <code>shadow</code>:</p>
+<p>Linters typically won’t catch shadowing, but we can install <code>shadow</code>:</p>
 <div class="highlight"><pre><span></span><code>go<span class="w"> </span>install<span class="w"> </span>golang.org/x/tools/go/analysis/passes/shadow/cmd/shadow@latest
 </code></pre></div>
 <p>And we can make it part of the <code>Makefile</code>:</p>
@@ -1405,7 +1414,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <h2 id="if-statements"><code>if</code> statements</h2>
 <ul>
 <li>The condition must be a boolean expression.</li>
-<li>The usual flow is <code>if</code>, <code>else if</code>, <code>else</code>.</li>
+<li>The usual flow is <code>if ... {...} else if ... { ... } else { ... }</code>.</li>
 <li>There are no parentheses around the condition.</li>
 <li>Variables can be scoped to the <code>if</code> statement (they’ll be available in <code>else if</code> and <code>else</code> blocks as well). Only use that feature to define new variables!</li>
 </ul>
@@ -1540,6 +1549,16 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <span class="w">        </span><span class="p">}</span>
 <span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">()</span>
 <span class="w">    </span><span class="p">}</span>
+
+<span class="cm">/* Output:</span>
+<span class="cm">0 104 h</span>
+<span class="cm">1 101 e</span>
+<span class="cm">2 108 l</span>
+<span class="cm">0 119 w</span>
+<span class="cm">1 111 o</span>
+<span class="cm">2 114 r</span>
+<span class="cm">3 108 l</span>
+<span class="cm">*/</span>
 </code></pre></div>
 <p>This code will skip the remaining letters of both words once the first <code>l</code> is printed out for each one.</p>
 <h3 id="the-right-for-statement">The right <code>for</code> statement</h3>
@@ -1624,7 +1643,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <li>Types are mandatory.</li>
 <li>The <code>return</code> keyword is mandatory (except for <code>main</code>) if the function has a return type.</li>
 <li>Nothing goes between the input parameters and the start of the block if there’s no return type.</li>
-<li>Go has no named or optional input parameters: you can pass structs instead. In practice, that probably means the function is trying to do too much.</li>
+<li>Go has no named or optional input parameters: you can pass structs instead. In practice, that probably means the function is trying to do too much if you need this feature.</li>
 <li>Go supports variadic parameters (e.g., the <code>fmt.Println</code> function) with <code>...</code> right before the type: they are used as a slice inside the function.</li>
 <li>Functions can return multiple values. They must all be returned, comma-separated. Unlike Python which uses tuples, Go uses the comma to separate the individual values.</li>
 <li>The error is always the last parameter a function will return. If no error occurred, it will be <code>nil</code>.</li>
@@ -1663,7 +1682,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 </code></pre></div>
 <h2 id="functions-are-values">Functions are values</h2>
 <ul>
-<li>Functions can be defined as types, e.g. <code>type aFuncType func(int, int) int</code>.</li>
+<li>Functions can be defined as types, e.g., <code>type aFuncType func(int, int) int</code>.</li>
 <li>Anonymous functions can be defined inside other functions and called immediately (<span class="caps">IIFE</span>). This comes in handy when using <a href="#defer"><code>defer</code></a> and <a href="#chapter-10-concurrency-in-go">Goroutines</a>.</li>
 </ul>
 <h3 id="closures">Closures</h3>
@@ -1697,7 +1716,8 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 
 <span class="w">    </span><span class="c1">// `people` is captured by the closure</span>
 <span class="w">    </span><span class="nx">sort</span><span class="p">.</span><span class="nx">Slice</span><span class="p">(</span><span class="nx">people</span><span class="p">,</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// If one person has a pet and the other doesn't, prioritize the one with the pet.</span>
+<span class="w">        </span><span class="c1">// If one person has a pet and the other doesn't,</span>
+<span class="w">        </span><span class="c1">// prioritize the one with the pet.</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">people</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">HasPet</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">people</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">HasPet</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">people</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">HasPet</span>
 <span class="w">        </span><span class="p">}</span>
@@ -1757,7 +1777,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 </code></pre></div>
 <h3 id="defer"><code>defer</code></h3>
 <ul>
-<li>This is used to perform the cleanup code, such as closing a file, after a function has returned. This is similar to the <code>finally</code> block in Java or Python.</li>
+<li>This is used to perform the cleanup code, such as closing a file, after a function has returned. This is similar to the <code>finally</code> block in Java or Python but it executes at the very end of the function, not as part of a <code>try...except</code> block.</li>
 <li>It delays the execution of a function until the surrounding function returns.</li>
 <li>They run in <span class="caps">LIFO</span> (last in, first out) order.</li>
 <li>The code that runs after <code>defer</code> is literally the last thing that runs before the function returns, so what is put there is immediately “called” (e.g., <code>defer close()</code>) but will run until later.</li>
@@ -1771,10 +1791,10 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <hr/>
 <h1 id="chapter-6-pointers">Chapter 6: Pointers</h1>
 <ul>
-<li>A pointer is a variable that holds the address of a value in memory.</li>
+<li><em>A pointer is a variable that holds the address of a value in memory</em>.</li>
 <li>The zero value of a pointer is <code>nil</code>.</li>
-<li><code>&amp;</code> is the address-of operator. It goes before the variable name to get its address.</li>
-<li><code>*</code> is the indirection (dereference) operator. It goes before a pointer to get the value it points to.</li>
+<li><code>&amp;</code> is the <em>address-of operator</em>. It goes before the variable name to get its address.</li>
+<li><code>*</code> is the <em>indirection operator</em> (dereference). It goes before a pointer to get the value it points to.</li>
 <li>Dereferencing a <code>nil</code> pointer will result in a runtime panic.</li>
 <li>Types with an <code>*</code> are pointers to that type (“pointer type”).</li>
 <li><code>new</code> is a built-in function that allocates memory for a type and returns a pointer to it.</li>
@@ -1788,7 +1808,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 </ul>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">*</span><span class="kt">int</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">x</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">)</span><span class="w"> </span><span class="c1">// 10 0xc0000b4008</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">)</span><span class="w">   </span><span class="c1">// 10 0xc0000b4008</span>
 <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="nx">y</span><span class="p">)</span><span class="w"> </span><span class="c1">// 0xc0000b4008 10</span>
 
 <span class="c1">// The zero value of a pointer is nil</span>
@@ -1803,7 +1823,8 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span><span class="w"> </span><span class="c1">// 0xc0000b4010</span>
 <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="o">*</span><span class="nx">a</span><span class="p">)</span><span class="w"> </span><span class="c1">// 0</span>
 
-<span class="c1">// To turn a constant into a pointer, use a helper function that takes a value and returns a pointer to it</span>
+<span class="c1">// To turn a constant into a pointer, use a helper function that takes a value</span>
+<span class="c1">// and returns a pointer to it</span>
 <span class="kd">func</span><span class="w"> </span><span class="nx">intPtr</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">i</span>
 <span class="p">}</span>
@@ -2033,9 +2054,9 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="kd">interface</span><span class="p">{}</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">42</span>
 <span class="w">    </span><span class="nx">v1</span><span class="p">,</span><span class="w"> </span><span class="nx">ok1</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">i</span><span class="p">.(</span><span class="kt">int</span><span class="p">)</span>
-<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">v1</span><span class="p">,</span><span class="w"> </span><span class="nx">ok1</span><span class="p">)</span><span class="w"> </span><span class="c1">// 42 true</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">v1</span><span class="p">,</span><span class="w"> </span><span class="nx">ok1</span><span class="p">)</span><span class="w">      </span><span class="c1">// 42 true</span>
 <span class="w">    </span><span class="nx">v2</span><span class="p">,</span><span class="w"> </span><span class="nx">ok2</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">i</span><span class="p">.(</span><span class="kt">string</span><span class="p">)</span>
-<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">v2</span><span class="p">,</span><span class="w"> </span><span class="nx">ok2</span><span class="p">)</span><span class="w"> </span><span class="c1">// "" false</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">v2</span><span class="p">,</span><span class="w"> </span><span class="nx">ok2</span><span class="p">)</span><span class="w">      </span><span class="c1">// "" false</span>
 
 <span class="w">    </span><span class="c1">// type switch</span>
 <span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">i</span><span class="p">.(</span><span class="kd">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -2043,7 +2064,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"int"</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="p">)</span><span class="w"> </span><span class="c1">// int 42</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="kt">string</span><span class="p">:</span>
 <span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"string"</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="p">)</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="kt">float64</span><span class="p">,</span><span class="w"> </span><span class="kt">float32</span><span class="p">:</span><span class="w"> </span><span class="c1">// check both at once</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="kt">float64</span><span class="p">,</span><span class="w"> </span><span class="kt">float32</span><span class="p">:</span><span class="w">    </span><span class="c1">// check both at once</span>
 <span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"float"</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="p">)</span>
 <span class="w">    </span><span class="k">default</span><span class="p">:</span>
 <span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"unknown"</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="p">)</span>
@@ -2216,7 +2237,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <hr/>
 <h1 id="chapter-8-errors">Chapter 8: Errors</h1>
 <ul>
-<li>Go does not have exceptions.</li>
+<li><em>Go does not have exceptions</em>.</li>
 <li>Errors are values.</li>
 <li>They are the last return value of a function (by convention).</li>
 <li>The <code>error</code> interface is defined in the standard library.</li>
@@ -2261,10 +2282,10 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 </ul>
 <h2 id="panic-and-recover">Panic and recover</h2>
 <ul>
-<li>A panic is used to indicate that the program cannot continue (e.g., out of memory error or trying to read beyond the end of a slice).</li>
+<li>A <strong>panic</strong> is used to indicate that the program cannot continue (e.g., out of memory error or trying to read beyond the end of a slice).</li>
 <li>When a panic occurs, the program stops executing and the stack is unwound, running all deferred functions until the <code>main</code> function is reached.</li>
 <li><code>panic</code> and <code>recover</code> are not intended to be used for error handling.</li>
-<li>It is better to explicitly handle errors than to use <code>panic</code> and <code>recover</code> because it is not clear in <code>recover</code> what failed exactly.</li>
+<li>It is better to explicitly handle errors than to use <code>panic</code> and <code>recover</code> because it is not clear when calling <code>recover</code> what failed exactly.</li>
 </ul>
 <h2 id="getting-a-stack-trace-from-an-error">Getting a Stack Trace from an Error</h2>
 <ul>
@@ -2284,9 +2305,11 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <li>The module path is case-sensitive.</li>
 <li>The minimum version of Go required to build the module can be specified with <code>go mod init MODULE_PATH GO_VERSION</code> and it appears in the <code>go.mod</code> file below the module declaration.</li>
 <li>There can be a <code>require</code> directive for each dependency.</li>
-<li>There are also two optional sections: <code>replace</code> and <code>exclude</code>.</li>
+<li>There are also two optional sections: <code>replace</code> and <code>exclude</code>.<ul>
 <li><code>replace</code> is used to replace a dependency with a local version.</li>
 <li><code>exclude</code> is used to exclude a dependency from the build.</li>
+</ul>
+</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1">// Example of a go.mod file</span>
 <span class="nx">module</span><span class="w"> </span><span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">/</span><span class="p">{</span><span class="nx">USER</span><span class="p">}</span><span class="o">/</span><span class="p">{</span><span class="nx">PROJECT</span><span class="p">}</span>
@@ -2302,18 +2325,20 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <h3 id="imports-and-exports">Imports and exports</h3>
 <ul>
 <li>Import statements allow accessing exported constants, variables, functions and types from another package.</li>
-<li>An exported identifier starts with a capital letter. It cannot be accessed from another package without an import statement.</li>
+<li><em>An exported identifier starts with a capital letter</em>. It cannot be accessed from another package without an import statement.</li>
 </ul>
 <h3 id="creating-and-accessing-packages">Creating and accessing packages</h3>
 <ul>
 <li>The first line of the file should be <code>package {PACKAGE_NAME}</code>. It’s a <em>package clause</em>.</li>
-<li>Next is the import section.</li>
+<li>Next is the import section.<ul>
 <li>Importing from the standard library doesn’t require a path.</li>
 <li>Any other imports require a path, using the module path as a prefix and appending the path to the package.</li>
 <li>Not using any identifier from a path will result in a compiler error. Hence, all code included in the build will be used.</li>
 <li>It is best to always use absolute paths for clarity.</li>
 <li>The name of a package is determined by its package clause, <em>not by the path</em> being imported. In general, the package name should match the last element of the path.</li>
 <li>The <code>main</code> package cannot be imported as it is the entrypoint of the application.</li>
+</ul>
+</li>
 <li>Package names are in the file block: the package name is the same for all files in the same directory and must be present.</li>
 </ul>
 <h3 id="naming-packages">Naming packages</h3>
@@ -2326,14 +2351,18 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <ul>
 <li>There is no official structure.</li>
 <li>The <code>cmd</code> directory is used for executables. There can be multiple executables produced by different applications from a module.</li>
-<li>When there are a bunch of files at the root to manage deployment and testing, it is a good pattern to put all packages inside a <code>pkg</code> directory.</li>
+<li>When there are a bunch of files at the root to manage deployment and testing, it is a good pattern to put all packages inside a <code>pkg</code> directory.<ul>
 <li>Inside <code>pkg</code>, limit dependencies between packages by organizing the code according to the functionality it provides.</li>
 <li>A good primer on the topic is <a href="https://www.youtube.com/watch?v=oL6JBUk6tj0">GopherCon 2018: Kat Zien - How Do You Structure Your Go Apps</a>.</li>
 </ul>
+</li>
+</ul>
 <h3 id="overriding-a-packages-name">Overriding a package’s name</h3>
 <ul>
-<li>When names collide, you can use an alias to rename a package.</li>
+<li>When names collide, you can use an alias to rename a package.<ul>
 <li>In the standard library, both <code>"crypto/rand"</code> and <code>"math/rand"</code> are imported as <code>"rand"</code>, but they can be disambiguated with an alias such as <code>crand "crypto/rand"</code>.</li>
+</ul>
+</li>
 <li>Using the <code>.</code> alias is discouraged because it makes it harder to understand where a function is coming from as it will import all exported identifiers from the current namespace (same idea as <code>import * from ...</code> in Python).</li>
 <li>Package names can be shadowed, which renders it inaccessible. Always resolve conflicts by using an alias instead.</li>
 </ul>
@@ -2343,8 +2372,10 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <li>Comments start with <code>//</code> and can be multiline.</li>
 <li>A blank line with <code>//</code> is used to create paragraphs.</li>
 <li>Preformatted text can be inserted with indentation.</li>
-<li>Comments before the package clause create package-level documentation.</li>
+<li>Comments before the package clause create package-level documentation.<ul>
 <li>If the package has a lot of documentation, it is better to put it in a separate file called <code>doc.go</code>.</li>
+</ul>
+</li>
 <li>Comments should start with the name of the item being documented.</li>
 </ul>
 <h3 id="internal-package">Internal package</h3>
@@ -2357,11 +2388,11 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <li>If there is an <code>init</code> function in a package, it runs as soon as the package is referenced by another package.</li>
 <li>It has not input or output parameters and can only cause side-effects within the package.</li>
 <li>There can be multiple <code>init</code> functions in a package, even in the same file, although this setup is discouraged.</li>
-<li>A blank import can be used to run the <code>init</code> function of a package without using any of its exported identifiers, e.g. <code>import _ "github.com/lib/pq"</code>. Explicit is better than implicit: this is an obsolete pattern.</li>
+<li>A blank import can be used to run the <code>init</code> function of a package without using any of its exported identifiers, e.g., <code>import _ "github.com/lib/pq"</code>. Explicit is better than implicit: this is an obsolete pattern.</li>
 </ul>
 <h3 id="circular-dependencies">Circular dependencies</h3>
 <ul>
-<li>They are not allowed to keep the code readable and the compiler fast.</li>
+<li>They are <strong>not allowed</strong> to keep the code readable and the compiler fast.</li>
 <li>If two packages depend on each other, they should probably be merged into a single package.</li>
 <li>If two packages with circular dependencies are still preferred, it may be possible to move only the culprits into a separate package so that both packages can import them.</li>
 </ul>
@@ -2382,19 +2413,27 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 </ul>
 <h3 id="working-with-versions">Working with versions</h3>
 <ul>
-<li><code>go list</code> is used to list dependencies used by a project.</li>
+<li><code>go list</code> is used to list dependencies used by a project.<ul>
 <li>By default, it lists packages used.</li>
 <li>The <code>-m</code> flag is used to list modules used.</li>
 <li>Appending the <code>-versions</code> flag to the previous command lists all versions of the dependencies.</li>
-<li><code>go get</code> can be used to downgrade or upgrade a dependency (e.g., <code>go get github.com/{USER}/{PROJECT}@v1.0.0</code>).</li>
+</ul>
+</li>
+<li><code>go get</code> can be used to downgrade or upgrade a dependency (e.g., <code>go get github.com/{USER}/{PROJECT}@v1.0.0</code>).<ul>
 <li>It can also be used to add a new dependency.</li>
 <li>It can be used to remove a dependency by adding the <code>-u</code> flag.</li>
 <li>Changes will be reflected in <code>go.mod</code> and <code>go.sum</code>.</li>
-<li>Dependencies might be shown with <code>// indirect</code> next to them. This means that the dependency is not used directly by the project, but by one of its dependencies.</li>
+</ul>
+</li>
+<li>Dependencies might be shown with <code>// indirect</code> next to them. This means that the dependency is not used directly by the project, but by one of its dependencies.<ul>
 <li>It can be added when the project uses that dependency directly with a newer version than what is declared in the dependency’s <code>go.mod</code> file.</li>
+</ul>
+</li>
 <li>Go follows semantic versioning (<em>SemVer</em>).</li>
-<li>There is an <em>import compatibility rule</em>: all minor and patch versions should remain compatible and if not, this is considered a bug.</li>
+<li>There is an <em>import compatibility rule</em>: all minor and patch versions should remain compatible and if not, this is considered a bug.<ul>
 <li>Instead of importing multiple versions of the same library as with <code>npm</code>, Go will import the highest version of the library that satisfies the requirements.</li>
+</ul>
+</li>
 </ul>
 <h3 id="updating-to-compatible-versions">Updating to compatible versions</h3>
 <ul>
@@ -2403,7 +2442,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 </ul>
 <h3 id="updating-to-incompatible-versions">Updating to incompatible versions</h3>
 <ul>
-<li>Go follows the <em>semantic import versioning</em> rule: for all major versions greater than <code>1</code>, the major version is included in the import path, e.g. <code>"github.com/{USER}/{PROJECT}/v2"</code>.</li>
+<li>Go follows the <em>semantic import versioning</em> rule: for all major versions greater than <code>1</code>, the major version is included in the import path, e.g., <code>"github.com/{USER}/{PROJECT}/v2"</code>.</li>
 <li>Once a new major version is used in the project, <code>go build</code> will update the <code>go.mod</code> file to use the new major version.</li>
 <li>Older versions may still be present in <code>go.mod</code>: <code>go mod tidy</code> can be used to remove them.</li>
 </ul>
@@ -2426,7 +2465,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <h2 id="versioning-modules">Versioning modules</h2>
 <ul>
 <li>Minor and patch versions should be compatible and are easy to manage.</li>
-<li>Major versions are slightly more difficult to manage. For instance, let’s go from <code>v1</code> to <code>v2</code>.</li>
+<li>Major versions are slightly more difficult to manage. For instance, let’s go from <code>v1</code> to <code>v2</code>.<ul>
 <li>Create a directory to put all the old code in, named <code>v2</code>, including <code>README</code> and <code>LICENSE</code> files.</li>
 <li>Create a branch.<ul>
 <li>Name the branch <code>v1</code> if the old code goes in it.</li>
@@ -2439,6 +2478,8 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <li>Name the tag <code>v2.0.0</code>.</li>
 <li>Tag the <code>main</code> branch if the new code goes in it.</li>
 <li>Otherwise, tag the <code>v2</code> branch.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>If breaking changes might be introduced while on the new version, use a pre-release version, e.g., <code>v2.0.0-alpha.1</code>.</li>
@@ -2462,8 +2503,8 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <h2 id="when-to-use-concurrency">When to use concurrency</h2>
 <ul>
 <li><em>Concurrency is not parallelism</em>.</li>
-<li>Concurrency is useful when there are multiple tasks that can be executed independently.</li>
-<li>Concurrency brings benefits when a process takes a long time to complete.</li>
+<li>Concurrency is useful <em>when there are multiple tasks that can be executed independently</em>.</li>
+<li>Concurrency brings benefits <em>when a process takes a long time to complete</em>.</li>
 <li>Read <a href="https://www.oreilly.com/library/view/the-art-of/9780596802424/">The Art of Concurrency</a> for more information.</li>
 <li>The book <a href="https://www.oreilly.com/library/view/concurrency-in-go/9781491941294/">Concurrency in Go</a> is also a great resource.</li>
 </ul>
@@ -2473,23 +2514,25 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <li>Because Go manages goroutines, they are cheap to create and destroy (no need to create system-level resources).</li>
 <li>They are memory efficient because they are allocated on the stack with small initial sizes.</li>
 <li>Switching between goroutines is fast because it is managed by the Go runtime within a process.</li>
-<li>Go optimizes how work is distributed across goroutines.</li>
+<li>Go optimizes how work is distributed across goroutines.<ul>
 <li>For more details on this, watch <a href="https://www.youtube.com/watch?v=YHRO5WQGh0k">GopherCon 2018: Kavya Joshi - The Scheduler Saga</a>.</li>
+</ul>
+</li>
 <li>A goroutine starts by calling a function with the <code>go</code> keyword in front of it.</li>
 </ul>
 <h2 id="channels">Channels</h2>
 <ul>
-<li>Channels are used to communicate between goroutines.</li>
-<li>They are a built-in type that require the <code>make</code> function to create them, e.g. <code>ch := make(chan int)</code>.</li>
+<li>Channels are <em>used to communicate between goroutines</em>.</li>
+<li>They are a built-in type that require the <code>make</code> function to create them, e.g., <code>ch := make(chan int)</code>.</li>
 <li>The zero value of a channel is <code>nil</code>.</li>
 <li>They are passed as parameters to functions as a pointer.</li>
 </ul>
 <h3 id="reading-writing-buffering">Reading, writing, buffering</h3>
 <ul>
-<li>The <code>&lt;-</code> operator is used to send and receive data from a channel. It indicates the direction of the data flow.</li>
-<li>A function parameter can specify the direction of the channel, e.g. <code>func f(ch &lt;-chan int)</code> will make it so that the channel can only be read from. Likewise, <code>func f(ch chan&lt;- int)</code> will make it so that the channel can only be written to.</li>
+<li>The <code>&lt;-</code> operator is used to send and receive data from a channel. <em>It indicates the direction of the data flow</em>.</li>
+<li>A function parameter can specify the direction of the channel, e.g., <code>func f(ch &lt;-chan int)</code> will make it so that the channel can only be read from. Likewise, <code>func f(ch chan&lt;- int)</code> will make it so that the channel can only be written to.</li>
 <li>By default, channels are <em>unbuffered</em>, meaning that they can only hold one value at a time. They should be used most of the time.</li>
-<li>A channel can be buffered by specifying the buffer size when creating it, e.g. <code>ch := make(chan int, 10)</code>.</li>
+<li>A channel can be buffered by specifying the buffer size when creating it. E.g., <code>ch := make(chan int, 10)</code>.</li>
 <li><code>len(ch)</code> is used to get the number of elements in the channel.</li>
 <li><code>cap(ch)</code> is used to get the capacity of the channel.</li>
 <li>The capacity of a channel cannot be changed after it is created.</li>
@@ -2509,8 +2552,10 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <li>Writing to a closed channel will result in a runtime panic.</li>
 <li>Attempting to read from a closed unbuffered channel will return the zero value of the channel’s type.</li>
 <li>Reading from a closed buffered channel will return the remaining values in the channel until it is empty, then it will return the zero value of the channel’s type.</li>
-<li>To know if a channel is closed, use the second return value of the receive operation with the <em>comma ok</em> idiom, e.g. <code>v, ok := &lt;-ch</code>.</li>
+<li>To know if a channel is closed, use the second return value of the receive operation with the <em>comma ok</em> idiom, e.g., <code>v, ok := &lt;-ch</code>.<ul>
 <li><code>ok</code> will be <code>true</code> if the channel is open and <code>false</code> if it is closed.</li>
+</ul>
+</li>
 </ul>
 <h3 id="how-channels-behave">How channels behave</h3>
 <ul>
@@ -2526,8 +2571,10 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <li>A <code>case</code> in a <code>select</code> statement is executed when the channel is ready to be read from or written to.</li>
 <li>If multiple <code>case</code> statements are ready, one is chosen at random — with <code>switch</code>, the first match is always chosen. This solves the starvation problem since all cases are checked at once.</li>
 <li><code>select</code> also deals with deadlock issues: if all channels are blocked, it will execute the <code>default</code> case.</li>
-<li><code>select</code> is often used in a loop to keep reading from a channel until it is closed.</li>
+<li><code>select</code> is often used in a loop to keep reading from a channel until it is closed.<ul>
 <li>Having a <code>default</code> case inside a loop for a <code>select</code> is most certainly not what is intended as it will run constantly.</li>
+</ul>
+</li>
 </ul>
 <h2 id="concurrency-practices-and-patterns">Concurrency practices and patterns</h2>
 <h3 id="keep-apis-concurrency-free">Keep APIs concurrency-free</h3>
@@ -2560,7 +2607,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <h3 id="done-channel-pattern"><span class="dquo">“</span>Done channel pattern”</h3>
 <ul>
 <li>If multiple goroutines are running, it is useful to have a way to signal them to stop.</li>
-<li>A channel (<code>done</code>) can be used to signal the goroutines to stop.</li>
+<li>A channel (named <code>done</code>) can be used to signal the goroutines to stop.</li>
 </ul>
 <h3 id="using-a-cancel-function-to-terminate-a-goroutine">Using a cancel function to terminate a goroutine</h3>
 <ul>
@@ -2664,7 +2711,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <li>Mutexes limit access to a resource to a single goroutine at a time with a locking mechanism (<code>Lock</code> and <code>Unlock</code>, which must be used carefully to avoid creating deadlocks, especially in functions implemented recursively).</li>
 <li>They require to do more bookkeeping than channels.</li>
 <li>They should never be copied, just like <code>sync.WaitGroup</code> and <code>sync.Once</code>.</li>
-<li>Use mutexes when there is a shared resource that needs to be protected, such as a field in a struct.</li>
+<li>Use mutexes <em>when there is a shared resource that needs to be protected</em>, such as a field in a struct.</li>
 <li><code>RWMutex</code> is used when there are multiple readers and a single writer. The <em>critical section</em> is protected by a write lock, while the read lock is used to read the resource by multiple goroutines.</li>
 <li>Sometimes, performance issues with channels can be solved by using mutexes instead.</li>
 </ul>
@@ -2691,7 +2738,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <h2 id="time"><code>time</code></h2>
 <ul>
 <li><code>time</code> is used to work with dates and times.</li>
-<li><code>time.Time</code> is used to represent a date and time.</li>
+<li><code>time.Time</code> is used to represent a date and time. It includes the usual constants for days of the week, months, etc.</li>
 <li><code>time.Duration</code> is used to represent a duration.</li>
 <li><code>time.Parse</code> is used to parse a string into a <code>time.Time</code> value.</li>
 <li><code>time.Format</code> is used to format a <code>time.Time</code> value into a string.</li>
@@ -2707,12 +2754,11 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <li><code>time.Until</code> is used to get the time until a specified time.</li>
 <li><code>time.AfterFunc</code> is used to execute a function after a specified duration.</li>
 <li>Use <code>Equal</code> to compare two <code>time.Time</code> values.</li>
-<li><code>time.Time</code> includes the usual constants for days of the week, months, etc.</li>
 </ul>
 <h3 id="monotonic-time">Monotonic time</h3>
 <ul>
 <li>Go uses a monotonic clock to measure time.</li>
-<li>A monotonic clock is a clock that counts up from the start of the computer.</li>
+<li>A monotonic clock is <em>a clock that counts up from the start of the computer</em>.</li>
 </ul>
 <h3 id="timers-and-timeouts">Timers and timeouts</h3>
 <ul>
@@ -2730,7 +2776,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <li>They can span only one line, taking the format <code>`tagName:"tagValue"`</code>.</li>
 <li><code>go vet</code> can be used to check for struct tags validity.</li>
 <li>If no struct tag is specified, the field name will be used instead.</li>
-<li>Use a <code>-</code> for a field name to ignore it.</li>
+<li>Use a <code>-</code> (dash) for a field name to ignore it.</li>
 <li><code>,omitempty</code> can be added right after the field name to omit a field if it is empty.</li>
 <li>While annotations can make the code more declarative and short, they can also make it harder to read and understand. <strong>Go</strong> for readability first.</li>
 </ul>
@@ -2784,16 +2830,24 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <h2 id="timers">Timers</h2>
 <p>A server can do a few things to manage its load:</p>
 <ul>
-<li>It can limit the number of concurrent requests it accepts.</li>
+<li>It can limit the number of concurrent requests it accepts.<ul>
 <li>It can be done by limiting the number of goroutines.</li>
-<li>It can limit the number of requests queued up.</li>
+</ul>
+</li>
+<li>It can limit the number of requests queued up.<ul>
 <li>This can be handled with a buffered channel.</li>
-<li>Limit the amount of time a request can take.</li>
+</ul>
+</li>
+<li>Limit the amount of time a request can take.<ul>
 <li>The context can be used to do this.</li>
 <li><code>context.WithTimeout</code> is used to create a context that will be cancelled after a specified duration.</li>
 <li><code>context.WithDeadline</code> is used to create a context that will be cancelled at a specified time.</li>
-<li>Limit the resources a request can use (memory, disk space…).</li>
+</ul>
+</li>
+<li>Limit the resources a request can use (memory, disk space…).<ul>
 <li>There is no built-in solution for this in Go.</li>
+</ul>
+</li>
 </ul>
 <h2 id="values">Values</h2>
 <ul>
@@ -2817,13 +2871,17 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 </ul>
 <h3 id="setting-up-and-tearing-down">Setting up and tearing down</h3>
 <ul>
-<li><code>TestMain</code> is used to set up and tear down tests.</li>
+<li><code>TestMain</code> is used to set up and tear down tests.<ul>
 <li>It is called <em>once</em> before and after all tests, not between each test.</li>
 <li>Can be used to set up and tear down a database, for instance.</li>
 <li>It can be used when package-level variables need to be initialized, although this probably means the code needs refactoring.</li>
 <li>It takes a <code>*testing.M</code> parameter. Setup can be done at the beginning, then <code>exitVal := m.Run()</code> is called to run tests, then teardown can be done at the end, returning the exit value with <code>os.Exit(exitVal)</code>.</li>
-<li>Individual test functions receive a <code>*testing.T</code> parameter, which has a <code>Cleanup</code> method that can be used to clean up after a test.</li>
+</ul>
+</li>
+<li>Individual test functions receive a <code>*testing.T</code> parameter, which has a <code>Cleanup</code> method that can be used to clean up after a test.<ul>
 <li>The <code>Cleanup</code> method is similar to the <code>defer</code> statement but can be useful is the cleanup actions are performed for multiple tests from a helper function.</li>
+</ul>
+</li>
 </ul>
 <h3 id="storing-sample-test-data">Storing sample test data</h3>
 <ul>
@@ -2969,7 +3027,7 @@ ok    github.com/{USER}/{PROJECT}/adder    0.368s
 <h2 id="reflection-to-work-with-types-at-runtime">Reflection to work with types at runtime</h2>
 <ul>
 <li>This can be used to work with data that didn’t exist at compile time.</li>
-<li>Use cases:</li>
+<li>Use cases:<ul>
 <li>Reading and writing from a database;</li>
 <li>Template engines;</li>
 <li><code>fmt</code> uses it heavily;</li>
@@ -2977,6 +3035,8 @@ ok    github.com/{USER}/{PROJECT}/adder    0.368s
 <li><code>sort</code> uses it to sort slices of arbitrary types;</li>
 <li>Marshalling/unmarshalling <span class="caps">JSON</span> and <span class="caps">XML</span>;</li>
 <li>Comparing maps or slices for deep equality with <code>reflect.DeepEqual</code>.</li>
+</ul>
+</li>
 </ul>
 <h3 id="types-kinds-and-values">Types, kinds, and values</h3>
 <ul>
@@ -3067,7 +3127,7 @@ ok    github.com/{USER}/{PROJECT}/adder    0.368s
 <h1 id="salient-takeaways">Salient takeaways</h1>
 <ul>
 <li>Go is a <strong>practical</strong> language, valuing clarity of intent and readability (e.g., standard formatting is mandatory). It takes the best of other languages and leaves out the rest.</li>
-<li>Comprehensibility is more important than conciseness in idiomatic Go.</li>
+<li>Comprehensibility and explicitness is more important than conciseness in idiomatic Go.</li>
 <li>Go is “<em>call by value</em>“, meaning it makes copies of function parameters before passing them along.</li>
 <li>Deployment is a breeze: a single binary file.</li>
 <li>Go doesn’t have classes nor inheritance, but it has structs and interfaces.</li>
