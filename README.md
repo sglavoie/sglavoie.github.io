@@ -16,11 +16,32 @@ Here are the main reasons why this approach felt right:
 
 ## How to use
 
+### With Poetry
+
+* https://python-poetry.org/
+
+```bash
+poetry add toml
+# poetry run python setup_deps.py poetry  # if previously set to use pip
+poetry install
+poetry run [SOME_COMMAND_AS_SHOWN_BELOW]
+```
+
+### Without Poetry
+
 ```bash
 # Activate a virtual environment, e.g.:
 # python -m venv .venv && source ./.venv/bin/activate
-pip install -r requirements.txt
 
+pip install toml
+# python setup_deps.py pip  # if previously set to use poetry
+
+pip install -r requirements.txt
+```
+
+### Build, use, publish
+
+```bash
 # Build the website
 invoke build
 
