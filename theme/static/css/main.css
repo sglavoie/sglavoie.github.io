@@ -614,6 +614,12 @@ em {
   margin-right: 0.2rem;
 }
 
+.article_meta strong,
+.article_meta em {
+  color: var(--tint-100);
+  margin-right: 0.2rem;
+}
+
 table {
   padding: 0;
   margin-bottom: 1em;
@@ -771,6 +777,15 @@ main article li {
   row-gap: 1em;
   font-family: SourceCodePro, "JetBrains Mono", "Courier New", Courier,
     monospace;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 15%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 1) 85%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 .meta_container_hrs {
