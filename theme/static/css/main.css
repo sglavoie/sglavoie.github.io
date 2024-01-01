@@ -711,7 +711,7 @@ main article li {
 }
 
 .article_readtime {
-  color: var(--tint-700);
+  color: var(--tint-100);
   margin-bottom: 1rem;
   text-align: center;
 }
