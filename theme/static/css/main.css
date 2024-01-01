@@ -515,6 +515,13 @@ main article pre {
   -webkit-box-shadow: 0px 0px 4px 2px var(--background-dark);
   box-shadow: 0px 0px 4px 2px var(--background-dark);
   background-color: var(--background-color-monokai);
+  -webkit-transition: all var(--transition-color);
+  -o-transition: all var(--transition-color);
+  transition: all var(--transition-color);
+}
+
+main article pre:hover {
+  background-color: black;
 }
 
 main article code:not(pre > code) {
