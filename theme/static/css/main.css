@@ -429,32 +429,9 @@ aside#sidebar li {
   text-wrap: nowrap;
 }
 
-aside#sidebar li a,
-aside#pageNavigation li a,
-#paginator a {
-  background: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      from(var(--shade-100)),
-      to(var(--shade-100))
-    )
-    no-repeat right bottom / 0 var(--bg-h);
-  background: -o-linear-gradient(bottom, var(--shade-100), var(--shade-100))
-    no-repeat right bottom / 0 var(--bg-h);
-  background: linear-gradient(0deg, var(--shade-100), var(--shade-100))
-    no-repeat right bottom / 0 var(--bg-h);
-  -webkit-transition: background-size var(--transition-color),
-    border var(--transition-border), color var(--transition-color);
-  -o-transition: background-size var(--transition-color),
-    border var(--transition-border), color var(--transition-color);
-  transition: background-size var(--transition-color),
-    border var(--transition-border), color var(--transition-color);
-}
-
 aside#sidebar li a:where(:hover, :focus-visible),
 #paginator a:where(:hover, :focus-visible) {
-  border: 2px solid var(--shade-900);
+  border: 2px solid var(--tint-100);
   background-size: 100% var(--bg-h);
   background-position-x: right;
   color: var(--tint-100);
@@ -462,7 +439,7 @@ aside#sidebar li a:where(:hover, :focus-visible),
 
 aside#pageNavigation li a:where(:hover, :focus-visible),
 #paginator a:where(:hover, :focus-visible) {
-  border: 2px solid var(--shade-900);
+  border: 2px solid var(--tint-100);
   background-size: 100% var(--bg-h);
   background-position-x: left;
   color: var(--tint-100);
