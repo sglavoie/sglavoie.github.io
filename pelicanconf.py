@@ -120,8 +120,9 @@ USER_LOGO_URL = SITEURL + "/theme/images/logo.png"
 # Plugins
 PLUGIN_PATHS = ["plugins"]
 PLUGINS = [
-    "div_around_tables",
+    "div_around_tables",  # custom
     "extract_toc",
+    "flag_skim_notes",  # custom
     "readtime",
     "render_math",
     "tag_cloud",

@@ -621,6 +621,15 @@ em {
   margin-right: 0.2rem;
 }
 
+.article_skim_notes {
+  color: var(--tint-200);
+  margin-bottom: 1rem;
+}
+
+.article_skim_notes em {
+  color: var(--tint-200);
+}
+
 .article_meta strong,
 .article_meta em {
   color: var(--tint-100);

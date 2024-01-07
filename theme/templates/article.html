@@ -82,6 +82,11 @@ endblock %} {% block content %}
         minutes to read
       </div>
       {% endif %}
+      {% if article.metadata.is_skim_notes %}
+      <div class="article_skim_notes">
+        <em><strong>Note:</strong> This article features skimming notes and is intentionally less fluffy.</em>
+      </div>
+      {% endif %}
     </div>
     <hr />
   </div>
