@@ -117,9 +117,6 @@ TIMEZONE = "America/Mexico_City"
 THEME = "theme"
 USER_LOGO_URL = SITEURL + "/theme/images/logo.png"
 
-# Enable tracking of web traffic
-GOOGLE_ANALYTICS = "UA-150998392-1"
-
 # Plugins
 PLUGIN_PATHS = ["plugins"]
 PLUGINS = [

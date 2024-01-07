@@ -16,6 +16,3 @@ DELETE_OUTPUT_DIRECTORY = True
 # Following items are often useful when publishing
 
 DISQUS_SITENAME = "sglavoie"
-
-# Enable tracking of web traffic
-GOOGLE_ANALYTICS = "UA-150998392-1"
