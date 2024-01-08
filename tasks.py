@@ -4,6 +4,7 @@ from pathlib import Path
 import os
 import shlex
 import shutil
+import subprocess
 import sys
 import datetime
 
@@ -96,6 +97,10 @@ def preview(c):
     """Build production version of site"""
     pelican_run("-s {settings_publish}".format(**CONFIG))
 
+@task
+def search(c):
+    """Update the search index"""
+    subprocess.run(shlex.split("npx -y pagefind"))
 
 @task
 def livereload(c):

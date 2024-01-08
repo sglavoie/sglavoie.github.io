@@ -224,7 +224,8 @@
   main article p,
   ol,
   ul,
-  dl {
+  dl,
+  #search {
     max-width: 52em;
   }
 

@@ -1,0 +1,3 @@
+site: output
+output_subdir: pagefind
+show_images: false
