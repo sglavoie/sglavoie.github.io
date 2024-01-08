@@ -78,6 +78,8 @@
       type="text/css"
       href="/theme/css/styles.css"
     />
+    <link href="/theme/css/sweetalert2.css" rel="stylesheet" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Sébastien Lavoie" />
     <meta
@@ -147,27 +149,28 @@
 
  
     <title>sglavoie.com &ndash; Tags</title>
-
-    <!-- Enable tracking of web traffic -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(["_setAccount", "UA-150998392-1"]);
-  _gaq.push(["_trackPageview"]);
-  (function () {
-    var ga = document.createElement("script");
-    ga.type = "text/javascript";
-    ga.async = true;
-    ga.src =
-      ("https:" == document.location.protocol ? "https://ssl" : "http://www") +
-      ".google-analytics.com/ga.js";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-   </head>
+  </head>
 
   <body>
     <div id="pageContainer">
+      <svg
+        id="search-icon"
+        width="2em"
+        height="2em"
+        fill="none"
+        viewBox="0 0 24 24"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <path
+          d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"
+          stroke="#ffffff"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
       <aside id="sidebar">
         <a id="websiteLogo" href=".">
           <svg
@@ -516,145 +519,16 @@
 <article class="tags">
   <ul class="tagcloud">
     <li class="tag-8">
-      <a href="./tag/dotfiles.html"> <span>dotfiles</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-4">
-      <a href="./tag/git.html"> <span>git</span> </a>      <span class="badge">4</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/regex.html"> <span>regex</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/ui.html"> <span>ui</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/note-taking.html"> <span>note-taking</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-4">
-      <a href="./tag/books.html"> <span>books</span> </a>      <span class="badge">5</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/rsync.html"> <span>rsync</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/backup.html"> <span>backup</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-4">
-      <a href="./tag/best-practices.html"> <span>best practices</span> </a>      <span class="badge">5</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/google-sheets.html"> <span>google sheets</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-2">
-      <a href="./tag/python.html"> <span>python</span> </a>      <span class="badge">10</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/uml.html"> <span>uml</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/reactive-programming.html"> <span>reactive-programming</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-4">
-      <a href="./tag/bash.html"> <span>bash</span> </a>      <span class="badge">4</span>
-    </li>
-    <li class="tag-6">
-      <a href="./tag/customization.html"> <span>customization</span> </a>      <span class="badge">2</span>
-    </li>
-    <li class="tag-5">
-      <a href="./tag/web.html"> <span>web</span> </a>      <span class="badge">3</span>
+      <a href="./tag/click.html"> <span>click</span> </a>      <span class="badge">1</span>
     </li>
     <li class="tag-8">
       <a href="./tag/vimwiki.html"> <span>vimwiki</span> </a>      <span class="badge">1</span>
     </li>
     <li class="tag-8">
-      <a href="./tag/processes.html"> <span>processes</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-6">
-      <a href="./tag/markdown.html"> <span>markdown</span> </a>      <span class="badge">2</span>
-    </li>
-    <li class="tag-3">
-      <a href="./tag/linux.html"> <span>linux</span> </a>      <span class="badge">6</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/java.html"> <span>java</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-4">
-      <a href="./tag/software.html"> <span>software</span> </a>      <span class="badge">4</span>
-    </li>
-    <li class="tag-4">
-      <a href="./tag/lessons.html"> <span>lessons</span> </a>      <span class="badge">4</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/go.html"> <span>go</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/xfce.html"> <span>xfce</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/dmenu.html"> <span>dmenu</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-6">
-      <a href="./tag/plugin.html"> <span>plugin</span> </a>      <span class="badge">2</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/open-source.html"> <span>open-source</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-6">
-      <a href="./tag/advice.html"> <span>advice</span> </a>      <span class="badge">2</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/design.html"> <span>design</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-6">
-      <a href="./tag/react-native.html"> <span>react-native</span> </a>      <span class="badge">2</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/stability.html"> <span>stability</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/functional-programming.html"> <span>functional-programming</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/django.html"> <span>django</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/refactoring.html"> <span>refactoring</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/gpg.html"> <span>gpg</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-4">
-      <a href="./tag/i3.html"> <span>i3</span> </a>      <span class="badge">5</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/rxjs.html"> <span>rxjs</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/typescript.html"> <span>typescript</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-6">
-      <a href="./tag/window-manager.html"> <span>window-manager</span> </a>      <span class="badge">2</span>
-    </li>
-    <li class="tag-2">
-      <a href="./tag/script.html"> <span>script</span> </a>      <span class="badge">9</span>
-    </li>
-    <li class="tag-4">
-      <a href="./tag/neovim.html"> <span>neovim</span> </a>      <span class="badge">4</span>
-    </li>
-    <li class="tag-6">
-      <a href="./tag/mobile-dev.html"> <span>mobile-dev</span> </a>      <span class="badge">2</span>
+      <a href="./tag/google-sheets.html"> <span>google sheets</span> </a>      <span class="badge">1</span>
     </li>
     <li class="tag-5">
-      <a href="./tag/bsc.html"> <span>bsc</span> </a>      <span class="badge">3</span>
-    </li>
-    <li class="tag-6">
-      <a href="./tag/shell.html"> <span>shell</span> </a>      <span class="badge">2</span>
-    </li>
-    <li class="tag-5">
-      <a href="./tag/career.html"> <span>career</span> </a>      <span class="badge">3</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/retrospective.html"> <span>retrospective</span> </a>      <span class="badge">1</span>
+      <a href="./tag/mathematics.html"> <span>mathematics</span> </a>      <span class="badge">3</span>
     </li>
     <li class="tag-8">
       <a href="./tag/rofi.html"> <span>rofi</span> </a>      <span class="badge">1</span>
@@ -663,37 +537,166 @@
       <a href="./tag/vim.html"> <span>vim</span> </a>      <span class="badge">4</span>
     </li>
     <li class="tag-6">
-      <a href="./tag/tmux.html"> <span>tmux</span> </a>      <span class="badge">2</span>
+      <a href="./tag/mobile-dev.html"> <span>mobile-dev</span> </a>      <span class="badge">2</span>
+    </li>
+    <li class="tag-6">
+      <a href="./tag/markdown.html"> <span>markdown</span> </a>      <span class="badge">2</span>
     </li>
     <li class="tag-8">
-      <a href="./tag/debian.html"> <span>debian</span> </a>      <span class="badge">1</span>
+      <a href="./tag/ssh.html"> <span>ssh</span> </a>      <span class="badge">1</span>
     </li>
     <li class="tag-8">
-      <a href="./tag/click.html"> <span>click</span> </a>      <span class="badge">1</span>
+      <a href="./tag/refactoring.html"> <span>refactoring</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/dotfiles.html"> <span>dotfiles</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/rxjs.html"> <span>rxjs</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-4">
+      <a href="./tag/lessons.html"> <span>lessons</span> </a>      <span class="badge">4</span>
+    </li>
+    <li class="tag-4">
+      <a href="./tag/git.html"> <span>git</span> </a>      <span class="badge">4</span>
+    </li>
+    <li class="tag-6">
+      <a href="./tag/plugin.html"> <span>plugin</span> </a>      <span class="badge">2</span>
+    </li>
+    <li class="tag-4">
+      <a href="./tag/i3.html"> <span>i3</span> </a>      <span class="badge">5</span>
+    </li>
+    <li class="tag-6">
+      <a href="./tag/advice.html"> <span>advice</span> </a>      <span class="badge">2</span>
+    </li>
+    <li class="tag-4">
+      <a href="./tag/books.html"> <span>books</span> </a>      <span class="badge">5</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/java.html"> <span>java</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/rsync.html"> <span>rsync</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/xfce.html"> <span>xfce</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/dmenu.html"> <span>dmenu</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-6">
+      <a href="./tag/window-manager.html"> <span>window-manager</span> </a>      <span class="badge">2</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/processes.html"> <span>processes</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/ui.html"> <span>ui</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/typescript.html"> <span>typescript</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/note-taking.html"> <span>note-taking</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-6">
+      <a href="./tag/shell.html"> <span>shell</span> </a>      <span class="badge">2</span>
     </li>
     <li class="tag-6">
       <a href="./tag/computer-science.html"> <span>computer science</span> </a>      <span class="badge">2</span>
     </li>
-    <li class="tag-1">
-      <a href="./tag/terminal.html"> <span>terminal</span> </a>      <span class="badge">13</span>
+    <li class="tag-8">
+      <a href="./tag/api.html"> <span>api</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/uml.html"> <span>uml</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/functional-programming.html"> <span>functional-programming</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-2">
+      <a href="./tag/script.html"> <span>script</span> </a>      <span class="badge">9</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/gpg.html"> <span>gpg</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/regex.html"> <span>regex</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-4">
+      <a href="./tag/neovim.html"> <span>neovim</span> </a>      <span class="badge">4</span>
+    </li>
+    <li class="tag-4">
+      <a href="./tag/bash.html"> <span>bash</span> </a>      <span class="badge">4</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/open-source.html"> <span>open-source</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-6">
+      <a href="./tag/tmux.html"> <span>tmux</span> </a>      <span class="badge">2</span>
+    </li>
+    <li class="tag-6">
+      <a href="./tag/aliases.html"> <span>aliases</span> </a>      <span class="badge">2</span>
+    </li>
+    <li class="tag-4">
+      <a href="./tag/software.html"> <span>software</span> </a>      <span class="badge">4</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/planning.html"> <span>planning</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-4">
+      <a href="./tag/best-practices.html"> <span>best practices</span> </a>      <span class="badge">5</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/design.html"> <span>design</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-5">
+      <a href="./tag/bsc.html"> <span>bsc</span> </a>      <span class="badge">3</span>
     </li>
     <li class="tag-1">
       <a href="./tag/productivity.html"> <span>productivity</span> </a>      <span class="badge">12</span>
     </li>
     <li class="tag-8">
-      <a href="./tag/ssh.html"> <span>ssh</span> </a>      <span class="badge">1</span>
+      <a href="./tag/reactive-programming.html"> <span>reactive-programming</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/stability.html"> <span>stability</span> </a>      <span class="badge">1</span>
     </li>
     <li class="tag-5">
-      <a href="./tag/mathematics.html"> <span>mathematics</span> </a>      <span class="badge">3</span>
+      <a href="./tag/career.html"> <span>career</span> </a>      <span class="badge">3</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/debian.html"> <span>debian</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-1">
+      <a href="./tag/terminal.html"> <span>terminal</span> </a>      <span class="badge">13</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/go.html"> <span>go</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-5">
+      <a href="./tag/web.html"> <span>web</span> </a>      <span class="badge">3</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/django.html"> <span>django</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/retrospective.html"> <span>retrospective</span> </a>      <span class="badge">1</span>
+    </li>
+    <li class="tag-3">
+      <a href="./tag/linux.html"> <span>linux</span> </a>      <span class="badge">6</span>
+    </li>
+    <li class="tag-2">
+      <a href="./tag/python.html"> <span>python</span> </a>      <span class="badge">10</span>
+    </li>
+    <li class="tag-8">
+      <a href="./tag/backup.html"> <span>backup</span> </a>      <span class="badge">1</span>
     </li>
     <li class="tag-6">
-      <a href="./tag/aliases.html"> <span>aliases</span> </a>      <span class="badge">2</span>
+      <a href="./tag/react-native.html"> <span>react-native</span> </a>      <span class="badge">2</span>
     </li>
-    <li class="tag-8">
-      <a href="./tag/planning.html"> <span>planning</span> </a>      <span class="badge">1</span>
-    </li>
-    <li class="tag-8">
-      <a href="./tag/api.html"> <span>api</span> </a>      <span class="badge">1</span>
+    <li class="tag-6">
+      <a href="./tag/customization.html"> <span>customization</span> </a>      <span class="badge">2</span>
     </li>
   </ul>
 </article>
@@ -814,5 +817,37 @@
         </a>
       </p>
     </footer>
+
+    <script src="/pagefind/pagefind-ui.js"></script>
+    <script src="/theme/scripts/sweetalert2.min.js"></script>
+    <script>
+      document
+        .getElementById("search-icon")
+        .addEventListener("click", function () {
+          Swal.fire({
+            title: "<strong>Search</strong>",
+            html: `
+    <div id="searchWrapper">
+      <div id="search"></div>
+    </div>`,
+            showCancelButton: false,
+            focusConfirm: false,
+            didOpen: () => {
+              new PagefindUI({
+                element: "#search",
+                showSubResults: true,
+                showImages: false,
+                debounceTimeoutMs: 100,
+              });
+              document
+                .getElementById("search")
+                .getElementsByTagName("input")[0]
+                .focus();
+            },
+            width: "90%",
+            confirmButtonText: "Done",
+          });
+        });
+    </script>
   </body>
 </html>

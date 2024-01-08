@@ -78,6 +78,8 @@
       type="text/css"
       href="/theme/css/styles.css"
     />
+    <link href="/theme/css/sweetalert2.css" rel="stylesheet" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Sébastien Lavoie" />
     <meta
@@ -151,27 +153,28 @@
 <meta name="og:title" property="og:title" content="Desperate times call for the best Linux experience possible... And in my experience so far, the Debian distribution with the Xfce desktop environment or the even lighter alternative i3 tiling window manager makes for a very smooth ride." />
  
     <title>sglavoie.com &ndash; Tip the Scales in Times of Instability With the Rock-Solid&nbsp;Debian</title>
-
-    <!-- Enable tracking of web traffic -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(["_setAccount", "UA-150998392-1"]);
-  _gaq.push(["_trackPageview"]);
-  (function () {
-    var ga = document.createElement("script");
-    ga.type = "text/javascript";
-    ga.async = true;
-    ga.src =
-      ("https:" == document.location.protocol ? "https://ssl" : "http://www") +
-      ".google-analytics.com/ga.js";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-   </head>
+  </head>
 
   <body>
     <div id="pageContainer">
+      <svg
+        id="search-icon"
+        width="2em"
+        height="2em"
+        fill="none"
+        viewBox="0 0 24 24"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <path
+          d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"
+          stroke="#ffffff"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
       <aside id="sidebar">
         <a id="websiteLogo" href="../../../../..">
           <svg
@@ -517,7 +520,7 @@
 
       <!-- Content area -->
       <main>
-<article>
+<article data-pagefind-body>
   <div class="article_title">
     <h1><a href="../../../../../posts/2020/04/05/tip-the-scales-in-times-of-instability-with-the-rock-solid-debian/">Tip the Scales in Times of Instability With the Rock-Solid&nbsp;Debian</a></h1>
   </div>
@@ -743,22 +746,6 @@
 <h1 id="conclusion">Conclusion</h1>
 <p>After trying many different Linux distributions and desktop environments, I keep coming back to what satisfies me best in the end: stability and usability. Debian feels a bit old, but at the same time one knows it delivers on what it promises. The same can be said for Xfce and i3. This is also what makes them such a good combo: despite not being cutting edge in the realm of features, there’s no way it could break as easily as <span class="caps">KDE</span> or <span class="caps">GNOME</span>, particularly on less stable distributions. There are still a few rough edges when it comes to customizing both Xfce and i3 in my opinion, but when looking for something that just works and will keep doing so, Debian is hard to beat.</p></div>
 
-  <div id="article_comments">
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-      var disqus_identifier = "posts/2020/04/05/tip-the-scales-in-times-of-instability-with-the-rock-solid-debian/";
-      (function () {
-        var dsq = document.createElement("script");
-        dsq.type = "text/javascript";
-        dsq.async = true;
-        dsq.src = "//sglavoie.disqus.com/embed.js";
-        (
-          document.getElementsByTagName("head")[0] ||
-          document.getElementsByTagName("body")[0]
-        ).appendChild(dsq);
-      })();
-    </script>
-  </div>
 </article>
         </main>
     </div>
@@ -877,5 +864,37 @@
         </a>
       </p>
     </footer>
+
+    <script src="/pagefind/pagefind-ui.js"></script>
+    <script src="/theme/scripts/sweetalert2.min.js"></script>
+    <script>
+      document
+        .getElementById("search-icon")
+        .addEventListener("click", function () {
+          Swal.fire({
+            title: "<strong>Search</strong>",
+            html: `
+    <div id="searchWrapper">
+      <div id="search"></div>
+    </div>`,
+            showCancelButton: false,
+            focusConfirm: false,
+            didOpen: () => {
+              new PagefindUI({
+                element: "#search",
+                showSubResults: true,
+                showImages: false,
+                debounceTimeoutMs: 100,
+              });
+              document
+                .getElementById("search")
+                .getElementsByTagName("input")[0]
+                .focus();
+            },
+            width: "90%",
+            confirmButtonText: "Done",
+          });
+        });
+    </script>
   </body>
 </html>
