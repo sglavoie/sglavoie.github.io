@@ -1075,14 +1075,31 @@ span.badge {
 #search {
   text-align: center;
   display: flex;
+  justify-content: center;
+  flex-direction: row;
 }
 
 .pagefind-ui__drawer {
   text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 #search li {
   margin-top: 3rem;
+}
+
+.pagefind-ui__button {
+  border: 0;
+  border-radius: 0.25em;
+  background: initial;
+  background-color: var(--square-2);
+  font-size: 1em;
+  color: #fff;
+  padding: 8px;
+  margin: 2rem;
+  max-width: fit-content;
 }
 
 .pagefind-ui__result-title {
@@ -1093,13 +1110,6 @@ span.badge {
   font-size: 1.1rem;
 }
 
-.pagefind-ui__result-image {
-  max-width: 500px;
-  max-height: 500px;
-  width: auto;
-  height: auto;
-}
-
 .pagefind-ui__search-clear {
   border: 0;
   border-radius: 0.25em;
@@ -1107,11 +1117,12 @@ span.badge {
   background-color: #d14529;
   color: #fff;
   font-size: 1em;
+  padding: 8px;
+  margin: 1rem;
 }
 
 .pagefind-ui__search-input {
   box-sizing: border-box;
-  width: 100%;
   transition: border-color 0.3s, box-shadow 0.3s;
   border: 1px solid #d9d9d9;
   border-radius: 0.1875em;
@@ -1120,5 +1131,34 @@ span.badge {
   color: #e1e1e1;
   font-size: 1.125em;
   max-width: 350px;
-  margin-right: 1rem;
+  text-align: center;
+}
+
+#search input {
+  padding-right: 0 !important;
+}
+
+#search ol {
+  max-width: 75%;
+}
+
+.pagefind-ui__results-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pagefind-ui__result-inner {
+  max-width: 80%;
+}
+
+.pagefind-ui__message {
+  display: flex;
+  justify-content: center;
+}
+
+.pagefind-ui__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
