@@ -12,7 +12,3 @@ SITEURL = "https://www.sglavoie.com"
 RELATIVE_URLS = False
 
 DELETE_OUTPUT_DIRECTORY = True
-
-# Following items are often useful when publishing
-
-DISQUS_SITENAME = "sglavoie"

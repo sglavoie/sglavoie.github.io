@@ -107,7 +107,6 @@ RELATIVE_URLS = True
 AUTHOR = "Sébastien Lavoie"
 DEFAULT_DATE_FORMAT = "%B %-d, %Y"
 DEFAULT_LANG = "en"
-DISQUS_SITENAME = ""  # disable locally
 LOCALE = "en_US.UTF-8"
 SITENAME = "sglavoie.com"
 SITEURL = "https://www.sglavoie.com"
