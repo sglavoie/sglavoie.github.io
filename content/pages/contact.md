@@ -6,7 +6,7 @@ save_as: contact.html
 
 <!-- ref: https://www.albionresearch.com/tools/obfuscator -->
 
-The easiest way to contact me is by email: <a href='m&#97;&#105;lto&#58;%73ebas%74i&#101;&#110;&#64;sg&#37;&#54;C%61%&#55;6%6Fie%&#50;E&#37;63%&#54;&#70;m'>sebast&#105;en&#64;sgl&#97;vo&#105;e&#46;&#99;om</a>.
+The easiest way to contact me is by email: <a href='mailto&#58;&#115;e&#98;a%7&#51;&#116;&#105;en&#64;&#115;&#103;&#108;&#37;61voie&#46;com'>&#115;&#101;&#98;as&#116;ien&#64;sglavoie&#46;&#99;om</a>.
 
 You can also find me on the following websites:
 
