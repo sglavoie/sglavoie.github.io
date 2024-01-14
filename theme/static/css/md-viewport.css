@@ -34,7 +34,6 @@
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    margin: 2rem 0;
     row-gap: 1em;
     width: 32em;
   }

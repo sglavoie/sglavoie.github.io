@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block title %}&ndash; Archives{% endblock %} {%
 block content %}
 <article class="archives">
-  <dl>
+  <dl class="sibling-fade">
     {% for article in dates %}
     <div class="archives-article">
       <dt>{{ article.locale_date }}</dt>
