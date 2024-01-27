@@ -3336,6 +3336,16 @@ ok    github.com/{USER}/{PROJECT}/adder    0.368s
               .getElementById("search")
               .getElementsByTagName("input")[0]
               .focus();
+
+            // Re-focus on search input when clear button is clicked
+            document
+              .getElementsByClassName("pagefind-ui__search-clear")[0]
+              .addEventListener("click", function () {
+                document
+                  .getElementById("search")
+                  .getElementsByTagName("input")[0]
+                  .focus();
+              });
           },
           width: "100%",
           confirmButtonText: "Close",
