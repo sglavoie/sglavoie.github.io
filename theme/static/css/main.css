@@ -396,7 +396,8 @@ aside a:visited {
   color: var(--square-2);
 }
 
-aside li {
+aside li,
+div#paginator li {
   background-color: var(--background-dark);
   -webkit-box-shadow: 0px 0px 10px 2px var(--background-dark);
   box-shadow: 0px 0px 10px 2px var(--background-dark);
@@ -406,7 +407,8 @@ aside li {
   transition: all var(--transition-color) ease-in-out;
 }
 
-aside li:hover {
+aside li:hover,
+div#paginator li:hover {
   background-color: transparent;
   -webkit-box-shadow: 0px 0px 10px 6px transparent;
   box-shadow: 0px 0px 10px 6px transparent;
@@ -419,7 +421,7 @@ aside + nav {
 }
 
 aside li a,
-#paginator a {
+div#paginator li a {
   border: 2px solid var(--shade-100);
   color: var(--square-2);
   padding: 4px 8px 4px 8px;
@@ -434,7 +436,8 @@ aside li a,
 }
 
 aside#sidebar li a,
-aside#pageNavigation li a {
+aside#pageNavigation li a,
+div#paginator li a {
   -webkit-transition: all var(--transition-color) ease-in-out;
   -o-transition: all var(--transition-color) ease-in-out;
   transition: all var(--transition-color) ease-in-out;
@@ -445,7 +448,7 @@ aside#sidebar li {
 }
 
 aside#sidebar li a:where(:hover, :focus-visible),
-#paginator a:where(:hover, :focus-visible) {
+div#paginator li a:where(:hover, :focus-visible) {
   border: 2px solid var(--tint-100);
   background-size: 100% var(--bg-h);
   background-position-x: right;
@@ -456,8 +459,7 @@ aside#sidebar li a:where(:hover, :focus-visible),
   border-radius: 4px;
 }
 
-aside#pageNavigation li a:where(:hover, :focus-visible),
-#paginator a:where(:hover, :focus-visible) {
+aside#pageNavigation li a:where(:hover, :focus-visible) {
   border: 2px solid var(--tint-100);
   background-size: 100% var(--bg-h);
   background-position-x: left;
@@ -953,7 +955,7 @@ aside#sidebar .sidebar-category-icon {
   grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
 }
 
-#paginator {
+div#paginator {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -966,22 +968,11 @@ aside#sidebar .sidebar-category-icon {
   justify-content: center;
 }
 
-#paginator a {
+div#paginator li a {
   background: none;
 }
 
-#paginator a:hover,
-#paginator a:visited:hover,
-nav.toc a:visited:hover {
-  color: var(--square-2);
-}
-
-#paginator a:visited,
-nav.toc a:visited {
-  color: var(--square-1);
-}
-
-#paginator ul {
+div#paginator ul {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
