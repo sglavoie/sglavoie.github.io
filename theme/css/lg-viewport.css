@@ -52,7 +52,7 @@
   }
 
   aside li a,
-  #paginator a {
+  #paginator li a {
     border: 2px solid var(--shade-100);
     color: var(--square-2);
     padding: 10px 15px 10px 15px;

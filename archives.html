@@ -895,34 +895,46 @@
     <script src="/pagefind/pagefind-ui.js"></script>
     <script src="/theme/scripts/sweetalert2.min.js"></script>
     <script>
-      document
-        .getElementById("search-icon")
-        .addEventListener("click", function () {
-          Swal.fire({
-            title: "<strong>Search</strong>",
-            html: `
+      function openSearchModal() {
+        Swal.fire({
+          title: "<strong>Search</strong>",
+          html: `
     <div id="searchWrapper">
       <div id="search"></div>
     </div>`,
-            showCancelButton: false,
-            focusConfirm: false,
-            didOpen: () => {
-              new PagefindUI({
-                element: "#search",
-                showSubResults: true,
-                showImages: false,
-                debounceTimeoutMs: 100,
-              });
-              document
-                .getElementById("search")
-                .getElementsByTagName("input")[0]
-                .focus();
-            },
-            width: "100%",
-            confirmButtonText: "Close",
-            position: "top-start",
-          });
+          showCancelButton: false,
+          focusConfirm: false,
+          didOpen: () => {
+            new PagefindUI({
+              element: "#search",
+              showSubResults: true,
+              showImages: false,
+              debounceTimeoutMs: 100,
+            });
+            document
+              .getElementById("search")
+              .getElementsByTagName("input")[0]
+              .focus();
+          },
+          width: "100%",
+          confirmButtonText: "Close",
+          position: "top-start",
         });
+      }
+
+      document
+        .getElementById("search-icon")
+        .addEventListener("click", function () {
+          openSearchModal();
+        });
+
+      // Key press event for the 'f' key
+      document.addEventListener("keydown", function (e) {
+        // Check if 'f' is pressed and modal is not already focused/open
+        if (e.key === "f" && !Swal.isVisible()) {
+          openSearchModal();
+        }
+      });
     </script>
   </body>
 </html>
