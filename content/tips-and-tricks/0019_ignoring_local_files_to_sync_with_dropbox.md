@@ -1,7 +1,8 @@
 Title: Ignoring Sync of Local Files to Dropbox on Linux
 Date: 2019-11-30 13:22
+Modified: 2024-02-04 18:17
 Slug: ignoring-sync-of-local-files-to-dropbox-on-linux
-Tags: aliases, linux, shell, terminal
+Tags: aliases, macos, linux, shell, terminal
 Authors: Sébastien Lavoie
 Summary: To make the most of Dropbox, it can make sense to backup the files you care the most about and skip the ones that simply take too long to upload and eat up all your space. Such candidates could be hidden `.git/` folders and `node_modules/`, but how do you exclude them locally? Let's find out.
 Description: To make the most of Dropbox, it can make sense to backup the files you care the most about and skip the ones that simply take too long to upload and eat up all your space. Such candidates could be hidden .git/ folders and node_modules/, but how do you exclude them locally? Let's find out.
@@ -38,12 +39,13 @@ Yet, because you can work with this feature programmatically to ignore and _un-i
 
 # Any simple example?
 
-Getting started is quick and painless. To ignore a file within your Dropbox folder, you only need to use the `attr` command to **set** (`-s`) the special attribute `com.dropbox.ignored` to give it a **value** of `1` (`-V 1`) so it ignores a file (`file.txt` in this example) as follow:
+Getting started is quick and painless. To ignore a file within your Dropbox folder, you only need to use the `attr` (on Linux, else `xattr` on macOS) command to **set** (`-s`) (or `-w` **write** on macOS) the special attribute `com.dropbox.ignored` to give it a **value** of `1` (`-V 1`) so it ignores a file (`file.txt` in this example) as follow:
 
 ```bash
 cd /path/to/file/in/Dropbox/folder
 
-attr -s com.dropbox.ignored -V 1 file.txt
+attr -s com.dropbox.ignored -V 1 file.txt  # Linux
+xattr -w com.dropbox.ignored 1 file.txt    # macOS
 ```
 
 ## Ignore all .git and node_modules folders
@@ -53,8 +55,13 @@ Things get **really** interesting when we can do that automatically by matching 
 ```bash
 cd ~/Dropbox/git/
 
+# Linux
 find . -type d -name ".git" |
     xargs -I {} attr -s com.dropbox.ignored -V 1 "{}"
+
+# macOS
+find . -type d -name ".git" |
+    xargs -I {} xattr -w com.dropbox.ignored 1 "{}"
 ```
 
 In an instant, you will start getting some feedback printed to the terminal for each `.git` folder that is being found:
@@ -84,20 +91,32 @@ Now, the following functions could become quite a bit more complicated to take i
 
 ```bash
 # Ignore specific files/directories in Dropbox
-dropbox-ignore(){
-  arg1=$1
-  arg2=$2
-  find . -type $arg1 -name "$arg2" |
-      xargs -I {} attr -s com.dropbox.ignored -V 1 "{}"
+dropbox-ignore() {
+    arg1=$1
+    arg2=$2
+
+    if [ -z "$arg1" ] || [ -z "$arg2" ]; then
+        echo "Usage: dropbox-ignore <f|d> <name> (e.g. dropbox-ignore d .git)"
+        return 1
+    fi
+
+    find ~/Dropbox -type $arg1 -name "$arg2" |
+        xargs -I {} xattr -w com.dropbox.ignored 1 "{}"
 }
 
 # Sync specific files/directories in Dropbox
 # that were previously ignored (or not)
-dropbox-sync(){
-  arg1=$1
-  arg2=$2
-  find . -type $arg1 -name "$arg2" |
-      xargs -I {} attr -s com.dropbox.ignored -V 0 "{}"
+dropbox-sync() {
+    arg1=$1
+    arg2=$2
+
+    if [ -z "$arg1" ] || [ -z "$arg2" ]; then
+        echo "Usage: dropbox-sync <f|d> <name> (e.g. dropbox-sync d .git)"
+        return 1
+    fi
+
+    find ~/Dropbox -type $arg1 -name "$arg2" |
+        xargs -I {} xattr -d com.dropbox.ignored "{}"
 }
 ```
 
@@ -105,7 +124,7 @@ dropbox-sync(){
 
 Our commands will be accessible by typing `dropbox-ignore` and `dropbox-sync` the next time we open a terminal window. Both functions do exactly the same thing, but `dropbox-ignore` sets the attribute value to `1` to ignore files and `dropbox-sync` sets the attribute to `0` to allow syncing to happen.
 
-<sub>Note: For simplicity and practicality, keep in mind that those commands will search <strong>recursively from the current working directory</strong>. It's also good to know that if you set an attribute value to <code>1</code> then back to <code>0</code> again, Dropbox will need to re-sync the affected files and directories.</sub>
+<sub>Note: For simplicity and practicality, keep in mind that those commands will search <strong>recursively from the specified directory</strong>. It's also good to know that if you set an attribute value to <code>1</code> then back to <code>0</code> again, Dropbox will need to re-sync the affected files and directories.</sub>
 
 We need to pass them two arguments: the first is the type of search to perform (pass `f` for **files** and `d` for **directories**) and the second is the pattern to match in the name (`node_modules` or `.git` would fit here, no need to use quotes). Concretely, that will look like this:
 
@@ -118,13 +137,12 @@ dropbox-ignore d node_modules
 
 # Te re-add a .git/ folder to Dropbox
 dropbox-sync d .git
-
 ```
 
 ---
 
 # Conclusion
 
-This tip may certainly not be the best approach to solving this particular issue with Dropbox on Linux, but I hope you find it useful nevertheless as it worked out very nicely on my end! One could store files and directories elsewhere, working with symbolic links or hard links as necessary to reference files or simply give up on making a backup with Dropbox in some circumstances. But I like to keep an extra copy of projects I'm working on in Dropbox and that can include potentially large files that don't need to be backed up, so ignoring what's not indispensable can speed up the syncing process tremendously while keeping disk usage in the cloud possibly much lower.
+This tip may certainly not be the best approach to solving this particular issue with Dropbox on Unix, but I hope you find it useful nevertheless as it worked out very nicely on my end! One could store files and directories elsewhere, working with symbolic links or hard links as necessary to reference files or simply give up on making a backup with Dropbox in some circumstances. But I like to keep an extra copy of projects I'm working on in Dropbox and that can include potentially large files that don't need to be backed up, so ignoring what's not indispensable can speed up the syncing process tremendously while keeping disk usage in the cloud possibly much lower.
 
 Dropbox only calculates the size of the files being synced in the cloud, so you can end up needing a lot more space locally if you ignore a number of big files or, conversely, selectively syncing many files will result in a cloud storage larger than what's needed locally.
