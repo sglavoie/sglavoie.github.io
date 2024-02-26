@@ -1,6 +1,6 @@
 Title: Systematic reviews
 Date: 2023-05-14 15:58
-Modified: 2023-05-17 21:02
+Modified: 2024-02-25 19:21
 Tags: processes, planning, software
 Slug: systematic-reviews
 Authors: Sébastien Lavoie
@@ -105,7 +105,7 @@ I have tried many different methodologies to get more organized and, after getti
 ## More resources and references
 
 - [Huberman Lab podcast](https://hubermanlab.com/) - Andrew Huberman.
-- [ProductiviDo](https://github.com/sglavoie/cm3070-final-project) - GitHub.
+- [ProductiviDo]({filename}/learnings/0039_productivido_task_planner.md) - GitHub.
 - [Self Authoring Program](https://www.selfauthoring.com/) - Jordan Peterson.
 - [Solving the Procrastination Puzzle: A Concise Guide to Strategies for Change](https://www.goodreads.com/book/show/18079767-solving-the-procrastination-puzzle) - Timothy A. Pychyl.
 - [The Weekly Review](https://todoist.com/productivity-methods/weekly-review) - Todoist.

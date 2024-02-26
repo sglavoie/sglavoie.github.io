@@ -1,9 +1,10 @@
 Title: Book summary: The Effective Engineer
 Date: 2023-04-16 14:49
+Modified: 2024-02-25 19:21
 Tags: advice, best practices, books, career
 Slug: book-summary-the-effective-engineer
 Authors: Sébastien Lavoie
-Summary: After reading [Letters to a New Developer]({filename}/learnings/0027_letters_to_a_new_developer_book_summary.md), one of the next logical steps on this learning path was to read [The Effective Engineer](https://www.effectiveengineer.com/). I hope you enjoy this simple yet effective book summary!
+Summary: After reading [Letters to a New Developer]({filename}/learnings/0027_letters_to_a_new_developer_book_summary.md), one of the next logical steps on this learning path was to read [The Effective Engineer][effective-website]. I hope you enjoy this simple yet effective book summary!
 Description: After reading Letters to a New Developer, one of the next logical steps on this learning path was to read The Effective Engineer. I hope you enjoy this simple yet effective book summary!
 
 [TOC]
@@ -12,7 +13,7 @@ Description: After reading Letters to a New Developer, one of the next logical s
 
 # Introduction
 
-This wonderful, mostly non-technical book is a compilation of the best practices and lessons learned by the author, [Edmond Lau](https://edmondlau.co/), during his impressive career as a software engineer. It is a must-read for anyone who wants to improve their skills and become more effective at what they do. The following are short excerpts from the condensed knowledge found in the book, sprinkled with some minor comments of my own along the way. These are extracted from the book’s takeaway sections and headings: I wholeheartedly recommend [reading the work](https://www.effectiveengineer.com/) in its entirety for an immersive exposure to the fantastic storytelling capabilities of Edmond!
+This wonderful, mostly non-technical book is a compilation of the best practices and lessons learned by the author, [Edmond Lau][edmond], during his impressive career as a software engineer. It is a must-read for anyone who wants to improve their skills and become more effective at what they do. The following are short excerpts from the condensed knowledge found in the book, sprinkled with some minor comments of my own along the way. These are extracted from the book’s takeaway sections and headings: I wholeheartedly recommend [reading the work][effective-website] in its entirety for an immersive exposure to the fantastic storytelling capabilities of Edmond!
 
 ---
 
@@ -205,11 +206,16 @@ $$\text{Leverage} = \frac{\text{Impact produced}}{\text{Time invested}}$$
 
 # Conclusion
 
-Edmond opened my eyes to the importance of being an effective engineer, showing what that entails and how to concretely achieve it. His extraordinary technical journey and knowledge of the field are evident throughout the book, and I found myself nodding in agreement with many of his points. He made me think about how I could apply his advice to my own work. Notably, the key concept of **leverage** resonated deeply with me and ended up being the cornerstone of [the final project I built for my bachelor's degree](https://github.com/sglavoie/cm3070-final-project): _ProductiviDo - An efficient task planner focusing on high-leverage activities_.
+Edmond opened my eyes to the importance of being an effective engineer, showing what that entails and how to concretely achieve it. His extraordinary technical journey and knowledge of the field are evident throughout the book, and I found myself nodding in agreement with many of his points. He made me think about how I could apply his advice to my own work. Notably, the key concept of **leverage** resonated deeply with me and ended up being the cornerstone of [the final project I built for my bachelor's degree][productivido]: _ProductiviDo - An efficient task planner focusing on high-leverage activities_.
 
 ## Resources and references
 
-- [Edmond Lau](https://edmondlau.co/) - The author's personal website.
-- [ProductiviDo](https://github.com/sglavoie/cm3070-final-project) - A simple and efficient todo-app built with React-Native.
-- [The Effective Engineer: How to Leverage Your Efforts In Software Engineering to Make a Disproportionate and Meaningful Impact](https://www.goodreads.com/book/show/25238425-the-effective-engineer) - goodreads.com.
-- [The Effective Engineer](https://www.effectiveengineer.com/) - by Edmond Lau.
+[edmond]: https://edmondlau.co/
+[effective-goodreads]: https://www.goodreads.com/book/show/25238425-the-effective-engineer
+[effective-website]: https://www.effectiveengineer.com/
+[productivido]: {filename}/learnings/0039_productivido_task_planner.md
+
+- [Edmond Lau][edmond] - The author's personal website.
+- [ProductiviDo][productivido] - A simple and efficient todo-app built with React-Native.
+- [The Effective Engineer: How to Leverage Your Efforts In Software Engineering to Make a Disproportionate and Meaningful Impact][effective-goodreads] - goodreads.com.
+- [The Effective Engineer][effective-website] - by Edmond Lau.
