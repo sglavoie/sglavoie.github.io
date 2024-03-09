@@ -648,7 +648,7 @@ p + h6,
 strong,
 em {
   color: var(--tint-600);
-  margin-right: 0.2rem;
+  margin-right: 0.1rem;
 }
 
 .article_skim_notes {
