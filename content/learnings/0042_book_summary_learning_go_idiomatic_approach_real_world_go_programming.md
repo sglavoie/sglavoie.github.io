@@ -1,6 +1,6 @@
 Title: Book summary: Learning Go – An Idiomatic Approach to Real-World Go Programming
 Date: 2023-10-20 20:08
-Modified: 2023-10-21 17:43
+Modified: 2024-05-28 20:11
 Tags: best practices, books, go
 Slug: book-summary-learning-go-idiomatic-approach-real-world-go-programming
 Authors: Sébastien Lavoie
@@ -21,9 +21,10 @@ This summary highlights the key takeaways from each chapter. It aims to provide 
 
 ---
 
-# Chapter 1: Setting Up Your Go Environment
+# Setting Up Your Go Environment
 
 - Use `golint` to enforce the right coding style of a project.
+- Use `go version` to check the version of Go installed.
 - Use `go vet` to find errors that may not be detected by the compiler, such as having the wrong number of arguments passed to a `Printf` call.
 - A common idiom to run multiple commands at once when building a project is to rely on a `Makefile` like this:
 
@@ -69,9 +70,9 @@ rm $(go env GOPATH)/bin/go1.x.y
 
 ---
 
-# Chapter 2: Primitive Types and Declarations
+# Predeclared Types and Declarations
 
-## Built-in types
+## Predeclared types
 
 - Zero value
     - Assigned to a variable that is declared with no initial value (doesn't lead to bugs like in C or C++).
@@ -169,7 +170,7 @@ Avoid `:=` in the following situations:
 
 ---
 
-# Chapter 3: Composite Types
+# Composite Types
 
 ## Arrays
 
@@ -202,7 +203,7 @@ fmt.Println(x[2])
 ## Slices
 
 - The zero value for a slice is `nil`, which represents the lack of a value for some type. `nil` itself has no type.
-- The size of the array is not specified: `var x = []int{10, 20, 30}`. This is a slice literal.
+- The size of the array is not specified, making it a slice: `var x = []int{10, 20, 30}`. This is a slice literal.
 - Can be used like a sparse array: `var x = []int{1, 5: 4, 6, 10: 100, 15}`.
 - Multidimensional arrays can be simulated: `var x [][]int`.
 - Reads and assignments are the same as with arrays, using square brackets.
@@ -241,6 +242,23 @@ x = append(x, y...)
 - It can be used to create a slice that already has a capacity specified.
     - `x := make([]int, 5)`: length and capacity of 5 (all zero values). Using `append` here would add new values to the end of the slice, after the zero values!
     - `x := make([]int, 0, 10)` creates an empty slice with a capacity of 10 and after `x = append(x, 5,6,7,8)`, it contains `[5 6 7 8]`.
+
+### Emptying a slice
+
+- Available since Go 1.21 with the built-in `clear` function.
+- This sets all elements of the slice to their zero value.
+
+```{.go}
+x := []int{1, 2, 3, 4}
+fmt.Println(x) // [1 2 3 4]
+clear(x)
+fmt.Println(x) // [0 0 0 0]
+
+y := []string{"a", "b", "c"}
+fmt.Println(y) // [a b c]
+clear(y)
+fmt.Println(y) // [   ] (empty strings)
+```
 
 ### Declaring a slice
 
@@ -336,6 +354,21 @@ y := x[:2]              // [5 6]
 z := x[2:]              // [7 8]
 x[0] = 10               // [10 6 7 8]
 // y and z are now [10 6] and [7 8]
+```
+
+### Converting Slices to Arrays
+
+- Data in the slice is copied to new memory (slices and arrays remain independent).
+- A slice converted into a pointer to an array will share the same underlying data and memory address.
+
+```{.go}
+x := []int{1, 2, 3, 4} // [1 2 3 4]
+y := x                 // y is a slice, not a copy
+z := make([]int, 4)    // [0 0 0 0]
+copy(z, x)             // copy(dst, src)
+x[0] = 10              // [10 2 3 4]
+// y is now [10 2 3 4]
+// z is now [1 2 3 4]
 ```
 
 ### `copy`
@@ -539,7 +572,7 @@ computer := struct {
 
 ---
 
-# Chapter 4: Blocks, Shadows, and Control Structures
+# Blocks, Shadows, and Control Structures
 
 ## Blocks
 
@@ -845,7 +878,7 @@ func main() {
 
 ---
 
-# Chapter 5: Functions
+# Functions
 
 ## Declaring and calling them
 
@@ -1009,7 +1042,7 @@ func getResult(initialValue int) func(int) int {
 
 ---
 
-# Chapter 6: Pointers
+# Pointers
 
 - *A pointer is a variable that holds the address of a value in memory*.
 - The zero value of a pointer is `nil`.
@@ -1068,7 +1101,7 @@ fmt.Println(*b) // 2
 
 ---
 
-# Chapter 7: Types, Methods, and Interfaces
+# Types, Methods, and Interfaces
 
 - Types can be declared at any level, including at the package level.
 
@@ -1482,7 +1515,56 @@ func main() {
 
 ---
 
-# Chapter 8: Errors
+# Generics
+
+## Generics Reduce Repetitive Code and Increase Type Safety
+
+- Generics are "type parameters" that allow one to write functions and data structures that can work with any type.
+- They reduce repetitive code and increase type safety.
+
+### Generic Functions Abstract Algorithms
+
+- Generic functions can be used to abstract algorithms.
+- They can be used to write functions that work with any type.
+
+```{.go}
+package main
+
+import "fmt"
+
+// Max returns the maximum of two values
+func Max[T any](a, b T) T {
+    if a > b {
+        return a
+    }
+    return b
+}
+```
+
+## Generics and interfaces
+
+- Generics can be used with interfaces.
+- They can be used to write functions that work with any type that satisfies an interface.
+
+```{.go}
+package main
+
+import "fmt"
+
+// Stringer is an interface with a String method
+type Stringer interface {
+    String() string
+}
+
+// Print calls the String method on a value that satisfies the Stringer interface
+func Print[T Stringer](s T) {
+    fmt.Println(s.String())
+}
+```
+
+---
+
+# Errors
 
 - *Go does not have exceptions*.
 - Errors are values.
@@ -1542,7 +1624,7 @@ func main() {
 
 ---
 
-# Chapter 9: Modules, Packages, and Imports
+# Modules, Packages, and Imports
 
 - The module is the root of the package tree. It can be defined in `go.mod` or inferred from the directory structure. For a GitHub repository, it is inferred from the URL as in `module github.com/{USER}/{PROJECT}`.
 - Keep a single module per repository.
@@ -1728,7 +1810,7 @@ require (
 
 ---
 
-# Chapter 10: Concurrency in Go
+# Concurrency in Go
 
 ## When to use concurrency
 
@@ -1959,7 +2041,7 @@ func main() {
 
 ---
 
-# Chapter 11: The Standard Library
+# The Standard Library
 
 - It is battery-included, just like Python.
 
@@ -2056,7 +2138,7 @@ func main() {
 
 ---
 
-# Chapter 12: The Context
+# The Context
 
 - Context is not a new feature: it is an instance that meets the `context.Context` interface and gets passed around as the first argument to functions, which is usually named `ctx`.
 - `context.TODO` is used when a context is required but there is no context available. It shouldn't be used in production.
@@ -2087,7 +2169,7 @@ A server can do a few things to manage its load:
 
 ---
 
-# Chapter 13: Writing Tests
+# Writing Tests
 
 ## Basics of testing
 
@@ -2255,7 +2337,7 @@ func TestFileLen(t *testing.T) {
 
 ---
 
-# Chapter 14: Here There Be Dragons: Reflect, Unsafe, and Cgo
+# Here There Be Dragons: Reflect, Unsafe, and Cgo
 
 - Theses features are not used that often, but they are useful to know about.
 - You cannot make make methods with reflection.
@@ -2340,7 +2422,7 @@ func TestFileLen(t *testing.T) {
 
 ---
 
-# Chapter 15: A Look at the Future: Generics in Go
+# A Look at the Future: Generics in Go
 
 - Go doesn't convert types implicitly.
 - For a gentle introduction to the topic, there is [Tutorial: Getting started with generics][go-generics-tutorial].
