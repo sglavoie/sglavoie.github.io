@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>sglavoie.com</title><link href="https://www.sglavoie.com/" rel="alternate"></link><link href="https://www.sglavoie.com/feeds/sglavoie.atom.xml" rel="self"></link><id>https://www.sglavoie.com/</id><updated>2024-03-09T12:53:00-06:00</updated><entry><title>Book summary: Dive into Design Patterns</title><link href="https://www.sglavoie.com/posts/2024/03/09/book-summary-dive-into-design-patterns/" rel="alternate"></link><published>2024-03-09T12:53:00-06:00</published><updated>2024-03-09T12:53:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2024-03-09:/posts/2024/03/09/book-summary-dive-into-design-patterns/</id><summary type="html">&lt;p&gt;Dive into the essentials of software engineering with this excellent book by &lt;a href="https://refactoring.guru"&gt;Alexander Shvets&lt;/a&gt;. From the foundational &lt;em&gt;&lt;span class="caps"&gt;SOLID&lt;/span&gt;&lt;/em&gt; principles to &lt;em&gt;Creational&lt;/em&gt;, &lt;em&gt;Structural&lt;/em&gt;, and &lt;em&gt;Behavioral&lt;/em&gt; patterns, this book shines a light on the pathways to crafting robust, scalable, and maintainable software. It&amp;#8217;s ideal for both novice and seasoned developers, offering practical insights and examples to navigate the complexities of software&amp;nbsp;design.&lt;/p&gt;</summary><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>sglavoie.com</title><link href="https://www.sglavoie.com/" rel="alternate"></link><link href="https://www.sglavoie.com/feeds/sglavoie.atom.xml" rel="self"></link><id>https://www.sglavoie.com/</id><updated>2024-05-27T19:35:00-06:00</updated><entry><title>Book summary: Dive into Design Patterns</title><link href="https://www.sglavoie.com/posts/2024/03/09/book-summary-dive-into-design-patterns/" rel="alternate"></link><published>2024-03-09T12:53:00-06:00</published><updated>2024-03-09T12:53:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2024-03-09:/posts/2024/03/09/book-summary-dive-into-design-patterns/</id><summary type="html">&lt;p&gt;Dive into the essentials of software engineering with this excellent book by &lt;a href="https://refactoring.guru"&gt;Alexander Shvets&lt;/a&gt;. From the foundational &lt;em&gt;&lt;span class="caps"&gt;SOLID&lt;/span&gt;&lt;/em&gt; principles to &lt;em&gt;Creational&lt;/em&gt;, &lt;em&gt;Structural&lt;/em&gt;, and &lt;em&gt;Behavioral&lt;/em&gt; patterns, this book shines a light on the pathways to crafting robust, scalable, and maintainable software. It&amp;#8217;s ideal for both novice and seasoned developers, offering practical insights and examples to navigate the complexities of software&amp;nbsp;design.&lt;/p&gt;</summary><content type="html">
 &lt;hr/&gt;
 &lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;In the vast expanse of software engineering, design patterns and principles stand as lighthouses, guiding developers through the complex process of crafting robust, scalable, and maintainable software. Among these patterns, the Object-Oriented Programming (&lt;em&gt;&lt;span class="caps"&gt;OOP&lt;/span&gt;&lt;/em&gt;) principles, Software Design Principles, and various design patterns provide a framework that seasoned and novice developers alike can leverage to solve common software design challenges. This article constitutes a book summary of &lt;a href="https://refactoring.guru/design-patterns/book"&gt;Dive into Design Patterns&lt;/a&gt; written by &lt;a href="https://refactoring.guru"&gt;Alexander Shvets&lt;/a&gt;. Beautifully illustrated, it delves into the core aspects of &lt;span class="caps"&gt;OOP&lt;/span&gt;, explores essential software design principles, and unveils a catalog of design patterns categorized into &lt;em&gt;Creational&lt;/em&gt;, &lt;em&gt;Structural&lt;/em&gt;, and &lt;em&gt;Behavioral&lt;/em&gt; patterns. Here, each section is crafted to mimic the same structure as the book to offer a concise yet (hopefully) comprehensive overview, equipped with examples and analogies to illuminate these concepts further.&lt;/p&gt;
@@ -3745,7 +3745,7 @@
 &lt;li&gt;&lt;a href="https://refactoring.guru/design-patterns/book"&gt;Dive into Design Patterns&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://martinfowler.com/books/eaa.html"&gt;Patterns of Enterprise Application Architecture&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://refactoring.guru"&gt;Refactoring Guru&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;</content><category term="learnings"></category><category term="design-patterns"></category><category term="books"></category><category term="go"></category><category term="oop"></category></entry><entry><title>Book summary: Learning Go – An Idiomatic Approach to Real-World Go Programming</title><link href="https://www.sglavoie.com/posts/2023/10/20/book-summary-learning-go-idiomatic-approach-real-world-go-programming/" rel="alternate"></link><published>2023-10-20T20:08:00-06:00</published><updated>2023-10-21T17:43:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2023-10-20:/posts/2023/10/20/book-summary-learning-go-idiomatic-approach-real-world-go-programming/</id><summary type="html">&lt;p&gt;&lt;a href="https://www.oreilly.com/library/view/learning-go/9781492077206/"&gt;Learning Go&lt;/a&gt; is a book that teaches idiomatic Go style and best practices through concrete examples. It covers fundamental features like types and control flow, as well as more advanced topics like concurrency and reflection. The goal is to help readers write clear, readable, robust Go code. I think it succeeded at&amp;nbsp;that!&lt;/p&gt;</summary><content type="html">
+&lt;/ul&gt;</content><category term="learnings"></category><category term="design-patterns"></category><category term="books"></category><category term="go"></category><category term="oop"></category></entry><entry><title>Book summary: Learning Go – An Idiomatic Approach to Real-World Go Programming</title><link href="https://www.sglavoie.com/posts/2023/10/20/book-summary-learning-go-idiomatic-approach-real-world-go-programming/" rel="alternate"></link><published>2023-10-20T20:08:00-06:00</published><updated>2024-05-27T19:35:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2023-10-20:/posts/2023/10/20/book-summary-learning-go-idiomatic-approach-real-world-go-programming/</id><summary type="html">&lt;p&gt;&lt;a href="https://www.oreilly.com/library/view/learning-go/9781492077206/"&gt;Learning Go&lt;/a&gt; is a book that teaches idiomatic Go style and best practices through concrete examples. It covers fundamental features like types and control flow, as well as more advanced topics like concurrency and reflection. The goal is to help readers write clear, readable, robust Go code. I think it succeeded at&amp;nbsp;that!&lt;/p&gt;</summary><content type="html">
 &lt;hr/&gt;
 &lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Go is a modern programming language developed by Google that has gained immense popularity in recent years. It is a statically typed, compiled language that combines aspects of imperative and object-oriented programming. Go aims to provide simplicity, performance, and reliability.&lt;/p&gt;
@@ -3755,6 +3755,7 @@
 &lt;h1 id="chapter-1-setting-up-your-go-environment"&gt;Chapter 1: Setting Up Your Go Environment&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;Use &lt;code&gt;golint&lt;/code&gt; to enforce the right coding style of a project.&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;go version&lt;/code&gt; to check the version of Go installed.&lt;/li&gt;
 &lt;li&gt;Use &lt;code&gt;go vet&lt;/code&gt; to find errors that may not be detected by the compiler, such as having the wrong number of arguments passed to a &lt;code&gt;Printf&lt;/code&gt; call.&lt;/li&gt;
 &lt;li&gt;A common idiom to run multiple commands at once when building a project is to rely on a &lt;code&gt;Makefile&lt;/code&gt; like this:&lt;/li&gt;
 &lt;/ul&gt;
@@ -3795,8 +3796,8 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;span class="c1"&gt;# Install new version as wanted...&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr/&gt;
-&lt;h1 id="chapter-2-primitive-types-and-declarations"&gt;Chapter 2: Primitive Types and Declarations&lt;/h1&gt;
-&lt;h2 id="built-in-types"&gt;Built-in types&lt;/h2&gt;
+&lt;h1 id="chapter-2-predeclared-types-and-declarations"&gt;Chapter 2: Predeclared Types and Declarations&lt;/h1&gt;
+&lt;h2 id="predeclared-types"&gt;Predeclared types&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Zero value&lt;ul&gt;
 &lt;li&gt;Assigned to a variable that is declared with no initial value (doesn’t lead to bugs like in C or C++).&lt;/li&gt;
@@ -3938,7 +3939,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;h2 id="slices"&gt;Slices&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;The zero value for a slice is &lt;code&gt;nil&lt;/code&gt;, which represents the lack of a value for some type. &lt;code&gt;nil&lt;/code&gt; itself has no type.&lt;/li&gt;
-&lt;li&gt;The size of the array is not specified: &lt;code&gt;var x = []int{10, 20, 30}&lt;/code&gt;. This is a slice literal.&lt;/li&gt;
+&lt;li&gt;The size of the array is not specified, making it a slice: &lt;code&gt;var x = []int{10, 20, 30}&lt;/code&gt;. This is a slice literal.&lt;/li&gt;
 &lt;li&gt;Can be used like a sparse array: &lt;code&gt;var x = []int{1, 5: 4, 6, 10: 100, 15}&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Multidimensional arrays can be simulated: &lt;code&gt;var x [][]int&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Reads and assignments are the same as with arrays, using square brackets.&lt;/li&gt;
@@ -3976,6 +3977,21 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id="emptying-a-slice"&gt;Emptying a slice&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Available since Go 1.21 with the built-in &lt;code&gt;clear&lt;/code&gt; function.&lt;/li&gt;
+&lt;li&gt;This sets all elements of the slice to their zero value.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// [1 2 3 4]&lt;/span&gt;
+&lt;span class="nx"&gt;clear&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// [0 0 0 0]&lt;/span&gt;
+
+&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;&lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;"a"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"b"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"c"&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// [a b c]&lt;/span&gt;
+&lt;span class="nx"&gt;clear&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// [   ] (empty strings)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id="declaring-a-slice"&gt;Declaring a slice&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Slice literals&lt;ul&gt;
@@ -4058,6 +4074,19 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;:]&lt;/span&gt;&lt;span class="w"&gt;              &lt;/span&gt;&lt;span class="c1"&gt;// [7 8]&lt;/span&gt;
 &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="w"&gt;               &lt;/span&gt;&lt;span class="c1"&gt;// [10 6 7 8]&lt;/span&gt;
 &lt;span class="c1"&gt;// y and z are now [10 6] and [7 8]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="converting-slices-to-arrays"&gt;Converting Slices to Arrays&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Data in the slice is copied to new memory (slices and arrays remain independent).&lt;/li&gt;
+&lt;li&gt;A slice converted into a pointer to an array will share the same underlying data and memory address.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// [1 2 3 4]&lt;/span&gt;
+&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="w"&gt;                 &lt;/span&gt;&lt;span class="c1"&gt;// y is a slice, not a copy&lt;/span&gt;
+&lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;make&lt;/span&gt;&lt;span class="p"&gt;([]&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// [0 0 0 0]&lt;/span&gt;
+&lt;span class="nb"&gt;copy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;             &lt;/span&gt;&lt;span class="c1"&gt;// copy(dst, src)&lt;/span&gt;
+&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="w"&gt;              &lt;/span&gt;&lt;span class="c1"&gt;// [10 2 3 4]&lt;/span&gt;
+&lt;span class="c1"&gt;// y is now [10 2 3 4]&lt;/span&gt;
+&lt;span class="c1"&gt;// z is now [1 2 3 4]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id="copy"&gt;&lt;code&gt;copy&lt;/code&gt;&lt;/h3&gt;
 &lt;ul&gt;
@@ -5113,7 +5142,50 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr/&gt;
-&lt;h1 id="chapter-8-errors"&gt;Chapter 8: Errors&lt;/h1&gt;
+&lt;h1 id="chapter-8-generics"&gt;Chapter 8: Generics&lt;/h1&gt;
+&lt;h2 id="generics-reduce-repetitive-code-and-increase-type-safety"&gt;Generics Reduce Repetitive Code and Increase Type Safety&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Generics are “type parameters” that allow one to write functions and data structures that can work with any type.&lt;/li&gt;
+&lt;li&gt;They reduce repetitive code and increase type safety.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="generic-functions-abstract-algorithms"&gt;Generic Functions Abstract Algorithms&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Generic functions can be used to abstract algorithms.&lt;/li&gt;
+&lt;li&gt;They can be used to write functions that work with any type.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;package&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;main&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"fmt"&lt;/span&gt;
+
+&lt;span class="c1"&gt;// Max returns the maximum of two values&lt;/span&gt;
+&lt;span class="kd"&gt;func&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Max&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;T&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;any&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;b&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;T&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;T&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;b&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;b&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="generics-and-interfaces"&gt;Generics and interfaces&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Generics can be used with interfaces.&lt;/li&gt;
+&lt;li&gt;They can be used to write functions that work with any type that satisfies an interface.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;package&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;main&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"fmt"&lt;/span&gt;
+
+&lt;span class="c1"&gt;// Stringer is an interface with a String method&lt;/span&gt;
+&lt;span class="kd"&gt;type&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Stringer&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;interface&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;String&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;string&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="c1"&gt;// Print calls the String method on a value that satisfies the Stringer interface&lt;/span&gt;
+&lt;span class="kd"&gt;func&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Print&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;T&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Stringer&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="nx"&gt;s&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;T&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;s&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;String&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr/&gt;
+&lt;h1 id="chapter-9-errors"&gt;Chapter 9: Errors&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Go does not have exceptions&lt;/em&gt;.&lt;/li&gt;
 &lt;li&gt;Errors are values.&lt;/li&gt;
@@ -5985,7 +6057,7 @@ ok    github.com/{USER}/{PROJECT}/adder    0.368s
 &lt;li&gt;Go doesn’t convert types implicitly.&lt;/li&gt;
 &lt;li&gt;For a gentle introduction to the topic, there is &lt;a href="https://go.dev/doc/tutorial/generics"&gt;Tutorial: Getting started with generics&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="generics-reduce-repetitive-code-and-increase-type-safety"&gt;Generics reduce repetitive code and increase type safety&lt;/h2&gt;
+&lt;h2 id="generics-reduce-repetitive-code-and-increase-type-safety_1"&gt;Generics reduce repetitive code and increase type safety&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Generics are akin to “type parameters”.&lt;/li&gt;
 &lt;li&gt;Without generics, Go has to use &lt;code&gt;interface{}&lt;/code&gt; and type assertions.&lt;/li&gt;

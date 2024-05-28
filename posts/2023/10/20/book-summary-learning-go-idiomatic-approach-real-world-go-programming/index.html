@@ -564,8 +564,8 @@
           </span>
         </div>
         <div>
-          <time class="modified" datetime="2023-10-21T17:43:00-06:00">
-            Modified on <strong>October 21, 2023</strong>
+          <time class="modified" datetime="2024-05-27T19:35:00-06:00">
+            Modified on <strong>May 27, 2024</strong>
           </time>
         </div>
         <div class="article_tags">
@@ -615,7 +615,7 @@
       </div>
       <div class="article_readtime">
         <span class="readtime_tilde">~</span
-        ><span class="readtime_minutes">62</span>
+        ><span class="readtime_minutes">66</span>
         minutes to read
       </div>
     </div>
@@ -627,8 +627,8 @@
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#chapter-1-setting-up-your-go-environment">Chapter 1: Setting Up Your Go Environment</a></li>
-<li><a href="#chapter-2-primitive-types-and-declarations">Chapter 2: Primitive Types and Declarations</a><ul>
-<li><a href="#built-in-types">Built-in types</a></li>
+<li><a href="#chapter-2-predeclared-types-and-declarations">Chapter 2: Predeclared Types and Declarations</a><ul>
+<li><a href="#predeclared-types">Predeclared types</a></li>
 <li><a href="#var-vs">var vs. :=</a></li>
 <li><a href="#const">const</a></li>
 <li><a href="#unused-variables">Unused variables</a></li>
@@ -642,10 +642,12 @@
 <li><a href="#append">append</a></li>
 <li><a href="#capacity">Capacity</a></li>
 <li><a href="#make">make</a></li>
+<li><a href="#emptying-a-slice">Emptying a slice</a></li>
 <li><a href="#declaring-a-slice">Declaring a slice</a></li>
 <li><a href="#slicing-slices">Slicing slices</a></li>
 <li><a href="#slices-can-share-data">Slices can share data</a></li>
 <li><a href="#converting-arrays-to-slices">Converting Arrays to Slices</a></li>
+<li><a href="#converting-slices-to-arrays">Converting Slices to Arrays</a></li>
 <li><a href="#copy">copy</a></li>
 </ul>
 </li>
@@ -719,7 +721,15 @@
 </li>
 </ul>
 </li>
-<li><a href="#chapter-8-errors">Chapter 8: Errors</a><ul>
+<li><a href="#chapter-8-generics">Chapter 8: Generics</a><ul>
+<li><a href="#generics-reduce-repetitive-code-and-increase-type-safety">Generics Reduce Repetitive Code and Increase Type Safety</a><ul>
+<li><a href="#generic-functions-abstract-algorithms">Generic Functions Abstract Algorithms</a></li>
+</ul>
+</li>
+<li><a href="#generics-and-interfaces">Generics and interfaces</a></li>
+</ul>
+</li>
+<li><a href="#chapter-9-errors">Chapter 9: Errors</a><ul>
 <li><a href="#sentinel-errors">Sentinel errors</a></li>
 <li><a href="#wrapping-errors">Wrapping errors</a></li>
 <li><a href="#is-and-as">Is and As</a></li>
@@ -853,7 +863,7 @@
 </ul>
 </li>
 <li><a href="#chapter-15-a-look-at-the-future-generics-in-go">Chapter 15: A Look at the Future: Generics in Go</a><ul>
-<li><a href="#generics-reduce-repetitive-code-and-increase-type-safety">Generics reduce repetitive code and increase type safety</a></li>
+<li><a href="#generics-reduce-repetitive-code-and-increase-type-safety_1">Generics reduce repetitive code and increase type safety</a></li>
 <li><a href="#use-type-lists-to-specify-operators">Use type lists to specify operators</a></li>
 </ul>
 </li>
@@ -880,6 +890,7 @@
 <h1 id="chapter-1-setting-up-your-go-environment">Chapter 1: Setting Up Your Go Environment</h1>
 <ul>
 <li>Use <code>golint</code> to enforce the right coding style of a project.</li>
+<li>Use <code>go version</code> to check the version of Go installed.</li>
 <li>Use <code>go vet</code> to find errors that may not be detected by the compiler, such as having the wrong number of arguments passed to a <code>Printf</code> call.</li>
 <li>A common idiom to run multiple commands at once when building a project is to rely on a <code>Makefile</code> like this:</li>
 </ul>
@@ -920,8 +931,8 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <span class="c1"># Install new version as wanted...</span>
 </code></pre></div>
 <hr/>
-<h1 id="chapter-2-primitive-types-and-declarations">Chapter 2: Primitive Types and Declarations</h1>
-<h2 id="built-in-types">Built-in types</h2>
+<h1 id="chapter-2-predeclared-types-and-declarations">Chapter 2: Predeclared Types and Declarations</h1>
+<h2 id="predeclared-types">Predeclared types</h2>
 <ul>
 <li>Zero value<ul>
 <li>Assigned to a variable that is declared with no initial value (doesn’t lead to bugs like in C or C++).</li>
@@ -1063,7 +1074,7 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <h2 id="slices">Slices</h2>
 <ul>
 <li>The zero value for a slice is <code>nil</code>, which represents the lack of a value for some type. <code>nil</code> itself has no type.</li>
-<li>The size of the array is not specified: <code>var x = []int{10, 20, 30}</code>. This is a slice literal.</li>
+<li>The size of the array is not specified, making it a slice: <code>var x = []int{10, 20, 30}</code>. This is a slice literal.</li>
 <li>Can be used like a sparse array: <code>var x = []int{1, 5: 4, 6, 10: 100, 15}</code>.</li>
 <li>Multidimensional arrays can be simulated: <code>var x [][]int</code>.</li>
 <li>Reads and assignments are the same as with arrays, using square brackets.</li>
@@ -1101,6 +1112,21 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 </ul>
 </li>
 </ul>
+<h3 id="emptying-a-slice">Emptying a slice</h3>
+<ul>
+<li>Available since Go 1.21 with the built-in <code>clear</code> function.</li>
+<li>This sets all elements of the slice to their zero value.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nx">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">}</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="c1">// [1 2 3 4]</span>
+<span class="nx">clear</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="c1">// [0 0 0 0]</span>
+
+<span class="nx">y</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"a"</span><span class="p">,</span><span class="w"> </span><span class="s">"b"</span><span class="p">,</span><span class="w"> </span><span class="s">"c"</span><span class="p">}</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span><span class="w"> </span><span class="c1">// [a b c]</span>
+<span class="nx">clear</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span><span class="w"> </span><span class="c1">// [   ] (empty strings)</span>
+</code></pre></div>
 <h3 id="declaring-a-slice">Declaring a slice</h3>
 <ul>
 <li>Slice literals<ul>
@@ -1183,6 +1209,19 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <span class="nx">z</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">x</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span><span class="w">              </span><span class="c1">// [7 8]</span>
 <span class="nx">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span><span class="w">               </span><span class="c1">// [10 6 7 8]</span>
 <span class="c1">// y and z are now [10 6] and [7 8]</span>
+</code></pre></div>
+<h3 id="converting-slices-to-arrays">Converting Slices to Arrays</h3>
+<ul>
+<li>Data in the slice is copied to new memory (slices and arrays remain independent).</li>
+<li>A slice converted into a pointer to an array will share the same underlying data and memory address.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nx">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">}</span><span class="w"> </span><span class="c1">// [1 2 3 4]</span>
+<span class="nx">y</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">x</span><span class="w">                 </span><span class="c1">// y is a slice, not a copy</span>
+<span class="nx">z</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w">    </span><span class="c1">// [0 0 0 0]</span>
+<span class="nb">copy</span><span class="p">(</span><span class="nx">z</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="p">)</span><span class="w">             </span><span class="c1">// copy(dst, src)</span>
+<span class="nx">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span><span class="w">              </span><span class="c1">// [10 2 3 4]</span>
+<span class="c1">// y is now [10 2 3 4]</span>
+<span class="c1">// z is now [1 2 3 4]</span>
 </code></pre></div>
 <h3 id="copy"><code>copy</code></h3>
 <ul>
@@ -2238,7 +2277,50 @@ rm<span class="w"> </span><span class="k">$(</span>go<span class="w"> </span>env
 <span class="p">}</span>
 </code></pre></div>
 <hr/>
-<h1 id="chapter-8-errors">Chapter 8: Errors</h1>
+<h1 id="chapter-8-generics">Chapter 8: Generics</h1>
+<h2 id="generics-reduce-repetitive-code-and-increase-type-safety">Generics Reduce Repetitive Code and Increase Type Safety</h2>
+<ul>
+<li>Generics are “type parameters” that allow one to write functions and data structures that can work with any type.</li>
+<li>They reduce repetitive code and increase type safety.</li>
+</ul>
+<h3 id="generic-functions-abstract-algorithms">Generic Functions Abstract Algorithms</h3>
+<ul>
+<li>Generic functions can be used to abstract algorithms.</li>
+<li>They can be used to write functions that work with any type.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="s">"fmt"</span>
+
+<span class="c1">// Max returns the maximum of two values</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">Max</span><span class="p">[</span><span class="nx">T</span><span class="w"> </span><span class="kt">any</span><span class="p">](</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="nx">T</span><span class="p">)</span><span class="w"> </span><span class="nx">T</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">b</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="generics-and-interfaces">Generics and interfaces</h2>
+<ul>
+<li>Generics can be used with interfaces.</li>
+<li>They can be used to write functions that work with any type that satisfies an interface.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="s">"fmt"</span>
+
+<span class="c1">// Stringer is an interface with a String method</span>
+<span class="kd">type</span><span class="w"> </span><span class="nx">Stringer</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">String</span><span class="p">()</span><span class="w"> </span><span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="c1">// Print calls the String method on a value that satisfies the Stringer interface</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">Print</span><span class="p">[</span><span class="nx">T</span><span class="w"> </span><span class="nx">Stringer</span><span class="p">](</span><span class="nx">s</span><span class="w"> </span><span class="nx">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">String</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr/>
+<h1 id="chapter-9-errors">Chapter 9: Errors</h1>
 <ul>
 <li><em>Go does not have exceptions</em>.</li>
 <li>Errors are values.</li>
@@ -3110,7 +3192,7 @@ ok    github.com/{USER}/{PROJECT}/adder    0.368s
 <li>Go doesn’t convert types implicitly.</li>
 <li>For a gentle introduction to the topic, there is <a href="https://go.dev/doc/tutorial/generics">Tutorial: Getting started with generics</a>.</li>
 </ul>
-<h2 id="generics-reduce-repetitive-code-and-increase-type-safety">Generics reduce repetitive code and increase type safety</h2>
+<h2 id="generics-reduce-repetitive-code-and-increase-type-safety_1">Generics reduce repetitive code and increase type safety</h2>
 <ul>
 <li>Generics are akin to “type parameters”.</li>
 <li>Without generics, Go has to use <code>interface{}</code> and type assertions.</li>
