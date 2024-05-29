@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>sglavoie.com</title><link href="https://www.sglavoie.com/" rel="alternate"></link><link href="https://www.sglavoie.com/feeds/sglavoie.atom.xml" rel="self"></link><id>https://www.sglavoie.com/</id><updated>2024-05-27T19:35:00-06:00</updated><entry><title>Book summary: Dive into Design Patterns</title><link href="https://www.sglavoie.com/posts/2024/03/09/book-summary-dive-into-design-patterns/" rel="alternate"></link><published>2024-03-09T12:53:00-06:00</published><updated>2024-03-09T12:53:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2024-03-09:/posts/2024/03/09/book-summary-dive-into-design-patterns/</id><summary type="html">&lt;p&gt;Dive into the essentials of software engineering with this excellent book by &lt;a href="https://refactoring.guru"&gt;Alexander Shvets&lt;/a&gt;. From the foundational &lt;em&gt;&lt;span class="caps"&gt;SOLID&lt;/span&gt;&lt;/em&gt; principles to &lt;em&gt;Creational&lt;/em&gt;, &lt;em&gt;Structural&lt;/em&gt;, and &lt;em&gt;Behavioral&lt;/em&gt; patterns, this book shines a light on the pathways to crafting robust, scalable, and maintainable software. It&amp;#8217;s ideal for both novice and seasoned developers, offering practical insights and examples to navigate the complexities of software&amp;nbsp;design.&lt;/p&gt;</summary><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>sglavoie.com</title><link href="https://www.sglavoie.com/" rel="alternate"></link><link href="https://www.sglavoie.com/feeds/sglavoie.atom.xml" rel="self"></link><id>https://www.sglavoie.com/</id><updated>2024-05-28T20:11:00-06:00</updated><entry><title>Book summary: Dive into Design Patterns</title><link href="https://www.sglavoie.com/posts/2024/03/09/book-summary-dive-into-design-patterns/" rel="alternate"></link><published>2024-03-09T12:53:00-06:00</published><updated>2024-03-09T12:53:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2024-03-09:/posts/2024/03/09/book-summary-dive-into-design-patterns/</id><summary type="html">&lt;p&gt;Dive into the essentials of software engineering with this excellent book by &lt;a href="https://refactoring.guru"&gt;Alexander Shvets&lt;/a&gt;. From the foundational &lt;em&gt;&lt;span class="caps"&gt;SOLID&lt;/span&gt;&lt;/em&gt; principles to &lt;em&gt;Creational&lt;/em&gt;, &lt;em&gt;Structural&lt;/em&gt;, and &lt;em&gt;Behavioral&lt;/em&gt; patterns, this book shines a light on the pathways to crafting robust, scalable, and maintainable software. It&amp;#8217;s ideal for both novice and seasoned developers, offering practical insights and examples to navigate the complexities of software&amp;nbsp;design.&lt;/p&gt;</summary><content type="html">
 &lt;hr/&gt;
 &lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;In the vast expanse of software engineering, design patterns and principles stand as lighthouses, guiding developers through the complex process of crafting robust, scalable, and maintainable software. Among these patterns, the Object-Oriented Programming (&lt;em&gt;&lt;span class="caps"&gt;OOP&lt;/span&gt;&lt;/em&gt;) principles, Software Design Principles, and various design patterns provide a framework that seasoned and novice developers alike can leverage to solve common software design challenges. This article constitutes a book summary of &lt;a href="https://refactoring.guru/design-patterns/book"&gt;Dive into Design Patterns&lt;/a&gt; written by &lt;a href="https://refactoring.guru"&gt;Alexander Shvets&lt;/a&gt;. Beautifully illustrated, it delves into the core aspects of &lt;span class="caps"&gt;OOP&lt;/span&gt;, explores essential software design principles, and unveils a catalog of design patterns categorized into &lt;em&gt;Creational&lt;/em&gt;, &lt;em&gt;Structural&lt;/em&gt;, and &lt;em&gt;Behavioral&lt;/em&gt; patterns. Here, each section is crafted to mimic the same structure as the book to offer a concise yet (hopefully) comprehensive overview, equipped with examples and analogies to illuminate these concepts further.&lt;/p&gt;
@@ -3745,14 +3745,14 @@
 &lt;li&gt;&lt;a href="https://refactoring.guru/design-patterns/book"&gt;Dive into Design Patterns&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://martinfowler.com/books/eaa.html"&gt;Patterns of Enterprise Application Architecture&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://refactoring.guru"&gt;Refactoring Guru&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;</content><category term="learnings"></category><category term="design-patterns"></category><category term="books"></category><category term="go"></category><category term="oop"></category></entry><entry><title>Book summary: Learning Go – An Idiomatic Approach to Real-World Go Programming</title><link href="https://www.sglavoie.com/posts/2023/10/20/book-summary-learning-go-idiomatic-approach-real-world-go-programming/" rel="alternate"></link><published>2023-10-20T20:08:00-06:00</published><updated>2024-05-27T19:35:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2023-10-20:/posts/2023/10/20/book-summary-learning-go-idiomatic-approach-real-world-go-programming/</id><summary type="html">&lt;p&gt;&lt;a href="https://www.oreilly.com/library/view/learning-go/9781492077206/"&gt;Learning Go&lt;/a&gt; is a book that teaches idiomatic Go style and best practices through concrete examples. It covers fundamental features like types and control flow, as well as more advanced topics like concurrency and reflection. The goal is to help readers write clear, readable, robust Go code. I think it succeeded at&amp;nbsp;that!&lt;/p&gt;</summary><content type="html">
+&lt;/ul&gt;</content><category term="learnings"></category><category term="design-patterns"></category><category term="books"></category><category term="go"></category><category term="oop"></category></entry><entry><title>Book summary: Learning Go – An Idiomatic Approach to Real-World Go Programming</title><link href="https://www.sglavoie.com/posts/2023/10/20/book-summary-learning-go-idiomatic-approach-real-world-go-programming/" rel="alternate"></link><published>2023-10-20T20:08:00-06:00</published><updated>2024-05-28T20:11:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2023-10-20:/posts/2023/10/20/book-summary-learning-go-idiomatic-approach-real-world-go-programming/</id><summary type="html">&lt;p&gt;&lt;a href="https://www.oreilly.com/library/view/learning-go/9781492077206/"&gt;Learning Go&lt;/a&gt; is a book that teaches idiomatic Go style and best practices through concrete examples. It covers fundamental features like types and control flow, as well as more advanced topics like concurrency and reflection. The goal is to help readers write clear, readable, robust Go code. I think it succeeded at&amp;nbsp;that!&lt;/p&gt;</summary><content type="html">
 &lt;hr/&gt;
 &lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Go is a modern programming language developed by Google that has gained immense popularity in recent years. It is a statically typed, compiled language that combines aspects of imperative and object-oriented programming. Go aims to provide simplicity, performance, and reliability.&lt;/p&gt;
 &lt;p&gt;In his book, Jon provides a comprehensive introduction to Go programming. The book focuses on teaching idiomatic Go code by using concrete examples and focusing on how experienced Go developers structure their code. It covers fundamental language features like primitive types, control structures, and composite types. It also dives into more advanced topics like concurrency through goroutines and channels, writing tests, and using reflection.&lt;/p&gt;
 &lt;p&gt;This summary highlights the key takeaways from each chapter. It aims to provide an overview of the core concepts and best practices for writing clear, readable, robust Go code. It’s written from the perspective of a developer who has experience with other programming languages like Python, Java, and TypeScript but practically none in Go.&lt;/p&gt;
 &lt;hr/&gt;
-&lt;h1 id="chapter-1-setting-up-your-go-environment"&gt;Chapter 1: Setting Up Your Go Environment&lt;/h1&gt;
+&lt;h1 id="setting-up-your-go-environment"&gt;Setting Up Your Go Environment&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;Use &lt;code&gt;golint&lt;/code&gt; to enforce the right coding style of a project.&lt;/li&gt;
 &lt;li&gt;Use &lt;code&gt;go version&lt;/code&gt; to check the version of Go installed.&lt;/li&gt;
@@ -3796,7 +3796,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;span class="c1"&gt;# Install new version as wanted...&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr/&gt;
-&lt;h1 id="chapter-2-predeclared-types-and-declarations"&gt;Chapter 2: Predeclared Types and Declarations&lt;/h1&gt;
+&lt;h1 id="predeclared-types-and-declarations"&gt;Predeclared Types and Declarations&lt;/h1&gt;
 &lt;h2 id="predeclared-types"&gt;Predeclared types&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Zero value&lt;ul&gt;
@@ -3907,7 +3907,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;It is common to use the first letter of a type as the variable name (e.g., &lt;code&gt;i&lt;/code&gt; for integers, &lt;code&gt;f&lt;/code&gt; for floats, &lt;code&gt;b&lt;/code&gt; for boolean). If the code is hard to understand, it’s a sign the function is trying to do too much.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr/&gt;
-&lt;h1 id="chapter-3-composite-types"&gt;Chapter 3: Composite Types&lt;/h1&gt;
+&lt;h1 id="composite-types"&gt;Composite Types&lt;/h1&gt;
 &lt;h2 id="arrays"&gt;Arrays&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;They are rarely used directly.&lt;/li&gt;
@@ -4270,7 +4270,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;Contrary to regular structs, they can be compared.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr/&gt;
-&lt;h1 id="chapter-4-blocks-shadows-and-control-structures"&gt;Chapter 4: Blocks, Shadows, and Control Structures&lt;/h1&gt;
+&lt;h1 id="blocks-shadows-and-control-structures"&gt;Blocks, Shadows, and Control Structures&lt;/h1&gt;
 &lt;h2 id="blocks"&gt;Blocks&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;A block is a place where declarations are made.&lt;/li&gt;
@@ -4543,7 +4543,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;It can be used to replace boolean flags, such as in &lt;a href="https://cs.opensource.google/go/go/+/refs/tags/go1.21.2:src/strconv/atof.go"&gt;this non-trivial example&lt;/a&gt; from the standard library.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr/&gt;
-&lt;h1 id="chapter-5-functions"&gt;Chapter 5: Functions&lt;/h1&gt;
+&lt;h1 id="functions"&gt;Functions&lt;/h1&gt;
 &lt;h2 id="declaring-and-calling-them"&gt;Declaring and calling them&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Go has no classes, but it has methods (see &lt;a href="#chapter-7-types-methods-and-interfaces"&gt;chapter 7&lt;/a&gt;).&lt;/li&gt;
@@ -4696,7 +4696,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;Maps and slices behave differently because they are implemented with pointers.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr/&gt;
-&lt;h1 id="chapter-6-pointers"&gt;Chapter 6: Pointers&lt;/h1&gt;
+&lt;h1 id="pointers"&gt;Pointers&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;A pointer is a variable that holds the address of a value in memory&lt;/em&gt;.&lt;/li&gt;
 &lt;li&gt;The zero value of a pointer is &lt;code&gt;nil&lt;/code&gt;.&lt;/li&gt;
@@ -4752,7 +4752,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nx"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// 2&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr/&gt;
-&lt;h1 id="chapter-7-types-methods-and-interfaces"&gt;Chapter 7: Types, Methods, and Interfaces&lt;/h1&gt;
+&lt;h1 id="types-methods-and-interfaces"&gt;Types, Methods, and Interfaces&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;Types can be declared at any level, including at the package level.&lt;/li&gt;
 &lt;/ul&gt;
@@ -5142,7 +5142,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr/&gt;
-&lt;h1 id="chapter-8-generics"&gt;Chapter 8: Generics&lt;/h1&gt;
+&lt;h1 id="generics"&gt;Generics&lt;/h1&gt;
 &lt;h2 id="generics-reduce-repetitive-code-and-increase-type-safety"&gt;Generics Reduce Repetitive Code and Increase Type Safety&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Generics are “type parameters” that allow one to write functions and data structures that can work with any type.&lt;/li&gt;
@@ -5185,7 +5185,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr/&gt;
-&lt;h1 id="chapter-9-errors"&gt;Chapter 9: Errors&lt;/h1&gt;
+&lt;h1 id="errors"&gt;Errors&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Go does not have exceptions&lt;/em&gt;.&lt;/li&gt;
 &lt;li&gt;Errors are values.&lt;/li&gt;
@@ -5244,7 +5244,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;Pass the &lt;code&gt;-trimpath&lt;/code&gt; flag to &lt;code&gt;go build&lt;/code&gt; to remove the absolute path from the stack trace, which otherwise shows full paths to files.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr/&gt;
-&lt;h1 id="chapter-9-modules-packages-and-imports"&gt;Chapter 9: Modules, Packages, and Imports&lt;/h1&gt;
+&lt;h1 id="modules-packages-and-imports"&gt;Modules, Packages, and Imports&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;The module is the root of the package tree. It can be defined in &lt;code&gt;go.mod&lt;/code&gt; or inferred from the directory structure. For a GitHub repository, it is inferred from the &lt;span class="caps"&gt;URL&lt;/span&gt; as in &lt;code&gt;module github.com/{USER}/{PROJECT}&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Keep a single module per repository.&lt;/li&gt;
@@ -5449,7 +5449,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;Projects such as &lt;a href="https://github.com/gomods/athens"&gt;&lt;code&gt;athens&lt;/code&gt;&lt;/a&gt; can be used to create a local module proxy server.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr/&gt;
-&lt;h1 id="chapter-10-concurrency-in-go"&gt;Chapter 10: Concurrency in Go&lt;/h1&gt;
+&lt;h1 id="concurrency-in-go"&gt;Concurrency in Go&lt;/h1&gt;
 &lt;h2 id="when-to-use-concurrency"&gt;When to use concurrency&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Concurrency is not parallelism&lt;/em&gt;.&lt;/li&gt;
@@ -5671,7 +5671,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;They are more niche than mutexes and channels and as such, they are not covered in this introductory summary on Go.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr/&gt;
-&lt;h1 id="chapter-11-the-standard-library"&gt;Chapter 11: The Standard Library&lt;/h1&gt;
+&lt;h1 id="the-standard-library"&gt;The Standard Library&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;It is battery-included, just like Python.&lt;/li&gt;
 &lt;/ul&gt;
@@ -5767,7 +5767,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;The &lt;em&gt;middleware pattern&lt;/em&gt; is used to add functionality to a server, so as to check for authentication, logging, etc.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr/&gt;
-&lt;h1 id="chapter-12-the-context"&gt;Chapter 12: The Context&lt;/h1&gt;
+&lt;h1 id="the-context"&gt;The Context&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;Context is not a new feature: it is an instance that meets the &lt;code&gt;context.Context&lt;/code&gt; interface and gets passed around as the first argument to functions, which is usually named &lt;code&gt;ctx&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;context.TODO&lt;/code&gt; is used when a context is required but there is no context available. It shouldn’t be used in production.&lt;/li&gt;
@@ -5804,7 +5804,7 @@ rm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;go&lt
 &lt;li&gt;&lt;code&gt;context.WithValue&lt;/code&gt; is used to create a context with a value.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr/&gt;
-&lt;h1 id="chapter-13-writing-tests"&gt;Chapter 13: Writing Tests&lt;/h1&gt;
+&lt;h1 id="writing-tests"&gt;Writing Tests&lt;/h1&gt;
 &lt;h2 id="basics-of-testing"&gt;Basics of testing&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;The &lt;code&gt;testing&lt;/code&gt; package is used to write tests.&lt;/li&gt;
@@ -5966,7 +5966,7 @@ ok    github.com/{USER}/{PROJECT}/adder    0.368s
 &lt;li&gt;Note that the race checker makes the code about 10 times slower, so use it only when needed.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr/&gt;
-&lt;h1 id="chapter-14-here-there-be-dragons-reflect-unsafe-and-cgo"&gt;Chapter 14: Here There Be Dragons: Reflect, Unsafe, and Cgo&lt;/h1&gt;
+&lt;h1 id="here-there-be-dragons-reflect-unsafe-and-cgo"&gt;Here There Be Dragons: Reflect, Unsafe, and Cgo&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;Theses features are not used that often, but they are useful to know about.&lt;/li&gt;
 &lt;li&gt;You cannot make make methods with reflection.&lt;/li&gt;
@@ -6052,7 +6052,7 @@ ok    github.com/{USER}/{PROJECT}/adder    0.368s
 &lt;li&gt;Only use it when there’s no suitable Go library available.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr/&gt;
-&lt;h1 id="chapter-15-a-look-at-the-future-generics-in-go"&gt;Chapter 15: A Look at the Future: Generics in Go&lt;/h1&gt;
+&lt;h1 id="a-look-at-the-future-generics-in-go"&gt;A Look at the Future: Generics in Go&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;Go doesn’t convert types implicitly.&lt;/li&gt;
 &lt;li&gt;For a gentle introduction to the topic, there is &lt;a href="https://go.dev/doc/tutorial/generics"&gt;Tutorial: Getting started with generics&lt;/a&gt;.&lt;/li&gt;
