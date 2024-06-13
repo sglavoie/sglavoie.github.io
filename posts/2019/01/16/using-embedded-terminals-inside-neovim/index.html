@@ -909,10 +909,10 @@ use Neovim, it’s worth giving it a try! Otherwise, it’s worth giving
           openSearchModal();
         });
 
-      // Key press event for the 'f' key
+      // Key press event for the 'F' key
       document.addEventListener("keydown", function (e) {
-        // Check if 'f' is pressed and modal is not already focused/open
-        if (e.key === "f" && !Swal.isVisible()) {
+        // Check if modal is not already focused/open
+        if (e.key === "F" && !Swal.isVisible()) {
           openSearchModal();
         }
       });
