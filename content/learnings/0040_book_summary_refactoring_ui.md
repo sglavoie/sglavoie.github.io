@@ -1,6 +1,7 @@
 Title: Book summary: Refactoring UI
 Date: 2023-09-09 17:56
-Tags: best practices, books, design, refactoring, ui
+Modified: 2024-06-13 19:09
+Tags: best practices, books, design, refactoring, skimming-notes, ui
 Slug: book-summary-refactoring-ui
 Authors: Sébastien Lavoie
 Summary: [Refactoring UI](https://www.refactoringui.com/) provides guidance for non-designers on how to create polished, professional visual interfaces without formal graphic design skills.
