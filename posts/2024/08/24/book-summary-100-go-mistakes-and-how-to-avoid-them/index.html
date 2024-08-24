@@ -1,0 +1,2065 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/lato-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/lato-bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/ubuntu-regular-webfont.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/ubuntu-bold-webfont.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/ubuntu-regular-italic-webfont.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/ubuntu-bold-italic-webfont.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/SourceCodePro-Regular.ttf.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/SourceCodePro-Bold.ttf.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/SourceCodePro-It.ttf.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/theme/css/fonts/SourceCodePro-BoldIt.ttf.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" as="style" href="/theme/css/main.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/theme/css/styles.css"
+    />
+    <link href="/theme/css/sweetalert2.css" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Sébastien Lavoie" />
+    <meta
+      name="description"
+      content="Posts and writings by Sébastien Lavoie. Customization setups and articles on productivity for developers who like minimalism."
+    />
+    <meta name="title" property="og:title" content="sglavoie.com" />
+    <meta property="og:type" content="Website" />
+    <meta
+      name="image"
+      property="og:image"
+      content="../../../../../theme/images/logo_1200x627.png"
+    />
+
+    <link
+      href="https://www.sglavoie.com/feeds/sglavoie.atom.xml"
+      type="application/atom+xml"
+      rel="alternate"
+      title="sglavoie.com Atom"
+    />
+     <link
+      href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
+      type="application/rss+xml"
+      rel="alternate"
+      title="sglavoie.com RSS"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      href="/theme/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/theme/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/theme/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/theme/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/theme/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="/theme/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#2d89ef" />
+    <meta
+      name="msapplication-TileImage"
+      content="/theme/favicon/mstile-144x144.png"
+    />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#232323" />
+    <meta
+      name="msapplication-config"
+      content="/theme/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#232323" />
+
+<meta name="keywords" content="best-practice, books, go, skimming-notes" />
+ 
+    <title>sglavoie.com &ndash; Book summary: 100 Go Mistakes and How to Avoid&nbsp;Them</title>
+  </head>
+
+  <body>
+    <div id="pageContainer">
+      <span title="Press F to search">
+        <svg
+          id="search-icon"
+          width="2em"
+          height="2em"
+          fill="none"
+          viewBox="0 0 24 24"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <path
+            d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"
+            stroke="#ffffff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </span>
+      <aside id="sidebar">
+        <a id="websiteLogo" href="../../../../..">
+          <svg
+            aria-labelledby="sglavoie.com's logo"
+            class="svgLogo"
+            width="100px"
+            height="100px"
+            version="1.1"
+            viewBox="0 0 24.348095 24.347754"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:cc="http://creativecommons.org/ns#"
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+          >
+            <title id="svgTitle">sglavoie.com's logo</title>
+            <desc id="svgDesc">The website's logo.</desc>
+            <metadata>
+              <rdf:RDF>
+                <cc:Work rdf:about="">
+                  <dc:format>image/svg+xml</dc:format>
+                  <dc:type
+                    rdf:resource="http://purl.org/dc/dcmitype/StillImage"
+                  />
+                  <dc:title />
+                </cc:Work>
+              </rdf:RDF>
+            </metadata>
+            <g transform="translate(81.397 -84.454)">
+              <path d="m-57.049 105.9v2.9029h-11.173v-2.9029z" fill="#c0c0c0">
+                <animate
+                  attributeName="fill"
+                  values="white;grey;white"
+                  dur="2s"
+                  repeatCount="indefinite"
+                />
+              </path>
+              <path
+                d="m-72.272 98.481-9.1246 5.7598v-3.548l5.8658-3.5019v-0.09215l-5.8658-3.5019v-3.548l9.1246 5.7598z"
+                fill="#c0c0c0"
+              />
+              <path
+                transform="scale(.26458)"
+                d="m-273.15 319.2-27.588 14.77 8.498 5.3613 19.09-12.049zm15.309 25.67v44.412h8.8672v-35.635h33.361v-8.7773h-33.783zm25.336 24.66v8.7774h8.0254v10.975h8.8672v-19.752z"
+                fill="#007bff"
+              />
+            </g>
+          </svg>
+        </a>
+
+        <nav id="navCategories">
+          <ul>
+              <li>
+              <a href="../../../../../category/automation.html"
+                >automation
+                <svg
+                  class="sidebar-category-icon"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="1"
+                    d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    opacity="1"
+                    d="M7.24 13.4302H5.34C3.15 13.4302 2 14.5802 2 16.7602V18.6602C2 20.8502 3.15 22.0002 5.33 22.0002H7.23C9.41 22.0002 10.56 20.8502 10.56 18.6702V16.7702C10.57 14.5802 9.42 13.4302 7.24 13.4302Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M6.29 10.58C8.6593 10.58 10.58 8.6593 10.58 6.29C10.58 3.9207 8.6593 2 6.29 2C3.9207 2 2 3.9207 2 6.29C2 8.6593 3.9207 10.58 6.29 10.58Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M17.7099 21.9999C20.0792 21.9999 21.9999 20.0792 21.9999 17.7099C21.9999 15.3406 20.0792 13.4199 17.7099 13.4199C15.3406 13.4199 13.4199 15.3406 13.4199 17.7099C13.4199 20.0792 15.3406 21.9999 17.7099 21.9999Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="../../../../../category/learnings.html"
+                >learnings
+                <svg
+                  class="sidebar-category-icon"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="1"
+                    d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    opacity="1"
+                    d="M7.24 13.4302H5.34C3.15 13.4302 2 14.5802 2 16.7602V18.6602C2 20.8502 3.15 22.0002 5.33 22.0002H7.23C9.41 22.0002 10.56 20.8502 10.56 18.6702V16.7702C10.57 14.5802 9.42 13.4302 7.24 13.4302Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M6.29 10.58C8.6593 10.58 10.58 8.6593 10.58 6.29C10.58 3.9207 8.6593 2 6.29 2C3.9207 2 2 3.9207 2 6.29C2 8.6593 3.9207 10.58 6.29 10.58Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M17.7099 21.9999C20.0792 21.9999 21.9999 20.0792 21.9999 17.7099C21.9999 15.3406 20.0792 13.4199 17.7099 13.4199C15.3406 13.4199 13.4199 15.3406 13.4199 17.7099C13.4199 20.0792 15.3406 21.9999 17.7099 21.9999Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="../../../../../category/tips-and-tricks.html"
+                >tips-and-tricks
+                <svg
+                  class="sidebar-category-icon"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="1"
+                    d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    opacity="1"
+                    d="M7.24 13.4302H5.34C3.15 13.4302 2 14.5802 2 16.7602V18.6602C2 20.8502 3.15 22.0002 5.33 22.0002H7.23C9.41 22.0002 10.56 20.8502 10.56 18.6702V16.7702C10.57 14.5802 9.42 13.4302 7.24 13.4302Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M6.29 10.58C8.6593 10.58 10.58 8.6593 10.58 6.29C10.58 3.9207 8.6593 2 6.29 2C3.9207 2 2 3.9207 2 6.29C2 8.6593 3.9207 10.58 6.29 10.58Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M17.7099 21.9999C20.0792 21.9999 21.9999 20.0792 21.9999 17.7099C21.9999 15.3406 20.0792 13.4199 17.7099 13.4199C15.3406 13.4199 13.4199 15.3406 13.4199 17.7099C13.4199 20.0792 15.3406 21.9999 17.7099 21.9999Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="../../../../../category/tools.html"
+                >tools
+                <svg
+                  class="sidebar-category-icon"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="1"
+                    d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    opacity="1"
+                    d="M7.24 13.4302H5.34C3.15 13.4302 2 14.5802 2 16.7602V18.6602C2 20.8502 3.15 22.0002 5.33 22.0002H7.23C9.41 22.0002 10.56 20.8502 10.56 18.6702V16.7702C10.57 14.5802 9.42 13.4302 7.24 13.4302Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M6.29 10.58C8.6593 10.58 10.58 8.6593 10.58 6.29C10.58 3.9207 8.6593 2 6.29 2C3.9207 2 2 3.9207 2 6.29C2 8.6593 3.9207 10.58 6.29 10.58Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M17.7099 21.9999C20.0792 21.9999 21.9999 20.0792 21.9999 17.7099C21.9999 15.3406 20.0792 13.4199 17.7099 13.4199C15.3406 13.4199 13.4199 15.3406 13.4199 17.7099C13.4199 20.0792 15.3406 21.9999 17.7099 21.9999Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="../../../../../category/workflow.html"
+                >workflow
+                <svg
+                  class="sidebar-category-icon"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="1"
+                    d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    opacity="1"
+                    d="M7.24 13.4302H5.34C3.15 13.4302 2 14.5802 2 16.7602V18.6602C2 20.8502 3.15 22.0002 5.33 22.0002H7.23C9.41 22.0002 10.56 20.8502 10.56 18.6702V16.7702C10.57 14.5802 9.42 13.4302 7.24 13.4302Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M6.29 10.58C8.6593 10.58 10.58 8.6593 10.58 6.29C10.58 3.9207 8.6593 2 6.29 2C3.9207 2 2 3.9207 2 6.29C2 8.6593 3.9207 10.58 6.29 10.58Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    d="M17.7099 21.9999C20.0792 21.9999 21.9999 20.0792 21.9999 17.7099C21.9999 15.3406 20.0792 13.4199 17.7099 13.4199C15.3406 13.4199 13.4199 15.3406 13.4199 17.7099C13.4199 20.0792 15.3406 21.9999 17.7099 21.9999Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                </svg>
+              </a>
+            </li>
+           </ul>
+        </nav>
+      </aside>
+
+      <aside id="pageNavigation">
+        <nav>
+          <ul>
+            <li>
+              <a href="../../../../.."
+                ><svg
+                  class="navigation-icon"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18.5 3H16C15.7239 3 15.5 3.22386 15.5 3.5V3.55891L19 6.35891V3.5C19 3.22386 18.7762 3 18.5 3Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10.75 9.5C10.75 8.80964 11.3097 8.25 12 8.25C12.6904 8.25 13.25 8.80964 13.25 9.5C13.25 10.1904 12.6904 10.75 12 10.75C11.3097 10.75 10.75 10.1904 10.75 9.5Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M20.75 10.9605L21.5315 11.5857C21.855 11.8444 22.3269 11.792 22.5857 11.4685C22.8444 11.1451 22.792 10.6731 22.4685 10.4143L14.3426 3.91362C12.9731 2.81796 11.027 2.81796 9.65742 3.91362L1.53151 10.4143C1.20806 10.6731 1.15562 11.1451 1.41438 11.4685C1.67313 11.792 2.1451 11.8444 2.46855 11.5857L3.25003 10.9605V21.25H2.00003C1.58581 21.25 1.25003 21.5858 1.25003 22C1.25003 22.4142 1.58581 22.75 2.00003 22.75H22C22.4142 22.75 22.75 22.4142 22.75 22C22.75 21.5858 22.4142 21.25 22 21.25H20.75V10.9605ZM9.25003 9.5C9.25003 7.98122 10.4812 6.75 12 6.75C13.5188 6.75 14.75 7.98122 14.75 9.5C14.75 11.0188 13.5188 12.25 12 12.25C10.4812 12.25 9.25003 11.0188 9.25003 9.5ZM12.0494 13.25C12.7143 13.25 13.2871 13.2499 13.7459 13.3116C14.2375 13.3777 14.7088 13.5268 15.091 13.909C15.4733 14.2913 15.6223 14.7625 15.6884 15.2542C15.7462 15.6842 15.7498 16.2146 15.75 16.827C15.75 16.8679 15.75 16.9091 15.75 16.9506L15.75 21.25H14.25V17C14.25 16.2717 14.2484 15.8009 14.2018 15.454C14.1581 15.1287 14.0875 15.0268 14.0304 14.9697C13.9733 14.9126 13.8713 14.842 13.546 14.7982C13.1991 14.7516 12.7283 14.75 12 14.75C11.2717 14.75 10.8009 14.7516 10.4541 14.7982C10.1288 14.842 10.0268 14.9126 9.9697 14.9697C9.9126 15.0268 9.84199 15.1287 9.79826 15.454C9.75162 15.8009 9.75003 16.2717 9.75003 17V21.25H8.25003L8.25003 16.9506C8.24999 16.2858 8.24996 15.7129 8.31163 15.2542C8.37773 14.7625 8.52679 14.2913 8.90904 13.909C9.29128 13.5268 9.76255 13.3777 10.2542 13.3116C10.7129 13.2499 11.2858 13.25 11.9507 13.25H12.0494Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10.75 9.5C10.75 8.80964 11.3097 8.25 12 8.25C12.6904 8.25 13.25 8.80964 13.25 9.5C13.25 10.1904 12.6904 10.75 12 10.75C11.3097 10.75 10.75 10.1904 10.75 9.5Z"
+                    fill="hsl(211, 100%, 95%)"
+                  />
+                </svg>
+                Home</a
+              >
+            </li>
+            <li>
+              <a href="../../../../../archives.html"
+                ><svg
+                  class="navigation-icon"
+                  fill="hsl(211, 100%, 95%)"
+                  width="0.8em"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3 6v8h10V6H3zM1 6H0V0h16v6h-1v10H1V6zm4 2h6v2H5V8zM2 2v2h12V2H2z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+                Archives</a
+              >
+            </li>
+            <li>
+              <a href="../../../../../tags.html"
+                ><svg
+                  class="navigation-icon"
+                  fill="hsl(211, 100%, 95%)"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
+                  />
+                </svg>
+                Tags</a
+              >
+            </li>
+            <li>
+              <a href="../../../../../contact.html"
+                ><svg
+                  class="navigation-icon"
+                  fill="hsl(211, 100%, 95%)"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4,21a1,1,0,0,0,1,1H19a1,1,0,0,0,1-1V3a1,1,0,0,0-1-1H5A1,1,0,0,0,4,3ZM12,7.5a2,2,0,1,1-2,2A2,2,0,0,1,12,7.5ZM8.211,16.215a4,4,0,0,1,7.578,0A.993.993,0,0,1,14.83,17.5H9.18A1,1,0,0,1,8.211,16.215Z"
+                  />
+                </svg>
+                Contact</a
+              >
+            </li>
+            <li>
+              <a
+                href="/resume"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><svg
+                  class="navigation-icon"
+                  fill="hsl(211, 100%, 95%)"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 846.66 846.66"
+                  style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  "
+                  version="1.1"
+                  xml:space="preserve"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <g id="Layer_x0020_1">
+                    <path
+                      class="fil0"
+                      d="M305.08 127c-27.16,0 -27.16,-41.29 0,-41.29l60.83 0 0 -54.93c0,-11.4 9.25,-20.64 20.65,-20.64l190.32 0c11.4,0 20.65,9.24 20.65,20.64l0 54.93 106.1 0c11.4,0 20.65,9.25 20.65,20.65l0 709.52c0,11.4 -9.25,20.64 -20.65,20.64l-560.6 0c-11.4,0 -20.65,-9.24 -20.65,-20.64l0 -709.52c0,-11.4 9.25,-20.65 20.65,-20.65l67.88 0c27.15,0 27.15,41.29 0,41.29l-47.24 0 0 668.23 519.32 0 0 -668.23c-125.97,0 -251.94,0 -377.91,0zm102.12 -41.29l149.04 0 0 -34.28 -149.04 0 0 34.28zm-191.92 480.71c-27.15,0 -27.15,-41.29 0,-41.29l188.46 0c27.16,0 27.16,41.29 0,41.29l-188.46 0zm0 156.73c-27.15,0 -27.15,-41.29 0,-41.29l188.46 0c27.16,0 27.16,41.29 0,41.29l-188.46 0zm0 -78.36c-27.15,0 -27.15,-41.29 0,-41.29l188.46 0c27.16,0 27.16,41.29 0,41.29l-188.46 0zm294.81 -101.94l121.29 0c11.4,0 20.64,9.25 20.64,20.65l0 121.28c0,11.4 -9.24,20.65 -20.64,20.65l-121.29 0c-11.4,0 -20.64,-9.25 -20.64,-20.65l0 -121.28c0,-11.4 9.24,-20.65 20.64,-20.65zm100.64 41.29l-79.99 0 0 80 79.99 0 0 -80zm-243.28 -252.09c13.62,0.23 24.62,-11.16 24.62,-24.62 0,-13.72 -10.9,-24.63 -24.62,-24.63 -13.69,0 -24.62,10.94 -24.62,24.63 0,13.48 10.98,24.85 24.62,24.62zm20.65 37.98l0 59.74c47.81,-9.73 82.31,-51.95 82.31,-100.88 0,-56.87 -46.09,-102.96 -102.96,-102.96 -56.86,0 -102.95,46.09 -102.95,102.96 0,48.93 34.49,91.15 82.31,100.88l0 -59.75c-26.78,-8.89 -45.28,-34.08 -45.28,-62.59 0,-36.3 29.62,-65.92 65.92,-65.92 36.29,0 65.92,29.63 65.92,65.92 0,28.49 -18.49,53.73 -45.27,62.6zm-20.65 -185.39c79.67,0 144.25,64.58 144.25,144.25 0,79.66 -64.58,144.24 -144.25,144.24 -79.66,0 -144.24,-64.58 -144.24,-144.24 0,-79.67 64.58,-144.25 144.24,-144.25z"
+                    />
+                  </g>
+                </svg>
+                Resume</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Content area -->
+      <main>
+<article data-pagefind-body>
+  <div class="article_title">
+    <h1><a href="../../../../../posts/2024/08/24/book-summary-100-go-mistakes-and-how-to-avoid-them/">Book summary: 100 Go Mistakes and How to Avoid&nbsp;Them</a></h1>
+  </div>
+  <div class="meta_container_hrs">
+    <hr />
+    <div class="meta_container">
+      <div class="article_meta">
+        <div>
+          Posted on <strong>August 24, 2024</strong> in
+          <span id="category-article">
+            <a href="../../../../../category/learnings.html"
+              ><svg
+                class="article-category-icon"
+                width="1em"
+                height="1em"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  opacity="1"
+                  d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z"
+                  fill="hsl(211, 100%, 95%)"
+                />
+                <path
+                  opacity="1"
+                  d="M7.24 13.4302H5.34C3.15 13.4302 2 14.5802 2 16.7602V18.6602C2 20.8502 3.15 22.0002 5.33 22.0002H7.23C9.41 22.0002 10.56 20.8502 10.56 18.6702V16.7702C10.57 14.5802 9.42 13.4302 7.24 13.4302Z"
+                  fill="hsl(211, 100%, 95%)"
+                />
+                <path
+                  d="M6.29 10.58C8.6593 10.58 10.58 8.6593 10.58 6.29C10.58 3.9207 8.6593 2 6.29 2C3.9207 2 2 3.9207 2 6.29C2 8.6593 3.9207 10.58 6.29 10.58Z"
+                  fill="hsl(211, 100%, 95%)"
+                />
+                <path
+                  d="M17.7099 21.9999C20.0792 21.9999 21.9999 20.0792 21.9999 17.7099C21.9999 15.3406 20.0792 13.4199 17.7099 13.4199C15.3406 13.4199 13.4199 15.3406 13.4199 17.7099C13.4199 20.0792 15.3406 21.9999 17.7099 21.9999Z"
+                  fill="hsl(211, 100%, 95%)"
+                />
+              </svg>
+              learnings</a
+            >
+          </span>
+        </div>
+        <div class="article_tags">
+           <a href="../../../../../tag/best-practice.html"
+            ><svg
+              class="tag-icon"
+              fill="hsl(211, 100%, 95%)"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
+              />
+            </svg>
+            best-practice</a
+          >          <a href="../../../../../tag/books.html"
+            ><svg
+              class="tag-icon"
+              fill="hsl(211, 100%, 95%)"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
+              />
+            </svg>
+            books</a
+          >          <a href="../../../../../tag/go.html"
+            ><svg
+              class="tag-icon"
+              fill="hsl(211, 100%, 95%)"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
+              />
+            </svg>
+            go</a
+          >          <a href="../../../../../tag/skimming-notes.html"
+            ><svg
+              class="tag-icon"
+              fill="hsl(211, 100%, 95%)"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
+              />
+            </svg>
+            skimming-notes</a
+          >         </div>
+      </div>
+      <div class="article_readtime">
+        <span class="readtime_tilde">~</span
+        ><span class="readtime_minutes">48</span>
+        minutes to read
+      </div>
+      <div class="article_skim_notes">
+        <em><strong>Note:</strong> This article features skimming notes and is intentionally less fluffy.</em>
+      </div>
+    </div>
+    <hr />
+  </div>
+
+  <h2 class="toc-title">Table of contents</h2>
+  <nav class="toc"><div class="toc">
+<ul>
+<li><a href="#go-simple-to-learn-but-hard-to-master">Go: Simple to learn but hard to master</a><ul>
+<li><a href="#go-outline">Go outline</a></li>
+<li><a href="#simple-doesnt-mean-easy">Simple doesn’t mean easy</a></li>
+<li><a href="#100-go-mistakes">100 Go mistakes</a></li>
+</ul>
+</li>
+<li><a href="#code-and-project-organization">Code and project organization</a><ul>
+<li><a href="#1-unintended-variable-shadowing">1 - Unintended variable shadowing</a></li>
+<li><a href="#2-unnecessary-nested-code">2 - Unnecessary nested code</a></li>
+<li><a href="#3-misusing-init-functions">3 - Misusing init functions</a></li>
+<li><a href="#4-overusing-getters-and-setters">4 - Overusing getters and setters</a></li>
+<li><a href="#5-interface-pollution">5 - Interface pollution</a></li>
+<li><a href="#6-interface-on-the-producer-side">6 - Interface on the producer side</a></li>
+<li><a href="#7-returning-interfaces">7 - Returning interfaces</a></li>
+<li><a href="#8-any-says-nothing">8 - any says nothing</a></li>
+<li><a href="#9-being-confused-about-when-to-use-generics">9 - Being confused about when to use generics</a></li>
+<li><a href="#10-not-being-aware-of-the-possible-problems-with-type-embedding">10 - Not being aware of the possible problems with type embedding</a></li>
+<li><a href="#11-not-using-the-functional-options-pattern">11 - Not using the functional options pattern</a></li>
+<li><a href="#12-project-misorganization">12 - Project misorganization</a></li>
+<li><a href="#13-creating-utility-packages">13 - Creating utility packages</a></li>
+<li><a href="#14-ignoring-package-name-collisions">14 - Ignoring package name collisions</a></li>
+<li><a href="#15-missing-code-documentation">15 - Missing code documentation</a></li>
+<li><a href="#16-not-using-linters">16 - Not using linters</a></li>
+</ul>
+</li>
+<li><a href="#data-types">Data types</a><ul>
+<li><a href="#17-creating-confusion-with-octal-literals">17 - Creating confusion with octal literals</a></li>
+<li><a href="#18-neglecting-integer-overflows">18 - Neglecting integer overflows</a></li>
+<li><a href="#19-not-understanding-floating-points">19 - Not understanding floating points</a></li>
+<li><a href="#20-not-understanding-slice-length-and-capacity">20 - Not understanding slice length and capacity</a></li>
+<li><a href="#21-inefficient-slice-initialization">21 - Inefficient slice initialization</a></li>
+<li><a href="#22-being-confused-about-nil-vs-empty-slices">22 - Being confused about nil vs. empty slices</a></li>
+<li><a href="#23-not-properly-checking-if-a-slice-is-empty">23 - Not properly checking if a slice is empty</a></li>
+<li><a href="#24-not-making-slice-copies-correctly">24 - Not making slice copies correctly</a></li>
+<li><a href="#25-unexpected-side-effects-using-slice-append">25 - Unexpected side effects using slice append</a></li>
+<li><a href="#26-slices-and-memory-leaks">26 - Slices and memory leaks</a></li>
+<li><a href="#27-inefficient-map-initialization">27 - Inefficient map initialization</a></li>
+<li><a href="#28-maps-and-memory-leaks">28 - Maps and memory leaks</a></li>
+<li><a href="#29-comparing-values-incorrectly">29 - Comparing values incorrectly</a></li>
+</ul>
+</li>
+<li><a href="#control-structures">Control structures</a><ul>
+<li><a href="#30-ignoring-the-fact-that-elements-are-copied-in-range-loops">30 - Ignoring the fact that elements are copied in range loops</a></li>
+<li><a href="#31-ignoring-how-arguments-are-evaluated-in-range-loops">31 - Ignoring how arguments are evaluated in range loops</a></li>
+<li><a href="#32-ignoring-the-impact-of-using-pointer-elements-in-range-loops">32 - Ignoring the impact of using pointer elements in range loops</a></li>
+<li><a href="#33-making-wrong-assumptions-during-map-iterations">33 - Making wrong assumptions during map iterations</a></li>
+<li><a href="#34-ignoring-how-the-break-statement-works">34 - Ignoring how the break statement works</a></li>
+<li><a href="#35-using-defer-inside-a-loop">35 - Using defer inside a loop</a></li>
+</ul>
+</li>
+<li><a href="#strings">Strings</a><ul>
+<li><a href="#36-not-understanding-the-concept-of-a-rune">36 - Not understanding the concept of a rune</a></li>
+<li><a href="#37-inaccurate-string-iteration">37 - Inaccurate string iteration</a></li>
+<li><a href="#38-misusing-trim-functions">38 - Misusing trim functions</a></li>
+<li><a href="#39-under-optimized-string-concatenation">39 - Under-optimized string concatenation</a></li>
+<li><a href="#40-useless-string-conversions">40 - Useless string conversions</a></li>
+<li><a href="#41-substrings-and-memory-leaks">41 - Substrings and memory leaks</a></li>
+</ul>
+</li>
+<li><a href="#functions-and-methods">Functions and methods</a><ul>
+<li><a href="#42-not-knowing-which-type-of-receiver-to-use">42 - Not knowing which type of receiver to use</a></li>
+<li><a href="#43-never-using-named-result-parameters">43 - Never using named result parameters</a></li>
+<li><a href="#44-unintended-side-effects-with-named-result-parameters">44 - Unintended side effects with named result parameters</a></li>
+<li><a href="#45-returning-a-nil-receiver">45 - Returning a nil receiver</a></li>
+<li><a href="#46-using-a-filename-as-a-function-input">46 - Using a filename as a function input</a></li>
+<li><a href="#47-ignoring-how-defer-arguments-and-receivers-are-evaluated">47 - Ignoring how defer arguments and receivers are evaluated</a></li>
+</ul>
+</li>
+<li><a href="#error-management">Error management</a><ul>
+<li><a href="#48-panicking">48 - Panicking</a></li>
+<li><a href="#49-ignoring-when-to-wrap-an-error">49 - Ignoring when to wrap an error</a></li>
+<li><a href="#50-checking-an-error-type-inaccurately">50 - Checking an error type inaccurately</a></li>
+<li><a href="#51-checking-an-error-value-inaccurately">51 - Checking an error value inaccurately</a></li>
+<li><a href="#52-handling-an-error-twice">52 - Handling an error twice</a></li>
+<li><a href="#53-not-handling-an-error">53 - Not handling an error</a></li>
+<li><a href="#54-not-handling-defer-errors">54 - Not handling defer errors</a></li>
+</ul>
+</li>
+<li><a href="#concurrency-foundations">Concurrency: Foundations</a><ul>
+<li><a href="#55-mixing-up-concurrency-and-parallelism">55 - Mixing up concurrency and parallelism</a></li>
+<li><a href="#56-thinking-concurrency-is-always-faster">56 - Thinking concurrency is always faster</a></li>
+<li><a href="#57-being-puzzled-about-when-to-use-channels-or-mutexes">57 - Being puzzled about when to use channels or mutexes</a></li>
+<li><a href="#58-not-understanding-race-problems">58 - Not understanding race problems</a></li>
+<li><a href="#59-not-understanding-the-concurrency-impacts-of-a-workload-type">59 - Not understanding the concurrency impacts of a workload type</a></li>
+<li><a href="#60-misunderstanding-go-contexts">60 - Misunderstanding Go contexts</a></li>
+</ul>
+</li>
+<li><a href="#concurrency-practice">Concurrency: Practice</a><ul>
+<li><a href="#61-propagating-an-inappropriate-context">61 - Propagating an inappropriate context</a></li>
+<li><a href="#62-starting-a-goroutine-without-knowing-when-to-stop-it">62 - Starting a goroutine without knowing when to stop it</a></li>
+<li><a href="#63-not-being-careful-with-goroutines-and-loop-variables">63 - Not being careful with goroutines and loop variables</a></li>
+<li><a href="#64-expecting-deterministic-behavior-using-select-and-channels">64 - Expecting deterministic behavior using select and channels</a></li>
+<li><a href="#65-not-using-notification-channels">65 - Not using notification channels</a></li>
+<li><a href="#66-not-using-nil-channels">66 - Not using nil channels</a></li>
+<li><a href="#67-being-puzzled-about-channel-size">67 - Being puzzled about channel size</a></li>
+<li><a href="#68-forgetting-about-possible-side-effects-with-string-formatting">68 - Forgetting about possible side effects with string formatting</a></li>
+<li><a href="#69-creating-data-races-with-append">69 - Creating data races with append</a></li>
+<li><a href="#70-using-mutexes-inaccurately-with-slices-and-maps">70 - Using mutexes inaccurately with slices and maps</a></li>
+<li><a href="#71-misusing-syncwaitgroup">71 - Misusing sync.WaitGroup</a></li>
+<li><a href="#72-forgetting-about-synccond">72 - Forgetting about sync.Cond</a></li>
+<li><a href="#73-not-using-errgroup">73 - Not using errgroup</a></li>
+<li><a href="#74-copying-a-sync-type">74 - Copying a sync type</a></li>
+</ul>
+</li>
+<li><a href="#the-standard-library">The standard library</a><ul>
+<li><a href="#75-providing-a-wrong-time-duration">75 - Providing a wrong time duration</a></li>
+<li><a href="#76-timeafter-and-memory-leaks">76 - time.After and memory leaks</a></li>
+<li><a href="#77-common-json-handling-mistakes">77 - Common <span class="caps">JSON</span>-handling mistakes</a></li>
+<li><a href="#78-common-sql-mistakes">78 - Common <span class="caps">SQL</span> mistakes</a></li>
+<li><a href="#79-not-closing-transient-resources">79 - Not closing transient resources</a></li>
+<li><a href="#80-forgetting-the-return-statement-after-replying-to-an-http-request">80 - Forgetting the return statement after replying to an <span class="caps">HTTP</span> request</a></li>
+<li><a href="#81-using-the-default-http-client-and-server">81 - Using the default <span class="caps">HTTP</span> client and server</a></li>
+</ul>
+</li>
+<li><a href="#testing">Testing</a><ul>
+<li><a href="#82-not-categorizing-tests">82 - Not categorizing tests</a></li>
+<li><a href="#83-not-enabling-the-race-flag">83 - Not enabling the -race flag</a></li>
+<li><a href="#84-not-using-test-execution-modes">84 - Not using test execution modes</a></li>
+<li><a href="#85-not-using-table-driven-tests">85 - Not using table-driven tests</a></li>
+<li><a href="#86-sleeping-in-unit-tests">86 - Sleeping in unit tests</a></li>
+<li><a href="#87-not-dealing-with-the-time-api-efficiently">87 - Not dealing with the time <span class="caps">API</span> efficiently</a></li>
+<li><a href="#88-not-using-testing-utility-packages">88 - Not using testing utility packages</a></li>
+<li><a href="#89-writing-inaccurate-benchmarks">89 - Writing inaccurate benchmarks</a></li>
+<li><a href="#90-not-exploring-all-the-go-testing-features">90 - Not exploring all the Go testing features</a></li>
+</ul>
+</li>
+<li><a href="#optimizations">Optimizations</a><ul>
+<li><a href="#91-not-understanding-cpu-caches">91 - Not understanding <span class="caps">CPU</span> caches</a></li>
+<li><a href="#92-writing-concurrent-code-that-leads-to-false-sharing">92 - Writing concurrent code that leads to false sharing</a></li>
+<li><a href="#93-not-taking-into-account-instruction-level-parallelism">93 - Not taking into account instruction-level parallelism</a></li>
+<li><a href="#94-not-being-aware-of-data-alignment">94 - Not being aware of data alignment</a></li>
+<li><a href="#95-not-understanding-stack-vs-heap">95 - Not understanding stack vs. heap</a></li>
+<li><a href="#96-not-knowing-how-to-reduce-allocations">96 - Not knowing how to reduce allocations</a></li>
+<li><a href="#97-not-relying-on-inlining">97 - Not relying on inlining</a></li>
+<li><a href="#98-not-using-go-diagnostics-tooling">98 - Not using Go diagnostics tooling</a></li>
+<li><a href="#99-not-understanding-how-the-gc-works">99 - Not understanding how the <span class="caps">GC</span> works</a></li>
+<li><a href="#100-not-understanding-the-impacts-of-running-go-in-docker-and-kubernetes">100 - Not understanding the impacts of running Go in Docker and Kubernetes</a></li>
+</ul>
+</li>
+<li><a href="#resources-and-references">Resources and references</a></li>
+</ul>
+</div></nav>
+  <div class="article_text">
+<hr/>
+<h1 id="go-simple-to-learn-but-hard-to-master">Go: Simple to learn but hard to master</h1>
+<h2 id="go-outline">Go outline</h2>
+<ul>
+<li>Go does not have:<ul>
+<li>Type inheritance;</li>
+<li>Macros;</li>
+<li>Partial functions;</li>
+<li>Support for lazy variable evaluation;</li>
+<li>Support for immutability;</li>
+<li>Operator overloading;</li>
+<li>Pattern matching;</li>
+<li>…</li>
+</ul>
+</li>
+<li>Go is:<ul>
+<li>Stable;</li>
+<li>Expressive;</li>
+<li>Fast to compile;</li>
+<li>Safe (type-safety);</li>
+<li>Simple;</li>
+<li>Excellent for concurrent programming (goroutines, channels).</li>
+</ul>
+</li>
+</ul>
+<h2 id="simple-doesnt-mean-easy">Simple doesn’t mean easy</h2>
+<ul>
+<li>Concurrency in Go may be <em>simpler</em> than in other languages, but it is still hard to get right, as per <a href="https://engineering.purdue.edu/WukLab/GoStudy-ASPLOS19.pdf">this study</a>.</li>
+</ul>
+<h2 id="100-go-mistakes">100 Go mistakes</h2>
+<ul>
+<li>Learning from mistakes is efficient.</li>
+<li><em><span class="dquo">“</span>the best time for brain growth is when we’re facing mistakes”</em> (<a href="https://pubmed.ncbi.nlm.nih.gov/22042726/">source</a>).</li>
+<li><em><span class="dquo">“</span>we can remember not only the error but also the context surrounding the mistake”</em> (<a href="https://pubmed.ncbi.nlm.nih.gov/27648988/">source</a>).</li>
+<li>Categories of mistakes<ul>
+<li>Bugs<ul>
+<li>Bugs are very costly (<a href="https://news.synopsys.com/2021-01-06-Synopsys-Sponsored-CISQ-Research-Estimates-Cost-of-Poor-Software-Quality-in-the-US-2-08-Trillion-in-2020">source</a>).</li>
+<li>Bugs can be very dangerous (e.g., in the case of a radiation therapy machine).</li>
+</ul>
+</li>
+<li>Needless complexity<ul>
+<li>Don’t over-complicate things.</li>
+</ul>
+</li>
+<li>Weaker readability<ul>
+<li><em><span class="dquo">“</span>the ratio of time spent reading versus writing is well over 10 to 1”</em> (<a href="https://www.oreilly.com/library/view/clean-code-a/9780136083238/">source</a>).</li>
+<li>Nested code.</li>
+<li>Data type representation.</li>
+<li>Not using named result parameters.</li>
+</ul>
+</li>
+<li>Suboptimal or unidiomatic organization<ul>
+<li>Utility packages.</li>
+<li>Init functions.</li>
+</ul>
+</li>
+<li>Lack of <span class="caps">API</span> convenience<ul>
+<li>Overusing <code>any</code> types.</li>
+<li>Wrong creational pattern.</li>
+<li>Blindly applying <span class="caps">OOP</span> principles.</li>
+</ul>
+</li>
+<li>Under-optimized code<ul>
+<li>Lack of fundamental knowledge.</li>
+<li>Impacted performance.</li>
+<li>Floating-point accuracy.</li>
+<li>Poorly parallelized execution.</li>
+<li>Not knowing how to reduce allocations.</li>
+<li>Data alignment.</li>
+</ul>
+</li>
+<li>Lack of productivity<ul>
+<li>Know how to write efficient tests.</li>
+<li>Use the standard library.</li>
+<li>Use profilers and linters.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h1 id="code-and-project-organization">Code and project organization</h1>
+<h2 id="1-unintended-variable-shadowing">1 - Unintended variable shadowing</h2>
+<ul>
+<li>A variable name declared in a block can be re-declared in a nested block (<em>variable shadowing</em>).</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">// client is shadowed</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Client</span><span class="w">  </span><span class="c1">// will always be nil</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nx">tracing</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">createClientWithTracing</span><span class="p">()</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="nx">err</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="nx">log</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">client</span><span class="p">)</span>
+<span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">createDefaultClient</span><span class="p">()</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="nx">err</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="nx">log</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">client</span><span class="p">)</span>
+<span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Solutions<ul>
+<li>Use a temporary variable name in the inner scope.</li>
+<li>Use the <code>=</code> operator instead of <code>:=</code> in the inner scope. Leads to a single assignment. Error handling can be handled in the outer scope (<code>client, err = ...</code>).</li>
+<li>Be caution with reusing <code>err</code> as well.</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-unnecessary-nested-code">2 - Unnecessary nested code</h2>
+<ul>
+<li>Put the happy path first and return early on all edge cases and errors.</li>
+<li>Instead of using <code>else</code> blocks, use early returns.</li>
+<li>Instead of checking for an happy path, check for the error path and return where possible.</li>
+</ul>
+<h2 id="3-misusing-init-functions">3 - Misusing init functions</h2>
+<ul>
+<li>Refresher on <code>init</code> functions<ul>
+<li>An init function is a special function that is executed before the main function. It takes no arguments and returns no values.</li>
+<li>Variables are initialized, the <code>init</code> function is called, and then the <code>main</code> function is called.</li>
+<li>Imported packages are initialized before the <code>main</code> function is called and before the <code>init</code> function in the main package is called because the main package depends on the imported packages.</li>
+<li>Packages can define multiple <code>init</code> functions, in which case they are executed in alphabetical order based on the source code file name. Hence, we should not depend on the order of execution of <code>init</code> functions as file names can change.</li>
+<li>The same source file can define multiple <code>init</code> functions, in which case they are executed in the order they are defined in the file.</li>
+<li>The underscore operator (<code>_</code>) can be used to import a package without using it. This is useful to execute the <code>init</code> function of a package without using the package itself.</li>
+<li><code>init</code> functions cannot be invoked explicitly.</li>
+</ul>
+</li>
+<li>When to use <code>init</code> functions<ul>
+<li>They should not be used to initialize variables, as error handling is limited (they don’t return errors, one must <code>panic</code>).</li>
+<li>When testing a package, the <code>init</code> function is executed before the tests are run.</li>
+<li>If side effects are achieved via variables, these become global variables, which pollute the global namespace. Any function in the package can access these variables, which can lead to unexpected behavior. Unit tests depending on such functions will be harder to write.</li>
+<li>The responsibility of error handling should be left up to the caller.</li>
+<li><em>They can be helpful to define static configurations</em>, as is done in <a href="https://cs.opensource.google/go/x/website/+/e0d934b4:blog/blog.go;l=32">the <code>init</code> function of the Go blog</a>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-overusing-getters-and-setters">4 - Overusing getters and setters</h2>
+<ul>
+<li>Go has no support for automatic getters and setters, and it is idiomatic to use direct access to fields.</li>
+<li>When the use case justifies it, a getter should be named <code>FieldName</code> (not <code>GetFieldName</code>) and a setter should be named <code>SetFieldName</code>.</li>
+</ul>
+<h2 id="5-interface-pollution">5 - Interface pollution</h2>
+<ul>
+<li>Go’s interfaces are satisfied implicitly (structural typing).</li>
+<li><em><span class="dquo">“</span>The bigger the interface, the weaker the abstraction.”</em> — Rob Pike</li>
+<li>When to use interfaces<ul>
+<li>Common behavior<ul>
+<li>The behavior is factored out into an interface when it is common to multiple types (e.g., <code>sort.Interface</code>).</li>
+</ul>
+</li>
+<li>Decoupling<ul>
+<li>The implementation is decoupled from the interface, which allows for easier testing and swapping of implementations.</li>
+</ul>
+</li>
+<li>Restricting behavior<ul>
+<li>The interface restricts the behavior of the type, which can be useful for enforcing constraints. For example, the <code>io.Reader</code> interface restricts the behavior of the type to reading. It is possible to enforce constraints such as with a getter interface that only has a <code>Get</code> method and prevents setting values.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Interface pollution<ul>
+<li>Abstractions should be discovered, not invented. Only create interfaces when they are needed.</li>
+<li>Adding levels of indirection makes the code harder to understand.</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-interface-on-the-producer-side">6 - Interface on the producer side</h2>
+<ul>
+<li><em>Producer side</em> refers to an interface defined in the same package as the type that satisfies it.</li>
+<li><em>Consumer side</em> refers to an interface defined in a package that uses it and which is independent of the package that implements the interface.</li>
+<li>The client should determine the level of abstraction it needs.</li>
+<li>This relates to the <em>Interface segregation principle</em> of <span class="caps">SOLID</span>.</li>
+</ul>
+<h2 id="7-returning-interfaces">7 - Returning interfaces</h2>
+<ul>
+<li>In many cases, this is a bad practice in Go.</li>
+<li><em><span class="dquo">“</span>Be conservative in what you do, be liberal in what you accept from others.”</em> — Transmission Control Protocol<ul>
+<li>Return structs instead of interfaces.</li>
+<li>Accept interfaces if possible.</li>
+</ul>
+</li>
+<li>Interfaces might be returned (e.g., <code>io.Reader</code>), but this should be done with caution. It’s usually done when the interface itself is implemented on the producer side (e.g., standard library) and the consumer side (e.g., user code) is expected to use it.</li>
+</ul>
+<h2 id="8-any-says-nothing">8 - <code>any</code> says nothing</h2>
+<ul>
+<li>The <code>interface{}</code> type is a placeholder for <code>any</code> type. <code>any</code> is an alias for <code>interface{}</code> since Go 1.18.</li>
+<li>It requires a type assertion to be used.</li>
+<li>Using <code>any</code> does not convey any meaningful information about the type.</li>
+<li>It will lead to issues compilation-wise.</li>
+</ul>
+<h2 id="9-being-confused-about-when-to-use-generics">9 - Being confused about when to use generics</h2>
+<ul>
+<li>A “type parameter” is a placeholder for a type that is specified when the function is called.</li>
+<li>A constraint is a condition that the type parameter must satisfy (e.g., implement an interface like <code>comparable</code>).</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">type</span><span class="w"> </span><span class="nx">intStringConstraint</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="o">~</span><span class="kt">int</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">~</span><span class="kt">string</span>
+<span class="w">      </span><span class="c1">// ^--- union operator</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>The union operator (<code>|</code>) is used to specify that the type parameter must be either <code>int</code> or <code>string</code>.</li>
+<li>The tilde (<code>~</code>) is used to restrict all the underlying types of the type parameter to the specified types.</li>
+<li>Common uses and misuses<ul>
+<li>Generics are useful to factor out common behavior (e.g, the <code>sort</code> interface).<ul>
+<li>Data structures (e.g., binary tree, linked list, heap).</li>
+<li>Functions working with slice, map, channels of any type.</li>
+</ul>
+</li>
+<li>Generics are not useful when the behavior is not common.<ul>
+<li>If the method of the type argument is called, then the generic should be removed in the function received and a type should be specified in the function parameter.</li>
+</ul>
+</li>
+<li>Generics do not shine when they make the code more complex. Unnecessary abstraction should be avoided.</li>
+</ul>
+</li>
+</ul>
+<h2 id="10-not-being-aware-of-the-possible-problems-with-type-embedding">10 - Not being aware of the possible problems with type embedding</h2>
+<ul>
+<li>A type embedding is a way to reuse the fields and methods of a type in another type. The fields from that other type get “promoted” to the new type (i.e., they can be accessed directly from the new type, as well as through the embedded type).</li>
+<li>Incorrect usage<ul>
+<li>An example of a wrong use of type embedding is a <code>sync.Mutex</code> embedded in a struct. It will be available outside the struct and can be misused.</li>
+<li>It shouldn’t be used only as syntactic sugar to access the methods of the embedded type. Use a field instead.</li>
+<li>It shouldn’t promote fields that are not intended to be used outside the struct (e.g., <code>sync.Mutex</code>).</li>
+</ul>
+</li>
+<li>Correct usage<ul>
+<li>A custom logger that wants to write and close may embed a <code>io.WriteCloser</code> interface so that both methods are available. They will be promoted to the new type and there won’t be a need to implement these methods simply to forward a call to the embedded type.</li>
+<li>Preventing type embeddings in public structs is probably the safest route.</li>
+</ul>
+</li>
+<li>Embedding vs. <span class="caps">OOP</span> subclassing<ul>
+<li>Embedding is not subclassing. It is a way to reuse fields and methods of a type in another type. It is a form of composition.</li>
+</ul>
+</li>
+</ul>
+<h2 id="11-not-using-the-functional-options-pattern">11 - Not using the functional options pattern</h2>
+<ul>
+<li>Config struct<ul>
+<li>This is limited because to bring flexibility and distinguish between the zero value and the default value, one must use pointers.</li>
+</ul>
+</li>
+<li>Builder pattern<ul>
+<li>To keep chaining method calls, one should not return an error, which means validation is delayed.</li>
+<li>To have proper error handling along the way, it makes the configuration more complex than it needs to be.</li>
+</ul>
+</li>
+<li>Functional options pattern<ul>
+<li>This pattern makes use of closures to set the configuration options, where the closure is an anonymous function being returned.</li>
+<li>The closure is called with the configuration struct as an argument, and it sets the configuration options.</li>
+<li>This pattern allows for validation of the configuration options and for the configuration to be set in a single call.</li>
+<li>It is a flexible pattern that allows for the configuration to be set in any order and for the configuration to be validated at the time of setting.</li>
+<li>One does not need to provide a default value for the configuration struct since the function accepts variadic arguments, which may be empty.</li>
+</ul>
+</li>
+</ul>
+<h2 id="12-project-misorganization">12 - Project misorganization</h2>
+<ul>
+<li>Project structure<ul>
+<li>The <a href="https://github.com/golang-standards/project-layout"><code>project-layout</code></a> is a great place to start for a complex application. Despite not being an official standard, it is a great and logically sound starting point.</li>
+</ul>
+</li>
+<li>Package organization<ul>
+<li>There is no concept of subpackages in Go. Sub-directories are useful to have high cohesion.</li>
+<li>Hexagonal architecture group per technical layer.</li>
+<li>An alternative is to group by context (e.g., customer context, contract context).</li>
+<li>Avoid both nano and huge packages.<ul>
+<li>Nano packages probably mean there’s lack of understanding about the connections between the different files.</li>
+<li>Huge packages dilute the meaning of the package.</li>
+<li>Name a package after what they <em>provide</em>, not what they <em>contain</em>.</li>
+<li><em><span class="dquo">“</span>Package names should be short, concise, expressive and, by convention, a single lowercase word”</em>.</li>
+</ul>
+</li>
+<li>Minimize what should be exported as much as possible to reduce coupling.</li>
+</ul>
+</li>
+</ul>
+<h2 id="13-creating-utility-packages">13 - Creating utility packages</h2>
+<ul>
+<li><code>utils</code>, <code>common</code>, <code>base</code>… bad practice.</li>
+<li><code>util</code> is meaningless.</li>
+<li>While nano packages should be avoided, if a few functions are highly cohesive and don’t belong anywhere else, it’s a good idea to keep them separate with good naming.</li>
+<li>Make APIs expressive.</li>
+</ul>
+<h2 id="14-ignoring-package-name-collisions">14 - Ignoring package name collisions</h2>
+<ul>
+<li>Naming a variable the same as a package name will shadow the package name.</li>
+<li>Either rename the variable (<code>redisClient := redis.NewClient()</code>) or rename the import with an alias (<code>import redisapi "mylib/redis"</code>).</li>
+<li>The same is true for built-in functions like <code>copy</code>: they shouldn’t be shadowed.</li>
+</ul>
+<h2 id="15-missing-code-documentation">15 - Missing code documentation</h2>
+<ul>
+<li>Simplifies how clients consume an <span class="caps">API</span>.</li>
+<li>Helps in maintaining a project.</li>
+<li>In Go, every exported element should be documented, starting with the name of the element being documented (e.g., <code>Customer is ...</code>). It should be a complete sentence ending with a period.</li>
+<li>An element can be marked as deprecated with a comment starting with <code>Deprecated:</code> after the description of the element.</li>
+<li>The convention to document a package is to have a comment at the top of the file with the package name and a description of the package, starting with <code>// Package packageName ...</code>. The first line should be concise, then a blank line, then a more detailed description.</li>
+<li>Comments at the top of the file will be omitted from the documentation if they are followed by a blank line and more comments.</li>
+</ul>
+<h2 id="16-not-using-linters">16 - Not using linters</h2>
+<ul>
+<li>Automatic tool to analyze code and catch errors.</li>
+<li>They help prevent mistakes automatically and consistently.</li>
+</ul>
+<hr/>
+<h1 id="data-types">Data types</h1>
+<h2 id="17-creating-confusion-with-octal-literals">17 - Creating confusion with octal literals</h2>
+<ul>
+<li>Using <code>0o</code> instead of <code>0</code> for octal literals is clearer.</li>
+<li>Octal is still useful to express file permissions (e.g., <code>0644</code>).</li>
+<li>Go supports using underscores in numeric literals to improve readability (e.g., <code>1_000_000</code>).</li>
+</ul>
+<h2 id="18-neglecting-integer-overflows">18 - Neglecting integer overflows</h2>
+<ul>
+<li>It won’t panic at runtime. They are silent bugs.</li>
+<li>It will wrap around.</li>
+<li>Use the <code>math</code> package to check for overflows.</li>
+<li>Detecting integer overflow when incrementing<ul>
+<li>Use <code>math.MaxInt</code>, <code>math.MinInt</code>, <code>math.MaxUint</code>, <code>math.MinUint</code>.</li>
+</ul>
+</li>
+<li>Detecting integer overflows during addition<ul>
+<li>Use <code>math.MaxInt - a &lt; b</code> or <code>math.MaxUint - a &lt; b</code>.</li>
+</ul>
+</li>
+<li>Detecting integer overflows during multiplication<ul>
+<li>Use <code>math.MaxInt/a &lt; b</code> or <code>math.MaxUint/a &lt; b</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="19-not-understanding-floating-points">19 - Not understanding floating points</h2>
+<ul>
+<li>A <em>mantissa</em> is the significant part of a floating-point number.</li>
+<li>The <em>exponent</em> is the power of 10 by which the mantissa is multiplied.</li>
+<li>For <code>float32</code>, the mantissa is 23 bits and the exponent is 8 bits.</li>
+<li>For <code>float64</code>, the mantissa is 52 bits and the exponent is 11 bits, the remaining bit is the sign bit.</li>
+<li>It is best to avoid comparing by equality with floating-point numbers and instead use a tolerance (delta).</li>
+<li>Use <code>math.IsInf</code> and <code>math.IsNaN</code> to check for infinity and NaN.</li>
+<li>Group floating-point numbers together by their magnitude to reduce precision loss when adding and subtracting.</li>
+<li>With calculations involving both addition/subtraction and multiplication/division, it is best to perform the multiplication/division first to reduce precision loss.</li>
+</ul>
+<h2 id="20-not-understanding-slice-length-and-capacity">20 - Not understanding slice length and capacity</h2>
+<ul>
+<li>Slice data is stored contiguously in an array data structure.</li>
+<li>A slice holds a pointer to the array, the length of the slice, and the capacity of the slice.</li>
+<li>Trying to access an index greater than the length of the slice will result in a runtime panic, even though the capacity is greater.</li>
+<li>Slicing a slice will create a new slice with the same underlying array, but with a different length and capacity.</li>
+<li>The <code>append</code> function will create a new slice with a new underlying array if the capacity is exceeded.</li>
+</ul>
+<h2 id="21-inefficient-slice-initialization">21 - Inefficient slice initialization</h2>
+<ul>
+<li>Use <code>make</code> to initialize a slice with a specific length and capacity.</li>
+<li>Set a length of <code>0</code> (2nd argument to <code>make</code>) and a capacity of <code>n</code> (3rd argument to <code>make</code>), which will reuse the same backing array until the capacity is exceeded.</li>
+<li>One can also set only the length and use direct assignment instead of <code>append</code> (<code>bars[i] = fooToBar(foo)</code>). This is about 400% faster than using an empty slice.</li>
+<li>If the length of the slice is already known, it is better to take advantage of it and set the length of the slice when initializing it.</li>
+</ul>
+<h2 id="22-being-confused-about-nil-vs-empty-slices">22 - Being confused about nil vs. empty slices</h2>
+<ul>
+<li>A slice is empty if its length is equal to 0.</li>
+<li>A slice is <code>nil</code> if it equals <code>nil</code>.</li>
+<li>A <code>nil</code> slice is an empty slice.</li>
+<li>A <code>nil</code> slice can be passed in a single line: <code>s := append([]int(nil), 42)</code>.</li>
+<li>A nil slice is marshaled as a <code>null</code> element, whereas a non-nil, empty slice is marshaled as an empty array.</li>
+</ul>
+<h2 id="23-not-properly-checking-if-a-slice-is-empty">23 - Not properly checking if a slice is empty</h2>
+<ul>
+<li><em><span class="dquo">“</span>[…] when designing interfaces, we should avoid distinguishing nil and empty slices, which leads to subtle programming errors”</em>.</li>
+<li><em><span class="dquo">“</span>This principle is the same with maps. To check if a map is empty, check its length, not whether it’s nil”</em>.</li>
+<li>Do <code>len(slice) != 0</code> instead of <code>slice != nil</code>.</li>
+</ul>
+<h2 id="24-not-making-slice-copies-correctly">24 - Not making slice copies correctly</h2>
+<ul>
+<li>The destination slice must have the same length as the source slice (or greater). Else, the copy will match the length of the destination slice and may be missing elements.</li>
+<li><code>copy</code> is the more idiomatic way to copy slices (vs. <code>dst := append([]int(nil), src...)</code>).</li>
+</ul>
+<h2 id="25-unexpected-side-effects-using-slice-append">25 - Unexpected side effects using slice <code>append</code></h2>
+<ul>
+<li>If the resulting slice as a length smaller than the capacity, the slice will be modified in place and will have unintended side effects.</li>
+<li>To avoid side effects outside a given range of a slice, <em>full slice expression</em> can be used (e.g., <code>s := []int{1, 2, 3}</code>, then <code>s[:2:2]</code> will create a new slice with a length of 2 and a capacity of 2).</li>
+</ul>
+<h2 id="26-slices-and-memory-leaks">26 - Slices and memory leaks</h2>
+<ul>
+<li>Leaking capacity<ul>
+<li>Slicing a huge slice to a smaller slice will keep the capacity of the original slice. This makes matters worst if the result of a slice is kept for many iterations in a loop.</li>
+<li>Instead, use <code>copy</code> to create a new slice with the necessary length.</li>
+</ul>
+</li>
+<li>Leakage with full slice expressions<ul>
+<li>The issue is the same as with slicing.</li>
+<li>The solution is the same as with slicing.</li>
+</ul>
+</li>
+<li>Slice and pointers<ul>
+<li>A slice holds a pointer to an array, so if the slice is kept, the array will be kept in memory.</li>
+<li>To avoid this, use <code>copy</code> to create a new slice with the necessary length.</li>
+<li>If however we want to keep the original capacity, we can set all the unneeded elements to <code>nil</code> explicitly. For instance, all elements but the first 2:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">foos</span><span class="p">);</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">foos</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">v</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">nil</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+<h2 id="27-inefficient-map-initialization">27 - Inefficient map initialization</h2>
+<ul>
+<li>Maps are unordered collections of key-value pairs, where all keys are unique. They use hash tables under the hood.</li>
+<li>Insertion can be an <code>O(n)</code> operation if the map is resized.</li>
+<li><code>make</code> can be used to initialize a map with a specific size (second argument to <code>make</code>, without capacity). This avoids having to grow the map and re-balancing all the buckets of 8 elements each.</li>
+</ul>
+<h2 id="28-maps-and-memory-leaks">28 - Maps and memory leaks</h2>
+<ul>
+<li>The number of buckets in a map cannot shrink. Removing elements from a map will not reduce the number of buckets.</li>
+<li>Even the overflown buckets will not be reduced.</li>
+<li>One possible solution: periodically copy the map to a new map.<ul>
+<li>Downside: the amount of memory used will be doubled for a short period of time.</li>
+</ul>
+</li>
+<li>Another solution: update the value type of the map to store an array pointer.<ul>
+<li>The peak memory consumed will be far less.</li>
+<li>The garbage collection will be more efficient.</li>
+</ul>
+</li>
+</ul>
+<h2 id="29-comparing-values-incorrectly">29 - Comparing values incorrectly</h2>
+<ul>
+<li><code>==</code> does not work for slices, maps, and functions.</li>
+<li><code>reflect.DeepEqual</code> could be used, but it’s about 100x slower than <code>==</code>, and so might be better used for testing only.</li>
+<li>If strict comparison is needed on structs and good performance is required, consider using a custom comparison function.</li>
+</ul>
+<hr/>
+<h1 id="control-structures">Control structures</h1>
+<h2 id="30-ignoring-the-fact-that-elements-are-copied-in-range-loops">30 - Ignoring the fact that elements are copied in range loops</h2>
+<ul>
+<li>In Go, every assignment leads to a copy of the value.</li>
+<li>In a range loop, the value is copied, not the reference.</li>
+<li>To update a slice with a range loop, one must use the index to update the slice, i.e., <code>for i := range s { s[i] = ... }</code>.</li>
+<li>A classic <code>for</code> loop can be used to update the slice in place, i.e., <code>for i := 0; i &lt; len(s); i++ { s[i] = ... }</code>.</li>
+<li>Using a pointer to a slice will allow for the slice to be updated in place, but iterating over such a slice is less efficient for the <span class="caps">CPU</span>.</li>
+</ul>
+<h2 id="31-ignoring-how-arguments-are-evaluated-in-range-loops">31 - Ignoring how arguments are evaluated in range loops</h2>
+<ul>
+<li>Looping over an array will copy the value of the array element.</li>
+<li>Using a pointer to the array will allow for the array to be updated in place and will avoid copying values, which may be more efficient, especially on large arrays.</li>
+<li>The <code>range</code> loop evaluates the expression to its right only once, so if the expression is a slice, the slice will not be updated in the loop.</li>
+<li>To access updated elements of a slice during iteration with a <code>range</code> loop, one must use the index to access the element in the slice, not the value of the element, since the expression is copied to a temporary variable.</li>
+</ul>
+<h2 id="32-ignoring-the-impact-of-using-pointer-elements-in-range-loops">32 - Ignoring the impact of using pointer elements in range loops</h2>
+<ul>
+<li>Using a pointer to a slice when looping with a <code>range</code> loop can lead to storing the address of the temporary variable in the slice for all elements in the slice.</li>
+<li>To avoid this issue, one can create a local variable for each element to be iterated over in the slice and then use the local variable in the loop to perform assignments.</li>
+<li>Another solution is to use a <code>range</code> loop with the index, create a temporary variable by dereferencing the pointer, and then assign the temporary variable to the slice.</li>
+</ul>
+<h2 id="33-making-wrong-assumptions-during-map-iterations">33 - Making wrong assumptions during map iterations</h2>
+<ul>
+<li>Maps don’t sort keys.</li>
+<li>Insertion order is not preserved.</li>
+<li>Iteration order is unspecified. This is a conscious language design choice so that developers don’t rely on the order of the keys.</li>
+<li>One should work on a copy of a map if new elements are to be added or removed during iteration.</li>
+</ul>
+<h2 id="34-ignoring-how-the-break-statement-works">34 - Ignoring how the break statement works</h2>
+<ul>
+<li><code>break</code> works on the innermost loop, whether that be a <code>for</code>, <code>switch</code>, or <code>select</code>.</li>
+<li>To break outside of a loop, one can use a label.</li>
+<li>A label can be an idiomatic way to break out of nested loops, as is done in the <code>net/http</code> package with a <code>readlines:</code> label.</li>
+</ul>
+<h2 id="35-using-defer-inside-a-loop">35 - Using <code>defer</code> inside a loop</h2>
+<ul>
+<li><code>defer</code> is a statement that schedules a function to be called when the surrounding function returns. That is, it won’t run on each iteration of the loop until it returns, if ever.</li>
+<li>To avoid resource leaks like this, each iteration of the loop can use a separate function that is run and defers the cleanup.</li>
+<li>Another solution is to use a closure, but this can be less readable.</li>
+<li>A function call will decrease performance slightly, so if performance is a concern, the <code>defer</code> call should be handled manually before the loop.</li>
+</ul>
+<hr/>
+<h1 id="strings">Strings</h1>
+<h2 id="36-not-understanding-the-concept-of-a-rune">36 - Not understanding the concept of a rune</h2>
+<ul>
+<li>A charset is a set of characters.</li>
+<li>An encoding describes how to translate a character set into a sequence of bytes.</li>
+<li>In Go, a string is a reference to an immutable slice of bytes.</li>
+<li>A rune is a Unicode code point.</li>
+<li>Source code in Go is encoded in <span class="caps">UTF</span>-8: string literals will then also be encoded in <span class="caps">UTF</span>-8.</li>
+<li><span class="caps">UTF</span>-8 is a variable-length encoding, where each code point is represented by one to four bytes. For instance, the string <code>hello</code> is represented by five bytes, but the string containing the character <code>汉</code> is represented by three bytes, which we can check with <code>len("汉")</code>.</li>
+<li>A rune is an alias for <code>int32</code> (4 bytes = 32 bits).</li>
+<li>The repository <code>golang.org/x</code> contains extensions to work with <span class="caps">UTF</span>-16 and <span class="caps">UTF</span>-32.</li>
+</ul>
+<h2 id="37-inaccurate-string-iteration">37 - Inaccurate string iteration</h2>
+<ul>
+<li>With the <code>unicode/utf8</code> package, one can use <code>utf8.RuneCountInString(s)</code> to count the number of runes in a string.</li>
+<li>Accessing specific runes can be done without converting the string if characters are in the <span class="caps">ASCII</span> range.</li>
+<li>It is most useful to convert a string to a slice of runes when a specific rune is required by index.</li>
+<li>Iterating over the runes with a <code>for range</code> loop returns the starting index of the rune and the rune itself.</li>
+<li>Iterating with a <code>for range</code> using only the index returns the starting index of the rune and the byte value at that position.</li>
+</ul>
+<h2 id="38-misusing-trim-functions">38 - Misusing trim functions</h2>
+<ul>
+<li>Use <code>TrimRight</code> to remove trailing characters. Go backwards until a rune is not in the set of characters to be trimmed.</li>
+<li>Use <code>TrimSuffix</code> to remove a suffix (only one substring occurrence).</li>
+<li>Use <code>TrimLeft</code> to remove leading characters. Go forwards until a rune is not in the set of characters to be trimmed.</li>
+<li>Use <code>TrimPrefix</code> to remove a prefix (only one substring occurrence).</li>
+</ul>
+<h2 id="39-under-optimized-string-concatenation">39 - Under-optimized string concatenation</h2>
+<ul>
+<li><code>+=</code> is inefficient for string concatenation because it creates a new string each time.</li>
+<li>Use <code>strings.Builder</code> for efficient string concatenation.</li>
+<li>Call <code>Grow</code> on the builder to allocate memory for the string.</li>
+</ul>
+<h2 id="40-useless-string-conversions">40 - Useless string conversions</h2>
+<ul>
+<li>Working with <code>[]byte</code> is more efficient than working with strings due to many interfaces in the standard library taking <code>[]byte</code> as input, which avoids doing a conversion.</li>
+<li>Most methods in the <code>strings</code> package have a <code>[]byte</code> counterpart in the <code>bytes</code> package.</li>
+</ul>
+<h2 id="41-substrings-and-memory-leaks">41 - Substrings and memory leaks</h2>
+<ul>
+<li>A substring shares the same backing array as the original string.</li>
+<li>If the substring is kept, the original string will be kept in memory.</li>
+<li>To avoid this, either use <code>string([]byte(theString[:n]))</code>  to slice the needed part of the string or <code>strings.Clone</code> to create a new string.</li>
+</ul>
+<hr/>
+<h1 id="functions-and-methods">Functions and methods</h1>
+<h2 id="42-not-knowing-which-type-of-receiver-to-use">42 - Not knowing which type of receiver to use</h2>
+<ul>
+<li>Go does not pass values by reference.</li>
+<li>A value receiver makes a copy of the value: changes are local to the method.</li>
+<li>A pointer receiver passes the memory address of the value: changes are global to the value. Strictly speaking, this is still a copy, but the copy is made for a pointer.</li>
+<li>Use a pointer receiver when:<ul>
+<li>The method needs to mutate the receiver.</li>
+<li>The method receiver contains a field that cannot be copied.</li>
+<li>The receiver is a large struct.</li>
+</ul>
+</li>
+<li>Use a value receiver when:<ul>
+<li>Enforcing immutability.</li>
+<li>The receiver is a <code>map</code>, <code>func</code> or <code>chan</code>.</li>
+<li>A slice that doesn’t have to be mutated.</li>
+<li>The receiver is a small struct or array with no mutable fields, like <code>time.Time</code>.</li>
+<li>The receiver is a basic type, like <code>int</code>, <code>float64</code>, or <code>string</code>.</li>
+</ul>
+</li>
+<li>Mixing value and pointer receivers can lead to confusion and bugs: this should generally be avoided (although the standard library shows some exceptions, like <code>time.Time</code>).</li>
+<li>Defaulting to a value receiver is a good practice, unless there is a good reason to use a pointer receiver.</li>
+</ul>
+<h2 id="43-never-using-named-result-parameters">43 - Never using named result parameters</h2>
+<ul>
+<li>Only use named result parameters when they make the code more readable (e.g., returning two <code>int</code> can be ambiguous).</li>
+<li>Use naked returns only when the function is short and the return values are clear.</li>
+<li>For an interface definition, named result parameters are useful to document the return values.</li>
+</ul>
+<h2 id="44-unintended-side-effects-with-named-result-parameters">44 - Unintended side effects with named result parameters</h2>
+<ul>
+<li>Named result parameters are <em>initialized to their zero value</em>.</li>
+<li>Using named result parameters doesn’t mean one has to use naked returns: clarity is more important than brevity.</li>
+</ul>
+<h2 id="45-returning-a-nil-receiver">45 - Returning a nil receiver</h2>
+<ul>
+<li>A nil receiver is a pointer to a struct that has not been initialized.</li>
+<li>Instead of returning a pointer to a struct (which will return a non-nil pointer to a nil struct), return <code>nil</code> directly.</li>
+</ul>
+<h2 id="46-using-a-filename-as-a-function-input">46 - Using a filename as a function input</h2>
+<ul>
+<li>It is more idiomatic and flexible to use an <code>io.Reader</code> or <code>io.Writer</code> as an input to a function that reads or writes to a file: this abstracts the data source.</li>
+<li>This allows for the function to be used with any type that implements the <code>io.Reader</code> or <code>io.Writer</code> interface, not just a file.</li>
+<li>It makes testing easier, as one can pass in a <code>bytes</code> buffer instead of a file, for instance.</li>
+</ul>
+<h2 id="47-ignoring-how-defer-arguments-and-receivers-are-evaluated">47 - Ignoring how defer arguments and receivers are evaluated</h2>
+<ul>
+<li>The arguments to a <code>defer</code> statement are evaluated when the <code>defer</code> statement is executed, not when the deferred function is executed.<ul>
+<li>That means that if a variable is initialized with a zero value and passed to <code>defer</code> as is, the deferred function will receive the zero value.</li>
+<li>To avoid this pitfall, one can use a pointer to the variable, which will be evaluated when the deferred function is executed. The memory address will not change, but the value at that address will.</li>
+<li>Another solution is to use a closure to capture the value of the variable at the time the <code>defer</code> statement is executed.<ul>
+<li>This works because the values of the variables are evaluated when the closure runs, not when the closure is created.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In the case of a method receiver, data in the receiver is evaluated when the <code>defer</code> statement is executed, leading to the same situation as with arguments.<ul>
+<li>A pointer receiver can be used to avoid this issue, as the updated value of the pointer will be visible to the deferred function when it is executed.</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h1 id="error-management">Error management</h1>
+<h2 id="48-panicking">48 - Panicking</h2>
+<ul>
+<li>It is used to signal genuinely unexpected errors, such as programming errors (e.g., <code>net/http</code> checking for a status code outside the valid range).</li>
+<li>Another use case for <code>panic</code> is when the application requires a dependency but fails to initialize it (e.g., a regular expression).</li>
+</ul>
+<h2 id="49-ignoring-when-to-wrap-an-error">49 - Ignoring when to wrap an error</h2>
+<ul>
+<li><code>%w</code> is used to wrap an error conveniently.</li>
+<li>The <code>%v</code> directive will print the transformed error message, but <code>%w</code> will print the error message and the wrapped error message.</li>
+<li>If a caller relies on unwrapping an error provided with <code>%w</code>, it leads to coupling: if the underlying implementation that is wrapped changes, the caller will break.</li>
+<li>To mark an error, one should use a custom error type.</li>
+</ul>
+<h2 id="50-checking-an-error-type-inaccurately">50 - Checking an error type inaccurately</h2>
+<ul>
+<li><code>errors.As</code> is used to check if an error is of a specific type anywhere in the error chain.</li>
+<li><code>errors.As</code> should be used whenever error wrapping is used.</li>
+</ul>
+<h2 id="51-checking-an-error-value-inaccurately">51 - Checking an error value inaccurately</h2>
+<ul>
+<li>A sentinel error is a predefined error that can be compared to an error value. It is about an “expected” error (e.g., <code>sql.ErrNoRows</code> and <code>io.EOF</code>).</li>
+<li>Unexpected errors should be implemented as error types, implementing the <code>error</code> interface.</li>
+<li><code>errors.Is</code> is used to check if an error is equal to a sentinel error (not <code>==</code>! if the error is wrapped, it will not be equal to the sentinel error).</li>
+</ul>
+<h2 id="52-handling-an-error-twice">52 - Handling an error twice</h2>
+<ul>
+<li>Logging the same error twice can lead to confusion.</li>
+<li>Logging an error is handling an error! One should not both log and return an error.</li>
+<li>Error wrapping is useful to provide context to an error when propagating it up the call stack.</li>
+</ul>
+<h2 id="53-not-handling-an-error">53 - Not handling an error</h2>
+<ul>
+<li>The only way to explicitly ignore an error is to assign it to the blank identifier <code>_</code>. Adding a comment about why the error is ignored is a good practice.</li>
+<li>Do not simply ignore the assignment.</li>
+</ul>
+<h2 id="54-not-handling-defer-errors">54 - Not handling defer errors</h2>
+<ul>
+<li>Errors should be handled or explicitly ignored in <code>defer</code> functions.</li>
+<li>To return an error to the caller via the <code>defer</code> function, one can use a named return parameter, assigning the error to it.</li>
+<li>Instead of returning multiple errors from a <code>defer</code> function, it may be a good idea to log one error and return the other, depending on the context.</li>
+</ul>
+<hr/>
+<h1 id="concurrency-foundations">Concurrency: Foundations</h1>
+<h2 id="55-mixing-up-concurrency-and-parallelism">55 - Mixing up concurrency and parallelism</h2>
+<ul>
+<li>Concurrency is about structuring a program, while parallelism is about running multiple tasks at the same time.</li>
+<li><em>Concurrency enables parallelism</em>.</li>
+</ul>
+<h2 id="56-thinking-concurrency-is-always-faster">56 - Thinking concurrency is always faster</h2>
+<ul>
+<li>A thread is the smallest unit of execution that can be scheduled by an operating system.</li>
+<li>A goroutine is a lightweight thread managed by the Go runtime: it is context-switched on and off by an <span class="caps">OS</span> thread.</li>
+<li>A goroutine has a memory footprint of 2 <span class="caps">KB</span>, while a thread has a memory footprint of ~2 <span class="caps">MB</span>.</li>
+<li>There is a point of diminishing returns when creating too many goroutines: one must take into account the overhead of context switching and determine the size of the workload that will be processed by each goroutine.</li>
+<li>It is often best to start with a sequential solution and use profiling tools to determine where to add concurrency.</li>
+</ul>
+<h2 id="57-being-puzzled-about-when-to-use-channels-or-mutexes">57 - Being puzzled about when to use channels or mutexes</h2>
+<ul>
+<li>Synchronization between parallel goroutines is achieved with mutexes (mutex stands for <em>mutual exclusion</em>).</li>
+<li>Channels are used to communicate between goroutines. If there are 3 goroutines and a third one needs results from the first two, a channel is the way to go.</li>
+<li>Mutexes ensure exclusive access to a resource (e.g., a map).</li>
+<li>Coordination or ownership of a resource is achieved with channels.</li>
+<li>In general, mutexes are needed for parallel goroutines, whereas channels are needed for concurrent ones.</li>
+</ul>
+<h2 id="58-not-understanding-race-problems">58 - Not understanding race problems</h2>
+<ul>
+<li>A <em>data race</em> occurs when two goroutines access the same variable concurrently and at least one of the accesses is a write.</li>
+<li><code>sync/atomic</code> provides atomic operations to avoid data races. It works only on primitive types.</li>
+<li>Channels can be used to perform atomic operations on non-primitive types, then send the result over the channel.</li>
+<li>Mutexes can be used to protect a critical section of code.</li>
+<li>The absence of a data race doesn’t mean the code will be deterministic: it is possible for goroutines to be scheduled in different orders, leading to a <em>race condition</em>.</li>
+<li>A buffered channel can lead to a data race because a receive from an unbuffered channel happens before the send, but a send to a buffered channel happens before the receive.</li>
+</ul>
+<h2 id="59-not-understanding-the-concurrency-impacts-of-a-workload-type">59 - Not understanding the concurrency impacts of a workload type</h2>
+<ul>
+<li>A worker pool can be based on <code>GOMAXPROCS</code> (the number of <span class="caps">OS</span> threads) to efficiently distribute the workload when a workload is <span class="caps">CPU</span>-bound.</li>
+<li>When a workload is I/O-bound, the number of goroutines can be increased to handle more I/O operations concurrently, depending on the external systems.</li>
+</ul>
+<h2 id="60-misunderstanding-go-contexts">60 - Misunderstanding Go contexts</h2>
+<ul>
+<li>A context is a way to pass deadlines, cancellation signals, and other request-scoped values across <span class="caps">API</span> boundaries and between processes.</li>
+<li><code>context.Background</code> is the root context, which is never canceled, has no values, and has no deadline, used when there is no parent context.</li>
+<li>Deadline<ul>
+<li>A deadline is a point in time when the context should be canceled, specified as either a <code>time.Time</code> or a <code>time.Duration</code> (time from now).</li>
+<li>Deferring the cancellation of a context can prevent a goroutine from being blocked indefinitely or leaking resources.</li>
+</ul>
+</li>
+<li>Cancellation signals<ul>
+<li><code>context.WithCancel</code> returns a copy of the parent context with a new <code>Done</code> channel.</li>
+</ul>
+</li>
+<li>Context values<ul>
+<li><code>context.WithValue</code> returns a copy of the parent context with a key-value pair.</li>
+</ul>
+</li>
+<li>A function that users wait for should take a context as an argument.</li>
+<li>Prefer <code>context.TODO()</code> to <code>context.Background()</code> when a context is needed but there is no parent context, as it better represents the intent.</li>
+</ul>
+<hr/>
+<h1 id="concurrency-practice">Concurrency: Practice</h1>
+<h2 id="61-propagating-an-inappropriate-context">61 - Propagating an inappropriate context</h2>
+<ul>
+<li>Propagating a context is about passing a context from one goroutine to another.</li>
+<li>A context should be passed to a goroutine carefully: if the context requires some values to be passed but the parent goroutine gets its context cancelled, the child goroutine will also be cancelled. This may be undesirable.<ul>
+<li>To avoid this, create a custom struct implementing a context that never expires and that does not carry a cancellation signal, so the values can be passed without the risk of being cancelled.</li>
+</ul>
+</li>
+</ul>
+<h2 id="62-starting-a-goroutine-without-knowing-when-to-stop-it">62 - Starting a goroutine without knowing when to stop it</h2>
+<ul>
+<li>A goroutine might loop over the values received from a channel, but if the channel is never closed, this will be a resource leak.</li>
+<li>Passing a context to a goroutine (e.g., to expect a file to be closed) is bad design. Instead, the parent goroutine should be responsible for closing the file by calling a <code>defer</code> function right after the resource used by another routine is created.</li>
+</ul>
+<h2 id="63-not-being-careful-with-goroutines-and-loop-variables">63 - Not being careful with goroutines and loop variables</h2>
+<ul>
+<li>Spinning up a goroutine inside a <code>for</code> loop and relying on the loop variable can lead to unexpected behavior.</li>
+<li>Either assign the value of the loop variable to a new variable inside the loop or pass the loop variable as an argument to the goroutine. In the first case, the goroutine could be set up as a closure. In the second case, it would be a regular function call on an anonymous function.</li>
+</ul>
+<h2 id="64-expecting-deterministic-behavior-using-select-and-channels">64 - Expecting deterministic behavior using select and channels</h2>
+<ul>
+<li>The <code>select</code> statement is used to wait on multiple channels. If multiple channels are ready, one will be chosen semi-randomly.</li>
+<li>Using an unbuffered channel with a <code>select</code> statement will block until a value is sent on the channel.</li>
+<li>Using a single channel and then checking the message type is an option.</li>
+<li>Using a <code>default</code> case in a <code>select</code> statement will allow the program to continue if a channel no longer receives values.<ul>
+<li>This approach works well for multiple channels: when a <code>select</code> case is chosen, add an inner <code>select</code> statement to handle the channel. For instance, after a <em>disconnection</em> message, handle all remaining messages sent the another channel by looping over the channel inside that <code>select</code> case.</li>
+</ul>
+</li>
+</ul>
+<h2 id="65-not-using-notification-channels">65 - Not using notification channels</h2>
+<ul>
+<li>A notification channel is a channel that is used to signal the completion of a task.</li>
+<li>If no data is needed to be sent, a <code>struct{}</code> can be sent over the channel. This is clearer than sending a <code>bool</code> or <code>int</code>. An empty struct occupies no memory.</li>
+</ul>
+<h2 id="66-not-using-nil-channels">66 - Not using nil channels</h2>
+<ul>
+<li>Sending a message to a <code>nil</code> channel will block forever.</li>
+<li>Receiving from a closed channel is a non-blocking operation: the zero value of the channel type will be returned.</li>
+<li>When looping over multiple channels and using <code>select</code>, if one of the channels is closed, this will lead to a busy-wait loop.<ul>
+<li>E.g., say we have two channels in a function that are to be “merged” such that data returned from that function comes from the two channels. If one of the channels is closed, the function will still keep looping over the now invalid <code>select</code> case.</li>
+</ul>
+</li>
+<li>To avoid this, one can use a <code>nil</code> channel to signal a channel is closed. The <code>select</code> case will be skipped if the channel is <code>nil</code>, avoiding the busy-wait loop.</li>
+</ul>
+<h2 id="67-being-puzzled-about-channel-size">67 - Being puzzled about channel size</h2>
+<ul>
+<li>An unbuffered channel (synchronous channel) has a size of 0: the sender blocks until the receiver receives data from the channel.</li>
+<li>With a buffered channel, the sender will block only when the buffer is full.</li>
+<li>An unbuffered channel enables synchronization between goroutines.</li>
+<li>An unbuffered channel can be used as a notification channel via a channel closure (<code>close</code>).</li>
+<li>When using worker pools, a buffered channel can be used to limit the number of tasks that can be processed concurrently, matching the number of goroutines in the pool.</li>
+<li>Rate-limiting can be achieved with a buffered channel, where the buffer size is the number of tasks that can be processed concurrently.</li>
+<li>In a buffered channel, the lower the value, the bigger the impact on <span class="caps">CPU</span>. The higher the value, the bigger the impact on memory.</li>
+<li>Buffered channels can lead to obscure deadlocks.</li>
+<li>It’s usually best to start with a channel of size <code>1</code> and perform benchmarks to determine the optimal size.</li>
+<li>Queues tend to be close to full or close to empty anyways (<a href="https://lmax-exchange.github.io/disruptor/files/Disruptor-1.0.pdf">source</a>).</li>
+</ul>
+<h2 id="68-forgetting-about-possible-side-effects-with-string-formatting">68 - Forgetting about possible side effects with string formatting</h2>
+<ul>
+<li>Printing the values in a context will evaluate the values at the time of the call, which could lead to a data race.</li>
+<li>Acquiring a lock only when it’s required is best. This reduces side effects and possible deadlocks. This ties nicely with the fact that a function can go over the “error cases” before doing anything else that might require more resources (e.g., check the age of a customer is valid before acquiring a lock).</li>
+</ul>
+<h2 id="69-creating-data-races-with-append">69 - Creating data races with append</h2>
+<ul>
+<li>To prevent data races with <code>append</code>, one can make a copy of the slice in each goroutine before appending to it.</li>
+<li>If the slice is initialized in such a way that the backing array is shared between goroutines, there will not be a data race since the original slice will remain unchanged.</li>
+<li>Updating a <code>map</code> from one goroutine will lead to a data race if another goroutine tries to read from the <code>map</code> at the same time, given that the hashing algorithm for maps introduces some randomness.</li>
+</ul>
+<h2 id="70-using-mutexes-inaccurately-with-slices-and-maps">70 - Using mutexes inaccurately with slices and maps</h2>
+<ul>
+<li>A mutex is used to protect a critical section of code from being accessed by multiple goroutines at the same time.</li>
+<li>A mutex is used to protect a shared resource, like a slice or a map.</li>
+<li>If an operation is lightweight, it is better to use a mutex to protect the resource (protecting the whole function in the process).</li>
+<li>If an operation is heavy, it is better to make a copy of the resource and then update the copy, then replace the original resource with the copy.</li>
+</ul>
+<h2 id="71-misusing-syncwaitgroup">71 - Misusing <code>sync.WaitGroup</code></h2>
+<ul>
+<li><code>Add</code> must be called in the parent goroutine before the child goroutine is started.</li>
+<li><code>Done</code> must be called in the child goroutine when the child goroutine is finished.</li>
+<li><code>Wait</code> must be called in the parent goroutine after all child goroutines have been started.</li>
+</ul>
+<h2 id="72-forgetting-about-synccond">72 - Forgetting about <code>sync.Cond</code></h2>
+<ul>
+<li><code>sync.Cond</code> is used to signal a condition to multiple goroutines.</li>
+<li>The updater goroutine locks a mutex, updates the condition, unlocks the mutex, and then signals the condition.</li>
+<li>The listener goroutine(s) lock the mutex, wait for the condition to be signaled, and then unlock the mutex.<ul>
+<li>Lock/unlock is done to offset the fact that <code>Wait</code> unlocks the mutex and then relocks it when the condition is signaled.</li>
+</ul>
+</li>
+<li>If no goroutines are waiting for the condition when the call to <code>Broadcast</code> occurs, the signal is lost.</li>
+</ul>
+<h2 id="73-not-using-errgroup">73 - Not using <code>errgroup</code></h2>
+<ul>
+<li><a href="https://pkg.go.dev/golang.org/x/sync/errgroup">errgroup</a> provides tools to manage a group of goroutines and propagate errors.</li>
+<li>It can be used to share context between goroutines to allow for cancellation of the group of goroutines upon the first error. If 3 calls are made in parallel and one of them fails fast with an error, the other two will be cancelled instead of waiting.</li>
+</ul>
+<h2 id="74-copying-a-sync-type">74 - Copying a sync type</h2>
+<ul>
+<li><code>sync.*</code> types should never be copied.</li>
+<li>If we have a value receiver receiving a struct containing a Mutex, for instance, it will be copied when passed to a function. This will lead to a data race.</li>
+<li>To avoid the issue with a value receiver, either use a pointer receiver or make the mutex field a pointer.</li>
+<li>The same issue will present itself if a function takes a <code>sync.*</code> type as an argument or if a field in a struct received as a function argument is a <code>sync.*</code> type.</li>
+<li><code>go vet</code> can catch these types of issues.</li>
+</ul>
+<hr/>
+<h1 id="the-standard-library">The standard library</h1>
+<h2 id="75-providing-a-wrong-time-duration">75 - Providing a wrong time duration</h2>
+<ul>
+<li>Always use the <code>time.Duration</code> <span class="caps">API</span> to provide a time duration. Passing any <code>int64</code> value would work, but the function accepts nanoseconds, which will be confusing.</li>
+</ul>
+<h2 id="76-timeafter-and-memory-leaks">76 - <code>time.After</code> and memory leaks</h2>
+<ul>
+<li>Resources created by <code>time.After</code> (e.g., a channel) are released only when the timer expires.</li>
+<li>Using <code>time.After</code> inside a loop will create a new channel each time the loop iterates, leading to a memory leak. Each call to <code>time.After</code> will consume about 200 bytes. If this is a long-running loop with frequent events, this can be a significant memory leak (e.g., 5 million calls in an hour would be about 1 <span class="caps">GB</span> of wasted memory).</li>
+<li>Use <code>time.NewTimer</code> instead, which will create a timer that can be reset, then listen for the timer to expire on the channel (<code>&lt;-timer.C</code>).</li>
+</ul>
+<h2 id="77-common-json-handling-mistakes">77 - Common <span class="caps">JSON</span>-handling mistakes</h2>
+<ul>
+<li>When unmarshaling <span class="caps">JSON</span>, the <code>json</code> package will not set the fields of a struct to their zero values if the fields are not present in the <span class="caps">JSON</span>.</li>
+<li>Type embedding in a struct can be problematic if the embedded type implements the <code>json.Marshaler</code> interface, which by virtue of being promoted will be used instead of the <code>json.MarshalJSON</code> method of the struct.<ul>
+<li>Type embedding makes the parent struct implements interfaces of the embedded type.</li>
+</ul>
+</li>
+<li>If possible, use a named field instead of an anonymous field (type embedding) to avoid this issue.</li>
+<li>Monotonic clocks guarantee that the time will always increase, even if the system clock is changed. This is useful for measuring time intervals.<ul>
+<li>In Go, monotonic time is part of the same <span class="caps">API</span> that provides wall time.</li>
+<li><code>time.Equal</code> does not take into account the monotonic clock, so it is possible for two times to be equal even if they are not.</li>
+<li>One can also strip away the monotonic time with <code>time.Truncate(0)</code>.</li>
+</ul>
+</li>
+<li>To prevent time zone issues, use time.LoadLocation<code>to load the desired time zone or use</code>time.<span class="caps">UTC</span>` to work with <span class="caps">UTC</span> time.</li>
+<li>Using a map of any to unmarshal <span class="caps">JSON</span> may be convenient but has its drawbacks. For instance, numeric values will be unmarshaled as <code>float64</code>, even if they contain no decimals.</li>
+</ul>
+<h2 id="78-common-sql-mistakes">78 - Common <span class="caps">SQL</span> mistakes</h2>
+<ul>
+<li><em><span class="dquo">“</span>Forgetting that sql.Open doesn’t necessarily establish connections to a database”</em><ul>
+<li>The behavior depends on the <span class="caps">SQL</span> driver.</li>
+<li>To make sure the connection is open, one should call <code>Ping</code> on the connection or use <code>PingContext</code>.</li>
+</ul>
+</li>
+<li><em><span class="dquo">“</span>Forgetting about connections pooling”</em><ul>
+<li><code>SetMaxOpenConns</code> should be set in any production-grade application to match the load the database can handle.</li>
+<li>If an application generates significant concurrent requests, the default value for <code>SetMaxIdleConns</code> (2) should be updated.</li>
+<li>If an application can face bursts of requests, one should set <code>SetConnMaxIdleTime</code> accordingly.</li>
+<li><code>SetConnMaxLifetime</code> can be useful if an application is behind a load balancer, for example.</li>
+</ul>
+</li>
+<li><em><span class="dquo">“</span>Not using prepared statements”</em><ul>
+<li>Prepared statements should be used in untrusted contexts.</li>
+</ul>
+</li>
+<li><em><span class="dquo">“</span>Mishandling null values”</em><ul>
+<li>If the value of a column can be <code>NULL</code>, it should be structured as a pointer to receive <code>nil</code> values.</li>
+<li>Another approach is to use <code>sql.NullString</code>, <code>sql.NullInt64</code>, etc.</li>
+</ul>
+</li>
+<li><em><span class="dquo">“</span>Not handling row iteration errors”</em><ul>
+<li>One should check <code>rows.Err</code> after iterating over rows to check for errors. This is because <code>rows.Next</code> can stop iterating over rows if an error occurs as well as when all rows have been read.</li>
+</ul>
+</li>
+</ul>
+<h2 id="79-not-closing-transient-resources">79 - Not closing transient resources</h2>
+<ul>
+<li><span class="caps">HTTP</span> body<ul>
+<li>The response body should be closed to avoid resource leaks (this is done automatically on the server side). This can be done conveniently with <code>defer</code> function that should call <code>resp.Body.Close()</code>.</li>
+<li>The body should be closed even if it was not read (e.g., just checking the status code).<ul>
+<li>The body should be read to have a “keep-alive” connection (<code>io.Discard</code> is efficient for this purpose).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>sql.Rows</code><ul>
+<li>Rows should be closed to release the database connection.</li>
+</ul>
+</li>
+<li><code>os.File</code><ul>
+<li>When closing a file in a <code>defer</code> function, the error should be sent back to the parent function to be handled in case of error while closing a writable file, for instance.</li>
+<li>If a write should be committed immediately, the file should be flushed before closing it with <code>file.Sync()</code> (this is a synchronous operation).</li>
+</ul>
+</li>
+</ul>
+<h2 id="80-forgetting-the-return-statement-after-replying-to-an-http-request">80 - Forgetting the return statement after replying to an <span class="caps">HTTP</span> request</h2>
+<ul>
+<li><code>http.Error</code> does not stop the handler’s execution.</li>
+<li>After calling <code>http.Error</code>, the handler should return to stop the execution.</li>
+</ul>
+<h2 id="81-using-the-default-http-client-and-server">81 - Using the default <span class="caps">HTTP</span> client and server</h2>
+<ul>
+<li><span class="caps">HTTP</span> client<ul>
+<li>The default client does not specify any timeouts.</li>
+</ul>
+</li>
+<li><span class="caps">HTTP</span> server<ul>
+<li>Just like the client, default timeouts should be overridden in production applications to avoid abuse and resource leaks.</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h1 id="testing">Testing</h1>
+<h2 id="82-not-categorizing-tests">82 - Not categorizing tests</h2>
+<ul>
+<li>They should be organized as per the testing pyramid:<ul>
+<li>Unit tests: test a single function or method.</li>
+<li>Integration tests: test the interaction between multiple components.</li>
+<li>End-to-end tests: test the entire system.</li>
+</ul>
+</li>
+<li>It is not always necessary to run all tests at different stages of a project.</li>
+<li>One can add a build flag such as <code>// go:build integration</code> to run integration tests only when needed.<ul>
+<li>By default, files without a build flag will be run. Use <code>go test --tags=integration -v .</code> to run integration tests.</li>
+<li>It is possible to include negation in the build flag, e.g., <code>// go:build !integration</code>.</li>
+<li>Build tags apply to the whole file, not individual tests.</li>
+</ul>
+</li>
+<li>Using environment variables may be a better approach than build flags, because one can forget about existing tests that are being ignored and not explicitly flagged as such.<ul>
+<li>Each test can then decide to check for environment variables being set and use <code>t.skip</code> to skip the test if the environment variable is not set.</li>
+</ul>
+</li>
+<li>Use <code>testing.Short()</code> in a conditional statement to skip long-running tests when running tests with the <code>-short</code> flag.</li>
+</ul>
+<h2 id="83-not-enabling-the-race-flag">83 - Not enabling the <code>-race</code> flag</h2>
+<ul>
+<li>In Go, the race detector is a tool used at runtime to find data races.<ul>
+<li>It is really useful, but brings quite a performance hit (5-10x memory, 2-20x execution time).</li>
+</ul>
+</li>
+<li>Concurrent code should be tested thoroughly to make use of the <code>-race</code> flag.</li>
+<li>To avoid false positives in data race detections, one can use a loop to run the logic of the test multiple times.</li>
+<li>If needed, <code>// go:build !race</code> can be used to exclude tests from running with the <code>-race</code> flag.</li>
+</ul>
+<h2 id="84-not-using-test-execution-modes">84 - Not using test execution modes</h2>
+<ul>
+<li><code>t.Parallel</code> can be used to run tests in parallel.<ul>
+<li>Sequential tests run first, then all parallel tests run at the same time (up to <code>GOMAXPROCS</code>, unless configured otherwise on the command-line).</li>
+</ul>
+</li>
+<li>There exists a <code>-shuffle</code> flag to randomize the order of tests, which isolates tests from each other.<ul>
+<li>Using <code>-v</code> flag along with <code>-shuffle</code> will print the seed used to shuffle the tests, which can be useful to reproduce results from a <span class="caps">CI</span> environment.</li>
+</ul>
+</li>
+</ul>
+<h2 id="85-not-using-table-driven-tests">85 - Not using table-driven tests</h2>
+<ul>
+<li>They are shorter and more readable than traditional tests.</li>
+<li>They make refactoring tests easier.</li>
+<li>They make test function names clearer/shorter.</li>
+</ul>
+<h2 id="86-sleeping-in-unit-tests">86 - Sleeping in unit tests</h2>
+<ul>
+<li>Sleeping in a test can mean the test is flaky, especially when testing concurrent code.</li>
+<li>Implementing a retry strategy is better than using a passive <code>time.Sleep</code> in a test.<ul>
+<li>The <code>testify</code> package provides an <code>Eventually</code> function that can be used to retry a test function a number of times.</li>
+</ul>
+</li>
+<li>If a test can be synchronized, using a channel to receive the value from a goroutine to be tested can lead to deterministic results with no need for a sleep. This strategy can also implement a timeout using a <code>select</code> with a <code>time.After</code> case.</li>
+</ul>
+<h2 id="87-not-dealing-with-the-time-api-efficiently">87 - Not dealing with the time <span class="caps">API</span> efficiently</h2>
+<ul>
+<li>Do not rely on <code>time.Now</code> in a function. If it must be tested, the time functionality could be injected as a dependency.</li>
+<li>Even better, a function should allow receiving a <code>time.Time</code> as an argument, so that the caller can provide the needed value.</li>
+<li>Time should also not be stored in a global variable, as all tests will share the same time, preventing them from running in parallel.</li>
+<li>Whenever possible, testing time should be abstracted away from the code being tested.</li>
+</ul>
+<h2 id="88-not-using-testing-utility-packages">88 - Not using testing utility packages</h2>
+<ul>
+<li><code>httptest</code> package<ul>
+<li>It can be used to test <span class="caps">HTTP</span> handlers.</li>
+<li>Instead of spinning up Docker, a fake server can be used to test the <span class="caps">HTTP</span> client.</li>
+</ul>
+</li>
+<li><code>iotest</code> package<ul>
+<li><code>io.Reader</code> and <code>io.Writer</code> can be tested with this package.</li>
+<li>It can be used to test edge cases, such as reading a file that is too large or to make sure a reader is resilient against errors (e.g., network error).</li>
+</ul>
+</li>
+</ul>
+<h2 id="89-writing-inaccurate-benchmarks">89 - Writing inaccurate benchmarks</h2>
+<ul>
+<li>Use <code>testing.B</code> to run benchmarks. Then run <code>go test -bench=.</code>, optionally adding the flag <code>-benchtime=2s</code> to run the benchmark for 2 seconds (default is 1 second).</li>
+<li>Use <code>b.ResetTimer</code> after an expensive setup to reset the timer.</li>
+<li>If the expensive call must be done for each iteration in the testing loop, then one can use <code>b.StopTimer</code> and <code>b.StartTimer</code> to stop and start the timer, respectively.</li>
+<li><code>perflock</code> can be used to lock the <span class="caps">CPU</span> frequency to avoid performance fluctuations during benchmarking.</li>
+<li>Micro-benchmarks should be avoided, as they can be misleading. <code>benchstat</code> can be used to compare benchmarks. For instance, run <code>go test -bench=. -count=10 | tee stats.txt</code> to save the results to a file, then run <code>benchstat stats.txt</code> to compare the results.</li>
+<li>Reusing the same variable in a benchmark can lead to incorrect results, as the compiler may optimize the code. To avoid this, use <code>b.N</code> to create a new variable for each iteration.</li>
+<li>Forcing a benchmark to recreate data for each iteration of a loop may prevent <span class="caps">CPU</span> caching from affecting the results.</li>
+</ul>
+<h2 id="90-not-exploring-all-the-go-testing-features">90 - Not exploring all the Go testing features</h2>
+<ul>
+<li>Use <code>go test -coverprofile=coverage.out ./...</code> in combination with <code>go tool cover -html=coverage.out</code> to generate a coverage report.</li>
+<li>Test exposed behavior by creating a separate package so that unexported elements and internals are not tested.</li>
+<li><code>testing.T</code> can be used to test the behavior of a function, while <code>testing.B</code> can be used to test the performance of a function.</li>
+<li><code>t.Cleanup</code> can be used to clean up resources after a test (e.g., close a database connection).</li>
+<li>When multiple cleanup functions are needed, they will be executed in reverse order of registration (<span class="caps">LIFO</span>), just like using <code>defer</code>.</li>
+<li><code>TestMain</code> can be used to set up and tear down resources for all tests in a package.</li>
+</ul>
+<hr/>
+<h1 id="optimizations">Optimizations</h1>
+<h2 id="91-not-understanding-cpu-caches">91 - Not understanding <span class="caps">CPU</span> caches</h2>
+<ul>
+<li><em>Mechanical sympathy</em> is about understanding the hardware to write efficient code.</li>
+<li>Most modern <span class="caps">CPU</span> architectures have three levels of cache: L1, L2, and L3.</li>
+<li>L2 is about 4 times slower than L1, and L3 is about 10 times slower than L2.</li>
+<li>L3 is a <em>victim cache</em> containing only data evicted from L2.</li>
+<li>Access to main memory is between 50 and 100 times slower than access to L1 cache.</li>
+<li>A <em>cache line</em> is the smallest unit of data that can be transferred between the cache and main memory. When first accessible a memory location, it results in a <em>compulsory miss</em>. Once the cache line is copied to the cache, subsequent accesses to the same memory location and contiguous ones will result in a <em>cache hit</em>.</li>
+<li>A struct of slices can be about 20% faster than a slice of structs, because of <em>spatial locality</em>. For 16 elements, it may require 2 cache lines instead of 4 for a struct containing fields with slices.</li>
+<li>Data structures affect <em>predictability</em> at the <span class="caps">CPU</span> level.<ul>
+<li><em>Unit stride</em> is when the <span class="caps">CPU</span> can predict the next memory location to access. All values are contiguous in memory.</li>
+<li><em>Constant stride</em> is when the <span class="caps">CPU</span> can predict the next memory location to access (e.g., read every two elements of a slice), but the values are not contiguous in memory.</li>
+<li><em>Non-unit stride</em> is when the <span class="caps">CPU</span> cannot predict the next memory location to access. The values are not contiguous in memory. This would be the case for a linked list or a slice of pointers.</li>
+</ul>
+</li>
+<li><em>Cache placement policy</em> works roughly with the principle of <em>least recently used</em> (pseudo-<span class="caps">LRU</span>). When a cache line is full, the least recently used cache line is evicted.</li>
+<li><em>Conflict misses</em> happen because the cache is partitioned into sets, and two memory locations map to the same set. This can be avoided by aligning data structures to the cache line size.</li>
+<li>A <em>critical stride</em> accesses memory addresses with the same set index, leading to a <em>conflict miss</em>.</li>
+<li>This is why micro-benchmarking can be misleading: if the production system uses a different cache architecture, the results may be widely different.</li>
+</ul>
+<h2 id="92-writing-concurrent-code-that-leads-to-false-sharing">92 - Writing concurrent code that leads to false sharing</h2>
+<ul>
+<li><em>False sharing</em> is when two threads access different variables that are on the same cache line, and at least one of the goroutines is a writer.</li>
+<li>This causes the cache line to be invalidated.</li>
+<li>One solution is to add <em>padding</em> to the struct to ensure that the variables are on different cache lines, so that the same cache line is not copied across different logical cores.</li>
+<li>Another approach is to use channels to communicate between goroutines, which will avoid false sharing, instead of having two goroutines share the same struct.</li>
+</ul>
+<h2 id="93-not-taking-into-account-instruction-level-parallelism">93 - Not taking into account instruction-level parallelism</h2>
+<ul>
+<li><em>Data hazards</em> occur when an instruction depends on the result of a previous instruction (e.g., read and increment a variable).</li>
+<li><em>Control hazards</em> occur when the <span class="caps">CPU</span> cannot predict the next instruction to execute (e.g., conditionals).</li>
+<li>Sometimes, introducing a temporary variable can help the <span class="caps">CPU</span> predict the next instruction and parallelize the execution.</li>
+<li>One should remain cautious about micro-optimizations, since the Go compiler keeps evolving, and the generated assembly code may change.</li>
+</ul>
+<h2 id="94-not-being-aware-of-data-alignment">94 - Not being aware of data alignment</h2>
+<ul>
+<li><em><span class="dquo">“</span>[…] a variable’s memory address should be a multiple of its own size”</em>: this is the principle of <em>data alignment</em>.</li>
+<li>A struct size must be a multiple of the <em>word</em> size (8 bytes on 64-bit systems).</li>
+<li>A struct being an atomic unit, it should be aligned to the word size, as it won’t be reorganized by the compiler. The compiler only adds padding to the fields to guarantee data alignment.</li>
+<li>Rule of thumb: organize structs by size, from largest to smallest, to avoid padding. This leads to better spatial locality and cache usage.</li>
+</ul>
+<h2 id="95-not-understanding-stack-vs-heap">95 - Not understanding stack vs. heap</h2>
+<ul>
+<li>Stack is the default memory. <span class="caps">LIFO</span>. Stores all local variables for a goroutine.</li>
+<li>Currently, each goroutine initially gets 2 <span class="caps">KB</span> of stack space (contiguous memory, to preserve data locality), which can grow up to 1 <span class="caps">GB</span>.</li>
+<li>A stack frame is created for each function call, and it is destroyed when the function returns. The stack frames pile up from accessing different functions inside a given goroutine.</li>
+<li>A stack is self-cleaning: it requires no garbage collection. Each goroutine has its own stack.</li>
+<li>Using pointers, slices, and maps will allocate memory on the heap. One reason is that memory addresses from a stack frame coming from a returned function could not be accessed anymore with a stack.</li>
+<li>The memory heap in Go is managed by the garbage collector and is shared among all goroutines. Variables that <em>could</em> still be referenced after exiting a function are stored on the heap.</li>
+<li>Allocations on the stack are trivial and faster than on the heap. The stack is also more cache-friendly.</li>
+<li><em>Escape analysis</em> is a compiler optimization that determines whether a variable can be allocated on the stack or the heap.<ul>
+<li><span class="dquo">“</span>Sharing up” escapes to the heap (need a reference from a context that is about to be destroyed).</li>
+<li><span class="dquo">“</span>Sharing down” stays on the stack (no reference to the variable outside the function).</li>
+<li>Global variables are stored on the heap, because they can be shared across goroutines.</li>
+<li>A pointer sent to a channel will escape to the heap.</li>
+<li>A variable referenced by a value sent to a channel.</li>
+<li>When a local variable is too large to fit on the stack.</li>
+<li>When building a program, the <code>-gcflags "-m"</code> flag can be used to see the escape analysis results.</li>
+</ul>
+</li>
+</ul>
+<h2 id="96-not-knowing-how-to-reduce-allocations">96 - Not knowing how to reduce allocations</h2>
+<ul>
+<li>The <code>Reader</code> interface takes in a slice of bytes and returns the number of bytes read and an error. If it had been the other way around, the slice would always escape to the heap.</li>
+<li><code>sync.Pool</code> can be used to reduce the number of allocations. It is a pool of objects that can be reused. E.g., when writing a slice of bytes to a buffer, the buffer can be reused.</li>
+<li><code>sync.Pool</code> is thread-safe.</li>
+</ul>
+<h2 id="97-not-relying-on-inlining">97 - Not relying on inlining</h2>
+<ul>
+<li><em>Mid-stack inlining</em> is when the compiler inlines a function call that is in the middle of the stack, not at the top (e.g., <code>main</code> calls <code>foo</code>, which calls <code>bar</code>, both functions are simple, so <code>bar</code> is inlined in <code>foo</code> and <code>foo</code> is in turn inlined in <code>main</code>).</li>
+<li>Slow vs. fast paths can be optimized by the compiler. The slow path can be extracted to a separate function, which will be inlined in the fast path (<em>“fast-path inlining technique”</em>).</li>
+</ul>
+<h2 id="98-not-using-go-diagnostics-tooling">98 - Not using Go diagnostics tooling</h2>
+<ul>
+<li>Profiling<ul>
+<li>With profiling, one can see where the program is spending most of its time. <code>pprof</code> is the Go profiler.</li>
+<li>There are different profiles: <span class="caps">CPU</span> (time spent), goroutine (stack traces of ongoing routines), heap (check memory leaks and current allocations), mutex (check time spent in locking calls), block (see where goroutines waits on synchronous operations).</li>
+<li>A profile can be generated while benchmarking: <code>go test -bench=. -cpuprofile profile.out</code>. This profile can be used with <code>go tool pprof -http=:8080 profile.out</code>.</li>
+<li>Heap profiling<ul>
+<li>It’s a good idea to force garbage collection before dumping the heap profile to avoid false assumptions. This can be done via the web <span class="caps">UI</span> at <code>http://localhost/debug/pprof/heap?gc=1</code>.</li>
+<li>Snapshots can be compared with <code>go tool pprof -http=:8080 -diff_base &lt;file2&gt; &lt;file1&gt;</code>.</li>
+</ul>
+</li>
+<li>Goroutine profiling<ul>
+<li>We can inspect to check for “goroutine leaks”.</li>
+</ul>
+</li>
+<li>Block profiling<ul>
+<li>Useful to check performance affected by blocking calls. Must call <code>runtime.SetBlockProfileRate</code> to enable it. This profiler stays on until the program ends.</li>
+</ul>
+</li>
+<li>Mutex profiling<ul>
+<li>Useful to check performance affected by mutex locks. Must call <code>runtime.SetMutexProfileFraction</code> to enable it. This profiler stays on until the program ends.</li>
+</ul>
+</li>
+<li>A single profiler should be enabled at a time.</li>
+</ul>
+</li>
+<li>Execution tracer<ul>
+<li>Used to check how garbage collection performs, how goroutines are scheduled, and how the scheduler behaves.</li>
+<li>It can be enabled with <code>go test -bench=. -v -trace=trace.out</code> or by downloading a trace file with <code>/debug/pprof/trace?debug=0</code>.</li>
+<li>The granularity of the tracer is per goroutine (unlike <span class="caps">CPU</span> profiling, which is per function).</li>
+</ul>
+</li>
+</ul>
+<h2 id="99-not-understanding-how-the-gc-works">99 - Not understanding how the <span class="caps">GC</span> works</h2>
+<ul>
+<li><code>debug.FreeOSMemory()</code> can be used to force the garbage collector to release memory to the <span class="caps">OS</span>.</li>
+<li><code>GODEBUG=gctrace=1</code> can be used to see the garbage collector in action.</li>
+<li>One can force a large allocation of memory with something like <code>var min = make([]byte, 1_000_000_000)</code> so that the garbage collector will only trigger once the heap reaches twice the size of the allocation, which can reduce the impact on latency if otherwise many garbage collections would be triggered in a short period of time. On most systems, this leads to a <em>lazy allocation</em> (in the virtual address space). This is useful when the heap peak is known in advance.</li>
+</ul>
+<h2 id="100-not-understanding-the-impacts-of-running-go-in-docker-and-kubernetes">100 - Not understanding the impacts of running Go in Docker and Kubernetes</h2>
+<ul>
+<li><span class="caps">CPU</span> throttling can occur in Docker and Kubernetes, leading to performance degradation.</li>
+<li><code>GOMAXPROCS</code> should be set to the number of CPUs available to the container.</li>
+</ul>
+<hr/>
+<h1 id="resources-and-references">Resources and references</h1>
+<ul>
+<li><a href="https://cs.opensource.google/go/x/website/+/e0d934b4:blog/blog.go;l=32"><code>init</code> function of the Go blog</a></li>
+<li><a href="https://www.manning.com/books/100-go-mistakes-and-how-to-avoid-them">100 Go Mistakes and How to Avoid Them</a></li>
+<li><a href="https://github.com/teivah/advent-of-code">Advent of Code solutions by teivah</a></li>
+<li><a href="https://github.com/teivah/100-go-mistakes">GitHub repository of 100 Go Mistakes by teivah</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/27648988/">Learning from Errors</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/22042726/">Mind your errors: evidence for a neural mechanism linking growth mind-set to adaptive posterror adjustments</a></li>
+<li><a href="https://github.com/golang-standards/project-layout">Project layout</a></li>
+<li><a href="https://news.synopsys.com/2021-01-06-Synopsys-Sponsored-CISQ-Research-Estimates-Cost-of-Poor-Software-Quality-in-the-US-2-08-Trillion-in-2020">Synopsys-Sponsored <span class="caps">CISQ</span> Research Estimates Cost of Poor Software Quality in the <span class="caps">US</span> $2.08 Trillion in 2020</a></li>
+<li><a href="https://teivah.dev/">teivah.dev</a></li>
+<li><a href="https://engineering.purdue.edu/WukLab/GoStudy-ASPLOS19.pdf">Understanding Real-World Concurrency Bugs in Go</a></li>
+</ul></div>
+</article>
+        </main>
+    </div>
+
+    <footer>
+      <hr />
+      <p>
+        Built with
+        <a
+          href="https://www.python.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><svg
+            width="1em"
+            height="1em"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="footer-icon"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M13.0164 2C10.8193 2 9.03825 3.72453 9.03825 5.85185V8.51852H15.9235V9.25926H5.97814C3.78107 9.25926 2 10.9838 2 13.1111L2 18.8889C2 21.0162 3.78107 22.7407 5.97814 22.7407H8.27322V19.4815C8.27322 17.3542 10.0543 15.6296 12.2514 15.6296H19.5956C21.4547 15.6296 22.9617 14.1704 22.9617 12.3704V5.85185C22.9617 3.72453 21.1807 2 18.9836 2H13.0164ZM12.0984 6.74074C12.8589 6.74074 13.4754 6.14378 13.4754 5.40741C13.4754 4.67103 12.8589 4.07407 12.0984 4.07407C11.3378 4.07407 10.7213 4.67103 10.7213 5.40741C10.7213 6.14378 11.3378 6.74074 12.0984 6.74074Z"
+              fill="url(#paint0_linear_87_8204)"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M18.9834 30C21.1805 30 22.9616 28.2755 22.9616 26.1482V23.4815L16.0763 23.4815L16.0763 22.7408L26.0217 22.7408C28.2188 22.7408 29.9998 21.0162 29.9998 18.8889V13.1111C29.9998 10.9838 28.2188 9.25928 26.0217 9.25928L23.7266 9.25928V12.5185C23.7266 14.6459 21.9455 16.3704 19.7485 16.3704L12.4042 16.3704C10.5451 16.3704 9.03809 17.8296 9.03809 19.6296L9.03809 26.1482C9.03809 28.2755 10.8192 30 13.0162 30H18.9834ZM19.9015 25.2593C19.1409 25.2593 18.5244 25.8562 18.5244 26.5926C18.5244 27.329 19.1409 27.9259 19.9015 27.9259C20.662 27.9259 21.2785 27.329 21.2785 26.5926C21.2785 25.8562 20.662 25.2593 19.9015 25.2593Z"
+              fill="url(#paint1_linear_87_8204)"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear_87_8204"
+                x1="12.4809"
+                y1="2"
+                x2="12.4809"
+                y2="22.7407"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#327EBD" />
+                <stop offset="1" stop-color="#1565A7" />
+              </linearGradient>
+              <linearGradient
+                id="paint1_linear_87_8204"
+                x1="19.519"
+                y1="9.25928"
+                x2="19.519"
+                y2="30"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#FFDA4B" />
+                <stop offset="1" stop-color="#F9C600" />
+              </linearGradient>
+            </defs>
+          </svg>
+          Python</a
+        >
+        using
+        <a
+          href="http://getpelican.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><svg
+            fill="hsl(211, 100%, 95%)"
+            width="1em"
+            height="1em"
+            viewBox="0 0 24 24"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            class="footer-icon"
+          >
+            <title>Pelican icon</title>
+            <path
+              d="M.9418 0c.342 1.0548 1.8764 2.1857 2.9063 2.6238 1.3134.5583 2.5984.6849 3.7501.8122.895.0963 1.7019.2014 2.3439.4998.1622.0726.3288.148.4688.2499.4586.3364.9464.9876 1.2813 1.4368.7186.9583.5858 1.7451 1.4375 2.2178.089.0492.1683.083.2813.125.271.1018.667.2273.8437-.1563a.788.788 0 00.0625-.1874c-.0712-.229-.321-.4327-.4687-.531-.2618-.171-.3735-.274-.5625-.4685-.3494-.3583-.348-.9508-.5938-1.3744.3092-.131 1.9392-.3597 2.2813-.3124.7313.0326 1.31.0782 1.75.531.1727.1365.2497.2567.4064.3749.011.009.0202.024.0312.0312.6933.5037 1.3388.6705 1.9063.8434.1496.0454.2988.1054.4375.1562.213.0763.4065.1594.5938.281.2222.1474.6089.542.625.8747-.5587-.1783-.207.0323-1.0313-.0312-.4019-.0456-.8058-.0647-1.2187-.0937-.6422-.0454-1.273-.1043-1.8751-.2187-.1002-.0184-.2146-.0388-.3125-.0625-.0766-.0163-.146-.011-.2188-.0312-.0018.0308 0 .0353 0 .0625-.0166.6292.4214.9586-.5938 2.1553-.009.0127-.0204.0167-.0312.0312-.2695.3147-1.657.9163-2.0938 1.0308-1.8593.3728-3.292-.828-5.5315-.2187-.7877.2928-1.3567 1.5756-1.7188 2.5302-.482 1.2677-.8758 2.7956-1.3126 4.3106-.2.6982-.4178 1.4015-.6562 2.0616-.575 1.584-1.3113 2.9428-2.4064 3.717-.1638.1256-.787.41-.8125.6248.404.2037 4.185.056 4.8127 0 2.5033-.2184 3.6468-1.7733 4.4689-3.9045.5659-1.462 1.065-3.9864 2.0313-5.3102.0128-.0182.0183-.015.0313-.0312.1456-.1967.327-.3691.5-.4998.0454-.0347.0775-.0648.125-.0937.0344-.0219.1566-.0592.3438-.0937 1.7357-.3074 9.3491-1.3474 9.844-6.872.051-.5581.0158-1.1588-.0937-1.8117-.0543-.3364-.115-.6653-.2187-1.0308-.2457-.8691-.7981-1.614-1.5313-2.2177-.1926-.16-.405-.3285-.625-.4686-.846-.54-1.8774-.921-2.969-1.1557-.7332-.1582-1.4874-.239-2.25-.25C9.8402.0326 6.3978.2075.9418 0zm1.625 4.2169c.0235.0382.0389.0574.0625.0937C4.2284 6.8382 6.239 6.8135 8.067 7.0281c.666.0782 1.317.1849 1.9063.4686.262.1235.5116.2649.75.4685-.0292-.131-.076-.2564-.125-.3748-.444-1.0763-1.6487-1.6661-2.6875-1.9679-1.3938-.4984-2.4038-.0181-5.344-1.4056zm1.4063 3.186c.0107.0528.0094.0946.0313.1563.2199.6346 1.0403 1.6503 2.0938 1.8741.4567.1636.315.1174 1.0938.0937 1.1406-.0581 1.692-.0793 2.5.25-.02-.0493-.0423-.1091-.0624-.1563C9.0074 8.175 8.2593 8.421 5.8794 8.2464c-1.0188-.3074-1.2587-.3415-1.9063-.8434z"
+            />
+          </svg>
+          Pelican</a
+        >, by Sébastien Lavoie.
+        <a
+          href="https://github.com/sglavoie/sglavoie.github.io/blob/main/LICENSE"
+          >MIT Licensed</a
+        >.
+      </p>
+      <p id="rss-feed">
+        <a href="https://www.sglavoie.com/feeds/sglavoie.rss.xml"
+          ><svg
+            width="1em"
+            height="1em"
+            viewBox="0 0 44 44"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <title>RSS Feed</title>
+            <desc>Created with Sketch.</desc>
+            <defs></defs>
+            <g
+              id="Icons"
+              stroke="none"
+              stroke-width="1"
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <g
+                id="Color-"
+                transform="translate(-800.000000, -760.000000)"
+                fill="#FF9A00"
+              >
+                <path
+                  d="M800.000471,797.714286 C800.000471,794.243 802.81487,791.428571 806.286118,791.428571 C809.757367,791.428571 812.571765,794.243 812.571765,797.714286 C812.571765,801.185571 809.757367,804 806.286118,804 C802.81487,804 800.000471,801.185571 800.000471,797.714286 Z M844,804 L835.619661,804 C835.619661,784.358714 819.641547,768.380429 800.000471,768.380429 L800.000471,760 C824.261497,760 844,779.738714 844,804 Z M829.333543,804 L820.953204,804 C820.953204,792.446857 811.553019,783.048143 800,783.048143 L800,774.666143 C816.174541,774.666143 829.333543,787.825286 829.333543,804 Z"
+                  id="RSS"
+                ></path>
+              </g>
+            </g>
+          </svg>
+        </a>
+      </p>
+    </footer>
+
+    <script src="/pagefind/pagefind-ui.js"></script>
+    <script src="/theme/scripts/sweetalert2.min.js"></script>
+    <script>
+      function openSearchModal() {
+        Swal.fire({
+          title: "<strong>Search</strong>",
+          html: `
+    <div id="searchWrapper">
+      <div id="search"></div>
+    </div>`,
+          showCancelButton: false,
+          focusConfirm: false,
+          didOpen: () => {
+            new PagefindUI({
+              element: "#search",
+              showSubResults: true,
+              showImages: false,
+              debounceTimeoutMs: 100,
+            });
+            document
+              .getElementById("search")
+              .getElementsByTagName("input")[0]
+              .focus();
+
+            // Re-focus on search input when clear button is clicked
+            document
+              .getElementsByClassName("pagefind-ui__search-clear")[0]
+              .addEventListener("click", function () {
+                document
+                  .getElementById("search")
+                  .getElementsByTagName("input")[0]
+                  .focus();
+              });
+          },
+          width: "100%",
+          confirmButtonText: "Close",
+          position: "top-start",
+        });
+      }
+
+      document
+        .getElementById("search-icon")
+        .addEventListener("click", function () {
+          openSearchModal();
+        });
+
+      // Key press event for the 'F' key
+      document.addEventListener("keydown", function (e) {
+        // Check if modal is not already focused/open
+        if (e.key === "F" && !Swal.isVisible()) {
+          openSearchModal();
+        }
+      });
+    </script>
+  </body>
+</html>
