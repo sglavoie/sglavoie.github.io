@@ -152,7 +152,7 @@
 <!-- Open graph for social networks -->
 <meta name="og:title" property="og:title" content="Here are presented a few terminal aliases that I find myself using regularly." />
  
-    <title>sglavoie.com &ndash; Aliases: Also Known as Terminal User&#8217;s Best&nbsp;Friends</title>
+    <title>sglavoie.com &ndash; Aliases: Also Known as Terminal User's Best Friends</title>
   </head>
 
   <body>
@@ -524,7 +524,7 @@
       <main>
 <article data-pagefind-body>
   <div class="article_title">
-    <h1><a href="../../../../../posts/2018/12/08/aliases-also-known-as-terminal-users-best-friends/">Aliases: Also Known as Terminal User&#8217;s Best&nbsp;Friends</a></h1>
+    <h1><a href="../../../../../posts/2018/12/08/aliases-also-known-as-terminal-users-best-friends/">Aliases: Also Known as Terminal User's Best Friends</a></h1>
   </div>
   <div class="meta_container_hrs">
     <hr />
@@ -652,18 +652,18 @@
 <ul>
 <li><a href="#some-aliases-that-i-find-useful">Some aliases that I find useful</a><ul>
 <li><a href="#general-purpose">General-purpose</a><ul>
-<li><a href="#list-all-aliases">List all aliases</a></li>
-<li><a href="#setting-an-alias-in-bash_aliases">Setting an alias in ~/.bash_aliases</a></li>
-<li><a href="#clear-the-screen">Clear the screen</a></li>
-<li><a href="#reset-the-terminal">Reset the terminal</a></li>
-<li><a href="#exit-from-the-terminal">Exit from the terminal</a></li>
-<li><a href="#display-all-file-extensions-recursively-from-the-current-directory">Display all file extensions recursively from the current directory</a></li>
-<li><a href="#find-text-inside-files-including-filenames">Find text inside files, including filenames</a></li>
-<li><a href="#reboot-and-shutdown-the-system">Reboot and shutdown the system</a></li>
-<li><a href="#list-and-sort-files-and-directories-by-modification-time">List and sort files and directories by modification time</a></li>
-<li><a href="#open-files-quickly-with-default-applications">Open files quickly with default applications</a></li>
-<li><a href="#moving-around">Moving around</a></li>
-<li><a href="#listing-files">Listing files</a></li>
+<li><a href="#list-all-aliases">List all aliases</a></li>
+<li><a href="#setting-an-alias-in-bash_aliases">Setting an alias in ~/.bash_aliases</a></li>
+<li><a href="#clear-the-screen">Clear the screen</a></li>
+<li><a href="#reset-the-terminal">Reset the terminal</a></li>
+<li><a href="#exit-from-the-terminal">Exit from the terminal</a></li>
+<li><a href="#display-all-file-extensions-recursively-from-the-current-directory">Display all file extensions recursively from the current directory</a></li>
+<li><a href="#find-text-inside-files-including-filenames">Find text inside files, including filenames</a></li>
+<li><a href="#reboot-and-shutdown-the-system">Reboot and shutdown the system</a></li>
+<li><a href="#list-and-sort-files-and-directories-by-modification-time">List and sort files and directories by modification time</a></li>
+<li><a href="#open-files-quickly-with-default-applications">Open files quickly with default applications</a></li>
+<li><a href="#moving-around">Moving around</a></li>
+<li><a href="#listing-files">Listing files</a></li>
 </ul>
 </li>
 <li><a href="#python-related">Python-related</a></li>
@@ -674,20 +674,20 @@
 </div></nav>
   <div class="article_text">
 <hr/>
-<h2 id="some-aliases-that-i-find-useful">Some aliases that I find useful</h2>
+<h2 id="some-aliases-that-i-find-useful">Some aliases that I find useful</h2>
 <hr/>
 <blockquote>
 <p>In all the following examples, the dollar sign <code>$</code> at the beginning of
-commands represents the prompt, it should not be typed.</p>
+commands represents the prompt, it should not be typed.</p>
 </blockquote>
 <h3 id="general-purpose">General-purpose</h3>
 <hr/>
-<h4 id="list-all-aliases">List all aliases</h4>
+<h4 id="list-all-aliases">List all aliases</h4>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">alias</span>
 </code></pre></div>
 <p>Prints all of your aliases. If you have plenty of those, you might
 prefer to pipe this command with <code>less</code> to get a nice pager that allows
-you to easily nagivate them:</p>
+you to easily nagivate them:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">alias</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>less
 </code></pre></div>
 <hr/>
@@ -696,68 +696,68 @@ you to easily nagivate them:</p>
 </code></pre></div>
 <p>This would set <code>c</code> as a shortcut to <code>clear</code>. In order to use the
 newly created alias, you would have to close the terminal or type the
-following command in the terminal:</p>
+following command in the terminal:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/.bash_aliases
 </code></pre></div>
 <hr/>
-<h4 id="clear-the-screen">Clear the screen</h4>
+<h4 id="clear-the-screen">Clear the screen</h4>
 <div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">c</span><span class="o">=</span><span class="s1">'clear'</span>
 </code></pre></div>
 <p>I like being absorbed into the emptiness of the terminal, so this one
-comes in handy to tidy up the work space.</p>
+comes in handy to tidy up the work space.</p>
 <hr/>
-<h4 id="reset-the-terminal">Reset the terminal</h4>
+<h4 id="reset-the-terminal">Reset the terminal</h4>
 <div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">re</span><span class="o">=</span><span class="s1">'tput reset'</span>
 </code></pre></div>
 <p>If for some reasons the terminal displays badly or display funky
-characters, it can usually be reset this way.</p>
+characters, it can usually be reset this way.</p>
 <hr/>
-<h4 id="exit-from-the-terminal">Exit from the terminal</h4>
+<h4 id="exit-from-the-terminal">Exit from the terminal</h4>
 <div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">q</span><span class="o">=</span><span class="s1">'exit'</span>
 </code></pre></div>
-<p>For exiting the terminal as if you were still in Vim!</p>
+<p>For exiting the terminal as if you were still in Vim!</p>
 <hr/>
-<h4 id="display-all-file-extensions-recursively-from-the-current-directory">Display all file extensions recursively from the current directory</h4>
+<h4 id="display-all-file-extensions-recursively-from-the-current-directory">Display all file extensions recursively from the current directory</h4>
 <div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">allextensions</span><span class="o">=</span><span class="s2">"find . -type f -name '*.*' | sed 's|.*\.||' | sort -u"</span>
 </code></pre></div>
-<p>It comes in handy to spot if a file shouldn’t be there or to check for
-lower or uppercase extensions.</p>
+<p>It comes in handy to spot if a file shouldn't be there or to check for
+lower or uppercase extensions.</p>
 <hr/>
-<h4 id="find-text-inside-files-including-filenames">Find text inside files, including filenames</h4>
+<h4 id="find-text-inside-files-including-filenames">Find text inside files, including filenames</h4>
 <div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">findinfiles</span><span class="o">=</span><span class="s1">'ag --nobreak --nonumbers --noheading . | fzf'</span>
 </code></pre></div>
 <p>In this example, the alias is set up with
 <a href="https://github.com/ggreer/the_silver_searcher">ag</a>, a fast
 code-searching tool and <a href="https://github.com/junegunn/fzf">fzf</a>, a great
-fuzzy finder.</p>
+fuzzy finder.</p>
 <hr/>
-<h4 id="reboot-and-shutdown-the-system">Reboot and shutdown the system</h4>
+<h4 id="reboot-and-shutdown-the-system">Reboot and shutdown the system</h4>
 <div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">reboot</span><span class="o">=</span><span class="s1">'systemctl reboot'</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">shutdown</span><span class="o">=</span><span class="s1">'systemctl poweroff'</span>
 </code></pre></div>
 <p>This will reboot or power off the system without needing root privileges
-in most working conditions.</p>
+in most working conditions.</p>
 <hr/>
-<h4 id="list-and-sort-files-and-directories-by-modification-time">List and sort files and directories by modification time</h4>
+<h4 id="list-and-sort-files-and-directories-by-modification-time">List and sort files and directories by modification time</h4>
 <div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">treeold</span><span class="o">=</span><span class="s1">'tree -hDF | less'</span>
 </code></pre></div>
 <p>This requires the command <code>tree</code> to be installed. The parameters are
 (descriptions taken from <code>man tree</code>):</p>
-<p><code>-h</code>: Print the size of files in a human readable way.</p>
-<p><code>-D</code>: Print the date of the last modification time.</p>
-<p><code>-F</code>: Append a ‘<code>/</code><span class="quo">‘</span> for directories, a ‘<code>=</code><span class="quo">‘</span> for socket files, a ‘<code>\*</code><span class="quo">‘</span>
-for executable files, a ‘<code>&gt;</code><span class="quo">‘</span> for doors (Solaris) and a ‘<code>|</code><span class="quo">‘</span> for
-<span class="caps">FIFO</span>’s, as per <code>ls -F</code>.</p>
+<p><code>-h</code>: Print the size of files in a human readable way.</p>
+<p><code>-D</code>: Print the date of the last modification time.</p>
+<p><code>-F</code>: Append a '<code>/</code>' for directories, a '<code>=</code>' for socket files, a '<code>\*</code>'
+for executable files, a '<code>&gt;</code>' for doors (Solaris) and a '<code>|</code>' for
+FIFO's, as per <code>ls -F</code>.</p>
 <hr/>
-<h4 id="open-files-quickly-with-default-applications">Open files quickly with default applications</h4>
+<h4 id="open-files-quickly-with-default-applications">Open files quickly with default applications</h4>
 <div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">o</span><span class="o">=</span><span class="s1">'xdg-open'</span>
 </code></pre></div>
 <p>This will open files and URLs specified as argument in the default
-application detected.</p>
+application detected.</p>
 <hr/>
-<h4 id="moving-around">Moving around</h4>
+<h4 id="moving-around">Moving around</h4>
 <p>If you are going to be working on projects for some time and require to
-<code>cd</code> into them, I have found the following to be useful:</p>
+<code>cd</code> into them, I have found the following to be useful:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>cdnameOfProject<span class="w">  </span><span class="c1"># instead of having to do cd /path/to/project/</span>
 $<span class="w"> </span><span class="c1"># More examples:</span>
 $<span class="w"> </span>cdcodeabbey<span class="w">  </span><span class="c1"># For codeabbey.com</span>
@@ -767,13 +767,13 @@ $<span class="w"> </span>cdgit<span class="w">  </span><span class="c1"># For al
 </code></pre></div>
 <p>This is not advanced by any means, but it helps quite regularly! Since
 you can take advantage of tab completion, you can type <code>cd</code> (without
-adding a space) and then press <code>TAB</code> key to autocomplete the aliases.</p>
+adding a space) and then press <code>TAB</code> key to autocomplete the aliases.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span>...<span class="o">=</span><span class="s1">'cd ../..'</span>
 </code></pre></div>
 <p>Make it easier to navigate into deep directory structures by basically
-doing <code>cd .. &amp;&amp; cd ..</code> to go back up two directories at once.</p>
+doing <code>cd .. &amp;&amp; cd ..</code> to go back up two directories at once.</p>
 <hr/>
-<h4 id="listing-files">Listing files</h4>
+<h4 id="listing-files">Listing files</h4>
 <div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">l</span><span class="o">=</span><span class="s1">'ls -CFh'</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">la</span><span class="o">=</span><span class="s1">'ls -Ah'</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">ll</span><span class="o">=</span><span class="s1">'ls -ahlF'</span>
@@ -782,11 +782,11 @@ doing <code>cd .. &amp;&amp; cd ..</code> to go back up two directories at once
 <p>Different ways to set up the command ls to quickly see the needed files.
 The parameters are (descriptions taken from <code>man ls</code>):</p>
 <p><code>-A</code>: <em>Do not list implied <code>.</code> and <code>..</code>.</em></p>
-<p><code>-C</code>: <em>List entries by columns.</em></p>
-<p><code>-F</code>: <em>Append indicator (one of <code>\*/=&gt;@|</code>) to entries.</em></p>
-<p><code>-a</code>: <em>Do not ignore entries starting with .</em></p>
-<p><code>-h</code>: <em>With <code>-l</code> and/or <code>-s</code>, print human readable sizes (e.g., 1K 234M 2G).</em></p>
-<p><code>-l</code>: <em>Use a long listing format.</em></p>
+<p><code>-C</code>: <em>List entries by columns.</em></p>
+<p><code>-F</code>: <em>Append indicator (one of <code>\*/=&gt;@|</code>) to entries.</em></p>
+<p><code>-a</code>: <em>Do not ignore entries starting with .</em></p>
+<p><code>-h</code>: <em>With <code>-l</code> and/or <code>-s</code>, print human readable sizes (e.g., 1K 234M 2G).</em></p>
+<p><code>-l</code>: <em>Use a long listing format.</em></p>
 <hr/>
 <h3 id="python-related">Python-related</h3>
 <hr/>
@@ -794,23 +794,23 @@ The parameters are (descriptions taken from <code>man ls</code>):</p>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">aa</span><span class="o">=</span><span class="s1">'source ~/Programming/anaconda3/bin/activate'</span><span class="w">  </span><span class="c1"># Example using Anaconda distribution</span>
 </code></pre></div>
 <p>The purpose is to activate a specific virtual environment quickly. The
-command <code>cd</code> could be added to go to the related project also:</p>
+command <code>cd</code> could be added to go to the related project also:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">gNameOfProject</span><span class="o">=</span><span class="s1">'cd /path/to/project/ &amp;&amp; ./.venv/bin/activate'</span>
 </code></pre></div>
-<p>Where <code>.venv</code> would be the name of the virtual environment.</p>
+<p>Where <code>.venv</code> would be the name of the virtual environment.</p>
 <p>I like to <strong>a</strong>ctivate environments starting aliases with <code>a</code> and <strong>go</strong>
 and activate at the same time starting aliases with <code>g</code>. This way, it
 feels like I am speaking the Vim language (<code>cw</code> for <strong>c</strong>hange <strong>w</strong>ord,
-for example).</p>
+for example).</p>
 <hr/>
 <div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">da</span><span class="o">=</span><span class="s1">'deactivate'</span>
 </code></pre></div>
-<p>This will deactivate a virtual environment.</p>
+<p>This will deactivate a virtual environment.</p>
 <hr/>
 <div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">p36</span><span class="o">=</span><span class="s1">'python3.6'</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">p</span><span class="o">=</span><span class="s1">'python3.7'</span><span class="w">  </span><span class="c1"># Simply using `p` for main version of Python</span>
 </code></pre></div>
-<p>Practical way to quickly open the desired Python version.</p>
+<p>Practical way to quickly open the desired Python version.</p>
 <hr/>
 <div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">pyclean</span><span class="o">=</span><span class="s1">'find . -regex ".*\(__pycache__\|\.py[co]\)" -delete'</span>
 </code></pre></div>
@@ -819,7 +819,7 @@ the following patterns in their name: <code>__pycache__</code>, <code>.pyc</code
 <hr/>
 <h2 id="conclusion">Conclusion</h2>
 <p>I hope you will find at least one alias to improve your productivity.
-Of course, you are welcome to chime in with your own suggestions!</p></div>
+Of course, you are welcome to chime in with your own suggestions!</p></div>
 </article>
         </main>
     </div>

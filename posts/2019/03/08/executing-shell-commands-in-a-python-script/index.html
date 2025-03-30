@@ -152,7 +152,7 @@
 <!-- Open graph for social networks -->
 <meta name="og:title" property="og:title" content="Even for simple tasks, it is often worth basing one's work on existing solutions when it is an appropriate option... And such can be the case when writing Python scripts!" />
  
-    <title>sglavoie.com &ndash; Executing Shell Commands in a Python&nbsp;Script</title>
+    <title>sglavoie.com &ndash; Executing Shell Commands in a Python Script</title>
   </head>
 
   <body>
@@ -524,7 +524,7 @@
       <main>
 <article data-pagefind-body>
   <div class="article_title">
-    <h1><a href="../../../../../posts/2019/03/08/executing-shell-commands-in-a-python-script/">Executing Shell Commands in a Python&nbsp;Script</a></h1>
+    <h1><a href="../../../../../posts/2019/03/08/executing-shell-commands-in-a-python-script/">Executing Shell Commands in a Python Script</a></h1>
   </div>
   <div class="meta_container_hrs">
     <hr />
@@ -609,8 +609,8 @@
   <nav class="toc"><div class="toc">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#retrieve-the-output">Retrieve the output</a></li>
-<li><a href="#execute-a-command-in-the-background">Execute a command in the background</a></li>
+<li><a href="#retrieve-the-output">Retrieve the output</a></li>
+<li><a href="#execute-a-command-in-the-background">Execute a command in the background</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
 </div></nav>
@@ -624,8 +624,8 @@ wheel in each project: this is why the third-party library on
 it is convenient to execute shell commands available in the terminal,
 either to retrieve its output or to perform some work in the background.
 I have wanted to do both when building this website, so here is one way
-to accomplish this!</p>
-<h1 id="retrieve-the-output">Retrieve the output</h1>
+to accomplish this!</p>
+<h1 id="retrieve-the-output">Retrieve the output</h1>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">read_tree</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">'''Execute `tree` command and store the output in</span>
 <span class="sd">    `tree.txt`.'''</span>
@@ -639,7 +639,7 @@ to accomplish this!</p>
 </code></pre></div>
 <p>In this example, the structure from the current directory is printed
 when executing the code and it is later stored in a file. The output
-could look something like the following:</p>
+could look something like the following:</p>
 <div class="highlight"><pre><span></span><code>.
 ├── database_example
 │   ├── example.sqlite
@@ -662,11 +662,11 @@ could look something like the following:</p>
 
 3 directories, 15 files
 </code></pre></div>
-<h1 id="execute-a-command-in-the-background">Execute a command in the background</h1>
+<h1 id="execute-a-command-in-the-background">Execute a command in the background</h1>
 <p>There are also instances in which is it useful to execute a program
 from the terminal inside a Python script. This website, for example,
 currently exports daily Git statistics in the <code>output/</code> folder. This
-looks like this:</p>
+looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">daily_stats</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">'''Execute `Gitstats` once a day based on the date found in</span>
 <span class="sd">    `stats_counter.txt`. Very simple with a caveat: it won't check if</span>
@@ -684,13 +684,13 @@ looks like this:</p>
             <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
 </code></pre></div>
 <p>This is an automated process, which is something Python is easy to use
-for. However, it won’t be necessary to program everything: it all gets
-generated on demand!</p>
+for. However, it won't be necessary to program everything: it all gets
+generated on demand!</p>
 <h1 id="conclusion">Conclusion</h1>
 <p>I am always amazed at how easy it can be to automate simple tasks like
 those mentioned above. Programming can be very rewarding regardless of
 initial abilities. Just beyond the most basic stuff, suddenly there is a
-world that opens up to those that stay curious long enough.</p></div>
+world that opens up to those that stay curious long enough.</p></div>
 </article>
         </main>
     </div>

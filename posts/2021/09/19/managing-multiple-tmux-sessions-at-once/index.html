@@ -152,7 +152,7 @@
 <!-- Open graph for social networks -->
 <meta name="og:title" property="og:title" content="Open and close projects with tmux sessions in a breeze via two keyboard shortcuts." />
  
-    <title>sglavoie.com &ndash; Managing multiple tmux sessions at&nbsp;once</title>
+    <title>sglavoie.com &ndash; Managing multiple tmux sessions at once</title>
   </head>
 
   <body>
@@ -524,7 +524,7 @@
       <main>
 <article data-pagefind-body>
   <div class="article_title">
-    <h1><a href="../../../../../posts/2021/09/19/managing-multiple-tmux-sessions-at-once/">Managing multiple tmux sessions at&nbsp;once</a></h1>
+    <h1><a href="../../../../../posts/2021/09/19/managing-multiple-tmux-sessions-at-once/">Managing multiple tmux sessions at once</a></h1>
   </div>
   <div class="meta_container_hrs">
     <hr />
@@ -651,13 +651,13 @@
   <nav class="toc"><div class="toc">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#what-is-this-all-about">What is this all about?</a></li>
-<li><a href="#1-configuring-projects-to-launch-tmux-sessions">1. Configuring projects to launch tmux sessions</a></li>
-<li><a href="#2-script-to-open-projects">2. Script to open projects</a></li>
-<li><a href="#3-script-to-close-projects">3. Script to close projects</a></li>
-<li><a href="#example-workflow">Example workflow</a></li>
+<li><a href="#what-is-this-all-about">What is this all about?</a></li>
+<li><a href="#1-configuring-projects-to-launch-tmux-sessions">1. Configuring projects to launch tmux sessions</a></li>
+<li><a href="#2-script-to-open-projects">2. Script to open projects</a></li>
+<li><a href="#3-script-to-close-projects">3. Script to close projects</a></li>
+<li><a href="#example-workflow">Example workflow</a></li>
 <li><a href="#conclusion">Conclusion</a><ul>
-<li><a href="#more-resources-and-references">More resources and references</a></li>
+<li><a href="#more-resources-and-references">More resources and references</a></li>
 </ul>
 </li>
 </ul>
@@ -665,23 +665,23 @@
   <div class="article_text">
 <hr/>
 <h1 id="introduction">Introduction</h1>
-<p>Released back in 2007, <a href="https://github.com/tmux/tmux/wiki">tmux</a> keeps being amazing! Because I have never bothered automating anything to make its use simpler, it took some time for it to become a working environment I enjoy for everyday use. This is a thing of the past: thanks to Oleksandr Kocherhin from <a href="https://monsterlessons-academy.com/">Monsterlessons Academy</a>, who shared his tmux workflow in his YouTube video titled <a href="https://www.youtube.com/watch?v=GuH7pw9LejY">Best Terminal Application for Web Development</a>, I saw a few automation opportunities I thought were worth tackling.</p>
-<p>In this post, I’m sharing a little tip about managing tmux sessions that was inspired from the mentioned video. I am using <a href="https://i3wm.org/">i3wm</a> on Linux, but you can adapt this with any desktop environment as long as you can trigger the execution of programs with a keyboard shortcut in one way or another. I will be using Rofi and the <code>find</code> command, which you can find on Unix systems. If you would rather use dmenu instead of Rofi with this script, <a href="../../../../../posts/2019/11/10/using-dmenu-to-optimize-common-tasks/">this article can serve as a reference</a>. Enough said, let’s get to it.</p>
+<p>Released back in 2007, <a href="https://github.com/tmux/tmux/wiki">tmux</a> keeps being amazing! Because I have never bothered automating anything to make its use simpler, it took some time for it to become a working environment I enjoy for everyday use. This is a thing of the past: thanks to Oleksandr Kocherhin from <a href="https://monsterlessons-academy.com/">Monsterlessons Academy</a>, who shared his tmux workflow in his YouTube video titled <a href="https://www.youtube.com/watch?v=GuH7pw9LejY">Best Terminal Application for Web Development</a>, I saw a few automation opportunities I thought were worth tackling.</p>
+<p>In this post, I'm sharing a little tip about managing tmux sessions that was inspired from the mentioned video. I am using <a href="https://i3wm.org/">i3wm</a> on Linux, but you can adapt this with any desktop environment as long as you can trigger the execution of programs with a keyboard shortcut in one way or another. I will be using Rofi and the <code>find</code> command, which you can find on Unix systems. If you would rather use dmenu instead of Rofi with this script, <a href="../../../../../posts/2019/11/10/using-dmenu-to-optimize-common-tasks/">this article can serve as a reference</a>. Enough said, let's get to it.</p>
 <hr/>
-<h1 id="what-is-this-all-about">What is this all about?</h1>
-<p>The idea is simple: have a few keyboard shortcuts to manage tmux sessions. That means being able to open new sessions and being able to kill them too. I kept this setup very simple on purpose but of course some improvements could be made. For instance, it could be nice to know which projects have already been opened so that the script doesn’t prompt you with a list of projects that include projects that you have already launched, but I haven’t found the need so far to deal with this potential issue as I tend to only work on a couple of projects during the course of a given day.</p>
-<p>In summary, here is what we want to achieve in this post:</p>
+<h1 id="what-is-this-all-about">What is this all about?</h1>
+<p>The idea is simple: have a few keyboard shortcuts to manage tmux sessions. That means being able to open new sessions and being able to kill them too. I kept this setup very simple on purpose but of course some improvements could be made. For instance, it could be nice to know which projects have already been opened so that the script doesn't prompt you with a list of projects that include projects that you have already launched, but I haven't found the need so far to deal with this potential issue as I tend to only work on a couple of projects during the course of a given day.</p>
+<p>In summary, here is what we want to achieve in this post:</p>
 <ul>
-<li>Configure projects so that when we want to open them, they will be set up in the right directory with servers running, etc.;</li>
-<li>Open a tmux session with a keyboard shortcut, listing all projects that were configured in the previous step;</li>
-<li>Kill any opened tmux session with another keyboard shortcut.</li>
+<li>Configure projects so that when we want to open them, they will be set up in the right directory with servers running, etc.;</li>
+<li>Open a tmux session with a keyboard shortcut, listing all projects that were configured in the previous step;</li>
+<li>Kill any opened tmux session with another keyboard shortcut.</li>
 </ul>
-<p>That’s it!</p>
-<h1 id="1-configuring-projects-to-launch-tmux-sessions">1. Configuring projects to launch tmux sessions</h1>
-<p>Firstly, we need to create new files to open our projects in the way we want. Basically, we need to create a file, let’s call it <code>.tmux</code>, and put it at the root of the project we’re interested in working with tmux. Then, we need to put some instructions that will be run with the shell (e.g. Bash or Zsh) so that tmux commands will be run automatically for us and let us “attach” to the session once all the necessary actions are performed. That means we need to make that file executable. In the terminal, this would be done as follows, assuming the project’s folder is the current working directory:</p>
+<p>That's it!</p>
+<h1 id="1-configuring-projects-to-launch-tmux-sessions">1. Configuring projects to launch tmux sessions</h1>
+<p>Firstly, we need to create new files to open our projects in the way we want. Basically, we need to create a file, let's call it <code>.tmux</code>, and put it at the root of the project we're interested in working with tmux. Then, we need to put some instructions that will be run with the shell (e.g. Bash or Zsh) so that tmux commands will be run automatically for us and let us "attach" to the session once all the necessary actions are performed. That means we need to make that file executable. In the terminal, this would be done as follows, assuming the project's folder is the current working directory:</p>
 <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>.tmux
 </code></pre></div>
-<p>At last, we want to give some orders to tmux so that when we execute that file, it will open our project in a pre-configured state so we’re ready to go. This will need to be customized depending on your needs, but here is a simple example to illustrate what could happen. So, we could put the following inside the <code>.tmux</code> file:</p>
+<p>At last, we want to give some orders to tmux so that when we execute that file, it will open our project in a pre-configured state so we're ready to go. This will need to be customized depending on your needs, but here is a simple example to illustrate what could happen. So, we could put the following inside the <code>.tmux</code> file:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
 
 <span class="nb">set</span><span class="w"> </span>-e
@@ -705,19 +705,19 @@ tmux<span class="w"> </span>send-keys<span class="w"> </span>-t<span class="w"> 
 
 tmux<span class="w"> </span>attach<span class="w"> </span>-t<span class="w"> </span>my-project:nvim
 </code></pre></div>
-<p>Here is what is happening:</p>
+<p>Here is what is happening:</p>
 <ul>
-<li>If our project, named <code>my-project</code>, has a tmux session already running, then we “attach” to it and nothing more is done.</li>
-<li>Otherwise, the session is created in “detached” mode so we can run a few commands smoothly and later attach to the created session.</li>
+<li>If our project, named <code>my-project</code>, has a tmux session already running, then we "attach" to it and nothing more is done.</li>
+<li>Otherwise, the session is created in "detached" mode so we can run a few commands smoothly and later attach to the created session.</li>
 <li>With the <code>-n</code> flag, we name the window to be created (here, the first window is <code>nvim</code>).</li>
-<li>Then, we “send” keys to the session, to that newly created <code>nvim</code> window. In this case, we send a single keystroke <code>n</code>, which is just an alias for executing Neovim.</li>
-<li>In a new window named <code>servers</code>, we send keys to execute the frontend server.</li>
-<li>Then, we split the second window we just created vertically and we run the commands needed to launch the backend server, again making use of Bash aliases for convenience.</li>
-<li>Finally, we attach to the session and we open the first window <code>nvim</code>, ready to work.</li>
+<li>Then, we "send" keys to the session, to that newly created <code>nvim</code> window. In this case, we send a single keystroke <code>n</code>, which is just an alias for executing Neovim.</li>
+<li>In a new window named <code>servers</code>, we send keys to execute the frontend server.</li>
+<li>Then, we split the second window we just created vertically and we run the commands needed to launch the backend server, again making use of Bash aliases for convenience.</li>
+<li>Finally, we attach to the session and we open the first window <code>nvim</code>, ready to work.</li>
 </ul>
-<p>And just like this, what takes quite a few steps to do manually can be automated in one go when setting up the environment at the beginning of a working bout. Now, it could be convenient to create a generic template for the above script to use when creating new projects, especially if those tend to be short-lived and share some properties (e.g. maybe they all need to launch some kind of server in the background).</p>
-<h1 id="2-script-to-open-projects">2. Script to open projects</h1>
-<p>Firstly, we need a way to list and open all “known” projects. This is achieved in this example very simply with the <code>find</code> command as well as with the help of <code>rofi</code>. The script in question is as follows:</p>
+<p>And just like this, what takes quite a few steps to do manually can be automated in one go when setting up the environment at the beginning of a working bout. Now, it could be convenient to create a generic template for the above script to use when creating new projects, especially if those tend to be short-lived and share some properties (e.g. maybe they all need to launch some kind of server in the background).</p>
+<h1 id="2-script-to-open-projects">2. Script to open projects</h1>
+<p>Firstly, we need a way to list and open all "known" projects. This is achieved in this example very simply with the <code>find</code> command as well as with the help of <code>rofi</code>. The script in question is as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="c1"># Get the path to the `.tmux` file to execute using `find` and `rofi`</span>
@@ -734,15 +734,15 @@ tmux<span class="w"> </span>attach<span class="w"> </span>-t<span class="w"> </s
 <span class="w">    </span>kitty<span class="w"> </span>--directory<span class="w"> </span><span class="s2">"</span><span class="nv">$PROJECT_DIR</span><span class="s2">"</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"</span><span class="nv">$PROJECT</span><span class="s2">"</span>
 <span class="k">fi</span>
 </code></pre></div>
-<p>So, what this does is this:</p>
+<p>So, what this does is this:</p>
 <ul>
-<li>It finds all the directories where a <code>.tmux</code> file exists, excluding non-useful folders like <code>node_modules</code>. The <code>-prune</code> flag is passed to avoid recursion further inside a directory once a <code>.tmux</code> file is found. The results of <code>find</code> are “piped” into <code>rofi</code>, which displays the results. User selection is then stored in the <code>PROJECT</code> variable.</li>
+<li>It finds all the directories where a <code>.tmux</code> file exists, excluding non-useful folders like <code>node_modules</code>. The <code>-prune</code> flag is passed to avoid recursion further inside a directory once a <code>.tmux</code> file is found. The results of <code>find</code> are "piped" into <code>rofi</code>, which displays the results. User selection is then stored in the <code>PROJECT</code> variable.</li>
 <li>Once a file is selected, the full path without the filename is extracted and stored in the <code>PROJECT_DIR</code> variable.</li>
 <li>Finally, all that is left to do is check if the user selected a project and if so, run it with the desired terminal from the correct directory. This will be different for most terminal emulators: here, an example is shown with the <a href="https://sw.kovidgoyal.net/kitty/">kitty terminal</a>.</li>
 </ul>
 <hr/>
-<h1 id="3-script-to-close-projects">3. Script to close projects</h1>
-<p>Here, we are concerned with the sessions that are now opened and that we might want to close. In a similar fashion as what we did to open projects, we want to kill them with a script that will run Rofi and do the job silently in the background. One such script that will get us there is shown below:</p>
+<h1 id="3-script-to-close-projects">3. Script to close projects</h1>
+<p>Here, we are concerned with the sessions that are now opened and that we might want to close. In a similar fashion as what we did to open projects, we want to kill them with a script that will run Rofi and do the job silently in the background. One such script that will get us there is shown below:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="c1"># Get the name of all running sessions</span>
@@ -761,25 +761,25 @@ tmux<span class="w"> </span>attach<span class="w"> </span>-t<span class="w"> </s
 <span class="c1"># Kill the selected session</span>
 tmux<span class="w"> </span>kill-session<span class="w"> </span>-t<span class="w"> </span><span class="nv">$SESSION</span>
 </code></pre></div>
-<p>In this case, the usage is quite straightforward: only running sessions are shown, so it’s just a matter of choosing the one we want to kill or pressing the <code>Escape</code> key to abort the Rofi pop-up.</p>
+<p>In this case, the usage is quite straightforward: only running sessions are shown, so it's just a matter of choosing the one we want to kill or pressing the <code>Escape</code> key to abort the Rofi pop-up.</p>
 <hr/>
-<h1 id="example-workflow">Example workflow</h1>
-<p>It’s a matter of setting up keyboard shortcuts to run the scripts to open and kill projects. For instance, one such configuration for the <code>i3</code> window manager would be as follows:</p>
+<h1 id="example-workflow">Example workflow</h1>
+<p>It's a matter of setting up keyboard shortcuts to run the scripts to open and kill projects. For instance, one such configuration for the <code>i3</code> window manager would be as follows:</p>
 <div class="highlight"><pre><span></span><code>bindsym<span class="w"> </span><span class="nv">$mod</span>+Mod1+p<span class="w">    </span><span class="nv">$exec</span><span class="w"> </span>~/path/to/projects-start.sh
 bindsym<span class="w"> </span><span class="nv">$mod</span>+Mod1+k<span class="w">    </span><span class="nv">$exec</span><span class="w"> </span>~/path/to/projects-kill.sh
 </code></pre></div>
 <ul>
-<li>A simple shortcut lets us choose sessions to open.</li>
-<li>Next, if we decide to kill a session at some point, we have another shortcut to do that.</li>
+<li>A simple shortcut lets us choose sessions to open.</li>
+<li>Next, if we decide to kill a session at some point, we have another shortcut to do that.</li>
 </ul>
 <hr/>
 <h1 id="conclusion">Conclusion</h1>
-<p>Far from being a perfect solution (although it already feels comfortable as a main driver), this workflow initiates what I think can lead to substantial optimizations when it comes to using tmux. There’s room for improvement when a user selects an already opened session: ideally, we would just switch to that session automatically. These details need to be implemented based on the window manager that’s being used, but suffice to say, it can be done! In any case, I hope this may give you a semblance of inspiration to take this idea to the next level. There are tools to help with session persistence, such as <a href="https://github.com/tmux-plugins/tmux-resurrect">tmux-resurrect</a>, but that’s a topic for another time.</p>
-<h2 id="more-resources-and-references">More resources and references</h2>
+<p>Far from being a perfect solution (although it already feels comfortable as a main driver), this workflow initiates what I think can lead to substantial optimizations when it comes to using tmux. There's room for improvement when a user selects an already opened session: ideally, we would just switch to that session automatically. These details need to be implemented based on the window manager that's being used, but suffice to say, it can be done! In any case, I hope this may give you a semblance of inspiration to take this idea to the next level. There are tools to help with session persistence, such as <a href="https://github.com/tmux-plugins/tmux-resurrect">tmux-resurrect</a>, but that's a topic for another time.</p>
+<h2 id="more-resources-and-references">More resources and references</h2>
 <ul>
-<li><a href="https://www.youtube.com/watch?v=GuH7pw9LejY">Best Terminal Application for Web Development</a>, original inspiration for this workflow. — Monsterlessons Academy, YouTube.</li>
-<li><a href="https://github.com/tmux/tmux/wiki">The tmux wiki</a>, GitHub.</li>
-<li><a href="https://github.com/tmux-plugins/tmux-resurrect">tmux-resurrect</a>, GitHub.</li>
+<li><a href="https://www.youtube.com/watch?v=GuH7pw9LejY">Best Terminal Application for Web Development</a>, original inspiration for this workflow. — Monsterlessons Academy, YouTube.</li>
+<li><a href="https://github.com/tmux/tmux/wiki">The tmux wiki</a>, GitHub.</li>
+<li><a href="https://github.com/tmux-plugins/tmux-resurrect">tmux-resurrect</a>, GitHub.</li>
 </ul></div>
 </article>
         </main>

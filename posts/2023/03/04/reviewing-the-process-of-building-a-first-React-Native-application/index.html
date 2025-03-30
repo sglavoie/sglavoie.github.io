@@ -152,7 +152,7 @@
 <!-- Open graph for social networks -->
 <meta name="og:title" property="og:title" content="Working with new technologies can be exciting and insightful at the same time! At least, this is what I would like to believe after having dedicated a couple of weeks to this project..." />
  
-    <title>sglavoie.com &ndash; Reviewing the process of building a first React Native&nbsp;application</title>
+    <title>sglavoie.com &ndash; Reviewing the process of building a first React Native application</title>
   </head>
 
   <body>
@@ -524,7 +524,7 @@
       <main>
 <article data-pagefind-body>
   <div class="article_title">
-    <h1><a href="../../../../../posts/2023/03/04/reviewing-the-process-of-building-a-first-React-Native-application/">Reviewing the process of building a first React Native&nbsp;application</a></h1>
+    <h1><a href="../../../../../posts/2023/03/04/reviewing-the-process-of-building-a-first-React-Native-application/">Reviewing the process of building a first React Native application</a></h1>
   </div>
   <div class="meta_container_hrs">
     <hr />
@@ -626,7 +626,7 @@
       </div>
       <div class="article_readtime">
         <span class="readtime_tilde">~</span
-        ><span class="readtime_minutes">16</span>
+        ><span class="readtime_minutes">15</span>
         minutes to read
       </div>
     </div>
@@ -638,186 +638,186 @@
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#concept-development">Concept development</a><ul>
-<li><a href="#the-origin">The origin</a></li>
-<li><a href="#time-restrictions">Time restrictions</a></li>
-<li><a href="#main-concern-during-development">Main concern during development</a></li>
+<li><a href="#the-origin">The origin</a></li>
+<li><a href="#time-restrictions">Time restrictions</a></li>
+<li><a href="#main-concern-during-development">Main concern during development</a></li>
 </ul>
 </li>
 <li><a href="#wireframing">Wireframing</a></li>
 <li><a href="#user-feedback">User feedback</a><ul>
-<li><a href="#improvements-to-the-original-design">Improvements to the original design</a></li>
+<li><a href="#improvements-to-the-original-design">Improvements to the original design</a></li>
 </ul>
 </li>
 <li><a href="#prototyping">Prototyping</a><ul>
-<li><a href="#early-iterations">Early iterations</a></li>
-<li><a href="#privacy-concerns">Privacy concerns</a></li>
+<li><a href="#early-iterations">Early iterations</a></li>
+<li><a href="#privacy-concerns">Privacy concerns</a></li>
 </ul>
 </li>
 <li><a href="#development">Development</a><ul>
-<li><a href="#initial-setup">Initial setup</a></li>
-<li><a href="#state-management">State management</a></li>
-<li><a href="#styling-the-app">Styling the app</a></li>
-<li><a href="#premature-refactoring">Premature refactoring</a></li>
-<li><a href="#adding-navigation">Adding navigation</a></li>
-<li><a href="#customizing-ui-elements">Customizing <span class="caps">UI</span> elements</a></li>
-<li><a href="#setting-up-simple-states">Setting up simple states</a></li>
-<li><a href="#testing-on-different-platforms">Testing on different platforms</a></li>
-<li><a href="#improving-the-developer-experience-with-redux">Improving the developer experience with Redux</a></li>
-<li><a href="#refactoring-again">Refactoring again</a></li>
-<li><a href="#last-minute-cleanup">Last-minute cleanup</a></li>
+<li><a href="#initial-setup">Initial setup</a></li>
+<li><a href="#state-management">State management</a></li>
+<li><a href="#styling-the-app">Styling the app</a></li>
+<li><a href="#premature-refactoring">Premature refactoring</a></li>
+<li><a href="#adding-navigation">Adding navigation</a></li>
+<li><a href="#customizing-ui-elements">Customizing UI elements</a></li>
+<li><a href="#setting-up-simple-states">Setting up simple states</a></li>
+<li><a href="#testing-on-different-platforms">Testing on different platforms</a></li>
+<li><a href="#improving-the-developer-experience-with-redux">Improving the developer experience with Redux</a></li>
+<li><a href="#refactoring-again">Refactoring again</a></li>
+<li><a href="#last-minute-cleanup">Last-minute cleanup</a></li>
 </ul>
 </li>
 <li><a href="#unit-testing">Unit testing</a><ul>
 <li><a href="#navigating">Navigating</a></li>
-<li><a href="#utility-functions">Utility functions</a></li>
-<li><a href="#database-asynchronous-code">Database <span class="amp">&amp;</span> asynchronous code</a></li>
+<li><a href="#utility-functions">Utility functions</a></li>
+<li><a href="#database-asynchronous-code">Database &amp; asynchronous code</a></li>
 </ul>
 </li>
 <li><a href="#evaluation">Evaluation</a><ul>
 <li><a href="#overview">Overview</a></li>
-<li><a href="#technical-aspects">Technical aspects</a></li>
-<li><a href="#communicational-aspects">Communicational aspects</a></li>
+<li><a href="#technical-aspects">Technical aspects</a></li>
+<li><a href="#communicational-aspects">Communicational aspects</a></li>
 </ul>
 </li>
-<li><a href="#demo-of-the-app">Demo of the app</a></li>
-<li><a href="#resources-and-references">Resources and references</a></li>
+<li><a href="#demo-of-the-app">Demo of the app</a></li>
+<li><a href="#resources-and-references">Resources and references</a></li>
 </ul>
 </div></nav>
   <div class="article_text">
 <hr/>
 <h1 id="introduction">Introduction</h1>
-<p>In the context of an assignment as part of a BSc in computer science, I had to come up with a React Native application. Specifically, I chose to build an app to help make and break habits through the use of a solid system that’s backed by science, which is presented through a large excerpt that accompanied the end result. It helps people to consistently stick to habits until they become an intrinsic part of their routine. Moreover, it helps to maintain an actual routine and to build a sense of accountability and capability in oneself, because big successes come from small steps taken in the right direction time and time again.</p>
-<p>Instead of giving dopaminergic hits like other apps which strive to reward their users in one way or another for completing their tasks and goals or generating anxiety around items not being completed, this app focuses on giving full control to the user with a proven system to turn their habits into automated behaviours with ease. That was the idea, at least.</p>
+<p>In the context of an assignment as part of a BSc in computer science, I had to come up with a React Native application. Specifically, I chose to build an app to help make and break habits through the use of a solid system that's backed by science, which is presented through a large excerpt that accompanied the end result. It helps people to consistently stick to habits until they become an intrinsic part of their routine. Moreover, it helps to maintain an actual routine and to build a sense of accountability and capability in oneself, because big successes come from small steps taken in the right direction time and time again.</p>
+<p>Instead of giving dopaminergic hits like other apps which strive to reward their users in one way or another for completing their tasks and goals or generating anxiety around items not being completed, this app focuses on giving full control to the user with a proven system to turn their habits into automated behaviours with ease. That was the idea, at least.</p>
 <p><img alt="App icon Routinizator" src="../../../../../images/posts/0035_building_first_react_native_application/app_icon.png"/></p>
 <hr/>
-<h1 id="concept-development">Concept development</h1>
-<h2 id="the-origin">The origin</h2>
-<p>The idea for this application came from listening to the Huberman Lab podcast from Dr. Andrew Huberman in an episode entitled <a href="https://hubermanlab.com/the-science-of-making-and-breaking-habits">The science of making <span class="amp">&amp;</span> breaking habits</a>. Starting from this excellent learning resource, further literature was devoured to inform the final concept, most notably <a href="https://www.annualreviews.org/doi/abs/10.1146/annurev-psych-122414-033417">Psychology of Habit from the Annual Review of Psychology</a> and <a href="https://journals.sagepub.com/doi/full/10.1177/1539449219876877">Intervention to Modify Habits: A Scoping Review</a> published in Sage Journals.</p>
+<h1 id="concept-development">Concept development</h1>
+<h2 id="the-origin">The origin</h2>
+<p>The idea for this application came from listening to the Huberman Lab podcast from Dr. Andrew Huberman in an episode entitled <a href="https://hubermanlab.com/the-science-of-making-and-breaking-habits">The science of making &amp; breaking habits</a>. Starting from this excellent learning resource, further literature was devoured to inform the final concept, most notably <a href="https://www.annualreviews.org/doi/abs/10.1146/annurev-psych-122414-033417">Psychology of Habit from the Annual Review of Psychology</a> and <a href="https://journals.sagepub.com/doi/full/10.1177/1539449219876877">Intervention to Modify Habits: A Scoping Review</a> published in Sage Journals.</p>
 <p><img alt="Typography" src="../../../../../images/posts/0035_building_first_react_native_application/typography.png"/></p>
-<h2 id="time-restrictions">Time restrictions</h2>
-<p>It was entirely feasible to come up with a simpler concept that would be doable in roughly 10 weeks. Like many popular applications on the market today, it is expected that new features will be added after the official release date once additional and valuable feedback is received from users. The core idea can and will be implemented in this short time frame. After all, this application can pivot towards a simpler presentation should there be a need to and as the <a href="https://en.wikipedia.org/wiki/Zen_of_Python">Zen of Python</a> says: <em>“Simple is better than complex”</em>.
-Niceties could be added to the user interface should time allow: however the initial development will focus on a narrower set of features so that the roadmap can be successfully followed and the final product delivered in a timely manner.</p>
+<h2 id="time-restrictions">Time restrictions</h2>
+<p>It was entirely feasible to come up with a simpler concept that would be doable in roughly 10 weeks. Like many popular applications on the market today, it is expected that new features will be added after the official release date once additional and valuable feedback is received from users. The core idea can and will be implemented in this short time frame. After all, this application can pivot towards a simpler presentation should there be a need to and as the <a href="https://en.wikipedia.org/wiki/Zen_of_Python">Zen of Python</a> says: <em>"Simple is better than complex"</em>.
+Niceties could be added to the user interface should time allow: however the initial development will focus on a narrower set of features so that the roadmap can be successfully followed and the final product delivered in a timely manner.</p>
 <p><img alt="UI elements" src="../../../../../images/posts/0035_building_first_react_native_application/ui_elements.png"/></p>
-<h2 id="main-concern-during-development">Main concern during development</h2>
-<p>A bad implementation of the system could mean that flexibility could be lost at the cost of ease of development. In other words, due to a strict, looming deadline, some shortcuts could be considered to cut corners in the underlying logic of the application to save time without affecting the quality of the product from the user’s perspective. Nonetheless, this could lead to more headache down the road when it becomes necessary to refactor the application in order to satisfy the need for a more modular approach, which would simplify further development.</p>
+<h2 id="main-concern-during-development">Main concern during development</h2>
+<p>A bad implementation of the system could mean that flexibility could be lost at the cost of ease of development. In other words, due to a strict, looming deadline, some shortcuts could be considered to cut corners in the underlying logic of the application to save time without affecting the quality of the product from the user's perspective. Nonetheless, this could lead to more headache down the road when it becomes necessary to refactor the application in order to satisfy the need for a more modular approach, which would simplify further development.</p>
 <p><img alt="Screens" src="../../../../../images/posts/0035_building_first_react_native_application/screens.png"/></p>
 <hr/>
 <h1 id="wireframing">Wireframing</h1>
-<p>Low-fidely as well as high-fidelity wireframes were created using <a href="https://www.figma.com">Figma</a>. An exhaustive presentation of the final application was included in an appendix, depicting the logo, the color palette, the typography used, a list of the <span class="caps">UI</span> elements and a complete and faithful display of all the screens. Technically, the high-fidelity wireframes were designed using <a href="https://help.figma.com/hc/en-us/articles/360038662654-Guide-to-components-in-Figma">Figma components</a> and placed inside “frames” to export a <span class="caps">PDF</span>. Most <span class="caps">UI</span> elements were hand-drawn, except for a few free icons taken from the <a href="https://material.io/design">Material Design community</a>. Numerous user flow diagrams were included to illustrate how the wireframing took shape once the logic to navigate between screens was determined.</p>
+<p>Low-fidely as well as high-fidelity wireframes were created using <a href="https://www.figma.com">Figma</a>. An exhaustive presentation of the final application was included in an appendix, depicting the logo, the color palette, the typography used, a list of the UI elements and a complete and faithful display of all the screens. Technically, the high-fidelity wireframes were designed using <a href="https://help.figma.com/hc/en-us/articles/360038662654-Guide-to-components-in-Figma">Figma components</a> and placed inside "frames" to export a PDF. Most UI elements were hand-drawn, except for a few free icons taken from the <a href="https://material.io/design">Material Design community</a>. Numerous user flow diagrams were included to illustrate how the wireframing took shape once the logic to navigate between screens was determined.</p>
 <p><img alt="Welcome screen" src="../../../../../images/posts/0035_building_first_react_native_application/welcome.png"/></p>
 <hr/>
-<h1 id="user-feedback">User feedback</h1>
-<p>User feedback was critical to the success of this project. Users helped refine certain visual aspects, such as making sure there was enough padding between the different elements by testing with devices using a smaller screen.</p>
+<h1 id="user-feedback">User feedback</h1>
+<p>User feedback was critical to the success of this project. Users helped refine certain visual aspects, such as making sure there was enough padding between the different elements by testing with devices using a smaller screen.</p>
 <p><img alt="Frequency execution early" src="../../../../../images/posts/0035_building_first_react_native_application/frequency_execution_early.png"/></p>
-<h2 id="improvements-to-the-original-design">Improvements to the original design</h2>
-<p>Other notable improvements included redesigning the user flow when creating a new programme so that it would be easier to follow. Instead of dealing with multiple habits at once, the slightly updated design made it possible to fully complete the cycle when adding a new habit. Similarly, once habits were added, the newer flow to tackle habit stacks made it simpler to navigate back to the main screen to confirm the selection of habits and to review the programme as a whole.</p>
-<p>Without users inquiring about having a satellite view in the map, there wouldn’t have been any option to toggle the style of the map either. This became a needed addition in places where roads are sparse while the terrain remains easily recognizable.</p>
+<h2 id="improvements-to-the-original-design">Improvements to the original design</h2>
+<p>Other notable improvements included redesigning the user flow when creating a new programme so that it would be easier to follow. Instead of dealing with multiple habits at once, the slightly updated design made it possible to fully complete the cycle when adding a new habit. Similarly, once habits were added, the newer flow to tackle habit stacks made it simpler to navigate back to the main screen to confirm the selection of habits and to review the programme as a whole.</p>
+<p>Without users inquiring about having a satellite view in the map, there wouldn't have been any option to toggle the style of the map either. This became a needed addition in places where roads are sparse while the terrain remains easily recognizable.</p>
 <p><img alt="About screen" src="../../../../../images/posts/0035_building_first_react_native_application/about.png"/></p>
 <hr/>
 <h1 id="prototyping">Prototyping</h1>
-<h2 id="early-iterations">Early iterations</h2>
-<p>While shaping the initial application alongside both wireframing and concept sketching, a few iterations of the different screens were designed from scratch. General ideas and concepts were discussed and analyzed to fit with the goal of creating a mindful habit tracker while taking into consideration hard requirements such as the time available for the development cycles.</p>
-<p>The application started with a strong focus on accountability. However, it was quickly realized that the technical stack would need to be more ample and would necessarily require a higher budget to fund the use of online services to store a database of <em>“habit contracts”</em> that users would create and optionally make public on their own. Needless to say, the single developer involved in the creation of this application did not have the resources nor the willingness to deal with legal issues that would arise from managing such personal information.</p>
+<h2 id="early-iterations">Early iterations</h2>
+<p>While shaping the initial application alongside both wireframing and concept sketching, a few iterations of the different screens were designed from scratch. General ideas and concepts were discussed and analyzed to fit with the goal of creating a mindful habit tracker while taking into consideration hard requirements such as the time available for the development cycles.</p>
+<p>The application started with a strong focus on accountability. However, it was quickly realized that the technical stack would need to be more ample and would necessarily require a higher budget to fund the use of online services to store a database of <em>"habit contracts"</em> that users would create and optionally make public on their own. Needless to say, the single developer involved in the creation of this application did not have the resources nor the willingness to deal with legal issues that would arise from managing such personal information.</p>
 <p><img alt="Iteration 1 flow" src="../../../../../images/posts/0035_building_first_react_native_application/iteration_1_flow.png"/></p>
-<h2 id="privacy-concerns">Privacy concerns</h2>
-<p>Additionally, there would not have been the easy possibility of making accessible all the data from a habit contract since personally identifiable information such as location, accountability partner names and so on would be revealed to the world. For these reasons and many more, the set of features relating to accountability was removed from the application to ensure that user privacy would be dealt with properly at this scale of operation.</p>
-<p>In this regard, to avoid any potential issue with privacy, no data whatsoever is stored remotely. <a href="https://github.com/react-native-async-storage/async-storage">React Native Async Storage</a> was used to store data locally on users’ devices, even removing the need for an internet connection (except for the need to find the user location and set an address, which is an optional step when creating a programme).</p>
-<p>To make use of the async storage, <a href="https://redux-toolkit.js.org">Redux Toolkit</a> was used to deal with all the state management and is responsible for dispatching actions throughout the application. Importantly, users do not need to leave the application open at all times since <a href="https://github.com/rt2zz/redux-persist">Redux Persist</a> was used to store Redux data to the async storage and to rehydrate it when the application is re-opened.</p>
+<h2 id="privacy-concerns">Privacy concerns</h2>
+<p>Additionally, there would not have been the easy possibility of making accessible all the data from a habit contract since personally identifiable information such as location, accountability partner names and so on would be revealed to the world. For these reasons and many more, the set of features relating to accountability was removed from the application to ensure that user privacy would be dealt with properly at this scale of operation.</p>
+<p>In this regard, to avoid any potential issue with privacy, no data whatsoever is stored remotely. <a href="https://github.com/react-native-async-storage/async-storage">React Native Async Storage</a> was used to store data locally on users' devices, even removing the need for an internet connection (except for the need to find the user location and set an address, which is an optional step when creating a programme).</p>
+<p>To make use of the async storage, <a href="https://redux-toolkit.js.org">Redux Toolkit</a> was used to deal with all the state management and is responsible for dispatching actions throughout the application. Importantly, users do not need to leave the application open at all times since <a href="https://github.com/rt2zz/redux-persist">Redux Persist</a> was used to store Redux data to the async storage and to rehydrate it when the application is re-opened.</p>
 <p><img alt="Iteration 4 flow" src="../../../../../images/posts/0035_building_first_react_native_application/iteration_4_flow.png"/></p>
 <hr/>
 <h1 id="development">Development</h1>
-<p>As we can now attest, a lot happened before developing the actual application, but this fact did not make the development itself less interesting to narrate! In a little over two months, this React Native application started from nothing and grew to a fully-fledged product.</p>
+<p>As we can now attest, a lot happened before developing the actual application, but this fact did not make the development itself less interesting to narrate! In a little over two months, this React Native application started from nothing and grew to a fully-fledged product.</p>
 <p><img alt="New programme dashboard" src="../../../../../images/posts/0035_building_first_react_native_application/new_dashboard.png"/></p>
-<h2 id="initial-setup">Initial setup</h2>
-<p>The initial steps taken were all about setting up the project correctly with most of its JavaScript dependencies, beginning with a <code>.gitignore</code> file to prevent adding secrets and other unneeded artifacts to the project, an <code>app.json</code> to define the metadata required to publish an application with <a href="https://expo.dev">Expo</a> and a <code>package.json</code> listing all the major dependencies to be installed with <a href="https://yarnpkg.com">Yarn</a> in this case. Secondly, <a href="https://github.com/infinitered/reactotron">Reactotron</a> was set up with Redux to provide access to the application state in real time. Strict mode was then enabled to help avoid bad programming practices and third-party libraries were silenced with React Native’s <code>LogBox</code> module.</p>
+<h2 id="initial-setup">Initial setup</h2>
+<p>The initial steps taken were all about setting up the project correctly with most of its JavaScript dependencies, beginning with a <code>.gitignore</code> file to prevent adding secrets and other unneeded artifacts to the project, an <code>app.json</code> to define the metadata required to publish an application with <a href="https://expo.dev">Expo</a> and a <code>package.json</code> listing all the major dependencies to be installed with <a href="https://yarnpkg.com">Yarn</a> in this case. Secondly, <a href="https://github.com/infinitered/reactotron">Reactotron</a> was set up with Redux to provide access to the application state in real time. Strict mode was then enabled to help avoid bad programming practices and third-party libraries were silenced with React Native's <code>LogBox</code> module.</p>
 <p><img alt="Remove habit screen" src="../../../../../images/posts/0035_building_first_react_native_application/remove_habit.png"/></p>
-<h2 id="state-management">State management</h2>
-<p>Once the basic setup was in place, Redux Persist was added to work with React Native Async Storage. Then, the testing setup was integrated into the project before adding any screen to the application using <a href="https://jestjs.io/">Jest</a> configured with mockAsyncStorage to avoid issues with the persistent storage while testing. Despite barebone Redux being useful on its own, <a href="https://redux-toolkit.js.org/tutorials/quick-start">Redux Toolkit provides some useful utilities and shortcuts</a> that were taken advantage of, including <code>createSlice</code> to easily “slice” parts of the state to retrieve and store information in isolation, <code>combineReducers</code> to list all the slices of state in the same “root reducer”, and <code>configureStore</code> to connect the persistent storage to the Redux store and set up access to the store itself in the rest of the application.</p>
+<h2 id="state-management">State management</h2>
+<p>Once the basic setup was in place, Redux Persist was added to work with React Native Async Storage. Then, the testing setup was integrated into the project before adding any screen to the application using <a href="https://jestjs.io/">Jest</a> configured with mockAsyncStorage to avoid issues with the persistent storage while testing. Despite barebone Redux being useful on its own, <a href="https://redux-toolkit.js.org/tutorials/quick-start">Redux Toolkit provides some useful utilities and shortcuts</a> that were taken advantage of, including <code>createSlice</code> to easily "slice" parts of the state to retrieve and store information in isolation, <code>combineReducers</code> to list all the slices of state in the same "root reducer", and <code>configureStore</code> to connect the persistent storage to the Redux store and set up access to the store itself in the rest of the application.</p>
 <p><img alt="Cues screen" src="../../../../../images/posts/0035_building_first_react_native_application/cues.png"/></p>
-<h2 id="styling-the-app">Styling the app</h2>
-<p>Before adding logic to the project, <a href="https://github.com/vitalets/react-native-extended-stylesheet">react-native-extended-stylesheet</a> was used to add functionality to the way the styling could be done by having the ability to reference variables, do calculations inside <span class="caps">CSS</span> fragments, etc. Styles were set globally right from the start to avoid code duplication and where deemed useful, some screens had specific stylings applied exclusively to them from separate files.</p>
-<p>As a next step, the general structure of the app was set up with a status bar and a <code>SafeAreaView</code> component to make sure that rendering happened within safe limits on the screen. In order to style the application and render different screens, <a href="https://reactnavigation.org/">React Navigation</a> was used to make the navigation possible and to initially render a fixed screen at a time while it was being designed based off the high-fidelity wireframes. One by one, the screens were designed with all the buttons in the right place and some dummy content to render all the different <span class="caps">UI</span> elements. This led to using a multitude of third-party libraries, including notably <a href="https://github.com/react-native-maps/react-native-maps">react-native-maps</a> to work with native maps on both Android and iOS devices.</p>
+<h2 id="styling-the-app">Styling the app</h2>
+<p>Before adding logic to the project, <a href="https://github.com/vitalets/react-native-extended-stylesheet">react-native-extended-stylesheet</a> was used to add functionality to the way the styling could be done by having the ability to reference variables, do calculations inside CSS fragments, etc. Styles were set globally right from the start to avoid code duplication and where deemed useful, some screens had specific stylings applied exclusively to them from separate files.</p>
+<p>As a next step, the general structure of the app was set up with a status bar and a <code>SafeAreaView</code> component to make sure that rendering happened within safe limits on the screen. In order to style the application and render different screens, <a href="https://reactnavigation.org/">React Navigation</a> was used to make the navigation possible and to initially render a fixed screen at a time while it was being designed based off the high-fidelity wireframes. One by one, the screens were designed with all the buttons in the right place and some dummy content to render all the different UI elements. This led to using a multitude of third-party libraries, including notably <a href="https://github.com/react-native-maps/react-native-maps">react-native-maps</a> to work with native maps on both Android and iOS devices.</p>
 <p><img alt="Location screen" src="../../../../../images/posts/0035_building_first_react_native_application/location.png"/></p>
-<h2 id="premature-refactoring">Premature refactoring</h2>
-<p>With the screens in place, the code was re-arranged to allow for better flexibility while developing. New directories for components were created, and the smallest components of all were extracted from the larger ones to start splitting concerns and have specific destinations to receive parts of the states via Redux selectors.</p>
-<p>Global styles were then cleaned up considerably and local styles were mostly eliminated as they were being re-used elsewhere without notice. At this point, without yet having anything useful to demonstrate, users reviewed where the application was going and suggested possible improvements while it was still easy to move <span class="caps">UI</span> elements around without breaking anything.</p>
+<h2 id="premature-refactoring">Premature refactoring</h2>
+<p>With the screens in place, the code was re-arranged to allow for better flexibility while developing. New directories for components were created, and the smallest components of all were extracted from the larger ones to start splitting concerns and have specific destinations to receive parts of the states via Redux selectors.</p>
+<p>Global styles were then cleaned up considerably and local styles were mostly eliminated as they were being re-used elsewhere without notice. At this point, without yet having anything useful to demonstrate, users reviewed where the application was going and suggested possible improvements while it was still easy to move UI elements around without breaking anything.</p>
 <p><img alt="Frequency execution screen" src="../../../../../images/posts/0035_building_first_react_native_application/frequency_execution.png"/></p>
-<h2 id="adding-navigation">Adding navigation</h2>
-<p>Once all the screens were designed and ready to include programmatic logic, the screens were then linked together so that the user could —without doing anything useful yet— navigate from one page to another. After that, a menu was included in the top-left corner to navigate to specific pages from anywhere within the app. This behaviour was later customized so that some pages would show the “back button” (a chevron icon pointing to the left) to make going back to the previous screen easier than scrolling to the bottom of a longer page. On top of this, some screens received a special treatment where the menu is hidden entirely, such as when deleting a programme from the app. While not strictly required, this made it obvious to the user that they should focus on the content of that particular screen.</p>
+<h2 id="adding-navigation">Adding navigation</h2>
+<p>Once all the screens were designed and ready to include programmatic logic, the screens were then linked together so that the user could --without doing anything useful yet-- navigate from one page to another. After that, a menu was included in the top-left corner to navigate to specific pages from anywhere within the app. This behaviour was later customized so that some pages would show the "back button" (a chevron icon pointing to the left) to make going back to the previous screen easier than scrolling to the bottom of a longer page. On top of this, some screens received a special treatment where the menu is hidden entirely, such as when deleting a programme from the app. While not strictly required, this made it obvious to the user that they should focus on the content of that particular screen.</p>
 <p><img alt="Programme specs screen" src="../../../../../images/posts/0035_building_first_react_native_application/programme_specs.png"/></p>
-<h2 id="customizing-ui-elements">Customizing <span class="caps">UI</span> elements</h2>
-<p>At this stage, the application was ready to receive its final touch-ups to look as polished as the expected product. This included getting our hands on <a href="https://github.com/WrathChaos/react-native-bouncy-checkbox">React Native Bouncy Checkbox</a> to give a more joyful feel to the most boring parts of the application and using <a href="https://github.com/react-native-datetimepicker/datetimepicker">React Native DateTimePicker</a> to input the time of the day in a more meaningful and straightforward way.</p>
+<h2 id="customizing-ui-elements">Customizing UI elements</h2>
+<p>At this stage, the application was ready to receive its final touch-ups to look as polished as the expected product. This included getting our hands on <a href="https://github.com/WrathChaos/react-native-bouncy-checkbox">React Native Bouncy Checkbox</a> to give a more joyful feel to the most boring parts of the application and using <a href="https://github.com/react-native-datetimepicker/datetimepicker">React Native DateTimePicker</a> to input the time of the day in a more meaningful and straightforward way.</p>
 <p><img alt="Habit stacks screen" src="../../../../../images/posts/0035_building_first_react_native_application/habit_stacks.png"/></p>
-<h2 id="setting-up-simple-states">Setting up simple states</h2>
-<p>Using the <code>useState</code> hook from React and <code>useDispatch</code> from Redux, basic states were set up to toggle the styles of buttons and to allow basic interactivity, such as expanding and collapsing sections of the user interface. Using some dummy content in the Redux store, other simple events were taken care of, for example removing a habit, creating a new habit and so on. With the basic logic and states in place, more complex flows were added, such as the need to loop through habits to display them as “habit stacks” or looping through the days in a programme to display three phases for each day, each phase containing possibly multiple stacks of habits and each habit being a self-contained source of data with a table displayed with <a href="https://github.com/Purii/react-native-tableview-simple">react-native-tableview-simple</a>.</p>
+<h2 id="setting-up-simple-states">Setting up simple states</h2>
+<p>Using the <code>useState</code> hook from React and <code>useDispatch</code> from Redux, basic states were set up to toggle the styles of buttons and to allow basic interactivity, such as expanding and collapsing sections of the user interface. Using some dummy content in the Redux store, other simple events were taken care of, for example removing a habit, creating a new habit and so on. With the basic logic and states in place, more complex flows were added, such as the need to loop through habits to display them as "habit stacks" or looping through the days in a programme to display three phases for each day, each phase containing possibly multiple stacks of habits and each habit being a self-contained source of data with a table displayed with <a href="https://github.com/Purii/react-native-tableview-simple">react-native-tableview-simple</a>.</p>
 <p><img alt="Habit review screen" src="../../../../../images/posts/0035_building_first_react_native_application/habit_review.png"/></p>
-<h2 id="testing-on-different-platforms">Testing on different platforms</h2>
-<p>Although admittedly a bit late in the process, the application was then tested fully on Android and in the Expo website. Trading off speed of development for the inconvenience of guaranteeing a pixel-perfect application at each step was most definitely worth it since very few changes were required in the end, this being the main idea behind using something like React Native in the first place so that code can be written once and for all. Despite all these promises, some issues related to dependencies were faced with big, red messages showing an alarmingly large list of errors in the Expo Snack interface. Thankfully, it was only a matter of upgrading locally to match the latest <span class="caps">SDK</span> available at the time from Expo (v46.0.0).</p>
-<p>There were some minor issues observed on different platforms which were fixed on the development machine using simulators. For instance, the map view was somewhat laggy on iOS originally, so instead of moving the marker around on the map, it was decided to leave it fix on top of the center of the map with a greater <code>zIndex</code> to make it visible at all times in order to have only the map view to re-render each time the map was moved. On Android, the time picker was a bit fiddly to work with and so to circumvent the problematic situation, the picker would be shown once automatically to the user when the related screen was opened, removing the need to display a space for the picker on screen and instead having it fill out the screen in the style of a modal.</p>
+<h2 id="testing-on-different-platforms">Testing on different platforms</h2>
+<p>Although admittedly a bit late in the process, the application was then tested fully on Android and in the Expo website. Trading off speed of development for the inconvenience of guaranteeing a pixel-perfect application at each step was most definitely worth it since very few changes were required in the end, this being the main idea behind using something like React Native in the first place so that code can be written once and for all. Despite all these promises, some issues related to dependencies were faced with big, red messages showing an alarmingly large list of errors in the Expo Snack interface. Thankfully, it was only a matter of upgrading locally to match the latest SDK available at the time from Expo (v46.0.0).</p>
+<p>There were some minor issues observed on different platforms which were fixed on the development machine using simulators. For instance, the map view was somewhat laggy on iOS originally, so instead of moving the marker around on the map, it was decided to leave it fix on top of the center of the map with a greater <code>zIndex</code> to make it visible at all times in order to have only the map view to re-render each time the map was moved. On Android, the time picker was a bit fiddly to work with and so to circumvent the problematic situation, the picker would be shown once automatically to the user when the related screen was opened, removing the need to display a space for the picker on screen and instead having it fill out the screen in the style of a modal.</p>
 <p><img alt="Habit contract review screen" src="../../../../../images/posts/0035_building_first_react_native_application/habit_contract.png"/></p>
-<h2 id="improving-the-developer-experience-with-redux">Improving the developer experience with Redux</h2>
-<p>Reactotron was useful in the beginning but started to crash very often at this point of the development. After un-starring the project on GitHub and starring <a href="https://github.com/jhen0409/react-native-debugger">React Native Debugger</a> instead, things were smooth again. Reactotron required messing a little bit with the testing setup by removing everything related to it first, then React Native Debugger made it all simple again thanks to its seamless integration with Redux which does not need to be injected as middleware when configuring the Redux store.</p>
+<h2 id="improving-the-developer-experience-with-redux">Improving the developer experience with Redux</h2>
+<p>Reactotron was useful in the beginning but started to crash very often at this point of the development. After un-starring the project on GitHub and starring <a href="https://github.com/jhen0409/react-native-debugger">React Native Debugger</a> instead, things were smooth again. Reactotron required messing a little bit with the testing setup by removing everything related to it first, then React Native Debugger made it all simple again thanks to its seamless integration with Redux which does not need to be injected as middleware when configuring the Redux store.</p>
 <p><img alt="Programme in progress screen" src="../../../../../images/posts/0035_building_first_react_native_application/programme_progress.png"/></p>
-<h2 id="refactoring-again">Refactoring again</h2>
-<p>Now that most of the logic was implemented, smaller components were created from the monstrous ones created thus far. In most instances, components were already existing on their own but they were all positioned in the same file without being prefixed with the keyword <code>export</code>. Equally important, all <a href="https://eslint.org/">ESLint</a> warnings were cleared up one after the other to avoid re-renders and unused bits of code. Because Expo tends to be picky with missing import statements, <code>import React from ‘react'</code> was carefully added to almost every file in the project where it was needed.</p>
+<h2 id="refactoring-again">Refactoring again</h2>
+<p>Now that most of the logic was implemented, smaller components were created from the monstrous ones created thus far. In most instances, components were already existing on their own but they were all positioned in the same file without being prefixed with the keyword <code>export</code>. Equally important, all <a href="https://eslint.org/">ESLint</a> warnings were cleared up one after the other to avoid re-renders and unused bits of code. Because Expo tends to be picky with missing import statements, <code>import React from ‘react'</code> was carefully added to almost every file in the project where it was needed.</p>
 <p><img alt="Delete programme screen" src="../../../../../images/posts/0035_building_first_react_native_application/delete_programme.png"/></p>
-<h2 id="last-minute-cleanup">Last-minute cleanup</h2>
-<p>Finally, once the application was usable and the source code a little more pretty, import statements were grouped by categories, warnings from third-party libraries were silenced with <code>LogBox</code>, spacing around paragraphs was reviewed and optimized and the app was scrutinized once again to look for the presence of bugs.</p>
+<h2 id="last-minute-cleanup">Last-minute cleanup</h2>
+<p>Finally, once the application was usable and the source code a little more pretty, import statements were grouped by categories, warnings from third-party libraries were silenced with <code>LogBox</code>, spacing around paragraphs was reviewed and optimized and the app was scrutinized once again to look for the presence of bugs.</p>
 <p><img alt="Completed programme screen" src="../../../../../images/posts/0035_building_first_react_native_application/completed_programme.png"/></p>
 <hr/>
-<h1 id="unit-testing">Unit testing</h1>
+<h1 id="unit-testing">Unit testing</h1>
 <h2 id="navigating">Navigating</h2>
-<p>While the development took place, testing happened all along. The first couple of tests to be included in the test suite were added while validating that navigation occurred correctly between screens. At once, tests were also added when creating the screens to make sure that they would render consistently in the <span class="caps">UI</span> by creating snapshots with Jest.</p>
+<p>While the development took place, testing happened all along. The first couple of tests to be included in the test suite were added while validating that navigation occurred correctly between screens. At once, tests were also added when creating the screens to make sure that they would render consistently in the UI by creating snapshots with Jest.</p>
 <p><img alt="Iteration 6 flowchart" src="../../../../../images/posts/0035_building_first_react_native_application/iteration_6_flow.png"/></p>
-<h2 id="utility-functions">Utility functions</h2>
-<p>More concrete unit testing happened with the utility functions being called by the actions from the Redux store. Because these functions define what happens when an action is dispatched with Redux, there is a lot of potential for bugs to creep in. To make debugging less painful in these cases, dummy and minimal states were set up as part of the unit tests to check for inconsistencies against the input value and the expected one. While Jest offers a complete range of features, the matchers used most often from this library were <code>toBe</code> to check for exact values (e.g., Boolean and numbers) and <code>toEqual</code> to assert a deep equality on objects and arrays. Mock functions were set up with Reactotron, but that need went away when the developer migrated to a more stable piece of software (i.e, React Native Debugger).</p>
+<h2 id="utility-functions">Utility functions</h2>
+<p>More concrete unit testing happened with the utility functions being called by the actions from the Redux store. Because these functions define what happens when an action is dispatched with Redux, there is a lot of potential for bugs to creep in. To make debugging less painful in these cases, dummy and minimal states were set up as part of the unit tests to check for inconsistencies against the input value and the expected one. While Jest offers a complete range of features, the matchers used most often from this library were <code>toBe</code> to check for exact values (e.g., Boolean and numbers) and <code>toEqual</code> to assert a deep equality on objects and arrays. Mock functions were set up with Reactotron, but that need went away when the developer migrated to a more stable piece of software (i.e, React Native Debugger).</p>
 <p><img alt="Early new programme" src="../../../../../images/posts/0035_building_first_react_native_application/early_new_programme.png"/></p>
-<h2 id="database-asynchronous-code">Database <span class="amp">&amp;</span> asynchronous code</h2>
-<p>In the future, should this application be deployed to the cloud, there will be a need to use setup and teardown functionality against a database and to add tests for asynchronous calls. This was not required for the present version of the application, which focuses on allowing users to be as independent as possible from the Internet while respecting their privacy.</p>
+<h2 id="database-asynchronous-code">Database &amp; asynchronous code</h2>
+<p>In the future, should this application be deployed to the cloud, there will be a need to use setup and teardown functionality against a database and to add tests for asynchronous calls. This was not required for the present version of the application, which focuses on allowing users to be as independent as possible from the Internet while respecting their privacy.</p>
 <p><img alt="Later new programme flow" src="../../../../../images/posts/0035_building_first_react_native_application/later_new_programme_flow.png"/></p>
 <hr/>
 <h1 id="evaluation">Evaluation</h1>
 <h2 id="overview">Overview</h2>
-<p>All in all, despite a strict deadline and few (more truthfully, close to none) monetary resources, it was possible to deliver a working solution to a tangible problem, namely that of increasing productivity by knowing what is most valued in one’s life circumstances. While the application can be considered feature-complete, it could be the beginning of a long journey towards sharing an application that has real potential to improve people’s lives by solving a problem that is hard to pinpoint without enough awareness.</p>
+<p>All in all, despite a strict deadline and few (more truthfully, close to none) monetary resources, it was possible to deliver a working solution to a tangible problem, namely that of increasing productivity by knowing what is most valued in one's life circumstances. While the application can be considered feature-complete, it could be the beginning of a long journey towards sharing an application that has real potential to improve people's lives by solving a problem that is hard to pinpoint without enough awareness.</p>
 <p><img alt="New programme screen" src="../../../../../images/posts/0035_building_first_react_native_application/new_programme.png"/></p>
-<h2 id="technical-aspects">Technical aspects</h2>
-<p>On the technical side of things, it would have been preferable to split the state in a more logical way right from the beginning. Even though a general idea of the state was drawn inside an <span class="caps">IDE</span> by creating a <span class="caps">JSON</span> object to represent the schema to be adhered to, the state was allowed to mutate along the way, which caused issues by having to move reducers around and by having to update the selectors to look at a different hierarchy of the state. By contemplating the real meaning of a Redux “slice” in which the state is meant to be entirely independent from other slices of the state, it makes it obvious that some types of object will remain independent while others will eventually require to communicate with their siblings. Thinking this logic through before starting to make things happen in the <span class="caps">UI</span> is, in hindsight, a fruitful endeavour.</p>
+<h2 id="technical-aspects">Technical aspects</h2>
+<p>On the technical side of things, it would have been preferable to split the state in a more logical way right from the beginning. Even though a general idea of the state was drawn inside an IDE by creating a JSON object to represent the schema to be adhered to, the state was allowed to mutate along the way, which caused issues by having to move reducers around and by having to update the selectors to look at a different hierarchy of the state. By contemplating the real meaning of a Redux "slice" in which the state is meant to be entirely independent from other slices of the state, it makes it obvious that some types of object will remain independent while others will eventually require to communicate with their siblings. Thinking this logic through before starting to make things happen in the UI is, in hindsight, a fruitful endeavour.</p>
 <p><img alt="New programme flow" src="../../../../../images/posts/0035_building_first_react_native_application/new_programme_flow.png"/></p>
-<h2 id="communicational-aspects">Communicational aspects</h2>
-<p>On the soft skills side, a mistake was made by not sharing the original concept with users sooner. Although the final product would likely resemble what it ended up being, interactivity in the application could have been designed better regarding some aspects. For example, the component responsible for displaying the frequency of execution could very well become an actual calendar. Designed in a compact way, a calendar surely would be more familiar to most users instead of having a list that needs to be scrolled into view. Functionally speaking, ticking a box in a calendar-like view would be exactly equivalent to checking off a box next to a row item in a list, but the presentation would be more familiar to most users and, quite understandably, more intuitive too.</p>
+<h2 id="communicational-aspects">Communicational aspects</h2>
+<p>On the soft skills side, a mistake was made by not sharing the original concept with users sooner. Although the final product would likely resemble what it ended up being, interactivity in the application could have been designed better regarding some aspects. For example, the component responsible for displaying the frequency of execution could very well become an actual calendar. Designed in a compact way, a calendar surely would be more familiar to most users instead of having a list that needs to be scrolled into view. Functionally speaking, ticking a box in a calendar-like view would be exactly equivalent to checking off a box next to a row item in a list, but the presentation would be more familiar to most users and, quite understandably, more intuitive too.</p>
 <p><img alt="Finish flow" src="../../../../../images/posts/0035_building_first_react_native_application/finish_flow.png"/></p>
 <hr/>
-<h1 id="demo-of-the-app">Demo of the app</h1>
+<h1 id="demo-of-the-app">Demo of the app</h1>
 <div class="youtube youtube-16x9">
 <iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/d9PAO_Ehza4"></iframe>
 </div>
 <hr/>
-<h1 id="resources-and-references">Resources and references</h1>
-<p>If you like this type and format of content, you might also enjoy <a href="../../../../../posts/2023/07/30/building-task-planner-react-native/">a follow-up story about building a task planner</a>, also brought to life with the help of React Native!</p>
+<h1 id="resources-and-references">Resources and references</h1>
+<p>If you like this type and format of content, you might also enjoy <a href="../../../../../posts/2023/07/30/building-task-planner-react-native/">a follow-up story about building a task planner</a>, also brought to life with the help of React Native!</p>
 <ul>
-<li><a href="https://www.annualreviews.org/doi/abs/10.1146/annurev-psych-122414-033417">Annual Reviews, Psychology of Habit</a></li>
-<li><a href="https://eslint.org/">ESLint, Find and fix problems in your JavaScript code</a></li>
-<li><a href="https://expo.dev">Expo, Make any app. Run it everywhere</a></li>
-<li><a href="https://help.figma.com/hc/en-us/articles/360038662654-Guide-to-components-in-Figma">Figma, Guide to components in Figma</a></li>
-<li><a href="https://www.figma.com">Figma, Nothing great is made alone</a></li>
-<li><a href="https://hubermanlab.com/the-science-of-making-and-breaking-habits">Huberman Lab, <span class="caps">THE</span> <span class="caps">SCIENCE</span> <span class="caps">OF</span> <span class="caps">MAKING</span> <span class="amp">&amp;</span> <span class="caps">BREAKING</span> <span class="caps">HABITS</span></a></li>
-<li><a href="https://jestjs.io">Jest, Delightful JavaScript Testing Framework with a focus on simplicity</a></li>
-<li><a href="https://material.io/design">Material Design, Create intuitive and beautiful products with Material Design</a></li>
-<li><a href="https://github.com/react-native-async-storage/async-storage">React Native Async Storage, An asynchronous, persistent, key-value storage system for React Native</a></li>
-<li><a href="https://github.com/WrathChaos/react-native-bouncy-checkbox">React Native Bouncy Checkbox - Fully customizable animated bouncy checkbox for React Native</a></li>
-<li><a href="https://github.com/react-native-datetimepicker/datetimepicker">React Native DateTimePicker - React Native date <span class="amp">&amp;</span> time picker com- ponent for iOS, Android and Windows</a></li>
-<li><a href="https://github.com/jhen0409/react-native-debugger">React Native Debugger - The standalone app based on official debugger of React Native, and includes React Inspector / Redux DevTools</a></li>
-<li><a href="https://reactnavigation.org/">React Navigation - Routing and navigation for Expo and React Native apps</a></li>
-<li><a href="https://github.com/vitalets/react-native-extended-stylesheet">react-native-extended-stylesheet - Extended StyleSheets for React Native</a></li>
-<li><a href="https://github.com/react-native-maps/react-native-maps">react-native-maps - React Native Mapview component for iOS + Android</a></li>
-<li><a href="https://github.com/Purii/react-native-tableview-simple">react-native-tableview-simple - Flexible and lightweight React Native component for UITableView made with pure <span class="caps">CSS</span></a></li>
-<li><a href="https://github.com/infinitered/reactotron">Reactotron - A desktop app for inspecting your React <span class="caps">JS</span> and React Native projects. macOS, Linux, and Windows</a></li>
-<li><a href="https://github.com/rt2zz/redux-persist">Redux Persist, Persist and rehydrate a redux store</a></li>
-<li><a href="https://redux-toolkit.js.org/tutorials/quick-start">Redux Toolkit, Redux Toolkit Quick Start</a></li>
-<li><a href="https://redux-toolkit.js.org">Redux Toolkit, The official, opinionated, batteries-included toolset for efficient Redux development</a></li>
-<li><a href="https://journals.sagepub.com/doi/full/10.1177/1539449219876877">Sage Journals, Intervention to Modify Habits: A Scoping Review</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Zen_of_Python">Wikipedia, Zen of Python</a></li>
-<li><a href="https://yarnpkg.com">Yarn, Safe, stable, reproducible projects</a></li>
+<li><a href="https://www.annualreviews.org/doi/abs/10.1146/annurev-psych-122414-033417">Annual Reviews, Psychology of Habit</a></li>
+<li><a href="https://eslint.org/">ESLint, Find and fix problems in your JavaScript code</a></li>
+<li><a href="https://expo.dev">Expo, Make any app. Run it everywhere</a></li>
+<li><a href="https://help.figma.com/hc/en-us/articles/360038662654-Guide-to-components-in-Figma">Figma, Guide to components in Figma</a></li>
+<li><a href="https://www.figma.com">Figma, Nothing great is made alone</a></li>
+<li><a href="https://hubermanlab.com/the-science-of-making-and-breaking-habits">Huberman Lab, THE SCIENCE OF MAKING &amp; BREAKING HABITS</a></li>
+<li><a href="https://jestjs.io">Jest, Delightful JavaScript Testing Framework with a focus on simplicity</a></li>
+<li><a href="https://material.io/design">Material Design, Create intuitive and beautiful products with Material Design</a></li>
+<li><a href="https://github.com/react-native-async-storage/async-storage">React Native Async Storage, An asynchronous, persistent, key-value storage system for React Native</a></li>
+<li><a href="https://github.com/WrathChaos/react-native-bouncy-checkbox">React Native Bouncy Checkbox - Fully customizable animated bouncy checkbox for React Native</a></li>
+<li><a href="https://github.com/react-native-datetimepicker/datetimepicker">React Native DateTimePicker - React Native date &amp; time picker com- ponent for iOS, Android and Windows</a></li>
+<li><a href="https://github.com/jhen0409/react-native-debugger">React Native Debugger - The standalone app based on official debugger of React Native, and includes React Inspector / Redux DevTools</a></li>
+<li><a href="https://reactnavigation.org/">React Navigation - Routing and navigation for Expo and React Native apps</a></li>
+<li><a href="https://github.com/vitalets/react-native-extended-stylesheet">react-native-extended-stylesheet - Extended StyleSheets for React Native</a></li>
+<li><a href="https://github.com/react-native-maps/react-native-maps">react-native-maps - React Native Mapview component for iOS + Android</a></li>
+<li><a href="https://github.com/Purii/react-native-tableview-simple">react-native-tableview-simple - Flexible and lightweight React Native component for UITableView made with pure CSS</a></li>
+<li><a href="https://github.com/infinitered/reactotron">Reactotron - A desktop app for inspecting your React JS and React Native projects. macOS, Linux, and Windows</a></li>
+<li><a href="https://github.com/rt2zz/redux-persist">Redux Persist, Persist and rehydrate a redux store</a></li>
+<li><a href="https://redux-toolkit.js.org/tutorials/quick-start">Redux Toolkit, Redux Toolkit Quick Start</a></li>
+<li><a href="https://redux-toolkit.js.org">Redux Toolkit, The official, opinionated, batteries-included toolset for efficient Redux development</a></li>
+<li><a href="https://journals.sagepub.com/doi/full/10.1177/1539449219876877">Sage Journals, Intervention to Modify Habits: A Scoping Review</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Zen_of_Python">Wikipedia, Zen of Python</a></li>
+<li><a href="https://yarnpkg.com">Yarn, Safe, stable, reproducible projects</a></li>
 </ul></div>
 </article>
         </main>

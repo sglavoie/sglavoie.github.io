@@ -152,7 +152,7 @@
 <!-- Open graph for social networks -->
 <meta name="og:title" property="og:title" content="Has your password been leaked in a major breach? You can find out thanks to Have I Been Pwned?... Or you can use their API and stop worrying about your password being sent through your Web browser!" />
  
-    <title>sglavoie.com &ndash; Have You Been&nbsp;Pwned?</title>
+    <title>sglavoie.com &ndash; Have You Been Pwned?</title>
   </head>
 
   <body>
@@ -524,7 +524,7 @@
       <main>
 <article data-pagefind-body>
   <div class="article_title">
-    <h1><a href="../../../../../posts/2019/03/21/have-you-been-pwned/">Have You Been&nbsp;Pwned?</a></h1>
+    <h1><a href="../../../../../posts/2019/03/21/have-you-been-pwned/">Have You Been Pwned?</a></h1>
   </div>
   <div class="meta_container_hrs">
     <hr />
@@ -638,7 +638,7 @@
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#python-to-the-rescue">Python to the rescue</a><ul>
-<li><a href="#example-usage">Example usage</a></li>
+<li><a href="#example-usage">Example usage</a></li>
 </ul>
 </li>
 <li><a href="#conclusion">Conclusion</a></li>
@@ -648,18 +648,18 @@
 <hr/>
 <h1 id="introduction">Introduction</h1>
 <p><a href="https://haveibeenpwned.com/">Have I Been Pwned?</a> has a very simple and
-accessible <span class="caps">API</span> that’s perfect to work with as a beginner. There are
+accessible API that's perfect to work with as a beginner. There are
 different ways to retrieve information and the script below is only
 one glimpse into the numerous possibilities available. It is built in
 a way that makes it easy to add features and functionality thanks to
-<a href="https://github.com/pallets/click">Click</a>, a wonderful <em>“command line
-interface toolkit”</em>.</p>
-<h1 id="python-to-the-rescue">Python to the rescue</h1>
+<a href="https://github.com/pallets/click">Click</a>, a wonderful <em>"command line
+interface toolkit"</em>.</p>
+<h1 id="python-to-the-rescue">Python to the rescue</h1>
 <p>The following script uses <a href="https://github.com/pallets/click">Click</a>
 to build a tiny command-line interface instead of more
 traditional tools like <code>argparse</code>. You will also need
 <a href="https://github.com/kennethreitz/requests">requests</a> to peek inside the
-<span class="caps">API</span>. Both can be obtained as follow in a terminal:</p>
+API. Both can be obtained as follow in a terminal:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>click<span class="w"> </span>requests
 </code></pre></div>
 <p>And now, the <em>pièce de résistance</em>.</p>
@@ -785,7 +785,7 @@ traditional tools like <code>argparse</code>. You will also need
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">hibp</span><span class="p">()</span>
 </code></pre></div>
-<h2 id="example-usage">Example usage</h2>
+<h2 id="example-usage">Example usage</h2>
 <p><a href="../../../../../images/posts/0011_have-i-been-pwned/have_i_been_pwned_script.png"><img alt="have_i_been_pwned_script" class="max-size-img-post" src="../../../../../images/posts/0011_have-i-been-pwned/have_i_been_pwned_script.png"/></a></p>
 <h1 id="conclusion">Conclusion</h1>
 <p>If you are familiar with Python,
@@ -794,10 +794,10 @@ reading its code. You can also have a look at this <a href="https://github.com/s
 GitHub</a> if you want
 to fork it or reuse it any other way you wish. I have personally found
 it much easier to work with <a href="https://github.com/pallets/click">Click</a>
-instead of <code>argparse</code> and <code>optparse</code>. I haven’t got to try
+instead of <code>argparse</code> and <code>optparse</code>. I haven't got to try
 <a href="https://github.com/docopt/docopt">docopt</a> yet, but it is almost equally
 as popular as Click on GitHub at the time of this writing and its
-Pythonic way makes it another great option to consider.</p></div>
+Pythonic way makes it another great option to consider.</p></div>
 </article>
         </main>
     </div>

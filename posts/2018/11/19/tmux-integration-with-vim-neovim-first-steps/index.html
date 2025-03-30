@@ -152,7 +152,7 @@
 <!-- Open graph for social networks -->
 <meta name="og:title" property="og:title" content="This is a short introduction that shows a possible workflow with tmux and Vim/Neovim." />
  
-    <title>sglavoie.com &ndash; Tmux Integration with Vim/Neovim — First&nbsp;Steps</title>
+    <title>sglavoie.com &ndash; Tmux Integration with Vim/Neovim — First Steps</title>
   </head>
 
   <body>
@@ -524,7 +524,7 @@
       <main>
 <article data-pagefind-body>
   <div class="article_title">
-    <h1><a href="../../../../../posts/2018/11/19/tmux-integration-with-vim-neovim-first-steps/">Tmux Integration with Vim/Neovim — First&nbsp;Steps</a></h1>
+    <h1><a href="../../../../../posts/2018/11/19/tmux-integration-with-vim-neovim-first-steps/">Tmux Integration with Vim/Neovim — First Steps</a></h1>
   </div>
   <div class="meta_container_hrs">
     <hr />
@@ -626,7 +626,7 @@
       </div>
       <div class="article_readtime">
         <span class="readtime_tilde">~</span
-        ><span class="readtime_minutes">3</span>
+        ><span class="readtime_minutes">2</span>
         minutes to read
       </div>
     </div>
@@ -649,19 +649,19 @@
 <li><a href="#tmux_default_sessionsh_1">.tmux_default_session.sh</a></li>
 </ul>
 </li>
-<li><a href="#tmux-demo">tmux demo</a></li>
+<li><a href="#tmux-demo">tmux demo</a></li>
 </ul>
 </li>
 </ul>
 </div></nav>
   <div class="article_text">
 <hr/>
-<h2 id="tmux-integration">tmux integration</h2>
+<h2 id="tmux-integration">tmux integration</h2>
 <p><a href="https://github.com/tmux/tmux">tmux</a> offers many advantages in the
 context of remote access to another machine, but it also shines on a
-local setup! Here is how I currently like to set it up.</p>
+local setup! Here is how I currently like to set it up.</p>
 <hr/>
-<h3 id="configuration-file">Configuration file:</h3>
+<h3 id="configuration-file">Configuration file:</h3>
 <h5 id="tmuxconf"><code>~/.tmux.conf</code></h5>
 <div class="highlight"><pre><span></span><code><span class="c1"># split panes using | and -</span>
 <span class="nb">bind</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>split-window<span class="w"> </span>-h
@@ -684,11 +684,11 @@ source-file<span class="w"> </span><span class="s2">"</span><span class="si">${<
 <p>This is all very self-explanatory. <a href="https://github.com/jimeh/tmux-themepack">Many themes can be found
 here</a>.</p>
 <hr/>
-<h3 id="automating-the-launch-of-a-default-session">Automating the launch of a default session:</h3>
+<h3 id="automating-the-launch-of-a-default-session">Automating the launch of a default session:</h3>
 <h5 id="tmux_default_sessionsh"><code>~/.tmux_default_session.sh</code></h5>
 <p>This is a small Bash script that I like to have for automatic set up
 of a development environment with tmux and Vim/Neovim. As my current
-workflow, I enjoy the following:</p>
+workflow, I enjoy the following:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!bash</span>
 <span class="c1"># var for session name (to avoid repeated occurences)</span>
 <span class="nv">sn</span><span class="o">=</span>dev
@@ -726,10 +726,10 @@ tmux<span class="w"> </span><span class="k">select</span>-window<span class="w">
 tmux<span class="w"> </span>-2<span class="w"> </span>attach-session<span class="w"> </span>-t<span class="w"> </span><span class="s2">"</span><span class="nv">$sn</span><span class="s2">"</span>
 </code></pre></div>
 <hr/>
-<h3 id="aliases-to-make-use-of">Aliases to make use of:</h3>
+<h3 id="aliases-to-make-use-of">Aliases to make use of:</h3>
 <h5 id="tmux_default_sessionsh_1"><code>.tmux_default_session.sh</code></h5>
 <p>I add the following aliases in <code>~/.bash_aliases</code> to automate a chunk of
-the workflow:</p>
+the workflow:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># This will launch tmux with the desired configuration</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">dev</span><span class="o">=</span><span class="s1">'bash ~/.tmux_default_session.sh'</span>
 
@@ -744,7 +744,7 @@ the workflow:</p>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">adev</span><span class="o">=</span><span class="s1">'tmux attach-session -t dev'</span>
 </code></pre></div>
 <hr/>
-<h3 id="tmux-demo">tmux demo</h3>
+<h3 id="tmux-demo">tmux demo</h3>
 <p>(click to open image)
 <a href="../../../../../images/posts/0001_tmux-integration-with-vim/tmux-demo.gif"><img alt="tmux-demo" class="max-size-img-post" src="../../../../../images/posts/0001_tmux-integration-with-vim/tmux-demo.gif"/></a></p>
 <hr/>

@@ -152,7 +152,7 @@
 <!-- Open graph for social networks -->
 <meta name="og:title" property="og:title" content="Every once in a short while, new digital technology comes out to iterate on existing products. Software targeting technical design (e.g., flowcharts) is no exception. Yet, there is still room to enjoy older tools that work simply... and simply work!" />
  
-    <title>sglavoie.com &ndash; Uncovering some of the merits of text-based&nbsp;diagrams</title>
+    <title>sglavoie.com &ndash; Uncovering some of the merits of text-based diagrams</title>
   </head>
 
   <body>
@@ -524,7 +524,7 @@
       <main>
 <article data-pagefind-body>
   <div class="article_title">
-    <h1><a href="../../../../../posts/2022/11/19/uncovering-some-of-the-merits-of-text-based-diagrams/">Uncovering some of the merits of text-based&nbsp;diagrams</a></h1>
+    <h1><a href="../../../../../posts/2022/11/19/uncovering-some-of-the-merits-of-text-based-diagrams/">Uncovering some of the merits of text-based diagrams</a></h1>
   </div>
   <div class="meta_container_hrs">
     <hr />
@@ -623,11 +623,11 @@
   <nav class="toc"><div class="toc">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#plantuml-an-old-love-affair">PlantUML: an old love affair</a></li>
-<li><a href="#mermaid-the-new-muse">Mermaid: the new muse</a></li>
-<li><a href="#when-text-based-is-too-clunky">When text-based is too clunky</a></li>
+<li><a href="#plantuml-an-old-love-affair">PlantUML: an old love affair</a></li>
+<li><a href="#mermaid-the-new-muse">Mermaid: the new muse</a></li>
+<li><a href="#when-text-based-is-too-clunky">When text-based is too clunky</a></li>
 <li><a href="#conclusion">Conclusion</a><ul>
-<li><a href="#resources-and-references">Resources and references</a></li>
+<li><a href="#resources-and-references">Resources and references</a></li>
 </ul>
 </li>
 </ul>
@@ -635,13 +635,13 @@
   <div class="article_text">
 <hr/>
 <h1 id="introduction">Introduction</h1>
-<p>Ever since I was introduced to text-based diagrams through <span class="caps">UML</span> and more concretely thanks to some fanatic acquaintance who shall remain nameless (else he will turn <em>rufous</em>), I was hooked by their simplicity, flexibility, predictability of presentation and usefulness. While they can be customized up to a point to look a bit better, the goal is really about efficiency. I came to peace with the fact that the final product will often look different from what I’d like to achieve. After all, one of the possible applications of text-based diagrams is to quickly share ideas that can be iterated upon without too much fuss and without slowing down to make things pretty. True, the arrows might not be placed precisely where I’d want them to show up, but the time savings gained by not having to re-arrange boxes and accommodate a canvas are hefty compensation prices! Besides, some tools in that space integrate really well on platforms like GitHub and GitLab without requiring any special piece of software to be produced or viewed, which makes them particularly convenient.</p>
+<p>Ever since I was introduced to text-based diagrams through UML and more concretely thanks to some fanatic acquaintance who shall remain nameless (else he will turn <em>rufous</em>), I was hooked by their simplicity, flexibility, predictability of presentation and usefulness. While they can be customized up to a point to look a bit better, the goal is really about efficiency. I came to peace with the fact that the final product will often look different from what I'd like to achieve. After all, one of the possible applications of text-based diagrams is to quickly share ideas that can be iterated upon without too much fuss and without slowing down to make things pretty. True, the arrows might not be placed precisely where I'd want them to show up, but the time savings gained by not having to re-arrange boxes and accommodate a canvas are hefty compensation prices! Besides, some tools in that space integrate really well on platforms like GitHub and GitLab without requiring any special piece of software to be produced or viewed, which makes them particularly convenient.</p>
 <hr/>
-<h1 id="plantuml-an-old-love-affair">PlantUML: an old love affair</h1>
-<p><a href="https://plantuml.com/">PlantUML</a> has been around for a while — over <strong>12</strong> years at this point! It is a bit cumbersome to use as it requires a server running with Java to do its job. There are good integrations for it though, including <a href="https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml">a <span class="caps">VS</span> Code extension</a> and a <a href="https://hub.docker.com/r/plantuml/plantuml-server">Docker image</a>. Its documentation is pretty good and the diagrams are more easily configurable out of the box than with some other similar tools.</p>
-<p>Even when starting with an unremarkable use case diagram such as the following one, ideas can be shared efficiently without having to go to a drawing board.</p>
+<h1 id="plantuml-an-old-love-affair">PlantUML: an old love affair</h1>
+<p><a href="https://plantuml.com/">PlantUML</a> has been around for a while -- over <strong>12</strong> years at this point! It is a bit cumbersome to use as it requires a server running with Java to do its job. There are good integrations for it though, including <a href="https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml">a VS Code extension</a> and a <a href="https://hub.docker.com/r/plantuml/plantuml-server">Docker image</a>. Its documentation is pretty good and the diagrams are more easily configurable out of the box than with some other similar tools.</p>
+<p>Even when starting with an unremarkable use case diagram such as the following one, ideas can be shared efficiently without having to go to a drawing board.</p>
 <p><img alt="use_case_simplest" src="../../../../../images/posts/0033_text_based_diagrams/use_case_simplest.png"/></p>
-<p>Actually, the code responsible for generating this diagram is as follows:</p>
+<p>Actually, the code responsible for generating this diagram is as follows:</p>
 <div class="highlight"><pre><span></span><code>@startuml
 package Users {
   :End User 1: as EndUser1
@@ -661,7 +661,7 @@ EndUser2 -- UC3
 note bottom of UC1 : Under specific conditions,\ne.g. after X amount of time
 @enduml
 </code></pre></div>
-<p>While this may look like an unfamiliar syntax at first, it is concise, expressive and can be used for many types of <span class="caps">UML</span> diagrams. For instance, to take a different use case a notch further, it is not much work:</p>
+<p>While this may look like an unfamiliar syntax at first, it is concise, expressive and can be used for many types of UML diagrams. For instance, to take a different use case a notch further, it is not much work:</p>
 <p><img alt="use_case_simple" src="../../../../../images/posts/0033_text_based_diagrams/use_case_simple.png"/></p>
 <div class="highlight"><pre><span></span><code>@startuml
 package Users {
@@ -690,9 +690,9 @@ EndUser -- UC6
 Admin -- UC1
 @enduml
 </code></pre></div>
-<p>Sky is the limit! For example, drawing from scratch the following diagram may start to get messy when done manually:</p>
+<p>Sky is the limit! For example, drawing from scratch the following diagram may start to get messy when done manually:</p>
 <p><img alt="use_case_more_advanced" src="../../../../../images/posts/0033_text_based_diagrams/use_case_more_advanced.png"/></p>
-<p>This is when PlantUML starts to shine as it puts elements in sensible locations without one having to think about it — or endlessly tinker to make them fit on a predefined area. Regardless of the relative visual complexity achieved, the code behind the scenes is still quite understandable and manageable:</p>
+<p>This is when PlantUML starts to shine as it puts elements in sensible locations without one having to think about it -- or endlessly tinker to make them fit on a predefined area. Regardless of the relative visual complexity achieved, the code behind the scenes is still quite understandable and manageable:</p>
 <div class="highlight"><pre><span></span><code>@startuml
 package Users {
   :ISP:
@@ -732,12 +732,12 @@ EndUser -left- UC1
 ISP -- UC8
 @enduml
 </code></pre></div>
-<p>As can be seen, elements can be described on their own (here with a <code>package</code>) and linked together in a clear way (with custom arrows to specify the connection type, length and direction, e.g. <code>--&gt;</code>, <code>&lt;..</code> or <code>--</code>). Of course, as with any programming task, it helps to adopt pertinent naming conventions…</p>
+<p>As can be seen, elements can be described on their own (here with a <code>package</code>) and linked together in a clear way (with custom arrows to specify the connection type, length and direction, e.g. <code>--&gt;</code>, <code>&lt;..</code> or <code>--</code>). Of course, as with any programming task, it helps to adopt pertinent naming conventions...</p>
 <p>Beyond use case diagrams, PlantUML is also nice for producing all sorts of outputs, for instance a component diagram (as seen in <a href="../../../../../posts/2022/09/18/a-retrospective-on-creating-an-impractical-little-tool-just-for-fun/">A retrospective on creating an impractical little tool just for fun</a>):</p>
 <p><img alt="ugc-server" src="../../../../../images/posts/0030_a_retrospective_on_creating_an_impractical_little_tool_just_for_fun/ugc-server.png"/></p>
 <p>It can also handle other types of diagrams: sequence; class; activity; state; deployment; network; etc. One other option that I have found useful is its ability to create Gantt charts that are easily programmable! This one, for example, which was used to distribute human resources across a small project done in <a href="https://www.london.ac.uk/courses/computer-science">a computer science degree at the University of London</a>:</p>
 <p><img alt="gantt_chart" src="../../../../../images/posts/0033_text_based_diagrams/gantt_chart.png"/></p>
-<p>Its accompanying code was easy to re-use to cut parts of the diagram into sections that could be presented on their own:</p>
+<p>Its accompanying code was easy to re-use to cut parts of the diagram into sections that could be presented on their own:</p>
 <div class="highlight"><pre><span></span><code>@startuml
 ' Metadata
 hide footbox
@@ -815,16 +815,16 @@ end note
 2021-03-15 is closed
 @enduml
 </code></pre></div>
-<p>It was in fact relatively frictionless to use this diagram as a template for a version 2:</p>
+<p>It was in fact relatively frictionless to use this diagram as a template for a version 2:</p>
 <p><img alt="gantt_chart_updated" src="../../../../../images/posts/0033_text_based_diagrams/gantt_chart_updated.png"/></p>
-<p>This tool is incredibly awesome, yet it’s not as versatile as it could be. This is mainly due to the fact that while the output can be scaled as needed to get high quality diagrams, its format isn’t supported yet on GitHub (although <a href="https://gitlab.com/gitlab-com/gl-infra/readiness/blob/master/plantuml/overview.md">GitLab does work with it without hassle</a>). For this reason, I’ve looked elsewhere for greener grass and found an alternative for publishing on GitHub.</p>
+<p>This tool is incredibly awesome, yet it's not as versatile as it could be. This is mainly due to the fact that while the output can be scaled as needed to get high quality diagrams, its format isn't supported yet on GitHub (although <a href="https://gitlab.com/gitlab-com/gl-infra/readiness/blob/master/plantuml/overview.md">GitLab does work with it without hassle</a>). For this reason, I've looked elsewhere for greener grass and found an alternative for publishing on GitHub.</p>
 <hr/>
-<h1 id="mermaid-the-new-muse">Mermaid: the new muse</h1>
-<p>Born roughly 4 years after PlantUML, <a href="https://mermaid-js.github.io/mermaid/">Mermaid</a> has seen some mesmerizing growth in the open-source world (currently at <a href="https://github.com/mermaid-js/mermaid">github.com/mermaid-js/mermaid</a>, it has more than 7 times the number of GitHub stars that <a href="https://github.com/plantuml/plantuml">PlantUML</a> has!). While I personally enjoy looking at the old-school output produced by PlantUML and have found that diagrams produced by it come out with better spacing and flows on average compared to Mermaid, I like even more the native GitHub support for Mermaid straight from Markdown files (by the way, GitLab supports both PlantUML and Mermaid)! It makes it a powerful tool to use because the diagram is embedded within the Markdown file itself, perfect to keep it under revision while avoiding commits with heavy binary assets.</p>
-<p>Mermaid does not support as many diagram types as PlantUML, but it certainly works well for the main ones, which would include flowcharts, sequence diagrams, class diagrams, <span class="caps">ER</span> diagrams and Gantt diagrams. Its documentation is less dense and complete than that of PlantUML and diagrams are less customizable without messing around with external <span class="caps">CSS</span> files (which can’t be easily linked on every platform), but for the sheer convenience of being able to visualize diagrams from Markdown files on GitHub, it made it easier to switch over. Working locally with it is also a breeze as there is no need to point to a Java installation or have a server running from a Docker container when using, for instance, <a href="https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid">this <span class="caps">VS</span> Code extension</a>.</p>
-<p>Mermaid is great for flowcharts, although I have found myself in need of workarounds more often than with PlantUML for sure. For example, the following diagram was relatively painless to come up with:</p>
+<h1 id="mermaid-the-new-muse">Mermaid: the new muse</h1>
+<p>Born roughly 4 years after PlantUML, <a href="https://mermaid-js.github.io/mermaid/">Mermaid</a> has seen some mesmerizing growth in the open-source world (currently at <a href="https://github.com/mermaid-js/mermaid">github.com/mermaid-js/mermaid</a>, it has more than 7 times the number of GitHub stars that <a href="https://github.com/plantuml/plantuml">PlantUML</a> has!). While I personally enjoy looking at the old-school output produced by PlantUML and have found that diagrams produced by it come out with better spacing and flows on average compared to Mermaid, I like even more the native GitHub support for Mermaid straight from Markdown files (by the way, GitLab supports both PlantUML and Mermaid)! It makes it a powerful tool to use because the diagram is embedded within the Markdown file itself, perfect to keep it under revision while avoiding commits with heavy binary assets.</p>
+<p>Mermaid does not support as many diagram types as PlantUML, but it certainly works well for the main ones, which would include flowcharts, sequence diagrams, class diagrams, ER diagrams and Gantt diagrams. Its documentation is less dense and complete than that of PlantUML and diagrams are less customizable without messing around with external CSS files (which can't be easily linked on every platform), but for the sheer convenience of being able to visualize diagrams from Markdown files on GitHub, it made it easier to switch over. Working locally with it is also a breeze as there is no need to point to a Java installation or have a server running from a Docker container when using, for instance, <a href="https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid">this VS Code extension</a>.</p>
+<p>Mermaid is great for flowcharts, although I have found myself in need of workarounds more often than with PlantUML for sure. For example, the following diagram was relatively painless to come up with:</p>
 <p><img alt="mermaid_flowchart" src="../../../../../images/posts/0033_text_based_diagrams/mermaid_flowchart.png"/></p>
-<p>As can be observed in its source code below, I had some issues with content alignment (plus, label positioning isn’t always optimal as can be seen with a particular ‘<code>Yes</code><span class="quo">‘</span> in this case). That can often be fixed by changing the orientation of the diagram or by modifying the connection length between rectangles, but still.</p>
+<p>As can be observed in its source code below, I had some issues with content alignment (plus, label positioning isn't always optimal as can be seen with a particular '<code>Yes</code>' in this case). That can often be fixed by changing the orientation of the diagram or by modifying the connection length between rectangles, but still.</p>
 <div class="highlight"><pre><span></span><code>flowchart TB
 
 %% Define names
@@ -873,10 +873,10 @@ subgraph VM 2
 csvFeatherValidQ --&gt;|Yes| convertCSV
 end
 </code></pre></div>
-<p>The syntax is straightforward to follow. Some shapes could take less space (the diamond/rhombus ones in particular), which is why I ended up using hexagonal nodes instead in this example. Overall, the experience is satisfying and makes it so easy to keep iterating and commit multiple versions of the work without taking much disk space at all in the Git repository! Admittedly, I’d rather work with PlantUML for other types of diagrams as I don’t personally use most of the ones Mermaid has to offer (e.g., pie charts, requirement diagrams, git graphs or user journeys) and I prefer the output from PlantUML for the other ones.</p>
-<p>One thing I really like about flowcharts in Mermaid is how easy it is to nest graphs, which often increases clarity without making it difficult to create or update:</p>
+<p>The syntax is straightforward to follow. Some shapes could take less space (the diamond/rhombus ones in particular), which is why I ended up using hexagonal nodes instead in this example. Overall, the experience is satisfying and makes it so easy to keep iterating and commit multiple versions of the work without taking much disk space at all in the Git repository! Admittedly, I'd rather work with PlantUML for other types of diagrams as I don't personally use most of the ones Mermaid has to offer (e.g., pie charts, requirement diagrams, git graphs or user journeys) and I prefer the output from PlantUML for the other ones.</p>
+<p>One thing I really like about flowcharts in Mermaid is how easy it is to nest graphs, which often increases clarity without making it difficult to create or update:</p>
 <p><img alt="mermaid_flowchart_nested" src="../../../../../images/posts/0033_text_based_diagrams/mermaid_flowchart_nested.png"/></p>
-<p>While this isn’t perfect, it’s good enough to show the architecture of a system at a basic level.</p>
+<p>While this isn't perfect, it's good enough to show the architecture of a system at a basic level.</p>
 <div class="highlight"><pre><span></span><code>flowchart TB
 
 %%  Looping over regions to fetch and update
@@ -932,34 +932,34 @@ start
 --&gt; uploadTop
 --&gt; resize  %%
 </code></pre></div>
-<p>Well, it’s just a matter of taste and in reality, I wouldn’t use either PlantUML or Mermaid for fancier-looking results or for something that would be a real mess to follow textually. For these purposes, I would go with something like <a href="https://app.diagrams.net/">Draw.io</a> or <a href="https://www.figma.com/">Figma</a>, although with the recent <a href="https://news.adobe.com/news/news-details/2022/Adobe-to-Acquire-Figma/default.aspx">acquisition of Figma by Adobe</a>, I might have to switch to another option, like <a href="https://www.framer.com/">Framer</a> or the promising open-source project <a href="https://github.com/penpot/penpot">Penpot</a>.</p>
+<p>Well, it's just a matter of taste and in reality, I wouldn't use either PlantUML or Mermaid for fancier-looking results or for something that would be a real mess to follow textually. For these purposes, I would go with something like <a href="https://app.diagrams.net/">Draw.io</a> or <a href="https://www.figma.com/">Figma</a>, although with the recent <a href="https://news.adobe.com/news/news-details/2022/Adobe-to-Acquire-Figma/default.aspx">acquisition of Figma by Adobe</a>, I might have to switch to another option, like <a href="https://www.framer.com/">Framer</a> or the promising open-source project <a href="https://github.com/penpot/penpot">Penpot</a>.</p>
 <hr/>
-<h1 id="when-text-based-is-too-clunky">When text-based is too clunky</h1>
-<p>Even though I love the possibilities offered by tools like PlantUML and Mermaid (we didn’t even touch on their theming capabilities!), there are instances where it’s just not as convenient. While it’s possible to <a href="https://plantuml.com/salt">do wireframing with PlantUML</a>, there is no way it can compete with some software like <a href="https://balsamiq.com/">Balsamiq</a> on that front. Likewise, it’s going to be difficult to create customized diagrams like the following ones. With <strong>Figma</strong>, I could create this somewhat original-looking output:</p>
+<h1 id="when-text-based-is-too-clunky">When text-based is too clunky</h1>
+<p>Even though I love the possibilities offered by tools like PlantUML and Mermaid (we didn't even touch on their theming capabilities!), there are instances where it's just not as convenient. While it's possible to <a href="https://plantuml.com/salt">do wireframing with PlantUML</a>, there is no way it can compete with some software like <a href="https://balsamiq.com/">Balsamiq</a> on that front. Likewise, it's going to be difficult to create customized diagrams like the following ones. With <strong>Figma</strong>, I could create this somewhat original-looking output:</p>
 <p><img alt="figma_custom_er_diagram" src="../../../../../images/posts/0033_text_based_diagrams/figma_custom_er_diagram.png"/></p>
-<p>Similarly, I could customize this <span class="caps">ER</span> diagram with <strong>Draw.io</strong> to get something that would be nearly impossible to do with text-based diagrams in terms of presentation:</p>
+<p>Similarly, I could customize this ER diagram with <strong>Draw.io</strong> to get something that would be nearly impossible to do with text-based diagrams in terms of presentation:</p>
 <p><img alt="drawio_er_diagram" src="../../../../../images/posts/0033_text_based_diagrams/drawio_er_diagram.png"/></p>
 <hr/>
 <h1 id="conclusion">Conclusion</h1>
-<p>Text-based diagrams are clearly not a panacea, but neither are they archaic vestiges with no modern use! When they are used for what they are good for — mainly <em><span class="caps">UML</span></em> diagrams — they get the job done quickly, consistently and appropriately based on <span class="caps">UML</span> standards that have been around for eons. They remove friction by not having to think about design and rather allow one to go deeper on the actual links to be created. While I’d often sketch early proposals roughly with pen and paper, I would take the next step in formalizing plans digitally with something like PlantUML or Mermaid. I would then jump from there as needed to other tools that are more flexible but also quite likely more time-consuming to create high-fidelity wireframes or mockups, but the key — in my mind at least — is to remember that <em>different tools have different purposes and it’s nearly always a great idea to use the one best suited for the job</em>.</p>
-<h2 id="resources-and-references">Resources and references</h2>
+<p>Text-based diagrams are clearly not a panacea, but neither are they archaic vestiges with no modern use! When they are used for what they are good for -- mainly <em>UML</em> diagrams -- they get the job done quickly, consistently and appropriately based on UML standards that have been around for eons. They remove friction by not having to think about design and rather allow one to go deeper on the actual links to be created. While I'd often sketch early proposals roughly with pen and paper, I would take the next step in formalizing plans digitally with something like PlantUML or Mermaid. I would then jump from there as needed to other tools that are more flexible but also quite likely more time-consuming to create high-fidelity wireframes or mockups, but the key -- in my mind at least -- is to remember that <em>different tools have different purposes and it's nearly always a great idea to use the one best suited for the job</em>.</p>
+<h2 id="resources-and-references">Resources and references</h2>
 <ul>
-<li><a href="https://news.adobe.com/news/news-details/2022/Adobe-to-Acquire-Figma/default.aspx">Adobe to Acquire Figma</a></li>
+<li><a href="https://news.adobe.com/news/news-details/2022/Adobe-to-Acquire-Figma/default.aspx">Adobe to Acquire Figma</a></li>
 <li><a href="https://balsamiq.com/">Balsamiq</a></li>
 <li><a href="https://app.diagrams.net/">Draw.io</a></li>
 <li><a href="https://www.figma.com/">Figma</a></li>
 <li><a href="https://www.framer.com/">Framer</a></li>
 <li><a href="https://github.com/mermaid-js/mermaid">github.com/mermaid-js/mermaid</a></li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid">Markdown Preview Mermaid Support - <span class="caps">VS</span> Code extension</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid">Markdown Preview Mermaid Support - VS Code extension</a></li>
 <li><a href="https://mermaid-js.github.io/mermaid/">Mermaid</a></li>
 <li><a href="https://github.com/penpot/penpot">Penpot</a></li>
-<li><a href="https://github.com/plantuml/plantuml">PlantUML - GitHub</a></li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml">PlantUML - <span class="caps">VS</span> Code extension</a></li>
-<li><a href="https://gitlab.com/gitlab-com/gl-infra/readiness/blob/master/plantuml/overview.md">PlantUML integration for GitLab.com</a></li>
-<li><a href="https://hub.docker.com/r/plantuml/plantuml-server">PlantUML server - DockerHub</a></li>
+<li><a href="https://github.com/plantuml/plantuml">PlantUML - GitHub</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml">PlantUML - VS Code extension</a></li>
+<li><a href="https://gitlab.com/gitlab-com/gl-infra/readiness/blob/master/plantuml/overview.md">PlantUML integration for GitLab.com</a></li>
+<li><a href="https://hub.docker.com/r/plantuml/plantuml-server">PlantUML server - DockerHub</a></li>
 <li><a href="https://plantuml.com/">PlantUML</a></li>
-<li><a href="https://www.london.ac.uk/courses/computer-science">University of London’s BSc computer science degree</a></li>
-<li><a href="https://plantuml.com/salt">Wireframing with PlantUML - Salt</a></li>
+<li><a href="https://www.london.ac.uk/courses/computer-science">University of London's BSc computer science degree</a></li>
+<li><a href="https://plantuml.com/salt">Wireframing with PlantUML - Salt</a></li>
 </ul></div>
 </article>
         </main>

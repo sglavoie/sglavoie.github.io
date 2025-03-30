@@ -152,7 +152,7 @@
 <!-- Open graph for social networks -->
 <meta name="og:title" property="og:title" content="Search and, most importantly, finally find what you are looking for on your machine. If you rely on the terminal a lot, fzf may well be capable of speeding up your productivity!" />
  
-    <title>sglavoie.com &ndash; fzf - A Fuzzy Finder to Accomplish&nbsp;Anything</title>
+    <title>sglavoie.com &ndash; fzf - A Fuzzy Finder to Accomplish Anything</title>
   </head>
 
   <body>
@@ -524,7 +524,7 @@
       <main>
 <article data-pagefind-body>
   <div class="article_title">
-    <h1><a href="../../../../../posts/2019/05/24/fzf-a-fuzzy-finder-to-accomplish-anything/">fzf - A Fuzzy Finder to Accomplish&nbsp;Anything</a></h1>
+    <h1><a href="../../../../../posts/2019/05/24/fzf-a-fuzzy-finder-to-accomplish-anything/">fzf - A Fuzzy Finder to Accomplish Anything</a></h1>
   </div>
   <div class="meta_container_hrs">
     <hr />
@@ -637,10 +637,10 @@
   <nav class="toc"><div class="toc">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#what-is-fzf">What is fzf?</a></li>
-<li><a href="#terminal-aliases">Terminal aliases</a></li>
+<li><a href="#what-is-fzf">What is fzf?</a></li>
+<li><a href="#terminal-aliases">Terminal aliases</a></li>
 <li><a href="#vimneovim-integration">Vim/Neovim integration</a><ul>
-<li><a href="#working-with-neovim">Working with Neovim</a></li>
+<li><a href="#working-with-neovim">Working with Neovim</a></li>
 </ul>
 </li>
 <li><a href="#conclusion">Conclusion</a></li>
@@ -652,19 +652,20 @@
 <p>I know people who make such a mess when <em>not</em> organizing their files and
 directories appropriately on their system, they would benefit greatly
 from <code>fzf</code>.</p>
-<h1 id="what-is-fzf">What is fzf?</h1>
+<h1 id="what-is-fzf">What is fzf?</h1>
 <p>From the <a href="https://github.com/junegunn/fzf">official GitHub page</a>:</p>
 <blockquote>
-<p>fzf is a general-purpose command-line fuzzy finder. It’s an
+<p>fzf is a general-purpose command-line fuzzy finder. It's an
 interactive Unix filter for command-line that can be used with any list;
-files, command history, processes, hostnames, bookmarks, git commits, etc.</p>
+files, command history, processes, hostnames, bookmarks, git commits,
+etc.</p>
 </blockquote>
 <hr/>
-<h1 id="terminal-aliases">Terminal aliases</h1>
+<h1 id="terminal-aliases">Terminal aliases</h1>
 <p>One of the main uses of <code>fzf</code> is from the terminal. Being so flexible
 to use, it can be combined with all kinds of commands with the help
 of pipes (<code>|</code>) to bend it to your desires. Here are some aliases I am
-currently using that undoubtedly improve my terminal workflow.</p>
+currently using that undoubtedly improve my terminal workflow.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">##### Functions</span>
 
 <span class="c1"># Select a configuration file with fzf and open it with Neovim</span>
@@ -678,11 +679,11 @@ sc<span class="o">()</span><span class="w"> </span><span class="o">{</span><span
 </code></pre></div>
 <p>The first alias, <code>conf</code> (short for <em>configuration</em>), allows to search
 only within the two folders specified for configuration files, which
-makes it pop almost instantaneously since it doesn’t have to scan files
+makes it pop almost instantaneously since it doesn't have to scan files
 scattered anywhere else. You can then type anything that partially
 matches a file path and even include slashes (<code>/</code>) in your match if you
 know in which directories to look. You can then type <code>Enter</code> to open the
-file with your favorite text editor (here set to <code>nvim</code>) or type <code>CTRL + c</code> to abort the command.</p>
+file with your favorite text editor (here set to <code>nvim</code>) or type <code>CTRL + c</code> to abort the command.</p>
 <p>The other aliases work in a similar fashion. <code>se</code> (short for <em>search</em>)
 will simply search recursively for any kind of files in the current
 directory and open the selected file in a text editor. Of course,
@@ -690,13 +691,13 @@ certain file types can be excluded and everything else can be tweaked
 with more piping power. In the case of the third alias, <code>sc</code> (short for
 <em>school</em>), it will also search recursively for any kind of file in the
 <code>university</code> folder and will open it with the default application set to
-open that kind of file (video, image, text, <span class="caps">PDF</span>, etc.).</p>
+open that kind of file (video, image, text, PDF, etc.).</p>
 <hr/>
-<h1 id="vimneovim-integration">Vim/Neovim integration</h1>
+<h1 id="vimneovim-integration">Vim/Neovim integration</h1>
 <p>Using <a href="https://github.com/junegunn/vim-plug">Vim-Plug</a> from the same
-author as <code>fzf</code> is as easy as adding the following to Vim/Neovim’s
+author as <code>fzf</code> is as easy as adding the following to Vim/Neovim's
 configuration file. First, we make sure that <code>fzf</code> is available on the
-system and install it if it’s not. Then, we install the <code>fzf.vim</code> plugin
+system and install it if it's not. Then, we install the <code>fzf.vim</code> plugin
 to integrate fzf in Vim and optionally, we may configure more options so
 that <code>fzf</code> can be used more optimally, which can be found on the <a href="https://github.com/junegunn/fzf.vim">GitHub
 plugin page</a>.</p>
@@ -726,25 +727,25 @@ imap <span class="p">&lt;</span><span class="k">c</span><span class="p">-</span>
 map <span class="p">&lt;</span>C<span class="p">-</span><span class="k">p</span><span class="p">&gt;</span> :FZF<span class="p">&lt;</span><span class="k">cr</span><span class="p">&gt;</span>
 <span class="c">""" [ / FZF ]</span>
 </code></pre></div>
-<h2 id="working-with-neovim">Working with Neovim</h2>
+<h2 id="working-with-neovim">Working with Neovim</h2>
 <p><code>fzf</code> really shines when used with Neovim as it is extremely fast,
 especially when configured with
 <a href="https://github.com/ggreer/the_silver_searcher">The Silver Searcher</a>
 which deserves its own article. It
 integrates with core functionality of Vim and makes it easy to find what
-you are looking for.</p>
-<p>From the above configuration, for instance:</p>
+you are looking for.</p>
+<p>From the above configuration, for instance:</p>
 <div class="highlight"><pre><span></span><code>nmap <span class="p">&lt;</span>leader<span class="p">&gt;&lt;</span><span class="k">tab</span><span class="p">&gt;</span> <span class="p">&lt;</span>plug<span class="p">&gt;(</span>fzf<span class="p">-</span>maps<span class="p">-</span><span class="k">n</span><span class="p">)</span>
 </code></pre></div>
 <p>This allows to search for existing mappings and commands, which can be
-faster than diving in the help pages when looking for a quick reference.</p>
-<p>This one in insert mode is very handy:</p>
+faster than diving in the help pages when looking for a quick reference.</p>
+<p>This one in insert mode is very handy:</p>
 <div class="highlight"><pre><span></span><code>imap <span class="p">&lt;</span><span class="k">c</span><span class="p">-</span><span class="k">x</span><span class="p">&gt;&lt;</span><span class="k">c</span><span class="p">-</span><span class="k">k</span><span class="p">&gt;</span> <span class="p">&lt;</span>plug<span class="p">&gt;(</span>fzf<span class="p">-</span><span class="nb">complete</span><span class="p">-</span>word<span class="p">)</span>
 </code></pre></div>
 <p>Without affecting keyword completion with <code>CTRL + n</code> and <code>CTRL + p</code>
 (unless you have <code>set complete+=k</code> in your configuration file), you can
 complete words from a custom dictionary of your choice with <code>CTRL + x CTRL + k</code>. The window that appears can be moved and resized, which is
-what is happening here:</p>
+what is happening here:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">inoremap</span> <span class="p">&lt;</span>expr<span class="p">&gt;</span> <span class="p">&lt;</span><span class="k">c</span><span class="p">-</span><span class="k">x</span><span class="p">&gt;&lt;</span><span class="k">c</span><span class="p">-</span><span class="k">k</span><span class="p">&gt;</span> fzf#<span class="k">vim</span>#<span class="nb">complete</span>#word<span class="p">(</span>{<span class="s1">'left'</span>: <span class="s1">'20%'</span>}<span class="p">)</span>
 </code></pre></div>
 <p>In the same way, file paths can be completed from the current working
@@ -753,7 +754,7 @@ with <code>CTRL + x CTRL + l</code>.</p>
 <p><a href="../../../../../images/posts/0016_a_fuzzy_file_finder_to_accomplish_anything/fzf_autocompletion.png"><img alt="fzf_line_autocompletion" class="max-size-img-post" src="../../../../../images/posts/0016_a_fuzzy_file_finder_to_accomplish_anything/fzf_autocompletion.png"/></a></p>
 <p>Finally, I use <code>fzf</code> to open any file quickly from the working directory
 inside Neovim with the mapping <code>CTRL + p</code>, which replaces the CtrlP
-plugin and can work much faster on larger codebases.</p>
+plugin and can work much faster on larger codebases.</p>
 <hr/>
 <h1 id="conclusion">Conclusion</h1>
 <p>There is much more that can be done with it and I am barely scratching
@@ -761,7 +762,7 @@ the surface here. Luke Smith shared
 <a href="https://www.youtube.com/watch?v=vt33Hp-4RXg">a great video</a> that will
 complement the information from this post nicely with a more technical
 approach. Highly recommended to see more practical ways to use this
-superb piece of software!</p>
+superb piece of software!</p>
 <p><a href="https://lukesmith.xyz/">Luke Smith</a> also makes a strong point of
 combining <code>fzf</code> with <a href="https://tools.suckless.org/dmenu/">dmenu</a>, a tool
 that I described succinctly in

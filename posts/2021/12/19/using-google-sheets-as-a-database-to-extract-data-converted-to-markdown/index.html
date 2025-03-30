@@ -152,7 +152,7 @@
 <!-- Open graph for social networks -->
 <meta name="og:title" property="og:title" content="Using Google Sheets API, this little tool reads a spreadsheet, extract relevant data and converts it into Markdown so it can be repurposed, in the example given to generate an HTML output for this website with Pelican, a powerful static site generator." />
  
-    <title>sglavoie.com &ndash; Using Google Sheets as a database to extract data converted to&nbsp;Markdown</title>
+    <title>sglavoie.com &ndash; Using Google Sheets as a database to extract data converted to Markdown</title>
   </head>
 
   <body>
@@ -524,7 +524,7 @@
       <main>
 <article data-pagefind-body>
   <div class="article_title">
-    <h1><a href="../../../../../posts/2021/12/19/using-google-sheets-as-a-database-to-extract-data-converted-to-markdown/">Using Google Sheets as a database to extract data converted to&nbsp;Markdown</a></h1>
+    <h1><a href="../../../../../posts/2021/12/19/using-google-sheets-as-a-database-to-extract-data-converted-to-markdown/">Using Google Sheets as a database to extract data converted to Markdown</a></h1>
   </div>
   <div class="meta_container_hrs">
     <hr />
@@ -648,11 +648,11 @@
 </ul>
 </li>
 <li><a href="#installing-this-tool">Installing this tool</a><ul>
-<li><a href="#using-pip">Using pip</a></li>
-<li><a href="#using-pipenv">Using pipenv</a></li>
+<li><a href="#using-pip">Using pip</a></li>
+<li><a href="#using-pipenv">Using pipenv</a></li>
 </ul>
 </li>
-<li><a href="#how-to-use-this-tool">How to use this tool</a></li>
+<li><a href="#how-to-use-this-tool">How to use this tool</a></li>
 </ul>
 </li>
 <li><a href="#conclusion">Conclusion</a></li>
@@ -661,33 +661,33 @@
   <div class="article_text">
 <hr/>
 <h1 id="introduction">Introduction</h1>
-<p>The purpose of this tool is to parse and convert the content of a Google Sheets spreadsheet to Markdown. In this specific case, I just wanted a simple script to reduce the friction in getting a valid output I could use to maintain a <a href="../../../../../posts/2022/06/18/what-it-took-to-propel-a-career-in-tech-in-five-years/">“learning log” on my website</a>. So that gives me a quick way to input data in a spreadsheet and then I can take the time whenever needed to update the learning progress as desired by reformatting any of the entries and optionally adding notes to them.</p>
+<p>The purpose of this tool is to parse and convert the content of a Google Sheets spreadsheet to Markdown. In this specific case, I just wanted a simple script to reduce the friction in getting a valid output I could use to maintain a <a href="../../../../../posts/2022/06/18/what-it-took-to-propel-a-career-in-tech-in-five-years/">"learning log" on my website</a>. So that gives me a quick way to input data in a spreadsheet and then I can take the time whenever needed to update the learning progress as desired by reformatting any of the entries and optionally adding notes to them.</p>
 <hr/>
-<h2 id="general-software-requirements">General software requirements</h2>
-<p>This tool should:</p>
+<h2 id="general-software-requirements">General software requirements</h2>
+<p>This tool should:</p>
 <ul>
-<li>Be able to read a private spreadsheet with a service account configured with the Google Sheets <span class="caps">API</span>.</li>
-<li>Convert rows from a Google Sheets spreadsheet into Markdown (see <strong>Input</strong> and <strong>Output</strong> sections below for details).</li>
-<li>Skip rendering rows that are missing a value for the <code>Title</code> or <code>Date</code> columns (it couldn’t be rendered in the correct place properly without this information).</li>
+<li>Be able to read a private spreadsheet with a service account configured with the Google Sheets API.</li>
+<li>Convert rows from a Google Sheets spreadsheet into Markdown (see <strong>Input</strong> and <strong>Output</strong> sections below for details).</li>
+<li>Skip rendering rows that are missing a value for the <code>Title</code> or <code>Date</code> columns (it couldn't be rendered in the correct place properly without this information).</li>
 <li>Other columns are optional and the corresponding level of nesting will be skipped if no value was provided (e.g. a category <code>Articles</code> may have an item with no sub-category and could be missing any of the other values except for <code>Title</code> and <code>Date</code>).</li>
 <li>Separate entries by month by parsing the <code>Date</code> column.</li>
-<li>A command-line parameter should exist to specify a year from which the date should be extracted.</li>
-<li>The output should be in reverse chronological order (i.e. for a full year with entries for each month, December will appear at the top and January at the bottom).</li>
+<li>A command-line parameter should exist to specify a year from which the date should be extracted.</li>
+<li>The output should be in reverse chronological order (i.e. for a full year with entries for each month, December will appear at the top and January at the bottom).</li>
 <li>Output a hierarchical format like the following: <code>Category &gt; Sub-category &gt; Title &gt; Activity &amp; notes</code></li>
-<li>Group entries by category <strong>and</strong> sub-category (e.g. if a category is named <code>Articles</code> and there is a sub-category named <code>Python</code>, then <code>Python</code> must be nested under <code>Articles</code> for the corresponding month).</li>
-<li>Sort on the <code>Date</code> column before doing any parsing on other columns (rows in the spreadsheet <em>can</em> be in non-chronological order).</li>
-<li>Dates from a single year will be kept (either the year received as a parameter or the most recent year found).</li>
-<li>Sort <code>Category</code>, <code>Sub-category</code> and <code>Title</code> alphabetically (ascending order from top to bottom).</li>
-<li><strong>Not</strong> sort the <code>Activity</code> column to preserve the order in which rows were added to the spreadsheet.</li>
-<li>Render links only if the <code>Link</code> column is a valid <span class="caps">URL</span>.</li>
-<li><strong>Not</strong> validate the content of columns except for <code>Date</code> and <code>Link</code> (i.e. render the other columns as is).</li>
-<li>Display items with no category above those having a category. The same logic would be true for sub-categories.</li>
-<li>Format the output:</li>
+<li>Group entries by category <strong>and</strong> sub-category (e.g. if a category is named <code>Articles</code> and there is a sub-category named <code>Python</code>, then <code>Python</code> must be nested under <code>Articles</code> for the corresponding month).</li>
+<li>Sort on the <code>Date</code> column before doing any parsing on other columns (rows in the spreadsheet <em>can</em> be in non-chronological order).</li>
+<li>Dates from a single year will be kept (either the year received as a parameter or the most recent year found).</li>
+<li>Sort <code>Category</code>, <code>Sub-category</code> and <code>Title</code> alphabetically (ascending order from top to bottom).</li>
+<li><strong>Not</strong> sort the <code>Activity</code> column to preserve the order in which rows were added to the spreadsheet.</li>
+<li>Render links only if the <code>Link</code> column is a valid URL.</li>
+<li><strong>Not</strong> validate the content of columns except for <code>Date</code> and <code>Link</code> (i.e. render the other columns as is).</li>
+<li>Display items with no category above those having a category. The same logic would be true for sub-categories.</li>
+<li>Format the output:</li>
 <li><code>Date</code> should become headers (<code>##</code>).</li>
 <li><code>Category</code> should be <strong>bolded</strong>.</li>
 <li><code>Sub-category</code> should be <em>emphasized</em>.</li>
-<li><code>Title</code> should become a <a href="https://example.com">link</a> if the <code>Link</code> column contains a valid <span class="caps">URL</span>.</li>
-<li><code>Activity</code> should be nested under <code>Title</code>, occupying a new line for each activity.</li>
+<li><code>Title</code> should become a <a href="https://example.com">link</a> if the <code>Link</code> column contains a valid URL.</li>
+<li><code>Activity</code> should be nested under <code>Title</code>, occupying a new line for each activity.</li>
 <li><code>Notes</code> should appear (<em>italicized and inside parentheses</em>) next to the activity.<ul>
 <li>If there is a value for <code>Notes</code> but no value for <code>Activity</code>, the output would be next to the <code>Title</code>.</li>
 </ul>
@@ -784,7 +784,7 @@
 <td>2/12/2021</td>
 <td></td>
 <td></td>
-<td>Python/C <span class="caps">API</span> Reference Manual</td>
+<td>Python/C API Reference Manual</td>
 <td></td>
 <td>https://docs.python.org/3/c-api/index.html</td>
 <td></td>
@@ -822,7 +822,7 @@
 </tbody>
 </table></div>
 <h3 id="output">Output</h3>
-<p>A Markdown output to the terminal in the following format:</p>
+<p>A Markdown output to the terminal in the following format:</p>
 <div class="highlight"><pre><span></span><code><span class="gu">## December</span>
 
 <span class="k">-</span><span class="w"> </span>[<span class="nt">Python/C API Reference Manual</span>](<span class="na">https://docs.python.org/3/c-api/index.html</span>)
@@ -852,11 +852,11 @@
 <a href="../../../../../images/posts/0028_google_sheets_as_database_output_markdown/input_output.png"><img alt="input_output_example" class="max-size-img-post" src="../../../../../images/posts/0028_google_sheets_as_database_output_markdown/input_output.png"/></a>
 <figcaption>Input/Output example when using this tool.</figcaption>
 </figure>
-<h2 id="installing-this-tool">Installing this tool</h2>
-<p><em>Tested only under Python 3.9.7</em>, requires at least Python 3.7+.</p>
+<h2 id="installing-this-tool">Installing this tool</h2>
+<p><em>Tested only under Python 3.9.7</em>, requires at least Python 3.7+.</p>
 <h3 id="using-pip">Using <code>pip</code></h3>
 <ul>
-<li>[recommended] Activate a virtual environment.</li>
+<li>[recommended] Activate a virtual environment.</li>
 <li>To install dependencies, run from this directory: <code>pip install -r requirements.txt</code></li>
 <li>Then execute the script to run the tool: <code>python3 get_learning_logs</code></li>
 </ul>
@@ -866,24 +866,24 @@
 <li>Activate the newly created virtual environment with <code>pipenv shell</code>.</li>
 <li>Then execute the script to run the tool: <code>python3 get_learning_logs</code></li>
 </ul>
-<h2 id="how-to-use-this-tool">How to use this tool</h2>
-<p>You will need to create an environment file (default path: <code>~/.learning-logs</code> or edit the path for <code>LEARNING_LOGS_ENV_PATH</code> in <code>get_learning_logs.py</code>). It should look as follows:</p>
+<h2 id="how-to-use-this-tool">How to use this tool</h2>
+<p>You will need to create an environment file (default path: <code>~/.learning-logs</code> or edit the path for <code>LEARNING_LOGS_ENV_PATH</code> in <code>get_learning_logs.py</code>). It should look as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="n">SERVICE_ACCOUNT_FILEPATH</span><span class="o">=</span><span class="s2">"/path/to/service_account_learning_logs.json"</span>
 <span class="n">SPREADSHEET_ID</span><span class="o">=</span><span class="n">SPREADSHEET_ID</span><span class="w">  </span><span class="c1"># Found in the URL of the document</span>
 <span class="n">WORKSHEET_ID</span><span class="o">=</span><span class="mi">0</span><span class="w">  </span><span class="c1"># First sheet is 0 by default, it comes after the URL parameter `gid`</span>
 </code></pre></div>
-<p>To set up this project, you will have to:</p>
+<p>To set up this project, you will have to:</p>
 <ul>
-<li>Enable the Google Sheets <span class="caps">API</span> for your project (https://support.google.com/googleapi/answer/6158841?hl=en).</li>
-<li>In the project, search for “service account” in the search bar and create new credentials.</li>
-<li>Download the credentials and put them at the path <code>SERVICE_ACCOUNT_FILEPATH</code> referenced in the environment file.</li>
+<li>Enable the Google Sheets API for your project (https://support.google.com/googleapi/answer/6158841?hl=en).</li>
+<li>In the project, search for "service account" in the search bar and create new credentials.</li>
+<li>Download the credentials and put them at the path <code>SERVICE_ACCOUNT_FILEPATH</code> referenced in the environment file.</li>
 <li>Create a spreadsheet with the following columns (not necessarily in that order): <code>Date</code>, <code>Category</code>, <code>Sub-category</code>, <code>Title</code>, <code>Activity</code>, <code>Link</code>, <code>Notes</code>.</li>
 <li>The column <code>Date</code> Should match a date format: select all cells from that column, go to <code>Format &gt; Number &gt; Date</code> to apply the expected format (<code>mm/dd/yyyy</code>). You can then input a date (e.g. <code>11/1/2021</code>) and you will see a calendar pop up when double-clicking on it. Dragging it down to a new cell will create a new date for the next day (in this example, <code>11/2/2021</code>).</li>
-<li>Get its <code>SPREADSHEET_ID</code> (<code>https://docs.google.com/spreadsheets/d/SPREADSHEET_ID_HERE/edit#gid=0</code>) to put it in the environment file.</li>
-<li>Get the <code>WORKSHEET_ID</code> (the integer after <code>gid=</code> in the <span class="caps">URL</span> of the document).</li>
-<li>From the spreadsheet document (or from the folder view in Google Drive), share with the email associated with the service account (e.g. <code>learning-logs-something@project-name-12345.iam.gserviceaccount.com</code>). Read access (“Viewer” permission) is enough.</li>
+<li>Get its <code>SPREADSHEET_ID</code> (<code>https://docs.google.com/spreadsheets/d/SPREADSHEET_ID_HERE/edit#gid=0</code>) to put it in the environment file.</li>
+<li>Get the <code>WORKSHEET_ID</code> (the integer after <code>gid=</code> in the URL of the document).</li>
+<li>From the spreadsheet document (or from the folder view in Google Drive), share with the email associated with the service account (e.g. <code>learning-logs-something@project-name-12345.iam.gserviceaccount.com</code>). Read access ("Viewer" permission) is enough.</li>
 </ul>
-<p>By now, the script is ready to be called. I just created an alias to execute it more easily by putting the following in <code>~/.bash_aliases</code> (you will have to adapt the paths of course):</p>
+<p>By now, the script is ready to be called. I just created an alias to execute it more easily by putting the following in <code>~/.bash_aliases</code> (you will have to adapt the paths of course):</p>
 <div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span>learning-logs<span class="o">=</span><span class="s1">'~/.local/share/virtualenvs/learning-logs-to-markdown-XJLvhmzn/bin/python3.9 \</span>
 <span class="s1">  ~/dev/sglavoie/dev-helpers/learning-logs-to-markdown/get_learning_logs.py'</span>
 </code></pre></div>

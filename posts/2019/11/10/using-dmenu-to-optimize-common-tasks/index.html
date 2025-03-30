@@ -152,7 +152,7 @@
 <!-- Open graph for social networks -->
 <meta name="og:title" property="og:title" content="If remembering dozens of keyboard shortcuts isn't your forte, let dmenu come to the rescue! With this awesome tool, you will be able to create menus from plain text files swiftly and effortlessly (almost)." />
  
-    <title>sglavoie.com &ndash; Using dmenu to Optimize Common&nbsp;Tasks</title>
+    <title>sglavoie.com &ndash; Using dmenu to Optimize Common Tasks</title>
   </head>
 
   <body>
@@ -524,7 +524,7 @@
       <main>
 <article data-pagefind-body>
   <div class="article_title">
-    <h1><a href="../../../../../posts/2019/11/10/using-dmenu-to-optimize-common-tasks/">Using dmenu to Optimize Common&nbsp;Tasks</a></h1>
+    <h1><a href="../../../../../posts/2019/11/10/using-dmenu-to-optimize-common-tasks/">Using dmenu to Optimize Common Tasks</a></h1>
   </div>
   <div class="meta_container_hrs">
     <hr />
@@ -670,111 +670,111 @@
   <nav class="toc"><div class="toc">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#any-simple-example">Any Simple Example?</a></li>
+<li><a href="#any-simple-example">Any Simple Example?</a></li>
 <li><a href="#how-do-you-install-it">How do You Install It?</a><ul>
-<li><a href="#debian-based-such-as-ubuntu">Debian-based (such as Ubuntu)</a></li>
-<li><a href="#arch-based-such-as-manjaro">Arch-based (such as Manjaro)</a></li>
+<li><a href="#debian-based-such-as-ubuntu">Debian-based (such as Ubuntu)</a></li>
+<li><a href="#arch-based-such-as-manjaro">Arch-based (such as Manjaro)</a></li>
 </ul>
 </li>
 <li><a href="#useful-real-world-examples">Useful Real-World Examples</a><ul>
-<li><a href="#cheat-sheets">Cheat sheets</a></li>
-<li><a href="#university-shortcuts">University shortcuts</a></li>
-<li><a href="#file-manager-shortcuts">File manager shortcuts</a></li>
+<li><a href="#cheat-sheets">Cheat sheets</a></li>
+<li><a href="#university-shortcuts">University shortcuts</a></li>
+<li><a href="#file-manager-shortcuts">File manager shortcuts</a></li>
 <li><a href="#setting-up-a-custom-command">Setting Up a Custom Command</a><ul>
-<li><a href="#configuration-for-i3-bind-a-keyboard-shortcut">Configuration for i3 (bind a keyboard shortcut)</a></li>
+<li><a href="#configuration-for-i3-bind-a-keyboard-shortcut">Configuration for i3 (bind a keyboard shortcut)</a></li>
 <li><a href="#configuration-for-cheatsheetsconf">Configuration for cheatsheets.conf</a><ul>
-<li><a href="#pipe-1">Pipe 1</a></li>
-<li><a href="#pipe-2">Pipe 2</a></li>
-<li><a href="#pipe-3">Pipe 3</a></li>
+<li><a href="#pipe-1">Pipe 1</a></li>
+<li><a href="#pipe-2">Pipe 2</a></li>
+<li><a href="#pipe-3">Pipe 3</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#running-a-custom-script">Running a Custom Script</a></li>
-<li><a href="#chaining-dmenu-prompts">Chaining dmenu prompts</a></li>
+<li><a href="#running-a-custom-script">Running a Custom Script</a></li>
+<li><a href="#chaining-dmenu-prompts">Chaining dmenu prompts</a></li>
 </ul>
 </li>
-<li><a href="#customize-the-look-of-dmenu">Customize the Look of dmenu</a></li>
+<li><a href="#customize-the-look-of-dmenu">Customize the Look of dmenu</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
 </div></nav>
   <div class="article_text">
 <hr/>
 <h1 id="introduction">Introduction</h1>
-<p><a href="https://tools.suckless.org/dmenu">dmenu</a> is one of those tools that look a little unimpressive at first but can accomplish so much! It’s a program that you can use to receive any output redirected from other programs (through pipes in the terminal, the symbol <code>|</code>) and treat that output so that it can pop up within a simple menu to make it available for execution. If you want to know more about other fantastic tools from <a href="https://suckless.org">suckless.org</a>, I <a href="../../../../../posts/2019/11/10/using-dmenu-to-optimize-common-tasks/">went over some of them before</a>, such as the <code>st</code> terminal and <code>slock</code>, a dead simple screen locker.</p>
+<p><a href="https://tools.suckless.org/dmenu">dmenu</a> is one of those tools that look a little unimpressive at first but can accomplish so much! It's a program that you can use to receive any output redirected from other programs (through pipes in the terminal, the symbol <code>|</code>) and treat that output so that it can pop up within a simple menu to make it available for execution. If you want to know more about other fantastic tools from <a href="https://suckless.org">suckless.org</a>, I <a href="../../../../../posts/2019/11/10/using-dmenu-to-optimize-common-tasks/">went over some of them before</a>, such as the <code>st</code> terminal and <code>slock</code>, a dead simple screen locker.</p>
 <hr/>
-<h1 id="any-simple-example">Any Simple Example?</h1>
-<p>You bet! Before diving in with how to install it and some more concrete examples, you could give <code>dmenu</code> a go with a simple command such as the following (assuming the program is installed on your machine).</p>
+<h1 id="any-simple-example">Any Simple Example?</h1>
+<p>You bet! Before diving in with how to install it and some more concrete examples, you could give <code>dmenu</code> a go with a simple command such as the following (assuming the program is installed on your machine).</p>
 <div class="highlight"><pre><span></span><code>ls<span class="w"> </span><span class="p">|</span><span class="w"> </span>dmenu
 </code></pre></div>
-<p>This will effectively “pipe” the output of <code>ls</code> into <code>dmenu</code> and a menu like the following would appear (by default, it shows as a thin stripe at the top covering the width of the screen):</p>
+<p>This will effectively "pipe" the output of <code>ls</code> into <code>dmenu</code> and a menu like the following would appear (by default, it shows as a thin stripe at the top covering the width of the screen):</p>
 <p><a href="../../../../../images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_ls_command.png"><img alt="dmenu_ls_command" class="max-size-img-post" src="../../../../../images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_ls_command.png"/></a></p>
-<p>If you start typing, the displayed list will be filtered down like so:</p>
+<p>If you start typing, the displayed list will be filtered down like so:</p>
 <p><a href="../../../../../images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_ls_command_typing.png"><img alt="dmenu_ls_command_typing" class="max-size-img-post" src="../../../../../images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_ls_command_typing.png"/></a></p>
-<p>You can also switch to the next item to be highlighted by typing <code>Ctrl + n</code>, to the previous item by typing <code>Ctrl + p</code> and exit by reaching for the <code>Escape</code> key. For now, if you type <code>Enter</code> once your desired selection is highlighted, the selection will be outputted to the terminal and that will be the end of it. Let’s convert this into a practical thing, then.</p>
-<p>Keeping the same output as before which only contained directories, we could open a file manager (here, I’m going with <code>pcmanfm</code>) and do something like this (bear with me, the explanation follows!):</p>
+<p>You can also switch to the next item to be highlighted by typing <code>Ctrl + n</code>, to the previous item by typing <code>Ctrl + p</code> and exit by reaching for the <code>Escape</code> key. For now, if you type <code>Enter</code> once your desired selection is highlighted, the selection will be outputted to the terminal and that will be the end of it. Let's convert this into a practical thing, then.</p>
+<p>Keeping the same output as before which only contained directories, we could open a file manager (here, I'm going with <code>pcmanfm</code>) and do something like this (bear with me, the explanation follows!):</p>
 <div class="highlight"><pre><span></span><code>ls<span class="w"> </span><span class="p">|</span><span class="w"> </span>dmenu<span class="w"> </span>-l<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-I<span class="w"> </span><span class="o">{}</span><span class="w"> </span>pcmanfm<span class="w"> </span><span class="s2">"{}"</span>
 </code></pre></div>
-<p>This is now a fully functional example, albeit its practicality is debatable. What will happen, exactly?</p>
-<p>First, <code>ls</code> will output a list of directories in the current working directory. That is, the following would be printed in the terminal without any piping:</p>
+<p>This is now a fully functional example, albeit its practicality is debatable. What will happen, exactly?</p>
+<p>First, <code>ls</code> will output a list of directories in the current working directory. That is, the following would be printed in the terminal without any piping:</p>
 <div class="highlight"><pre><span></span><code>Desktop    Downloads  Learning  Pictures     Public   Templates  virtualbox_vms
 Documents  Dropbox    Music     Programming  SortOut  Videos
 </code></pre></div>
 <p>When we <em>pipe</em> this into <code>dmenu</code>, we will get a menu with all that output nicely formatted vertically, which is what the <code>-l 5</code> options does (here, we want only <strong>5</strong> lines to show). We will see a maximum of <strong>5</strong> items as this is the value we passed to the <code>-l</code> option:</p>
 <p><a href="../../../../../images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_ls_command_vertical_5_items.png"><img alt="dmenu_ls_command_vertical_5_items" class="max-size-img-post" src="../../../../../images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_ls_command_vertical_5_items.png"/></a></p>
-<p>We can still start typing a word that doesn’t show up in this list like <code>Mu</code> and we will see that this list is filtered to only include the matching directory <code>Music</code> even though we couldn’t see it before since we limited our results to <strong>5</strong> items. We could also use the same technique with <code>Ctrl + n</code> and <code>Ctrl + p</code> to cycle between the elements.</p>
-<p>Up to this point, we are getting our selection outputted to the terminal. Next, we pipe it into <code>xargs</code>, which will allow us to specify a command to which we will pass our result (what is printed to the terminal) as an argument (we could make use of more arguments depending on the output we get, but let’s start simple). The <code>-I {}</code> option will make it possible to “quote” our result so it is read as a single argument and properly <em>escaped</em>. This means that without this option, if we have spaces or other special characters in the argument (such as a folder called <code>My Music</code>), it would try to pass each word as a new argument to <code>pcmanfm</code>, trying to open both <code>My</code> and <code>Music</code> directories at once.</p>
-<p>We are representing our output as <code>{}</code> and when we quote it with <code>pcmanfm "{}"</code>, spaces are interpreted without any trouble. If we wanted to use various arguments instead, we could try something like this:</p>
+<p>We can still start typing a word that doesn't show up in this list like <code>Mu</code> and we will see that this list is filtered to only include the matching directory <code>Music</code> even though we couldn't see it before since we limited our results to <strong>5</strong> items. We could also use the same technique with <code>Ctrl + n</code> and <code>Ctrl + p</code> to cycle between the elements.</p>
+<p>Up to this point, we are getting our selection outputted to the terminal. Next, we pipe it into <code>xargs</code>, which will allow us to specify a command to which we will pass our result (what is printed to the terminal) as an argument (we could make use of more arguments depending on the output we get, but let's start simple). The <code>-I {}</code> option will make it possible to "quote" our result so it is read as a single argument and properly <em>escaped</em>. This means that without this option, if we have spaces or other special characters in the argument (such as a folder called <code>My Music</code>), it would try to pass each word as a new argument to <code>pcmanfm</code>, trying to open both <code>My</code> and <code>Music</code> directories at once.</p>
+<p>We are representing our output as <code>{}</code> and when we quote it with <code>pcmanfm "{}"</code>, spaces are interpreted without any trouble. If we wanted to use various arguments instead, we could try something like this:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">"file1.txt file2.txt\nfile3.txt file4.txt"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>dmenu<span class="w"> </span>-l<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>cat
 </code></pre></div>
-<p>The part before the first pipe character will print to the terminal those two lines:</p>
+<p>The part before the first pipe character will print to the terminal those two lines:</p>
 <div class="highlight"><pre><span></span><code>file1.txt file2.txt
 file3.txt file4.txt
 </code></pre></div>
-<p>When we pipe this into <code>dmenu -l 2</code>, we will get this menu:</p>
+<p>When we pipe this into <code>dmenu -l 2</code>, we will get this menu:</p>
 <p><a href="../../../../../images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_echo_command_filenames.png"><img alt="dmenu_echo_command_filenames" class="max-size-img-post" src="../../../../../images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_echo_command_filenames.png"/></a></p>
-<p>Typing <code>Enter</code> on one of the highlighted items would then trigger <code>xargs</code> to pass the content literally to <code>cat</code> as arguments, which would then print to the terminal the content of both <code>file1.txt</code> and <code>file2.txt</code> (the first line containing two arguments for <code>cat</code>) or the content of both <code>file3.txt</code> and <code>file4.txt</code> (the second line also containing two arguments for <code>cat</code>) in succession.</p>
-<p>Now that we got our feet wet with what <code>dmenu</code> does (<em>displays a menu</em>), we might want to install it.</p>
+<p>Typing <code>Enter</code> on one of the highlighted items would then trigger <code>xargs</code> to pass the content literally to <code>cat</code> as arguments, which would then print to the terminal the content of both <code>file1.txt</code> and <code>file2.txt</code> (the first line containing two arguments for <code>cat</code>) or the content of both <code>file3.txt</code> and <code>file4.txt</code> (the second line also containing two arguments for <code>cat</code>) in succession.</p>
+<p>Now that we got our feet wet with what <code>dmenu</code> does (<em>displays a menu</em>), we might want to install it.</p>
 <hr/>
-<h1 id="how-do-you-install-it">How do You Install It?</h1>
-<p>In Manjaro Linux, it comes with <code>i3</code> if you use that flavor of the distribution and can be opened by pressing the modifier key (either <code>Super/Windows</code> key or <code>Alt</code> key) along with the letter <code>d</code>, as in the shortcut <code>mod + d</code>, or by typing <code>dmenu_run</code> in a terminal, which will present a list of installed applications to launch. Otherwise:</p>
-<h2 id="debian-based-such-as-ubuntu">Debian-based (such as Ubuntu)</h2>
+<h1 id="how-do-you-install-it">How do You Install It?</h1>
+<p>In Manjaro Linux, it comes with <code>i3</code> if you use that flavor of the distribution and can be opened by pressing the modifier key (either <code>Super/Windows</code> key or <code>Alt</code> key) along with the letter <code>d</code>, as in the shortcut <code>mod + d</code>, or by typing <code>dmenu_run</code> in a terminal, which will present a list of installed applications to launch. Otherwise:</p>
+<h2 id="debian-based-such-as-ubuntu">Debian-based (such as Ubuntu)</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>dmenu
 </code></pre></div>
-<h2 id="arch-based-such-as-manjaro">Arch-based (such as Manjaro)</h2>
+<h2 id="arch-based-such-as-manjaro">Arch-based (such as Manjaro)</h2>
 <div class="highlight"><pre><span></span><code>pacman<span class="w"> </span>-Syu<span class="w"> </span>dmenu
 </code></pre></div>
-<p>You can also install it from your distribution’s package manager if available or <a href="https://tools.suckless.org/dmenu">from source</a>.</p>
+<p>You can also install it from your distribution's package manager if available or <a href="https://tools.suckless.org/dmenu">from source</a>.</p>
 <hr/>
-<h1 id="useful-real-world-examples">Useful Real-World Examples</h1>
-<p>Here are a couple of ways I like to use <code>dmenu</code> to open a menu with a list of:</p>
+<h1 id="useful-real-world-examples">Useful Real-World Examples</h1>
+<p>Here are a couple of ways I like to use <code>dmenu</code> to open a menu with a list of:</p>
 <ul>
-<li>cheat sheets;</li>
-<li>filesystem paths;</li>
-<li>most used documents;</li>
-<li>documents <span class="amp">&amp;</span> books I read at the university;</li>
-<li>custom scripts I want to run in the background.</li>
+<li>cheat sheets;</li>
+<li>filesystem paths;</li>
+<li>most used documents;</li>
+<li>documents &amp; books I read at the university;</li>
+<li>custom scripts I want to run in the background.</li>
 </ul>
-<p>Here are a few screenshots of how it currently looks like in my daily usage so you get a better idea.</p>
-<h2 id="cheat-sheets">Cheat sheets</h2>
+<p>Here are a few screenshots of how it currently looks like in my daily usage so you get a better idea.</p>
+<h2 id="cheat-sheets">Cheat sheets</h2>
 <p><a href="../../../../../images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_cheat_sheets.png"><img alt="dmenu_cheat_sheets" class="max-size-img-post" src="../../../../../images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_cheat_sheets.png"/></a></p>
-<h2 id="university-shortcuts">University shortcuts</h2>
+<h2 id="university-shortcuts">University shortcuts</h2>
 <p><a href="../../../../../images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_university_shortcuts.png"><img alt="dmenu_university_shortcuts" class="max-size-img-post" src="../../../../../images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_university_shortcuts.png"/></a></p>
-<h2 id="file-manager-shortcuts">File manager shortcuts</h2>
+<h2 id="file-manager-shortcuts">File manager shortcuts</h2>
 <p><a href="../../../../../images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_file_manager_shortcuts.png"><img alt="dmenu_file_manager_shortcuts" class="max-size-img-post" src="../../../../../images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_file_manager_shortcuts.png"/></a></p>
-<p>So, how does that all work? As a starting point, all of those menus are launched through a specific keyboard shortcut that uses a mnemonic for each one (<code>mod</code> being the “modifier” key on <strong>i3</strong>, which is set to <code>Super/Windows</code>):</p>
+<p>So, how does that all work? As a starting point, all of those menus are launched through a specific keyboard shortcut that uses a mnemonic for each one (<code>mod</code> being the "modifier" key on <strong>i3</strong>, which is set to <code>Super/Windows</code>):</p>
 <ul>
-<li><code>mod + Alt + c</code>: <strong>c</strong>heat sheets;</li>
+<li><code>mod + Alt + c</code>: <strong>c</strong>heat sheets;</li>
 <li><code>mod + Alt + d</code>: <strong>d</strong>ocuments;</li>
-<li><code>mod + Alt + f</code>: <strong>f</strong>ile manager;</li>
+<li><code>mod + Alt + f</code>: <strong>f</strong>ile manager;</li>
 <li><code>mod + Alt + s</code>: <strong>s</strong>cripts;</li>
 <li><code>mod + Alt + u</code>: <strong>u</strong>niversity.</li>
 </ul>
-<p>Let’s take the cheat sheets example, which is a bit more interesting since it launches different applications.</p>
+<p>Let's take the cheat sheets example, which is a bit more interesting since it launches different applications.</p>
 <hr/>
-<h2 id="setting-up-a-custom-command">Setting Up a Custom Command</h2>
-<h3 id="configuration-for-i3-bind-a-keyboard-shortcut">Configuration for i3 (bind a keyboard shortcut)</h3>
-<p>Here, I’m using <a href="https://i3wm.org">i3</a> to set a keyboard shortcut to run a specific command, but this will be a similar experience on other window managers and desktop environments.</p>
+<h2 id="setting-up-a-custom-command">Setting Up a Custom Command</h2>
+<h3 id="configuration-for-i3-bind-a-keyboard-shortcut">Configuration for i3 (bind a keyboard shortcut)</h3>
+<p>Here, I'm using <a href="https://i3wm.org">i3</a> to set a keyboard shortcut to run a specific command, but this will be a similar experience on other window managers and desktop environments.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># i3config file</span>
 <span class="c1"># The backslash at the end of the line allows us</span>
 <span class="c1"># to split the line to increase readability</span>
@@ -785,74 +785,74 @@ bindsym<span class="w"> </span><span class="nv">$mod</span>+Mod1+c<span class="w
 cat<span class="w"> </span>path/to/cheatsheets.conf<span class="w"> </span><span class="se">\</span>
 <span class="p">|</span><span class="w"> </span>dmenu<span class="w"> </span>-l<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'s/.*    \+//'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </code></pre></div>
-<p>You would usually be able to launch a custom command from your environment through a keyboard shortcut. If passing a direct command such as the above one isn’t an option, you can always store it in a Bash script and run that Bash script instead as the designated custom command. The script would then contain the following:</p>
+<p>You would usually be able to launch a custom command from your environment through a keyboard shortcut. If passing a direct command such as the above one isn't an option, you can always store it in a Bash script and run that Bash script instead as the designated custom command. The script would then contain the following:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="c1">## Cheatsheets</span>
 cat<span class="w"> </span>path/to/cheatsheets.conf<span class="w"> </span><span class="se">\</span>
 <span class="p">|</span><span class="w"> </span>dmenu<span class="w"> </span>-l<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'s/.*    \+//'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </code></pre></div>
-<p>As far as <strong>i3</strong> is concerned, that’s all you need to do. You would need to reload the configuration file (by default: <em>i3config</em>) where the previous <code>bindsym</code> command has been set up to apply the changes (default shortcut to reload: <code>mod + Shift + c</code>).</p>
-<h3 id="configuration-for-cheatsheetsconf">Configuration for cheatsheets.conf</h3>
-<p>The content of this file is literally what will be shown when <strong>dmenu</strong> opens it. An excerpt:</p>
+<p>As far as <strong>i3</strong> is concerned, that's all you need to do. You would need to reload the configuration file (by default: <em>i3config</em>) where the previous <code>bindsym</code> command has been set up to apply the changes (default shortcut to reload: <code>mod + Shift + c</code>).</p>
+<h3 id="configuration-for-cheatsheetsconf">Configuration for cheatsheets.conf</h3>
+<p>The content of this file is literally what will be shown when <strong>dmenu</strong> opens it. An excerpt:</p>
 <div class="highlight"><pre><span></span><code>#---------- Cheat Sheets -------------------------------------------------------
 bash         st -e nvim path/to/bash.sh
 git          zathura path/to/github.pdf
 vimwiki      firefox path/to/vimwiki.html
 </code></pre></div>
-<p>Here, we have set a maximum of <strong>30</strong> lines to be displayed (<code>-l 30</code>). What follows after an element has been selected with <strong>dmenu</strong> allows us to parse the content of the line and retrieve only the command we are interested in with <code>sed</code> before passing that filtered content around to <code>sh</code> to execute it as a shell command. With more complex commands requiring multiples arguments to be received, we could add one more pipe between <code>sed</code> and <code>sh</code> like this (or with <code>xargs -I {}</code> to avoid problems with spaces):</p>
+<p>Here, we have set a maximum of <strong>30</strong> lines to be displayed (<code>-l 30</code>). What follows after an element has been selected with <strong>dmenu</strong> allows us to parse the content of the line and retrieve only the command we are interested in with <code>sed</code> before passing that filtered content around to <code>sh</code> to execute it as a shell command. With more complex commands requiring multiples arguments to be received, we could add one more pipe between <code>sed</code> and <code>sh</code> like this (or with <code>xargs -I {}</code> to avoid problems with spaces):</p>
 <div class="highlight"><pre><span></span><code>cat<span class="w"> </span>path/to/cheatsheets.conf<span class="w"> </span><span class="se">\</span>
 <span class="p">|</span><span class="w"> </span>dmenu<span class="w"> </span>-l<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'s/.*    \+//'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-r<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </code></pre></div>
-<p>If the line we want to run only includes a path to a file as in:</p>
+<p>If the line we want to run only includes a path to a file as in:</p>
 <div class="highlight"><pre><span></span><code>myshortcut      path/to/file.pdf
 </code></pre></div>
-<p>We could instead pipe it into an external command of choice if the same program applies to all items presented in the menu, say Firefox:</p>
+<p>We could instead pipe it into an external command of choice if the same program applies to all items presented in the menu, say Firefox:</p>
 <div class="highlight"><pre><span></span><code>cat<span class="w"> </span>path/to/file.conf<span class="w"> </span><span class="se">\</span>
 <span class="p">|</span><span class="w"> </span>dmenu<span class="w"> </span>-l<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'s/.*    \+//'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-I<span class="w"> </span><span class="o">{}</span><span class="w"> </span>firefox<span class="w"> </span><span class="s2">"{}"</span>
 </code></pre></div>
-<p>What’s nice with the way pipes work in a Unix-like system is that we can chain harmless commands until the very end so they will simply be printed to the terminal. In this example, if we want to see how to filter our lines before running a command, we can do so as follow.</p>
-<h4 id="pipe-1">Pipe 1</h4>
+<p>What's nice with the way pipes work in a Unix-like system is that we can chain harmless commands until the very end so they will simply be printed to the terminal. In this example, if we want to see how to filter our lines before running a command, we can do so as follow.</p>
+<h4 id="pipe-1">Pipe 1</h4>
 <div class="highlight"><pre><span></span><code>cat<span class="w"> </span>path/to/cheatsheets.conf<span class="w"> </span><span class="se">\</span>
 <span class="p">|</span><span class="w"> </span>dmenu<span class="w"> </span>-l<span class="w"> </span><span class="m">30</span>
 </code></pre></div>
-<p>If you remember from the menu we saw earlier, there’s a shortcut to open a cheat sheet for Git. Let’s say we selected that one with <strong>dmenu</strong>. Because our command isn’t doing anything with the result, it will be outputted to the terminal like so (just like in the excerpt of <code>cheatsheets.conf</code>):</p>
+<p>If you remember from the menu we saw earlier, there's a shortcut to open a cheat sheet for Git. Let's say we selected that one with <strong>dmenu</strong>. Because our command isn't doing anything with the result, it will be outputted to the terminal like so (just like in the excerpt of <code>cheatsheets.conf</code>):</p>
 <div class="highlight"><pre><span></span><code>git<span class="w">      </span>zathura<span class="w"> </span>path/to/github.pdf
 </code></pre></div>
-<p>What <code>sed</code> does here is to cut everything from the beginning of the line up to where the command starts (that’s where we find <a href="https://pwmt.org/projects/zathura/">zathura</a>, which is a powerful document viewer), because we need to isolate that part of the line so it looks like a shell command we could run on its own. Let’s add a new pipe to our command and see what <code>sed</code> does with it*.</p>
+<p>What <code>sed</code> does here is to cut everything from the beginning of the line up to where the command starts (that's where we find <a href="https://pwmt.org/projects/zathura/">zathura</a>, which is a powerful document viewer), because we need to isolate that part of the line so it looks like a shell command we could run on its own. Let's add a new pipe to our command and see what <code>sed</code> does with it*.</p>
 <p>* <sub>We could have used other tools to parse the string like <code>awk</code>, <code>grep</code>, <code>cut</code>, etc.</sub></p>
-<h4 id="pipe-2">Pipe 2</h4>
+<h4 id="pipe-2">Pipe 2</h4>
 <div class="highlight"><pre><span></span><code>cat<span class="w"> </span>path/to/cheatsheets.conf<span class="w"> </span><span class="se">\</span>
 <span class="p">|</span><span class="w"> </span>dmenu<span class="w"> </span>-l<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'s/.*    \+//'</span>
 </code></pre></div>
-<p>If we select the same item as before with <strong>dmenu</strong> to illustrate more clearly what this new addition does, we will get this output:</p>
+<p>If we select the same item as before with <strong>dmenu</strong> to illustrate more clearly what this new addition does, we will get this output:</p>
 <div class="highlight"><pre><span></span><code>zathura<span class="w"> </span>path/to/github.pdf
 </code></pre></div>
-<p>If we were to type this in the terminal (assuming the file exists and <strong>zathura</strong> is installed!), that would do the trick and it would open with the specified document viewer. <strong>Pipe 2</strong> and subsequent pipes before we execute something is where the filtering magic happen. In short:</p>
+<p>If we were to type this in the terminal (assuming the file exists and <strong>zathura</strong> is installed!), that would do the trick and it would open with the specified document viewer. <strong>Pipe 2</strong> and subsequent pipes before we execute something is where the filtering magic happen. In short:</p>
 <ul>
 <li>Everything <strong>before</strong> <code>| dmenu</code> is how our input will look like when we run <code>dmenu</code>;</li>
-<li>Everything <strong>after</strong> <code>| dmenu [options here] |</code> is what we need to do to our input so that it is converted into a working shell command;</li>
-<li>Finally, what comes <strong>after the last pipe</strong> (either <code>xargs</code>, <code>sh</code> or a combination of both) is our way to redirect our string to the shell so it can be executed.</li>
+<li>Everything <strong>after</strong> <code>| dmenu [options here] |</code> is what we need to do to our input so that it is converted into a working shell command;</li>
+<li>Finally, what comes <strong>after the last pipe</strong> (either <code>xargs</code>, <code>sh</code> or a combination of both) is our way to redirect our string to the shell so it can be executed.</li>
 </ul>
-<p>Once we are visually satisfied with how our command is supposed to look like (it has to be something that works when typed directly in the terminal), the next step is to pipe it again so it can be executed.</p>
-<h4 id="pipe-3">Pipe 3</h4>
+<p>Once we are visually satisfied with how our command is supposed to look like (it has to be something that works when typed directly in the terminal), the next step is to pipe it again so it can be executed.</p>
+<h4 id="pipe-3">Pipe 3</h4>
 <div class="highlight"><pre><span></span><code>cat<span class="w"> </span>path/to/cheatsheets.conf<span class="w"> </span><span class="se">\</span>
 <span class="p">|</span><span class="w"> </span>dmenu<span class="w"> </span>-l<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'s/.*    \+//'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </code></pre></div>
-<p>There we go, the command is launched. If we keep the same simple syntax in all of our <code>.conf</code> files —or whatever extension we choose— where the content of our menus is stored in plain text, we can quickly and painlessly create keyboard shortcuts to run custom lists of commands that can be edited on the fly. Once our shortcuts are active, it’s only a matter of editing one of those <code>.conf</code> files and automatically our lists will be up-to-date when we trigger the shortcut again.</p>
+<p>There we go, the command is launched. If we keep the same simple syntax in all of our <code>.conf</code> files —or whatever extension we choose— where the content of our menus is stored in plain text, we can quickly and painlessly create keyboard shortcuts to run custom lists of commands that can be edited on the fly. Once our shortcuts are active, it's only a matter of editing one of those <code>.conf</code> files and automatically our lists will be up-to-date when we trigger the shortcut again.</p>
 <hr/>
-<h2 id="running-a-custom-script">Running a Custom Script</h2>
-<p>If we want to run custom scripts, we need to indicate a command that would work in the terminal, such as <code>python myscrypt.py</code> or <code>./myscript.sh</code>. When it comes to shell scripts, we have to make sure they are executable. We can do so through a file manager or within the terminal like this:</p>
+<h2 id="running-a-custom-script">Running a Custom Script</h2>
+<p>If we want to run custom scripts, we need to indicate a command that would work in the terminal, such as <code>python myscrypt.py</code> or <code>./myscript.sh</code>. When it comes to shell scripts, we have to make sure they are executable. We can do so through a file manager or within the terminal like this:</p>
 <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>path/to/script.sh
 </code></pre></div>
-<p>This will add the necessary permissions for the user to execute the script. As we already know, we would then need to add a keyboard shortcut to launch our custom menu and store our command in a file like <code>scripts.conf</code> that would contain the following:</p>
+<p>This will add the necessary permissions for the user to execute the script. As we already know, we would then need to add a keyboard shortcut to launch our custom menu and store our command in a file like <code>scripts.conf</code> that would contain the following:</p>
 <div class="highlight"><pre><span></span><code>#---------- scripts.conf -------------------------------------------------------
 myscript      script.sh
 </code></pre></div>
-<p>And that’s all there is to know to get piping with <code>dmenu</code>! You may also find <a href="https://www.youtube.com/watch?v=8E8sUNHdzG8">this video from Luke Smith</a> on YouTube to be quite helpful as well, which is where the inspiration for this post came from. He also <a href="https://www.youtube.com/watch?v=R9m723tAurA">posted a complementary video</a> about adding prompts to your commands which is a nice way to add interactivity to your scripts!</p>
+<p>And that's all there is to know to get piping with <code>dmenu</code>! You may also find <a href="https://www.youtube.com/watch?v=8E8sUNHdzG8">this video from Luke Smith</a> on YouTube to be quite helpful as well, which is where the inspiration for this post came from. He also <a href="https://www.youtube.com/watch?v=R9m723tAurA">posted a complementary video</a> about adding prompts to your commands which is a nice way to add interactivity to your scripts!</p>
 <hr/>
-<h2 id="chaining-dmenu-prompts">Chaining dmenu prompts</h2>
-<p>Another useful scenario is when you want to take a specific action based on the output of a previous command. For instance, let’s say you want to read a book but when you choose a <code>pdf</code> with <code>dmenu</code>, you want to be prompted for which reader to use while you want to let the system choose the default application for other types of files (e.g. <code>epub</code> or <code>mobi</code>). This could be achieved with a script similar to the following one:</p>
+<h2 id="chaining-dmenu-prompts">Chaining dmenu prompts</h2>
+<p>Another useful scenario is when you want to take a specific action based on the output of a previous command. For instance, let's say you want to read a book but when you choose a <code>pdf</code> with <code>dmenu</code>, you want to be prompted for which reader to use while you want to let the system choose the default application for other types of files (e.g. <code>epub</code> or <code>mobi</code>). This could be achieved with a script similar to the following one:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="nv">FILE</span><span class="o">=</span><span class="sb">`</span>find<span class="w"> </span>~/Documents/calibre_library<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-iname<span class="w"> </span><span class="s2">"*.pdf"</span><span class="w"> </span>-o<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-iname<span class="w"> </span><span class="s2">"*.epub"</span><span class="w"> </span>-o<span class="w"> </span>-iname<span class="w"> </span><span class="s2">"*.mobi"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>dmenu<span class="w"> </span>-l<span class="w"> </span><span class="m">30</span><span class="sb">`</span>
@@ -865,19 +865,19 @@ myscript      script.sh
 <span class="w">    </span>xdg-open<span class="w"> </span><span class="s2">"</span><span class="nv">$FILE</span><span class="s2">"</span>
 <span class="k">fi</span>
 </code></pre></div>
-<p>Here’s what’s happening:</p>
+<p>Here's what's happening:</p>
 <ol>
 <li>We <code>find</code> all the files (<code>-type f</code>)</li>
 <li>in the directory <code>~/Documents/calibre_library</code></li>
-<li>that match a pattern that’s case-insensitive with <code>-iname</code> (here, ending in either <code>pdf</code>, <code>mobi</code> or <code>epub</code>)</li>
-<li>matching one file at a time (<code>-o</code> can be interpreted to mean “only” and will keep searching if the previous file extension was not matched)</li>
+<li>that match a pattern that's case-insensitive with <code>-iname</code> (here, ending in either <code>pdf</code>, <code>mobi</code> or <code>epub</code>)</li>
+<li>matching one file at a time (<code>-o</code> can be interpreted to mean "only" and will keep searching if the previous file extension was not matched)</li>
 <li>then presenting 30 lines (<code>-l 30</code>) of results at a time with <code>dmenu</code></li>
-<li>then, if the file is a <span class="caps">PDF</span>, prompts whether to use <code>atril</code> or <code>zathura</code> as the file reader and open with the chosen program</li>
-<li>otherwise, open the file with the default application.</li>
+<li>then, if the file is a PDF, prompts whether to use <code>atril</code> or <code>zathura</code> as the file reader and open with the chosen program</li>
+<li>otherwise, open the file with the default application.</li>
 </ol>
 <hr/>
-<h1 id="customize-the-look-of-dmenu">Customize the Look of dmenu</h1>
-<p>As they say, <em>“beauty is in the eye of the beholder”</em>. If you would rather make some changes to how dmenu look, you can. <strong>dmenu</strong> will be searching for the configuration file located at <code>~/.dmenurc</code>, which could contain something as put below (with this configuration, it will look like the screenshots shown previously):</p>
+<h1 id="customize-the-look-of-dmenu">Customize the Look of dmenu</h1>
+<p>As they say, <em>"beauty is in the eye of the beholder"</em>. If you would rather make some changes to how dmenu look, you can. <strong>dmenu</strong> will be searching for the configuration file located at <code>~/.dmenurc</code>, which could contain something as put below (with this configuration, it will look like the screenshots shown previously):</p>
 <div class="highlight"><pre><span></span><code><span class="c1">#</span>
 <span class="c1"># ~/.dmenurc</span>
 <span class="c1">#</span>
@@ -905,8 +905,8 @@ myscript      script.sh
 </code></pre></div>
 <hr/>
 <h1 id="conclusion">Conclusion</h1>
-<p>Hopefully this introduction to what <strong>dmenu</strong> has to offer gave you some ideas. I hope you’ll find many ways to adapt the examples so you can benefit from this amazing tool. You can find more configuration details in my <a href="https://github.com/sglavoie/dotfiles/">dotfiles on GitHub</a> for anything related to <strong>i3</strong>, <strong>dmenu</strong>, <strong>zathura</strong>, <strong>st</strong>, <strong>slock</strong> and many more useful programs.</p>
-<p>Have a good time automating your digital life!</p></div>
+<p>Hopefully this introduction to what <strong>dmenu</strong> has to offer gave you some ideas. I hope you'll find many ways to adapt the examples so you can benefit from this amazing tool. You can find more configuration details in my <a href="https://github.com/sglavoie/dotfiles/">dotfiles on GitHub</a> for anything related to <strong>i3</strong>, <strong>dmenu</strong>, <strong>zathura</strong>, <strong>st</strong>, <strong>slock</strong> and many more useful programs.</p>
+<p>Have a good time automating your digital life!</p></div>
 </article>
         </main>
     </div>

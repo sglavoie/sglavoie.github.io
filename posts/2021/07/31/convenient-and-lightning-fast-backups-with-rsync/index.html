@@ -152,7 +152,7 @@
 <!-- Open graph for social networks -->
 <meta name="og:title" property="og:title" content="Cloud storage became affordable a long time ago while internet connection speeds have increased dramatically over the years. Yet, there is still a strong case to be made for daily backups of a whole system and for this purpose, there are few options to contend with rsync." />
  
-    <title>sglavoie.com &ndash; Convenient and lightning fast backups with&nbsp;rsync</title>
+    <title>sglavoie.com &ndash; Convenient and lightning fast backups with rsync</title>
   </head>
 
   <body>
@@ -524,7 +524,7 @@
       <main>
 <article data-pagefind-body>
   <div class="article_title">
-    <h1><a href="../../../../../posts/2021/07/31/convenient-and-lightning-fast-backups-with-rsync/">Convenient and lightning fast backups with&nbsp;rsync</a></h1>
+    <h1><a href="../../../../../posts/2021/07/31/convenient-and-lightning-fast-backups-with-rsync/">Convenient and lightning fast backups with rsync</a></h1>
   </div>
   <div class="meta_container_hrs">
     <hr />
@@ -654,20 +654,20 @@
 <li><a href="#prerequisites">Prerequisites</a></li>
 <li><a href="#setting-up-the-script">Setting up the script</a><ul>
 <li><a href="#the-configuration-file">The configuration file</a><ul>
-<li><a href="#description-of-available-settings">Description of available settings</a></li>
+<li><a href="#description-of-available-settings">Description of available settings</a></li>
 </ul>
 </li>
-<li><a href="#the-script">The script</a></li>
+<li><a href="#the-script">The script</a></li>
 </ul>
 </li>
 <li><a href="#how-to-use">How to use</a><ul>
-<li><a href="#one-time-setup">One-time setup</a></li>
-<li><a href="#using-as-a-daily-driver">Using as a daily driver</a></li>
-<li><a href="#avoid-deleting-files-at-the-destination">Avoid deleting files at the destination</a></li>
+<li><a href="#one-time-setup">One-time setup</a></li>
+<li><a href="#using-as-a-daily-driver">Using as a daily driver</a></li>
+<li><a href="#avoid-deleting-files-at-the-destination">Avoid deleting files at the destination</a></li>
 </ul>
 </li>
 <li><a href="#conclusion">Conclusion</a><ul>
-<li><a href="#more-resources-and-references">More resources and references</a></li>
+<li><a href="#more-resources-and-references">More resources and references</a></li>
 </ul>
 </li>
 </ul>
@@ -675,15 +675,15 @@
   <div class="article_text">
 <hr/>
 <h1 id="introduction">Introduction</h1>
-<p>Coming into its fourth year of existence and usage in production environments, this simple script has proven to be a fantastic ally. Despite the plethora of great options out there that have more bells and whistles, I have yet to find a single complaint about this solution as it hinges on the minimalist side, requiring only a working Python 3 installation along with the powerful <code>rsync</code> command-line tool.</p>
-<p>It’s one of those pieces of code that perform some really basic tasks that can be scheduled with <a href="https://opensource.com/article/17/11/how-use-cron-linux"><code>cron</code></a> in the background, that one forgets about until a real need to access a backup comes up. This script is barely a Python wrapper calling <code>rsync</code> but still, I felt like sharing it for those who like uncomplicated setups. I’ve literally left this script alone for years some time after the release of Python 3.6 which was released back in December 2016 and it has been going strong since then mostly due to the fact it does not do much more than backing files up and leveraging <code>rsync</code>.</p>
+<p>Coming into its fourth year of existence and usage in production environments, this simple script has proven to be a fantastic ally. Despite the plethora of great options out there that have more bells and whistles, I have yet to find a single complaint about this solution as it hinges on the minimalist side, requiring only a working Python 3 installation along with the powerful <code>rsync</code> command-line tool.</p>
+<p>It's one of those pieces of code that perform some really basic tasks that can be scheduled with <a href="https://opensource.com/article/17/11/how-use-cron-linux"><code>cron</code></a> in the background, that one forgets about until a real need to access a backup comes up. This script is barely a Python wrapper calling <code>rsync</code> but still, I felt like sharing it for those who like uncomplicated setups. I've literally left this script alone for years some time after the release of Python 3.6 which was released back in December 2016 and it has been going strong since then mostly due to the fact it does not do much more than backing files up and leveraging <code>rsync</code>.</p>
 <hr/>
 <h1 id="prerequisites">Prerequisites</h1>
-<p>As briefly mentioned above, this tool uses <a href="https://www.python.org/">Python 3.6+</a> and <a href="https://rsync.samba.org/"><code>rsync</code></a>. That’s it, really.</p>
-<h1 id="setting-up-the-script">Setting up the script</h1>
-<p>This script is being made <a href="https://github.com/sglavoie/dev-helpers/tree/main/rsync_backup">available on GitHub</a> within a set of other small tools. To get the source code for this particular tool, you can either <a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository">clone the whole repository</a>, get the content of the files separately or simply copy and paste <a href="#the-script">the current version from below</a>. You will need a <code>settings.json</code> file as well as the Python script that will run the necessary commands.</p>
-<h2 id="the-configuration-file">The configuration file</h2>
-<p>Right off the bat, you will most probably want to update the array of strings for the <code>data_sources</code> key as well as the string for the key <code>data_destination</code> in the following <span class="caps">JSON</span> file.</p>
+<p>As briefly mentioned above, this tool uses <a href="https://www.python.org/">Python 3.6+</a> and <a href="https://rsync.samba.org/"><code>rsync</code></a>. That's it, really.</p>
+<h1 id="setting-up-the-script">Setting up the script</h1>
+<p>This script is being made <a href="https://github.com/sglavoie/dev-helpers/tree/main/rsync_backup">available on GitHub</a> within a set of other small tools. To get the source code for this particular tool, you can either <a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository">clone the whole repository</a>, get the content of the files separately or simply copy and paste <a href="#the-script">the current version from below</a>. You will need a <code>settings.json</code> file as well as the Python script that will run the necessary commands.</p>
+<h2 id="the-configuration-file">The configuration file</h2>
+<p>Right off the bat, you will most probably want to update the array of strings for the <code>data_sources</code> key as well as the string for the key <code>data_destination</code> in the following JSON file.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">"data_sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="s2">"/home/sglavoie"</span>
@@ -719,27 +719,27 @@
 </tr>
 <tr>
 <td><code>--delete</code></td>
-<td><em>“delete extraneous files from destination dirs”</em></td>
+<td><em>"delete extraneous files from destination dirs"</em></td>
 </tr>
 <tr>
 <td><code>--ignore-errors</code></td>
-<td><em>“delete even if there are I/O errors”</em></td>
+<td><em>"delete even if there are I/O errors"</em></td>
 </tr>
 <tr>
 <td><code>--force</code></td>
-<td><em>“force deletion of directories even if not empty”</em></td>
+<td><em>"force deletion of directories even if not empty"</em></td>
 </tr>
 <tr>
 <td><code>--prune-empty-dirs</code></td>
-<td><em>“prune empty directory chains from the file-list”</em></td>
+<td><em>"prune empty directory chains from the file-list"</em></td>
 </tr>
 <tr>
 <td><code>--delete-excluded</code></td>
-<td><em>“also delete excluded files from destination dirs”</em></td>
+<td><em>"also delete excluded files from destination dirs"</em></td>
 </tr>
 </tbody>
 </table></div>
-<h3 id="description-of-available-settings">Description of available settings</h3>
+<h3 id="description-of-available-settings">Description of available settings</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -782,7 +782,7 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="the-script">The script</h2>
+<h2 id="the-script">The script</h2>
 <div class="highlight"><pre><span></span><code><span class="sd">"""</span>
 <span class="sd">Script that uses `rsync` to make a simple and convenient backup.</span>
 <span class="sd">Note: requires Python 3.6+. No other Python third-party libraries required.</span>
@@ -981,20 +981,20 @@
     <span class="n">run_backup</span><span class="p">()</span>
 </code></pre></div>
 <hr/>
-<h1 id="how-to-use">How to use</h1>
-<h2 id="one-time-setup">One-time setup</h2>
+<h1 id="how-to-use">How to use</h1>
+<h2 id="one-time-setup">One-time setup</h2>
 <ol>
-<li>Set all values in <code>settings.json</code> to suit your needs.</li>
-<li>Make sure that the backup destination is available/mounted. A simple warning will be echoed if the destination can’t be found.</li>
-<li>Call the Python script. As an example, if it’s located at <code>/home/user/backup/rsync_backup.py</code>, then you could put the following alias in <code>~/.bash_aliases</code> (or equivalent)*:</li>
+<li>Set all values in <code>settings.json</code> to suit your needs.</li>
+<li>Make sure that the backup destination is available/mounted. A simple warning will be echoed if the destination can't be found.</li>
+<li>Call the Python script. As an example, if it's located at <code>/home/user/backup/rsync_backup.py</code>, then you could put the following alias in <code>~/.bash_aliases</code> (or equivalent)*:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">backup</span><span class="o">=</span><span class="s1">'python3 /home/user/backup/rsync_backup.py'</span>
 </code></pre></div>
 <p>* Python may be called differently on your system, e.g. simply <code>python</code> instead of <code>python3</code>.</p>
-<p>In this instance, the script can now be executed in a terminal with the keyword <code>backup</code> along with optional arguments.</p>
-<h2 id="using-as-a-daily-driver">Using as a daily driver</h2>
-<p>Make sure the destination to back files up is available/mounted and simply call the script (e.g. <code>backup</code> in this example).</p>
-<p>The output will look something like this:</p>
+<p>In this instance, the script can now be executed in a terminal with the keyword <code>backup</code> along with optional arguments.</p>
+<h2 id="using-as-a-daily-driver">Using as a daily driver</h2>
+<p>Make sure the destination to back files up is available/mounted and simply call the script (e.g. <code>backup</code> in this example).</p>
+<p>The output will look something like this:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nv">backup</span>
 <span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-<span class="o">=</span>-
 Command<span class="w"> </span>executed:
@@ -1008,27 +1008,27 @@ sglavoie/
 sglavoie/.bash_aliases
 ...
 </code></pre></div>
-<h2 id="avoid-deleting-files-at-the-destination">Avoid deleting files at the destination</h2>
-<p>The <code>rsync</code> command first builds a list of the files that are part of the backup and will go on adding new files, updating existing files as well as removing files that are found in the destination but not in the source anymore according to the default list of flags passed to it in this implementation. It is therefore important to note that <strong>if you would like to back up files in the destination that no longer exist in the source</strong>, a convenient solution is simply to create a new folder at the root level inside the destination directory and manage those files separately.</p>
-<p>For instance, I sometimes want to back up large video files but there is rarely a need to update them. In this case, it would be possible to add the directories to exclude in the file <code>.backup_exclude</code> (default configuration option) like so:</p>
+<h2 id="avoid-deleting-files-at-the-destination">Avoid deleting files at the destination</h2>
+<p>The <code>rsync</code> command first builds a list of the files that are part of the backup and will go on adding new files, updating existing files as well as removing files that are found in the destination but not in the source anymore according to the default list of flags passed to it in this implementation. It is therefore important to note that <strong>if you would like to back up files in the destination that no longer exist in the source</strong>, a convenient solution is simply to create a new folder at the root level inside the destination directory and manage those files separately.</p>
+<p>For instance, I sometimes want to back up large video files but there is rarely a need to update them. In this case, it would be possible to add the directories to exclude in the file <code>.backup_exclude</code> (default configuration option) like so:</p>
 <div class="highlight"><pre><span></span><code>Videos/
 Dropbox/other/folder/
 </code></pre></div>
-<p>Then, these directories will be ignored when backing up the source (if they are nested inside the source directory to start with!). If the destination is set to <code>/media/user/backup</code> and the source set to <code>/home/user/my_folder</code>, then the script would recreate the “root” directory of the source if it doesn’t exist on the destination:</p>
+<p>Then, these directories will be ignored when backing up the source (if they are nested inside the source directory to start with!). If the destination is set to <code>/media/user/backup</code> and the source set to <code>/home/user/my_folder</code>, then the script would recreate the "root" directory of the source if it doesn't exist on the destination:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>/media/user/backup
 my_folder
 </code></pre></div>
-<p>You could keep track of those heavy files that do not need to be backed up frequently by putting them manually next to <code>my_folder</code> in <code>/media/user/backup</code>. This will lead to huge speed ups when running the script if you track many files in this way!</p>
+<p>You could keep track of those heavy files that do not need to be backed up frequently by putting them manually next to <code>my_folder</code> in <code>/media/user/backup</code>. This will lead to huge speed ups when running the script if you track many files in this way!</p>
 <hr/>
 <h1 id="conclusion">Conclusion</h1>
-<p>This was a quick overview of what <code>rsync</code> can offer: I neither touched upon its remote syncing capabilities nor the vast majority of its options, for which you can find a lot more information about by typing <code>man rsync</code> to display the manual page in the terminal.</p>
-<p>Without making use of any fancy features of recent versions of Python or <code>rsync</code>, I have found this simple backup procedure to have worked flawlessly for a long time. Hardware inevitably fails at some point and after having heard about countless examples of people losing some or all of their most precious files (including my own story…), I have come to enjoy backing my system with this little script.</p>
-<p>I wouldn’t trust my external drive to last forever either, hence I also rely on Dropbox and Google Drive for documents I find are a good fit. But overall, I just do not tend to back up every single system file in the cloud, so there is still a convincing use case where daily and complete backups become a possibility when using a fast approach like <code>rsync</code> to incrementally save snapshots.</p>
-<h2 id="more-resources-and-references">More resources and references</h2>
+<p>This was a quick overview of what <code>rsync</code> can offer: I neither touched upon its remote syncing capabilities nor the vast majority of its options, for which you can find a lot more information about by typing <code>man rsync</code> to display the manual page in the terminal.</p>
+<p>Without making use of any fancy features of recent versions of Python or <code>rsync</code>, I have found this simple backup procedure to have worked flawlessly for a long time. Hardware inevitably fails at some point and after having heard about countless examples of people losing some or all of their most precious files (including my own story...), I have come to enjoy backing my system with this little script.</p>
+<p>I wouldn't trust my external drive to last forever either, hence I also rely on Dropbox and Google Drive for documents I find are a good fit. But overall, I just do not tend to back up every single system file in the cloud, so there is still a convincing use case where daily and complete backups become a possibility when using a fast approach like <code>rsync</code> to incrementally save snapshots.</p>
+<h2 id="more-resources-and-references">More resources and references</h2>
 <ul>
-<li><a href="https://rsync.samba.org/">rsync official website</a> – samba.org.</li>
-<li><a href="https://www.redhat.com/sysadmin/sync-rsync">Keeping Linux files and directories in sync with rsync</a> – RedHat, going through the main options offered by the tool.</li>
-<li><a href="https://www.digitalocean.com/community/tutorials/how-to-use-rsync-to-sync-local-and-remote-directories">How To Use Rsync to Sync Local and Remote Directories</a> – DigitalOcean, demoing how to use the tool and covering the case of remote file access.</li>
+<li><a href="https://rsync.samba.org/">rsync official website</a> – samba.org.</li>
+<li><a href="https://www.redhat.com/sysadmin/sync-rsync">Keeping Linux files and directories in sync with rsync</a> – RedHat, going through the main options offered by the tool.</li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-use-rsync-to-sync-local-and-remote-directories">How To Use Rsync to Sync Local and Remote Directories</a> – DigitalOcean, demoing how to use the tool and covering the case of remote file access.</li>
 </ul></div>
 </article>
         </main>

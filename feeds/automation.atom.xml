@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>sglavoie.com - automation</title><link href="https://www.sglavoie.com/" rel="alternate"></link><link href="https://www.sglavoie.com/feeds/automation.atom.xml" rel="self"></link><id>https://www.sglavoie.com/</id><updated>2021-12-26T13:31:00-06:00</updated><entry><title>Using Google Sheets as a database to extract data converted to Markdown</title><link href="https://www.sglavoie.com/posts/2021/12/19/using-google-sheets-as-a-database-to-extract-data-converted-to-markdown/" rel="alternate"></link><published>2021-12-19T21:00:00-06:00</published><updated>2021-12-26T13:31:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2021-12-19:/posts/2021/12/19/using-google-sheets-as-a-database-to-extract-data-converted-to-markdown/</id><summary type="html">&lt;p&gt;Using Google Sheets &lt;span class="caps"&gt;API&lt;/span&gt;, this little tool reads a spreadsheet, extract relevant data and converts it into Markdown so it can be repurposed, in the example given in this article to generate an &lt;span class="caps"&gt;HTML&lt;/span&gt; output for this website with &lt;a href="https://docs.getpelican.com/"&gt;Pelican&lt;/a&gt;, a powerful static site&amp;nbsp;generator.&lt;/p&gt;</summary><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>sglavoie.com - automation</title><link href="https://www.sglavoie.com/" rel="alternate"></link><link href="https://www.sglavoie.com/feeds/automation.atom.xml" rel="self"></link><id>https://www.sglavoie.com/</id><updated>2021-12-26T13:31:00-06:00</updated><entry><title>Using Google Sheets as a database to extract data converted to Markdown</title><link href="https://www.sglavoie.com/posts/2021/12/19/using-google-sheets-as-a-database-to-extract-data-converted-to-markdown/" rel="alternate"></link><published>2021-12-19T21:00:00-06:00</published><updated>2021-12-26T13:31:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2021-12-19:/posts/2021/12/19/using-google-sheets-as-a-database-to-extract-data-converted-to-markdown/</id><summary type="html">&lt;p&gt;Using Google Sheets API, this little tool reads a spreadsheet, extract relevant data and converts it into Markdown so it can be repurposed, in the example given in this article to generate an HTML output for this website with &lt;a href="https://docs.getpelican.com/"&gt;Pelican&lt;/a&gt;, a powerful static site generator.&lt;/p&gt;</summary><content type="html">
 &lt;hr/&gt;
 &lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;The purpose of this tool is to parse and convert the content of a Google Sheets spreadsheet to Markdown. In this specific case, I just wanted a simple script to reduce the friction in getting a valid output I could use to maintain a &lt;a href="https://www.sglavoie.com/posts/2022/06/18/what-it-took-to-propel-a-career-in-tech-in-five-years/"&gt;“learning log” on my website&lt;/a&gt;. So that gives me a quick way to input data in a spreadsheet and then I can take the time whenever needed to update the learning progress as desired by reformatting any of the entries and optionally adding notes to them.&lt;/p&gt;
+&lt;p&gt;The purpose of this tool is to parse and convert the content of a Google Sheets spreadsheet to Markdown. In this specific case, I just wanted a simple script to reduce the friction in getting a valid output I could use to maintain a &lt;a href="https://www.sglavoie.com/posts/2022/06/18/what-it-took-to-propel-a-career-in-tech-in-five-years/"&gt;"learning log" on my website&lt;/a&gt;. So that gives me a quick way to input data in a spreadsheet and then I can take the time whenever needed to update the learning progress as desired by reformatting any of the entries and optionally adding notes to them.&lt;/p&gt;
 &lt;hr/&gt;
-&lt;h2 id="general-software-requirements"&gt;General software requirements&lt;/h2&gt;
-&lt;p&gt;This tool should:&lt;/p&gt;
+&lt;h2 id="general-software-requirements"&gt;General software requirements&lt;/h2&gt;
+&lt;p&gt;This tool should:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Be able to read a private spreadsheet with a service account configured with the Google Sheets &lt;span class="caps"&gt;API&lt;/span&gt;.&lt;/li&gt;
-&lt;li&gt;Convert rows from a Google Sheets spreadsheet into Markdown (see &lt;strong&gt;Input&lt;/strong&gt; and &lt;strong&gt;Output&lt;/strong&gt; sections below for details).&lt;/li&gt;
-&lt;li&gt;Skip rendering rows that are missing a value for the &lt;code&gt;Title&lt;/code&gt; or &lt;code&gt;Date&lt;/code&gt; columns (it couldn’t be rendered in the correct place properly without this information).&lt;/li&gt;
+&lt;li&gt;Be able to read a private spreadsheet with a service account configured with the Google Sheets API.&lt;/li&gt;
+&lt;li&gt;Convert rows from a Google Sheets spreadsheet into Markdown (see &lt;strong&gt;Input&lt;/strong&gt; and &lt;strong&gt;Output&lt;/strong&gt; sections below for details).&lt;/li&gt;
+&lt;li&gt;Skip rendering rows that are missing a value for the &lt;code&gt;Title&lt;/code&gt; or &lt;code&gt;Date&lt;/code&gt; columns (it couldn't be rendered in the correct place properly without this information).&lt;/li&gt;
 &lt;li&gt;Other columns are optional and the corresponding level of nesting will be skipped if no value was provided (e.g. a category &lt;code&gt;Articles&lt;/code&gt; may have an item with no sub-category and could be missing any of the other values except for &lt;code&gt;Title&lt;/code&gt; and &lt;code&gt;Date&lt;/code&gt;).&lt;/li&gt;
 &lt;li&gt;Separate entries by month by parsing the &lt;code&gt;Date&lt;/code&gt; column.&lt;/li&gt;
-&lt;li&gt;A command-line parameter should exist to specify a year from which the date should be extracted.&lt;/li&gt;
-&lt;li&gt;The output should be in reverse chronological order (i.e. for a full year with entries for each month, December will appear at the top and January at the bottom).&lt;/li&gt;
+&lt;li&gt;A command-line parameter should exist to specify a year from which the date should be extracted.&lt;/li&gt;
+&lt;li&gt;The output should be in reverse chronological order (i.e. for a full year with entries for each month, December will appear at the top and January at the bottom).&lt;/li&gt;
 &lt;li&gt;Output a hierarchical format like the following: &lt;code&gt;Category &amp;gt; Sub-category &amp;gt; Title &amp;gt; Activity &amp;amp; notes&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Group entries by category &lt;strong&gt;and&lt;/strong&gt; sub-category (e.g. if a category is named &lt;code&gt;Articles&lt;/code&gt; and there is a sub-category named &lt;code&gt;Python&lt;/code&gt;, then &lt;code&gt;Python&lt;/code&gt; must be nested under &lt;code&gt;Articles&lt;/code&gt; for the corresponding month).&lt;/li&gt;
-&lt;li&gt;Sort on the &lt;code&gt;Date&lt;/code&gt; column before doing any parsing on other columns (rows in the spreadsheet &lt;em&gt;can&lt;/em&gt; be in non-chronological order).&lt;/li&gt;
-&lt;li&gt;Dates from a single year will be kept (either the year received as a parameter or the most recent year found).&lt;/li&gt;
-&lt;li&gt;Sort &lt;code&gt;Category&lt;/code&gt;, &lt;code&gt;Sub-category&lt;/code&gt; and &lt;code&gt;Title&lt;/code&gt; alphabetically (ascending order from top to bottom).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Not&lt;/strong&gt; sort the &lt;code&gt;Activity&lt;/code&gt; column to preserve the order in which rows were added to the spreadsheet.&lt;/li&gt;
-&lt;li&gt;Render links only if the &lt;code&gt;Link&lt;/code&gt; column is a valid &lt;span class="caps"&gt;URL&lt;/span&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Not&lt;/strong&gt; validate the content of columns except for &lt;code&gt;Date&lt;/code&gt; and &lt;code&gt;Link&lt;/code&gt; (i.e. render the other columns as is).&lt;/li&gt;
-&lt;li&gt;Display items with no category above those having a category. The same logic would be true for sub-categories.&lt;/li&gt;
-&lt;li&gt;Format the output:&lt;/li&gt;
+&lt;li&gt;Group entries by category &lt;strong&gt;and&lt;/strong&gt; sub-category (e.g. if a category is named &lt;code&gt;Articles&lt;/code&gt; and there is a sub-category named &lt;code&gt;Python&lt;/code&gt;, then &lt;code&gt;Python&lt;/code&gt; must be nested under &lt;code&gt;Articles&lt;/code&gt; for the corresponding month).&lt;/li&gt;
+&lt;li&gt;Sort on the &lt;code&gt;Date&lt;/code&gt; column before doing any parsing on other columns (rows in the spreadsheet &lt;em&gt;can&lt;/em&gt; be in non-chronological order).&lt;/li&gt;
+&lt;li&gt;Dates from a single year will be kept (either the year received as a parameter or the most recent year found).&lt;/li&gt;
+&lt;li&gt;Sort &lt;code&gt;Category&lt;/code&gt;, &lt;code&gt;Sub-category&lt;/code&gt; and &lt;code&gt;Title&lt;/code&gt; alphabetically (ascending order from top to bottom).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Not&lt;/strong&gt; sort the &lt;code&gt;Activity&lt;/code&gt; column to preserve the order in which rows were added to the spreadsheet.&lt;/li&gt;
+&lt;li&gt;Render links only if the &lt;code&gt;Link&lt;/code&gt; column is a valid URL.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Not&lt;/strong&gt; validate the content of columns except for &lt;code&gt;Date&lt;/code&gt; and &lt;code&gt;Link&lt;/code&gt; (i.e. render the other columns as is).&lt;/li&gt;
+&lt;li&gt;Display items with no category above those having a category. The same logic would be true for sub-categories.&lt;/li&gt;
+&lt;li&gt;Format the output:&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;Date&lt;/code&gt; should become headers (&lt;code&gt;##&lt;/code&gt;).&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;Category&lt;/code&gt; should be &lt;strong&gt;bolded&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;Sub-category&lt;/code&gt; should be &lt;em&gt;emphasized&lt;/em&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Title&lt;/code&gt; should become a &lt;a href="https://example.com"&gt;link&lt;/a&gt; if the &lt;code&gt;Link&lt;/code&gt; column contains a valid &lt;span class="caps"&gt;URL&lt;/span&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Activity&lt;/code&gt; should be nested under &lt;code&gt;Title&lt;/code&gt;, occupying a new line for each activity.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Title&lt;/code&gt; should become a &lt;a href="https://example.com"&gt;link&lt;/a&gt; if the &lt;code&gt;Link&lt;/code&gt; column contains a valid URL.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Activity&lt;/code&gt; should be nested under &lt;code&gt;Title&lt;/code&gt;, occupying a new line for each activity.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;Notes&lt;/code&gt; should appear (&lt;em&gt;italicized and inside parentheses&lt;/em&gt;) next to the activity.&lt;ul&gt;
 &lt;li&gt;If there is a value for &lt;code&gt;Notes&lt;/code&gt; but no value for &lt;code&gt;Activity&lt;/code&gt;, the output would be next to the &lt;code&gt;Title&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
@@ -125,7 +125,7 @@
 &lt;td&gt;2/12/2021&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Python/C &lt;span class="caps"&gt;API&lt;/span&gt; Reference Manual&lt;/td&gt;
+&lt;td&gt;Python/C API Reference Manual&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;https://docs.python.org/3/c-api/index.html&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
@@ -163,7 +163,7 @@
 &lt;/tbody&gt;
 &lt;/table&gt;&lt;/div&gt;
 &lt;h3 id="output"&gt;Output&lt;/h3&gt;
-&lt;p&gt;A Markdown output to the terminal in the following format:&lt;/p&gt;
+&lt;p&gt;A Markdown output to the terminal in the following format:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gu"&gt;## December&lt;/span&gt;
 
 &lt;span class="k"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;[&lt;span class="nt"&gt;Python/C API Reference Manual&lt;/span&gt;](&lt;span class="na"&gt;https://docs.python.org/3/c-api/index.html&lt;/span&gt;)
@@ -193,11 +193,11 @@
 &lt;a href="https://www.sglavoie.com/images/posts/0028_google_sheets_as_database_output_markdown/input_output.png"&gt;&lt;img alt="input_output_example" class="max-size-img-post" src="https://www.sglavoie.com/images/posts/0028_google_sheets_as_database_output_markdown/input_output.png"/&gt;&lt;/a&gt;
 &lt;figcaption&gt;Input/Output example when using this tool.&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;h2 id="installing-this-tool"&gt;Installing this tool&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;Tested only under Python 3.9.7&lt;/em&gt;, requires at least Python 3.7+.&lt;/p&gt;
+&lt;h2 id="installing-this-tool"&gt;Installing this tool&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Tested only under Python 3.9.7&lt;/em&gt;, requires at least Python 3.7+.&lt;/p&gt;
 &lt;h3 id="using-pip"&gt;Using &lt;code&gt;pip&lt;/code&gt;&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;[recommended] Activate a virtual environment.&lt;/li&gt;
+&lt;li&gt;[recommended] Activate a virtual environment.&lt;/li&gt;
 &lt;li&gt;To install dependencies, run from this directory: &lt;code&gt;pip install -r requirements.txt&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Then execute the script to run the tool: &lt;code&gt;python3 get_learning_logs&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -207,42 +207,42 @@
 &lt;li&gt;Activate the newly created virtual environment with &lt;code&gt;pipenv shell&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Then execute the script to run the tool: &lt;code&gt;python3 get_learning_logs&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="how-to-use-this-tool"&gt;How to use this tool&lt;/h2&gt;
-&lt;p&gt;You will need to create an environment file (default path: &lt;code&gt;~/.learning-logs&lt;/code&gt; or edit the path for &lt;code&gt;LEARNING_LOGS_ENV_PATH&lt;/code&gt; in &lt;code&gt;get_learning_logs.py&lt;/code&gt;). It should look as follows:&lt;/p&gt;
+&lt;h2 id="how-to-use-this-tool"&gt;How to use this tool&lt;/h2&gt;
+&lt;p&gt;You will need to create an environment file (default path: &lt;code&gt;~/.learning-logs&lt;/code&gt; or edit the path for &lt;code&gt;LEARNING_LOGS_ENV_PATH&lt;/code&gt; in &lt;code&gt;get_learning_logs.py&lt;/code&gt;). It should look as follows:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;SERVICE_ACCOUNT_FILEPATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"/path/to/service_account_learning_logs.json"&lt;/span&gt;
 &lt;span class="n"&gt;SPREADSHEET_ID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;SPREADSHEET_ID&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# Found in the URL of the document&lt;/span&gt;
 &lt;span class="n"&gt;WORKSHEET_ID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# First sheet is 0 by default, it comes after the URL parameter `gid`&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;To set up this project, you will have to:&lt;/p&gt;
+&lt;p&gt;To set up this project, you will have to:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Enable the Google Sheets &lt;span class="caps"&gt;API&lt;/span&gt; for your project (https://support.google.com/googleapi/answer/6158841?hl=en).&lt;/li&gt;
-&lt;li&gt;In the project, search for “service account” in the search bar and create new credentials.&lt;/li&gt;
-&lt;li&gt;Download the credentials and put them at the path &lt;code&gt;SERVICE_ACCOUNT_FILEPATH&lt;/code&gt; referenced in the environment file.&lt;/li&gt;
+&lt;li&gt;Enable the Google Sheets API for your project (https://support.google.com/googleapi/answer/6158841?hl=en).&lt;/li&gt;
+&lt;li&gt;In the project, search for "service account" in the search bar and create new credentials.&lt;/li&gt;
+&lt;li&gt;Download the credentials and put them at the path &lt;code&gt;SERVICE_ACCOUNT_FILEPATH&lt;/code&gt; referenced in the environment file.&lt;/li&gt;
 &lt;li&gt;Create a spreadsheet with the following columns (not necessarily in that order): &lt;code&gt;Date&lt;/code&gt;, &lt;code&gt;Category&lt;/code&gt;, &lt;code&gt;Sub-category&lt;/code&gt;, &lt;code&gt;Title&lt;/code&gt;, &lt;code&gt;Activity&lt;/code&gt;, &lt;code&gt;Link&lt;/code&gt;, &lt;code&gt;Notes&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;The column &lt;code&gt;Date&lt;/code&gt; Should match a date format: select all cells from that column, go to &lt;code&gt;Format &amp;gt; Number &amp;gt; Date&lt;/code&gt; to apply the expected format (&lt;code&gt;mm/dd/yyyy&lt;/code&gt;). You can then input a date (e.g. &lt;code&gt;11/1/2021&lt;/code&gt;) and you will see a calendar pop up when double-clicking on it. Dragging it down to a new cell will create a new date for the next day (in this example, &lt;code&gt;11/2/2021&lt;/code&gt;).&lt;/li&gt;
-&lt;li&gt;Get its &lt;code&gt;SPREADSHEET_ID&lt;/code&gt; (&lt;code&gt;https://docs.google.com/spreadsheets/d/SPREADSHEET_ID_HERE/edit#gid=0&lt;/code&gt;) to put it in the environment file.&lt;/li&gt;
-&lt;li&gt;Get the &lt;code&gt;WORKSHEET_ID&lt;/code&gt; (the integer after &lt;code&gt;gid=&lt;/code&gt; in the &lt;span class="caps"&gt;URL&lt;/span&gt; of the document).&lt;/li&gt;
-&lt;li&gt;From the spreadsheet document (or from the folder view in Google Drive), share with the email associated with the service account (e.g. &lt;code&gt;learning-logs-something@project-name-12345.iam.gserviceaccount.com&lt;/code&gt;). Read access (“Viewer” permission) is enough.&lt;/li&gt;
+&lt;li&gt;Get its &lt;code&gt;SPREADSHEET_ID&lt;/code&gt; (&lt;code&gt;https://docs.google.com/spreadsheets/d/SPREADSHEET_ID_HERE/edit#gid=0&lt;/code&gt;) to put it in the environment file.&lt;/li&gt;
+&lt;li&gt;Get the &lt;code&gt;WORKSHEET_ID&lt;/code&gt; (the integer after &lt;code&gt;gid=&lt;/code&gt; in the URL of the document).&lt;/li&gt;
+&lt;li&gt;From the spreadsheet document (or from the folder view in Google Drive), share with the email associated with the service account (e.g. &lt;code&gt;learning-logs-something@project-name-12345.iam.gserviceaccount.com&lt;/code&gt;). Read access ("Viewer" permission) is enough.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;By now, the script is ready to be called. I just created an alias to execute it more easily by putting the following in &lt;code&gt;~/.bash_aliases&lt;/code&gt; (you will have to adapt the paths of course):&lt;/p&gt;
+&lt;p&gt;By now, the script is ready to be called. I just created an alias to execute it more easily by putting the following in &lt;code&gt;~/.bash_aliases&lt;/code&gt; (you will have to adapt the paths of course):&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;learning-logs&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'~/.local/share/virtualenvs/learning-logs-to-markdown-XJLvhmzn/bin/python3.9 \&lt;/span&gt;
 &lt;span class="s1"&gt;  ~/dev/sglavoie/dev-helpers/learning-logs-to-markdown/get_learning_logs.py'&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This will output the converted data from the spreadsheet to Markdown &lt;a href="#output"&gt;as shown above&lt;/a&gt;.&lt;/p&gt;
 &lt;hr/&gt;
 &lt;h1 id="conclusion"&gt;Conclusion&lt;/h1&gt;
-&lt;p&gt;This little tool scratched an itch and will be helpful in making the process of updating the &lt;a href="https://www.sglavoie.com/posts/2022/06/18/what-it-took-to-propel-a-career-in-tech-in-five-years/"&gt;learning progress&lt;/a&gt; of this website more straightforward, more convenient and less hands-on! You can find its source code &lt;a href="https://github.com/sglavoie/dev-helpers/tree/main/learning-logs-to-markdown"&gt;on GitHub&lt;/a&gt;.&lt;/p&gt;</content><category term="automation"></category><category term="google sheets"></category><category term="markdown"></category><category term="python"></category><category term="terminal"></category></entry><entry><title>Convenient and lightning fast backups with rsync</title><link href="https://www.sglavoie.com/posts/2021/07/31/convenient-and-lightning-fast-backups-with-rsync/" rel="alternate"></link><published>2021-07-31T09:01:00-05:00</published><updated>2021-07-31T09:01:00-05:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2021-07-31:/posts/2021/07/31/convenient-and-lightning-fast-backups-with-rsync/</id><summary type="html">&lt;p&gt;Cloud storage became affordable a long time ago while internet connection speeds have increased dramatically over the years. Yet, there is still a strong case to be made for daily backups of a whole system and for this purpose, there are few options to contend with &lt;code&gt;rsync&lt;/code&gt;.&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;This little tool scratched an itch and will be helpful in making the process of updating the &lt;a href="https://www.sglavoie.com/posts/2022/06/18/what-it-took-to-propel-a-career-in-tech-in-five-years/"&gt;learning progress&lt;/a&gt; of this website more straightforward, more convenient and less hands-on! You can find its source code &lt;a href="https://github.com/sglavoie/dev-helpers/tree/main/learning-logs-to-markdown"&gt;on GitHub&lt;/a&gt;.&lt;/p&gt;</content><category term="automation"></category><category term="google sheets"></category><category term="markdown"></category><category term="python"></category><category term="terminal"></category></entry><entry><title>Convenient and lightning fast backups with rsync</title><link href="https://www.sglavoie.com/posts/2021/07/31/convenient-and-lightning-fast-backups-with-rsync/" rel="alternate"></link><published>2021-07-31T09:01:00-05:00</published><updated>2021-07-31T09:01:00-05:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2021-07-31:/posts/2021/07/31/convenient-and-lightning-fast-backups-with-rsync/</id><summary type="html">&lt;p&gt;Cloud storage became affordable a long time ago while internet connection speeds have increased dramatically over the years. Yet, there is still a strong case to be made for daily backups of a whole system and for this purpose, there are few options to contend with &lt;code&gt;rsync&lt;/code&gt;.&lt;/p&gt;</summary><content type="html">
 &lt;hr/&gt;
 &lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;Coming into its fourth year of existence and usage in production environments, this simple script has proven to be a fantastic ally. Despite the plethora of great options out there that have more bells and whistles, I have yet to find a single complaint about this solution as it hinges on the minimalist side, requiring only a working Python 3 installation along with the powerful &lt;code&gt;rsync&lt;/code&gt; command-line tool.&lt;/p&gt;
-&lt;p&gt;It’s one of those pieces of code that perform some really basic tasks that can be scheduled with &lt;a href="https://opensource.com/article/17/11/how-use-cron-linux"&gt;&lt;code&gt;cron&lt;/code&gt;&lt;/a&gt; in the background, that one forgets about until a real need to access a backup comes up. This script is barely a Python wrapper calling &lt;code&gt;rsync&lt;/code&gt; but still, I felt like sharing it for those who like uncomplicated setups. I’ve literally left this script alone for years some time after the release of Python 3.6 which was released back in December 2016 and it has been going strong since then mostly due to the fact it does not do much more than backing files up and leveraging &lt;code&gt;rsync&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Coming into its fourth year of existence and usage in production environments, this simple script has proven to be a fantastic ally. Despite the plethora of great options out there that have more bells and whistles, I have yet to find a single complaint about this solution as it hinges on the minimalist side, requiring only a working Python 3 installation along with the powerful &lt;code&gt;rsync&lt;/code&gt; command-line tool.&lt;/p&gt;
+&lt;p&gt;It's one of those pieces of code that perform some really basic tasks that can be scheduled with &lt;a href="https://opensource.com/article/17/11/how-use-cron-linux"&gt;&lt;code&gt;cron&lt;/code&gt;&lt;/a&gt; in the background, that one forgets about until a real need to access a backup comes up. This script is barely a Python wrapper calling &lt;code&gt;rsync&lt;/code&gt; but still, I felt like sharing it for those who like uncomplicated setups. I've literally left this script alone for years some time after the release of Python 3.6 which was released back in December 2016 and it has been going strong since then mostly due to the fact it does not do much more than backing files up and leveraging &lt;code&gt;rsync&lt;/code&gt;.&lt;/p&gt;
 &lt;hr/&gt;
 &lt;h1 id="prerequisites"&gt;Prerequisites&lt;/h1&gt;
-&lt;p&gt;As briefly mentioned above, this tool uses &lt;a href="https://www.python.org/"&gt;Python 3.6+&lt;/a&gt; and &lt;a href="https://rsync.samba.org/"&gt;&lt;code&gt;rsync&lt;/code&gt;&lt;/a&gt;. That’s it, really.&lt;/p&gt;
-&lt;h1 id="setting-up-the-script"&gt;Setting up the script&lt;/h1&gt;
-&lt;p&gt;This script is being made &lt;a href="https://github.com/sglavoie/dev-helpers/tree/main/rsync_backup"&gt;available on GitHub&lt;/a&gt; within a set of other small tools. To get the source code for this particular tool, you can either &lt;a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository"&gt;clone the whole repository&lt;/a&gt;, get the content of the files separately or simply copy and paste &lt;a href="#the-script"&gt;the current version from below&lt;/a&gt;. You will need a &lt;code&gt;settings.json&lt;/code&gt; file as well as the Python script that will run the necessary commands.&lt;/p&gt;
-&lt;h2 id="the-configuration-file"&gt;The configuration file&lt;/h2&gt;
-&lt;p&gt;Right off the bat, you will most probably want to update the array of strings for the &lt;code&gt;data_sources&lt;/code&gt; key as well as the string for the key &lt;code&gt;data_destination&lt;/code&gt; in the following &lt;span class="caps"&gt;JSON&lt;/span&gt; file.&lt;/p&gt;
+&lt;p&gt;As briefly mentioned above, this tool uses &lt;a href="https://www.python.org/"&gt;Python 3.6+&lt;/a&gt; and &lt;a href="https://rsync.samba.org/"&gt;&lt;code&gt;rsync&lt;/code&gt;&lt;/a&gt;. That's it, really.&lt;/p&gt;
+&lt;h1 id="setting-up-the-script"&gt;Setting up the script&lt;/h1&gt;
+&lt;p&gt;This script is being made &lt;a href="https://github.com/sglavoie/dev-helpers/tree/main/rsync_backup"&gt;available on GitHub&lt;/a&gt; within a set of other small tools. To get the source code for this particular tool, you can either &lt;a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository"&gt;clone the whole repository&lt;/a&gt;, get the content of the files separately or simply copy and paste &lt;a href="#the-script"&gt;the current version from below&lt;/a&gt;. You will need a &lt;code&gt;settings.json&lt;/code&gt; file as well as the Python script that will run the necessary commands.&lt;/p&gt;
+&lt;h2 id="the-configuration-file"&gt;The configuration file&lt;/h2&gt;
+&lt;p&gt;Right off the bat, you will most probably want to update the array of strings for the &lt;code&gt;data_sources&lt;/code&gt; key as well as the string for the key &lt;code&gt;data_destination&lt;/code&gt; in the following JSON file.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;{&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;"data_sources"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;
 &lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="s2"&gt;"/home/sglavoie"&lt;/span&gt;
@@ -278,27 +278,27 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;--delete&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;“delete extraneous files from destination dirs”&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;"delete extraneous files from destination dirs"&lt;/em&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;--ignore-errors&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;“delete even if there are I/O errors”&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;"delete even if there are I/O errors"&lt;/em&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;--force&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;“force deletion of directories even if not empty”&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;"force deletion of directories even if not empty"&lt;/em&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;--prune-empty-dirs&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;“prune empty directory chains from the file-list”&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;"prune empty directory chains from the file-list"&lt;/em&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;--delete-excluded&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;“also delete excluded files from destination dirs”&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;"also delete excluded files from destination dirs"&lt;/em&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;&lt;/div&gt;
-&lt;h3 id="description-of-available-settings"&gt;Description of available settings&lt;/h3&gt;
+&lt;h3 id="description-of-available-settings"&gt;Description of available settings&lt;/h3&gt;
 &lt;div class="table-wrapper"&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -341,7 +341,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;&lt;/div&gt;
-&lt;h2 id="the-script"&gt;The script&lt;/h2&gt;
+&lt;h2 id="the-script"&gt;The script&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="sd"&gt;"""&lt;/span&gt;
 &lt;span class="sd"&gt;Script that uses `rsync` to make a simple and convenient backup.&lt;/span&gt;
 &lt;span class="sd"&gt;Note: requires Python 3.6+. No other Python third-party libraries required.&lt;/span&gt;
@@ -540,20 +540,20 @@
     &lt;span class="n"&gt;run_backup&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr/&gt;
-&lt;h1 id="how-to-use"&gt;How to use&lt;/h1&gt;
-&lt;h2 id="one-time-setup"&gt;One-time setup&lt;/h2&gt;
+&lt;h1 id="how-to-use"&gt;How to use&lt;/h1&gt;
+&lt;h2 id="one-time-setup"&gt;One-time setup&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;Set all values in &lt;code&gt;settings.json&lt;/code&gt; to suit your needs.&lt;/li&gt;
-&lt;li&gt;Make sure that the backup destination is available/mounted. A simple warning will be echoed if the destination can’t be found.&lt;/li&gt;
-&lt;li&gt;Call the Python script. As an example, if it’s located at &lt;code&gt;/home/user/backup/rsync_backup.py&lt;/code&gt;, then you could put the following alias in &lt;code&gt;~/.bash_aliases&lt;/code&gt; (or equivalent)*:&lt;/li&gt;
+&lt;li&gt;Set all values in &lt;code&gt;settings.json&lt;/code&gt; to suit your needs.&lt;/li&gt;
+&lt;li&gt;Make sure that the backup destination is available/mounted. A simple warning will be echoed if the destination can't be found.&lt;/li&gt;
+&lt;li&gt;Call the Python script. As an example, if it's located at &lt;code&gt;/home/user/backup/rsync_backup.py&lt;/code&gt;, then you could put the following alias in &lt;code&gt;~/.bash_aliases&lt;/code&gt; (or equivalent)*:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;backup&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'python3 /home/user/backup/rsync_backup.py'&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;* Python may be called differently on your system, e.g. simply &lt;code&gt;python&lt;/code&gt; instead of &lt;code&gt;python3&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;In this instance, the script can now be executed in a terminal with the keyword &lt;code&gt;backup&lt;/code&gt; along with optional arguments.&lt;/p&gt;
-&lt;h2 id="using-as-a-daily-driver"&gt;Using as a daily driver&lt;/h2&gt;
-&lt;p&gt;Make sure the destination to back files up is available/mounted and simply call the script (e.g. &lt;code&gt;backup&lt;/code&gt; in this example).&lt;/p&gt;
-&lt;p&gt;The output will look something like this:&lt;/p&gt;
+&lt;p&gt;In this instance, the script can now be executed in a terminal with the keyword &lt;code&gt;backup&lt;/code&gt; along with optional arguments.&lt;/p&gt;
+&lt;h2 id="using-as-a-daily-driver"&gt;Using as a daily driver&lt;/h2&gt;
+&lt;p&gt;Make sure the destination to back files up is available/mounted and simply call the script (e.g. &lt;code&gt;backup&lt;/code&gt; in this example).&lt;/p&gt;
+&lt;p&gt;The output will look something like this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;backup&lt;/span&gt;
 &lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-&lt;span class="o"&gt;=&lt;/span&gt;-
 Command&lt;span class="w"&gt; &lt;/span&gt;executed:
@@ -567,38 +567,38 @@ sglavoie/
 sglavoie/.bash_aliases
 ...
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2 id="avoid-deleting-files-at-the-destination"&gt;Avoid deleting files at the destination&lt;/h2&gt;
-&lt;p&gt;The &lt;code&gt;rsync&lt;/code&gt; command first builds a list of the files that are part of the backup and will go on adding new files, updating existing files as well as removing files that are found in the destination but not in the source anymore according to the default list of flags passed to it in this implementation. It is therefore important to note that &lt;strong&gt;if you would like to back up files in the destination that no longer exist in the source&lt;/strong&gt;, a convenient solution is simply to create a new folder at the root level inside the destination directory and manage those files separately.&lt;/p&gt;
-&lt;p&gt;For instance, I sometimes want to back up large video files but there is rarely a need to update them. In this case, it would be possible to add the directories to exclude in the file &lt;code&gt;.backup_exclude&lt;/code&gt; (default configuration option) like so:&lt;/p&gt;
+&lt;h2 id="avoid-deleting-files-at-the-destination"&gt;Avoid deleting files at the destination&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;rsync&lt;/code&gt; command first builds a list of the files that are part of the backup and will go on adding new files, updating existing files as well as removing files that are found in the destination but not in the source anymore according to the default list of flags passed to it in this implementation. It is therefore important to note that &lt;strong&gt;if you would like to back up files in the destination that no longer exist in the source&lt;/strong&gt;, a convenient solution is simply to create a new folder at the root level inside the destination directory and manage those files separately.&lt;/p&gt;
+&lt;p&gt;For instance, I sometimes want to back up large video files but there is rarely a need to update them. In this case, it would be possible to add the directories to exclude in the file &lt;code&gt;.backup_exclude&lt;/code&gt; (default configuration option) like so:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Videos/
 Dropbox/other/folder/
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Then, these directories will be ignored when backing up the source (if they are nested inside the source directory to start with!). If the destination is set to &lt;code&gt;/media/user/backup&lt;/code&gt; and the source set to &lt;code&gt;/home/user/my_folder&lt;/code&gt;, then the script would recreate the “root” directory of the source if it doesn’t exist on the destination:&lt;/p&gt;
+&lt;p&gt;Then, these directories will be ignored when backing up the source (if they are nested inside the source directory to start with!). If the destination is set to &lt;code&gt;/media/user/backup&lt;/code&gt; and the source set to &lt;code&gt;/home/user/my_folder&lt;/code&gt;, then the script would recreate the "root" directory of the source if it doesn't exist on the destination:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;ls&lt;span class="w"&gt; &lt;/span&gt;/media/user/backup
 my_folder
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;You could keep track of those heavy files that do not need to be backed up frequently by putting them manually next to &lt;code&gt;my_folder&lt;/code&gt; in &lt;code&gt;/media/user/backup&lt;/code&gt;. This will lead to huge speed ups when running the script if you track many files in this way!&lt;/p&gt;
+&lt;p&gt;You could keep track of those heavy files that do not need to be backed up frequently by putting them manually next to &lt;code&gt;my_folder&lt;/code&gt; in &lt;code&gt;/media/user/backup&lt;/code&gt;. This will lead to huge speed ups when running the script if you track many files in this way!&lt;/p&gt;
 &lt;hr/&gt;
 &lt;h1 id="conclusion"&gt;Conclusion&lt;/h1&gt;
-&lt;p&gt;This was a quick overview of what &lt;code&gt;rsync&lt;/code&gt; can offer: I neither touched upon its remote syncing capabilities nor the vast majority of its options, for which you can find a lot more information about by typing &lt;code&gt;man rsync&lt;/code&gt; to display the manual page in the terminal.&lt;/p&gt;
-&lt;p&gt;Without making use of any fancy features of recent versions of Python or &lt;code&gt;rsync&lt;/code&gt;, I have found this simple backup procedure to have worked flawlessly for a long time. Hardware inevitably fails at some point and after having heard about countless examples of people losing some or all of their most precious files (including my own story…), I have come to enjoy backing my system with this little script.&lt;/p&gt;
-&lt;p&gt;I wouldn’t trust my external drive to last forever either, hence I also rely on Dropbox and Google Drive for documents I find are a good fit. But overall, I just do not tend to back up every single system file in the cloud, so there is still a convincing use case where daily and complete backups become a possibility when using a fast approach like &lt;code&gt;rsync&lt;/code&gt; to incrementally save snapshots.&lt;/p&gt;
-&lt;h2 id="more-resources-and-references"&gt;More resources and references&lt;/h2&gt;
+&lt;p&gt;This was a quick overview of what &lt;code&gt;rsync&lt;/code&gt; can offer: I neither touched upon its remote syncing capabilities nor the vast majority of its options, for which you can find a lot more information about by typing &lt;code&gt;man rsync&lt;/code&gt; to display the manual page in the terminal.&lt;/p&gt;
+&lt;p&gt;Without making use of any fancy features of recent versions of Python or &lt;code&gt;rsync&lt;/code&gt;, I have found this simple backup procedure to have worked flawlessly for a long time. Hardware inevitably fails at some point and after having heard about countless examples of people losing some or all of their most precious files (including my own story...), I have come to enjoy backing my system with this little script.&lt;/p&gt;
+&lt;p&gt;I wouldn't trust my external drive to last forever either, hence I also rely on Dropbox and Google Drive for documents I find are a good fit. But overall, I just do not tend to back up every single system file in the cloud, so there is still a convincing use case where daily and complete backups become a possibility when using a fast approach like &lt;code&gt;rsync&lt;/code&gt; to incrementally save snapshots.&lt;/p&gt;
+&lt;h2 id="more-resources-and-references"&gt;More resources and references&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="https://rsync.samba.org/"&gt;rsync official website&lt;/a&gt; – samba.org.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.redhat.com/sysadmin/sync-rsync"&gt;Keeping Linux files and directories in sync with rsync&lt;/a&gt; – RedHat, going through the main options offered by the tool.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.digitalocean.com/community/tutorials/how-to-use-rsync-to-sync-local-and-remote-directories"&gt;How To Use Rsync to Sync Local and Remote Directories&lt;/a&gt; – DigitalOcean, demoing how to use the tool and covering the case of remote file access.&lt;/li&gt;
-&lt;/ul&gt;</content><category term="automation"></category><category term="backup"></category><category term="python"></category><category term="rsync"></category><category term="script"></category><category term="terminal"></category></entry><entry><title>Exponentiation in Modular Arithmetic Made Easy</title><link href="https://www.sglavoie.com/posts/2019/04/27/exponentiation-in-modular-arithmetic-made-easy/" rel="alternate"></link><published>2019-04-27T19:52:00-05:00</published><updated>2019-04-27T19:52:00-05:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2019-04-27:/posts/2019/04/27/exponentiation-in-modular-arithmetic-made-easy/</id><summary type="html">&lt;p&gt;While playing around in the Python interpreter to validate answers to mathematical questions, I quickly found out that very large exponents are dealt with very inefficiently by default as they are simply evaluated as is. That&amp;#8217;s where Python came to its own&amp;nbsp;rescue.&lt;/p&gt;</summary><content type="html">
+&lt;li&gt;&lt;a href="https://rsync.samba.org/"&gt;rsync official website&lt;/a&gt; – samba.org.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.redhat.com/sysadmin/sync-rsync"&gt;Keeping Linux files and directories in sync with rsync&lt;/a&gt; – RedHat, going through the main options offered by the tool.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.digitalocean.com/community/tutorials/how-to-use-rsync-to-sync-local-and-remote-directories"&gt;How To Use Rsync to Sync Local and Remote Directories&lt;/a&gt; – DigitalOcean, demoing how to use the tool and covering the case of remote file access.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="automation"></category><category term="backup"></category><category term="python"></category><category term="rsync"></category><category term="script"></category><category term="terminal"></category></entry><entry><title>Exponentiation in Modular Arithmetic Made Easy</title><link href="https://www.sglavoie.com/posts/2019/04/27/exponentiation-in-modular-arithmetic-made-easy/" rel="alternate"></link><published>2019-04-27T19:52:00-05:00</published><updated>2019-04-27T19:52:00-05:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2019-04-27:/posts/2019/04/27/exponentiation-in-modular-arithmetic-made-easy/</id><summary type="html">&lt;p&gt;While playing around in the Python interpreter to validate answers to mathematical questions, I quickly found out that very large exponents are dealt with very inefficiently by default as they are simply evaluated as is. That's where Python came to its own rescue.&lt;/p&gt;</summary><content type="html">
 &lt;hr/&gt;
 &lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;The following Python script will by no means provide any useful idea to
 compete against the
-&lt;a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)"&gt;&lt;span class="caps"&gt;RSA&lt;/span&gt; algorithm&lt;/a&gt;
+&lt;a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)"&gt;RSA algorithm&lt;/a&gt;
 , but it does give you an idea of how
 a simple technique about reducing the size of an exponent in modular
 arithmetic can bring you closer to using much larger numbers than the
-ones you could normally use in the Python interpreter.&lt;/p&gt;
-&lt;h1 id="the-script-in-action"&gt;The script in action&lt;/h1&gt;
+ones you could normally use in the Python interpreter.&lt;/p&gt;
+&lt;h1 id="the-script-in-action"&gt;The script in action&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="sd"&gt;"""Compute the result of a^b (mod k) by using the exponentiation technique.&lt;/span&gt;
 &lt;span class="sd"&gt;The goal here is not efficiency, even though the program is actually pretty&lt;/span&gt;
 &lt;span class="sd"&gt;fast: the algorithm is applied manually for demonstration purposes.&lt;/span&gt;
@@ -708,28 +708,28 @@ ones you could normally use in the Python interpreter.&lt;/p&gt;
     &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;FINAL_RESULT&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h1 id="conclusion"&gt;Conclusion&lt;/h1&gt;
-&lt;p&gt;It was very interesting to see how a technique that’s applied manually
+&lt;p&gt;It was very interesting to see how a technique that's applied manually
 will work wonders with such large numbers. The Python interpreter can
 barely calculate numbers with exponents with seven digits or more, while
 a basic approach like the one shown above can quickly churn out the
-results for seemingly quite large numbers.&lt;/p&gt;
+results for seemingly quite large numbers.&lt;/p&gt;
 &lt;p&gt;As always, this code is
-&lt;a href="https://github.com/sglavoie/code-snippets/blob/main/python/mathematics/modular_arithmetic/exponentiation_mod_k.py"&gt;available on GitHub&lt;/a&gt;.&lt;/p&gt;</content><category term="automation"></category><category term="mathematics"></category><category term="python"></category><category term="script"></category></entry><entry><title>Have You Been Pwned?</title><link href="https://www.sglavoie.com/posts/2019/03/21/have-you-been-pwned/" rel="alternate"></link><published>2019-03-21T13:42:00-06:00</published><updated>2019-03-21T13:42:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2019-03-21:/posts/2019/03/21/have-you-been-pwned/</id><summary type="html">&lt;p&gt;Has your password been leaked in a major breach? You can find out thanks to &lt;a href="https://haveibeenpwned.com/"&gt;Have I Been Pwned?&lt;/a&gt;&amp;#8230; Or you can use their &lt;span class="caps"&gt;API&lt;/span&gt; and stop worrying about your password being sent through your Web&amp;nbsp;browser!&lt;/p&gt;</summary><content type="html">
+&lt;a href="https://github.com/sglavoie/code-snippets/blob/main/python/mathematics/modular_arithmetic/exponentiation_mod_k.py"&gt;available on GitHub&lt;/a&gt;.&lt;/p&gt;</content><category term="automation"></category><category term="mathematics"></category><category term="python"></category><category term="script"></category></entry><entry><title>Have You Been Pwned?</title><link href="https://www.sglavoie.com/posts/2019/03/21/have-you-been-pwned/" rel="alternate"></link><published>2019-03-21T13:42:00-06:00</published><updated>2019-03-21T13:42:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2019-03-21:/posts/2019/03/21/have-you-been-pwned/</id><summary type="html">&lt;p&gt;Has your password been leaked in a major breach? You can find out thanks to &lt;a href="https://haveibeenpwned.com/"&gt;Have I Been Pwned?&lt;/a&gt;... Or you can use their API and stop worrying about your password being sent through your Web browser!&lt;/p&gt;</summary><content type="html">
 &lt;hr/&gt;
 &lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;&lt;a href="https://haveibeenpwned.com/"&gt;Have I Been Pwned?&lt;/a&gt; has a very simple and
-accessible &lt;span class="caps"&gt;API&lt;/span&gt; that’s perfect to work with as a beginner. There are
+accessible API that's perfect to work with as a beginner. There are
 different ways to retrieve information and the script below is only
 one glimpse into the numerous possibilities available. It is built in
 a way that makes it easy to add features and functionality thanks to
-&lt;a href="https://github.com/pallets/click"&gt;Click&lt;/a&gt;, a wonderful &lt;em&gt;“command line
-interface toolkit”&lt;/em&gt;.&lt;/p&gt;
-&lt;h1 id="python-to-the-rescue"&gt;Python to the rescue&lt;/h1&gt;
+&lt;a href="https://github.com/pallets/click"&gt;Click&lt;/a&gt;, a wonderful &lt;em&gt;"command line
+interface toolkit"&lt;/em&gt;.&lt;/p&gt;
+&lt;h1 id="python-to-the-rescue"&gt;Python to the rescue&lt;/h1&gt;
 &lt;p&gt;The following script uses &lt;a href="https://github.com/pallets/click"&gt;Click&lt;/a&gt;
 to build a tiny command-line interface instead of more
 traditional tools like &lt;code&gt;argparse&lt;/code&gt;. You will also need
 &lt;a href="https://github.com/kennethreitz/requests"&gt;requests&lt;/a&gt; to peek inside the
-&lt;span class="caps"&gt;API&lt;/span&gt;. Both can be obtained as follow in a terminal:&lt;/p&gt;
+API. Both can be obtained as follow in a terminal:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;click&lt;span class="w"&gt; &lt;/span&gt;requests
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;And now, the &lt;em&gt;pièce de résistance&lt;/em&gt;.&lt;/p&gt;
@@ -855,7 +855,7 @@ traditional tools like &lt;code&gt;argparse&lt;/code&gt;. You will also need
 &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;'__main__'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="n"&gt;hibp&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2 id="example-usage"&gt;Example usage&lt;/h2&gt;
+&lt;h2 id="example-usage"&gt;Example usage&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://www.sglavoie.com/images/posts/0011_have-i-been-pwned/have_i_been_pwned_script.png"&gt;&lt;img alt="have_i_been_pwned_script" class="max-size-img-post" src="https://www.sglavoie.com/images/posts/0011_have-i-been-pwned/have_i_been_pwned_script.png"/&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id="conclusion"&gt;Conclusion&lt;/h1&gt;
 &lt;p&gt;If you are familiar with Python,
@@ -864,27 +864,28 @@ reading its code. You can also have a look at this &lt;a href="https://github.co
 GitHub&lt;/a&gt; if you want
 to fork it or reuse it any other way you wish. I have personally found
 it much easier to work with &lt;a href="https://github.com/pallets/click"&gt;Click&lt;/a&gt;
-instead of &lt;code&gt;argparse&lt;/code&gt; and &lt;code&gt;optparse&lt;/code&gt;. I haven’t got to try
+instead of &lt;code&gt;argparse&lt;/code&gt; and &lt;code&gt;optparse&lt;/code&gt;. I haven't got to try
 &lt;a href="https://github.com/docopt/docopt"&gt;docopt&lt;/a&gt; yet, but it is almost equally
 as popular as Click on GitHub at the time of this writing and its
-Pythonic way makes it another great option to consider.&lt;/p&gt;</content><category term="automation"></category><category term="api"></category><category term="click"></category><category term="python"></category><category term="script"></category></entry><entry><title>Number of Paths in a Grid… or in Life</title><link href="https://www.sglavoie.com/posts/2019/03/14/number-of-paths-in-a-grid-or-in-life/" rel="alternate"></link><published>2019-03-14T20:38:00-06:00</published><updated>2019-03-22T10:05:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2019-03-14:/posts/2019/03/14/number-of-paths-in-a-grid-or-in-life/</id><summary type="html">&lt;p&gt;Finding one&amp;#8217;s way in life is not easy because there are so many paths we can take at any moment. Here is a way to look at it&amp;nbsp;mathematically!&lt;/p&gt;</summary><content type="html">
+Pythonic way makes it another great option to consider.&lt;/p&gt;</content><category term="automation"></category><category term="api"></category><category term="click"></category><category term="python"></category><category term="script"></category></entry><entry><title>Number of Paths in a Grid… or in Life</title><link href="https://www.sglavoie.com/posts/2019/03/14/number-of-paths-in-a-grid-or-in-life/" rel="alternate"></link><published>2019-03-14T20:38:00-06:00</published><updated>2019-03-22T10:05:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2019-03-14:/posts/2019/03/14/number-of-paths-in-a-grid-or-in-life/</id><summary type="html">&lt;p&gt;Finding one's way in life is not easy because there are so many paths we can take at any moment. Here is a way to look at it mathematically!&lt;/p&gt;</summary><content type="html">
 &lt;hr/&gt;
 &lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;How would you go about determining the number of possible paths in a
 grid of size &lt;em&gt;n&lt;/em&gt; if your initial position is at the top left corner and
 your destination is the bottom right corner, knowing you can only go
-right or down at each move? Let’s look at a grid of size &lt;code&gt;3 × 3&lt;/code&gt;:&lt;/p&gt;
+right or down at each move? Let's look at a grid of size &lt;code&gt;3 × 3&lt;/code&gt;:&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.sglavoie.com/images/posts/0010_number-of-paths-in-a-grid/3x3_grid_paths_demo.png"&gt;&lt;img alt="3x3_grid_paths_demo" class="max-size-img-post" src="https://www.sglavoie.com/images/posts/0010_number-of-paths-in-a-grid/3x3_grid_paths_demo.png"/&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Even at such a small size, one needs some concentration. Sure, it can be
-done on paper, but there must be a better way…&lt;/p&gt;
-&lt;h1 id="python-to-the-rescue"&gt;Python to the rescue&lt;/h1&gt;
+done on paper, but there must be a better way...&lt;/p&gt;
+&lt;h1 id="python-to-the-rescue"&gt;Python to the rescue&lt;/h1&gt;
 &lt;p&gt;Once again, programming comes in handy! Life is complicated, but there
 are aspects of it that can be solved more easily than previously
 thought when we use the right tools.
 Knowing that this particular situation corresponds to values from
-&lt;a href="https://en.wikipedia.org/wiki/Pascal%27s_triangle"&gt;Pascal’s Triangle&lt;/a&gt;
+&lt;a href="https://en.wikipedia.org/wiki/Pascal%27s_triangle"&gt;Pascal's Triangle&lt;/a&gt;
 might help, but it sure is more fun
-to come up with a different solution. Here is how it occurred to me in Python:&lt;/p&gt;
+to come up with a different solution. Here is how it occurred to me in
+Python:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="sd"&gt;'''&lt;/span&gt;
 &lt;span class="sd"&gt;This approach consists in getting the number of possible paths for each&lt;/span&gt;
 &lt;span class="sd"&gt;position where we stop in a grid. We know that once we reach the bottom&lt;/span&gt;
@@ -975,7 +976,7 @@ to come up with a different solution. Here is how it occurred to me in Python:&
 &lt;p&gt;In the end, the idea was to find the number of possible paths that
 correspond to each possible move, starting from the destination and
 reverse engineering the number of possibilities until we get to the
-starting point.&lt;/p&gt;
+starting point.&lt;/p&gt;
 &lt;h1 id="conclusion"&gt;Conclusion&lt;/h1&gt;
 &lt;p&gt;As it turns out, this strategy of reverse engineering things works
 pretty well when applied to real-life examples. When setting a goal,
@@ -983,20 +984,21 @@ for instance loosing 10 kilograms in one year, it can sound a lot less
 daunting to find out what this represents by month (0.83 kg) or even
 by week (0.19 kg) instead of fixating on the big gap from your current
 situation. For short-term goals, this can be reduced to daily or even
-hourly outcomes.&lt;/p&gt;
+hourly outcomes.&lt;/p&gt;
 &lt;p&gt;This goes hand in hand with the advice found in &lt;a href="https://amzn.to/2Y0QGis"&gt;Atomic
-Habits&lt;/a&gt;, an excellent book written by James Clear:&lt;/p&gt;
+Habits&lt;/a&gt;, an excellent book written by James
+Clear:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;A 1% daily improvement leads to a version of yourself that’s &lt;em&gt;37&lt;/em&gt; times better in one year.&lt;/p&gt;
+&lt;p&gt;A 1% daily improvement leads to a version of yourself that's &lt;em&gt;37&lt;/em&gt; times better in one year.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;If that’s not motivating enough to start taking little steps with
-consistency towards your dreams, I don’t know what is.&lt;/p&gt;</content><category term="automation"></category><category term="computer science"></category><category term="mathematics"></category><category term="python"></category><category term="script"></category></entry><entry><title>Binary to Decimal, Decimal to Binary Converter</title><link href="https://www.sglavoie.com/posts/2019/02/18/binary-to-decimal-decimal-to-binary-converter/" rel="alternate"></link><published>2019-02-18T21:30:00-06:00</published><updated>2019-02-18T21:30:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2019-02-18:/posts/2019/02/18/binary-to-decimal-decimal-to-binary-converter/</id><summary type="html">&lt;p&gt;As part of a &lt;a href="https://www.coursera.org/learn/mathematics-for-computer-science/"&gt;course on the mathematics of Computer Science&lt;/a&gt;, I had to come up with algorithms to convert binary numbers to decimal numbers and vice&amp;nbsp;versa.&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;If that's not motivating enough to start taking little steps with
+consistency towards your dreams, I don't know what is.&lt;/p&gt;</content><category term="automation"></category><category term="computer science"></category><category term="mathematics"></category><category term="python"></category><category term="script"></category></entry><entry><title>Binary to Decimal, Decimal to Binary Converter</title><link href="https://www.sglavoie.com/posts/2019/02/18/binary-to-decimal-decimal-to-binary-converter/" rel="alternate"></link><published>2019-02-18T21:30:00-06:00</published><updated>2019-02-18T21:30:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2019-02-18:/posts/2019/02/18/binary-to-decimal-decimal-to-binary-converter/</id><summary type="html">&lt;p&gt;As part of a &lt;a href="https://www.coursera.org/learn/mathematics-for-computer-science/"&gt;course on the mathematics of Computer Science&lt;/a&gt;, I had to come up with algorithms to convert binary numbers to decimal numbers and vice versa.&lt;/p&gt;</summary><content type="html">
 &lt;hr/&gt;
 &lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;There is nothing new here in terms of algorithms, but it was interesting
 to figure out how to apply those concepts with Python. This works for
-integer numbers, but can be easily adapted to convert fractions.&lt;/p&gt;
-&lt;h1 id="binary-to-decimal"&gt;Binary to Decimal&lt;/h1&gt;
+integer numbers, but can be easily adapted to convert fractions.&lt;/p&gt;
+&lt;h1 id="binary-to-decimal"&gt;Binary to Decimal&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="sd"&gt;"""&lt;/span&gt;
 &lt;span class="sd"&gt;Converts a binary number to a decimal number.&lt;/span&gt;
 &lt;span class="sd"&gt;"""&lt;/span&gt;
@@ -1033,7 +1035,7 @@ integer numbers, but can be easily adapted to convert fractions.&lt;/p&gt;
     &lt;span class="c1"&gt;# print the solution to the console&lt;/span&gt;
     &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;RESULT&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h1 id="decimal-to-binary"&gt;Decimal to Binary&lt;/h1&gt;
+&lt;h1 id="decimal-to-binary"&gt;Decimal to Binary&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="sd"&gt;"""&lt;/span&gt;
 &lt;span class="sd"&gt;Converts a decimal number to a binary number.&lt;/span&gt;
 &lt;span class="sd"&gt;"""&lt;/span&gt;
@@ -1081,37 +1083,37 @@ integer numbers, but can be easily adapted to convert fractions.&lt;/p&gt;
     &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;RESULT&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h1 id="conclusion"&gt;Conclusion&lt;/h1&gt;
-&lt;p&gt;This was a very quick programming session that’s been useful
+&lt;p&gt;This was a very quick programming session that's been useful
 to make new concepts stick. The best learning strategies are
 to &lt;em&gt;test yourself&lt;/em&gt; constantly in any way possible and to
 &lt;em&gt;teach clearly what you know&lt;/em&gt;, which is what I tried to do
 in the end. By the way, I found the course &lt;a href="https://www.coursera.org/learn/learning-how-to-learn/"&gt;Learning How to
 Learn&lt;/a&gt; on
 Coursera to be quite satisfying and I would invite you to have a look if
-that’s a topic you’re interested in!&lt;/p&gt;</content><category term="automation"></category><category term="computer science"></category><category term="mathematics"></category><category term="python"></category><category term="script"></category></entry><entry><title>Bash History Cleaner</title><link href="https://www.sglavoie.com/posts/2018/12/23/bash-history-cleaner/" rel="alternate"></link><published>2018-12-23T19:35:00-06:00</published><updated>2019-01-06T14:37:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2018-12-23:/posts/2018/12/23/bash-history-cleaner/</id><summary type="html">&lt;p&gt;If you ever wanted to automatically clean your Bash history file, here is a working solution written in Python that uses regular expressions to set any kind of pattern you might be looking&amp;nbsp;for.&lt;/p&gt;</summary><content type="html">
+that's a topic you're interested in!&lt;/p&gt;</content><category term="automation"></category><category term="computer science"></category><category term="mathematics"></category><category term="python"></category><category term="script"></category></entry><entry><title>Bash History Cleaner</title><link href="https://www.sglavoie.com/posts/2018/12/23/bash-history-cleaner/" rel="alternate"></link><published>2018-12-23T19:35:00-06:00</published><updated>2019-01-06T14:37:00-06:00</updated><author><name>Sébastien Lavoie</name></author><id>tag:www.sglavoie.com,2018-12-23:/posts/2018/12/23/bash-history-cleaner/</id><summary type="html">&lt;p&gt;If you ever wanted to automatically clean your Bash history file, here is a working solution written in Python that uses regular expressions to set any kind of pattern you might be looking for.&lt;/p&gt;</summary><content type="html">
 &lt;hr/&gt;
 &lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;This is a Python 3.6+ script that helps to clean the file containing
 the Bash history commands. It will remove any line matching a specified
-regular expression and can also remove any line starting with an alias.&lt;/p&gt;
-&lt;p&gt;The idea behind this small utility was simple:&lt;/p&gt;
+regular expression and can also remove any line starting with an alias.&lt;/p&gt;
+&lt;p&gt;The idea behind this small utility was simple:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The Bash history file (usually located in &lt;code&gt;~/.bash_history&lt;/code&gt;) contains
-  much of the work one ends up doing in the terminal.&lt;/li&gt;
+  much of the work one ends up doing in the terminal.&lt;/li&gt;
 &lt;li&gt;The history can grow large over time and it becomes more cumbersome to
   find interesting information in all that clutter, such as a rarely used
-  command with specific flags.&lt;/li&gt;
+  command with specific flags.&lt;/li&gt;
 &lt;li&gt;By removing all superfluous commands that are repeated often and which
   give no real benefit in certain contexts (such as &lt;code&gt;ls&lt;/code&gt;, &lt;code&gt;cd&lt;/code&gt;, &lt;code&gt;cat&lt;/code&gt;,
   etc.), the history is much cleaner and easier to navigate and actually
-  becomes much more useful in my opinion.&lt;/li&gt;
+  becomes much more useful in my opinion.&lt;/li&gt;
 &lt;li&gt;True, it will be harder to follow the bread crumbs for everything
-  you did, but I haven’t come across a situation where having access
+  you did, but I haven't come across a situation where having access
   to yet another empty &lt;code&gt;ls&lt;/code&gt; or &lt;code&gt;cd&lt;/code&gt; has proven necessary and reading
-  &lt;code&gt;.bash_history&lt;/code&gt; doesn’t make for a great narrative story either.&lt;/li&gt;
+  &lt;code&gt;.bash_history&lt;/code&gt; doesn't make for a great narrative story either.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr/&gt;
-&lt;h1 id="make-history-in-a-big-way"&gt;Make history in a big way&lt;/h1&gt;
+&lt;h1 id="make-history-in-a-big-way"&gt;Make history in a big way&lt;/h1&gt;
 &lt;p&gt;I took advantage of the fact that the history can be cleaned with the
 script you are about to see and set up what is known as an &lt;em&gt;eternal
 history&lt;/em&gt; which, as it sounds like, can grow infinitely big! All you have
@@ -1132,13 +1134,13 @@ to do is append the following lines to the file &lt;code&gt;~/.bashrc&lt;/code&g
 &lt;span class="nv"&gt;PROMPT_COMMAND&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"history -a; &lt;/span&gt;&lt;span class="nv"&gt;$PROMPT_COMMAND&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr/&gt;
-&lt;h1 id="bash-history-cleaner"&gt;Bash History Cleaner&lt;/h1&gt;
-&lt;p&gt;And here is the script in question *. It comes in two files that need to be in the same directory:&lt;/p&gt;
+&lt;h1 id="bash-history-cleaner"&gt;Bash History Cleaner&lt;/h1&gt;
+&lt;p&gt;And here is the script in question *. It comes in two files that need to be in the same directory:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;One is a Python file that needs to be launched from the terminal with
-  Python 3.&lt;/li&gt;
-&lt;li&gt;The other file, &lt;code&gt;settings.json&lt;/code&gt;, is a &lt;span class="caps"&gt;JSON&lt;/span&gt; file used to store the
-  settings of the script, which will be detailed below.&lt;/li&gt;
+  Python 3.&lt;/li&gt;
+&lt;li&gt;The other file, &lt;code&gt;settings.json&lt;/code&gt;, is a JSON file used to store the
+  settings of the script, which will be detailed below.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;* &lt;sub&gt;Improvements to the original script can be found on &lt;a href="https://github.com/sglavoie/python-utilities/tree/main/bash_history_cleaner"&gt;Github&lt;/a&gt;. To keep this
 article a bit more readable, the original version is shown.&lt;/sub&gt;&lt;/p&gt;
@@ -1424,7 +1426,7 @@ article a bit more readable, the original version is shown.&lt;/sub&gt;&lt;/p&gt
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;home_directory&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Absolute path to user’s home directory.&lt;/td&gt;
+&lt;td&gt;Absolute path to user's home directory.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;history_file&lt;/code&gt;&lt;/td&gt;
@@ -1444,7 +1446,7 @@ article a bit more readable, the original version is shown.&lt;/sub&gt;&lt;/p&gt
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;aliases_match_greedily&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Boolean. If set to &lt;code&gt;true&lt;/code&gt;, any line in &lt;code&gt;history_file&lt;/code&gt; starting with an alias in &lt;code&gt;aliases_file&lt;/code&gt; will be deleted. If set to &lt;code&gt;false&lt;/code&gt;, delete line if the alias is the content of the whole line (with optional space at the end): &lt;code&gt;false&lt;/code&gt; matches “^alias$” or “^alias $” only.&lt;/td&gt;
+&lt;td&gt;Boolean. If set to &lt;code&gt;true&lt;/code&gt;, any line in &lt;code&gt;history_file&lt;/code&gt; starting with an alias in &lt;code&gt;aliases_file&lt;/code&gt; will be deleted. If set to &lt;code&gt;false&lt;/code&gt;, delete line if the alias is the content of the whole line (with optional space at the end): &lt;code&gt;false&lt;/code&gt; matches "^alias$" or "^alias $" only.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;backup_history&lt;/code&gt;&lt;/td&gt;
@@ -1457,10 +1459,10 @@ article a bit more readable, the original version is shown.&lt;/sub&gt;&lt;/p&gt
 &lt;/tbody&gt;
 &lt;/table&gt;&lt;/div&gt;
 &lt;hr/&gt;
-&lt;h1 id="anecdotal-evidence-of-satisfying-performances"&gt;Anecdotal evidence of satisfying performances&lt;/h1&gt;
+&lt;h1 id="anecdotal-evidence-of-satisfying-performances"&gt;Anecdotal evidence of satisfying performances&lt;/h1&gt;
 &lt;p&gt;Performance-wise, this scans ~8,300 lines per second on my modest Intel
 Core i5 laptop with files of over 200,000 lines long. Not that I type so
-much stuff in the terminal: I just duplicated many lines.&lt;/p&gt;
+much stuff in the terminal: I just duplicated many lines.&lt;/p&gt;
 &lt;hr/&gt;
 &lt;h1 id="conclusion"&gt;Conclusion&lt;/h1&gt;
 &lt;p&gt;This is a simple solution to an nonexistent problem, but it was

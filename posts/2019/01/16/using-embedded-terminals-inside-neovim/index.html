@@ -152,7 +152,7 @@
 <!-- Open graph for social networks -->
 <meta name="og:title" property="og:title" content="Because every pixel counts, this neat trick will allow to use terminals inside Neovim and maximize the screen estate for a flawless integration with one of the best text editor available." />
  
-    <title>sglavoie.com &ndash; Using Embedded Terminals Inside&nbsp;Neovim</title>
+    <title>sglavoie.com &ndash; Using Embedded Terminals Inside Neovim</title>
   </head>
 
   <body>
@@ -524,7 +524,7 @@
       <main>
 <article data-pagefind-body>
   <div class="article_title">
-    <h1><a href="../../../../../posts/2019/01/16/using-embedded-terminals-inside-neovim/">Using Embedded Terminals Inside&nbsp;Neovim</a></h1>
+    <h1><a href="../../../../../posts/2019/01/16/using-embedded-terminals-inside-neovim/">Using Embedded Terminals Inside Neovim</a></h1>
   </div>
   <div class="meta_container_hrs">
     <hr />
@@ -612,7 +612,7 @@
       </div>
       <div class="article_readtime">
         <span class="readtime_tilde">~</span
-        ><span class="readtime_minutes">5</span>
+        ><span class="readtime_minutes">4</span>
         minutes to read
       </div>
     </div>
@@ -622,50 +622,50 @@
   <h2 class="toc-title">Table of contents</h2>
   <nav class="toc"><div class="toc">
 <ul>
-<li><a href="#terminals-neovim">Terminals <span class="amp">&amp;</span> Neovim</a><ul>
-<li><a href="#seamless-integration-with-vim-commands">Seamless integration with Vim commands</a></li>
-<li><a href="#terminals-get-supercharged-with-the-power-of-vim">Terminals get supercharged with the power of Vim</a></li>
-<li><a href="#the-workflow-is-more-compact-and-centralized">The workflow is more compact and centralized</a></li>
+<li><a href="#terminals-neovim">Terminals &amp; Neovim</a><ul>
+<li><a href="#seamless-integration-with-vim-commands">Seamless integration with Vim commands</a></li>
+<li><a href="#terminals-get-supercharged-with-the-power-of-vim">Terminals get supercharged with the power of Vim</a></li>
+<li><a href="#the-workflow-is-more-compact-and-centralized">The workflow is more compact and centralized</a></li>
 </ul>
 </li>
-<li><a href="#terminal-settings-to-consider">Terminal settings to consider</a></li>
+<li><a href="#terminal-settings-to-consider">Terminal settings to consider</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
 </div></nav>
   <div class="article_text">
 <hr/>
-<h2 id="terminals-neovim">Terminals <span class="amp">&amp;</span> Neovim</h2>
+<h2 id="terminals-neovim">Terminals &amp; Neovim</h2>
 <p>Terminal buffers are a built-in feature of <code>Neovim</code>. This means that
 terminals can be launched inside Neovim just like any other buffer, may
 it be a split window, a new tab or an independent buffer. Why is this so
-useful? Be prepared to be amazed.</p>
+useful? Be prepared to be amazed.</p>
 <p><a href="../../../../../images/posts/0006_using-embedded-terminals-inside-neovim/work_on_article.png"><img alt="embedded-terminal" class="max-size-img-post" src="../../../../../images/posts/0006_using-embedded-terminals-inside-neovim/work_on_article.png"/></a></p>
 <p><a href="../../../../../images/posts/0006_using-embedded-terminals-inside-neovim/terminal_buffers.png"><img alt="terminal-buffers" class="max-size-img-post" src="../../../../../images/posts/0006_using-embedded-terminals-inside-neovim/terminal_buffers.png"/></a></p>
-<p>(click to open)</p>
-<h3 id="seamless-integration-with-vim-commands">Seamless integration with Vim commands</h3>
+<p>(click to open)</p>
+<h3 id="seamless-integration-with-vim-commands">Seamless integration with Vim commands</h3>
 <p>For a start, terminals are not just <em>opened</em> inside Neovim: they are
 truly integrated. When you type the letter <code>i</code> in a terminal buffer,
 it switches to a new mode, <code>Terminal</code>, where you have access to all
 underlying features of a regular Bash terminal, such as <code>CTRL + r</code>
 to search, tab completion of commands, <code>CTRL + w</code> to delete a word
-backwards or <code>CTRL + u</code> to delete the whole line backwards.</p>
+backwards or <code>CTRL + u</code> to delete the whole line backwards.</p>
 <p>When you escape the <code>Terminal</code> mode, you switch back to <code>Normal</code> mode,
 where all Vim commands are available as usual, such as navigation,
 search, etc. Where this gets interesting is when you consider that the
-terminal is just like any other buffer (except it’s not <em>modifiable</em>)
+terminal is just like any other buffer (except it's not <em>modifiable</em>)
 and so you can for instance copy its content or paste into it from
 different registers. You can split them, view the line number, get
 automatic scrolling when output appears in <code>Insert</code> mode, you can switch
-back to <code>Normal</code> mode at any time even if a command hasn’t completed…
+back to <code>Normal</code> mode at any time even if a command hasn't completed...
 and of course all commands like <code>gt</code> to <strong>g</strong>o to another <strong>t</strong>ab work
-as always.</p>
-<h3 id="terminals-get-supercharged-with-the-power-of-vim">Terminals get supercharged with the power of Vim</h3>
+as always.</p>
+<h3 id="terminals-get-supercharged-with-the-power-of-vim">Terminals get supercharged with the power of Vim</h3>
 <p>This is getting exciting (at least for me). Now, having a terminal with
-more power is useful in many cases:</p>
+more power is useful in many cases:</p>
 <ul>
 <li>
 <p>A whole terminal session can be saved to another file easily by
-  copying the desired range (<code>:%y</code> to copy everything, for example).</p>
+  copying the desired range (<code>:%y</code> to copy everything, for example).</p>
 </li>
 <li>
 <p>Instead of having to scroll with the mouse, all Vim commands are
@@ -673,12 +673,12 @@ more power is useful in many cases:</p>
   beginning of the session, <code>G</code> to go to the end, <code>12G</code> to go to line
   number <strong>12</strong>, <code>/</code> or <code>?</code> to search forward and backward respectively.
   You can even set local or global marks to jump back and forth to precise
-  lines consistently!</p>
+  lines consistently!</p>
 </li>
 <li>
-<p>It’s even possible to send commands directly to a specific
-  terminal or set up a <span class="caps">REPL</span> to execute any code, either a
-  selection, a line or a range of lines. I don’t personally
+<p>It's even possible to send commands directly to a specific
+  terminal or set up a REPL to execute any code, either a
+  selection, a line or a range of lines. I don't personally
   use that feature yet, but I see how useful that can be and
   you can too if you watch this <a href="https://thoughtbot.com/upcase/videos/neovim-sending-commands-to-a-
   terminal-buffer">screencast presented by Drew
@@ -692,31 +692,31 @@ more power is useful in many cases:</p>
   waiting for a system update to finish. This is especially nice for
   instance if you are trying to debug a web application: you can leave the
   cursor exactly where you would like to keep reading the output and never
-  get lost… Plus you have the ability to easily move around, search and
-  copy like a ninja!</p>
+  get lost... Plus you have the ability to easily move around, search and
+  copy like a ninja!</p>
 </li>
 </ul>
-<h3 id="the-workflow-is-more-compact-and-centralized">The workflow is more compact and centralized</h3>
+<h3 id="the-workflow-is-more-compact-and-centralized">The workflow is more compact and centralized</h3>
 <p>Because the terminals are running with one Neovim instance, you get
 everything in the same place, which is usually how you need to access
 your work anyway. If for some reasons you need to have multiple
 instances of Neovim running, this is possible too and in that situation
-you could simply split them into different workspaces.</p>
+you could simply split them into different workspaces.</p>
 <p>Because everything is launched with Neovim, every terminal left open
 will also be exited when you close Neovim, shutting down any server
 or quitting any background interaction going on in the terminals. I
 have found that this behaviour is what I expect pretty much all the
 time because the idea of having a terminal inside a working session
 of Neovim is to work on something related, so it makes sense to close
-everything that’s to do with a single project or task when you exit the
+everything that's to do with a single project or task when you exit the
 text editor. No need for <code>CTRL + d</code> or <code>exit</code> anymore!</p>
 <hr/>
-<h2 id="terminal-settings-to-consider">Terminal settings to consider</h2>
-<p>I don’t use many settings or mappings related to terminals, but I guess
+<h2 id="terminal-settings-to-consider">Terminal settings to consider</h2>
+<p>I don't use many settings or mappings related to terminals, but I guess
 the nicest one is to remap the <code>Escape</code> key because by default, this is
 a weird mapping that leads to twisted fingers (<code>&lt;C-\&gt;&lt;C-n&gt;</code>). Here is
 what I currently have in my <code>init.vim</code> file (the equivalent of <code>.vimrc</code>
-for Neovim):</p>
+for Neovim):</p>
 <div class="highlight"><pre><span></span><code><span class="k">set</span> termguicolors  <span class="c">" Make colors look better in terminal</span>
 
 <span class="c">" Exit from terminal buffer (Neovim) more easily (remaps Esc key in</span>
@@ -742,8 +742,8 @@ tnoremap <span class="p">&lt;</span>C<span class="p">-</span><span class="k">l</
 <p>This was a quick overview of a feature that I have neglected for some
 time but recently realized how well it integrates with my workflow. You
 can find some more information by typing <code>:h terminal</code>. If you already
-use Neovim, it’s worth giving it a try! Otherwise, it’s worth giving
-<a href="https://neovim.io/">Neovim</a> a try.</p></div>
+use Neovim, it's worth giving it a try! Otherwise, it's worth giving
+<a href="https://neovim.io/">Neovim</a> a try.</p></div>
 </article>
         </main>
     </div>

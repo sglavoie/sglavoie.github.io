@@ -152,7 +152,7 @@
 <!-- Open graph for social networks -->
 <meta name="og:title" property="og:title" content="An introduction to RxJS, a library for reactive programming in JavaScript/TypeScript. We'll cover core concepts like observables, operators, testing, and tips for managing asynchronous data flows." />
  
-    <title>sglavoie.com &ndash; First Steps with&nbsp;RxJS</title>
+    <title>sglavoie.com &ndash; First Steps with RxJS</title>
   </head>
 
   <body>
@@ -524,7 +524,7 @@
       <main>
 <article data-pagefind-body>
   <div class="article_title">
-    <h1><a href="../../../../../posts/2023/10/01/first-steps-with-rxjs/">First Steps with&nbsp;RxJS</a></h1>
+    <h1><a href="../../../../../posts/2023/10/01/first-steps-with-rxjs/">First Steps with RxJS</a></h1>
   </div>
   <div class="meta_container_hrs">
     <hr />
@@ -626,7 +626,7 @@
       </div>
       <div class="article_readtime">
         <span class="readtime_tilde">~</span
-        ><span class="readtime_minutes">30</span>
+        ><span class="readtime_minutes">29</span>
         minutes to read
       </div>
     </div>
@@ -638,7 +638,7 @@
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#basic-concepts">Basic concepts</a><ul>
-<li><a href="#everything-is-a-stream">Everything is a stream</a></li>
+<li><a href="#everything-is-a-stream">Everything is a stream</a></li>
 </ul>
 </li>
 <li><a href="#operators">Operators</a><ul>
@@ -648,10 +648,10 @@
 <li><a href="#time-based">Time-based</a></li>
 <li><a href="#transformation">Transformation</a></li>
 <li><a href="#combination">Combination</a></li>
-<li><a href="#creating-a-custom-operator">Creating a custom operator</a></li>
+<li><a href="#creating-a-custom-operator">Creating a custom operator</a></li>
 </ul>
 </li>
-<li><a href="#marble-diagrams">Marble diagrams</a></li>
+<li><a href="#marble-diagrams">Marble diagrams</a></li>
 <li><a href="#subjects">Subjects</a><ul>
 <li><a href="#behaviorsubject">BehaviorSubject</a></li>
 <li><a href="#replaysubject">ReplaySubject</a></li>
@@ -659,7 +659,7 @@
 </ul>
 </li>
 <li><a href="#schedulers">Schedulers</a></li>
-<li><a href="#example-flow">Example flow</a></li>
+<li><a href="#example-flow">Example flow</a></li>
 <li><a href="#reactive-testing">Reactive testing</a><ul>
 <li><a href="#marble-testing">Marble testing</a><ul>
 <li><a href="#example">Example</a></li>
@@ -671,9 +671,9 @@
 </li>
 </ul>
 </li>
-<li><a href="#tips-and-tricks">Tips and tricks</a></li>
+<li><a href="#tips-and-tricks">Tips and tricks</a></li>
 <li><a href="#conclusion">Conclusion</a><ul>
-<li><a href="#resources-and-references">Resources and references</a></li>
+<li><a href="#resources-and-references">Resources and references</a></li>
 </ul>
 </li>
 </ul>
@@ -681,31 +681,31 @@
   <div class="article_text">
 <hr/>
 <h1 id="introduction">Introduction</h1>
-<p>While building an <a href="https://learn.microsoft.com/en-us/office/dev/add-ins/excel/?view=excel-js-preview">Excel add-in</a>, I came across the need for a more reactive style of programming due to the asynchronous nature of the APIs and the unpredictability of some events occurring in the spreadsheet. RxJS is one of those frameworks that can help with that. It’s a library for composing asynchronous and event-based programs by using observable sequences. It provides a set of operators to transform and combine streams of data. It’s a powerful tool that can be used to manage complex flows of data in a declarative fashion. It’s also a bit of a beast to learn, so I thought I’d share some of my notes and learnings along the way.</p>
-<p>We’ll first go over some basic concepts and terminology, move on to an attempt at depicting those various concepts, present common operators, touch upon reactive testing and then cover some tips and tricks.</p>
+<p>While building an <a href="https://learn.microsoft.com/en-us/office/dev/add-ins/excel/?view=excel-js-preview">Excel add-in</a>, I came across the need for a more reactive style of programming due to the asynchronous nature of the APIs and the unpredictability of some events occurring in the spreadsheet. RxJS is one of those frameworks that can help with that. It's a library for composing asynchronous and event-based programs by using observable sequences. It provides a set of operators to transform and combine streams of data. It's a powerful tool that can be used to manage complex flows of data in a declarative fashion. It's also a bit of a beast to learn, so I thought I'd share some of my notes and learnings along the way.</p>
+<p>We'll first go over some basic concepts and terminology, move on to an attempt at depicting those various concepts, present common operators, touch upon reactive testing and then cover some tips and tricks.</p>
 <hr/>
-<h1 id="basic-concepts">Basic concepts</h1>
+<h1 id="basic-concepts">Basic concepts</h1>
 <ul>
-<li>This is a push-based approach as opposed to a more common pull-based approach.</li>
-<li>The <strong>Observer</strong> design pattern is implemented.</li>
+<li>This is a push-based approach as opposed to a more common pull-based approach.</li>
+<li>The <strong>Observer</strong> design pattern is implemented.</li>
 <li><strong>Observables</strong> are the <strong>producers</strong> of a <strong>stream</strong> (the <strong>Subject</strong>) that you can <strong>subscribe</strong> (listen) to.<ul>
-<li>They are “<em>cold</em>” by default, meaning they don’t emit values until they are subscribed to.</li>
+<li>They are "<em>cold</em>" by default, meaning they don't emit values until they are subscribed to.</li>
 <li>They can deliver values <em>synchronously</em> and <em>asynchronously</em>.</li>
 <li>They can be cancelled by <em>unsubscribing</em>.</li>
 </ul>
 </li>
-<li><strong>Observers</strong> are the <strong>consumers</strong> of data produced by observables. They “<em>subscribe</em>” via a <strong>subscription</strong> to the stream of events emitted by the observable.<ul>
-<li>They execute some code when a new value is received.</li>
+<li><strong>Observers</strong> are the <strong>consumers</strong> of data produced by observables. They "<em>subscribe</em>" via a <strong>subscription</strong> to the stream of events emitted by the observable.<ul>
+<li>They execute some code when a new value is received.</li>
 <li>They implement <code>next</code>, <code>error</code> and/or <code>complete</code>.</li>
-<li>The <code>next</code> method is called whenever a new value is emitted.</li>
-<li>The <code>error</code> method is called whenever an error occurs with an emission from the observable.</li>
-<li>The <code>complete</code> method is called whenever the observable is done, i.e. when no more values will be emitted from the stream in the future.</li>
-<li>By default, this leads to <strong>unicasting</strong>, where a single subscription gets values from the producer.</li>
+<li>The <code>next</code> method is called whenever a new value is emitted.</li>
+<li>The <code>error</code> method is called whenever an error occurs with an emission from the observable.</li>
+<li>The <code>complete</code> method is called whenever the observable is done, i.e. when no more values will be emitted from the stream in the future.</li>
+<li>By default, this leads to <strong>unicasting</strong>, where a single subscription gets values from the producer.</li>
 </ul>
 </li>
-<li>In the context of an Excel spreadsheet, we could think of the values from cells <code>A1</code> and <code>B1</code> as the producers of a stream of values that can be subscribed to by a cell <code>C1</code> — the consumer — to perform some calculations based on the values from <code>A1</code> and <code>B1</code> which could be updated over time (i.e., emitting new values in the stream of data).</li>
+<li>In the context of an Excel spreadsheet, we could think of the values from cells <code>A1</code> and <code>B1</code> as the producers of a stream of values that can be subscribed to by a cell <code>C1</code> -- the consumer -- to perform some calculations based on the values from <code>A1</code> and <code>B1</code> which could be updated over time (i.e., emitting new values in the stream of data).</li>
 </ul>
-<p>In an imperative programming paradigm, we would write code that executes a series of steps to produce a result. In a reactive programming paradigm, we would write code that reacts to events as they occur. Here’s a simple example to illustrate this:</p>
+<p>In an imperative programming paradigm, we would write code that executes a series of steps to produce a result. In a reactive programming paradigm, we would write code that reacts to events as they occur. Here's a simple example to illustrate this:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Imperative approach</span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span>
@@ -734,73 +734,73 @@
 <span class="nx">a$</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="mf">4</span><span class="p">);</span><span class="w"> </span><span class="c1">// logs 8 at this point (latest a + b)</span>
 </code></pre></div>
 <hr/>
-<h2 id="everything-is-a-stream">Everything is a stream</h2>
-<p>What follows is a metaphorical drawing designed (as best as I could…) to help you understand the complex world of reactive programming with RxJS. It’s not a one-to-one mapping but aims to give a general feel of how things interconnect.</p>
+<h2 id="everything-is-a-stream">Everything is a stream</h2>
+<p>What follows is a metaphorical drawing designed (as best as I could...) to help you understand the complex world of reactive programming with RxJS. It's not a one-to-one mapping but aims to give a general feel of how things interconnect.</p>
 <p>Think of reactive programming as managing a complex water supply system for a bustling town and a high-tech factory. Water from the glacier (<code>Producer</code>) flows as a river (<code>Stream</code>) through a landscape filled with dams, turbines, and filters (<code>Operators</code>).</p>
-<p>Town residents and the factory subscribe to this river to fulfill their water needs. A subscription is like turning on a valve at the pumping station to let the water flow into your pipeline.</p>
-<p>Meanwhile, the factory refines the water and feeds it back into the system, acting like a <code>Subject</code> in RxJS. Natural calamities (or dirty, unfiltered water) disrupting the flow signify errors, while the dam’s control room (<code>Schedulers</code>) regulates the rhythm of the entire system.</p>
+<p>Town residents and the factory subscribe to this river to fulfill their water needs. A subscription is like turning on a valve at the pumping station to let the water flow into your pipeline.</p>
+<p>Meanwhile, the factory refines the water and feeds it back into the system, acting like a <code>Subject</code> in RxJS. Natural calamities (or dirty, unfiltered water) disrupting the flow signify errors, while the dam's control room (<code>Schedulers</code>) regulates the rhythm of the entire system.</p>
 <div class="image">
 <img alt="Drawing representing most major concepts found in  RxJS" src="../../../../../images/posts/0041_first_steps_with_rxjs/everything_is_a_stream.svg"/>
 </div>
-<p>A simple drawing like that won’t do justice to the complexity of the RxJS ecosystem. Let’s nevertheless try to break down a bit more how concepts relate to each other.</p>
+<p>A simple drawing like that won't do justice to the complexity of the RxJS ecosystem. Let's nevertheless try to break down a bit more how concepts relate to each other.</p>
 <ul>
 <li>The <strong>Producer</strong> (glacier) is the source of the stream. It can be a user action, a network request, a timer, etc. There can be multiple sources of data emitting different types of values. In this example, there is a tributary (a smaller river) that feeds into the main river. By merging the two streams, we can get a single stream of data from both sources.<ul>
-<li>While it may be useful to merge different streams of data and transform them along the way, it is not necessary or always needed. In this drawing, the <strong>ReplaySubject</strong> merely captures raw data as it arrives from the river and makes it available to late subscribers.</li>
+<li>While it may be useful to merge different streams of data and transform them along the way, it is not necessary or always needed. In this drawing, the <strong>ReplaySubject</strong> merely captures raw data as it arrives from the river and makes it available to late subscribers.</li>
 </ul>
 </li>
 <li>The <strong>Stream</strong> is the flow of data. It can be a single value or a sequence of values over time. Here, it may represent the flow of data throughout the whole application, where different events (mouse click, keyboard, etc.) are emitted from different sources (or components) and may be consumed in a modified fashion (e.g., keeping a single property from an object, filtering out some values, etc.).<ul>
-<li>Here, we have the town which subscribes to different streams that have been transformed already (electricity and water subscriptions). The town might be considered a <strong>Consumer</strong> of the stream and is the data that ends up being displayed in the <span class="caps">UI</span> or sent back to a server.</li>
+<li>Here, we have the town which subscribes to different streams that have been transformed already (electricity and water subscriptions). The town might be considered a <strong>Consumer</strong> of the stream and is the data that ends up being displayed in the UI or sent back to a server.</li>
 </ul>
 </li>
 <li><strong>Operators</strong> are functions that transform the stream. They can be used to filter, combine, or modify the data.<ul>
-<li>Our metaphor contains a couple of them. There’s a water turbine — representing a <strong>transformation operator</strong> — that transforms water into electricity (maybe it’s a <code>mergeMap</code> that creates a new observable and maps it to a different structure) or water filters — representing the <strong>filtering operators</strong> — that filter out unwanted particles (maybe it’s a <code>filter</code> that removes some values from the stream).</li>
+<li>Our metaphor contains a couple of them. There's a water turbine -- representing a <strong>transformation operator</strong> -- that transforms water into electricity (maybe it's a <code>mergeMap</code> that creates a new observable and maps it to a different structure) or water filters -- representing the <strong>filtering operators</strong> -- that filter out unwanted particles (maybe it's a <code>filter</code> that removes some values from the stream).</li>
 </ul>
 </li>
 <li><strong>Subscriptions</strong> are the consumers of the stream. They can be used to listen to the stream and perform actions when new values are emitted.<ul>
-<li>For instance, when the water bottling company receives water via its pipe, it may modify the stream by adding minerals to it (e.g., <code>map</code> operator) and then bottle it up to deliver water. This creates a dependency chain where the bottling company is a consumer of the stream and a producer of a new stream that can be consumed by the town.</li>
-<li>If we zoom in on the water bottling company section, we can see that the water delivery truck “subscribes” to the product of the company and will likely want to deliver a truckload of water bottles once it is full (e.g., <code>buffer</code> operator). If we look at the case where the truck delivers water with a giant container that happens to have a small leak, then we know that once the container starts filling with water, it will start leaking. This is akin to a <strong>hot observable</strong> where the stream starts emitting values immediately, even if there are no subscribers. We could say this is also a stream that uses the <code>throttleTime</code> operator to only emit values every 5 seconds, dropping a small amount of water in the process. Whether the container is nearly empty or full, it will still leak water every 5 seconds. This is different from a <strong>cold observable</strong> where the stream only starts emitting values once a subscriber is listening to it, such as when a well-functioning container is plugged into a destination to deliver water.</li>
+<li>For instance, when the water bottling company receives water via its pipe, it may modify the stream by adding minerals to it (e.g., <code>map</code> operator) and then bottle it up to deliver water. This creates a dependency chain where the bottling company is a consumer of the stream and a producer of a new stream that can be consumed by the town.</li>
+<li>If we zoom in on the water bottling company section, we can see that the water delivery truck "subscribes" to the product of the company and will likely want to deliver a truckload of water bottles once it is full (e.g., <code>buffer</code> operator). If we look at the case where the truck delivers water with a giant container that happens to have a small leak, then we know that once the container starts filling with water, it will start leaking. This is akin to a <strong>hot observable</strong> where the stream starts emitting values immediately, even if there are no subscribers. We could say this is also a stream that uses the <code>throttleTime</code> operator to only emit values every 5 seconds, dropping a small amount of water in the process. Whether the container is nearly empty or full, it will still leak water every 5 seconds. This is different from a <strong>cold observable</strong> where the stream only starts emitting values once a subscriber is listening to it, such as when a well-functioning container is plugged into a destination to deliver water.</li>
 </ul>
 </li>
 <li><strong>Subjects</strong> are both producers and consumers. They can be used to multicast values to multiple subscribers.<ul>
-<li>The water purification factory consumes water from the stream: as such, it is an <strong>observer</strong> as it reacts to the input stream (<code>next</code>, <code>error</code>, <code>complete</code>), but it is also a <strong>producer</strong> (because it can <code>pipe</code> and consumers can <code>subscribe</code> to it) as it emits a new stream of data that can be consumed by the town. This is akin to a <strong>multicast</strong> where a single producer can emit values to multiple consumers. The factory processes the incoming stream and may re-process values (<code>retryWhen</code>) or discard them (<code>filter</code>) before emitting a new stream of purified data.</li>
+<li>The water purification factory consumes water from the stream: as such, it is an <strong>observer</strong> as it reacts to the input stream (<code>next</code>, <code>error</code>, <code>complete</code>), but it is also a <strong>producer</strong> (because it can <code>pipe</code> and consumers can <code>subscribe</code> to it) as it emits a new stream of data that can be consumed by the town. This is akin to a <strong>multicast</strong> where a single producer can emit values to multiple consumers. The factory processes the incoming stream and may re-process values (<code>retryWhen</code>) or discard them (<code>filter</code>) before emitting a new stream of purified data.</li>
 </ul>
 </li>
 <li><strong>Schedulers</strong> are used to control the timing of the stream. They can be used to delay, throttle, or debounce emissions.<ul>
-<li>In this thirsty scenario, we can see that if the dam’s control room blocks the flow of water entirely, this will affect the whole system downstream. If the control room were to stop the flow of water at night and schedule it to resume in the morning, this would be akin to a <strong>scheduler</strong> that controls the timing of the stream. This is useful to avoid flooding the system with too much data at once, such as when a user types in a search box and we want to avoid making too many network requests at once. We can use a scheduler to throttle the stream of data to only emit values every 500 milliseconds, for instance, although in many cases we can directly rely on <a href="#time-based">time-based operators</a>.</li>
+<li>In this thirsty scenario, we can see that if the dam's control room blocks the flow of water entirely, this will affect the whole system downstream. If the control room were to stop the flow of water at night and schedule it to resume in the morning, this would be akin to a <strong>scheduler</strong> that controls the timing of the stream. This is useful to avoid flooding the system with too much data at once, such as when a user types in a search box and we want to avoid making too many network requests at once. We can use a scheduler to throttle the stream of data to only emit values every 500 milliseconds, for instance, although in many cases we can directly rely on <a href="#time-based">time-based operators</a>.</li>
 </ul>
 </li>
-<li><strong>Unicast</strong> is a one-to-one mapping between the producer and the consumer. It’s the default behavior of RxJS.<ul>
-<li>Assuming our dam blocks and redirects the entire stream coming from the glacier, then the initial part of the diagram would be a unicast with a single producer emitting values to a single consumer.</li>
+<li><strong>Unicast</strong> is a one-to-one mapping between the producer and the consumer. It's the default behavior of RxJS.<ul>
+<li>Assuming our dam blocks and redirects the entire stream coming from the glacier, then the initial part of the diagram would be a unicast with a single producer emitting values to a single consumer.</li>
 </ul>
 </li>
-<li><strong>Multicast</strong> is a one-to-many mapping between the producer and the consumers. It’s the behavior of RxJS when using <strong>Subjects</strong>.<ul>
-<li>If we take each resident of the town to be a subscriber of the water purification factory, then we have a multicast where a single producer emits values to multiple consumers. Likewise, the power utility company is a consumer of the electricity stream and a producer of a new stream that can be consumed by the town.</li>
+<li><strong>Multicast</strong> is a one-to-many mapping between the producer and the consumers. It's the behavior of RxJS when using <strong>Subjects</strong>.<ul>
+<li>If we take each resident of the town to be a subscriber of the water purification factory, then we have a multicast where a single producer emits values to multiple consumers. Likewise, the power utility company is a consumer of the electricity stream and a producer of a new stream that can be consumed by the town.</li>
 </ul>
 </li>
 <li><strong>Cold</strong> observables are lazy and only start emitting values when subscribed to.<ul>
-<li>In the case of the pond, it is a cold observable that only starts emitting values when a subscriber is listening to it, such as when a pump is plugged into it or someone fills a bucket of water from it.</li>
-<li>In the diagram, a person acts as an <code>AsyncSubject</code>: it will work for a time to get water from the pond, but once it’s done, it will emit a single value (the last value, i.e., the bucket) to all subscribers (let’s pretend for the sake of simplicity and for this metaphor to keep working that all subscribers effectively receive the exact same stream/value when it is emitted all at once). This is different from a <code>BehaviorSubject</code> where the last value is emitted to late subscribers upon subscription. Subscribers will not receive any values from an <code>AsyncSubject</code> until it completes and, as depicted, can also unsubscribe before the stream emits any value.</li>
+<li>In the case of the pond, it is a cold observable that only starts emitting values when a subscriber is listening to it, such as when a pump is plugged into it or someone fills a bucket of water from it.</li>
+<li>In the diagram, a person acts as an <code>AsyncSubject</code>: it will work for a time to get water from the pond, but once it's done, it will emit a single value (the last value, i.e., the bucket) to all subscribers (let's pretend for the sake of simplicity and for this metaphor to keep working that all subscribers effectively receive the exact same stream/value when it is emitted all at once). This is different from a <code>BehaviorSubject</code> where the last value is emitted to late subscribers upon subscription. Subscribers will not receive any values from an <code>AsyncSubject</code> until it completes and, as depicted, can also unsubscribe before the stream emits any value.</li>
 </ul>
 </li>
-<li><strong>Hot</strong> observables are eager and start emitting values immediately, even if there are no subscribers.</li>
-<li>There is a part of the river that’s identified near the bottom-left corner as a <code>hot observable</code>, because whether there are subscribers or not, it will keep emitting values. A <code>ReplaySubject</code> — the cameraman — was added to capture the values emitted from the river and make them available to late subscribers right upon subscription (e.g., when they watch it live on <span class="caps">TV</span> at some point).</li>
+<li><strong>Hot</strong> observables are eager and start emitting values immediately, even if there are no subscribers.</li>
+<li>There is a part of the river that's identified near the bottom-left corner as a <code>hot observable</code>, because whether there are subscribers or not, it will keep emitting values. A <code>ReplaySubject</code> -- the cameraman -- was added to capture the values emitted from the river and make them available to late subscribers right upon subscription (e.g., when they watch it live on TV at some point).</li>
 </ul>
-<p>My representation of the world may be flawed as I haven’t gone out much since the pandemic. Yet, that drawing tried to encapsulate most of the RxJS ecosystem and to some extent, that of reactive programming.</p>
+<p>My representation of the world may be flawed as I haven't gone out much since the pandemic. Yet, that drawing tried to encapsulate most of the RxJS ecosystem and to some extent, that of reactive programming.</p>
 <hr/>
 <h1 id="operators">Operators</h1>
 <ul>
-<li>Operators allow to hook into a stream, operate on it and even combine it with other streams.</li>
+<li>Operators allow to hook into a stream, operate on it and even combine it with other streams.</li>
 </ul>
 <h2 id="creation">Creation</h2>
 <ul>
 <li>They are standalone functions to create observables, such as <code>of</code>, <code>from</code>, <code>fromEvent</code>, <code>interval</code>, <code>timer</code> or <code>range</code>.</li>
-<li>You should always clean up subscriptions by unsubscribing when they’re no longer needed to avoid memory leaks and unintended consequences.</li>
+<li>You should always clean up subscriptions by unsubscribing when they're no longer needed to avoid memory leaks and unintended consequences.</li>
 <li><code>fromEvent</code><ul>
-<li>Can create observables from <span class="caps">DOM</span> events or Node.js streams.</li>
+<li>Can create observables from DOM events or Node.js streams.</li>
 </ul>
 </li>
 <li><code>of</code><ul>
-<li>Values are emitted synchronously, one at a time.</li>
+<li>Values are emitted synchronously, one at a time.</li>
 </ul>
 </li>
 <li><code>from</code><ul>
@@ -808,88 +808,88 @@
 </ul>
 </li>
 <li><code>interval</code> and <code>timer</code><ul>
-<li>They can emit values over time as a timer, where <code>timer</code> is useful to specify a different delay on the first value being emitted (e.g., specifying the first argument to <code>timer</code> to be <code>0</code> to emit the first value immediately).</li>
+<li>They can emit values over time as a timer, where <code>timer</code> is useful to specify a different delay on the first value being emitted (e.g., specifying the first argument to <code>timer</code> to be <code>0</code> to emit the first value immediately).</li>
 </ul>
 </li>
 <li><code>mapTo</code><ul>
-<li>This is a shortcut to remap an input to a different output (e.g., a constant string).</li>
+<li>This is a shortcut to remap an input to a different output (e.g., a constant string).</li>
 </ul>
 </li>
 <li><code>filter</code><ul>
-<li>It returns values when the evaluate to <code>true</code> from a function that itself returns a boolean value.</li>
+<li>It returns values when the evaluate to <code>true</code> from a function that itself returns a boolean value.</li>
 </ul>
 </li>
 <li><code>reduce</code><ul>
-<li>It works exactly like <code>Array.reduce</code>. It will emit the final value once the observable completes. That means it needs a stop condition in the pipeline, such as reaching the end of a synchronous stream or taking a few values only from an infinite stream (e.g., <code>interval(1000).pipe(take(3), reduce((acc, curr) =&gt; acc + curr) …)</code>) to take the the sum of the first three values emitted after 3 seconds.</li>
+<li>It works exactly like <code>Array.reduce</code>. It will emit the final value once the observable completes. That means it needs a stop condition in the pipeline, such as reaching the end of a synchronous stream or taking a few values only from an infinite stream (e.g., <code>interval(1000).pipe(take(3), reduce((acc, curr) =&gt; acc + curr) …)</code>) to take the the sum of the first three values emitted after 3 seconds.</li>
 </ul>
 </li>
 <li><code>scan</code><ul>
-<li>Just like <code>reduce</code> but emits every time the stream receives a new value, not just once the stream completes.</li>
+<li>Just like <code>reduce</code> but emits every time the stream receives a new value, not just once the stream completes.</li>
 </ul>
 </li>
 <li><code>tap</code><ul>
-<li>Used to <em>spy</em> on the observable source to perform side effects without affecting the underlying stream, which is useful when debugging to observe output values at different steps of the pipeline.</li>
+<li>Used to <em>spy</em> on the observable source to perform side effects without affecting the underlying stream, which is useful when debugging to observe output values at different steps of the pipeline.</li>
 </ul>
 </li>
 </ul>
 <h2 id="pipe">Pipe</h2>
 <ul>
-<li>Operators are comma-separated inside the <code>pipe</code> method that’s called on the observable. Then, the <code>subscribe</code> method is called on the assembled pipeline with a given observer to start producing the values from the stream.</li>
-<li>The operators create a new observable at each step in a “pure” fashion, so that the original observable does not change. Each operator in the pipe is akin to a different step in an assembly line.</li>
-<li>When <code>subscribe</code> is called, each operator in the pipe in turn subscribe to the observable and pass its value(s) along to the next operator in the pipeline.</li>
+<li>Operators are comma-separated inside the <code>pipe</code> method that's called on the observable. Then, the <code>subscribe</code> method is called on the assembled pipeline with a given observer to start producing the values from the stream.</li>
+<li>The operators create a new observable at each step in a "pure" fashion, so that the original observable does not change. Each operator in the pipe is akin to a different step in an assembly line.</li>
+<li>When <code>subscribe</code> is called, each operator in the pipe in turn subscribe to the observable and pass its value(s) along to the next operator in the pipeline.</li>
 <li><code>map</code><ul>
-<li>It’s similar to <code>Array.map</code> but it works on every element emitted from the stream, not on the stream as a whole.</li>
+<li>It's similar to <code>Array.map</code> but it works on every element emitted from the stream, not on the stream as a whole.</li>
 </ul>
 </li>
 <li><code>finalize</code><ul>
-<li>It is called once on the completion of the observable, which could be used to perform some cleanup logic after an action completes, such as updating a status field.</li>
+<li>It is called once on the completion of the observable, which could be used to perform some cleanup logic after an action completes, such as updating a status field.</li>
 </ul>
 </li>
 </ul>
 <h2 id="filtering">Filtering</h2>
 <ul>
 <li><code>take</code><ul>
-<li>Accepts a given number of items from the source before completing.</li>
+<li>Accepts a given number of items from the source before completing.</li>
 </ul>
 </li>
 <li><code>first</code><ul>
-<li>To <code>take</code> a single value based on a filtering condition.</li>
+<li>To <code>take</code> a single value based on a filtering condition.</li>
 </ul>
 </li>
 <li><code>takeWhile</code><ul>
-<li>Emits values from the source observable as long as a predicate condition is met. A value of <code>true</code> can be passed to the second argument of the function signature of <code>takeWhile</code> to also emit the value that caused the stream to stop emitting. It is used to limit the lifetime of an observable based on a known condition to apply.</li>
+<li>Emits values from the source observable as long as a predicate condition is met. A value of <code>true</code> can be passed to the second argument of the function signature of <code>takeWhile</code> to also emit the value that caused the stream to stop emitting. It is used to limit the lifetime of an observable based on a known condition to apply.</li>
 </ul>
 </li>
 <li><code>takeUntil</code><ul>
-<li>It takes a value until another stream emits a value. It accepts as an argument another observable for this purpose.</li>
+<li>It takes a value until another stream emits a value. It accepts as an argument another observable for this purpose.</li>
 </ul>
 </li>
 <li><code>distinctUntilChanged</code><ul>
-<li>It will emit values only if they are distinct from the previously emitted value from the stream.</li>
+<li>It will emit values only if they are distinct from the previously emitted value from the stream.</li>
 </ul>
 </li>
 <li><code>distinctUntilKeyChanged</code><ul>
-<li>Will compare the previous value emitted with the current value to evaluate whether a given key of an object has changed.</li>
+<li>Will compare the previous value emitted with the current value to evaluate whether a given key of an object has changed.</li>
 </ul>
 </li>
 </ul>
 <h2 id="time-based">Time-based</h2>
 <ul>
 <li><code>debounceTime</code><ul>
-<li>Useful when you need the last value emitted within a short period of time, discarding all previously emitted values until enough delay has passed.</li>
+<li>Useful when you need the last value emitted within a short period of time, discarding all previously emitted values until enough delay has passed.</li>
 </ul>
 </li>
 <li><code>debounce</code><ul>
-<li>Does the same thing as <code>debounceTime</code>, but allows passing a function so that variables can be used to determine the emission of results.</li>
+<li>Does the same thing as <code>debounceTime</code>, but allows passing a function so that variables can be used to determine the emission of results.</li>
 </ul>
 </li>
 <li><code>throttleTime</code><ul>
-<li>Ignore values after the last emission for a specified duration, creating a “silence window”. It can help ignore spammy events by reacting after a certain time has passed only, such as listening for scroll events (e.g., do not process values instantly but rather every 20-30 ms).</li>
-<li>We can use <code>asyncScheduler</code> as the second parameter to <code>throttleTime</code>, and give it a config object as the third argument to specify whether we’re interested in emitting the <code>leading</code> (first) or <code>trailing</code> (last) event from the stream within the silence window (e.g., for a scroll event, we want to know the last position).</li>
+<li>Ignore values after the last emission for a specified duration, creating a "silence window". It can help ignore spammy events by reacting after a certain time has passed only, such as listening for scroll events (e.g., do not process values instantly but rather every 20-30 ms).</li>
+<li>We can use <code>asyncScheduler</code> as the second parameter to <code>throttleTime</code>, and give it a config object as the third argument to specify whether we're interested in emitting the <code>leading</code> (first) or <code>trailing</code> (last) event from the stream within the silence window (e.g., for a scroll event, we want to know the last position).</li>
 </ul>
 </li>
 <li><code>sampleTime</code><ul>
-<li>It “samples” a time window to emit only the last value from that window, doing so at precise intervals.</li>
+<li>It "samples" a time window to emit only the last value from that window, doing so at precise intervals.</li>
 </ul>
 </li>
 <li><code>auditTime</code><ul>
@@ -901,51 +901,51 @@
 <ul>
 <li>One type of transformation operator is a flattening operator. This type of operator takes an observable that emits an observable to which RxJS internally subscribes to, simplifying the pipeline management. One such operator is <code>mergeAll</code>. Instead of mapping an emitted value to a new observable (e.g., with <code>Ajax.getJSON</code>) and then flattening the pipe to get the emitted value from that nested observable with <code>mergeAll</code>, we can do this in a single step with <code>mergeMap</code>.</li>
 <li><code>mergeMap</code><ul>
-<li>This is good for “fire and forget” type of behavior. For example, we may have an observable of click events from which we save the <code>clientX</code> and <code>clientY</code> coordinates, using these values to make an Ajax request that can perform an operation in the background which we do not want to cancel. Need to be careful with this as long-running observables may need cleanup.</li>
+<li>This is good for "fire and forget" type of behavior. For example, we may have an observable of click events from which we save the <code>clientX</code> and <code>clientY</code> coordinates, using these values to make an Ajax request that can perform an operation in the background which we do not want to cancel. Need to be careful with this as long-running observables may need cleanup.</li>
 </ul>
 </li>
 <li><code>switchMap</code><ul>
-<li>While <code>mergeMap</code> can maintain any number of inner subscriptions at a time, <code>switchMap</code> will maintain a single one. Any time a new observable is mapped, the previous one is automatically completed. This is useful if a previous request needs to be cancelled where only the last request makes sense, such as in a type-ahead behavior where we don’t want results from previous requests to be shown, but rather only the last one. This is the safest default for flattening because it won’t create leaks like <code>mergeMap</code>, which will leave other inner observables running in the background unless they are explicitly completed.<ul>
-<li>Great for reset, pause and resume functionality.</li>
-<li>Should avoid it when cancelling a request will have negative side effects, like saving a document.</li>
+<li>While <code>mergeMap</code> can maintain any number of inner subscriptions at a time, <code>switchMap</code> will maintain a single one. Any time a new observable is mapped, the previous one is automatically completed. This is useful if a previous request needs to be cancelled where only the last request makes sense, such as in a type-ahead behavior where we don't want results from previous requests to be shown, but rather only the last one. This is the safest default for flattening because it won't create leaks like <code>mergeMap</code>, which will leave other inner observables running in the background unless they are explicitly completed.<ul>
+<li>Great for reset, pause and resume functionality.</li>
+<li>Should avoid it when cancelling a request will have negative side effects, like saving a document.</li>
 </ul>
 </li>
 </ul>
 </li>
 <li><code>concatMap</code><ul>
-<li>Like <code>switchMap</code>, <code>concatMap</code> works on a single observable at a time, queuing up events (<span class="caps">FIFO</span>) from other observables until the first one completes. Should only be used when you have observables with a finite lifespan, otherwise the queue will never empty. This is useful when execution order of requests is important on the client side and when events will have a finite lifespan.</li>
+<li>Like <code>switchMap</code>, <code>concatMap</code> works on a single observable at a time, queuing up events (FIFO) from other observables until the first one completes. Should only be used when you have observables with a finite lifespan, otherwise the queue will never empty. This is useful when execution order of requests is important on the client side and when events will have a finite lifespan.</li>
 </ul>
 </li>
 <li><code>exhaustMap</code><ul>
-<li>Only maintains one inner subscription at a time. It will ignore values from new events until the first observable completes, discarding those events while there’s still an ongoing active subscription. This could be used to prevent further requests when clicking a button such as when submitting a form, effectively “disabling” the button while the submission is happening to avoid spamming the server with duplicate requests.</li>
+<li>Only maintains one inner subscription at a time. It will ignore values from new events until the first observable completes, discarding those events while there's still an ongoing active subscription. This could be used to prevent further requests when clicking a button such as when submitting a form, effectively "disabling" the button while the submission is happening to avoid spamming the server with duplicate requests.</li>
 </ul>
 </li>
 <li><code>catchError</code><ul>
-<li>By default, when an observable throws an error, it will stop emitting values as the errors are not handled. It can catch and return the error or return an empty observable to ignore the current value, which prevents the stream from breaking and will continue emitting values.</li>
+<li>By default, when an observable throws an error, it will stop emitting values as the errors are not handled. It can catch and return the error or return an empty observable to ignore the current value, which prevents the stream from breaking and will continue emitting values.</li>
 </ul>
 </li>
 </ul>
 <h2 id="combination">Combination</h2>
 <ul>
-<li>Can join multiple observables into a single stream, such as when you need to perform calculations based on multiple stream inputs.</li>
+<li>Can join multiple observables into a single stream, such as when you need to perform calculations based on multiple stream inputs.</li>
 <li><code>startWith</code><ul>
-<li>Lets you prepend any value(s) at the beginning of the stream.</li>
+<li>Lets you prepend any value(s) at the beginning of the stream.</li>
 </ul>
 </li>
 <li><code>endWith</code><ul>
-<li>Lets you append any value(s) at the end of the stream.</li>
+<li>Lets you append any value(s) at the end of the stream.</li>
 </ul>
 </li>
 <li><code>concat</code><ul>
-<li>Useful to execute multiple observables in order. When the first one finishes, the second one starts. That may come in handy to manage <span class="caps">UI</span> animations and to complete network requests in order.</li>
+<li>Useful to execute multiple observables in order. When the first one finishes, the second one starts. That may come in handy to manage UI animations and to complete network requests in order.</li>
 </ul>
 </li>
 <li><code>merge</code><ul>
-<li>Creates a single observable from any other number of observables. This means that it emits all values from all the observables as a single stream as they occur. For example, if we have a countdown related to both a “start” and a “pause” button, we might want the same stream to return “true” values when “start” is clicked and “false” values when “pause” is clicked to determine the next step to take in the pipeline.</li>
+<li>Creates a single observable from any other number of observables. This means that it emits all values from all the observables as a single stream as they occur. For example, if we have a countdown related to both a "start" and a "pause" button, we might want the same stream to return "true" values when "start" is clicked and "false" values when "pause" is clicked to determine the next step to take in the pipeline.</li>
 </ul>
 </li>
 <li><code>combineLatest</code><ul>
-<li>Takes two or more observables, combining the latest value received from each one only once all the observables have emitted at least one value. This would be useful when all values depend on each other to produce a common result.</li>
+<li>Takes two or more observables, combining the latest value received from each one only once all the observables have emitted at least one value. This would be useful when all values depend on each other to produce a common result.</li>
 </ul>
 </li>
 <li><code>forkJoin</code><ul>
@@ -953,12 +953,12 @@
 </ul>
 </li>
 <li><code>share</code><ul>
-<li>It is used to “share” the result of a stream to all subscribers. This can be useful to avoid running heavy computations more than once.</li>
+<li>It is used to "share" the result of a stream to all subscribers. This can be useful to avoid running heavy computations more than once.</li>
 </ul>
 </li>
 </ul>
-<h2 id="creating-a-custom-operator">Creating a custom operator</h2>
-<p>We can create a custom operator by creating a function that returns a function that accepts an observable and returns a new observable. While that might be a bit of an abstract explanation to follow, here is a basic example illustrating this concept.</p>
+<h2 id="creating-a-custom-operator">Creating a custom operator</h2>
+<p>We can create a custom operator by creating a function that returns a function that accepts an observable and returns a new observable. While that might be a bit of an abstract explanation to follow, here is a basic example illustrating this concept.</p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Observable</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'rxjs'</span><span class="p">;</span>
 
 <span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">multiplyBy</span><span class="p">(</span><span class="nx">multiplier</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -987,7 +987,7 @@
 <span class="k">of</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">).</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">multiplyBy</span><span class="p">(</span><span class="mf">2</span><span class="p">)).</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">));</span>
 <span class="c1">// logs 2, 4, 6, 8, 10</span>
 </code></pre></div>
-<p>Here is another example combining <code>filter</code>, <code>map</code> and <code>reduce</code> to create a custom operator that will filter out values from a stream, map them to a new value and then reduce them to a single value.</p>
+<p>Here is another example combining <code>filter</code>, <code>map</code> and <code>reduce</code> to create a custom operator that will filter out values from a stream, map them to a new value and then reduce them to a single value.</p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Observable</span><span class="p">,</span><span class="w"> </span><span class="nx">filter</span><span class="p">,</span><span class="w"> </span><span class="nx">map</span><span class="p">,</span><span class="w"> </span><span class="nx">reduce</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'rxjs'</span><span class="p">;</span>
 
 <span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">filterMapReduce</span><span class="o">&lt;</span><span class="nx">T</span><span class="p">,</span><span class="w"> </span><span class="nx">R</span><span class="o">&gt;</span><span class="p">(</span>
@@ -1023,15 +1023,15 @@
 <span class="w">  </span><span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">));</span><span class="w"> </span><span class="c1">// logs 12</span>
 </code></pre></div>
 <hr/>
-<h1 id="marble-diagrams">Marble diagrams</h1>
+<h1 id="marble-diagrams">Marble diagrams</h1>
 <div class="image">
 <img alt="Showing a basic marble diagram with filter operator" src="../../../../../images/posts/0041_first_steps_with_rxjs/marble_diagram.svg"/>
 </div>
 <p><br/></p>
 <ul>
-<li>They are used to represent the behavior of operators. They can be used to test observables.</li>
-<li>They allow comparing at a glance how a set of inputs maps to a set of outputs (i.e., which transformations are applied to the source stream).</li>
-<li>An <code>X</code> represents an error and a vertical line <code>|</code> represents the end of emission of values from the input stream.</li>
+<li>They are used to represent the behavior of operators. They can be used to test observables.</li>
+<li>They allow comparing at a glance how a set of inputs maps to a set of outputs (i.e., which transformations are applied to the source stream).</li>
+<li>An <code>X</code> represents an error and a vertical line <code>|</code> represents the end of emission of values from the input stream.</li>
 </ul>
 <p><br/></p>
 <div class="image">
@@ -1040,26 +1040,26 @@
 <hr/>
 <h1 id="subjects">Subjects</h1>
 <ul>
-<li>A <strong>Subject</strong> is an <strong>Observable</strong>: it has both <code>pipe</code> and <code>subscribe</code> methods. A Subject is also an <strong>Observer</strong>: it has <code>next</code>, <code>error</code> and <code>complete</code> methods. Unlike Observables which are unicast (1-to-1 mapping with observers, each observer gets an independent stream of data), Subjects are <strong>multicast</strong>, meaning they broadcast the same information to any “listeners” (observers).</li>
+<li>A <strong>Subject</strong> is an <strong>Observable</strong>: it has both <code>pipe</code> and <code>subscribe</code> methods. A Subject is also an <strong>Observer</strong>: it has <code>next</code>, <code>error</code> and <code>complete</code> methods. Unlike Observables which are unicast (1-to-1 mapping with observers, each observer gets an independent stream of data), Subjects are <strong>multicast</strong>, meaning they broadcast the same information to any "listeners" (observers).</li>
 <li>Multicasting operators include <code>share</code>, <code>shareReplay</code> and <code>multicast</code>.</li>
 </ul>
 <h2 id="behaviorsubject">BehaviorSubject</h2>
 <ul>
-<li>It allows delivering a seed/initial value to late subscribers such that a subscription happening at a later point can still receive the last emitted value upon subscribing.</li>
+<li>It allows delivering a seed/initial value to late subscribers such that a subscription happening at a later point can still receive the last emitted value upon subscribing.</li>
 </ul>
 <h2 id="replaysubject">ReplaySubject</h2>
 <ul>
-<li>It allows replaying the whole stream (or the last items desired via its first argument) to late subscribers, effectively providing a way to multicast (i.e., the stream is played only once and multiple subscribers can receive the values at once).</li>
+<li>It allows replaying the whole stream (or the last items desired via its first argument) to late subscribers, effectively providing a way to multicast (i.e., the stream is played only once and multiple subscribers can receive the values at once).</li>
 <li><code>shareReplay</code><ul>
-<li>This can be added to a pipeline and any subscriber to that stream will receive updates as if a ReplaySubject has been manually set up. For time sensitive matters where receiving a value too late isn’t useful, a second argument can be passed to <code>shareReplay</code> to only capture events within the last <code>x</code> milliseconds.</li>
+<li>This can be added to a pipeline and any subscriber to that stream will receive updates as if a ReplaySubject has been manually set up. For time sensitive matters where receiving a value too late isn't useful, a second argument can be passed to <code>shareReplay</code> to only capture events within the last <code>x</code> milliseconds.</li>
 </ul>
 </li>
 </ul>
 <h2 id="asyncsubject">AsyncSubject</h2>
 <ul>
-<li>Only emits the last value to all subscribers when it completes.</li>
+<li>Only emits the last value to all subscribers when it completes.</li>
 </ul>
-<p>Here is a real-world example of a setup making use of a <code>BehaviorSubject</code> from an Excel add-in. The goal is to perform some actions in the <span class="caps">UI</span> whenever the connection status of a WebSocket changes by using a <strong>subject</strong>, which can be subscribed to from another part of the add-in to perform the needed updates. Omitting the details of the WebSocket connection, the following code snippet shows how we can use a <code>BehaviorSubject</code> to keep track of the connection status and emit the latest value to late subscribers.</p>
+<p>Here is a real-world example of a setup making use of a <code>BehaviorSubject</code> from an Excel add-in. The goal is to perform some actions in the UI whenever the connection status of a WebSocket changes by using a <strong>subject</strong>, which can be subscribed to from another part of the add-in to perform the needed updates. Omitting the details of the WebSocket connection, the following code snippet shows how we can use a <code>BehaviorSubject</code> to keep track of the connection status and emit the latest value to late subscribers.</p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">BehaviorSubject</span><span class="p">,</span><span class="w"> </span><span class="nx">Observable</span><span class="p">,</span><span class="w"> </span><span class="nx">distinctUntilChanged</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'rxjs'</span><span class="p">;</span>
 
 <span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">ConnectionManager</span><span class="w"> </span><span class="p">{</span>
@@ -1090,41 +1090,41 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>In other words, we can subscribe to the <code>connectionStatus$</code> observable and react to changes in the connection status. This is useful to update the <span class="caps">UI</span>, for instance, to show a “<em>disconnected</em>” message when the connection is lost.</p>
-<p>In a state manager, this might be dealt with like this to keep track of the sheets we have:</p>
+<p>In other words, we can subscribe to the <code>connectionStatus$</code> observable and react to changes in the connection status. This is useful to update the UI, for instance, to show a "<em>disconnected</em>" message when the connection is lost.</p>
+<p>In a state manager, this might be dealt with like this to keep track of the sheets we have:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">sheetSubscriptions</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">sheetId</span><span class="p">,</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Subject</span><span class="p">());</span><span class="w">  </span><span class="c1">// track the sheet subscriptions</span>
 
 <span class="c1">// ...</span>
 <span class="c1">// delete the subscriptions to the sheet at some point in the future</span>
 <span class="nx">sheetSubscriptions</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">sheetId</span><span class="p">).</span><span class="nx">next</span><span class="p">();</span><span class="w"> </span><span class="c1">// unsubscribe from all subscriptions for this sheet</span>
 </code></pre></div>
-<p>The implementation details of the <code>sheetSubscriptions</code> map are omitted here, but the idea is that we can use a <code>Subject</code> to keep track of the subscriptions to a given sheet. When we want to unsubscribe from all subscriptions to a given sheet, we can call <code>next</code> on the subject to complete the stream and unsubscribe from all subscriptions.</p>
+<p>The implementation details of the <code>sheetSubscriptions</code> map are omitted here, but the idea is that we can use a <code>Subject</code> to keep track of the subscriptions to a given sheet. When we want to unsubscribe from all subscriptions to a given sheet, we can call <code>next</code> on the subject to complete the stream and unsubscribe from all subscriptions.</p>
 <hr/>
 <h1 id="schedulers">Schedulers</h1>
 <ul>
-<li>All schedulers accept three arguments: <code>work</code> (task to execute), <code>delay</code> (in milliseconds) and <code>state</code> (when used, the first argument <code>work</code> defines the function to execute and <code>state</code> the data passed to it).</li>
+<li>All schedulers accept three arguments: <code>work</code> (task to execute), <code>delay</code> (in milliseconds) and <code>state</code> (when used, the first argument <code>work</code> defines the function to execute and <code>state</code> the data passed to it).</li>
 <li>Most basic observables (e.g., <code>range</code>) accept as the last argument a scheduler, so this can be set there (e.g., <code>range(1, 5, asapScheduler)</code>).</li>
 <li><code>AsyncScheduler</code><ul>
-<li>Can be used as an equivalent to setTimeout. It’s simpler to just use the <code>delay</code> operator for that purpose. When used with <code>subscribeOn</code> in the pipeline, this is equivalent to wrapping the whole observable with setTimeout.</li>
+<li>Can be used as an equivalent to setTimeout. It's simpler to just use the <code>delay</code> operator for that purpose. When used with <code>subscribeOn</code> in the pipeline, this is equivalent to wrapping the whole observable with setTimeout.</li>
 </ul>
 </li>
 <li><code>asapScheduler</code><ul>
-<li>This is used to queue micro tasks, which are run after other synchronous pieces of code but before asynchronous code.</li>
-<li>Micro tasks are run after the currently running synchronous code but will block the <span class="caps">UI</span> when run.</li>
+<li>This is used to queue micro tasks, which are run after other synchronous pieces of code but before asynchronous code.</li>
+<li>Micro tasks are run after the currently running synchronous code but will block the UI when run.</li>
 </ul>
 </li>
 <li><code>animationFrameScheduler</code><ul>
-<li>This is similar to requestAnimationFrame. Set no delay or set it to <code>0</code> so that it will not be async and will update before every browser repaint.</li>
+<li>This is similar to requestAnimationFrame. Set no delay or set it to <code>0</code> so that it will not be async and will update before every browser repaint.</li>
 </ul>
 </li>
 <li><code>queueScheduler</code><ul>
-<li>It is synchronous by default. Inner calls to <code>queueScheduler</code> will be executed once the outer calls are done running.</li>
+<li>It is synchronous by default. Inner calls to <code>queueScheduler</code> will be executed once the outer calls are done running.</li>
 </ul>
 </li>
 </ul>
-<p>While it’s possible to use schedulers directly to provide fine-grained control over concurrency, it’s often easier to use the <code>delay</code> operator to delay the emission of values from the stream. For instance, we can use <code>delay(1000)</code> to delay the emission of values by 1 second.</p>
+<p>While it's possible to use schedulers directly to provide fine-grained control over concurrency, it's often easier to use the <code>delay</code> operator to delay the emission of values from the stream. For instance, we can use <code>delay(1000)</code> to delay the emission of values by 1 second.</p>
 <hr/>
-<h1 id="example-flow">Example flow</h1>
+<h1 id="example-flow">Example flow</h1>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">BehaviorSubject</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">EMPTY</span><span class="p">,</span>
@@ -1321,7 +1321,7 @@
 <span class="nx">stream1Subject$</span><span class="p">.</span><span class="nx">unsubscribe</span><span class="p">();</span>
 <span class="nx">stream2ObservableSubscription</span><span class="p">.</span><span class="nx">unsubscribe</span><span class="p">();</span>
 </code></pre></div>
-<p>This will result in the following output being logged to the console:</p>
+<p>This will result in the following output being logged to the console:</p>
 <div class="highlight"><pre><span></span><code>Subscribing to secondObservable$...
  -&gt; observer2: subscription started
 
@@ -1366,20 +1366,20 @@ Caught error: Error: Disconnected!
 
 Unsubscribing from thirdObservableSubscription$...
 </code></pre></div>
-<p>While this example is a bit abstract and contrived, RxJS can be used for a bunch of different use cases, including:</p>
+<p>While this example is a bit abstract and contrived, RxJS can be used for a bunch of different use cases, including:</p>
 <ul>
-<li>Use <code>debounceTime</code> and <code>switchMap</code> to limit requests and cancel previous searches in a search auto-complete;</li>
-<li>Typeahead search box: <code>fromEvent</code> on keystrokes, combined with <span class="caps">API</span> requests;</li>
-<li>Scroll position can be tracked with <code>fromEvent</code> to lazily load content;</li>
-<li><code>combineLatest</code> and <code>map</code> can be used to validate fields as user fills them out;</li>
+<li>Use <code>debounceTime</code> and <code>switchMap</code> to limit requests and cancel previous searches in a search auto-complete;</li>
+<li>Typeahead search box: <code>fromEvent</code> on keystrokes, combined with API requests;</li>
+<li>Scroll position can be tracked with <code>fromEvent</code> to lazily load content;</li>
+<li><code>combineLatest</code> and <code>map</code> can be used to validate fields as user fills them out;</li>
 <li>Progress bar updates could be animated using <code>interval</code> and <code>map</code>;</li>
-<li>Use <code>fromEvent</code> to track mouse drags and <code>merge</code> to handle multiple event streams;</li>
+<li>Use <code>fromEvent</code> to track mouse drags and <code>merge</code> to handle multiple event streams;</li>
 <li>Create a real-time dashboard updating based on WebSocket streams with <code>merge</code>;</li>
-<li>Debounce input changes with <code>debounceTime</code> to trigger saves;</li>
+<li>Debounce input changes with <code>debounceTime</code> to trigger saves;</li>
 <li>Create heatmaps from click events using <code>fromEvent</code> and <code>reduce</code>;</li>
-<li>Retry <span class="caps">XHR</span> requests on failure using <code>catchError</code> and <code>retry</code>.</li>
+<li>Retry XHR requests on failure using <code>catchError</code> and <code>retry</code>.</li>
 </ul>
-<p>Going back to the world of Excel add-ins, here is a real-world example of a setup using RxJS to listen to events from the Excel <span class="caps">API</span>. The goal is to listen to selection changes on a table and perform some actions when the selection changes. The <code>fromEventPattern</code> method allows us to create an observable from an <span class="caps">API</span> event. We basically “hook” into the Excel <span class="caps">API</span> event and transform it into an observable. We can then use the <code>filter</code> operator to filter out unrelated events and the <code>takeUntil</code> operator to unsubscribe when the notifier emits (when the table is deleted).</p>
+<p>Going back to the world of Excel add-ins, here is a real-world example of a setup using RxJS to listen to events from the Excel API. The goal is to listen to selection changes on a table and perform some actions when the selection changes. The <code>fromEventPattern</code> method allows us to create an observable from an API event. We basically "hook" into the Excel API event and transform it into an observable. We can then use the <code>filter</code> operator to filter out unrelated events and the <code>takeUntil</code> operator to unsubscribe when the notifier emits (when the table is deleted).</p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Observable</span><span class="p">,</span><span class="w"> </span><span class="nx">Subject</span><span class="p">,</span><span class="w"> </span><span class="nx">filter</span><span class="p">,</span><span class="w"> </span><span class="nx">fromEventPattern</span><span class="p">,</span><span class="w"> </span><span class="nx">takeUntil</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'rxjs'</span><span class="p">;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">notifier$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Subject</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="p">();</span>
@@ -1423,18 +1423,18 @@ Unsubscribing from thirdObservableSubscription$...
 <span class="nx">notifier$</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span><span class="w"> </span><span class="c1">// unsubscribe from the observable and delete the table</span>
 </code></pre></div>
 <hr/>
-<h1 id="reactive-testing">Reactive testing</h1>
-<p><strong>Reactive testing</strong> is a way to test observables. It can be done with marble diagrams or by subscribing and asserting values. While it’s more difficult to wrap one’s head around marble diagrams, they are more accurate and can be used to test timing. Subscribing and asserting values is easier to understand but requires more boilerplate and is less accurate.</p>
-<h2 id="marble-testing">Marble testing</h2>
+<h1 id="reactive-testing">Reactive testing</h1>
+<p><strong>Reactive testing</strong> is a way to test observables. It can be done with marble diagrams or by subscribing and asserting values. While it's more difficult to wrap one's head around marble diagrams, they are more accurate and can be used to test timing. Subscribing and asserting values is easier to understand but requires more boilerplate and is less accurate.</p>
+<h2 id="marble-testing">Marble testing</h2>
 <ul>
-<li>We can test streams with expressive <span class="caps">ASCII</span> representations of marble diagrams.</li>
-<li>This allows for greater test accuracy of values and timing.</li>
-<li>It requires quite a bit of setup.</li>
-<li>A dash <code>-</code> represents a frame of virtual time.</li>
-<li>Any character from the set <code>[a-z0-9]</code> represents an emitted value.</li>
+<li>We can test streams with expressive ASCII representations of marble diagrams.</li>
+<li>This allows for greater test accuracy of values and timing.</li>
+<li>It requires quite a bit of setup.</li>
+<li>A dash <code>-</code> represents a frame of virtual time.</li>
+<li>Any character from the set <code>[a-z0-9]</code> represents an emitted value.</li>
 <li>Errors are represented with a <code>#</code>.</li>
-<li><code>()</code> represent synchronous groupings.</li>
-<li>The <code>|</code> represents the completion of the stream.</li>
+<li><code>()</code> represent synchronous groupings.</li>
+<li>The <code>|</code> represents the completion of the stream.</li>
 </ul>
 <h3 id="example">Example</h3>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">delay</span><span class="p">,</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'rxjs'</span><span class="p">;</span>
@@ -1456,13 +1456,13 @@ Unsubscribing from thirdObservableSubscription$...
 <span class="w">  </span><span class="p">});</span>
 <span class="p">});</span>
 </code></pre></div>
-<h2 id="subscribe-and-assert-testing">Subscribe and assert testing</h2>
+<h2 id="subscribe-and-assert-testing">Subscribe and assert testing</h2>
 <ul>
-<li>Less setup required.</li>
-<li>Can use typical testing APIs and testing patterns.</li>
-<li>Because this runs outside the test scheduler, we must manage async test completion.</li>
-<li>Requires more boilerplate for assertions with multiple items.</li>
-<li>Hard to accurately test timing.</li>
+<li>Less setup required.</li>
+<li>Can use typical testing APIs and testing patterns.</li>
+<li>Because this runs outside the test scheduler, we must manage async test completion.</li>
+<li>Requires more boilerplate for assertions with multiple items.</li>
+<li>Hard to accurately test timing.</li>
 </ul>
 <h3 id="example_1">Example</h3>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">map</span><span class="p">,</span><span class="w"> </span><span class="k">of</span><span class="p">,</span><span class="w"> </span><span class="nx">toArray</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'rxjs'</span><span class="p">;</span>
@@ -1484,42 +1484,42 @@ Unsubscribing from thirdObservableSubscription$...
 <span class="p">});</span>
 </code></pre></div>
 <hr/>
-<h1 id="tips-and-tricks">Tips and tricks</h1>
+<h1 id="tips-and-tricks">Tips and tricks</h1>
 <ul>
 <li>Using <code>finalize</code> to execute side effects on completion.<ul>
-<li>Do not put side effects to run inside the <code>complete</code> function as it is not called when manually unsubscribing or when an error occurs.</li>
-<li>Instead, we can add the <code>finalize</code> operator tacked onto the end of the pipeline.</li>
+<li>Do not put side effects to run inside the <code>complete</code> function as it is not called when manually unsubscribing or when an error occurs.</li>
+<li>Instead, we can add the <code>finalize</code> operator tacked onto the end of the pipeline.</li>
 </ul>
 </li>
 <li>Extract common operator logic into standalone functions.<ul>
-<li>These functions will accept an observable source and return a new observable. See <a href="#creating-a-custom-operator">Creating a custom operator</a> for an example.</li>
+<li>These functions will accept an observable source and return a new observable. See <a href="#creating-a-custom-operator">Creating a custom operator</a> for an example.</li>
 </ul>
 </li>
 <li>Use combination operators to access state from secondary streams.<ul>
-<li>Use <code>withLatestFrom(store$)</code> to retrieve the current state. This works when subscribing to a BehaviorSubject which will have emitted the value by the time it’s needed but may be a source of headaches if subscribing to a regular Subject since the last value will not have been emitted by the time the subscription happens.</li>
+<li>Use <code>withLatestFrom(store$)</code> to retrieve the current state. This works when subscribing to a BehaviorSubject which will have emitted the value by the time it's needed but may be a source of headaches if subscribing to a regular Subject since the last value will not have been emitted by the time the subscription happens.</li>
 </ul>
 </li>
 <li>Automate observable cleanup with <code>takeUntil</code> and <code>Subjects</code>.<ul>
-<li>While we can manually unsubscribe from observables and even unsubscribe from multiple observables at once by having a single subscription to which we add more subscriptions and then unsubscribe from, it is easier to react to a value emitted from a <code>Subject</code> like <code>onDestroy$</code> by appending <code>takeUntil(onDestroy$)</code> to the pipeline. Whenever <code>onDestroy$.next()</code> is called, any subscription depending on it will unsubscribe automatically, then <code>onDestroy$.complete()</code> will clean up unused resources.</li>
+<li>While we can manually unsubscribe from observables and even unsubscribe from multiple observables at once by having a single subscription to which we add more subscriptions and then unsubscribe from, it is easier to react to a value emitted from a <code>Subject</code> like <code>onDestroy$</code> by appending <code>takeUntil(onDestroy$)</code> to the pipeline. Whenever <code>onDestroy$.next()</code> is called, any subscription depending on it will unsubscribe automatically, then <code>onDestroy$.complete()</code> will clean up unused resources.</li>
 </ul>
 </li>
 <li>Use partition and filter for conditional logic.<ul>
-<li><code>filter</code> can be very useful when a single type of output is expected, filtering values before they reach the end of the stream.</li>
-<li><code>partition</code> will return two observables, which we can destructure. The first one will filter and catch emissions that match our condition and the other stream will contain the values that didn’t match the condition. This is useful to avoid creating two different streams when there’s an <code>if</code>/<code>else</code> situation where two types of outputs would be expected.</li>
+<li><code>filter</code> can be very useful when a single type of output is expected, filtering values before they reach the end of the stream.</li>
+<li><code>partition</code> will return two observables, which we can destructure. The first one will filter and catch emissions that match our condition and the other stream will contain the values that didn't match the condition. This is useful to avoid creating two different streams when there's an <code>if</code>/<code>else</code> situation where two types of outputs would be expected.</li>
 </ul>
 </li>
 </ul>
 <hr/>
 <h1 id="conclusion">Conclusion</h1>
-<p>RxJS is a powerful yet complex toolkit for managing asynchronous data flows. While the learning curve can be steep, the benefits are significant for reactive web apps and complex logic with many asynchronous operations. With practice, RxJS makes it possible to write declarative code that reacts to real-time data updates. By modeling everything as streams of data and applying transformations, RxJS helps tackle challenging programming tasks in a maintainable way. While it takes effort to master, reactive programming with RxJS might just be an essential skill for modern JavaScript/TypeScript developers working on reactive web applications!</p>
-<h2 id="resources-and-references">Resources and references</h2>
+<p>RxJS is a powerful yet complex toolkit for managing asynchronous data flows. While the learning curve can be steep, the benefits are significant for reactive web apps and complex logic with many asynchronous operations. With practice, RxJS makes it possible to write declarative code that reacts to real-time data updates. By modeling everything as streams of data and applying transformations, RxJS helps tackle challenging programming tasks in a maintainable way. While it takes effort to master, reactive programming with RxJS might just be an essential skill for modern JavaScript/TypeScript developers working on reactive web applications!</p>
+<h2 id="resources-and-references">Resources and references</h2>
 <ul>
-<li><a href="https://learn.microsoft.com/en-us/office/dev/add-ins/excel/?view=excel-js-preview">Excel add-ins documentation</a>, Microsoft</li>
-<li><a href="https://www.learnrxjs.io/">Learn RxJS</a>, Learn RxJS</li>
-<li><a href="https://rxjs.dev/">RxJS - Reactive Extensions Library for JavaScript</a>, RxJS</li>
-<li><a href="https://www.youtube.com/watch?v=lkUrkNdczpI&amp;list=PLj2oFNVaxfJ8nRFUA2CLyt8TymA0_vQux&amp;index=1">RxJS <span class="amp">&amp;</span> Reactive Programming</a>, Josh Ribakoff</li>
-<li><a href="https://rxjs.dev/guide/testing/marble-testing">RxJS Marbles - Testing</a>, RxJS</li>
-<li><a href="https://rxmarbles.com/">RxJS Marbles</a>, RxJS Marbles</li>
+<li><a href="https://learn.microsoft.com/en-us/office/dev/add-ins/excel/?view=excel-js-preview">Excel add-ins documentation</a>, Microsoft</li>
+<li><a href="https://www.learnrxjs.io/">Learn RxJS</a>, Learn RxJS</li>
+<li><a href="https://rxjs.dev/">RxJS - Reactive Extensions Library for JavaScript</a>, RxJS</li>
+<li><a href="https://www.youtube.com/watch?v=lkUrkNdczpI&amp;list=PLj2oFNVaxfJ8nRFUA2CLyt8TymA0_vQux&amp;index=1">RxJS &amp; Reactive Programming</a>, Josh Ribakoff</li>
+<li><a href="https://rxjs.dev/guide/testing/marble-testing">RxJS Marbles - Testing</a>, RxJS</li>
+<li><a href="https://rxmarbles.com/">RxJS Marbles</a>, RxJS Marbles</li>
 </ul></div>
 </article>
         </main>

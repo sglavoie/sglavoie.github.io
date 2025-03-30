@@ -149,7 +149,7 @@
 
 <meta name="keywords" content="design-patterns, books, go, oop" />
  
-    <title>sglavoie.com &ndash; Book summary: Dive into Design&nbsp;Patterns</title>
+    <title>sglavoie.com &ndash; Book summary: Dive into Design Patterns</title>
   </head>
 
   <body>
@@ -521,7 +521,7 @@
       <main>
 <article data-pagefind-body>
   <div class="article_title">
-    <h1><a href="../../../../../posts/2024/03/09/book-summary-dive-into-design-patterns/">Book summary: Dive into Design&nbsp;Patterns</a></h1>
+    <h1><a href="../../../../../posts/2024/03/09/book-summary-dive-into-design-patterns/">Book summary: Dive into Design Patterns</a></h1>
   </div>
   <div class="meta_container_hrs">
     <hr />
@@ -623,7 +623,7 @@
       </div>
       <div class="article_readtime">
         <span class="readtime_tilde">~</span
-        ><span class="readtime_minutes">72</span>
+        ><span class="readtime_minutes">71</span>
         minutes to read
       </div>
     </div>
@@ -634,208 +634,208 @@
   <nav class="toc"><div class="toc">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#a-brief-oop-overview">A brief <span class="caps">OOP</span> overview</a></li>
-<li><a href="#introduction-to-design-patterns">Introduction to Design Patterns</a></li>
+<li><a href="#a-brief-oop-overview">A brief OOP overview</a></li>
+<li><a href="#introduction-to-design-patterns">Introduction to Design Patterns</a></li>
 <li><a href="#software-design-principles">Software Design Principles</a><ul>
-<li><a href="#design-principles">Design Principles</a></li>
-<li><a href="#solid-principles"><span class="caps">SOLID</span> Principles</a></li>
+<li><a href="#design-principles">Design Principles</a></li>
+<li><a href="#solid-principles">SOLID Principles</a></li>
 </ul>
 </li>
 <li><a href="#catalog-of-design-patterns">Catalog of Design Patterns</a><ul>
 <li><a href="#creational-design-patterns">Creational Design Patterns</a><ul>
-<li><a href="#factory-method-virtual-constructor">Factory Method (virtual constructor)</a></li>
-<li><a href="#abstract-factory">Abstract Factory</a></li>
+<li><a href="#factory-method-virtual-constructor">Factory Method (virtual constructor)</a></li>
+<li><a href="#abstract-factory">Abstract Factory</a></li>
 <li><a href="#builder">Builder</a></li>
-<li><a href="#prototype-clone">Prototype (clone)</a></li>
+<li><a href="#prototype-clone">Prototype (clone)</a></li>
 <li><a href="#singleton">Singleton</a></li>
 </ul>
 </li>
 <li><a href="#structural-design-patterns">Structural Design Patterns</a><ul>
 <li><a href="#adapter">Adapter</a></li>
 <li><a href="#bridge">Bridge</a></li>
-<li><a href="#composite-object-tree">Composite (object tree)</a></li>
-<li><a href="#decorator-wrapper">Decorator (wrapper)</a></li>
+<li><a href="#composite-object-tree">Composite (object tree)</a></li>
+<li><a href="#decorator-wrapper">Decorator (wrapper)</a></li>
 <li><a href="#facade">Facade</a></li>
-<li><a href="#flyweight-cache">Flyweight (cache)</a></li>
+<li><a href="#flyweight-cache">Flyweight (cache)</a></li>
 <li><a href="#proxy">Proxy</a></li>
 </ul>
 </li>
 <li><a href="#behavioral-design-patterns">Behavioral Design Patterns</a><ul>
-<li><a href="#chain-of-responsibility-cor-chain-of-command">Chain of Responsibility  (CoR, chain of command)</a></li>
-<li><a href="#command-action-transaction">Command (action, transaction)</a></li>
+<li><a href="#chain-of-responsibility-cor-chain-of-command">Chain of Responsibility (CoR, chain of command)</a></li>
+<li><a href="#command-action-transaction">Command (action, transaction)</a></li>
 <li><a href="#iterator">Iterator</a></li>
-<li><a href="#mediator-intermediary-controller">Mediator (Intermediary, Controller)</a></li>
-<li><a href="#memento-snapshot">Memento (Snapshot)</a></li>
-<li><a href="#observer-event-subscriber-listener">Observer (Event-Subscriber, Listener)</a></li>
+<li><a href="#mediator-intermediary-controller">Mediator (Intermediary, Controller)</a></li>
+<li><a href="#memento-snapshot">Memento (Snapshot)</a></li>
+<li><a href="#observer-event-subscriber-listener">Observer (Event-Subscriber, Listener)</a></li>
 <li><a href="#state">State</a></li>
 <li><a href="#strategy">Strategy</a></li>
-<li><a href="#template-method">Template method</a></li>
+<li><a href="#template-method">Template method</a></li>
 <li><a href="#visitor">Visitor</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#conclusion">Conclusion</a></li>
-<li><a href="#resources-and-references">Resources and references</a></li>
+<li><a href="#resources-and-references">Resources and references</a></li>
 </ul>
 </div></nav>
   <div class="article_text">
 <hr/>
 <h1 id="introduction">Introduction</h1>
-<p>In the vast expanse of software engineering, design patterns and principles stand as lighthouses, guiding developers through the complex process of crafting robust, scalable, and maintainable software. Among these patterns, the Object-Oriented Programming (<em><span class="caps">OOP</span></em>) principles, Software Design Principles, and various design patterns provide a framework that seasoned and novice developers alike can leverage to solve common software design challenges. This article constitutes a book summary of <a href="https://refactoring.guru/design-patterns/book">Dive into Design Patterns</a> written by <a href="https://refactoring.guru">Alexander Shvets</a>. Beautifully illustrated, it delves into the core aspects of <span class="caps">OOP</span>, explores essential software design principles, and unveils a catalog of design patterns categorized into <em>Creational</em>, <em>Structural</em>, and <em>Behavioral</em> patterns. Here, each section is crafted to mimic the same structure as the book to offer a concise yet (hopefully) comprehensive overview, equipped with examples and analogies to illuminate these concepts further.</p>
+<p>In the vast expanse of software engineering, design patterns and principles stand as lighthouses, guiding developers through the complex process of crafting robust, scalable, and maintainable software. Among these patterns, the Object-Oriented Programming (<em>OOP</em>) principles, Software Design Principles, and various design patterns provide a framework that seasoned and novice developers alike can leverage to solve common software design challenges. This article constitutes a book summary of <a href="https://refactoring.guru/design-patterns/book">Dive into Design Patterns</a> written by <a href="https://refactoring.guru">Alexander Shvets</a>. Beautifully illustrated, it delves into the core aspects of OOP, explores essential software design principles, and unveils a catalog of design patterns categorized into <em>Creational</em>, <em>Structural</em>, and <em>Behavioral</em> patterns. Here, each section is crafted to mimic the same structure as the book to offer a concise yet (hopefully) comprehensive overview, equipped with examples and analogies to illuminate these concepts further.</p>
 <hr/>
-<h1 id="a-brief-oop-overview">A brief <span class="caps">OOP</span> overview</h1>
+<h1 id="a-brief-oop-overview">A brief OOP overview</h1>
 <ul>
-<li>Class attributes are called fields.</li>
-<li>Methods define the behavior of a class.</li>
-<li>Fields and methods are the members of their class.</li>
-<li>Objects are concrete instances of a class.</li>
+<li>Class attributes are called fields.</li>
+<li>Methods define the behavior of a class.</li>
+<li>Fields and methods are the members of their class.</li>
+<li>Objects are concrete instances of a class.</li>
 <li>Class hierarchies<ul>
-<li><code>Parent = superclass</code> — inherit from parent.</li>
+<li><code>Parent = superclass</code> — inherit from parent.</li>
 </ul>
 </li>
-<li>Abstraction: models the behaviors of a real-world object.</li>
+<li>Abstraction: models the behaviors of a real-world object.</li>
 <li>Encapsulation<ul>
-<li>Hide parts of state and behaviors, interfacing with a simpler abstraction (e.g., starting a car engine doesn’t require knowing anything about mechanics).</li>
-<li>Private fields and methods are hidden outside of a class.</li>
-<li>Protected fields and methods are also hidden outside of a class but accessible to subclasses.</li>
+<li>Hide parts of state and behaviors, interfacing with a simpler abstraction (e.g., starting a car engine doesn't require knowing anything about mechanics).</li>
+<li>Private fields and methods are hidden outside of a class.</li>
+<li>Protected fields and methods are also hidden outside of a class but accessible to subclasses.</li>
 </ul>
 </li>
-<li>Interfaces look like classes with methods only.</li>
+<li>Interfaces look like classes with methods only.</li>
 <li>Inheritance (arrow with empty triangle head, going from subclass to parent class)<ul>
-<li>Build subclasses on top of superclasses.</li>
-<li>Allows code reuse.</li>
-<li>Subclasses automatically share the same interface as their parent class.</li>
-<li>One class inherits interface and implementation of another and can extend it. It can be treated as the superclass and depends on it.</li>
+<li>Build subclasses on top of superclasses.</li>
+<li>Allows code reuse.</li>
+<li>Subclasses automatically share the same interface as their parent class.</li>
+<li>One class inherits interface and implementation of another and can extend it. It can be treated as the superclass and depends on it.</li>
 </ul>
 </li>
 <li>Polymorphism<ul>
-<li>The real type of an object is not required to be known to use it (e.g., if a class inherits from Animal and implements an abstract method <code>makeSound</code>, then we can call <code>makeSound</code> on that class regardless of what type of animal this is).</li>
+<li>The real type of an object is not required to be known to use it (e.g., if a class inherits from Animal and implements an abstract method <code>makeSound</code>, then we can call <code>makeSound</code> on that class regardless of what type of animal this is).</li>
 </ul>
 </li>
 <li>Relations between objects<ul>
-<li>Dependency (dashed lined with arrow)</li>
-<li>Code that depends on interfaces or abstract classes lead to weaker dependency between classes.</li>
-<li>One class can affect the code from another class.</li>
-<li>Association (simple arrow pointing to the object being used, bi-direction allowed)</li>
-<li>When an object uses or interacts with another.</li>
-<li>One class knows about the other and uses it.</li>
+<li>Dependency (dashed lined with arrow)</li>
+<li>Code that depends on interfaces or abstract classes lead to weaker dependency between classes.</li>
+<li>One class can affect the code from another class.</li>
+<li>Association (simple arrow pointing to the object being used, bi-direction allowed)</li>
+<li>When an object uses or interacts with another.</li>
+<li>One class knows about the other and uses it.</li>
 <li>Aggregation (line with empty diamond at the con­tain­er end, an arrow at the end point­ing toward the component)</li>
-<li>One object “has” a collection of others and serves as a container (e.g., a department has many professors).</li>
-<li>One class is made of another one and depends on it.</li>
-<li>The component can exist without the container.</li>
-<li>Composition (drawn like an aggregation, filling in the diamond)</li>
-<li>Specific kind of aggregation, where the component can only exist as part of the container.</li>
-<li>Like aggregation, but the first class also manages the life cycle of the class it depends on.</li>
+<li>One object "has" a collection of others and serves as a container (e.g., a department has many professors).</li>
+<li>One class is made of another one and depends on it.</li>
+<li>The component can exist without the container.</li>
+<li>Composition (drawn like an aggregation, filling in the diamond)</li>
+<li>Specific kind of aggregation, where the component can only exist as part of the container.</li>
+<li>Like aggregation, but the first class also manages the life cycle of the class it depends on.</li>
 <li>Implementation</li>
-<li>One class defines methods from an interface. The class can be treated as the interface and depends on it.</li>
+<li>One class defines methods from an interface. The class can be treated as the interface and depends on it.</li>
 </ul>
 </li>
 </ul>
 <hr/>
-<h1 id="introduction-to-design-patterns">Introduction to Design Patterns</h1>
+<h1 id="introduction-to-design-patterns">Introduction to Design Patterns</h1>
 <ul>
-<li>Design patterns are solutions to common problems.</li>
-<li>A pattern is a general concept for solving a particular problem.</li>
-<li>A pattern is more high-level than an algorithm.</li>
-<li>Architectural patterns are high-level. They are used to design the architecture of an entire application and can usually be implemented in any programming language.</li>
-<li>Creational patterns are a way to increase flexibility and code reuse with object creation mechanisms.</li>
-<li>Structural patterns are a way of assembling objects/classes into larger structures, keeping structures flexible and efficient.</li>
-<li>Behavioral patterns deal with effective communication and assignment of responsibilities between objects.</li>
+<li>Design patterns are solutions to common problems.</li>
+<li>A pattern is a general concept for solving a particular problem.</li>
+<li>A pattern is more high-level than an algorithm.</li>
+<li>Architectural patterns are high-level. They are used to design the architecture of an entire application and can usually be implemented in any programming language.</li>
+<li>Creational patterns are a way to increase flexibility and code reuse with object creation mechanisms.</li>
+<li>Structural patterns are a way of assembling objects/classes into larger structures, keeping structures flexible and efficient.</li>
+<li>Behavioral patterns deal with effective communication and assignment of responsibilities between objects.</li>
 </ul>
 <hr/>
-<h1 id="software-design-principles">Software Design Principles</h1>
-<p>Features of good software design include:</p>
+<h1 id="software-design-principles">Software Design Principles</h1>
+<p>Features of good software design include:</p>
 <ul>
-<li>Code reuse</li>
+<li>Code reuse</li>
 <li>Extensibility</li>
 </ul>
-<h2 id="design-principles">Design Principles</h2>
+<h2 id="design-principles">Design Principles</h2>
 <ul>
 <li>Encapsulate what varies.<ul>
-<li>Minimize the effect caused by changes.</li>
+<li>Minimize the effect caused by changes.</li>
 </ul>
 </li>
 <li>Program to an interface, not an implementation.<ul>
-<li>A design can be seen as flexible when it doesn’t break if it can be extended without breaking existing code.</li>
+<li>A design can be seen as flexible when it doesn't break if it can be extended without breaking existing code.</li>
 </ul>
 </li>
 <li>Favor composition over inheritance.<ul>
 <li>Problems:<ul>
-<li>A subclass must implement all abstract methods from the superclass even if they’re not used.</li>
-<li>Behavior of overridden methods must remain compatible with the base class.</li>
-<li>The superclass is not well encapsulated, because all subclasses are aware of its implementation details. Furthermore, if a subclass needs to be extended, the superclass might be modified to accommodate this need.</li>
-<li>Changes in the superclass can break the subclasses, leading to tight coupling.</li>
-<li>It can lead to the creation of many hierarchies of classes to combine them over multiple dimensions.</li>
+<li>A subclass must implement all abstract methods from the superclass even if they're not used.</li>
+<li>Behavior of overridden methods must remain compatible with the base class.</li>
+<li>The superclass is not well encapsulated, because all subclasses are aware of its implementation details. Furthermore, if a subclass needs to be extended, the superclass might be modified to accommodate this need.</li>
+<li>Changes in the superclass can break the subclasses, leading to tight coupling.</li>
+<li>It can lead to the creation of many hierarchies of classes to combine them over multiple dimensions.</li>
 </ul>
 </li>
-<li>Inheritance represents the “is a” relationship, while composition represents a “has a” relationship.</li>
+<li>Inheritance represents the "is a" relationship, while composition represents a "has a" relationship.</li>
 </ul>
 </li>
 </ul>
-<h2 id="solid-principles"><span class="caps">SOLID</span> Principles</h2>
+<h2 id="solid-principles">SOLID Principles</h2>
 <ul>
-<li><strong>Single-responsibility principle</strong>: <em>“a class should have just one reason to change”</em>.</li>
-<li><strong>Open-closed principle</strong>: classes should be open for extension but closed for modification.</li>
+<li><strong>Single-responsibility principle</strong>: <em>"a class should have just one reason to change"</em>.</li>
+<li><strong>Open-closed principle</strong>: classes should be open for extension but closed for modification.</li>
 <li><strong>Liskov Sub­sti­tu­tion Prin­ci­ple</strong>: when extending a class, you should be able to pass objects of the subclass in place of objects of the parent class without breaking the client code.<ul>
-<li>Para­me­ter types in a method of a sub­class should match or be more abstract than para­me­ter types in the method of the super­class.</li>
-<li>The return type in a method of a sub­class should match or be a sub­type of the return type in the method of the super­class.</li>
-<li>A method in a sub­class shouldn’t throw types of exceptions which the base method isn’t expect­ed to throw.</li>
-<li>A sub­class shouldn’t strength­en pre-conditions, e.g. if a parameter requires an <code>int</code>, the subclass shouldn’t restrict the <code>int</code> to be positive.</li>
-<li>A sub­class shouldn’t weak­en post-conditions, e.g. if a database connection is expected to be closed in a class, don’t leave it open in a subclass.</li>
-<li>Invariants of a super­class must be pre­served. For this, it’s safer to add fields to a class rather than modify existing ones.</li>
-<li>A sub­class shouldn’t change val­ues of private fields of the super­class, this is possible e.g. in Python or JavaScript where private members aren’t even protected.</li>
+<li>Para­me­ter types in a method of a sub­class should match or be more abstract than para­me­ter types in the method of the super­class.</li>
+<li>The return type in a method of a sub­class should match or be a sub­type of the return type in the method of the super­class.</li>
+<li>A method in a sub­class shouldn't throw types of exceptions which the base method isn't expect­ed to throw.</li>
+<li>A sub­class shouldn't strength­en pre-conditions, e.g. if a parameter requires an <code>int</code>, the subclass shouldn't restrict the <code>int</code> to be positive.</li>
+<li>A sub­class shouldn't weak­en post-conditions, e.g. if a database connection is expected to be closed in a class, don't leave it open in a subclass.</li>
+<li>Invariants of a super­class must be pre­served. For this, it's safer to add fields to a class rather than modify existing ones.</li>
+<li>A sub­class shouldn't change val­ues of private fields of the super­class, this is possible e.g. in Python or JavaScript where private members aren't even protected.</li>
 </ul>
 </li>
 <li><strong>Interface Segregation Principle</strong><ul>
-<li>Clients shouldn’t be forced to depend on meth­ods they do not use, trim the fat off of big interfaces.</li>
+<li>Clients shouldn't be forced to depend on meth­ods they do not use, trim the fat off of big interfaces.</li>
 </ul>
 </li>
 <li><strong>Dependency Inversion Principle</strong><ul>
-<li>High-level class­es shouldn’t depend on low-level class­es. Both should depend on abstractions. Abstractions shouldn’t depend on details. Details should depend on abstractions.</li>
+<li>High-level class­es shouldn't depend on low-level class­es. Both should depend on abstractions. Abstractions shouldn't depend on details. Details should depend on abstractions.</li>
 </ul>
 </li>
 </ul>
 <hr/>
-<h1 id="catalog-of-design-patterns">Catalog of Design Patterns</h1>
-<h2 id="creational-design-patterns">Creational Design Patterns</h2>
-<p>These patterns deal with object creation mechanisms, trying to create objects in a manner suitable to the situation.</p>
-<h3 id="factory-method-virtual-constructor">Factory Method (virtual constructor)</h3>
+<h1 id="catalog-of-design-patterns">Catalog of Design Patterns</h1>
+<h2 id="creational-design-patterns">Creational Design Patterns</h2>
+<p>These patterns deal with object creation mechanisms, trying to create objects in a manner suitable to the situation.</p>
+<h3 id="factory-method-virtual-constructor">Factory Method (virtual constructor)</h3>
 <ul>
 <li>Analogy<ul>
-<li>The hiring process (factory method) of a company (client) may differ for each department (concrete creator), which will hire employees (products of the concrete creator).</li>
+<li>The hiring process (factory method) of a company (client) may differ for each department (concrete creator), which will hire employees (products of the concrete creator).</li>
 </ul>
 </li>
 <li>When to use it<ul>
-<li><em><span class="dquo">“</span>[…] you don’t know before­hand the exact types and dependencies of the objects your code should work with”</em>.</li>
-<li>To pro­vide users of your library or frame­work with a way to extend its inter­nal components.</li>
-<li>To save sys­tem resources by reusing exist­ing objects instead of rebuild­ing them each time.</li>
+<li><em>"[...] you don't know before­hand the exact types and dependencies of the objects your code should work with"</em>.</li>
+<li>To pro­vide users of your library or frame­work with a way to extend its inter­nal components.</li>
+<li>To save sys­tem resources by reusing exist­ing objects instead of rebuild­ing them each time.</li>
 </ul>
 </li>
 <li>Implementation<ul>
-<li>Define an interface that all products will implement.</li>
-<li>Add a factory method to the creator class.</li>
-<li>In the creator’s code, replace direct calls to product constructors with calls to the factory method.</li>
-<li>The factory method might need a parameter to decide which product type to create.</li>
-<li>Initially, the factory method might have a switch or similar logic to decide which product to instantiate.</li>
-<li>Create subclasses of the creator for each product type, overriding the factory method to handle specific product creation.</li>
-<li>Either create more subclasses or use a parameter in the factory method to specify the product type if there are many product types.</li>
+<li>Define an interface that all products will implement.</li>
+<li>Add a factory method to the creator class.</li>
+<li>In the creator's code, replace direct calls to product constructors with calls to the factory method.</li>
+<li>The factory method might need a parameter to decide which product type to create.</li>
+<li>Initially, the factory method might have a switch or similar logic to decide which product to instantiate.</li>
+<li>Create subclasses of the creator for each product type, overriding the factory method to handle specific product creation.</li>
+<li>Either create more subclasses or use a parameter in the factory method to specify the product type if there are many product types.</li>
 </ul>
 </li>
 <li>Pros<ul>
-<li>No tight coupling between the creator and the concrete products.</li>
-<li><strong>Single Responsibility Principle</strong>: the creator is responsible for creating products, and the products are responsible for their own creation.</li>
-<li><strong>Open/Closed Principle</strong>: you can introduce new product types without changing the existing code.</li>
+<li>No tight coupling between the creator and the concrete products.</li>
+<li><strong>Single Responsibility Principle</strong>: the creator is responsible for creating products, and the products are responsible for their own creation.</li>
+<li><strong>Open/Closed Principle</strong>: you can introduce new product types without changing the existing code.</li>
 </ul>
 </li>
 <li>Cons<ul>
-<li>The code might become more complicated than it should be.</li>
+<li>The code might become more complicated than it should be.</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
 <li><strong>Abstract Factory</strong> is a more complex version of <strong>Factory Method</strong>.</li>
 <li><strong>Factory Method</strong> is a specialization of <strong>Template Method</strong>.</li>
-<li><strong>Prototype</strong> doesn’t require subclassing, but it’s not always possible to use it with a <strong>Factory Method</strong>.</li>
+<li><strong>Prototype</strong> doesn't require subclassing, but it's not always possible to use it with a <strong>Factory Method</strong>.</li>
 </ul>
 </li>
 </ul>
@@ -970,42 +970,42 @@
 <span class="cm"> */</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="abstract-factory">Abstract Factory</h3>
+<h3 id="abstract-factory">Abstract Factory</h3>
 <ul>
 <li>Analogy<ul>
-<li>A car manufacturing company has different (abstract) factories in different parts of the world to produce vehicle whose requirements are adapted to the local needs.</li>
+<li>A car manufacturing company has different (abstract) factories in different parts of the world to produce vehicle whose requirements are adapted to the local needs.</li>
 </ul>
 </li>
 <li>When to use it<ul>
-<li>It can create families of related or dependent objects without the need to specify their concrete classes.</li>
-<li>It makes the system independent from how the objects are created.</li>
-<li>It can be used where the set of objects may change dynamically while keeping the same functionality.</li>
+<li>It can create families of related or dependent objects without the need to specify their concrete classes.</li>
+<li>It makes the system independent from how the objects are created.</li>
+<li>It can be used where the set of objects may change dynamically while keeping the same functionality.</li>
 </ul>
 </li>
 <li>Implementation<ul>
-<li>Define the abstract factory interface.</li>
-<li>Create concrete factory classes.</li>
-<li>Define the product interfaces.</li>
-<li>Create concrete product classes.</li>
-<li>Use the factory.</li>
+<li>Define the abstract factory interface.</li>
+<li>Create concrete factory classes.</li>
+<li>Define the product interfaces.</li>
+<li>Create concrete product classes.</li>
+<li>Use the factory.</li>
 </ul>
 </li>
 <li>Pros<ul>
-<li>Isolation from concrete classes.</li>
-<li>Can swap product families.</li>
-<li>Makes products consistent.</li>
+<li>Isolation from concrete classes.</li>
+<li>Can swap product families.</li>
+<li>Makes products consistent.</li>
 </ul>
 </li>
 <li>Cons<ul>
-<li>More complex than the <strong>Factory Method</strong> pattern.</li>
-<li>More difficult to extend, having the need to change many interfaces.</li>
-<li>Works best with sets of families that don’t change too much or too often.</li>
+<li>More complex than the <strong>Factory Method</strong> pattern.</li>
+<li>More difficult to extend, having the need to change many interfaces.</li>
+<li>Works best with sets of families that don't change too much or too often.</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
-<li>It can use the <strong>Factory Method</strong> to create the products.</li>
-<li><strong>Builder</strong> allows constructing more complex objects one step at a time.</li>
-<li><strong>Prototype</strong> can be used when creating products by cloning prototypes.</li>
+<li>It can use the <strong>Factory Method</strong> to create the products.</li>
+<li><strong>Builder</strong> allows constructing more complex objects one step at a time.</li>
+<li><strong>Prototype</strong> can be used when creating products by cloning prototypes.</li>
 </ul>
 </li>
 </ul>
@@ -1110,36 +1110,36 @@
 <h3 id="builder">Builder</h3>
 <ul>
 <li>Analogy<ul>
-<li>There are many ways to build a house, so it may be simpler and will be more flexible piecing the different requirements together rather than trying to find a pre-made house tailored to one’s needs.</li>
+<li>There are many ways to build a house, so it may be simpler and will be more flexible piecing the different requirements together rather than trying to find a pre-made house tailored to one's needs.</li>
 </ul>
 </li>
 <li>When to use it<ul>
-<li>When there’s a need for complex objects that can be built step by step (e.g., a text-to-speech [<span class="caps">TTS</span>] service may have dozens of options to set the pitch, speed, volume gain, etc. but many settings can be left at their default value).</li>
-<li>This pattern also works well when there are many optional components. In a <span class="caps">TTS</span> service, this could mean hooking up the result to post-process the audio, perform a <span class="caps">TTS</span> on multiple services at once, etc.</li>
+<li>When there's a need for complex objects that can be built step by step (e.g., a text-to-speech [TTS] service may have dozens of options to set the pitch, speed, volume gain, etc. but many settings can be left at their default value).</li>
+<li>This pattern also works well when there are many optional components. In a TTS service, this could mean hooking up the result to post-process the audio, perform a TTS on multiple services at once, etc.</li>
 </ul>
 </li>
 <li>Implementation<ul>
-<li>Define a Product class, which must have the common construction steps among all available products.</li>
-<li>There must be a Builder interface to define the methods used to construct the objects.</li>
-<li>Concrete builders are needed to implement the Builder interface in different ways (e.g., a wall builder for a wooden cabin vs. a brick house).</li>
-<li>There can be an optional Director class, which makes it easier to use to builders (e.g., for houses, there could be a MakeCabin method to call the appropriate builders in order to get the expected result, which is done in a single call to the Director instead of possibly chaining many invocations of a concrete builder).</li>
-<li>To use it, the client creates a Builder, passes the Builder to the Director to construct the product and the product is obtained from the Builder (e.g., Builder.getResult).</li>
+<li>Define a Product class, which must have the common construction steps among all available products.</li>
+<li>There must be a Builder interface to define the methods used to construct the objects.</li>
+<li>Concrete builders are needed to implement the Builder interface in different ways (e.g., a wall builder for a wooden cabin vs. a brick house).</li>
+<li>There can be an optional Director class, which makes it easier to use to builders (e.g., for houses, there could be a MakeCabin method to call the appropriate builders in order to get the expected result, which is done in a single call to the Director instead of possibly chaining many invocations of a concrete builder).</li>
+<li>To use it, the client creates a Builder, passes the Builder to the Director to construct the product and the product is obtained from the Builder (e.g., Builder.getResult).</li>
 </ul>
 </li>
 <li>Pros<ul>
-<li>It is flexible.</li>
-<li>It is reusable.</li>
-<li>It encapsulates complex construction logic inside the Builder.</li>
+<li>It is flexible.</li>
+<li>It is reusable.</li>
+<li>It encapsulates complex construction logic inside the Builder.</li>
 </ul>
 </li>
 <li>Cons<ul>
-<li>For simpler objects, it can make the code unnecessarily convoluted.</li>
-<li>Can be a bit painful to work with if many different products need to be created and used all at once.</li>
+<li>For simpler objects, it can make the code unnecessarily convoluted.</li>
+<li>Can be a bit painful to work with if many different products need to be created and used all at once.</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
-<li><strong>Factory Method</strong> and <strong>Abstract Factory</strong> are simpler and create objects in a single step. The <strong>Builder</strong> is more complex but allows more control over the construction process.</li>
-<li>While <strong>Builder</strong> builds a complex object one step at a time, <strong>Prototype</strong> clones objects.</li>
+<li><strong>Factory Method</strong> and <strong>Abstract Factory</strong> are simpler and create objects in a single step. The <strong>Builder</strong> is more complex but allows more control over the construction process.</li>
+<li>While <strong>Builder</strong> builds a complex object one step at a time, <strong>Prototype</strong> clones objects.</li>
 </ul>
 </li>
 </ul>
@@ -1240,39 +1240,39 @@
 <span class="w"> </span><span class="c1">// Caramel Candy: {Sugar:15 Flavor:Caramel Color:Brown Packaging:Yellow}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="prototype-clone">Prototype (clone)</h3>
+<h3 id="prototype-clone">Prototype (clone)</h3>
 <ul>
 <li>Analogy<ul>
-<li>Copying genetic information from one cell to another is very complex, while mitotic cell division is efficient and effective.</li>
+<li>Copying genetic information from one cell to another is very complex, while mitotic cell division is efficient and effective.</li>
 </ul>
 </li>
 <li>When to use it<ul>
-<li>To create new objects by copying an existing object (the prototype).</li>
-<li>New instantiation of a complex object may be inconvenient.</li>
+<li>To create new objects by copying an existing object (the prototype).</li>
+<li>New instantiation of a complex object may be inconvenient.</li>
 </ul>
 </li>
 <li>Implementation<ul>
-<li>Define an interface with a clone method.</li>
-<li>Implement the prototype interface in classes that need to be cloned.</li>
-<li>Use the clone method to create new objects.</li>
+<li>Define an interface with a clone method.</li>
+<li>Implement the prototype interface in classes that need to be cloned.</li>
+<li>Use the clone method to create new objects.</li>
 </ul>
 </li>
 <li>Pros<ul>
-<li>Cloning can be more efficient than creating new instances, especially if instantiation is resource-intensive.</li>
-<li>Cloning allows for dynamic creation and composition of instances at runtime, which brings greater flexibility.</li>
-<li>Prototypes can be managed and modified at runtime, which makes them dynamic.</li>
+<li>Cloning can be more efficient than creating new instances, especially if instantiation is resource-intensive.</li>
+<li>Cloning allows for dynamic creation and composition of instances at runtime, which brings greater flexibility.</li>
+<li>Prototypes can be managed and modified at runtime, which makes them dynamic.</li>
 </ul>
 </li>
 <li>Cons<ul>
-<li>Deep cloning complex objects with intricate references can be challenging.</li>
-<li>It’s not always clear how cloning should behave for each object, especially in complex class hierarchies.</li>
-<li>Cloning can lead to unexpected issues, such as shared references, if not handled correctly.</li>
+<li>Deep cloning complex objects with intricate references can be challenging.</li>
+<li>It's not always clear how cloning should behave for each object, especially in complex class hierarchies.</li>
+<li>Cloning can lead to unexpected issues, such as shared references, if not handled correctly.</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
-<li><strong>Factory Method</strong> uses a single method to create new objects, <strong>Prototype</strong> does it through cloning.</li>
-<li><strong>Abstract Factory</strong> and <strong>Builder</strong> can be combined with <strong>Prototype</strong> when complex objects are required to be built or cloned.</li>
-<li>Prototypes are often at odds with <strong>Singletons</strong>, as the <strong>Prototype</strong> pattern involves creating new object instances.</li>
+<li><strong>Factory Method</strong> uses a single method to create new objects, <strong>Prototype</strong> does it through cloning.</li>
+<li><strong>Abstract Factory</strong> and <strong>Builder</strong> can be combined with <strong>Prototype</strong> when complex objects are required to be built or cloned.</li>
+<li>Prototypes are often at odds with <strong>Singletons</strong>, as the <strong>Prototype</strong> pattern involves creating new object instances.</li>
 </ul>
 </li>
 </ul>
@@ -1381,39 +1381,39 @@
 <h3 id="singleton">Singleton</h3>
 <ul>
 <li>Analogy<ul>
-<li>The government of a country is (ideally…) a singleton. There is a single group recognized to act as the Government class.</li>
+<li>The government of a country is (ideally...) a singleton. There is a single group recognized to act as the Government class.</li>
 </ul>
 </li>
 <li>When to use it<ul>
-<li>It does two things (not a single responsibility…):<ul>
-<li>It ensures that a class has only one instance;</li>
-<li>It provides a global point of access to that instance.</li>
+<li>It does two things (not a single responsibility...):<ul>
+<li>It ensures that a class has only one instance;</li>
+<li>It provides a global point of access to that instance.</li>
 </ul>
 </li>
-<li>It is often used to manage shared resources, such as a database connection.</li>
+<li>It is often used to manage shared resources, such as a database connection.</li>
 </ul>
 </li>
 <li>Implementation<ul>
-<li>A private variable in the package holds the instance.</li>
+<li>A private variable in the package holds the instance.</li>
 <li>Ensure safe access in concurrent environments (e.g., using <code>sync.Once</code>).</li>
-<li>A public function provides global access to the instance.</li>
+<li>A public function provides global access to the instance.</li>
 </ul>
 </li>
 <li>Pros<ul>
-<li>Provides controlled access to a unique instance.</li>
-<li>Instance is created only when needed (lazy Initialization).</li>
-<li>Easily accessible throughout the application (global access).</li>
+<li>Provides controlled access to a unique instance.</li>
+<li>Instance is created only when needed (lazy Initialization).</li>
+<li>Easily accessible throughout the application (global access).</li>
 </ul>
 </li>
 <li>Cons<ul>
-<li>It can introduce a global state in the application, which is generally discouraged in software design.</li>
-<li>Singleton can make unit testing tricky due to its global state.</li>
-<li>It needs careful handling in a concurrent environment to avoid multiple instantiations.</li>
+<li>It can introduce a global state in the application, which is generally discouraged in software design.</li>
+<li>Singleton can make unit testing tricky due to its global state.</li>
+<li>It needs careful handling in a concurrent environment to avoid multiple instantiations.</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
-<li><strong>Singleton</strong> can be combined with <strong>Factory Method</strong>. The factory method ensures that a single instance is created and returned.</li>
-<li><strong>Abstract Factory</strong>, <strong>Builder</strong>, <strong>Prototype</strong>: these patterns are about creating complex objects, which is a different focus from <strong>Singleton</strong>‘s objective of a single instance.</li>
+<li><strong>Singleton</strong> can be combined with <strong>Factory Method</strong>. The factory method ensures that a single instance is created and returned.</li>
+<li><strong>Abstract Factory</strong>, <strong>Builder</strong>, <strong>Prototype</strong>: these patterns are about creating complex objects, which is a different focus from <strong>Singleton</strong>'s objective of a single instance.</li>
 </ul>
 </li>
 </ul>
@@ -1463,39 +1463,39 @@
 <span class="p">}</span>
 </code></pre></div>
 <hr/>
-<h2 id="structural-design-patterns">Structural Design Patterns</h2>
-<p>These patterns focus on ways to compose objects to form larger structures efficiently and flexibly.</p>
+<h2 id="structural-design-patterns">Structural Design Patterns</h2>
+<p>These patterns focus on ways to compose objects to form larger structures efficiently and flexibly.</p>
 <h3 id="adapter">Adapter</h3>
 <ul>
 <li>Analogy<ul>
-<li>An adapter may be needed when traveling abroad to charge devices. While it doesn’t change the device’s functionality, it allows it to work in situations where it would normally be incompatible.</li>
+<li>An adapter may be needed when traveling abroad to charge devices. While it doesn't change the device's functionality, it allows it to work in situations where it would normally be incompatible.</li>
 </ul>
 </li>
 <li>When to use it<ul>
-<li>To allow two incompatible interfaces to work together.</li>
-<li>Use an existing class that has an incompatible interface with the rest of the code.</li>
+<li>To allow two incompatible interfaces to work together.</li>
+<li>Use an existing class that has an incompatible interface with the rest of the code.</li>
 </ul>
 </li>
 <li>Implementation<ul>
-<li>Implement a client interface.</li>
-<li>An adaptee is a class with an incompatible interface (the one that gets adapted).</li>
-<li>An adapter is a class that implements the client interface, translating calls to the adaptee’s interface (the one that adapts the incompatible code).</li>
+<li>Implement a client interface.</li>
+<li>An adaptee is a class with an incompatible interface (the one that gets adapted).</li>
+<li>An adapter is a class that implements the client interface, translating calls to the adaptee's interface (the one that adapts the incompatible code).</li>
 </ul>
 </li>
 <li>Pros<ul>
-<li>Allows otherwise incompatible interfaces to work together.</li>
-<li>Enables the reuse of existing classes without altering their code.</li>
-<li>Introduces only a small amount of extra code to bridge the compatibility gap.</li>
+<li>Allows otherwise incompatible interfaces to work together.</li>
+<li>Enables the reuse of existing classes without altering their code.</li>
+<li>Introduces only a small amount of extra code to bridge the compatibility gap.</li>
 </ul>
 </li>
 <li>Cons<ul>
-<li>Can add complexity to the code, especially if there are many adaptions.</li>
-<li>The adapter pattern involves an extra layer of abstraction, which can complicate the code and increase overhead.</li>
+<li>Can add complexity to the code, especially if there are many adaptions.</li>
+<li>The adapter pattern involves an extra layer of abstraction, which can complicate the code and increase overhead.</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
-<li>While <strong>Adapter</strong> is used to change an interface, <strong>Decorator</strong> is used to add responsibilities to objects without modifying their interface.</li>
-<li>The <strong>Bridge</strong> pattern separates an object’s interface from its implementation so the two can vary independently. <strong>Adapter</strong> is meant to change the interface of an existing object.</li>
+<li>While <strong>Adapter</strong> is used to change an interface, <strong>Decorator</strong> is used to add responsibilities to objects without modifying their interface.</li>
+<li>The <strong>Bridge</strong> pattern separates an object's interface from its implementation so the two can vary independently. <strong>Adapter</strong> is meant to change the interface of an existing object.</li>
 <li>A <strong>Façade</strong> provides a simplified interface to a complex subsystem, not necessarily designed for incompatible interfaces, unlike <strong>Adapter</strong>.</li>
 </ul>
 </li>
@@ -1545,37 +1545,37 @@
 <h3 id="bridge">Bridge</h3>
 <ul>
 <li>Analogy<ul>
-<li>A universal remote control bridges the functionality gap between different devices (e.g., it can turn up or down the volume on all devices) with a common interface.</li>
+<li>A universal remote control bridges the functionality gap between different devices (e.g., it can turn up or down the volume on all devices) with a common interface.</li>
 </ul>
 </li>
 <li>When to use it<ul>
-<li>Use it to separate the abstraction (high-level logic) from the implementation (low-level logic), allowing them to be developed independently.</li>
-<li>When you want to avoid a permanent binding between the abstraction and its implementation, particularly when they both may vary frequently.</li>
+<li>Use it to separate the abstraction (high-level logic) from the implementation (low-level logic), allowing them to be developed independently.</li>
+<li>When you want to avoid a permanent binding between the abstraction and its implementation, particularly when they both may vary frequently.</li>
 </ul>
 </li>
 <li>Implementation<ul>
-<li>The abstraction interface/class is a higher-level control layer that delegates the work to the implementation layer.</li>
-<li>The implementor interface defines the interface for the implementation classes.</li>
-<li>Concrete implementations are classes that provide specific implementations of the implementor interface.</li>
-<li>An optional refined abstraction can be used to extend the abstraction to provide more control.</li>
+<li>The abstraction interface/class is a higher-level control layer that delegates the work to the implementation layer.</li>
+<li>The implementor interface defines the interface for the implementation classes.</li>
+<li>Concrete implementations are classes that provide specific implementations of the implementor interface.</li>
+<li>An optional refined abstraction can be used to extend the abstraction to provide more control.</li>
 </ul>
 </li>
 <li>Pros<ul>
-<li>Abstractions and implementations can be extended independently.</li>
-<li>Separates high-level and low-level logic into different classes.</li>
-<li>The abstraction and its implementation can be developed and maintained separately.</li>
+<li>Abstractions and implementations can be extended independently.</li>
+<li>Separates high-level and low-level logic into different classes.</li>
+<li>The abstraction and its implementation can be developed and maintained separately.</li>
 </ul>
 </li>
 <li>Cons<ul>
-<li>Can increase complexity due to the introduction of additional layers.</li>
-<li>More effort is needed to set up the structure, which might not be necessary for simpler cases.</li>
+<li>Can increase complexity due to the introduction of additional layers.</li>
+<li>More effort is needed to set up the structure, which might not be necessary for simpler cases.</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
-<li>The <strong>Bridge</strong> pattern is often compared to the <strong>Adapter</strong> pattern. <strong>Bridge</strong> is designed to separate an interface from its implementation, while <strong>Adapter</strong> is meant to make unrelated classes work together.</li>
-<li><strong>Bridge</strong> is often used in a similar way to <strong>Strategy</strong>. <strong>Strategy</strong> typically encapsulates algorithms: <strong>Bridge</strong> separates an interface from its implementation.</li>
-<li><strong>Abstract Factory</strong> can work with <strong>Bridge</strong> as it can create instances of different classes that implement the abstract interface.</li>
-<li><strong>Builder</strong> can be combined with <strong>Bridge</strong>: builders are the implementations and the director is the abstraction.</li>
+<li>The <strong>Bridge</strong> pattern is often compared to the <strong>Adapter</strong> pattern. <strong>Bridge</strong> is designed to separate an interface from its implementation, while <strong>Adapter</strong> is meant to make unrelated classes work together.</li>
+<li><strong>Bridge</strong> is often used in a similar way to <strong>Strategy</strong>. <strong>Strategy</strong> typically encapsulates algorithms: <strong>Bridge</strong> separates an interface from its implementation.</li>
+<li><strong>Abstract Factory</strong> can work with <strong>Bridge</strong> as it can create instances of different classes that implement the abstract interface.</li>
+<li><strong>Builder</strong> can be combined with <strong>Bridge</strong>: builders are the implementations and the director is the abstraction.</li>
 </ul>
 </li>
 </ul>
@@ -1713,40 +1713,40 @@
 <span class="cm"> */</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="composite-object-tree">Composite (object tree)</h3>
+<h3 id="composite-object-tree">Composite (object tree)</h3>
 <ul>
 <li>Analogy<ul>
-<li>The military is a tree structure where orders come from the top, are passed down the divisions, brigades and so on where the leaves are the actual soldiers.</li>
+<li>The military is a tree structure where orders come from the top, are passed down the divisions, brigades and so on where the leaves are the actual soldiers.</li>
 </ul>
 </li>
 <li>When to use it<ul>
-<li>When you want to work with a tree structure and have to perform operations on both individual elements and groups of elements in the same way.</li>
+<li>When you want to work with a tree structure and have to perform operations on both individual elements and groups of elements in the same way.</li>
 </ul>
 </li>
 <li>Implementation<ul>
-<li>There is a component interface for individual objects and their compositions which defines operations that can be performed on both.</li>
-<li>A leaf represents individual objects in the structure.</li>
-<li>A composite represents a composite of objects (a group of <code>Leaf</code> objects) and implements the component interface.</li>
+<li>There is a component interface for individual objects and their compositions which defines operations that can be performed on both.</li>
+<li>A leaf represents individual objects in the structure.</li>
+<li>A composite represents a composite of objects (a group of <code>Leaf</code> objects) and implements the component interface.</li>
 </ul>
 </li>
 <li>Pros<ul>
-<li>Makes it easier to work with complex tree structures by allowing you to treat individual objects and compositions uniformly.</li>
-<li>Can add and remove new types of components without changing existing code.</li>
-<li>Client code can treat composite structures and individual objects uniformly.</li>
+<li>Makes it easier to work with complex tree structures by allowing you to treat individual objects and compositions uniformly.</li>
+<li>Can add and remove new types of components without changing existing code.</li>
+<li>Client code can treat composite structures and individual objects uniformly.</li>
 </ul>
 </li>
 <li>Cons<ul>
-<li>Components that do not have much in common end up being overgeneralized.</li>
-<li>The implementation can become overly complex if the hierarchy gets too deep or if extensive functionality is required.</li>
+<li>Components that do not have much in common end up being overgeneralized.</li>
+<li>The implementation can become overly complex if the hierarchy gets too deep or if extensive functionality is required.</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
-<li><strong>Builder</strong> can be used with <strong>Composite</strong> because its construction steps can be recursive.</li>
-<li><strong>Chain of Responsibility</strong> passes a request along a chain of objects until one of them handles it, <strong>Composite</strong> arranges objects in a tree structure and works with these structures collectively.</li>
-<li><strong>Iterators</strong> can be used to traverse a <strong>Composite</strong> tree.</li>
-<li><strong>Visitor</strong> can be used to execute an operation on a whole tree.</li>
-<li>Shared leaves from the <strong>Composite</strong> tree can be implemented with <strong>Flyweights</strong> to reduce <span class="caps">RAM</span> usage.</li>
-<li><strong>Decorator</strong> only has one component and augments it by wrapping it with new functionality while <strong>Composite</strong> just runs the logic on all child components.</li>
+<li><strong>Builder</strong> can be used with <strong>Composite</strong> because its construction steps can be recursive.</li>
+<li><strong>Chain of Responsibility</strong> passes a request along a chain of objects until one of them handles it, <strong>Composite</strong> arranges objects in a tree structure and works with these structures collectively.</li>
+<li><strong>Iterators</strong> can be used to traverse a <strong>Composite</strong> tree.</li>
+<li><strong>Visitor</strong> can be used to execute an operation on a whole tree.</li>
+<li>Shared leaves from the <strong>Composite</strong> tree can be implemented with <strong>Flyweights</strong> to reduce RAM usage.</li>
+<li><strong>Decorator</strong> only has one component and augments it by wrapping it with new functionality while <strong>Composite</strong> just runs the logic on all child components.</li>
 </ul>
 </li>
 </ul>
@@ -1869,40 +1869,40 @@
 <span class="cm"> */</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="decorator-wrapper">Decorator (wrapper)</h3>
+<h3 id="decorator-wrapper">Decorator (wrapper)</h3>
 <ul>
 <li>Analogy<ul>
-<li>Wearing layers of clothes: without clothes, it’s cold; with a jacket, it’s warmer; with a raincoat on top, it’s warmer and dryer. The same person is “decorated” to be comfortable under different circumstances.</li>
+<li>Wearing layers of clothes: without clothes, it's cold; with a jacket, it's warmer; with a raincoat on top, it's warmer and dryer. The same person is "decorated" to be comfortable under different circumstances.</li>
 </ul>
 </li>
 <li>When to use it<ul>
-<li>Used to add new functionality to an object dynamically, without altering its structure.</li>
-<li>Allows for extending an object’s behavior by wrapping it with additional functionality.</li>
+<li>Used to add new functionality to an object dynamically, without altering its structure.</li>
+<li>Allows for extending an object's behavior by wrapping it with additional functionality.</li>
 </ul>
 </li>
 <li>Implementation<ul>
 <li>The Component interface defines the interface for objects that can have responsibilities added to them dynamically (e.g., a file with <code>read()</code> and <code>write()</code> methods).</li>
-<li>The Concrete component is an object to which additional responsibilities can be attached (e.g., a file with <code>write()</code> could first be compressed or encrypted).</li>
-<li>Decorator classes are wrappers that add responsibilities to the component. They implement the same interface as the component they decorate (e.g., taking the <code>File</code> object, there could be EncryptionDecorator and CompressionDecorator).</li>
+<li>The Concrete component is an object to which additional responsibilities can be attached (e.g., a file with <code>write()</code> could first be compressed or encrypted).</li>
+<li>Decorator classes are wrappers that add responsibilities to the component. They implement the same interface as the component they decorate (e.g., taking the <code>File</code> object, there could be EncryptionDecorator and CompressionDecorator).</li>
 </ul>
 </li>
 <li>Pros<ul>
-<li>Provides a flexible alternative to subclassing for extending functionality.</li>
-<li>Responsibilities can be added and removed at runtime.</li>
-<li>Allows for the combination of behaviors by stacking decorators on top of each other.</li>
+<li>Provides a flexible alternative to subclassing for extending functionality.</li>
+<li>Responsibilities can be added and removed at runtime.</li>
+<li>Allows for the combination of behaviors by stacking decorators on top of each other.</li>
 </ul>
 </li>
 <li>Cons<ul>
-<li>Can lead to complex code structures and debugging difficulties, especially with multiple layers of decorators (order matters!).</li>
-<li>Creating an object decorated with multiple layers can require more complex setup code.</li>
+<li>Can lead to complex code structures and debugging difficulties, especially with multiple layers of decorators (order matters!).</li>
+<li>Creating an object decorated with multiple layers can require more complex setup code.</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
-<li>Unlike <strong>Adapter</strong>, which changes the behavior of an incompatible class to work with another class, <strong>Decorator</strong> doesn’t modify the original object and stacks functionality on top of it. <strong>Decorator</strong> can work recursively, while an <strong>Adapter</strong> can’t.</li>
-<li><strong>Adapter</strong> leads to a wrapped object with a different interface. Proxy maintains the same interface. <strong>Decorator</strong> enhances it.</li>
-<li><strong>Decorator</strong> is similar to <strong>Chain of Responsibility</strong>. But <strong>Decorator</strong> maintains consistency throughout the request, while a chain can stop at any point and handle multiple independent operations at once.</li>
-<li>A <strong>Decorator</strong> is like a <strong>Composite</strong> but with a single component. <strong>Composite</strong> also doesn’t add functionality. Prototype can be useful with these two patterns.</li>
-<li><strong>Decorator</strong> lets one change the surface level of an object. <strong>Strategy</strong> lets one change to an entirely different object.</li>
+<li>Unlike <strong>Adapter</strong>, which changes the behavior of an incompatible class to work with another class, <strong>Decorator</strong> doesn't modify the original object and stacks functionality on top of it. <strong>Decorator</strong> can work recursively, while an <strong>Adapter</strong> can't.</li>
+<li><strong>Adapter</strong> leads to a wrapped object with a different interface. Proxy maintains the same interface. <strong>Decorator</strong> enhances it.</li>
+<li><strong>Decorator</strong> is similar to <strong>Chain of Responsibility</strong>. But <strong>Decorator</strong> maintains consistency throughout the request, while a chain can stop at any point and handle multiple independent operations at once.</li>
+<li>A <strong>Decorator</strong> is like a <strong>Composite</strong> but with a single component. <strong>Composite</strong> also doesn't add functionality. Prototype can be useful with these two patterns.</li>
+<li><strong>Decorator</strong> lets one change the surface level of an object. <strong>Strategy</strong> lets one change to an entirely different object.</li>
 </ul>
 </li>
 </ul>
@@ -1981,37 +1981,37 @@
 <h3 id="facade">Facade</h3>
 <ul>
 <li>Analogy<ul>
-<li>Placing an order by phone is easy (call and get it delivered), but a bunch of operations must happen in the background (warehouse, packaging, suppliers, etc.), which the client has no direct knowledge of.</li>
+<li>Placing an order by phone is easy (call and get it delivered), but a bunch of operations must happen in the background (warehouse, packaging, suppliers, etc.), which the client has no direct knowledge of.</li>
 </ul>
 </li>
 <li>When to use it<ul>
-<li>To provide a simplified interface to a complex subsystem. It doesn’t encapsulate the subsystem but offers an easier or more coherent interface for clients to interact with.</li>
-<li>Useful when dealing with a large body of code, such as a library or a framework.</li>
+<li>To provide a simplified interface to a complex subsystem. It doesn't encapsulate the subsystem but offers an easier or more coherent interface for clients to interact with.</li>
+<li>Useful when dealing with a large body of code, such as a library or a framework.</li>
 </ul>
 </li>
 <li>Implementation<ul>
-<li>A Facade interface defines an interface that abstracts the complex functionalities of the subsystem.</li>
-<li>Subsystem classes are the complex parts of the subsystem that the facade will simplify.</li>
-<li>A Facade class implements the facade interface and interacts with the subsystem classes on behalf of the client.</li>
+<li>A Facade interface defines an interface that abstracts the complex functionalities of the subsystem.</li>
+<li>Subsystem classes are the complex parts of the subsystem that the facade will simplify.</li>
+<li>A Facade class implements the facade interface and interacts with the subsystem classes on behalf of the client.</li>
 </ul>
 </li>
 <li>Pros<ul>
-<li>Simplifies the interface for complex subsystems, making them easier to use.</li>
-<li>Clients are isolated from the complexities of the subsystem, reducing dependencies and making the system easier to use and maintain.</li>
-<li>Clients can work with a single unified interface instead of a set of complex and potentially confusing interfaces.</li>
+<li>Simplifies the interface for complex subsystems, making them easier to use.</li>
+<li>Clients are isolated from the complexities of the subsystem, reducing dependencies and making the system easier to use and maintain.</li>
+<li>Clients can work with a single unified interface instead of a set of complex and potentially confusing interfaces.</li>
 </ul>
 </li>
 <li>Cons<ul>
-<li>The facade might limit access to certain features of the subsystem that advanced users might need.</li>
-<li>If not designed carefully, the facade can end up doing too much, becoming overly complex (a “God Object”).</li>
+<li>The facade might limit access to certain features of the subsystem that advanced users might need.</li>
+<li>If not designed carefully, the facade can end up doing too much, becoming overly complex (a "God Object").</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
-<li>The <strong>Adapter</strong> pattern changes the interface of an existing object; the <strong>Facade</strong> provides a simplified interface to a complex subsystem. The <strong>Facade</strong> doesn’t wrap the subsystem to change its interface but provides a simpler one.</li>
-<li>The <strong>Facade</strong> simplifies access to a complex system; the <strong>Decorator</strong> adds behavior to objects. They are both used to simplify client interactions but achieve this in different ways.</li>
-<li>Often, a <strong>Facade</strong> is implemented as a <strong>Singleton</strong> because usually one facade object is enough to manage the underlying systems.</li>
-<li><strong>Abstract Fac­to­ry</strong> can be an alternative when the main goal is to hide the way the sub­sys­tem objects are cre­at­ed in the client code.</li>
-<li><strong>Facade</strong> makes a single object to represent a whole system while <strong>Flyweight</strong> makes lots of little objects.</li>
+<li>The <strong>Adapter</strong> pattern changes the interface of an existing object; the <strong>Facade</strong> provides a simplified interface to a complex subsystem. The <strong>Facade</strong> doesn't wrap the subsystem to change its interface but provides a simpler one.</li>
+<li>The <strong>Facade</strong> simplifies access to a complex system; the <strong>Decorator</strong> adds behavior to objects. They are both used to simplify client interactions but achieve this in different ways.</li>
+<li>Often, a <strong>Facade</strong> is implemented as a <strong>Singleton</strong> because usually one facade object is enough to manage the underlying systems.</li>
+<li><strong>Abstract Fac­to­ry</strong> can be an alternative when the main goal is to hide the way the sub­sys­tem objects are cre­at­ed in the client code.</li>
+<li><strong>Facade</strong> makes a single object to represent a whole system while <strong>Flyweight</strong> makes lots of little objects.</li>
 </ul>
 </li>
 </ul>
@@ -2219,39 +2219,39 @@
 <span class="cm"> */</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="flyweight-cache">Flyweight (cache)</h3>
+<h3 id="flyweight-cache">Flyweight (cache)</h3>
 <ul>
 <li>Analogy<ul>
-<li>A library (flyweight factory) lends books (flyweight objects with intrinsic state) to library members (context in which extrinsic state exists) without creating a resource nightmare (resources are shared as much as possible).</li>
+<li>A library (flyweight factory) lends books (flyweight objects with intrinsic state) to library members (context in which extrinsic state exists) without creating a resource nightmare (resources are shared as much as possible).</li>
 </ul>
 </li>
 <li>When to use it<ul>
-<li>There’s a need to spawn a huge number of similar objects sharing some context.</li>
-<li>The intrinsic state can be extracted across different objects. E.g., actual trees of the same type may share attributes like texture and color (intrinsic state) but will have distinct attributes like their <code>(x, y, z)</code> position (extrinsic state).</li>
+<li>There's a need to spawn a huge number of similar objects sharing some context.</li>
+<li>The intrinsic state can be extracted across different objects. E.g., actual trees of the same type may share attributes like texture and color (intrinsic state) but will have distinct attributes like their <code>(x, y, z)</code> position (extrinsic state).</li>
 </ul>
 </li>
 <li>Implementation<ul>
 <li>Separate intrinsic and extrinsic states.<ul>
-<li>Get the fields that won’t change (intrinsic state). These are unchanging and unique data points. They are implemented via the Flyweight interface.</li>
-<li>The extrinsic state is the contextual data that is unique to each object and cannot be shared.</li>
+<li>Get the fields that won't change (intrinsic state). These are unchanging and unique data points. They are implemented via the Flyweight interface.</li>
+<li>The extrinsic state is the contextual data that is unique to each object and cannot be shared.</li>
 </ul>
 </li>
-<li>A concrete flyweight implements the Flyweight interface and stores intrinsic state that can be shared. The extrinsic state is passed as arguments to methods. Fields related to the intrinsic state must be immutable.</li>
-<li>A flyweight factory class can be created to avoid re-creating existing objects with a set comprising the exact same attributes. The intrinsic state is passed to the factory.</li>
+<li>A concrete flyweight implements the Flyweight interface and stores intrinsic state that can be shared. The extrinsic state is passed as arguments to methods. Fields related to the intrinsic state must be immutable.</li>
+<li>A flyweight factory class can be created to avoid re-creating existing objects with a set comprising the exact same attributes. The intrinsic state is passed to the factory.</li>
 </ul>
 </li>
 <li>Pros<ul>
-<li>Can save a lot of memory depending on context. This is only relevant when a very large number of objects are needed.</li>
+<li>Can save a lot of memory depending on context. This is only relevant when a very large number of objects are needed.</li>
 </ul>
 </li>
 <li>Cons<ul>
-<li>While <span class="caps">RAM</span> may decrease, there can be a trade off with <span class="caps">CPU</span> as contextual data may need to be recalculated.</li>
-<li>This increases complexity substantially.</li>
+<li>While RAM may decrease, there can be a trade off with CPU as contextual data may need to be recalculated.</li>
+<li>This increases complexity substantially.</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
 <li>Shared leaf nodes of a <strong>Composite</strong> tree may be implemented as <strong>Flyweights</strong>.</li>
-<li><strong>Flyweight</strong> creates lots of smaller objects, <strong>Facade</strong> creates a single large object representing the whole system.</li>
+<li><strong>Flyweight</strong> creates lots of smaller objects, <strong>Facade</strong> creates a single large object representing the whole system.</li>
 </ul>
 </li>
 </ul>
@@ -2445,40 +2445,40 @@
 <h3 id="proxy">Proxy</h3>
 <ul>
 <li>Analogy<ul>
-<li>Cash and credit cards are two ways of handling payment.</li>
+<li>Cash and credit cards are two ways of handling payment.</li>
 </ul>
 </li>
 <li>When to use it<ul>
-<li>For lazy initialization (virtual proxy). A heavy service can be instantiated as needed instead of leaving it running.</li>
-<li>Similarly, for smart referencing (smart reference proxy). This means that if a heavy service needs to be up and running all the time but no clients are using it, it could be shut down until a client connects.</li>
-<li>For access control (protection proxy). For instance, a library implements the Spotify <span class="caps">API</span> but needs to limit access to non-paying users. A proxy interface can be used and internal logic can determine which customers can access the <span class="caps">API</span> at a given time. The Spotify <span class="caps">API</span> remains the same, but custom logic can run before and after its use.</li>
-<li>For logging requests. Instead of just calling an <span class="caps">API</span>, the proxy can implement logging and then call the <span class="caps">API</span>.</li>
-<li>For caching purposes. Instead of downloading a video over and over again via an <span class="caps">API</span>, the result can be cached.</li>
+<li>For lazy initialization (virtual proxy). A heavy service can be instantiated as needed instead of leaving it running.</li>
+<li>Similarly, for smart referencing (smart reference proxy). This means that if a heavy service needs to be up and running all the time but no clients are using it, it could be shut down until a client connects.</li>
+<li>For access control (protection proxy). For instance, a library implements the Spotify API but needs to limit access to non-paying users. A proxy interface can be used and internal logic can determine which customers can access the API at a given time. The Spotify API remains the same, but custom logic can run before and after its use.</li>
+<li>For logging requests. Instead of just calling an API, the proxy can implement logging and then call the API.</li>
+<li>For caching purposes. Instead of downloading a video over and over again via an API, the result can be cached.</li>
 </ul>
 </li>
 <li>Implementation<ul>
-<li>Create a service Proxy interface that is used by the client (Subject interface). The proxy implements the same interface as the service (RealSubject) and can do stuff on top of it (e.g., data caching or logging).</li>
-<li>In most cases, the proxy object does some work and delegates the actual use of the service to the service itself from a field that references that service. The proxy class is instantiated with a reference to the service.</li>
-<li>Optionally, a factory method can be used.</li>
-<li>Also in option, lazy initialization can be implemented for the service object.</li>
+<li>Create a service Proxy interface that is used by the client (Subject interface). The proxy implements the same interface as the service (RealSubject) and can do stuff on top of it (e.g., data caching or logging).</li>
+<li>In most cases, the proxy object does some work and delegates the actual use of the service to the service itself from a field that references that service. The proxy class is instantiated with a reference to the service.</li>
+<li>Optionally, a factory method can be used.</li>
+<li>Also in option, lazy initialization can be implemented for the service object.</li>
 </ul>
 </li>
 <li>Pros<ul>
-<li>The proxy transparently controls all aspects of the service and is indistinguishable from the service from the client’s perspective.</li>
-<li>The lifecycle of the service can be managed by the proxy class when appropriate, e.g. to reduce system resources.</li>
-<li>The proxy works even when the actual service could be down.</li>
-<li>New proxies can be added without changing existing code.</li>
+<li>The proxy transparently controls all aspects of the service and is indistinguishable from the service from the client's perspective.</li>
+<li>The lifecycle of the service can be managed by the proxy class when appropriate, e.g. to reduce system resources.</li>
+<li>The proxy works even when the actual service could be down.</li>
+<li>New proxies can be added without changing existing code.</li>
 </ul>
 </li>
 <li>Cons<ul>
-<li>Complexity increases as new proxies are added.</li>
-<li>It may cause delay in the response from the service if the proxy performs heavy operations.</li>
+<li>Complexity increases as new proxies are added.</li>
+<li>It may cause delay in the response from the service if the proxy performs heavy operations.</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
-<li><strong>Adapter</strong> provides a different interface, <strong>Proxy</strong> provides the same interface and <strong>Decorator</strong> provides an enhanced version of the interface.</li>
-<li><strong>Proxy</strong> is indistinguishable from the original service, whereas <strong>Facade</strong> may be a simplified interface.</li>
-<li><strong>Decorator</strong> is controlled by the client, while <strong>Proxy</strong> manages the whole lifecycle of the service.</li>
+<li><strong>Adapter</strong> provides a different interface, <strong>Proxy</strong> provides the same interface and <strong>Decorator</strong> provides an enhanced version of the interface.</li>
+<li><strong>Proxy</strong> is indistinguishable from the original service, whereas <strong>Facade</strong> may be a simplified interface.</li>
+<li><strong>Decorator</strong> is controlled by the client, while <strong>Proxy</strong> manages the whole lifecycle of the service.</li>
 </ul>
 </li>
 </ul>
@@ -2568,44 +2568,44 @@
 <span class="p">}</span>
 </code></pre></div>
 <hr/>
-<h2 id="behavioral-design-patterns">Behavioral Design Patterns</h2>
-<p>These patterns deal with algorithms and the assignment of responsibilities between objects.</p>
-<h3 id="chain-of-responsibility-cor-chain-of-command">Chain of Responsibility  (CoR, chain of command)</h3>
+<h2 id="behavioral-design-patterns">Behavioral Design Patterns</h2>
+<p>These patterns deal with algorithms and the assignment of responsibilities between objects.</p>
+<h3 id="chain-of-responsibility-cor-chain-of-command">Chain of Responsibility  (CoR, chain of command)</h3>
 <ul>
 <li>Analogy<ul>
-<li>A call center answers with a machine, then a generalist tries to solve the issue, then the engineer comes to the rescue.</li>
+<li>A call center answers with a machine, then a generalist tries to solve the issue, then the engineer comes to the rescue.</li>
 </ul>
 </li>
 <li>When to use it<ul>
-<li>When an action must pass a series of checks, such that a handler may process the request or pass it down the chain of handlers.</li>
+<li>When an action must pass a series of checks, such that a handler may process the request or pass it down the chain of handlers.</li>
 </ul>
 </li>
 <li>Implementation<ul>
-<li>A Handler interface defines the interface for handling requests and may also have a method to set the next handler of the chain.</li>
-<li>Concrete handlers implement the Handler interface. These either process the request if they can or pass it down the chain until no more handler is available.</li>
-<li>The Client initiates the request to a chain of handlers. The chain can either be pre-defined or the client might do the chaining.</li>
+<li>A Handler interface defines the interface for handling requests and may also have a method to set the next handler of the chain.</li>
+<li>Concrete handlers implement the Handler interface. These either process the request if they can or pass it down the chain until no more handler is available.</li>
+<li>The Client initiates the request to a chain of handlers. The chain can either be pre-defined or the client might do the chaining.</li>
 </ul>
 </li>
 <li>Pros<ul>
-<li>Can control the order of request handling.</li>
-<li>Can decouple unrelated operations (single responsibility principle). It decouples the sender from the receiver.</li>
-<li>New handlers can be added without breaking existing code (open/closed principle).</li>
+<li>Can control the order of request handling.</li>
+<li>Can decouple unrelated operations (single responsibility principle). It decouples the sender from the receiver.</li>
+<li>New handlers can be added without breaking existing code (open/closed principle).</li>
 </ul>
 </li>
 <li>Cons<ul>
 <li>Some requests may not be handled if there are no suitable handlers in the chain.<ul>
-<li>When all requests should be handled, a default “catch-all” handler can be implemented to be used at the end of the chain.</li>
-<li>Another approach could be to disqualify any request that does not match certain criteria if possible, and stop the chain right at the beginning.</li>
+<li>When all requests should be handled, a default "catch-all" handler can be implemented to be used at the end of the chain.</li>
+<li>Another approach could be to disqualify any request that does not match certain criteria if possible, and stop the chain right at the beginning.</li>
 </ul>
 </li>
-<li>Performance could be an issue if the chain of handlers is lengthy.</li>
+<li>Performance could be an issue if the chain of handlers is lengthy.</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
-<li><strong>Chain of Responsibility</strong> passes a requests in a sequential manner until a handler deals with it.</li>
-<li>It is often used with the <strong>Composite</strong> pattern, e.g. in a <span class="caps">GUI</span> application where clicking on a button inside a dialog, which itself is inside a panel, may produce a chain reaction. This is suitable when the data structure forms a tree.</li>
-<li>The handlers may be implemented as <strong>Commands</strong>. Or the request itself may arrive as a Command object, where the same operation could be executed in a series of different contexts.</li>
-<li>Like <strong>Decorator</strong>, this pattern relies on recursive composition. But a <strong>Decorator</strong> doesn’t stop at any point in the chain and adds behavior on top of an existing object (adds responsibilities) while <strong>Chain of Responsibility</strong> can execute any operation in any of its handlers (passes responsibility along).</li>
+<li><strong>Chain of Responsibility</strong> passes a requests in a sequential manner until a handler deals with it.</li>
+<li>It is often used with the <strong>Composite</strong> pattern, e.g. in a GUI application where clicking on a button inside a dialog, which itself is inside a panel, may produce a chain reaction. This is suitable when the data structure forms a tree.</li>
+<li>The handlers may be implemented as <strong>Commands</strong>. Or the request itself may arrive as a Command object, where the same operation could be executed in a series of different contexts.</li>
+<li>Like <strong>Decorator</strong>, this pattern relies on recursive composition. But a <strong>Decorator</strong> doesn't stop at any point in the chain and adds behavior on top of an existing object (adds responsibilities) while <strong>Chain of Responsibility</strong> can execute any operation in any of its handlers (passes responsibility along).</li>
 </ul>
 </li>
 </ul>
@@ -2719,40 +2719,40 @@
 <span class="cm"> */</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="command-action-transaction">Command (action, transaction)</h3>
+<h3 id="command-action-transaction">Command (action, transaction)</h3>
 <ul>
 <li>Analogy<ul>
-<li>A kitchen chef receives a command.</li>
+<li>A kitchen chef receives a command.</li>
 </ul>
 </li>
 <li>When to use it<ul>
-<li>To encapsulate a request as an object, allowing for the parameterization of clients with queues, requests, and operations.</li>
-<li>Support of undoable operations. It turns a request into a stand-alone object that contains all information about the request. This transformation lets one parameterize methods with different requests, delay or queue a request’s execution, and support undoable operations.</li>
+<li>To encapsulate a request as an object, allowing for the parameterization of clients with queues, requests, and operations.</li>
+<li>Support of undoable operations. It turns a request into a stand-alone object that contains all information about the request. This transformation lets one parameterize methods with different requests, delay or queue a request's execution, and support undoable operations.</li>
 </ul>
 </li>
 <li>Implementation<ul>
-<li>Command Interface: This defines a method for executing a command.</li>
-<li>Concrete Command: Implements the command interface and defines the binding between a Receiver object and an action.</li>
-<li>Receiver: Performs the actual work when the command’s Execute method is called.</li>
-<li>Invoker: Asks the command to carry out the request.</li>
-<li>Client: Creates a ConcreteCommand object and sets its receiver.</li>
+<li>Command Interface: This defines a method for executing a command.</li>
+<li>Concrete Command: Implements the command interface and defines the binding between a Receiver object and an action.</li>
+<li>Receiver: Performs the actual work when the command's Execute method is called.</li>
+<li>Invoker: Asks the command to carry out the request.</li>
+<li>Client: Creates a ConcreteCommand object and sets its receiver.</li>
 </ul>
 </li>
 <li>Pros<ul>
-<li>Decouples the classes that invoke the operation from the object that knows how to execute the operation.</li>
-<li>New commands can be added without changing existing code (Open/Closed Principle).</li>
-<li>Multiple commands can be composed into one by using the Composite pattern.</li>
+<li>Decouples the classes that invoke the operation from the object that knows how to execute the operation.</li>
+<li>New commands can be added without changing existing code (Open/Closed Principle).</li>
+<li>Multiple commands can be composed into one by using the Composite pattern.</li>
 </ul>
 </li>
 <li>Cons<ul>
-<li>Can introduce additional layers of abstraction, which might complicate simpler operations.</li>
-<li>Each new command might require a new concrete class, increasing the number of classes in the system.</li>
+<li>Can introduce additional layers of abstraction, which might complicate simpler operations.</li>
+<li>Each new command might require a new concrete class, increasing the number of classes in the system.</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
-<li><strong>Memento</strong> can be used in conjunction with the <strong>Command</strong> pattern to implement undo/redo functionalities, where <strong>Command</strong> stores the state of the Receiver.</li>
-<li><strong>Commands</strong> can be composed into a <strong>Composite</strong> command, a macro command that consists of several simpler commands.</li>
-<li><strong>Command</strong> encapsulates a request as an object, whereas <strong>Strategy</strong> encapsulates an algorithm.</li>
+<li><strong>Memento</strong> can be used in conjunction with the <strong>Command</strong> pattern to implement undo/redo functionalities, where <strong>Command</strong> stores the state of the Receiver.</li>
+<li><strong>Commands</strong> can be composed into a <strong>Composite</strong> command, a macro command that consists of several simpler commands.</li>
+<li><strong>Command</strong> encapsulates a request as an object, whereas <strong>Strategy</strong> encapsulates an algorithm.</li>
 </ul>
 </li>
 </ul>
@@ -2938,35 +2938,35 @@
 <h3 id="iterator">Iterator</h3>
 <ul>
 <li>Analogy<ul>
-<li>All roads lead to Rome. There’s more than one way of iterating one’s path through the city.</li>
+<li>All roads lead to Rome. There's more than one way of iterating one's path through the city.</li>
 </ul>
 </li>
 <li>When to use it<ul>
-<li>When there’s a need to provide a way to access a collection of objects in a sequential manner without the need to understand or expose the underlying structure of the collection.</li>
+<li>When there's a need to provide a way to access a collection of objects in a sequential manner without the need to understand or expose the underlying structure of the collection.</li>
 </ul>
 </li>
 <li>Implementation<ul>
 <li>The <strong>Iterator Interface</strong> defines the operations required for iterating over a collection, such as <code>getNext()</code>, <code>hasNext()</code>, and sometimes <code>remove()</code>.</li>
-<li>The <strong>Concrete Iterator</strong> implements the <strong>Iterator Interface</strong> and keeps track of the current position in the collection.</li>
-<li>The <strong>Aggregate Interface</strong> defines the method to create an iterator.</li>
+<li>The <strong>Concrete Iterator</strong> implements the <strong>Iterator Interface</strong> and keeps track of the current position in the collection.</li>
+<li>The <strong>Aggregate Interface</strong> defines the method to create an iterator.</li>
 <li>The <strong>Concrete Aggregate</strong> implements the <strong>Aggregate Interface</strong> and returns an instance of the <strong>Concrete Iterator</strong>.</li>
 </ul>
 </li>
 <li>Pros<ul>
-<li>Allows the traversal of elements without exposing the underlying structure (array, tree, graph, etc.).</li>
-<li>Enables multiple simultaneous traversals of a collection.</li>
-<li>Provides a uniform interface for traversing different types of collections.</li>
+<li>Allows the traversal of elements without exposing the underlying structure (array, tree, graph, etc.).</li>
+<li>Enables multiple simultaneous traversals of a collection.</li>
+<li>Provides a uniform interface for traversing different types of collections.</li>
 </ul>
 </li>
 <li>Cons<ul>
-<li>Can increase the complexity of an application by requiring additional classes and interfaces.</li>
-<li>Introduces some overhead to the traversal process, especially if the iterator is feature-rich (like supporting bidirectional traversal).</li>
+<li>Can increase the complexity of an application by requiring additional classes and interfaces.</li>
+<li>Introduces some overhead to the traversal process, especially if the iterator is feature-rich (like supporting bidirectional traversal).</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
-<li><strong>Iterators</strong> are often used to traverse <strong>Composite</strong> trees.</li>
-<li>With <strong>Factory Method</strong>, it can be used to define a method in the <strong>Aggregate Interface</strong> for creating an iterator.</li>
-<li>An <strong>Iterator</strong> can use a <strong>Memento</strong> to capture the state of an iteration.</li>
+<li><strong>Iterators</strong> are often used to traverse <strong>Composite</strong> trees.</li>
+<li>With <strong>Factory Method</strong>, it can be used to define a method in the <strong>Aggregate Interface</strong> for creating an iterator.</li>
+<li>An <strong>Iterator</strong> can use a <strong>Memento</strong> to capture the state of an iteration.</li>
 </ul>
 </li>
 </ul>
@@ -3198,40 +3198,40 @@
 <span class="cm"> */</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="mediator-intermediary-controller">Mediator (Intermediary, Controller)</h3>
+<h3 id="mediator-intermediary-controller">Mediator (Intermediary, Controller)</h3>
 <ul>
 <li>Analogy<ul>
-<li>The control tower acts as a mediator for aircraft pilots.</li>
+<li>The control tower acts as a mediator for aircraft pilots.</li>
 </ul>
 </li>
 <li>When to use it<ul>
-<li>To provide a centralized communication medium between different objects in a system.</li>
+<li>To provide a centralized communication medium between different objects in a system.</li>
 <li>To promote loose coupling by keeping objects from referring to each other explicitly, allowing their interaction to be managed by the <strong>Mediator</strong>.</li>
-<li>Reduce complexities and dependencies between tightly coupled objects communicating directly.</li>
+<li>Reduce complexities and dependencies between tightly coupled objects communicating directly.</li>
 </ul>
 </li>
 <li>Implementation<ul>
-<li>The <strong>Mediator Interface</strong> defines the interface for communication that the concrete mediator will implement.</li>
-<li>The <strong>Concrete Mediator</strong> implements the <strong>Mediator Interface</strong> and coordinates communication between colleague objects. It knows and maintains its colleagues.</li>
-<li>The Colleague Classes are objects that communicate with each other through the <strong>Mediator</strong>. Each colleague class knows its mediator object and communicates with it, instead of communicating directly with other colleagues.</li>
+<li>The <strong>Mediator Interface</strong> defines the interface for communication that the concrete mediator will implement.</li>
+<li>The <strong>Concrete Mediator</strong> implements the <strong>Mediator Interface</strong> and coordinates communication between colleague objects. It knows and maintains its colleagues.</li>
+<li>The Colleague Classes are objects that communicate with each other through the <strong>Mediator</strong>. Each colleague class knows its mediator object and communicates with it, instead of communicating directly with other colleagues.</li>
 </ul>
 </li>
 <li>Pros<ul>
 <li>Allows reducing the coupling between classes of objects by centralizing communication in the <strong>Mediator</strong>.</li>
-<li>Simplifies maintenance and interaction between classes by having a central point that controls and manages communication.</li>
-<li>Centralizes control over how objects interact, making it easier to understand and manage complex communication networks.</li>
+<li>Simplifies maintenance and interaction between classes by having a central point that controls and manages communication.</li>
+<li>Centralizes control over how objects interact, making it easier to understand and manage complex communication networks.</li>
 </ul>
 </li>
 <li>Cons<ul>
-<li>The mediator can become overly complex (a “God” object) if too many responsibilities are added.</li>
-<li>Centralizing too much logic and control in the mediator can introduce a single point of failure in the system.</li>
-<li>Finding the right balance in responsibilities between the mediator and its colleagues can be challenging.</li>
+<li>The mediator can become overly complex (a "God" object) if too many responsibilities are added.</li>
+<li>Centralizing too much logic and control in the mediator can introduce a single point of failure in the system.</li>
+<li>Finding the right balance in responsibilities between the mediator and its colleagues can be challenging.</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
-<li>The <strong>Mediator</strong> pattern can be implemented using the <strong>Observer</strong> pattern, where the mediator acts as an observer and the colleagues as subjects.</li>
-<li>The <strong>Mediator</strong> can be seen as a counterpart of the <strong>Facade</strong> pattern. <strong>Facade</strong> defines a simplified interface to a subsystem, <strong>Mediator</strong> centralizes communication between components of the system.</li>
-<li><strong>Mediator</strong> can work closely with the <strong>Command</strong> pattern to orchestrate complex operations involving multiple objects.</li>
+<li>The <strong>Mediator</strong> pattern can be implemented using the <strong>Observer</strong> pattern, where the mediator acts as an observer and the colleagues as subjects.</li>
+<li>The <strong>Mediator</strong> can be seen as a counterpart of the <strong>Facade</strong> pattern. <strong>Facade</strong> defines a simplified interface to a subsystem, <strong>Mediator</strong> centralizes communication between components of the system.</li>
+<li><strong>Mediator</strong> can work closely with the <strong>Command</strong> pattern to orchestrate complex operations involving multiple objects.</li>
 </ul>
 </li>
 </ul>
@@ -3452,32 +3452,32 @@
 <span class="cm"> */</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="memento-snapshot">Memento (Snapshot)</h3>
+<h3 id="memento-snapshot">Memento (Snapshot)</h3>
 <ul>
 <li>Analogy<ul>
-<li>The “undo” and “redo” buttons of a text editor (save and restore state) or the “rollback” feature of a database.</li>
+<li>The "undo" and "redo" buttons of a text editor (save and restore state) or the "rollback" feature of a database.</li>
 </ul>
 </li>
 <li>When to use it<ul>
-<li>When there is a need to restore an object back to its previous state (e.g. “undo” or “rollback” operations), without violating encapsulation.</li>
+<li>When there is a need to restore an object back to its previous state (e.g. "undo" or "rollback" operations), without violating encapsulation.</li>
 </ul>
 </li>
 <li>Implementation<ul>
-<li><strong>Originator</strong>: The object whose state needs to be saved and restored.</li>
-<li><strong>Memento</strong>: An object that encapsulates the state of the originator at a particular time, which is usually immutable once constructed.</li>
-<li><strong>Caretaker</strong>: An object that keeps track of the mementos but does not operate on or examine the contents of a memento. It is responsible for knowing when and why to save and restore the originator’s state.</li>
+<li><strong>Originator</strong>: The object whose state needs to be saved and restored.</li>
+<li><strong>Memento</strong>: An object that encapsulates the state of the originator at a particular time, which is usually immutable once constructed.</li>
+<li><strong>Caretaker</strong>: An object that keeps track of the mementos but does not operate on or examine the contents of a memento. It is responsible for knowing when and why to save and restore the originator's state.</li>
 <li>In languages supporting nested classes, the <strong>Memento</strong> can be nested inside the <strong>Originator</strong>.<ul>
-<li>This way, the caretaker can’t access the memento directly, and the originator can access the memento’s fields directly.</li>
+<li>This way, the caretaker can't access the memento directly, and the originator can access the memento's fields directly.</li>
 </ul>
 </li>
-<li>In other languages like Go which don’t even have classes, the implementation can be based on an intermediate interface.<ul>
-<li>This makes the fields of the memento struct public.</li>
+<li>In other languages like Go which don't even have classes, the implementation can be based on an intermediate interface.<ul>
+<li>This makes the fields of the memento struct public.</li>
 <li>There is another approach to restrict access:<ul>
-<li><strong>Originator Interface</strong>: This defines the high-level interface for creating a memento and restoring the Originator’s state from a memento. However, it does not expose internal state details.</li>
-<li><strong>ConcreteOriginator</strong>: Implements the Originator interface and contains the internal state that needs to be saved and restored. It knows how to save its internal state to a <strong>Memento</strong> and restore it, but these Mementos are opaque to the outside world. In Go, this would be defined in a separate package to restrict access to the internal state.</li>
-<li><strong>Memento Interface</strong>: Provides a very restricted interface that might only allow the <strong>Memento</strong> to be passed around but not altered or viewed (no getters for the state, for instance). In Go, this would be an empty struct to prevent any access to the internal state.</li>
+<li><strong>Originator Interface</strong>: This defines the high-level interface for creating a memento and restoring the Originator's state from a memento. However, it does not expose internal state details.</li>
+<li><strong>ConcreteOriginator</strong>: Implements the Originator interface and contains the internal state that needs to be saved and restored. It knows how to save its internal state to a <strong>Memento</strong> and restore it, but these Mementos are opaque to the outside world. In Go, this would be defined in a separate package to restrict access to the internal state.</li>
+<li><strong>Memento Interface</strong>: Provides a very restricted interface that might only allow the <strong>Memento</strong> to be passed around but not altered or viewed (no getters for the state, for instance). In Go, this would be an empty struct to prevent any access to the internal state.</li>
 <li><strong>ConcreteMemento</strong>: Implements the <strong>Memento</strong> interface and stores the internal state of the <strong>ConcreteOriginator</strong>. The <strong>ConcreteMemento</strong> is typically a private or inner class of the <strong>ConcreteOriginator</strong>, ensuring that only the <strong>ConcreteOriginator</strong> can access the internal state stored within the <strong>Memento</strong>. In Go, this would be a struct with unexported fields and it would be present in the same package as the <strong>ConcreteOriginator</strong>.</li>
-<li><strong>Caretaker</strong>: Manages the mementos without knowing their content or structure. It can request a <strong>Memento</strong> from the <strong>Originator</strong> and store it, and it can pass a Memento back to the Originator for state restoration, but it cannot access the state stored inside the Memento.</li>
+<li><strong>Caretaker</strong>: Manages the mementos without knowing their content or structure. It can request a <strong>Memento</strong> from the <strong>Originator</strong> and store it, and it can pass a Memento back to the Originator for state restoration, but it cannot access the state stored inside the Memento.</li>
 </ul>
 </li>
 </ul>
@@ -3485,21 +3485,21 @@
 </ul>
 </li>
 <li>Pros<ul>
-<li>The internal state of the originator is saved externally without breaking encapsulation.</li>
-<li>The originator doesn’t need to keep versions of its state, simplifying its code.</li>
-<li>It enables the implementation of undo mechanisms in a relatively straightforward manner.</li>
+<li>The internal state of the originator is saved externally without breaking encapsulation.</li>
+<li>The originator doesn't need to keep versions of its state, simplifying its code.</li>
+<li>It enables the implementation of undo mechanisms in a relatively straightforward manner.</li>
 </ul>
 </li>
 <li>Cons<ul>
-<li>It can be resource-intensive if the originator’s state is large or if there are many mementos stored (<em>think of <span class="caps">GIMP</span> or Photoshop when working with large images and a growing undo stack</em>!).</li>
-<li>It adds complexity to the code, particularly in managing the lifecycle and permissions of mementos.</li>
-<li>The caretaker must manage the lifetimes of mementos carefully to avoid excessive memory use (hidden implementation costs).</li>
+<li>It can be resource-intensive if the originator's state is large or if there are many mementos stored (<em>think of GIMP or Photoshop when working with large images and a growing undo stack</em>!).</li>
+<li>It adds complexity to the code, particularly in managing the lifecycle and permissions of mementos.</li>
+<li>The caretaker must manage the lifetimes of mementos carefully to avoid excessive memory use (hidden implementation costs).</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
-<li><strong>Memento</strong> can be used in conjunction with the <strong>Command</strong> pattern to store state for undoable commands.</li>
-<li>It can store the state of an <strong>Iterator</strong>, allowing it to return to a specific point in the iteration.</li>
-<li>Both <strong>Memento</strong> and <strong>Prototype</strong> involve creating a copy of an object, but for different purposes: Prototype for creating a duplicate object; Memento for saving state.</li>
+<li><strong>Memento</strong> can be used in conjunction with the <strong>Command</strong> pattern to store state for undoable commands.</li>
+<li>It can store the state of an <strong>Iterator</strong>, allowing it to return to a specific point in the iteration.</li>
+<li>Both <strong>Memento</strong> and <strong>Prototype</strong> involve creating a copy of an object, but for different purposes: Prototype for creating a duplicate object; Memento for saving state.</li>
 </ul>
 </li>
 </ul>
@@ -3630,42 +3630,42 @@
 <span class="cm"> */</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="observer-event-subscriber-listener">Observer (Event-Subscriber, Listener)</h3>
+<h3 id="observer-event-subscriber-listener">Observer (Event-Subscriber, Listener)</h3>
 <ul>
 <li>Analogy<ul>
-<li>A newspaper publisher (subject) has a list of subscribers (observers) who want to be notified when a new issue is published.</li>
+<li>A newspaper publisher (subject) has a list of subscribers (observers) who want to be notified when a new issue is published.</li>
 </ul>
 </li>
 <li>When to use it<ul>
 <li>To create a subscription mechanism that allows multiple objects to listen and react to events happening in another object, known as the <em>subject</em>.</li>
-<li>For implementing distributed event handling systems, in scenarios where an object needs to notify other objects about its state changes without being dependent on them.</li>
+<li>For implementing distributed event handling systems, in scenarios where an object needs to notify other objects about its state changes without being dependent on them.</li>
 </ul>
 </li>
 <li>Implementation<ul>
 <li><strong>Subject Interface (Publisher)</strong>: Defines the interface for attaching, detaching, and notifying observers. It contains a list of subscribers with methods like <code>subscribe</code>, <code>unsubscribe</code>, and <code>notify</code>.<ul>
-<li><strong>Concrete Subject</strong>: Maintains the state of the object and notifies observers when the state changes.</li>
+<li><strong>Concrete Subject</strong>: Maintains the state of the object and notifies observers when the state changes.</li>
 </ul>
 </li>
 <li><strong>Observer Interface (Subscriber)</strong>: Defines the interface for receiving updates from the <em>subject</em> (usually just an <code>update</code> method).<ul>
-<li><strong>Concrete Observers</strong>: Implements the <em>observer interface</em> and keeps a reference to the <em>subject</em> so that they can automatically update themselves in response to state changes.</li>
+<li><strong>Concrete Observers</strong>: Implements the <em>observer interface</em> and keeps a reference to the <em>subject</em> so that they can automatically update themselves in response to state changes.</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>Pros<ul>
-<li>The <em>subject</em> doesn’t need to know anything about the <em>observers</em>, other than they implement the <strong>Observer interface</strong> (loose coupling).</li>
-<li>Subscribers/observers can be managed at runtime by the client.</li>
-<li>Changes in the <em>subject</em> are effectively broadcasted to all interested observers.</li>
+<li>The <em>subject</em> doesn't need to know anything about the <em>observers</em>, other than they implement the <strong>Observer interface</strong> (loose coupling).</li>
+<li>Subscribers/observers can be managed at runtime by the client.</li>
+<li>Changes in the <em>subject</em> are effectively broadcasted to all interested observers.</li>
 </ul>
 </li>
 <li>Cons<ul>
-<li>If there are many observers or if the updates are frequent, the system can become overwhelmed. Besides, the order of updates could be unpredictable.</li>
-<li>Care must be taken to properly manage observer registration and deregistration to avoid memory leaks.</li>
+<li>If there are many observers or if the updates are frequent, the system can become overwhelmed. Besides, the order of updates could be unpredictable.</li>
+<li>Care must be taken to properly manage observer registration and deregistration to avoid memory leaks.</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
-<li><strong>Observer</strong> resembles closely to the <strong>Mediator</strong> pattern. While it can be used to implement distributed event handling systems, <strong>Mediator</strong> is more focused on centralizing communication between objects.</li>
-<li>The <strong>Observer</strong> pattern can use the <strong>Singleton</strong> pattern to implement a central registry of observers.</li>
+<li><strong>Observer</strong> resembles closely to the <strong>Mediator</strong> pattern. While it can be used to implement distributed event handling systems, <strong>Mediator</strong> is more focused on centralizing communication between objects.</li>
+<li>The <strong>Observer</strong> pattern can use the <strong>Singleton</strong> pattern to implement a central registry of observers.</li>
 </ul>
 </li>
 </ul>
@@ -3796,36 +3796,36 @@
 <h3 id="state">State</h3>
 <ul>
 <li>Analogy<ul>
-<li>A smartphone can be in different states: locked, unlocked, charging, etc. For example, when it’s locked, pressing the home button doesn’t do anything, but when it’s unlocked, pressing it goes to the home screen.</li>
+<li>A smartphone can be in different states: locked, unlocked, charging, etc. For example, when it's locked, pressing the home button doesn't do anything, but when it's unlocked, pressing it goes to the home screen.</li>
 </ul>
 </li>
 <li>When to use it<ul>
-<li>To allow an object to alter its behavior when its internal state changes. This pattern encapsulates state-specific behavior within state objects, making an object’s behavior dependent on its state.</li>
+<li>To allow an object to alter its behavior when its internal state changes. This pattern encapsulates state-specific behavior within state objects, making an object's behavior dependent on its state.</li>
 <li>For implementing finite state machines in a more organized and maintainable way (i.e., refactor large <code>if-else</code>/<code>switch</code> constructs).</li>
-<li>When the number of states is large, and the state-specific behavior changes frequently.</li>
+<li>When the number of states is large, and the state-specific behavior changes frequently.</li>
 </ul>
 </li>
 <li>Implementation<ul>
-<li><strong>State Interface</strong>: Defines a common interface for all concrete state classes, encapsulating the state-specific behavior.</li>
-<li><strong>Concrete State Classes</strong>: Implement the <strong>State interface</strong> and provide the implementation for the state-specific behavior.</li>
-<li><strong>Context Class</strong>: Maintains an instance of a <strong>ConcreteState</strong> subclass that defines the current state and delegates state-specific behavior to the current state object.</li>
+<li><strong>State Interface</strong>: Defines a common interface for all concrete state classes, encapsulating the state-specific behavior.</li>
+<li><strong>Concrete State Classes</strong>: Implement the <strong>State interface</strong> and provide the implementation for the state-specific behavior.</li>
+<li><strong>Context Class</strong>: Maintains an instance of a <strong>ConcreteState</strong> subclass that defines the current state and delegates state-specific behavior to the current state object.</li>
 </ul>
 </li>
 <li>Pros<ul>
-<li><strong>Single Responsibility Principle</strong>: Each state is encapsulated in its own class.</li>
-<li><strong>Open/Closed Principle</strong>: It is easy to add new states without changing the context or other states.</li>
-<li>Reduces complex conditional logic in the context by encapsulating state-specific behavior.</li>
+<li><strong>Single Responsibility Principle</strong>: Each state is encapsulated in its own class.</li>
+<li><strong>Open/Closed Principle</strong>: It is easy to add new states without changing the context or other states.</li>
+<li>Reduces complex conditional logic in the context by encapsulating state-specific behavior.</li>
 </ul>
 </li>
 <li>Cons<ul>
-<li>Can lead to an increase in the number of classes and boilerplate code.</li>
-<li>The context must carefully manage state objects and transitions, which can get complex.</li>
-<li>Overkill for a simple state machine which doesn’t change much.</li>
+<li>Can lead to an increase in the number of classes and boilerplate code.</li>
+<li>The context must carefully manage state objects and transitions, which can get complex.</li>
+<li>Overkill for a simple state machine which doesn't change much.</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
-<li>While <strong>Strategy</strong> usually changes the algorithm used by the context (objects being unaware of each other), <strong>State</strong> changes the behavior of the context based on its internal state.</li>
-<li><strong>State</strong> can be used to change the behavior of <strong>Commands</strong> based on the state of the system.</li>
+<li>While <strong>Strategy</strong> usually changes the algorithm used by the context (objects being unaware of each other), <strong>State</strong> changes the behavior of the context based on its internal state.</li>
+<li><strong>State</strong> can be used to change the behavior of <strong>Commands</strong> based on the state of the system.</li>
 </ul>
 </li>
 </ul>
@@ -4081,36 +4081,36 @@
 <h3 id="strategy">Strategy</h3>
 <ul>
 <li>Analogy<ul>
-<li>Choosing a transportation method in Google Maps: walking; driving; cycling or public transport. Each method is a strategy selected via a button in the <span class="caps">UI</span>. The goal is to reach a given destination, but the method of transportation can vary, and so will the algorithm calculating the route.</li>
+<li>Choosing a transportation method in Google Maps: walking; driving; cycling or public transport. Each method is a strategy selected via a button in the UI. The goal is to reach a given destination, but the method of transportation can vary, and so will the algorithm calculating the route.</li>
 </ul>
 </li>
 <li>When to use it<ul>
-<li>To define a family of algorithms, encapsulate each one, and make them interchangeable (e.g., different text parsers classes implementing the same methods but providing different results).</li>
-<li>Strategy lets the algorithm vary independently from clients that use it.</li>
-<li>When there are multiple ways of doing something and there’s a need to switch between these methods easily at runtime.</li>
+<li>To define a family of algorithms, encapsulate each one, and make them interchangeable (e.g., different text parsers classes implementing the same methods but providing different results).</li>
+<li>Strategy lets the algorithm vary independently from clients that use it.</li>
+<li>When there are multiple ways of doing something and there's a need to switch between these methods easily at runtime.</li>
 </ul>
 </li>
 <li>Implementation<ul>
-<li><strong>Strategy Interface</strong>: This defines a common interface for all concrete strategies to implement.</li>
-<li><strong>Concrete Strategies</strong>: Implement the <strong>Strategy Interface</strong> with specific algorithmic implementations.</li>
-<li><strong>Context Class</strong>: Maintains a reference to a strategy object and delegates it the responsibility of executing the algorithm. The context is configured with a <strong>ConcreteStrategy</strong> object and may define an interface that lets the strategy access its data.</li>
+<li><strong>Strategy Interface</strong>: This defines a common interface for all concrete strategies to implement.</li>
+<li><strong>Concrete Strategies</strong>: Implement the <strong>Strategy Interface</strong> with specific algorithmic implementations.</li>
+<li><strong>Context Class</strong>: Maintains a reference to a strategy object and delegates it the responsibility of executing the algorithm. The context is configured with a <strong>ConcreteStrategy</strong> object and may define an interface that lets the strategy access its data.</li>
 </ul>
 </li>
 <li>Pros<ul>
-<li>Allows dynamically changing the behavior of an object.</li>
-<li>Encapsulates algorithm implementations from the core business logic.</li>
-<li>Promotes the reuse of individual strategies across different contexts.</li>
+<li>Allows dynamically changing the behavior of an object.</li>
+<li>Encapsulates algorithm implementations from the core business logic.</li>
+<li>Promotes the reuse of individual strategies across different contexts.</li>
 </ul>
 </li>
 <li>Cons<ul>
-<li>Introduces multiple classes and interfaces, which increases complexity.</li>
-<li>Clients must understand how strategies differ (and be aware of their existence) to select the appropriate one.</li>
+<li>Introduces multiple classes and interfaces, which increases complexity.</li>
+<li>Clients must understand how strategies differ (and be aware of their existence) to select the appropriate one.</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
 <li><strong>Factory Method</strong> is often used with <strong>Strategy</strong> to instantiate the appropriate <em>ConcreteStrategy</em>.</li>
-<li><strong>State</strong> has a similar structure to <strong>Strategy</strong>. While Strategy changes the behavior of a context, State’s behavior change is more intrinsic to the context’s state.</li>
-<li><strong>Command</strong> can be seen as a specialization of <strong>Strategy</strong>, with the strategy being parameterized with actions to execute.</li>
+<li><strong>State</strong> has a similar structure to <strong>Strategy</strong>. While Strategy changes the behavior of a context, State's behavior change is more intrinsic to the context's state.</li>
+<li><strong>Command</strong> can be seen as a specialization of <strong>Strategy</strong>, with the strategy being parameterized with actions to execute.</li>
 </ul>
 </li>
 </ul>
@@ -4188,36 +4188,36 @@
 <span class="cm"> */</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="template-method">Template method</h3>
+<h3 id="template-method">Template method</h3>
 <ul>
 <li>Analogy<ul>
-<li>A recipe for baking a cake: the steps are roughly the same for all cakes, but the ingredients and some steps can vary.</li>
+<li>A recipe for baking a cake: the steps are roughly the same for all cakes, but the ingredients and some steps can vary.</li>
 </ul>
 </li>
 <li>When to use it<ul>
-<li>To define the skeleton of an algorithm in the superclass while letting subclasses override specific steps of the algorithm without changing its structure.</li>
-<li>When multiple subclasses should implement a similar algorithm with some slight differences in certain steps. Hooks can be used to provide optional parts of the algorithm that subclasses might or might not override.</li>
+<li>To define the skeleton of an algorithm in the superclass while letting subclasses override specific steps of the algorithm without changing its structure.</li>
+<li>When multiple subclasses should implement a similar algorithm with some slight differences in certain steps. Hooks can be used to provide optional parts of the algorithm that subclasses might or might not override.</li>
 </ul>
 </li>
 <li>Implementation<ul>
-<li><strong>Abstract Class</strong> / <strong>Interface</strong> with <strong>Template Method</strong>: Defines the template method, which is a method that outlines the algorithm’s steps, some of which can be default implementations (<em>concrete methods</em>) or abstract methods (<em>hooks</em>) that subclasses will override.</li>
-<li><strong>Concrete Class</strong>: Implements the abstract methods (hooks) defined in the abstract class, thereby providing specific behavior for the steps that vary between different subclasses.</li>
+<li><strong>Abstract Class</strong> / <strong>Interface</strong> with <strong>Template Method</strong>: Defines the template method, which is a method that outlines the algorithm's steps, some of which can be default implementations (<em>concrete methods</em>) or abstract methods (<em>hooks</em>) that subclasses will override.</li>
+<li><strong>Concrete Class</strong>: Implements the abstract methods (hooks) defined in the abstract class, thereby providing specific behavior for the steps that vary between different subclasses.</li>
 </ul>
 </li>
 <li>Pros<ul>
-<li>Promotes reusing code by extracting common behavior into a superclass.</li>
-<li>Subclasses can override certain steps of the algorithm without changing its structure.</li>
-<li>The superclass can control the algorithm’s structure while allowing subclass-specific behavior.</li>
+<li>Promotes reusing code by extracting common behavior into a superclass.</li>
+<li>Subclasses can override certain steps of the algorithm without changing its structure.</li>
+<li>The superclass can control the algorithm's structure while allowing subclass-specific behavior.</li>
 </ul>
 </li>
 <li>Cons<ul>
-<li>Requires <em>inheritance</em>. This is not a problem in languages like Java, but it can be a limitation in languages that don’t have classes, such as Go.</li>
-<li>Subclasses can only change certain parts of the algorithm, not the overall structure or order of steps.</li>
+<li>Requires <em>inheritance</em>. This is not a problem in languages like Java, but it can be a limitation in languages that don't have classes, such as Go.</li>
+<li>Subclasses can only change certain parts of the algorithm, not the overall structure or order of steps.</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
-<li>Both <strong>Template Method</strong> and <strong>Strategy</strong> can encapsulate algorithms. The key difference is that Strategy uses composition to change parts of the algorithm, while Template Method uses inheritance.</li>
-<li><strong>Factory Method</strong> is often used as a step in a <strong>Template Method</strong>, particularly when creating objects that need to vary by subclass.</li>
+<li>Both <strong>Template Method</strong> and <strong>Strategy</strong> can encapsulate algorithms. The key difference is that Strategy uses composition to change parts of the algorithm, while Template Method uses inheritance.</li>
+<li><strong>Factory Method</strong> is often used as a step in a <strong>Template Method</strong>, particularly when creating objects that need to vary by subclass.</li>
 </ul>
 </li>
 </ul>
@@ -4290,35 +4290,35 @@
 <h3 id="visitor">Visitor</h3>
 <ul>
 <li>Analogy<ul>
-<li>A tax auditor visiting different businesses to calculate their taxes.</li>
+<li>A tax auditor visiting different businesses to calculate their taxes.</li>
 </ul>
 </li>
 <li>When to use it<ul>
-<li>To separate algorithms from the objects on which they operate, allowing for new operations to be added to these objects without modifying their classes.</li>
-<li>When dealing with a fixed set of object structures but needing to extend their functionality dynamically.</li>
+<li>To separate algorithms from the objects on which they operate, allowing for new operations to be added to these objects without modifying their classes.</li>
+<li>When dealing with a fixed set of object structures but needing to extend their functionality dynamically.</li>
 </ul>
 </li>
 <li>Implementation<ul>
 <li><strong>Element Interface</strong>: Defines an <code>Accept</code> method that takes a <em>visitor</em> and allows the visitor to perform some operation on the <em>element</em>.</li>
-<li><strong>Concrete Element Classes</strong>: Implement the <strong>Element Interface</strong> and define the <code>Accept</code> method. The <code>Accept</code> method calls the <em>visitor</em>‘s method that’s designed to handle the <em>element</em>.</li>
-<li><strong>Visitor Interface</strong>: Defines a method for each type of concrete <em>element</em> in the object structure that the <em>visitor</em> can operate on.</li>
+<li><strong>Concrete Element Classes</strong>: Implement the <strong>Element Interface</strong> and define the <code>Accept</code> method. The <code>Accept</code> method calls the <em>visitor</em>'s method that's designed to handle the <em>element</em>.</li>
+<li><strong>Visitor Interface</strong>: Defines a method for each type of concrete <em>element</em> in the object structure that the <em>visitor</em> can operate on.</li>
 <li><strong>Concrete Visitor Classes</strong>: Implement the <strong>Visitor interface</strong>, providing the implementation for each operation on the concrete <em>elements</em>.</li>
 </ul>
 </li>
 <li>Pros<ul>
-<li>Keeps algorithm implementations separate from the classes of the objects they operate on.</li>
-<li>Makes it easy to add new operations without modifying the classes of the elements.</li>
+<li>Keeps algorithm implementations separate from the classes of the objects they operate on.</li>
+<li>Makes it easy to add new operations without modifying the classes of the elements.</li>
 <li>Each visitor class encapsulates related operations, adhering to the <em>Single Responsibility Principle</em>.</li>
 </ul>
 </li>
 <li>Cons<ul>
-<li>Requires changing all visitor classes when a new <em>Element</em> class is added, which can be intrusive.</li>
-<li><em>Visitors</em> often need access to the private internals of <em>Elements</em>, which can break encapsulation.</li>
+<li>Requires changing all visitor classes when a new <em>Element</em> class is added, which can be intrusive.</li>
+<li><em>Visitors</em> often need access to the private internals of <em>Elements</em>, which can break encapsulation.</li>
 </ul>
 </li>
 <li>Relation to other patterns<ul>
-<li><strong>Visitor</strong> can be used to apply operations over <strong>Composite</strong> structures, making it easy to perform operations on complex tree structures.</li>
-<li><strong>Visitor</strong> and <strong>Iterator</strong> can be used together to traverse a complex data structure and perform operations on its elements.</li>
+<li><strong>Visitor</strong> can be used to apply operations over <strong>Composite</strong> structures, making it easy to perform operations on complex tree structures.</li>
+<li><strong>Visitor</strong> and <strong>Iterator</strong> can be used together to traverse a complex data structure and perform operations on its elements.</li>
 <li><strong>Visitor</strong> is like a powerful version of <strong>Command</strong> pattern, where the visitor can perform multiple operations on the <em>element</em>.</li>
 </ul>
 </li>
@@ -4416,9 +4416,9 @@
 </code></pre></div>
 <hr/>
 <h1 id="conclusion">Conclusion</h1>
-<p>Embarking on the journey through Object-Oriented Programming principles, Software Design Principles, and an array of design patterns, we’ve traversed the most common landscape of structured software design. From the encapsulation and abstraction of <em><span class="caps">OOP</span></em> to the <em><span class="caps">SOLID</span></em> foundations of software design, and through the diverse territories of <em>Creational</em>, <em>Structural</em>, and <em>Behavioral</em> patterns, this book summary serves as a compass for developers navigating the complexities of software architecture. Whether you’re refining your craft or laying the cornerstone of your development career, the insights and patterns presented by Alexander offer a blueprint for building software that stands the test of time, adaptable to the ever-evolving demands of technology and user needs. That was a very enjoyable read: recommended!</p>
+<p>Embarking on the journey through Object-Oriented Programming principles, Software Design Principles, and an array of design patterns, we've traversed the most common landscape of structured software design. From the encapsulation and abstraction of <em>OOP</em> to the <em>SOLID</em> foundations of software design, and through the diverse territories of <em>Creational</em>, <em>Structural</em>, and <em>Behavioral</em> patterns, this book summary serves as a compass for developers navigating the complexities of software architecture. Whether you're refining your craft or laying the cornerstone of your development career, the insights and patterns presented by Alexander offer a blueprint for building software that stands the test of time, adaptable to the ever-evolving demands of technology and user needs. That was a very enjoyable read: recommended!</p>
 <hr/>
-<h1 id="resources-and-references">Resources and references</h1>
+<h1 id="resources-and-references">Resources and references</h1>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Design_Patterns">Design Patterns: Elements of Reusable Object-Oriented Software</a>.</li>
 <li><a href="https://staff.cs.utu.fi/~jounsmed/doos_06/material/DesignPrinciplesAndPatterns.pdf">Design Principles and Design Patterns</a>.</li>

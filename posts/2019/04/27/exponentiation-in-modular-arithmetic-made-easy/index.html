@@ -152,7 +152,7 @@
 <!-- Open graph for social networks -->
 <meta name="og:title" property="og:title" content="While playing around in the Python interpreter to validate answers to mathematical questions, I quickly found out that very large exponents are dealt with very inefficiently by default as they are simply evaluated as is. That's where Python came to its own rescue." />
  
-    <title>sglavoie.com &ndash; Exponentiation in Modular Arithmetic Made&nbsp;Easy</title>
+    <title>sglavoie.com &ndash; Exponentiation in Modular Arithmetic Made Easy</title>
   </head>
 
   <body>
@@ -524,7 +524,7 @@
       <main>
 <article data-pagefind-body>
   <div class="article_title">
-    <h1><a href="../../../../../posts/2019/04/27/exponentiation-in-modular-arithmetic-made-easy/">Exponentiation in Modular Arithmetic Made&nbsp;Easy</a></h1>
+    <h1><a href="../../../../../posts/2019/04/27/exponentiation-in-modular-arithmetic-made-easy/">Exponentiation in Modular Arithmetic Made Easy</a></h1>
   </div>
   <div class="meta_container_hrs">
     <hr />
@@ -623,7 +623,7 @@
   <nav class="toc"><div class="toc">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#the-script-in-action">The script in action</a></li>
+<li><a href="#the-script-in-action">The script in action</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
 </div></nav>
@@ -632,12 +632,12 @@
 <h1 id="introduction">Introduction</h1>
 <p>The following Python script will by no means provide any useful idea to
 compete against the
-<a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)"><span class="caps">RSA</span> algorithm</a>
+<a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA algorithm</a>
 , but it does give you an idea of how
 a simple technique about reducing the size of an exponent in modular
 arithmetic can bring you closer to using much larger numbers than the
-ones you could normally use in the Python interpreter.</p>
-<h1 id="the-script-in-action">The script in action</h1>
+ones you could normally use in the Python interpreter.</p>
+<h1 id="the-script-in-action">The script in action</h1>
 <div class="highlight"><pre><span></span><code><span class="sd">"""Compute the result of a^b (mod k) by using the exponentiation technique.</span>
 <span class="sd">The goal here is not efficiency, even though the program is actually pretty</span>
 <span class="sd">fast: the algorithm is applied manually for demonstration purposes.</span>
@@ -747,11 +747,11 @@ ones you could normally use in the Python interpreter.</p>
     <span class="nb">print</span><span class="p">(</span><span class="n">FINAL_RESULT</span><span class="p">)</span>
 </code></pre></div>
 <h1 id="conclusion">Conclusion</h1>
-<p>It was very interesting to see how a technique that’s applied manually
+<p>It was very interesting to see how a technique that's applied manually
 will work wonders with such large numbers. The Python interpreter can
 barely calculate numbers with exponents with seven digits or more, while
 a basic approach like the one shown above can quickly churn out the
-results for seemingly quite large numbers.</p>
+results for seemingly quite large numbers.</p>
 <p>As always, this code is
 <a href="https://github.com/sglavoie/code-snippets/blob/main/python/mathematics/modular_arithmetic/exponentiation_mod_k.py">available on GitHub</a>.</p></div>
 </article>
