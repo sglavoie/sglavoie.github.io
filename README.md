@@ -16,20 +16,10 @@ Here are the main reasons why this approach felt right:
 
 ## How to use
 
-### With Poetry
-
-* https://python-poetry.org/
-
 ```bash
-poetry add toml
-# poetry run python setup_deps.py poetry  # if previously set to use pip
-poetry install
-poetry run [SOME_COMMAND_AS_SHOWN_BELOW]
-```
+rye sync
+# or...
 
-### Without Poetry
-
-```bash
 # Activate a virtual environment, e.g.:
 # python -m venv .venv && source ./.venv/bin/activate
 
@@ -42,6 +32,8 @@ pip install -r requirements.txt
 ### Build, use, publish
 
 ```bash
+# Prefix with `rye run` as needed
+
 # Build the website
 invoke build
 

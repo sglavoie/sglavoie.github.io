@@ -13,8 +13,6 @@ def main() -> None:
 
     if args.build_system == "pip":
         setup_system("pip")
-    elif args.build_system == "poetry":
-        setup_system("poetry")
     else:
         raise ValueError("Invalid arguments were passed.")
 
