@@ -94,6 +94,10 @@
       content="{{ SITEURL }}/theme/images/logo_1200x627.png"
     />
 
+    <!-- Agent discovery (RFC 8288 / RFC 9727) -->
+    <link rel="api-catalog" href="{{ SITEURL }}/.well-known/api-catalog" />
+    <link rel="describedby" href="{{ SITEURL }}/sitemap.xml" type="application/xml" />
+
     {% if FEED_ALL_ATOM %}
     <link
       href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}"

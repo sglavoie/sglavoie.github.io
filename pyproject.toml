@@ -7,17 +7,16 @@ dependencies = [
     "pelican-render-math>=1.0.4",
     "markdown>=3.7",
     "livereload>=2.7.1",
-    "ghp-import>=2.1.0",
     "invoke>=2.2.0",
     "beautifulsoup4>=4.13.3",
     "toml>=0.10.2",
     "typogrify>=2.1.0",
+    "pelican-sitemap>=1.1.0",
 ]
 requires-python = ">= 3.12"
 
-[tool.rye]
-managed = true
-dev-dependencies = [
+[dependency-groups]
+dev = [
     "ruff>=0.11.2",
     "mypy>=1.15.0",
 ]

@@ -14,36 +14,27 @@ Here are the main reasons why this approach felt right:
 - It is super quick to deploy anywhere without having any kind of specific server requirements such as PHP, Python, SSL, MySQL, Apache, etc. Everything is static and can be uploaded almost everywhere!
 - It's also quite secure in the end as there is no need to perform updates, no need to authenticate users or deal with a database.
 
+The site is deployed to **[Cloudflare Pages](https://pages.cloudflare.com/)**, which automatically builds and publishes on every push to `main`.
+
 ## How to use
 
 ```bash
-rye sync
-# or...
+uv sync
 
-# Activate a virtual environment, e.g.:
+# Or with pip:
 # python -m venv .venv && source ./.venv/bin/activate
-
-pip install toml
-# python setup_deps.py pip  # if previously set to use poetry
-
-pip install -r requirements.txt
+# pip install -r requirements.txt
 ```
 
-### Build, use, publish
+### Build and develop
 
 ```bash
-# Prefix with `rye run` as needed
-
 # Build the website
 invoke build
 
 # Watch for changes
 invoke livereload
 
-# Publish changes to GitHub
+# Build for production (Cloudflare Pages deploys automatically on push)
 invoke publish
-
-# Or publish the changes by committing once the post-commit hook is set up
-# .git/hooks/post-commit:
-pelican content -o output -s pelicanconf.py && ghp-import output && git push origin gh-pages
 ```

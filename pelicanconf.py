@@ -80,8 +80,18 @@ def generate_redirect_pages_on_the_fly() -> None:
 # Pelican-specific settings
 PATH = "content"
 
-STATIC_PATHS = ["files", "images", "extra/CNAME"]
-EXTRA_PATH_METADATA = {"extra/CNAME": {"path": "CNAME"}}
+STATIC_PATHS = [
+    "files",
+    "images",
+    "extra/robots.txt",
+    "extra/_headers",
+    "extra/.well-known/api-catalog",
+]
+EXTRA_PATH_METADATA = {
+    "extra/robots.txt": {"path": "robots.txt"},
+    "extra/_headers": {"path": "_headers"},
+    "extra/.well-known/api-catalog": {"path": ".well-known/api-catalog"},
+}
 
 DISPLAY_PAGES_ON_MENU = False
 DEFAULT_PAGINATION = 5
@@ -124,8 +134,23 @@ PLUGINS = [
     "flag_skim_notes",  # custom
     "readtime",
     "render_math",
+    "sitemap",
     "tag_cloud",
 ]
+
+SITEMAP = {
+    "format": "xml",
+    "priorities": {
+        "articles": 0.7,
+        "indexes": 0.5,
+        "pages": 0.5,
+    },
+    "changefreqs": {
+        "articles": "monthly",
+        "indexes": "daily",
+        "pages": "monthly",
+    },
+}
 
 # render_math plugin
 MATH_JAX = {"color": "#007bff"}

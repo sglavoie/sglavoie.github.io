@@ -6,8 +6,6 @@ import shlex
 import shutil
 import subprocess
 import sys
-import datetime
-
 from invoke import task
 from invoke.main import program
 from pelican import main as pelican_main
@@ -27,9 +25,6 @@ CONFIG = {
     "settings_publish": "publishconf.py",
     # Output path. Can be absolute or relative to tasks.py. Default: 'output'
     "deploy_path": SETTINGS["OUTPUT_PATH"],
-    # Github Pages configuration
-    "github_pages_branch": "main",
-    "commit_message": "'Publish site on {}'".format(datetime.date.today().isoformat()),
     # Host and port for `serve`
     "host": "localhost",
     "port": 8000,
@@ -143,8 +138,9 @@ def livereload(c):
 
 @task
 def publish(c):
-    """Publish to GitHub via ghp-import"""
-    c.run(f"{HERE}/publish.sh")
+    """Build the production site (deployed automatically by Cloudflare Pages)"""
+    pelican_run("-s {settings_publish}".format(**CONFIG))
+    subprocess.run(shlex.split("npx -y pagefind --site output"))
 
 
 def pelican_run(cmd):

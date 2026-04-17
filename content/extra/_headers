@@ -1,0 +1,8 @@
+/*
+  Link: </.well-known/api-catalog>; rel="api-catalog"
+  Link: </sitemap.xml>; rel="describedby"; type="application/xml"
+  Link: </feeds/sglavoie.atom.xml>; rel="alternate"; type="application/atom+xml"
+  Link: </feeds/sglavoie.rss.xml>; rel="alternate"; type="application/rss+xml"
+
+/.well-known/api-catalog
+  Content-Type: application/linkset+json

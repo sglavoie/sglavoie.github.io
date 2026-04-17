@@ -1,0 +1,49 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://www.sglavoie.com/sitemap.xml",
+      "service-desc": [
+        {
+          "href": "https://www.sglavoie.com/sitemap.xml",
+          "type": "application/xml"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://www.sglavoie.com/",
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "anchor": "https://www.sglavoie.com/feeds/sglavoie.atom.xml",
+      "service-desc": [
+        {
+          "href": "https://www.sglavoie.com/feeds/sglavoie.atom.xml",
+          "type": "application/atom+xml"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://www.sglavoie.com/",
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "anchor": "https://www.sglavoie.com/feeds/sglavoie.rss.xml",
+      "service-desc": [
+        {
+          "href": "https://www.sglavoie.com/feeds/sglavoie.rss.xml",
+          "type": "application/rss+xml"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://www.sglavoie.com/",
+          "type": "text/html"
+        }
+      ]
+    }
+  ]
+}
