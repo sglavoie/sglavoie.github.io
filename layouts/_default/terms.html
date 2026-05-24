@@ -1,0 +1,27 @@
+{{ define "title" }}
+  {{- if eq .Data.Plural "tags" -}}
+    &ndash; Tags
+  {{- else -}}
+    &ndash; Categories
+  {{- end -}}
+{{ end }}
+
+{{ define "main" }}
+{{ if eq .Data.Plural "tags" }}
+<article class="tags">
+  {{ partial "tag-cloud.html" . }}
+</article>
+{{ else }}
+<article>
+  <div class="article_text">
+    <ul>
+      {{ range .Data.Terms.Alphabetical }}
+      <li>
+        <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a> ({{ .Count }})
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</article>
+{{ end }}
+{{ end }}

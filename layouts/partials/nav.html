@@ -1,0 +1,39 @@
+<aside id="pageNavigation">
+  <nav>
+    <ul>
+      <li>
+        <a href="{{ "/" | relURL }}"
+          >{{ partial "icons/home.html" . }}
+          Home</a
+        >
+      </li>
+      <li>
+        <a href="{{ "/archives/" | relURL }}"
+          >{{ partial "icons/archives.html" . }}
+          Archives</a
+        >
+      </li>
+      <li>
+        <a href="{{ "/tags/" | relURL }}"
+          >{{ partial "icons/tags.html" . }}
+          Tags</a
+        >
+      </li>
+      <li>
+        <a href="{{ "/contact/" | relURL }}"
+          >{{ partial "icons/contact.html" . }}
+          Contact</a
+        >
+      </li>
+      <li>
+        <a
+          href="{{ "/resume" | relURL }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          >{{ partial "icons/resume.html" . }}
+          Resume</a
+        >
+      </li>
+    </ul>
+  </nav>
+</aside>

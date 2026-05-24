@@ -1,0 +1,22 @@
+@startuml overviewReview
+scale 5
+!pragma useVerticalIf on
+
+start
+fork
+    #AliceBlue :Daily review;
+fork again
+  if (Is Sunday?) then (yes )
+    if (Last of the year?) then ( yes)
+        #HotPink :     Yearly review     ;
+    ( no) elseif (Last of the month?) then ( yes)
+        #GreenYellow :Monthly review;
+    else ( no)
+        #Moccasin :Weekly review;
+    endif
+  else ( no)
+    end;
+  endif
+end fork
+end
+@enduml

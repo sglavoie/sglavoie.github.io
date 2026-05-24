@@ -1,11 +1,7 @@
-__pycache__/
-.venv/
 .vscode/
-*.py[cod]
-*$py.class
-cache/
-output/
-redirects/*.html
 TODO
-tree_content.html
-tree.txt
+
+# Hugo
+public/
+resources/
+.hugo_build.lock

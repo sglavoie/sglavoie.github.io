@@ -1,0 +1,81 @@
+{{ define "head" }}
+  {{ if .Params.tags }}
+  <meta name="keywords" content="{{ delimit .Params.tags ", " }}" />
+  {{ end }}
+  {{ with .Params.description }}
+  <meta name="og:title" property="og:title" content="{{ . }}" />
+  {{ end }}
+{{ end }}
+
+{{ define "title" }} &ndash; {{ .Title }}{{ end }}
+
+{{ define "main" }}
+{{ if eq .Section "posts" }}
+<article data-pagefind-body>
+  <div class="article_title">
+    <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+  </div>
+  <div class="meta_container_hrs">
+    <hr />
+    <div class="meta_container">
+      <div class="article_meta">
+        <div>
+          Posted on <strong>{{ .Date.Format "January 2, 2006" }}</strong> in
+          <span id="category-article">
+            {{ with index .Params.categories 0 }}
+              {{ with site.GetPage (printf "/categories/%s" (. | urlize)) }}
+              <a href="{{ .RelPermalink }}">{{ partial "icons/category.html" . }}{{ .Title }}</a>
+              {{ end }}
+            {{ end }}
+          </span>
+        </div>
+        {{ if not .Lastmod.IsZero }}
+        {{ if ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02") }}
+        <div>
+          <time class="modified" datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+            Modified on <strong>{{ .Lastmod.Format "January 2, 2006" }}</strong>
+          </time>
+        </div>
+        {{ end }}
+        {{ end }}
+        <div class="article_tags">
+          {{ range .GetTerms "tags" }}
+          <a href="{{ .RelPermalink }}">{{ partial "icons/tag.html" . }}{{ .Title }}</a>
+          {{ end }}
+        </div>
+      </div>
+      {{ if .ReadingTime }}
+      <div class="article_readtime">
+        <span class="readtime_tilde">~</span><span class="readtime_minutes">{{ .ReadingTime }}</span>
+        minutes to read
+      </div>
+      {{ end }}
+      {{ if .Params.skim_notes }}
+      <div class="article_skim_notes">
+        <em><strong>Note:</strong> This article features skimming notes and is intentionally less fluffy.</em>
+      </div>
+      {{ end }}
+    </div>
+    <hr />
+  </div>
+  {{ if gt (len .TableOfContents) 25 }}
+  <h2 class="toc-title">Table of contents</h2>
+  <nav class="toc">{{ .TableOfContents }}</nav>
+  {{ end }}
+  <div class="article_text">{{ .Content }}</div>
+</article>
+{{ else }}
+<article>
+  <div class="article_title">
+    <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+  </div>
+  <div class="article_text">{{ .Content }}</div>
+
+  {{ if and (ne .File.LogicalName "contact-me.md") (not .Lastmod.IsZero) }}
+  <div class="article_meta">
+    <p>Updated on: {{ .Lastmod.Format "January 2, 2006" }}</p>
+  </div>
+  {{ end }}
+</article>
+{{ end }}
+{{ end }}

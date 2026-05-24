@@ -1,40 +1,41 @@
 # Source code for [sglavoie.com](https://www.sglavoie.com/)
 
-This repository contains the source code for my personal website, which is a blog describing my learning path in all things related to computer science.
+This repository contains the source code for my personal website, a blog describing my learning path in all things related to computer science.
 
-Please feel free to reuse all the code that you might need!
+Please feel free to reuse any of the code you find useful.
 
-## How was it done?
+## Toolchain
 
-It is all generated with the help of **[Pelican](https://github.com/getpelican/pelican)**, a static website generator that uses **[Python](https://www.python.org/)**. The content of the website is written in Markdown format and is rendered automatically as HTML and CSS with some bits of JavaScript here and there.
+The site is generated with **[Hugo](https://gohugo.io/)** (extended), a fast static-site generator written in Go. Content is authored in Markdown and rendered to static HTML/CSS/JS at build time. Client-side search is provided by **[Pagefind](https://pagefind.app/)**.
 
-Here are the main reasons why this approach felt right:
-
-- It is very easy to maintain. Once the design is done, you simply write in Markdown and you are good to go. It is also easy to modify a theme or have a collection of themes stored in a directory with a bunch of HTML, CSS, JavaScript and image files.
-- It is super quick to deploy anywhere without having any kind of specific server requirements such as PHP, Python, SSL, MySQL, Apache, etc. Everything is static and can be uploaded almost everywhere!
-- It's also quite secure in the end as there is no need to perform updates, no need to authenticate users or deal with a database.
+Required Hugo version is pinned in [`hugo.toml`](./hugo.toml) and via the `HUGO_VERSION` environment variable on Cloudflare Pages. See the [Hugo install docs](https://gohugo.io/installation/) for setup.
 
 The site is deployed to **[Cloudflare Pages](https://pages.cloudflare.com/)**, which automatically builds and publishes on every push to `main`.
 
 ## How to use
 
-```bash
-uv sync
-
-# Or with pip:
-# python -m venv .venv && source ./.venv/bin/activate
-# pip install -r requirements.txt
-```
-
-### Build and develop
+### Develop locally (fast iteration, no search)
 
 ```bash
-# Build the website
-invoke build
-
-# Watch for changes
-invoke livereload
-
-# Build for production (Cloudflare Pages deploys automatically on push)
-invoke publish
+hugo server
 ```
+
+Then open <http://localhost:1313/>. Live-reloads on content changes.
+
+Search is **not** available in this mode: `hugo server` serves from memory and never writes `public/`, so Pagefind has nothing to index. Use the preview command below when search needs to be exercised.
+
+### Preview production build locally (with search)
+
+```bash
+hugo --minify && npx -y pagefind --site public --serve
+```
+
+Then open <http://localhost:1414/>. This produces a full production-like build and serves it via Pagefind's static server, so search works end-to-end. There is no live reload — re-run the command after content changes.
+
+### Production build
+
+```bash
+hugo --minify && npx -y pagefind --site public
+```
+
+The built site is written to `public/`. Cloudflare Pages runs this exact command (build command in dashboard) with output directory `public`.

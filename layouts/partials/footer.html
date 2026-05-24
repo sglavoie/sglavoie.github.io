@@ -1,0 +1,21 @@
+<footer>
+  <hr />
+  <p>
+    Built with
+    <a
+      href="https://gohugo.io/"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Hugo</a
+    >, by {{ .Site.Params.author }}.
+    <a
+      href="https://github.com/sglavoie/sglavoie.github.io/blob/main/LICENSE"
+      >MIT Licensed</a
+    >.
+  </p>
+  <p id="rss-feed">
+    <a href="{{ "/feeds/sglavoie.rss.xml" | absURL }}"
+      >{{ partial "icons/rss.html" . }}
+    </a>
+  </p>
+</footer>

@@ -1,0 +1,48 @@
+# HUGO_VERSION=0.158.0 (extended) — must match Cloudflare Pages build env
+
+baseURL = "https://www.sglavoie.com/"
+languageCode = "en-us"
+title = "sglavoie.com"
+defaultContentLanguage = "en"
+timeZone = "America/Mexico_City"
+enableRobotsTXT = false
+
+[pagination]
+  pagerSize = 5
+
+[params]
+author = "Sébastien Lavoie"
+description = "Posts and writings by Sébastien Lavoie. Customization setups and articles on productivity for developers who like minimalism."
+
+[permalinks]
+  posts = "/posts/:slug/"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.goldmark.parser.attribute]
+    block = false
+    title = false
+  [markup.highlight]
+    noClasses = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+
+[services.rss]
+  limit = -1
+
+[outputFormats.RSS]
+  baseName = "sglavoie.rss"
+  path = "feeds"
+  mediaType = "application/rss+xml"

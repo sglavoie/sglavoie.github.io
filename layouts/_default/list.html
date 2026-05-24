@@ -1,0 +1,12 @@
+{{ define "title" }} &ndash; {{ .Title }}{{ end }}
+
+{{ define "main" }}
+  {{ $paginator := .Paginate .Pages }}
+  {{ range $i, $page := $paginator.Pages }}
+    {{ if $i }}<hr />{{ end }}
+    {{ partial "article-card.html" $page }}
+  {{ end }}
+  <footer>
+    {{ partial "pagination.html" . }}
+  </footer>
+{{ end }}

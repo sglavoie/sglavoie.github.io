@@ -1,0 +1,11 @@
+{{ define "main" }}
+  {{ $pages := where site.RegularPages "Section" "posts" }}
+  {{ $paginator := .Paginate $pages }}
+  {{ range $i, $page := $paginator.Pages }}
+    {{ if $i }}<hr />{{ end }}
+    {{ partial "article-card.html" $page }}
+  {{ end }}
+  <footer>
+    {{ partial "pagination.html" . }}
+  </footer>
+{{ end }}

@@ -1,0 +1,11 @@
+<article>
+  <div>
+    <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+  </div>
+  {{ if .ReadingTime }}
+  <p class="article_readtime">
+    <span class="readtime_tilde">~</span><span class="readtime_minutes">{{ .ReadingTime }}</span> minutes to read
+  </p>
+  {{ end }}
+  <div class="article_text">{{ .Summary }}</div>
+</article>

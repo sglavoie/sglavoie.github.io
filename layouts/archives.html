@@ -1,0 +1,16 @@
+{{ define "title" }} &ndash; Archives{{ end }}
+
+{{ define "main" }}
+<article class="archives">
+  <dl class="sibling-fade">
+    {{ range where site.RegularPages "Section" "posts" }}
+    <div class="archives-article">
+      <dt>{{ .Date.Format "January 2, 2006" }}</dt>
+      <dd>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </dd>
+    </div>
+    {{ end }}
+  </dl>
+</article>
+{{ end }}

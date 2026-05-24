@@ -1,0 +1,90 @@
+# Cloudflare _redirects — first-match wins.
+# Generated for the Pelican → Hugo migration (Session 7).
+
+# --- Vanity URLs (short slugs → external profiles or internal category pages) ---
+/automation     /categories/automation/                                                          301
+/github         https://github.com/sglavoie                                                      301
+/hackerrank     https://www.hackerrank.com/sglavoie                                              301
+/linkedin       https://www.linkedin.com/in/sglavoie/                                            301
+/resume         https://drive.google.com/file/d/1t6GdZjC13naJXVGe6RinGowZLfkRzjy_/view           301
+/stackoverflow  https://stackoverflow.com/users/8787680/s%c3%a9bastien-lavoie                    301
+/tips           /categories/tips-and-tricks/                                                     301
+/tools          /categories/tools/                                                               301
+/twitter        https://twitter.com/sgdlavoie                                                    301
+/workflow       /categories/workflow/                                                            301
+
+# --- Old article URL pattern (/posts/YYYY/MM/DD/<slug>/ → /posts/<slug>/) ---
+/posts/2018/12/23/bash-history-cleaner/                                                    /posts/bash-history-cleaner/                                                    301
+/posts/2019/02/18/binary-to-decimal-decimal-to-binary-converter/                           /posts/binary-to-decimal-decimal-to-binary-converter/                           301
+/posts/2019/03/14/number-of-paths-in-a-grid-or-in-life/                                    /posts/number-of-paths-in-a-grid-or-in-life/                                    301
+/posts/2019/03/21/have-you-been-pwned/                                                     /posts/have-you-been-pwned/                                                     301
+/posts/2019/04/27/exponentiation-in-modular-arithmetic-made-easy/                          /posts/exponentiation-in-modular-arithmetic-made-easy/                          301
+/posts/2021/07/31/convenient-and-lightning-fast-backups-with-rsync/                        /posts/convenient-and-lightning-fast-backups-with-rsync/                        301
+/posts/2021/12/19/using-google-sheets-as-a-database-to-extract-data-converted-to-markdown/ /posts/using-google-sheets-as-a-database-to-extract-data-converted-to-markdown/ 301
+/posts/2021/11/08/book-summary-letters-to-a-new-developer/                                 /posts/book-summary-letters-to-a-new-developer/                                 301
+/posts/2022/09/18/a-retrospective-on-creating-an-impractical-little-tool-just-for-fun/     /posts/a-retrospective-on-creating-an-impractical-little-tool-just-for-fun/     301
+/posts/2022/06/18/what-it-took-to-propel-a-career-in-tech-in-five-years/                   /posts/what-it-took-to-propel-a-career-in-tech-in-five-years/                   301
+/posts/2022/10/14/building-the-next-Facebook-in-a-couple-of-weeks-as-a-humble-experiment/  /posts/building-the-next-Facebook-in-a-couple-of-weeks-as-a-humble-experiment/  301
+/posts/2023/03/04/reviewing-the-process-of-building-a-first-React-Native-application/      /posts/reviewing-the-process-of-building-a-first-React-Native-application/      301
+/posts/2023/04/16/book-summary-the-effective-engineer/                                     /posts/book-summary-the-effective-engineer/                                     301
+/posts/2023/06/11/book-summary-effective-java/                                             /posts/book-summary-effective-java/                                             301
+/posts/2023/07/30/building-task-planner-react-native/                                      /posts/building-task-planner-react-native/                                      301
+/posts/2023/09/09/book-summary-refactoring-ui/                                             /posts/book-summary-refactoring-ui/                                             301
+/posts/2023/10/20/book-summary-learning-go-idiomatic-approach-real-world-go-programming/   /posts/book-summary-learning-go-idiomatic-approach-real-world-go-programming/   301
+/posts/2024/03/09/book-summary-dive-into-design-patterns/                                  /posts/book-summary-dive-into-design-patterns/                                  301
+/posts/2024/08/24/book-summary-100-go-mistakes-and-how-to-avoid-them/                      /posts/book-summary-100-go-mistakes-and-how-to-avoid-them/                      301
+/posts/2025/03/30/book-summary-philosophy-software-design-2nd-edition/                     /posts/book-summary-philosophy-software-design-2nd-edition/                     301
+/posts/2018/12/08/aliases-also-known-as-terminal-users-best-friends/                       /posts/aliases-also-known-as-terminal-users-best-friends/                       301
+/posts/2019/01/16/using-embedded-terminals-inside-neovim/                                  /posts/using-embedded-terminals-inside-neovim/                                  301
+/posts/2019/03/08/executing-shell-commands-in-a-python-script/                             /posts/executing-shell-commands-in-a-python-script/                             301
+/posts/2019/04/03/dispose-of-spam-with-disposable-emails-and-more/                         /posts/dispose-of-spam-with-disposable-emails-and-more/                         301
+/posts/2019/04/19/tag-navigation-in-vim/                                                   /posts/tag-navigation-in-vim/                                                   301
+/posts/2019/11/10/using-dmenu-to-optimize-common-tasks/                                    /posts/using-dmenu-to-optimize-common-tasks/                                    301
+/posts/2019/11/30/ignoring-sync-of-local-files-to-dropbox-on-linux/                        /posts/ignoring-sync-of-local-files-to-dropbox-on-linux/                        301
+/posts/2023/01/02/git-worktrees-for-a-better-parallel-workflow/                            /posts/git-worktrees-for-a-better-parallel-workflow/                            301
+/posts/2019/02/11/surfing-with-qutebrowser-a-keyboard-driven-web-browser/                  /posts/surfing-with-qutebrowser-a-keyboard-driven-web-browser/                  301
+/posts/2019/05/12/suckless-minimalist-tools-that-work-great/                               /posts/suckless-minimalist-tools-that-work-great/                               301
+/posts/2020/04/05/tip-the-scales-in-times-of-instability-with-the-rock-solid-debian/       /posts/tip-the-scales-in-times-of-instability-with-the-rock-solid-debian/       301
+/posts/2020/06/06/my-current-set-of-tools-and-customizations/                              /posts/my-current-set-of-tools-and-customizations/                              301
+/posts/2020/08/15/a-guided-tour-of-an-i3-configuration/                                    /posts/a-guided-tour-of-an-i3-configuration/                                    301
+/posts/2022/11/19/uncovering-some-of-the-merits-of-text-based-diagrams/                    /posts/uncovering-some-of-the-merits-of-text-based-diagrams/                    301
+/posts/2023/10/01/first-steps-with-rxjs/                                                   /posts/first-steps-with-rxjs/                                                   301
+/posts/2018/11/19/tmux-integration-with-vim-neovim-first-steps/                            /posts/tmux-integration-with-vim-neovim-first-steps/                            301
+/posts/2018/12/03/using-vimwiki-for-note-taking/                                           /posts/using-vimwiki-for-note-taking/                                           301
+/posts/2019/01/08/using-i3-as-a-window-manager-for-increased-productivity/                 /posts/using-i3-as-a-window-manager-for-increased-productivity/                 301
+/posts/2019/05/24/fzf-a-fuzzy-finder-to-accomplish-anything/                               /posts/fzf-a-fuzzy-finder-to-accomplish-anything/                               301
+/posts/2019/07/13/black-a-python-formatter-to-brighten-your-workflow/                      /posts/black-a-python-formatter-to-brighten-your-workflow/                      301
+/posts/2020/10/03/setting-up-ssh-and-git-for-multiple-accounts/                            /posts/setting-up-ssh-and-git-for-multiple-accounts/                            301
+/posts/2021/05/30/managing-dotfiles-with-git-bare-repository/                              /posts/managing-dotfiles-with-git-bare-repository/                              301
+/posts/2021/09/19/managing-multiple-tmux-sessions-at-once/                                 /posts/managing-multiple-tmux-sessions-at-once/                                 301
+/posts/2022/04/03/git-the-gist-of-it-common-commands-for-a-working-workflow/               /posts/git-the-gist-of-it-common-commands-for-a-working-workflow/               301
+/posts/2023/05/14/systematic-reviews/                                                      /posts/systematic-reviews/                                                      301
+
+# --- Old Pelican category pages (/category/<slug>.html → /categories/<slug>/) ---
+/category/automation.html       /categories/automation/        301
+/category/learnings.html        /categories/learnings/         301
+/category/tips-and-tricks.html  /categories/tips-and-tricks/   301
+/category/tools.html            /categories/tools/             301
+/category/workflow.html         /categories/workflow/          301
+
+# --- Old Atom feed → global RSS ---
+/feeds/sglavoie.atom.xml  /feeds/sglavoie.rss.xml  301
+
+# --- Old per-category feeds → global RSS (per-category feeds dropped) ---
+/feeds/automation.rss.xml       /feeds/sglavoie.rss.xml  301
+/feeds/automation.atom.xml      /feeds/sglavoie.rss.xml  301
+/feeds/learnings.rss.xml        /feeds/sglavoie.rss.xml  301
+/feeds/learnings.atom.xml       /feeds/sglavoie.rss.xml  301
+/feeds/tips-and-tricks.rss.xml  /feeds/sglavoie.rss.xml  301
+/feeds/tips-and-tricks.atom.xml /feeds/sglavoie.rss.xml  301
+/feeds/tools.rss.xml            /feeds/sglavoie.rss.xml  301
+/feeds/tools.atom.xml           /feeds/sglavoie.rss.xml  301
+/feeds/workflow.rss.xml         /feeds/sglavoie.rss.xml  301
+/feeds/workflow.atom.xml        /feeds/sglavoie.rss.xml  301
+
+# --- Pages with custom Pelican URL/save_as (Pelican `*.html` → Hugo `/<slug>/`) ---
+/contact.html                        /contact/                           301
+/learning-progress-2018-earlier.html /learning-progress-2018-earlier/    301
+/learning-progress-2019.html         /learning-progress-2019/            301
+/learning-progress-2020.html         /learning-progress-2020/            301
+/learning-progress-2021.html         /learning-progress-2021/            301

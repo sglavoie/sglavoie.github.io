@@ -1,0 +1,33 @@
+{{- /*
+  Tag cloud partial: replaces pelican-tag-cloud.
+  - 8 size buckets (tag-1 = largest, tag-8 = smallest), matching styles.css:1058-1081
+  - Random order each build (shuffle)
+  - Capped at 100 items
+  - Emits markup matching theme/templates/tags.html
+*/ -}}
+{{- $taxonomy := .Site.Taxonomies.tags -}}
+{{- if $taxonomy -}}
+  {{- $steps := 8 -}}
+  {{- $maxItems := 100 -}}
+  {{- $tags := $taxonomy.ByCount -}}
+  {{- if gt (len $tags) $maxItems -}}
+    {{- $tags = first $maxItems $tags -}}
+  {{- end -}}
+  {{- if gt (len $tags) 0 -}}
+    {{- $max := (index $tags 0).Count -}}
+    {{- $min := (index $tags (sub (len $tags) 1)).Count -}}
+    {{- $spread := sub $max $min -}}
+    <ul class="tagcloud sibling-fade">
+    {{- range shuffle $tags }}
+      {{- $bucket := 1 -}}
+      {{- if gt $spread 0 -}}
+        {{- $normalized := div (mul (sub $max .Count) 1.0) $spread -}}
+        {{- $bucket = add 1 (int (math.Floor (mul $normalized (sub $steps 1)))) -}}
+      {{- end -}}
+      {{- if gt $bucket $steps -}}{{- $bucket = $steps -}}{{- end -}}
+      {{- if lt $bucket 1 -}}{{- $bucket = 1 -}}{{- end -}}
+      <li class="tag-{{ $bucket }}"><a href="{{ .Page.RelPermalink }}"><span>{{ .Page.Title }}</span></a><span class="badge">{{ .Count }}</span></li>
+    {{- end }}
+    </ul>
+  {{- end -}}
+{{- end -}}

@@ -1,0 +1,36 @@
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\"?>" | safeHTML }}
+{{- $pages := where .Site.RegularPages "Section" "posts" -}}
+{{- $limit := .Site.Config.Services.RSS.Limit -}}
+{{- if and (gt $limit 0) (gt (len $pages) $limit) -}}
+  {{- $pages = first $limit $pages -}}
+{{- end -}}
+{{- $author := site.Params.author | default "" -}}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>{{ site.Title }}</title>
+    <link>{{ site.BaseURL }}</link>
+    <description>{{ site.Params.description }}</description>
+    <atom:link href="{{ with .OutputFormats.Get "rss" }}{{ .Permalink }}{{ end }}" rel="self" type="application/rss+xml" />
+    {{- with (index $pages 0) }}
+    <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
+    {{- end }}
+    {{- range $pages }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <description>{{ .Summary | transform.XMLEscape | safeHTML }}</description>
+      {{- if $author }}
+      <dc:creator>{{ $author }}</dc:creator>
+      {{- end }}
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+      <guid isPermaLink="false">{{ .Permalink }}</guid>
+      {{- with .Params.categories }}{{- range . }}
+      <category>{{ . }}</category>
+      {{- end }}{{- end }}
+      {{- with .Params.tags }}{{- range . }}
+      <category>{{ . }}</category>
+      {{- end }}{{- end }}
+    </item>
+    {{- end }}
+  </channel>
+</rss>

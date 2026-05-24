@@ -1,0 +1,18 @@
+<aside id="sidebar">
+  <a id="websiteLogo" href="{{ "/" | relURL }}">
+    {{ partial "icons/logo.html" . }}
+  </a>
+
+  <nav id="navCategories">
+    <ul>
+      {{ range .Site.Taxonomies.categories.Alphabetical }}
+      <li>
+        <a href="{{ .Page.RelPermalink }}"
+          >{{ .Page.Title }}
+          {{ partial "icons/sidebar-category.html" . }}
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </nav>
+</aside>
