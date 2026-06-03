@@ -524,7 +524,12 @@ main article h6 {
   -webkit-text-fill-color: transparent;
 }
 
-main article h1 a {
+main article h1 a,
+main article h2 a,
+main article h3 a,
+main article h4 a,
+main article h5 a,
+main article h6 a {
   text-shadow: none;
 }
 
