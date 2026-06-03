@@ -4,6 +4,7 @@ date: "2025-03-30T11:18:00"
 slug: book-summary-philosophy-software-design-2nd-edition
 author: Sébastien Lavoie
 summary: "_A Philosophy of Software Design, 2nd Edition_ by [John Osterhout](https://en.wikipedia.org/wiki/John_Ousterhout) beautifully covers the nature of complexity in software. It provides clear strategies to keep complexity as low as possible while giving real-world examples along the way from his own work (e.g., [RAMCloud](https://ramcloud.atlassian.net/wiki/spaces/RAM/overview) or the [Tcl](https://en.wikipedia.org/wiki/Tcl) programming language). He also gathered, for instance, interesting sources of various designs for a GUI text editor from his students, highlighting essential points to keep in mind while designing software."
+description: Reading notes from A Philosophy of Software Design, 2nd Edition, focused on reducing complexity, designing deeper modules, and writing clearer software.
 tags:
   - books
   - design
@@ -13,7 +14,6 @@ categories:
   - learnings
 skim_notes: true
 ---
-[TOC]
 
 ---
 
@@ -198,7 +198,7 @@ skim_notes: true
     - _"When redesigning for performance, try to minimize the number of special cases you must check."_
 - _"Complicated code tends to be slow because it does extraneous or redundant work."_
 
-# Decide what matters
+## Decide what matters
 
 - Minimize what matters
 - How to emphasize things that matter
@@ -212,6 +212,6 @@ skim_notes: true
     - _"the best way to make a document easy to read is to identify a few key concepts at the beginning and structure the remainder of the document around them. When discussing the details of a system, it helps to tie them back to the overall concepts."_
     - _"Focusing on what is important is also a great life philosophy: identify a few things that matter most to you, and try to spend as much of your energy as possible on those things."_
 
-# Conclusion
+## Conclusion
 
 - _"The reward for being a good designer is that you get to spend a larger fraction of your time in the design phase, which is fun. Poor designers spend most of their time chasing bugs in complicated and brittle code."_

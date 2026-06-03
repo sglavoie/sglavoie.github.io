@@ -6,6 +6,7 @@ slug: number-of-paths-in-a-grid-or-in-life
 author: Sébastien Lavoie
 summary: "Finding one's way in life is not easy because there are so many paths we can take at any moment. Here is a way to look at it mathematically!"
 description: "Finding one's way in life is not easy because there are so many paths we can take at any moment. Here is a way to look at it mathematically!"
+image: /images/posts/0010_number-of-paths-in-a-grid/3x3_grid_paths_demo.png
 tags:
   - computer science
   - mathematics
@@ -14,11 +15,10 @@ tags:
 categories:
   - automation
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 How would you go about determining the number of possible paths in a
 grid of size _n_ if your initial position is at the top left corner and
@@ -30,7 +30,7 @@ right or down at each move? Let's look at a grid of size `3 × 3`:
 Even at such a small size, one needs some concentration. Sure, it can be
 done on paper, but there must be a better way...
 
-# Python to the rescue
+## Python to the rescue
 
 Once again, programming comes in handy! Life is complicated, but there
 are aspects of it that can be solved more easily than previously
@@ -135,7 +135,7 @@ correspond to each possible move, starting from the destination and
 reverse engineering the number of possibilities until we get to the
 starting point.
 
-# Conclusion
+## Conclusion
 
 As it turns out, this strategy of reverse engineering things works
 pretty well when applied to real-life examples. When setting a goal,

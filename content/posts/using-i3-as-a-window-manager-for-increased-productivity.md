@@ -6,6 +6,7 @@ slug: using-i3-as-a-window-manager-for-increased-productivity
 author: Sébastien Lavoie
 summary: "I was striving to improve my productivity as one of my New Year's resolutions and finally found the courage to take the time to try out i3, a fantastic window manager."
 description: "I was striving to improve my productivity as one of my New Year's resolutions and finally found the courage to take the time to try out i3, a fantastic window manager."
+image: /images/posts/0005_using-i3-as-window-manager-for-increased-productivity/i3-example.png
 tags:
   - i3
   - linux
@@ -14,7 +15,6 @@ tags:
 categories:
   - workflow
 ---
-[TOC]
 
 ---
 

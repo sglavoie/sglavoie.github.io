@@ -6,6 +6,7 @@ slug: tip-the-scales-in-times-of-instability-with-the-rock-solid-debian
 author: Sébastien Lavoie
 summary: "Desperate times call for the best Linux experience possible... And in my experience so far, the [Debian](https://www.debian.org/) distribution with the [Xfce desktop environment](https://www.xfce.org/) or with the even lighter alternative [i3 tiling window manager](https://i3wm.org/) makes for a very smooth ride."
 description: Desperate times call for the best Linux experience possible... And in my experience so far, the Debian distribution with the Xfce desktop environment or the even lighter alternative i3 tiling window manager makes for a very smooth ride.
+image: /images/posts/0020_stable_system_debian/debian_i3.png
 tags:
   - debian
   - i3
@@ -15,11 +16,10 @@ tags:
 categories:
   - tools
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 I'm familiar with Linux distribution hopping, having tried out many options over the years, starting around the time Mandrake 9.2 was popular back in 2003, then switching to a few others including Ubuntu, KNOPPIX, Fedora, Xubuntu, openSUSE, Kubuntu, Mint, Manjaro, Mandriva... And of course Debian along the way, which undoubtedly used to be relatively harder to get started with.
 
@@ -29,7 +29,7 @@ I haven't tried everything that's out there (XMonad being one such _esoteric_ po
 
 ---
 
-# Why Debian?
+## Why Debian?
 
 ## Stability and Reliability
 
@@ -111,7 +111,7 @@ Because no company backs Debian directly, it relies on a community effort to kee
 
 ---
 
-# Resources to Get Started
+## Resources to Get Started
 
 - [Debian Documentation](https://www.debian.org/doc/)
 - [Debian User Forums](http://forums.debian.net/)
@@ -123,6 +123,6 @@ Because no company backs Debian directly, it relies on a community effort to kee
 
 ---
 
-# Conclusion
+## Conclusion
 
 After trying many different Linux distributions and desktop environments, I keep coming back to what satisfies me best in the end: stability and usability. Debian feels a bit old, but at the same time one knows it delivers on what it promises. The same can be said for Xfce and i3. This is also what makes them such a good combo: despite not being cutting edge in the realm of features, there's no way it could break as easily as KDE or GNOME, particularly on less stable distributions. There are still a few rough edges when it comes to customizing both Xfce and i3 in my opinion, but when looking for something that just works and will keep doing so, Debian is hard to beat.

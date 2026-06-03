@@ -5,6 +5,7 @@ slug: first-steps-with-rxjs
 author: Sébastien Lavoie
 summary: "An introduction to [RxJS](https://rxjs.dev/), a library for reactive programming in JavaScript/TypeScript. We'll cover core concepts like observables, operators, testing, and tips for managing asynchronous data flows."
 description: "An introduction to RxJS, a library for reactive programming in JavaScript/TypeScript. We'll cover core concepts like observables, operators, testing, and tips for managing asynchronous data flows."
+image: /images/posts/0041_first_steps_with_rxjs/marble_diagram.svg
 tags:
   - functional-programming
   - reactive-programming
@@ -13,11 +14,10 @@ tags:
 categories:
   - tools
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 While building an [Excel add-in](https://learn.microsoft.com/en-us/office/dev/add-ins/excel/?view=excel-js-preview), I came across the need for a more reactive style of programming due to the asynchronous nature of the APIs and the unpredictability of some events occurring in the spreadsheet. RxJS is one of those frameworks that can help with that. It's a library for composing asynchronous and event-based programs by using observable sequences. It provides a set of operators to transform and combine streams of data. It's a powerful tool that can be used to manage complex flows of data in a declarative fashion. It's also a bit of a beast to learn, so I thought I'd share some of my notes and learnings along the way.
 
@@ -25,7 +25,7 @@ We'll first go over some basic concepts and terminology, move on to an attempt a
 
 ---
 
-# Basic concepts
+## Basic concepts
 
 - This is a push-based approach as opposed to a more common pull-based approach.
 - The **Observer** design pattern is implemented.
@@ -118,7 +118,7 @@ My representation of the world may be flawed as I haven't gone out much since th
 
 ---
 
-# Operators
+## Operators
 
 - Operators allow to hook into a stream, operate on it and even combine it with other streams.
 
@@ -292,7 +292,7 @@ of(1, 2, 3, 4, 5)
 
 ---
 
-# Marble diagrams
+## Marble diagrams
 
 <div class="image">
 <img src="/images/posts/0041_first_steps_with_rxjs/marble_diagram.svg" alt="Showing a basic marble diagram with filter operator" />
@@ -310,7 +310,7 @@ of(1, 2, 3, 4, 5)
 
 ---
 
-# Subjects
+## Subjects
 
 - A **Subject** is an **Observable**: it has both `pipe` and `subscribe` methods. A Subject is also an **Observer**: it has `next`, `error` and `complete` methods. Unlike Observables which are unicast (1-to-1 mapping with observers, each observer gets an independent stream of data), Subjects are **multicast**, meaning they broadcast the same information to any "listeners" (observers).
 - Multicasting operators include `share`, `shareReplay` and `multicast`.
@@ -379,7 +379,7 @@ The implementation details of the `sheetSubscriptions` map are omitted here, but
 
 ---
 
-# Schedulers
+## Schedulers
 
 - All schedulers accept three arguments: `work` (task to execute), `delay` (in milliseconds) and `state` (when used, the first argument `work` defines the function to execute and `state` the data passed to it).
 - Most basic observables (e.g., `range`) accept as the last argument a scheduler, so this can be set there (e.g., `range(1, 5, asapScheduler)`).
@@ -397,7 +397,7 @@ While it's possible to use schedulers directly to provide fine-grained control o
 
 ---
 
-# Example flow
+## Example flow
 
 ```typescript
 import {
@@ -706,7 +706,7 @@ notifier$.next(); // unsubscribe from the observable and delete the table
 
 ---
 
-# Reactive testing
+## Reactive testing
 
 **Reactive testing** is a way to test observables. It can be done with marble diagrams or by subscribing and asserting values. While it's more difficult to wrap one's head around marble diagrams, they are more accurate and can be used to test timing. Subscribing and asserting values is easier to understand but requires more boilerplate and is less accurate.
 
@@ -776,7 +776,7 @@ describe('testing with subscribe and assert pattern', () => {
 
 ---
 
-# Tips and tricks
+## Tips and tricks
 
 - Using `finalize` to execute side effects on completion.
     - Do not put side effects to run inside the `complete` function as it is not called when manually unsubscribing or when an error occurs.
@@ -793,7 +793,7 @@ describe('testing with subscribe and assert pattern', () => {
 
 ---
 
-# Conclusion
+## Conclusion
 
 RxJS is a powerful yet complex toolkit for managing asynchronous data flows. While the learning curve can be steep, the benefits are significant for reactive web apps and complex logic with many asynchronous operations. With practice, RxJS makes it possible to write declarative code that reacts to real-time data updates. By modeling everything as streams of data and applying transformations, RxJS helps tackle challenging programming tasks in a maintainable way. While it takes effort to master, reactive programming with RxJS might just be an essential skill for modern JavaScript/TypeScript developers working on reactive web applications!
 

@@ -5,6 +5,7 @@ slug: tmux-integration-with-vim-neovim-first-steps
 author: Sébastien Lavoie
 summary: This is a short introduction that shows a possible workflow with tmux and Vim/Neovim.
 description: This is a short introduction that shows a possible workflow with tmux and Vim/Neovim.
+image: /images/posts/0001_tmux-integration-with-vim/tmux-demo.gif
 tags:
   - neovim
   - terminal
@@ -13,7 +14,6 @@ tags:
 categories:
   - workflow
 ---
-[TOC]
 
 ---
 
@@ -129,7 +129,7 @@ alias adev='tmux attach-session -t dev'
 ### tmux demo
 
 (click to open image)
-<a href="/images/posts/0001_tmux-integration-with-vim/tmux-demo.gif"><img src="/images/posts/0001_tmux-integration-with-vim/tmux-demo.gif" alt="tmux-demo" class="max-size-img-post"></a>
+<a href="/images/posts/0001_tmux-integration-with-vim/tmux-demo.gif"><img src="/images/posts/0001_tmux-integration-with-vim/tmux-demo.gif" alt="Animated tmux and Vim integration demo" class="max-size-img-post" width="1366" height="768" loading="lazy" decoding="async"></a>
 
 ---
 

@@ -5,6 +5,7 @@ slug: building-task-planner-react-native
 author: Sébastien Lavoie
 summary: "After having [built a somewhat original habit tracker](/posts/reviewing-the-process-of-building-a-first-React-Native-application/), I was keen on coming up with a solution to a much more common problem: task management. This is the story of how I built a task planner with React Native, explored from an academic perspective first and foremost."
 description: "After having built a somewhat original habit tracker, I was keen on coming up with a solution to a much more common problem: task management. This is the story of how I built a task planner with React Native, explored from an academic perspective first and foremost."
+image: /images/posts/0039_productivido/focus.png
 tags:
   - bsc
   - lessons
@@ -13,11 +14,10 @@ tags:
 categories:
   - learnings
 ---
-[TOC]
 
 ---
 
-# Preamble
+## Preamble
 
 For my last assignment in a [BSc in Computer Science at the University of London](https://www.london.ac.uk/courses/computer-science), I decided to get involved in the world of task management to tackle one of the most common challenges usually offered to programmers, but with a twist based on scientific evidence. The result ended up being a cross-platform mobile application built with React Native, named ProductiviDo. Due to intellectual property concerns, I will not be able to share the source code of the application, but I hope you will nonetheless find joy in reading about the process of building it through the lens of the report I submitted for the assignment. For a complete list of references and appendices in context, please refer to [the original report](/files/posts/0039_productivido/productivido.pdf).
 
@@ -25,14 +25,19 @@ For my last assignment in a [BSc in Computer Science at the University of London
 
 ---
 
-# 1 Introduction
+## 1 Introduction
 
 The world needs a new kind of task manager, just like **ProductiviDo**, which comes to life through the "_task manager mobile app_" template provided for the Mobile Development module taught at Goldsmiths, University of London.
 
 ## 1.1 Inspiration: the main contenders
 
 <figure>
-    <a href="/images/posts/0039_productivido/inspiration.png"><img src="/images/posts/0039_productivido/inspiration.png" alt="inpiration main contenders" class="max-size-img-post"></a>
+    <a href="/images/posts/0039_productivido/inspiration.png">
+        <picture>
+            <source srcset="/images/posts/0039_productivido/inspiration.webp" type="image/webp">
+            <img src="/images/posts/0039_productivido/inspiration.png" alt="Overview of the main task-management apps that inspired ProductiviDo" class="max-size-img-post" width="3377" height="1202" loading="lazy" decoding="async">
+        </picture>
+    </a>
     <figcaption>Inspiration.</figcaption>
 </figure>
 
@@ -64,7 +69,12 @@ Finally, **Asana** shines mostly within a team setting and mainly works with the
 ## 1.2 Drawbacks of existing solutions
 
 <figure>
-    <a href="/images/posts/0039_productivido/drawbacks.png"><img src="/images/posts/0039_productivido/drawbacks.png" alt="drawbacks main contenders" class="max-size-img-post"></a>
+    <a href="/images/posts/0039_productivido/drawbacks.png">
+        <picture>
+            <source srcset="/images/posts/0039_productivido/drawbacks.webp" type="image/webp">
+            <img src="/images/posts/0039_productivido/drawbacks.png" alt="Comparison chart summarizing the main drawbacks of competing task-management apps" class="max-size-img-post" width="3377" height="1202" loading="lazy" decoding="async">
+        </picture>
+    </a>
     <figcaption>Drawbacks.</figcaption>
 </figure>
 
@@ -90,7 +100,7 @@ The application will benefit users by providing a built-in planning system that 
 
 ---
 
-# 2 Literature review
+## 2 Literature review
 
 ## 2.1 Previous work
 
@@ -183,7 +193,7 @@ At this point, a working list of tasks exists to **"Focus"** and a backlog of wo
 
 ---
 
-# 3 Design
+## 3 Design
 
 ## 3.1 Domain and target audience
 
@@ -214,7 +224,12 @@ Principles of Design" inform how the application has been thought out, markedly:
 It is noteworthy that calendar integration will be optional and that the application will remain fully functional without relying on external calendars for maximum convenience, especially while users are offline. Even though this work underlined the usefulness of calendars when used as companions for task managers, one of the primary goals of a task manager is to be available at all times regardless of internet connectivity so that users can access their list of priorities and get work done: requiring an active connection and access to a calendar via sign-on before being able to do any work would break the principle of least astonishment in this type of application.
 
 <figure>
-    <a href="/images/posts/0039_productivido/prioritize-wireframes.png"><img src="/images/posts/0039_productivido/prioritize-wireframes.png" alt="Some of the original wireframes for the Prioritize screen" class="max-size-img-post"></a>
+    <a href="/images/posts/0039_productivido/prioritize-wireframes.png">
+        <picture>
+            <source srcset="/images/posts/0039_productivido/prioritize-wireframes.webp" type="image/webp">
+            <img src="/images/posts/0039_productivido/prioritize-wireframes.png" alt="Some of the original wireframes for the Prioritize screen" class="max-size-img-post" width="6193" height="4383" loading="lazy" decoding="async">
+        </picture>
+    </a>
     <figcaption>Some of the original wireframes for the <strong>Prioritize</strong> screen.</figcaption>
 </figure>
 
@@ -292,7 +307,12 @@ On the backend side, the application will make use mainly of the following servi
 - `SQLite`: It will be used to implement the database system locally and will be backed up to the cloud.
 
 <figure>
-    <a href="/images/posts/0039_productivido/db_schema.png"><img src="/images/posts/0039_productivido/db_schema.png" alt="Showing the database design behind ProductiviDo." class="max-size-img-post"></a>
+    <a href="/images/posts/0039_productivido/db_schema.png">
+        <picture>
+            <source srcset="/images/posts/0039_productivido/db_schema.webp" type="image/webp">
+            <img src="/images/posts/0039_productivido/db_schema.png" alt="Database schema behind ProductiviDo" class="max-size-img-post" width="2824" height="1196" loading="lazy" decoding="async">
+        </picture>
+    </a>
     <figcaption>Showing the database design behind ProductiviDo.</figcaption>
 </figure>
 
@@ -317,7 +337,7 @@ The project will be tested primarily using the following methods:
 
 ---
 
-# 4 Implementation
+## 4 Implementation
 
 ## 4.1 Overview
 
@@ -383,7 +403,7 @@ Beyond the libraries mentioned in section 3.4, the actual implementation of the 
 
 ---
 
-# 5 Evaluation: results and discussion
+## 5 Evaluation: results and discussion
 
 ## 5.1 Successes
 
@@ -419,7 +439,7 @@ Besides the issues already raised in this section, there are a few other feature
 
 ---
 
-# 6 Conclusion
+## 6 Conclusion
 
 ## 6.1 Salient takeaways
 
@@ -439,7 +459,7 @@ Recent reports have shown that job creation and entrepreneurship is at its highe
 
 ---
 
-# Demo of the app
+## Demo of the app
 
 <div class="youtube youtube-16x9">
 <iframe src="https://www.youtube.com/embed/l_5JRL1UDzY" allowfullscreen seamless frameBorder="0"></iframe>

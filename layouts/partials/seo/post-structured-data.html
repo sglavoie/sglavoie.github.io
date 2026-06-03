@@ -1,0 +1,70 @@
+{{- if and .IsPage (eq .Section "posts") -}}
+  {{- $meta := partial "seo/page-meta.html" . -}}
+  {{- $modifiedAt := .Date -}}
+  {{- if not .Lastmod.IsZero -}}
+    {{- $modifiedAt = .Lastmod -}}
+  {{- end -}}
+
+  {{- $schema := dict
+    "@context" "https://schema.org"
+    "@type" "BlogPosting"
+    "@id" (printf "%s#blogposting" $meta.url)
+    "mainEntityOfPage" (dict "@type" "WebPage" "@id" $meta.url)
+    "headline" $meta.title
+    "description" $meta.description
+    "url" $meta.url
+    "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
+    "dateModified" ($modifiedAt.Format "2006-01-02T15:04:05Z07:00")
+  -}}
+
+  {{- if ne $meta.author "" -}}
+    {{- $author := dict
+      "@type" "Person"
+      "name" $meta.author
+    -}}
+    {{- if eq $meta.author $meta.siteAuthor -}}
+      {{- $author = merge $author (dict "url" $meta.homeURL) -}}
+    {{- end -}}
+    {{- $schema = merge $schema (dict "author" $author) -}}
+  {{- end -}}
+
+  {{- if ne $meta.siteAuthor "" -}}
+    {{- $schema = merge $schema (dict "publisher" (dict
+      "@type" "Person"
+      "name" $meta.siteAuthor
+      "url" $meta.homeURL
+    )) -}}
+  {{- end -}}
+
+  {{- $categories := slice -}}
+  {{- with .Params.categories -}}
+    {{- range . -}}
+      {{- $category := . | plainify | htmlUnescape | replaceRE "\\s+" " " | strings.TrimSpace -}}
+      {{- if ne $category "" -}}
+        {{- $categories = $categories | append $category -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if gt (len $categories) 0 -}}
+    {{- $schema = merge $schema (dict "articleSection" (delimit $categories ", ")) -}}
+  {{- end -}}
+
+  {{- $tags := slice -}}
+  {{- with .Params.tags -}}
+    {{- range . -}}
+      {{- $tag := . | plainify | htmlUnescape | replaceRE "\\s+" " " | strings.TrimSpace -}}
+      {{- if ne $tag "" -}}
+        {{- $tags = $tags | append $tag -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if gt (len $tags) 0 -}}
+    {{- $schema = merge $schema (dict "keywords" (delimit $tags ", ")) -}}
+  {{- end -}}
+
+  {{- if ne $meta.contentImage "" -}}
+    {{- $schema = merge $schema (dict "image" (slice $meta.contentImage)) -}}
+  {{- end -}}
+
+  <script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
+{{- end -}}

@@ -6,6 +6,7 @@ slug: using-google-sheets-as-a-database-to-extract-data-converted-to-markdown
 author: Sébastien Lavoie
 summary: "Using Google Sheets API, this little tool reads a spreadsheet, extract relevant data and converts it into Markdown so it can be repurposed, in the example given in this article to generate an HTML output for this website with [Pelican](https://docs.getpelican.com/), a powerful static site generator."
 description: Using Google Sheets API, this little tool reads a spreadsheet, extract relevant data and converts it into Markdown so it can be repurposed, in the example given to generate an HTML output for this website with Pelican, a powerful static site generator.
+image: /images/posts/0028_google_sheets_as_database_output_markdown/input_output.png
 tags:
   - google sheets
   - markdown
@@ -14,11 +15,10 @@ tags:
 categories:
   - automation
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 The purpose of this tool is to parse and convert the content of a Google Sheets spreadsheet to Markdown. In this specific case, I just wanted a simple script to reduce the friction in getting a valid output I could use to maintain a ["learning log" on my website]({{< ref "/posts/what-it-took-to-propel-a-career-in-tech-in-five-years" >}}). So that gives me a quick way to input data in a spreadsheet and then I can take the time whenever needed to update the learning progress as desired by reformatting any of the entries and optionally adding notes to them.
 
@@ -103,7 +103,12 @@ A Markdown output to the terminal in the following format:
 ```
 
 <figure>
-    <a href="/images/posts/0028_google_sheets_as_database_output_markdown/input_output.png"><img src="/images/posts/0028_google_sheets_as_database_output_markdown/input_output.png" alt="input_output_example" class="max-size-img-post"></a>
+    <a href="/images/posts/0028_google_sheets_as_database_output_markdown/input_output.png">
+        <picture>
+            <source srcset="/images/posts/0028_google_sheets_as_database_output_markdown/input_output.webp" type="image/webp">
+            <img src="/images/posts/0028_google_sheets_as_database_output_markdown/input_output.png" alt="Sample learning log input converted into markdown output" class="max-size-img-post" width="1915" height="941" loading="lazy" decoding="async">
+        </picture>
+    </a>
     <figcaption>Input/Output example when using this tool.</figcaption>
 </figure>
 
@@ -155,6 +160,6 @@ This will output the converted data from the spreadsheet to Markdown [as shown a
 
 ---
 
-# Conclusion
+## Conclusion
 
 This little tool scratched an itch and will be helpful in making the process of updating the [learning progress]({{< ref "/posts/what-it-took-to-propel-a-career-in-tech-in-five-years" >}}) of this website more straightforward, more convenient and less hands-on! You can find its source code [on GitHub](https://github.com/sglavoie/dev-helpers/tree/main/learning-logs-to-markdown).

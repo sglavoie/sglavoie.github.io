@@ -5,6 +5,7 @@ slug: using-embedded-terminals-inside-neovim
 author: Sébastien Lavoie
 summary: Because every pixel counts, this neat trick will allow to use terminals inside Neovim and maximize the screen estate for a flawless integration with one of the best text editor available.
 description: Because every pixel counts, this neat trick will allow to use terminals inside Neovim and maximize the screen estate for a flawless integration with one of the best text editor available.
+image: /images/posts/0006_using-embedded-terminals-inside-neovim/terminal_buffers.png
 tags:
   - neovim
   - productivity
@@ -12,7 +13,6 @@ tags:
 categories:
   - tips-and-tricks
 ---
-[TOC]
 
 ---
 

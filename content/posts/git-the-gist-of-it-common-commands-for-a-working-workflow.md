@@ -13,11 +13,10 @@ tags:
 categories:
   - workflow
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 Git, the friend you wish you had met earlier, when organizing files like `report 1.pdf`, `report 2.pdf` and `report final 1.pdf` still made sense somehow. It's undoubtedly complicated to wrap one's head around it at first, although there exist some GUIs to make the journey smoother – the best examples that come to mind would include [GitKraken](https://www.gitkraken.com/) and [Tower](https://www.git-tower.com/) at the top of the list. I have been advised to learn to use Git from the terminal and I would, without flinching, recommend anyone to do the same to really grok this tool and get an intuitive feel for what it does.
 
@@ -31,7 +30,7 @@ So with that said, let's explore some of its functionality, starting with a few 
 
 ---
 
-# Global and local `.gitignore`
+## Global and local `.gitignore`
 
 There are files we never care about adding to Git repositories, such as a thumbnail cache file `Thumbs.db` on Windows or a `.DS_Store` file storing custom attributes for folders on macOS. Instead of ignoring these kinds of entries in a per-repository `.gitignore` file which might not contain everything we would like to exclude, it can be simpler and more efficient to use a global `.gitignore`, which serves the same purpose but for _any_ Git repository regardless of the presence of a `.gitignore` in that specific repository! In other words, this serves as a permanent list of things to ignore so that there is no need to remember about them later.
 
@@ -46,7 +45,7 @@ The setup is straightforward: create a file `~/.gitignore`, fill it as usual wit
 
 ---
 
-# Meaningful commit messages with `.gitmessage`
+## Meaningful commit messages with `.gitmessage`
 
 Besides using the excellent [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification to write messages in a format that makes sense to other fellow human beings, using a template for Git commits can help with remembering _why_ commits are made and how they should be structured. There is a configuration setting, `commit.template`, that can be used to set the default text being displayed when a text editor opens after typing `git commit`.
 
@@ -76,7 +75,7 @@ All lines starting with a hash symbol (`#`) will be ignored, so there is no need
 
 ---
 
-# My usual Git workflow
+## My usual Git workflow
 
 This section depends very much on team standards, if applicable. But in general terms and considering mostly a solo interaction with Git, I like to adhere to the following processes, without taking into account how one would plan, produce diagrams, brainstorm, etc. That shall be the topic of an upcoming post!
 
@@ -384,7 +383,7 @@ git restore --source OTHER_BRANCH_NAME path/to/file.txt
 
 ---
 
-# Aliases
+## Aliases
 
 While I believe it's good practice to type complete commands to remember them better, I also tend to use Git aliases for two reasons: because some deeply ingrained concepts don't need as much reinforcement and because some obscure operations can be made so much more accessible with a pertinent mnemonic device.
 
@@ -465,7 +464,7 @@ This section is really just meant to give a taste of the possibilities that alia
 
 ---
 
-# Custom Git sub-commands
+## Custom Git sub-commands
 
 There might be less of a need for custom-made commands to be created when so much can be done with Git alone, but there are cases where these custom additions can shine! As a concrete example, I have been updating this website with what I call my "[learning progress]({{< ref "/posts/what-it-took-to-propel-a-career-in-tech-in-five-years" >}})" but committing always the same kind of stuff gets boring, so I have created a simple Bash script to automate the process of publishing and committing (the content of the script is of no importance, it is only there to demonstrate that commands other than Git can be called too):
 
@@ -499,7 +498,7 @@ On Windows, there are [separate instructions to be followed](https://superuser.c
 
 ---
 
-# Some lesser-known yet incredibly useful commands
+## Some lesser-known yet incredibly useful commands
 
 ## `git bisect`
 
@@ -511,7 +510,7 @@ I almost never use this in practice, but it _can_ be very useful when working in
 
 ---
 
-# A word on the configuration file
+## A word on the configuration file
 
 At the very minimum, setting a name and email will be necessary to use Git:
 
@@ -621,7 +620,7 @@ A lot more on configuring Git can be found in [the official documentation on `gi
 
 ---
 
-# Conclusion
+## Conclusion
 
 Being exhaustive when it comes to using Git is definitely not something this article strived to achieve: Git is such a complex piece of software that has been evolving since 2005, when it became a necessity to deal with incoming patches sent to Linus Torvalds to make Linux the fantastic project it has become! There is much, much more to learn, but hopefully this post gives you a slightly different perspective and points the way to a well-rounded journey with the list of references below. Git good!
 

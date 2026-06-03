@@ -14,11 +14,10 @@ tags:
 categories:
   - workflow
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 Released back in 2007, [tmux](https://github.com/tmux/tmux/wiki) keeps being amazing! Because I have never bothered automating anything to make its use simpler, it took some time for it to become a working environment I enjoy for everyday use. This is a thing of the past: thanks to Oleksandr Kocherhin from [Monsterlessons Academy](https://monsterlessons-academy.com/), who shared his tmux workflow in his YouTube video titled [Best Terminal Application for Web Development](https://www.youtube.com/watch?v=GuH7pw9LejY), I saw a few automation opportunities I thought were worth tackling.
 
@@ -26,7 +25,7 @@ In this post, I'm sharing a little tip about managing tmux sessions that was ins
 
 ---
 
-# What is this all about?
+## What is this all about?
 
 The idea is simple: have a few keyboard shortcuts to manage tmux sessions. That means being able to open new sessions and being able to kill them too. I kept this setup very simple on purpose but of course some improvements could be made. For instance, it could be nice to know which projects have already been opened so that the script doesn't prompt you with a list of projects that include projects that you have already launched, but I haven't found the need so far to deal with this potential issue as I tend to only work on a couple of projects during the course of a given day.
 
@@ -38,7 +37,7 @@ In summary, here is what we want to achieve in this post:
 
 That's it!
 
-# 1. Configuring projects to launch tmux sessions
+## 1. Configuring projects to launch tmux sessions
 
 Firstly, we need to create new files to open our projects in the way we want. Basically, we need to create a file, let's call it `.tmux`, and put it at the root of the project we're interested in working with tmux. Then, we need to put some instructions that will be run with the shell (e.g. Bash or Zsh) so that tmux commands will be run automatically for us and let us "attach" to the session once all the necessary actions are performed. That means we need to make that file executable. In the terminal, this would be done as follows, assuming the project's folder is the current working directory:
 
@@ -85,7 +84,7 @@ Here is what is happening:
 
 And just like this, what takes quite a few steps to do manually can be automated in one go when setting up the environment at the beginning of a working bout. Now, it could be convenient to create a generic template for the above script to use when creating new projects, especially if those tend to be short-lived and share some properties (e.g. maybe they all need to launch some kind of server in the background).
 
-# 2. Script to open projects
+## 2. Script to open projects
 
 Firstly, we need a way to list and open all "known" projects. This is achieved in this example very simply with the `find` command as well as with the help of `rofi`. The script in question is as follows:
 
@@ -115,7 +114,7 @@ So, what this does is this:
 
 ---
 
-# 3. Script to close projects
+## 3. Script to close projects
 
 Here, we are concerned with the sessions that are now opened and that we might want to close. In a similar fashion as what we did to open projects, we want to kill them with a script that will run Rofi and do the job silently in the background. One such script that will get us there is shown below:
 
@@ -143,7 +142,7 @@ In this case, the usage is quite straightforward: only running sessions are show
 
 ---
 
-# Example workflow
+## Example workflow
 
 It's a matter of setting up keyboard shortcuts to run the scripts to open and kill projects. For instance, one such configuration for the `i3` window manager would be as follows:
 
@@ -157,7 +156,7 @@ bindsym $mod+Mod1+k    $exec ~/path/to/projects-kill.sh
 
 ---
 
-# Conclusion
+## Conclusion
 
 Far from being a perfect solution (although it already feels comfortable as a main driver), this workflow initiates what I think can lead to substantial optimizations when it comes to using tmux. There's room for improvement when a user selects an already opened session: ideally, we would just switch to that session automatically. These details need to be implemented based on the window manager that's being used, but suffice to say, it can be done! In any case, I hope this may give you a semblance of inspiration to take this idea to the next level. There are tools to help with session persistence, such as [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect), but that's a topic for another time.
 

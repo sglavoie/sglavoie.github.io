@@ -5,6 +5,7 @@ slug: building-the-next-Facebook-in-a-couple-of-weeks-as-a-humble-experiment
 author: Sébastien Lavoie
 summary: To spice things up, I am posting a reformatted version of the report I wrote for a web development assignment done during the last year of a computer science degree at the undergraduate level. Facebook should remain a dominant social media platform for a little while longer...
 description: To spice things up, I am posting a reformatted version of the report I wrote for a web development assignment done during the last year of a computer science degree at the undergraduate level. Facebook should remain a dominant social media platform for a little while longer...
+image: /images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/demo1.png
 tags:
   - bsc
   - django
@@ -13,17 +14,16 @@ tags:
 categories:
   - learnings
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 The following is a report that was part of a project I delivered during my BSc in computer science, reformatted from LaTeX to Markdown. While not being utterly interesting (unfortunately, the source code cannot be freely published due to the nature of the work...), it gives a glimpse of my thought process while building this Django website. I have learnt a few lessons from it and maybe, with some imagination, you might too :). To read a nicely formatted version of this article, you can refer to the [original report](/files/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/report.pdf) instead.
 
 ---
 
-# Meeting the requirements
+## Meeting the requirements
 
 In order to meet all the requirements when building this application, a few different techniques, strategies and concepts were put to good use. Firstly, all [Django](https://www.djangoproject.com/) views are class-based and rely on [Django REST Framework](https://www.django-rest-framework.org/) to reduce the boilerplate needed to write the views. One such (simple) view is shown below:
 
@@ -144,9 +144,9 @@ As will be discussed in the section [State of the art in web development](#state
 
 ---
 
-# Running the application
+## Running the application
 
-![demo1](/images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/demo1.png)
+![Homepage feed and left navigation in the student social network demo](/images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/demo1.png)
 
 ## Installing and running the web application
 
@@ -285,9 +285,9 @@ Finally, run the tunnel with `cloudflared tunnel run` and go to the configured w
 
 ---
 
-# Functionality implemented
+## Functionality implemented
 
-![demo2](/images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/demo2.png)
+![Profile page with user details and activity in the student social network demo](/images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/demo2.png)
 
 This application implements all the necessary functionality at the account management level with Djoser. In effect, users can:
 
@@ -356,7 +356,7 @@ api/ posts/
 
 ---
 
-# Executing the unit tests
+## Executing the unit tests
 
 To run the unit tests, it is a matter of activating a virtual environment (as described in the section [Running locally](#running-locally)) and using the built-in `test` command provided by Django in the following manner, which must be run from within the `backend` directory:
 
@@ -375,7 +375,7 @@ Destroying test database for alias 'default'...
 
 ---
 
-# Logical approach
+## Logical approach
 
 ## Frontend framework: React
 
@@ -383,7 +383,7 @@ The application was designed with the goal in mind of having a modern frontend f
 
 Similarly, a "post" entry represents the exact same React component when viewed in isolation or when browsing for many more posts. When search bars are used, these share the same characteristics and behaviors across the page while managing a different state.
 
-![demo3](/images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/demo3.png)
+![Course discovery page with cards and filters in the student social network demo](/images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/demo3.png)
 
 ## React components and icons: Material UI
 
@@ -443,7 +443,7 @@ One possible drawback of using plain Redux to manage the store is that states ca
 
 ---
 
-# Design and implementation decisions
+## Design and implementation decisions
 
 Because deployment with Docker was a primordial concern, the application was built with a backend that is completely decoupled from a frontend. In fact, with just a little bit of ingenuity, Django could be swapped entirely with another web framework as long as the same endpoints are provided to the frontend with the necessary technologies (such as web sockets) being implemented. In a similar way, the frontend, which is built primarily with React, could be upgraded to another popular alternative such as Vue.js. This gives flexibility and should there be a greater need for optimization once the social network takes off for a real spin, there is the possibility to bundle React with Django by building minimized versions of the assets and shipping everything as a Docker container that can be run on powerful machines in the cloud.
 
@@ -451,7 +451,7 @@ Beyond this original concern, more concrete decisions were taken. For instance, 
 
 From the start, Djoser was chosen to override specific built-in functions performed by Django and to facilitate email management. To integrate Djoser with the administrative bits of the application -- namely, the Django admin interface -- Django forms were used to customize how users are to be registered as well as superusers and staff accounts. By overriding the user creation, it is now possible to update parts of the process with simple configuration variables implemented by Djoser, such as forcing users to retype their passwords or not.
 
-![demo4](/images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/demo4.png)
+![Real-time chat view from the student social network demo](/images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/demo4.png)
 
 With Django models, the base model became a `UserAccount`, which allow users to join the network. However, the functionality related to account management is kept separate from other features of the application by interfacing with the accounts using a `UserProfile` model on which a **user** field exist. In turn, this model integrates other parts of the models, such as many-to-many relationships with followers and a gallery image model, which is also linked as a many-to-many relationship. Another part of the application implements a `Post` model where the **author** field corresponds to a `UserAccount`, effectively linking a different part of the application to the user accounts. Again, a `Post` then interfaces with other models to take points into account, which are also linked to user profiles.
 
@@ -465,11 +465,11 @@ The Django chat application, due to its asynchronous nature, uses different tech
 
 ---
 
-# Evaluation of the final product
+## Evaluation of the final product
 
 ## What worked well
 
-![demo5](/images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/demo5.png)
+![Notifications and activity panel from the student social network demo](/images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/demo5.png)
 
 Opting for React made for a flexible framework that behaves extremely well with Django. React has complete documentation and extensive support offered on different medium, making it ideal for a robust and complex web application. Coupled with Material UI, the frontend aspect of the work was taken care of and didn't need particular attention when developing. For any basic functionality that was not available out of the box in JavaScript, the Lodash library was used to make object comparisons and such much more readable and understandable when multiple conditions were being evaluated in a JSX expression, often with ternary operators.
 
@@ -483,7 +483,7 @@ Testing with Django went particularly well: the documentation had a clear guide 
 
 ## What could have been improved
 
-![demo6](/images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/demo6.png)
+![Mobile-friendly view of the student social network demo](/images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/demo6.png)
 
 Planning of the technical stack could have gone much better. During the experimentation phase in the early steps of this project, good portions of functionality were implemented using Django templates without any frontend framework, except for the CSS framework Bootstrap. Features such as user notifications, personal messaging between two users with the ability to use different "inboxes" and "threads" was a very good selling point of the first version of this web application. Alas, due to time constraints, these useful additions were left behind (preserved with a Git history) but did not manage to make it to the final product. It would have been much more productive to take a closer look at the panoply of requirements to be implemented from the very beginning and determining the best fit as early as possible to avoid rewriting code from one framework to another.
 
@@ -493,7 +493,7 @@ Although this is not perceptible in the final product, Django migrations were at
 
 ## State of the art in web development
 
-![source_code](/images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/source_code.png)
+![Source code overview for the student social network project](/images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/source_code.png)
 
 On a technical aspect, many parts of this web application conform to modern web standards. The latest stable release versions of libraries were used whenever convenient and/or possible. This non-exhaustive list would include, at the time of this writing, React 17.0.2, Redux 4.1.2, WebSocket 1.0.34 and Material UI 5.5.0 for the frontend. On the backend, Django 4.0.3, Channels 3.0.4, Djoser 2.1.0 and Redis 4.2.0 were used.
 
@@ -503,7 +503,7 @@ The wider community was consulted in an effort to bring the maximum quality poss
 
 ---
 
-# Demo of the app
+## Demo of the app
 
 <div class="youtube youtube-16x9">
 <iframe src="https://www.youtube.com/embed/LFJfL2ejhAU" allowfullscreen seamless frameBorder="0"></iframe>

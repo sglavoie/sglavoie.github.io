@@ -11,15 +11,14 @@ tags:
 categories:
   - tips-and-tricks
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 Why are Git worktrees needed in the first place? Well, there are certainly a couple of different use cases where they come in handy, but the reason they exist is to allow a developer to check out multiple branches at once without having to do any kind of cleanup when switching branches. Introduced back in [2015 in Git 2.5](https://github.blog/2015-07-29-git-2-5-including-multiple-worktrees-and-triangular-workflows/), it's certainly not a new feature anymore, yet it seems like its adoption really took off more recently. I was an avid user of [`git stash`](https://git-scm.com/docs/git-stash) but I often got myself cornered in some specific situations where it was not as convenient as I thought it was... and [`git worktree`](https://git-scm.com/docs/git-worktree) was for me a pretty good solution without much overhead.
 
-# Why is `git stash` not enough?
+## Why is `git stash` not enough?
 
 It _can_ be enough, but there are edge cases where it falls short of its promise of keeping stuff neatly around without too much fuss.
 
@@ -45,7 +44,7 @@ More generally though, I find I just like to leave my terminal windows open into
 
 ---
 
-# How I operate worktrees
+## How I operate worktrees
 
 ## First, other approaches in the wild
 
@@ -109,7 +108,7 @@ $ git branch
 
 ---
 
-# Conclusion
+## Conclusion
 
 I have briefly touched upon a downside of worktrees, which is that it's almost like cloning over and over a repository, which can take up a lot of disk space with large projects. Nevertheless, this is a tradeoff I am entirely willing to make given the advantages Git worktrees bring with them! If you're not already using them, maybe this little post might have inspired you to give them a go!
 

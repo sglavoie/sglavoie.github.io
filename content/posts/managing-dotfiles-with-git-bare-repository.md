@@ -13,11 +13,10 @@ tags:
 categories:
   - workflow
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 I have been managing my configuration files for the past year using a technique I originally came across in [this YouTube video from DistroTube](https://www.youtube.com/watch?v=tBoLDpTWVOM). This uses a Git bare repository instead of the "usual" way, which consists of using a normal Git repository where one would store the actual configuration files and create symbolic links to all those files to the expected path on the system.
 
@@ -25,7 +24,7 @@ Needless to say, symlinks are a pain to manage when potentially hundreds of file
 
 ---
 
-# 1. Set up the system
+## 1. Set up the system
 
 Open a terminal and brace yourself to type a few commands. This will need to be done only once on any machine you use.
 
@@ -73,7 +72,7 @@ For more information about this, you can read the article [Setting up SSH and Gi
 
 ---
 
-# 2. Use the new system
+## 2. Use the new system
 
 ## 2.1 On your current machine
 
@@ -123,7 +122,7 @@ From here, this will be the same workflow as described in the section [2.1 On yo
 
 ---
 
-# Conclusion
+## Conclusion
 
 No more symlinks: this is definitely a nicer approach! You will need to be a bit more familiar with Git if you need to edit your Git history such as with the `rebase` sub-command or when adding changes selectively such as with the sub-command `add -p` to add files interactively — which might be the case if you want to commit only part of the changes made to one file — but that's a great tool to master anyways, and there's an article to get the ball rolling: [Git the gist of it: common commands for a working workflow]({{< ref "/posts/git-the-gist-of-it-common-commands-for-a-working-workflow" >}}) ;).
 

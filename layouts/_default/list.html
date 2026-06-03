@@ -2,6 +2,9 @@
 
 {{ define "main" }}
   {{ $paginator := .Paginate .Pages }}
+  <div class="article_title">
+    <h1>{{ .Title }}</h1>
+  </div>
   {{ range $i, $page := $paginator.Pages }}
     {{ if $i }}<hr />{{ end }}
     {{ partial "article-card.html" $page }}

@@ -4,6 +4,7 @@ date: "2024-03-09T12:53:00"
 slug: book-summary-dive-into-design-patterns
 author: Sébastien Lavoie
 summary: "Dive into the essentials of software engineering with this excellent book by [Alexander Shvets](https://refactoring.guru). From the foundational _SOLID_ principles to _Creational_, _Structural_, and _Behavioral_ patterns, this book shines a light on the pathways to crafting robust, scalable, and maintainable software. It's ideal for both novice and seasoned developers, offering practical insights and examples to navigate the complexities of software design."
+description: A concise summary of Dive into Design Patterns, covering SOLID fundamentals and the design patterns most useful for building maintainable software.
 tags:
   - design-patterns
   - books
@@ -12,17 +13,16 @@ tags:
 categories:
   - learnings
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 In the vast expanse of software engineering, design patterns and principles stand as lighthouses, guiding developers through the complex process of crafting robust, scalable, and maintainable software. Among these patterns, the Object-Oriented Programming (_OOP_) principles, Software Design Principles, and various design patterns provide a framework that seasoned and novice developers alike can leverage to solve common software design challenges. This article constitutes a book summary of [Dive into Design Patterns][dive] written by [Alexander Shvets][refactoring-guru]. Beautifully illustrated, it delves into the core aspects of OOP, explores essential software design principles, and unveils a catalog of design patterns categorized into _Creational_, _Structural_, and _Behavioral_ patterns. Here, each section is crafted to mimic the same structure as the book to offer a concise yet (hopefully) comprehensive overview, equipped with examples and analogies to illuminate these concepts further.
 
 ---
 
-# A brief OOP overview
+## A brief OOP overview
 
 - Class attributes are called fields.
 - Methods define the behavior of a class.
@@ -62,7 +62,7 @@ In the vast expanse of software engineering, design patterns and principles stan
 
 ---
 
-# Introduction to Design Patterns
+## Introduction to Design Patterns
 
 - Design patterns are solutions to common problems.
 - A pattern is a general concept for solving a particular problem.
@@ -74,7 +74,7 @@ In the vast expanse of software engineering, design patterns and principles stan
 
 ---
 
-# Software Design Principles
+## Software Design Principles
 
 Features of good software design include:
 
@@ -115,7 +115,7 @@ Features of good software design include:
 
 ---
 
-# Catalog of Design Patterns
+## Catalog of Design Patterns
 
 ## Creational Design Patterns
 
@@ -3507,13 +3507,13 @@ func main() {
 
 ---
 
-# Conclusion
+## Conclusion
 
 Embarking on the journey through Object-Oriented Programming principles, Software Design Principles, and an array of design patterns, we've traversed the most common landscape of structured software design. From the encapsulation and abstraction of _OOP_ to the _SOLID_ foundations of software design, and through the diverse territories of _Creational_, _Structural_, and _Behavioral_ patterns, this book summary serves as a compass for developers navigating the complexities of software architecture. Whether you're refining your craft or laying the cornerstone of your development career, the insights and patterns presented by Alexander offer a blueprint for building software that stands the test of time, adaptable to the ever-evolving demands of technology and user needs. That was a very enjoyable read: recommended!
 
 ---
 
-# Resources and references
+## Resources and references
 
 [design-martin]: https://staff.cs.utu.fi/~jounsmed/doos_06/material/DesignPrinciplesAndPatterns.pdf
 [dive]: https://refactoring.guru/design-patterns/book

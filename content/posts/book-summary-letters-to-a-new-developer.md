@@ -14,11 +14,10 @@ tags:
 categories:
   - learnings
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 I've taken quite a few notes while devouring that book, which is a quick and easy read. It's not the typical non-fiction, technically-oriented manual: this book makes you feel like having an older family member taking the time to sit right next to you to openly share all sorts of golden nuggets from a lifetime of rich and varied experiences so you can get prepared to face the challenges that lie ahead in your own career and avoid some of the more common mistakes during the journey. It is the kind of publication you can read literally five minutes at a time thanks to the convenient format it adopts.
 
@@ -26,7 +25,7 @@ Some of the following notes are verbatim and reading the whole title will be wor
 
 ---
 
-# Book summary
+## Book summary
 
 ## First month at a job
 
@@ -435,6 +434,6 @@ Here's one way to keep track of your estimates in a spreadsheet:
 
 ---
 
-# Conclusion
+## Conclusion
 
 That's it: we went through a short overview of a book I've enjoyed and recommend heartily. You can find more on [the author's website](https://letterstoanewdeveloper.com/). You might also enjoy a follow-up book summary about [The Effective Engineer]({{< ref "/posts/book-summary-the-effective-engineer" >}}). May you live this knowledge!

@@ -11,7 +11,6 @@ tags:
 categories:
   - tips-and-tricks
 ---
-[TOC]
 
 ---
 

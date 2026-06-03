@@ -13,11 +13,10 @@ tags:
 categories:
   - learnings
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 Go is a modern programming language developed by Google that has gained immense popularity in recent years. It is a statically typed, compiled language that combines aspects of imperative and object-oriented programming. Go aims to provide simplicity, performance, and reliability.
 
@@ -27,7 +26,7 @@ This summary highlights the key takeaways from each chapter. It aims to provide 
 
 ---
 
-# Setting Up Your Go Environment
+## Setting Up Your Go Environment
 
 - Use `golint` to enforce the right coding style of a project.
 - Use `go version` to check the version of Go installed.
@@ -76,7 +75,7 @@ rm $(go env GOPATH)/bin/go1.x.y
 
 ---
 
-# Predeclared Types and Declarations
+## Predeclared Types and Declarations
 
 ## Predeclared types
 
@@ -176,7 +175,7 @@ Avoid `:=` in the following situations:
 
 ---
 
-# Composite Types
+## Composite Types
 
 ## Arrays
 
@@ -578,7 +577,7 @@ computer := struct {
 
 ---
 
-# Blocks, Shadows, and Control Structures
+## Blocks, Shadows, and Control Structures
 
 ## Blocks
 
@@ -884,7 +883,7 @@ func main() {
 
 ---
 
-# Functions
+## Functions
 
 ## Declaring and calling them
 
@@ -1048,7 +1047,7 @@ func getResult(initialValue int) func(int) int {
 
 ---
 
-# Pointers
+## Pointers
 
 - *A pointer is a variable that holds the address of a value in memory*.
 - The zero value of a pointer is `nil`.
@@ -1107,7 +1106,7 @@ fmt.Println(*b) // 2
 
 ---
 
-# Types, Methods, and Interfaces
+## Types, Methods, and Interfaces
 
 - Types can be declared at any level, including at the package level.
 
@@ -1521,7 +1520,7 @@ func main() {
 
 ---
 
-# Generics
+## Generics
 
 ## Generics Reduce Repetitive Code and Increase Type Safety
 
@@ -1570,7 +1569,7 @@ func Print[T Stringer](s T) {
 
 ---
 
-# Errors
+## Errors
 
 - *Go does not have exceptions*.
 - Errors are values.
@@ -1630,7 +1629,7 @@ func Print[T Stringer](s T) {
 
 ---
 
-# Modules, Packages, and Imports
+## Modules, Packages, and Imports
 
 - The module is the root of the package tree. It can be defined in `go.mod` or inferred from the directory structure. For a GitHub repository, it is inferred from the URL as in `module github.com/{USER}/{PROJECT}`.
 - Keep a single module per repository.
@@ -1816,7 +1815,7 @@ require (
 
 ---
 
-# Concurrency in Go
+## Concurrency in Go
 
 ## When to use concurrency
 
@@ -2047,7 +2046,7 @@ func main() {
 
 ---
 
-# The Standard Library
+## The Standard Library
 
 - It is battery-included, just like Python.
 
@@ -2144,7 +2143,7 @@ func main() {
 
 ---
 
-# The Context
+## The Context
 
 - Context is not a new feature: it is an instance that meets the `context.Context` interface and gets passed around as the first argument to functions, which is usually named `ctx`.
 - `context.TODO` is used when a context is required but there is no context available. It shouldn't be used in production.
@@ -2175,7 +2174,7 @@ A server can do a few things to manage its load:
 
 ---
 
-# Writing Tests
+## Writing Tests
 
 ## Basics of testing
 
@@ -2343,7 +2342,7 @@ func TestFileLen(t *testing.T) {
 
 ---
 
-# Here There Be Dragons: Reflect, Unsafe, and Cgo
+## Here There Be Dragons: Reflect, Unsafe, and Cgo
 
 - Theses features are not used that often, but they are useful to know about.
 - You cannot make make methods with reflection.
@@ -2428,7 +2427,7 @@ func TestFileLen(t *testing.T) {
 
 ---
 
-# A Look at the Future: Generics in Go
+## A Look at the Future: Generics in Go
 
 - Go doesn't convert types implicitly.
 - For a gentle introduction to the topic, there is [Tutorial: Getting started with generics][go-generics-tutorial].
@@ -2453,7 +2452,7 @@ type BuiltInOrdered interface {
 
 ---
 
-# Salient takeaways
+## Salient takeaways
 
 - Go is a **practical** language, valuing clarity of intent and readability (e.g., standard formatting is mandatory). It takes the best of other languages and leaves out the rest.
 - Comprehensibility and explicitness is more important than conciseness in idiomatic Go.
@@ -2464,7 +2463,7 @@ type BuiltInOrdered interface {
 
 ---
 
-# Conclusion
+## Conclusion
 
 This book achieves its goal of teaching readers how to write idiomatic Go code that leverages the strengths of the language. It focuses on real-world examples and best practices to structure Go code, rather than just explaining language syntax. The book covers a wide range of topics including primitive types, control structures, composite types like arrays and maps, concurrency, reflection, testing, and more.
 
@@ -2472,7 +2471,7 @@ We covered the key takeaways from each chapter, providing a broad overview of im
 
 ---
 
-# Resources and references
+## Resources and references
 
 [alice]: https://github.com/justinas/alice
 [art-of-concurrency]: https://www.oreilly.com/library/view/the-art-of/9780596802424/

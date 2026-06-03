@@ -6,6 +6,7 @@ slug: systematic-reviews
 author: Sébastien Lavoie
 summary: "I find learning about productivity fascinating, yet I'm aware that in the end, a simple set of rules and systems is what works best for me. These systems will continue to evolve over time, but I have found that the simpler they are, the more likely I am to stick with them. This post describes my current digital take on dealing with everyday life."
 description: "I find learning about productivity fascinating, yet I'm aware that in the end, a simple set of rules and systems is what works best for me. These systems will continue to evolve over time, but I have found that the simpler they are, the more likely I am to stick with them. This post describes my current digital take on dealing with everyday life."
+image: /images/posts/0037_systematic_reviews/apple_reminders_daily_focus.png
 tags:
   - processes
   - planning
@@ -13,11 +14,10 @@ tags:
 categories:
   - workflow
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 I used to think that merely using better or more sophisticated tools would magically make me more productive, blaming external factors and technology on my own lack of ability to achieve my dreams. But I've come to realize that it was only an escape into the procrastination playground to avoid facing hard work. Working _on_ a system is not the same as working _in_ a system. The former is a form of procrastination, while the latter is the actual work that needs to be done.
 
@@ -27,7 +27,7 @@ Needless to say, I have since moved on to a simpler system that is more robust a
 
 ---
 
-# A whirlwind tour of the system
+## A whirlwind tour of the system
 
 What follows is nothing revolutionary, but the simplicity of it just stuck with me. From prior research on the topic as I was [building a todo application](https://github.com/sglavoie/cm3070-final-project), it really stood out to me that the most effective systems were the simplest ones, especially when the different components can be neatly decoupled from each other while working well together as a whole. Arguably, the Apple ecosystem has done a great job at this -- although I'm still enthusiastic about creating a single software destination to manage one's life even more efficiently ;).
 
@@ -41,7 +41,7 @@ So the main idea here is very simple: twice a day, a daily review occurs and onc
 
 ---
 
-# Daily review
+## Daily review
 
 <div class="image">
 <img style="max-width: 60%" src="/images/posts/0037_systematic_reviews/dailyReview.svg" alt="Flow for systematic daily reviews" />
@@ -74,7 +74,7 @@ These tasks will be dragged out of other lists as needed -- either from the back
 
 ---
 
-# Weekly review
+## Weekly review
 
 The weekly review is a bit more involved, but it is still quite simple. The main idea is to take a step back and reflect on the past week, while planning for the next one. This is where I like to take a look at my calendar and make sure that I have not forgotten anything important. Given the current set of tools I use, I don't really implement [timeboxing](https://www.mindtools.com/a9bt6jr/timeboxing) as I find that I just tend to miss stuff I put into the calendar if it's not an "all-day" event. Brace yourself, here it goes.
 
@@ -94,7 +94,7 @@ Once more, nothing too fancy is happening here, but having _smart lists_ makes i
 
 ---
 
-# Monthly and yearly reviews
+## Monthly and yearly reviews
 
 I can see the benefit in asking more questions and taking more time to plan ahead up to a point, but life is totally unpredictable and I find that it is not worth spending too much time planning for the future. Ultimately, everything is ephemeral: interests, hobbies or even relationships come and go. So my current approach is simply to repeat the weekly process with an emphasis on the things I might have neglected a bit more, such as planning new projects, dissolving old ones that no longer require attention and making sure that I am still on track with my goals at a higher level.
 
@@ -104,7 +104,7 @@ While (I think) I'd love to know for sure where I spend every minute of the day,
 
 ---
 
-# Conclusion
+## Conclusion
 
 I have tried many different methodologies to get more organized and, after getting no further than where I used to be, I have reached the following conclusion, which can be elegantly summed up with Nike's tagline: _Just Do It_. While one might have lofty goals, it all means nothing if one does not take action towards attaining them. This is why I have decided to adopt a more systematic approach in all aspects of life. This is not to say that I will not be using any tools, but rather that I will be using them with a focus on pragmatism and manifesting actual results.
 

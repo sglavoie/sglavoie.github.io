@@ -11,11 +11,10 @@ tags:
 categories:
   - tips-and-tricks
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 Python is awesome for producing high-quality code quickly
 and efficiently, but it is not necessary to reinvent the
@@ -26,7 +25,7 @@ either to retrieve its output or to perform some work in the background.
 I have wanted to do both when building this website, so here is one way
 to accomplish this!
 
-# Retrieve the output
+## Retrieve the output
 
 ```python
 def read_tree():
@@ -69,7 +68,7 @@ could look something like the following:
 3 directories, 15 files
 ```
 
-# Execute a command in the background
+## Execute a command in the background
 
 There are also instances in which is it useful to execute a program
 from the terminal inside a Python script. This website, for example,
@@ -98,7 +97,7 @@ This is an automated process, which is something Python is easy to use
 for. However, it won't be necessary to program everything: it all gets
 generated on demand!
 
-# Conclusion
+## Conclusion
 
 I am always amazed at how easy it can be to automate simple tasks like
 those mentioned above. Programming can be very rewarding regardless of

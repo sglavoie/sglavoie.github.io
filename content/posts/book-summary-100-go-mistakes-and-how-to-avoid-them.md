@@ -4,6 +4,7 @@ date: "2024-08-24T14:55:00"
 slug: book-summary-100-go-mistakes-and-how-to-avoid-them
 author: Sébastien Lavoie
 summary: "_100 Go Mistakes and How to Avoid Them_ is a truly insightful book by [Teiva Harsanyi](https://teivah.dev/) that covers common mistakes made by Go developers. This summary provides a high-level overview of the book's content."
+description: Skimming notes from 100 Go Mistakes and How to Avoid Them, highlighting practical pitfalls, patterns, and lessons for Go developers.
 tags:
   - best-practice
   - books
@@ -13,11 +14,10 @@ categories:
   - learnings
 skim_notes: true
 ---
-[TOC]
 
 ---
 
-# Go: Simple to learn but hard to master
+## Go: Simple to learn but hard to master
 
 ## Go outline
 
@@ -79,7 +79,7 @@ skim_notes: true
 
 ---
 
-# Code and project organization
+## Code and project organization
 
 ## 1 - Unintended variable shadowing
 
@@ -266,7 +266,7 @@ type intStringConstraint interface {
 
 ---
 
-# Data types
+## Data types
 
 ## 17 - Creating confusion with octal literals
 
@@ -379,7 +379,7 @@ for i := 2; i < len(foos); i++ {
 
 ---
 
-# Control structures
+## Control structures
 
 ## 30 - Ignoring the fact that elements are copied in range loops
 
@@ -424,7 +424,7 @@ for i := 2; i < len(foos); i++ {
 
 ---
 
-# Strings
+## Strings
 
 ## 36 - Not understanding the concept of a rune
 
@@ -471,7 +471,7 @@ for i := 2; i < len(foos); i++ {
 
 ---
 
-# Functions and methods
+## Functions and methods
 
 ## 42 - Not knowing which type of receiver to use
 
@@ -525,7 +525,7 @@ for i := 2; i < len(foos); i++ {
 
 ---
 
-# Error management
+## Error management
 
 ## 48 - Panicking
 
@@ -569,7 +569,7 @@ for i := 2; i < len(foos); i++ {
 
 ---
 
-# Concurrency: Foundations
+## Concurrency: Foundations
 
 ## 55 - Mixing up concurrency and parallelism
 
@@ -622,7 +622,7 @@ for i := 2; i < len(foos); i++ {
 
 ---
 
-# Concurrency: Practice
+## Concurrency: Practice
 
 ## 61 - Propagating an inappropriate context
 
@@ -721,7 +721,7 @@ for i := 2; i < len(foos); i++ {
 
 ---
 
-# The standard library
+## The standard library
 
 ## 75 - Providing a wrong time duration
 
@@ -790,7 +790,7 @@ for i := 2; i < len(foos); i++ {
 
 ---
 
-# Testing
+## Testing
 
 ## 82 - Not categorizing tests
 
@@ -872,7 +872,7 @@ for i := 2; i < len(foos); i++ {
 
 ---
 
-# Optimizations
+## Optimizations
 
 ## 91 - Not understanding CPU caches
 
@@ -976,7 +976,7 @@ for i := 2; i < len(foos); i++ {
 
 ---
 
-# Resources and references
+## Resources and references
 
 [100-mistakes]: https://www.manning.com/books/100-go-mistakes-and-how-to-avoid-them
 [clean-code]: https://www.oreilly.com/library/view/clean-code-a/9780136083238/

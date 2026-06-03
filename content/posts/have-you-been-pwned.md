@@ -5,6 +5,7 @@ slug: have-you-been-pwned
 author: Sébastien Lavoie
 summary: "Has your password been leaked in a major breach? You can find out thanks to [Have I Been Pwned?](https://haveibeenpwned.com/)... Or you can use their API and stop worrying about your password being sent through your Web browser!"
 description: Has your password been leaked in a major breach? You can find out thanks to Have I Been Pwned?... Or you can use their API and stop worrying about your password being sent through your Web browser!
+image: /images/posts/0011_have-i-been-pwned/have_i_been_pwned_script.png
 tags:
   - api
   - click
@@ -13,11 +14,10 @@ tags:
 categories:
   - automation
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 [Have I Been Pwned?](https://haveibeenpwned.com/) has a very simple and
 accessible API that's perfect to work with as a beginner. There are
@@ -27,7 +27,7 @@ a way that makes it easy to add features and functionality thanks to
 [Click](https://github.com/pallets/click), a wonderful _"command line
 interface toolkit"_.
 
-# Python to the rescue
+## Python to the rescue
 
 The following script uses [Click](https://github.com/pallets/click)
 to build a tiny command-line interface instead of more
@@ -169,7 +169,7 @@ if __name__ == '__main__':
 
 <a href="/images/posts/0011_have-i-been-pwned/have_i_been_pwned_script.png"><img src="/images/posts/0011_have-i-been-pwned/have_i_been_pwned_script.png" alt="have_i_been_pwned_script" class="max-size-img-post"></a>
 
-# Conclusion
+## Conclusion
 
 If you are familiar with Python,
 you can easily make sense of how this little tool works by

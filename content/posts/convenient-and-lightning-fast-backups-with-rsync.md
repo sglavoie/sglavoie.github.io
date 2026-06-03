@@ -14,11 +14,10 @@ tags:
 categories:
   - automation
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 Coming into its fourth year of existence and usage in production environments, this simple script has proven to be a fantastic ally. Despite the plethora of great options out there that have more bells and whistles, I have yet to find a single complaint about this solution as it hinges on the minimalist side, requiring only a working Python 3 installation along with the powerful `rsync` command-line tool.
 
@@ -26,11 +25,11 @@ It's one of those pieces of code that perform some really basic tasks that can b
 
 ---
 
-# Prerequisites
+## Prerequisites
 
 As briefly mentioned above, this tool uses [Python 3.6+](https://www.python.org/) and [`rsync`](https://rsync.samba.org/). That's it, really.
 
-# Setting up the script
+## Setting up the script
 
 This script is being made [available on GitHub](https://github.com/sglavoie/dev-helpers/tree/main/rsync_backup) within a set of other small tools. To get the source code for this particular tool, you can either [clone the whole repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository), get the content of the files separately or simply copy and paste [the current version from below](#the-script). You will need a `settings.json` file as well as the Python script that will run the necessary commands.
 
@@ -287,7 +286,7 @@ if __name__ == "__main__":
 
 ---
 
-# How to use
+## How to use
 
 ## One-time setup
 
@@ -346,7 +345,7 @@ You could keep track of those heavy files that do not need to be backed up frequ
 
 ---
 
-# Conclusion
+## Conclusion
 
 This was a quick overview of what `rsync` can offer: I neither touched upon its remote syncing capabilities nor the vast majority of its options, for which you can find a lot more information about by typing `man rsync` to display the manual page in the terminal.
 

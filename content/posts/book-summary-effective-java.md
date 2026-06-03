@@ -12,11 +12,10 @@ tags:
 categories:
   - learnings
 ---
-[TOC]
 
 ---
 
-# Book summary
+## Book summary
 
 ## Creating and destroying objects
 
@@ -720,7 +719,7 @@ instance.myMethod();
 
 ---
 
-# Conclusion
+## Conclusion
 
 While I did not find this book to be particularly entertaining, it is a very useful reference for Java developers. It covers a wide range of topics and provides a lot of useful information. I would recommend this book to anyone who is interested in learning more about the Java language and its best practices.
 

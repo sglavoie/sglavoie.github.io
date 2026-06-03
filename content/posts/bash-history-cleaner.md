@@ -16,11 +16,10 @@ tags:
 categories:
   - automation
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 This is a Python 3.6+ script that helps to clean the file containing
 the Bash history commands. It will remove any line matching a specified
@@ -44,7 +43,7 @@ The idea behind this small utility was simple:
 
 ---
 
-# Make history in a big way
+## Make history in a big way
 
 I took advantage of the fact that the history can be cleaned with the
 script you are about to see and set up what is known as an _eternal
@@ -70,7 +69,7 @@ PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 ---
 
-# Bash History Cleaner
+## Bash History Cleaner
 
 And here is the script in question \*. It comes in two files that need to be in the same directory:
 
@@ -376,7 +375,7 @@ if __name__ == '__main__':
 
 ---
 
-# Anecdotal evidence of satisfying performances
+## Anecdotal evidence of satisfying performances
 
 Performance-wise, this scans ~8,300 lines per second on my modest Intel
 Core i5 laptop with files of over 200,000 lines long. Not that I type so
@@ -384,7 +383,7 @@ much stuff in the terminal: I just duplicated many lines.
 
 ---
 
-# Conclusion
+## Conclusion
 
 This is a simple solution to an nonexistent problem, but it was
 in the end very instructive to me nonetheless. You may even find

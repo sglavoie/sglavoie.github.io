@@ -5,6 +5,7 @@ slug: reviewing-the-process-of-building-a-first-React-Native-application
 author: Sébastien Lavoie
 summary: Working with new technologies can be exciting and insightful at the same time! At least, this is what I would like to believe after having dedicated a couple of weeks to this project...
 description: Working with new technologies can be exciting and insightful at the same time! At least, this is what I would like to believe after having dedicated a couple of weeks to this project...
+image: /images/posts/0035_building_first_react_native_application/screens.png
 tags:
   - bsc
   - lessons
@@ -13,11 +14,10 @@ tags:
 categories:
   - learnings
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 In the context of an assignment as part of a BSc in computer science, I had to come up with a React Native application. Specifically, I chose to build an app to help make and break habits through the use of a solid system that's backed by science, which is presented through a large excerpt that accompanied the end result. It helps people to consistently stick to habits until they become an intrinsic part of their routine. Moreover, it helps to maintain an actual routine and to build a sense of accountability and capability in oneself, because big successes come from small steps taken in the right direction time and time again.
 
@@ -27,7 +27,7 @@ Instead of giving dopaminergic hits like other apps which strive to reward their
 
 ---
 
-# Concept development
+## Concept development
 
 ## The origin
 
@@ -50,7 +50,7 @@ A bad implementation of the system could mean that flexibility could be lost at 
 
 ---
 
-# Wireframing
+## Wireframing
 
 Low-fidely as well as high-fidelity wireframes were created using [Figma](https://www.figma.com). An exhaustive presentation of the final application was included in an appendix, depicting the logo, the color palette, the typography used, a list of the UI elements and a complete and faithful display of all the screens. Technically, the high-fidelity wireframes were designed using [Figma components](https://help.figma.com/hc/en-us/articles/360038662654-Guide-to-components-in-Figma) and placed inside "frames" to export a PDF. Most UI elements were hand-drawn, except for a few free icons taken from the [Material Design community](https://material.io/design). Numerous user flow diagrams were included to illustrate how the wireframing took shape once the logic to navigate between screens was determined.
 
@@ -58,7 +58,7 @@ Low-fidely as well as high-fidelity wireframes were created using [Figma](https:
 
 ---
 
-# User feedback
+## User feedback
 
 User feedback was critical to the success of this project. Users helped refine certain visual aspects, such as making sure there was enough padding between the different elements by testing with devices using a smaller screen.
 
@@ -74,7 +74,7 @@ Without users inquiring about having a satellite view in the map, there wouldn't
 
 ---
 
-# Prototyping
+## Prototyping
 
 ## Early iterations
 
@@ -96,7 +96,7 @@ To make use of the async storage, [Redux Toolkit](https://redux-toolkit.js.org) 
 
 ---
 
-# Development
+## Development
 
 As we can now attest, a lot happened before developing the actual application, but this fact did not make the development itself less interesting to narrate! In a little over two months, this React Native application started from nothing and grew to a fully-fledged product.
 
@@ -176,7 +176,7 @@ Finally, once the application was usable and the source code a little more prett
 
 ---
 
-# Unit testing
+## Unit testing
 
 ## Navigating
 
@@ -198,7 +198,7 @@ In the future, should this application be deployed to the cloud, there will be a
 
 ---
 
-# Evaluation
+## Evaluation
 
 ## Overview
 
@@ -220,7 +220,7 @@ On the soft skills side, a mistake was made by not sharing the original concept 
 
 ---
 
-# Demo of the app
+## Demo of the app
 
 <div class="youtube youtube-16x9">
 <iframe src="https://www.youtube.com/embed/d9PAO_Ehza4" allowfullscreen seamless frameBorder="0"></iframe>
@@ -228,7 +228,7 @@ On the soft skills side, a mistake was made by not sharing the original concept 
 
 ---
 
-# Resources and references
+## Resources and references
 
 If you like this type and format of content, you might also enjoy [a follow-up story about building a task planner]({{< ref "/posts/building-task-planner-react-native" >}}), also brought to life with the help of React Native!
 

@@ -9,10 +9,16 @@
 {{ define "main" }}
 {{ if eq .Data.Plural "tags" }}
 <article class="tags">
+  <div class="article_title">
+    <h1>Tags</h1>
+  </div>
   {{ partial "tag-cloud.html" . }}
 </article>
 {{ else }}
 <article>
+  <div class="article_title">
+    <h1>Categories</h1>
+  </div>
   <div class="article_text">
     <ul>
       {{ range .Data.Terms.Alphabetical }}

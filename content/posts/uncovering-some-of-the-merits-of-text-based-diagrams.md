@@ -5,6 +5,7 @@ slug: uncovering-some-of-the-merits-of-text-based-diagrams
 author: Sébastien Lavoie
 summary: Every once in a short while, new digital technology comes out to iterate on existing products. Software targeting technical design (e.g., flowcharts) is no exception. Yet, there is still room to enjoy older tools that work simply... and simply work!
 description: Every once in a short while, new digital technology comes out to iterate on existing products. Software targeting technical design (e.g., flowcharts) is no exception. Yet, there is still room to enjoy older tools that work simply... and simply work!
+image: /images/posts/0033_text_based_diagrams/mermaid_flowchart.png
 tags:
   - customization
   - markdown
@@ -12,23 +13,22 @@ tags:
 categories:
   - tools
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 Ever since I was introduced to text-based diagrams through UML and more concretely thanks to some fanatic acquaintance who shall remain nameless (else he will turn _rufous_), I was hooked by their simplicity, flexibility, predictability of presentation and usefulness. While they can be customized up to a point to look a bit better, the goal is really about efficiency. I came to peace with the fact that the final product will often look different from what I'd like to achieve. After all, one of the possible applications of text-based diagrams is to quickly share ideas that can be iterated upon without too much fuss and without slowing down to make things pretty. True, the arrows might not be placed precisely where I'd want them to show up, but the time savings gained by not having to re-arrange boxes and accommodate a canvas are hefty compensation prices! Besides, some tools in that space integrate really well on platforms like GitHub and GitLab without requiring any special piece of software to be produced or viewed, which makes them particularly convenient.
 
 ---
 
-# PlantUML: an old love affair
+## PlantUML: an old love affair
 
 [PlantUML](https://plantuml.com/) has been around for a while -- over **12** years at this point! It is a bit cumbersome to use as it requires a server running with Java to do its job. There are good integrations for it though, including [a VS Code extension](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) and a [Docker image](https://hub.docker.com/r/plantuml/plantuml-server). Its documentation is pretty good and the diagrams are more easily configurable out of the box than with some other similar tools.
 
 Even when starting with an unremarkable use case diagram such as the following one, ideas can be shared efficiently without having to go to a drawing board.
 
-![use_case_simplest](/images/posts/0033_text_based_diagrams/use_case_simplest.png)
+![Simple PlantUML use case diagram for end-user complaint handling](/images/posts/0033_text_based_diagrams/use_case_simplest.png)
 
 Actually, the code responsible for generating this diagram is as follows:
 
@@ -55,7 +55,7 @@ note bottom of UC1 : Under specific conditions,\ne.g. after X amount of time
 
 While this may look like an unfamiliar syntax at first, it is concise, expressive and can be used for many types of UML diagrams. For instance, to take a different use case a notch further, it is not much work:
 
-![use_case_simple](/images/posts/0033_text_based_diagrams/use_case_simple.png)
+![Expanded PlantUML use case diagram including admin actions](/images/posts/0033_text_based_diagrams/use_case_simple.png)
 
 ```text
 @startuml
@@ -88,7 +88,7 @@ Admin -- UC1
 
 Sky is the limit! For example, drawing from scratch the following diagram may start to get messy when done manually:
 
-![use_case_more_advanced](/images/posts/0033_text_based_diagrams/use_case_more_advanced.png)
+![Advanced PlantUML use case diagram covering users, admins, and ISPs](/images/posts/0033_text_based_diagrams/use_case_more_advanced.png)
 
 This is when PlantUML starts to shine as it puts elements in sensible locations without one having to think about it -- or endlessly tinker to make them fit on a predefined area. Regardless of the relative visual complexity achieved, the code behind the scenes is still quite understandable and manageable:
 
@@ -137,11 +137,11 @@ As can be seen, elements can be described on their own (here with a `package`) a
 
 Beyond use case diagrams, PlantUML is also nice for producing all sorts of outputs, for instance a component diagram (as seen in [A retrospective on creating an impractical little tool just for fun]({{< ref "/posts/a-retrospective-on-creating-an-impractical-little-tool-just-for-fun" >}})):
 
-![ugc-server](/images/posts/0030_a_retrospective_on_creating_an_impractical_little_tool_just_for_fun/ugc-server.png)
+![PlantUML component diagram for the UGC server](/images/posts/0030_a_retrospective_on_creating_an_impractical_little_tool_just_for_fun/ugc-server.png)
 
 It can also handle other types of diagrams: sequence; class; activity; state; deployment; network; etc. One other option that I have found useful is its ability to create Gantt charts that are easily programmable! This one, for example, which was used to distribute human resources across a small project done in [a computer science degree at the University of London](https://www.london.ac.uk/courses/computer-science):
 
-![gantt_chart](/images/posts/0033_text_based_diagrams/gantt_chart.png)
+![PlantUML Gantt chart for the DefineBroadband software project](/images/posts/0033_text_based_diagrams/gantt_chart.png)
 
 Its accompanying code was easy to re-use to cut parts of the diagram into sections that could be presented on their own:
 
@@ -226,13 +226,13 @@ end note
 
 It was in fact relatively frictionless to use this diagram as a template for a version 2:
 
-![gantt_chart_updated](/images/posts/0033_text_based_diagrams/gantt_chart_updated.png)
+![Updated PlantUML Gantt chart derived from the original project plan](/images/posts/0033_text_based_diagrams/gantt_chart_updated.png)
 
 This tool is incredibly awesome, yet it's not as versatile as it could be. This is mainly due to the fact that while the output can be scaled as needed to get high quality diagrams, its format isn't supported yet on GitHub (although [GitLab does work with it without hassle](https://gitlab.com/gitlab-com/gl-infra/readiness/blob/master/plantuml/overview.md)). For this reason, I've looked elsewhere for greener grass and found an alternative for publishing on GitHub.
 
 ---
 
-# Mermaid: the new muse
+## Mermaid: the new muse
 
 Born roughly 4 years after PlantUML, [Mermaid](https://mermaid-js.github.io/mermaid/) has seen some mesmerizing growth in the open-source world (currently at [github.com/mermaid-js/mermaid](https://github.com/mermaid-js/mermaid), it has more than 7 times the number of GitHub stars that [PlantUML](https://github.com/plantuml/plantuml) has!). While I personally enjoy looking at the old-school output produced by PlantUML and have found that diagrams produced by it come out with better spacing and flows on average compared to Mermaid, I like even more the native GitHub support for Mermaid straight from Markdown files (by the way, GitLab supports both PlantUML and Mermaid)! It makes it a powerful tool to use because the diagram is embedded within the Markdown file itself, perfect to keep it under revision while avoiding commits with heavy binary assets.
 
@@ -240,7 +240,7 @@ Mermaid does not support as many diagram types as PlantUML, but it certainly wor
 
 Mermaid is great for flowcharts, although I have found myself in need of workarounds more often than with PlantUML for sure. For example, the following diagram was relatively painless to come up with:
 
-![mermaid_flowchart](/images/posts/0033_text_based_diagrams/mermaid_flowchart.png)
+![Mermaid flowchart showing a report-processing workflow](/images/posts/0033_text_based_diagrams/mermaid_flowchart.png)
 
 As can be observed in its source code below, I had some issues with content alignment (plus, label positioning isn't always optimal as can be seen with a particular '`Yes`' in this case). That can often be fixed by changing the orientation of the diagram or by modifying the connection length between rectangles, but still.
 
@@ -298,7 +298,7 @@ The syntax is straightforward to follow. Some shapes could take less space (the 
 
 One thing I really like about flowcharts in Mermaid is how easy it is to nest graphs, which often increases clarity without making it difficult to create or update:
 
-![mermaid_flowchart_nested](/images/posts/0033_text_based_diagrams/mermaid_flowchart_nested.png)
+![Mermaid flowchart with nested decisions and loops](/images/posts/0033_text_based_diagrams/mermaid_flowchart_nested.png)
 
 While this isn't perfect, it's good enough to show the architecture of a system at a basic level.
 
@@ -363,19 +363,19 @@ Well, it's just a matter of taste and in reality, I wouldn't use either PlantUML
 
 ---
 
-# When text-based is too clunky
+## When text-based is too clunky
 
 Even though I love the possibilities offered by tools like PlantUML and Mermaid (we didn't even touch on their theming capabilities!), there are instances where it's just not as convenient. While it's possible to [do wireframing with PlantUML](https://plantuml.com/salt), there is no way it can compete with some software like [Balsamiq](https://balsamiq.com/) on that front. Likewise, it's going to be difficult to create customized diagrams like the following ones. With **Figma**, I could create this somewhat original-looking output:
 
-![figma_custom_er_diagram](/images/posts/0033_text_based_diagrams/figma_custom_er_diagram.png)
+![Custom ER diagram drawn in Figma](/images/posts/0033_text_based_diagrams/figma_custom_er_diagram.png)
 
 Similarly, I could customize this ER diagram with **Draw.io** to get something that would be nearly impossible to do with text-based diagrams in terms of presentation:
 
-![drawio_er_diagram](/images/posts/0033_text_based_diagrams/drawio_er_diagram.png)
+![ER diagram exported from draw.io](/images/posts/0033_text_based_diagrams/drawio_er_diagram.png)
 
 ---
 
-# Conclusion
+## Conclusion
 
 Text-based diagrams are clearly not a panacea, but neither are they archaic vestiges with no modern use! When they are used for what they are good for -- mainly _UML_ diagrams -- they get the job done quickly, consistently and appropriately based on UML standards that have been around for eons. They remove friction by not having to think about design and rather allow one to go deeper on the actual links to be created. While I'd often sketch early proposals roughly with pen and paper, I would take the next step in formalizing plans digitally with something like PlantUML or Mermaid. I would then jump from there as needed to other tools that are more flexible but also quite likely more time-consuming to create high-fidelity wireframes or mockups, but the key -- in my mind at least -- is to remember that _different tools have different purposes and it's nearly always a great idea to use the one best suited for the job_.
 

@@ -1,0 +1,29 @@
+{{- if .IsHome -}}
+  {{- $meta := partial "seo/page-meta.html" . -}}
+  {{- $graph := slice -}}
+  {{- $personID := printf "%s#person" $meta.homeURL -}}
+  {{- if ne $meta.siteAuthor "" -}}
+    {{- $graph = $graph | append (dict
+      "@type" "Person"
+      "@id" $personID
+      "name" $meta.siteAuthor
+      "url" $meta.homeURL
+    ) -}}
+  {{- end -}}
+  {{- $website := dict
+    "@type" "WebSite"
+    "@id" (printf "%s#website" $meta.homeURL)
+    "url" $meta.homeURL
+    "name" .Site.Title
+    "description" $meta.description
+  -}}
+  {{- if ne $meta.siteAuthor "" -}}
+    {{- $website = merge $website (dict "publisher" (dict "@id" $personID)) -}}
+  {{- end -}}
+  {{- $graph = $graph | append $website -}}
+  {{- $schema := dict
+    "@context" "https://schema.org"
+    "@graph" $graph
+  -}}
+  <script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
+{{- end -}}

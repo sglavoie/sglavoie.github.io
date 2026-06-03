@@ -13,11 +13,10 @@ tags:
 categories:
   - workflow
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 To work effectively with services such as GitHub and GitLab, it is useful to set up a workflow that doesn't get in the way, especially when multiple accounts are involved. SSH will be set up to avoid entering the username/password combination every time we interact with remote repositories and Git will be set up to work differently for each account while signing the commits potentially with different GPG keys.
 
@@ -31,7 +30,7 @@ In short, we need to do the following:
 
 ---
 
-# Setting SSH locally
+## Setting SSH locally
 
 First, let's make sure we have some SSH keys to work with. The default location is `~/.ssh/id_rsa` (you can just press `Enter` when asked to save to a path):
 
@@ -123,7 +122,7 @@ With this setup, the SSH keys will be loaded when opening a terminal after booti
 
 ---
 
-# Setting SSH keys remotely
+## Setting SSH keys remotely
 
 The process will be slightly different on each platform on which we want to authenticate, but the gist of it is to paste the content of the public SSH key in the field when asked to do so.
 
@@ -133,7 +132,7 @@ The process will be slightly different on each platform on which we want to auth
 
 ---
 
-# Setting Git locally
+## Setting Git locally
 
 The idea is to have a `~/.gitconfig` file from which we load the main Git configuration by default (let's say, our personal account) and then we load another account – overwriting the Git settings of the personal account with the settings defined for that other account – whenever we navigate to a directory that relates to that other account. Let's see this in action.
 
@@ -213,7 +212,7 @@ Just follow the instructions from there. You may need to repeat the process mult
 
 ---
 
-# Setting GPG keys remotely
+## Setting GPG keys remotely
 
 Just like with the SSH keys, the process differs from one platform to the other.
 
@@ -223,7 +222,7 @@ Just like with the SSH keys, the process differs from one platform to the other.
 
 ---
 
-# Interacting with remote repositories
+## Interacting with remote repositories
 
 Now that the Git configuration is set up and we have SSH and GPG keys to authenticate ourselves and verify our identity when committing, respectively, we can start interacting with remote repositories. From the example we have been following, the file `~/.gitconfig-personal` will be used by default (and by consequence, our personal account).
 
@@ -261,7 +260,7 @@ If you type `git config --list` and search for the word "email" in the output, i
 
 ---
 
-# Conclusion
+## Conclusion
 
 This is one possible kind of setup we can use to work with SSH and GPG comfortably. This is pretty much a "set it and forget it" approach as long as you remember the following:
 

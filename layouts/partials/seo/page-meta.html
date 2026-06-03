@@ -1,0 +1,112 @@
+{{- $defaultDescription := .Site.Params.description | default .Site.Title | plainify | htmlUnescape | replaceRE "\\s+" " " | strings.TrimSpace -}}
+{{- $description := $defaultDescription -}}
+{{- with .Params.description -}}
+  {{- $description = . | plainify | htmlUnescape | replaceRE "\\s+" " " | strings.TrimSpace -}}
+{{- else -}}
+  {{- with .Summary -}}
+    {{- $description = . | plainify | htmlUnescape | replaceRE "\\s+" " " | strings.TrimSpace -}}
+  {{- end -}}
+{{- end -}}
+{{- if eq $description "" -}}
+  {{- $description = $defaultDescription -}}
+{{- end -}}
+
+{{- $title := .Title | plainify | htmlUnescape | strings.TrimSpace -}}
+{{- if or .IsHome (eq $title "") -}}
+  {{- $title = .Site.Title -}}
+{{- end -}}
+
+{{- $canonicalURL := .Permalink -}}
+{{- $url := .Permalink -}}
+{{- $robots := "" -}}
+{{- $pageNumberSuffix := "" -}}
+{{- if .IsHome -}}
+  {{- $paginator := .Paginate (where site.RegularPages "Section" "posts") -}}
+  {{- $canonicalURL = $paginator.URL | absURL -}}
+  {{- $url = $canonicalURL -}}
+  {{- if gt $paginator.PageNumber 1 -}}
+    {{- $pageNumberSuffix = printf " (Page %d)" $paginator.PageNumber -}}
+    {{- $robots = "noindex,follow" -}}
+  {{- end -}}
+{{- else if or (eq .Kind "section") (eq .Kind "term") -}}
+  {{- $paginator := .Paginate .Pages -}}
+  {{- $canonicalURL = $paginator.URL | absURL -}}
+  {{- $url = $canonicalURL -}}
+  {{- if gt $paginator.PageNumber 1 -}}
+    {{- $pageNumberSuffix = printf " (Page %d)" $paginator.PageNumber -}}
+    {{- $robots = "noindex,follow" -}}
+  {{- end -}}
+{{- end -}}
+{{- if ne $pageNumberSuffix "" -}}
+  {{- $title = printf "%s%s" $title $pageNumberSuffix -}}
+{{- end -}}
+
+{{- $siteAuthor := "" -}}
+{{- with .Site.Params.author -}}
+  {{- $siteAuthor = . | plainify | htmlUnescape | replaceRE "\\s+" " " | strings.TrimSpace -}}
+{{- end -}}
+
+{{- $author := $siteAuthor -}}
+{{- with .Params.author -}}
+  {{- $author = . | plainify | htmlUnescape | replaceRE "\\s+" " " | strings.TrimSpace -}}
+{{- end -}}
+
+{{- $ogType := "website" -}}
+{{- $isArticle := and .IsPage (eq .Section "posts") -}}
+{{- if $isArticle -}}
+  {{- $ogType = "article" -}}
+{{- end -}}
+
+{{- $socialImage := "/theme/images/logo_1200x627.png" | absURL -}}
+{{- $contentImage := "" -}}
+{{- $imageCandidates := slice -}}
+{{- with .Params.images -}}
+  {{- range . -}}
+    {{- $imageCandidates = $imageCandidates | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- with .Params.image -}}
+  {{- $imageCandidates = $imageCandidates | append . -}}
+{{- end -}}
+{{- $rawContent := "" -}}
+{{- if .IsPage -}}
+  {{- $rawContent = .RawContent -}}
+{{- end -}}
+{{- range findRESubmatch `!\[[^\]]*\]\(([^)\s]+)` $rawContent -}}
+  {{- with index . 1 -}}
+    {{- $imageCandidates = $imageCandidates | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- range findRESubmatch `<img[^>]+src=["']([^"']+)["']` $rawContent -}}
+  {{- with index . 1 -}}
+    {{- $imageCandidates = $imageCandidates | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- range $imageCandidates -}}
+  {{- $candidate := . | strings.TrimSpace -}}
+  {{- if and (eq $contentImage "") (ne $candidate "") -}}
+    {{- if or (hasPrefix $candidate "http://") (hasPrefix $candidate "https://") -}}
+      {{- $socialImage = $candidate -}}
+      {{- $contentImage = $candidate -}}
+    {{- else -}}
+      {{- $resolvedImage := $candidate | absURL -}}
+      {{- $socialImage = $resolvedImage -}}
+      {{- $contentImage = $resolvedImage -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return (dict
+  "author" $author
+  "canonicalURL" $canonicalURL
+  "contentImage" $contentImage
+  "description" $description
+  "homeURL" .Site.Home.Permalink
+  "isArticle" $isArticle
+  "ogType" $ogType
+  "robots" $robots
+  "siteAuthor" $siteAuthor
+  "socialImage" $socialImage
+  "title" $title
+  "url" $url
+) -}}

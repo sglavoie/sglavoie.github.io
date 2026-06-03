@@ -5,6 +5,7 @@ slug: a-retrospective-on-creating-an-impractical-little-tool-just-for-fun
 author: Sébastien Lavoie
 summary: "Sometimes, spending hundreds of hours on something that could easily have been achieved in a fraction of the time makes for a rewarding journey! While it's important to be selective about where our attention goes in the first place, it matters equally to realize when the end of the rope is in sight so we can jump off the boat with good enough timing..."
 description: "Sometimes, spending hundreds of hours on something that could easily have been achieved in a fraction of the time makes for a rewarding journey! While it's important to be selective about where our attention goes in the first place, it matters equally to realize when the end of the rope is in sight so we can jump off the boat with good enough timing..."
+image: /images/posts/0030_a_retrospective_on_creating_an_impractical_little_tool_just_for_fun/ugc-server.png
 tags:
   - lessons
   - open-source
@@ -13,11 +14,10 @@ tags:
 categories:
   - learnings
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 Building little projects to scratch one's own needs is a great way to practice the craft of software development, or at least this is some consistent advice I have picked up from legendary figures in the field. Whether it be formulated by the famous [John Carmack](https://twitter.com/ID_AA_Carmack) ([an excellent interview with Lex Fridman was recently released](https://www.youtube.com/watch?v=I845O57ZSy4)) or a rising star like [The Primeagen](https://twitter.com/ThePrimeagen) (he has a fantastic [YouTube channel](https://www.youtube.com/c/ThePrimeagen) too), the core of the message remains the same: _deliberate practice is required to make progress_.
 
@@ -25,7 +25,7 @@ While I was in the middle of completing a BSc in computer science, I decided tha
 
 ---
 
-# Setting up the stage
+## Setting up the stage
 
 To put things in perspective, this tool was never really under active development, but it did receive updates from August 2020 until September 2022, so the project slowly took shape in a time frame of a little over 2 years as can be shown in the following repurposed Gantt chart, where the length associated with each Git commit corresponds to the amount of time elapsed from one commit to the next.
 
@@ -48,7 +48,7 @@ While the chart itself is neither the prettiest nor the most interesting, the _h
 
 The whole process is done in a few minutes at most, making it a nice solution to deal with manageable outputs under a few thousand lines. Otherwise, it might be more convenient -- albeit a bit more time consuming too -- to write a script to do the work since Vim macros, when run at a relatively large scale, can be slow and error-prone.
 
-# What went well
+## What went well
 
 With all that fluffy preamble, we might hope that something went well in the end. Well, there were a couple of noteworthy things indeed:
 
@@ -69,7 +69,7 @@ With what seems like a glowing review so far, needless to say, a whole lot went 
 
 ---
 
-# What could have been done better
+## What could have been done better
 
 - Independently of the expectations with regards to the user base, it would have been beneficial to _do more research and planning_ initially before writing a single line of code. After working on other projects, I've found that what works well for me is to follow a specific set of steps, broadly speaking:
   - _Gather a list of requirements_ as precisely as possible to validate assumptions and define the correct scope for the work to be done ([YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it)!);
@@ -94,7 +94,7 @@ With what seems like a glowing review so far, needless to say, a whole lot went 
 
 ---
 
-# Key lessons learnt and where to take it from here
+## Key lessons learnt and where to take it from here
 
 - _Studying better the available libraries_ would have avoided some headaches. For instance, the display of what should have been tabular data started out as plain JSON (printing a `dict` object), then `beautifultable` was used to create some colored output, then `pandas` replaced the previous library because some limitations were found with it -- reverting to a plain table output in the process -- and finally `rich` was used to create a more decent-looking output.
 - Likewise, _spending more time in the planning department_ before getting started would probably have resulted in a tool that's more straightforward to use, focused on the most needed features and possessing a broader feature set by not having invested extra resources on building a backend and a frontend separately. It should have been either a more powerful TUI limited to be used within a terminal or a web application, but not both in the way it was designed.
@@ -107,7 +107,7 @@ With what seems like a glowing review so far, needless to say, a whole lot went 
 
 ---
 
-# Conclusion
+## Conclusion
 
 > "Regardless of what we discover, we understand and truly believe that everyone did the best job they could, given what they knew at the time, their skills and abilities, the resources available, and the situation at hand."
 

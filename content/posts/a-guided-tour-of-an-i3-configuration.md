@@ -6,23 +6,23 @@ slug: a-guided-tour-of-an-i3-configuration
 author: Sébastien Lavoie
 summary: This article will go over my dear i3 configuration file, which contains quite a few sections I hope I had stumbled upon right from the start when I got introduced to the tiling window manager world. It would probably have been less scary and intimidating. May you find the shortcut you needed!
 description: This article will go over my dear i3 configuration file, which contains quite a few sections I hope I had stumbled upon right from the start when I got introduced to the tiling window manager world. It would probably have been less scary and intimidating. May you find the shortcut you needed!
+image: /images/posts/0022_guided-tour-i3/demo_dark_light_background_thick_border.png
 tags:
   - i3
   - window-manager
 categories:
   - tools
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 In [Using i3 as a Window Manager for Increased Productivity]({{< ref "/posts/a-guided-tour-of-an-i3-configuration" >}}), a number of reasons were given to get going with this fantastic tiling window manager. Now, it's time to jump in and explore how to actually use i3! If you're looking for an in-depth guide, the [official i3 documentation](https://i3wm.org/docs/userguide.html) or the [i3 page on the Arch Wiki](https://wiki.archlinux.org/index.php/i3) are awesome resources to dive deeper. Here, we'll focus on day-to-day usage based on my current configuration file which I have used and refined over the past three years or so. I hope that you'll be able to glean useful tips and tricks to apply to your own use case.
 
 ---
 
-# The Configuration File
+## The Configuration File
 
 To set keybindings, it _may_ be handy to know the keycodes and their respective names. To get a full list, you can use `xmodmap -pk` in the terminal. If you're not sure of the name of the key you want to press (is it "PageDown", "PageDwn" or "Next"?), you can retrieve it by executing the `xev` command, which will open two windows: one for capturing the actual key press and the other one to display the relevant details for that key. For example, if you press the backspace key, the output will contain something like `keycode 22 (keysym 0xff08, BackSpace)`. From there, you will know that a mapping would be of the form `mod+BackSpace`, where `mod` is the modifier of your choice that is usually specified at the top of the configuration file. Now we can start!
 
@@ -764,7 +764,7 @@ Theming i3 can be tedious, but thankfully there are tools to automate the proces
 
 ---
 
-# Conclusion
+## Conclusion
 
 You can find the [complete `config` file in my dotfiles on GitHub](https://github.com/sglavoie/dotfiles/blob/main/.config/i3/config). If you liked this article, you may also enjoy reading the following ones:
 

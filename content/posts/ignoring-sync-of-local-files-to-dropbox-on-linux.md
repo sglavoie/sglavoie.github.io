@@ -6,6 +6,7 @@ slug: ignoring-sync-of-local-files-to-dropbox-on-linux
 author: Sébastien Lavoie
 summary: "To make the most of Dropbox, it can make sense to backup the files you care the most about and skip the ones that simply take too long to upload and eat up all your space. Such candidates could be hidden `.git/` folders and `node_modules/`, but how do you exclude them locally? Let's find out."
 description: "To make the most of Dropbox, it can make sense to backup the files you care the most about and skip the ones that simply take too long to upload and eat up all your space. Such candidates could be hidden .git/ folders and node_modules/, but how do you exclude them locally? Let's find out."
+image: /images/posts/0019_ignoring-local-files-to-sync-with-dropbox-on-linux/dropbox_selective_sync.png
 tags:
   - aliases
   - macos
@@ -15,11 +16,10 @@ tags:
 categories:
   - tips-and-tricks
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 [Dropbox](https://www.dropbox.com) is an awesome company which has been until recently the working home of none other than [Guido van Rossum](https://gvanrossum.github.io), the creator of the [Python](https://www.python.org) programming language. It works like a charm out of the box on Linux and can be installed easily enough through the package manager that comes with your chosen distribution.
 
@@ -45,7 +45,7 @@ Yet, because you can work with this feature programmatically to ignore and _un-i
 
 ---
 
-# Any simple example?
+## Any simple example?
 
 Getting started is quick and painless. To ignore a file within your Dropbox folder, you only need to use the `attr` (on Linux, else `xattr` on macOS) command to **set** (`-s`) (or `-w` **write** on macOS) the special attribute `com.dropbox.ignored` to give it a **value** of `1` (`-V 1`) so it ignores a file (`file.txt` in this example) as follow:
 
@@ -89,7 +89,7 @@ find . -type d -name "node_modules" |
 
 ---
 
-# Can we make this simpler?
+## Can we make this simpler?
 
 Yes we can! An `alias` might be a bit hard to manage, but we can definitely create a set of functions that will be accessible from anywhere in the terminal. It suffices to add them to your shell configuration file, which could be located in `~/.profile`, `~/.bash_profile`, `~/.zshrc` or something else depending on your shell.
 
@@ -149,7 +149,7 @@ dropbox-sync d .git
 
 ---
 
-# Conclusion
+## Conclusion
 
 This tip may certainly not be the best approach to solving this particular issue with Dropbox on Unix, but I hope you find it useful nevertheless as it worked out very nicely on my end! One could store files and directories elsewhere, working with symbolic links or hard links as necessary to reference files or simply give up on making a backup with Dropbox in some circumstances. But I like to keep an extra copy of projects I'm working on in Dropbox and that can include potentially large files that don't need to be backed up, so ignoring what's not indispensable can speed up the syncing process tremendously while keeping disk usage in the cloud possibly much lower.
 

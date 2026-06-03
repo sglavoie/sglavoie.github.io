@@ -5,17 +5,17 @@ slug: dispose-of-spam-with-disposable-emails-and-more
 author: Sébastien Lavoie
 summary: Have you ever received spam to your email address? Unless you are extremely lucky or are actually disconnected from the Internet and thus most probably not reading this, chances are you might have had an offer or two to receive gold from a Nigerian prince in the past. Before those princes and princesses generously start giving away their cryptocurrency in the near future in exchange for a trip to Western Union, get prepared and hide away your precious address!
 description: Have you ever received spam to your email address? Unless you are extremely lucky or are actually disconnected from the Internet and thus most probably not reading this, chances are you might have had an offer or two to receive gold from a Nigerian prince in the past. Before those princes and princesses generously start giving away their cryptocurrency in the near future in exchange for a trip to Western Union, get prepared and hide away your precious address!
+image: /images/posts/0012_dispose-of-spam/spamgourmet_getting_through.png
 tags:
   - productivity
   - web
 categories:
   - tips-and-tricks
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 If your privacy matters to you even just a little, read on, if you dare.
 There are easy solutions you can apply right now to filter those fools
@@ -53,7 +53,7 @@ the shear joy of it.
 
 So what shall we do about it?
 
-# Solution \#1: Use a temporary email
+## Solution \#1: Use a temporary email
 
 This one is quick and easy. You can use a variety of services,
 including [Temp Mail Address](https://www.tempmailaddress.com/),
@@ -67,7 +67,7 @@ access to a specific page that asks for an email and a _real_ name. You
 simply give a fake but working email address and you're good to go.
 Don't even set it and forget it.
 
-# Solution \#2: Use a more controlled approach
+## Solution \#2: Use a more controlled approach
 
 There is one particular service that I have been using for almost
 a decade now that eats your spam away on demand. That service is
@@ -130,7 +130,7 @@ real address, except if you added it in your signature.
 
 <a href="/images/posts/0012_dispose-of-spam/spamgourmet_getting_through.png"><img src="/images/posts/0012_dispose-of-spam/spamgourmet_getting_through.png" alt="spamgourmet_getting_through" class="max-size-img-post"></a>
 
-# Solution #3: Using filters
+## Solution #3: Using filters
 
 Gmail is one email service that allows you to create filters as you
 wish: let's take advantage of that. What you could do is delete only
@@ -168,7 +168,7 @@ and quickly at your convenience.
 For a list of available search operators, you can refer to
 this [Gmail help page — Search operators you can use with Gmail](https://support.google.com/mail/answer/7190?hl=en&topic=1668965&ctx=topic).
 
-# Solution \#4: Use the `+` symbol in your email
+## Solution \#4: Use the `+` symbol in your email
 
 Gmail lets you add a `+` symbol in your email address. For
 example, you can set up your `ServiceNameHere` email to be
@@ -180,7 +180,7 @@ you can then set up filters for individual services. This doesn't work
 for all websites as sometimes the `+` symbol isn't allowed. In that
 scenario, there is another way...
 
-# Solution \#5: Forward secondary emails to your main email
+## Solution \#5: Forward secondary emails to your main email
 
 This is pretty straightforward and even though you initially have to do
 more work to set things up, this can work very well for various reasons:
@@ -193,7 +193,7 @@ more work to set things up, this can work very well for various reasons:
 
 4. You can even set up your main account so that you are able to send messages from your main account as if it were coming from any of your secondary accounts. No more account switching: you get something sent to `my.second.email@gmail.com` in your main account and you can have it set up so that when you reply to that email, it is automatically sent from that secondary email instead of the main one.
 
-# Conclusion
+## Conclusion
 
 I hope you found something useful in this rambling about spam.
 I don't like spam myself, so if you have any tips or tricks you

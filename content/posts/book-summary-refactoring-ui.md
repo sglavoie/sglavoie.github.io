@@ -17,11 +17,10 @@ categories:
   - learnings
 skim_notes: true
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 - It covers core principles like establishing consistent systems for recurring elements such as spacing and typography.
 - It advises generous use of white space and thoughtful visual hierarchy.
@@ -34,7 +33,7 @@ skim_notes: true
 
 ---
 
-# Starting from scratch
+## Starting from scratch
 
 - **Start with a feature, not a layout**
     - Design the shell and navigation later once you know what features you need.
@@ -77,7 +76,7 @@ skim_notes: true
 
 ---
 
-# Hierarchy
+## Hierarchy
 
 - Visual hierarchy refers to how elements appear in importance relative to one another.
 - Don't let HTML semantics dictate visual styling -- style based on visual hierarchy.
@@ -94,7 +93,7 @@ skim_notes: true
 
 ---
 
-# Layout and spacing
+## Layout and spacing
 
 - **Start with too much white space**, then remove until happy -- often ends up being "just enough".
 - Compact layouts have their place but should be a deliberate choice, not the default.
@@ -114,7 +113,7 @@ skim_notes: true
 
 ---
 
-# Text
+## Text
 
 - **Establish a constrained type scale** to speed up font size decisions and add consistency. Avoid strict modular scales.
 - Use *pixel* or `rem` units -- not `em` -- to guarantee sizes match the scale.
@@ -133,7 +132,7 @@ skim_notes: true
 
 ---
 
-# Colors
+## Colors
 
 - **HSL** (*hue*, *saturation*, *lightness*) is more intuitive to the human eye: use it instead of **HEX** and **RGB**.
     - *Hue* is the color position on the color wheel. 0° is red, 120° is green, and 240° is blue.
@@ -188,7 +187,7 @@ skim_notes: true
 
 ---
 
-# Depth
+## Depth
 
 - Mimic how light works in the real world.
     - Emulate a light source coming from above to make elements appear raised or inset.
@@ -223,7 +222,7 @@ skim_notes: true
 
 ---
 
-# Images and contrast
+## Images and contrast
 
 - Images
     - *Use high quality photos* - hire a pro or use stock sites for generics. Don't expect good results from phone pics.
@@ -235,7 +234,7 @@ skim_notes: true
 
 ---
 
-# Scale
+## Scale
 
 - **Don't scale up icons**
 - Even for SVGs, they will lack detail if they were designed correctly at a smaller scale: use a more detailed icon instead.
@@ -252,7 +251,7 @@ skim_notes: true
 
 ---
 
-# Finishing touches
+## Finishing touches
 
 - Use icons instead of bullets in a bulleted list.
 - Play with size and colors. E.g., you can have huge quotes around the block of text representing a testimonial.
@@ -277,7 +276,7 @@ skim_notes: true
 
 ---
 
-# Next level
+## Next level
 
 - Look for unintuitive decisions in designs you admire to find new ideas.
 - Rebuild interfaces you love to discover small details that make them exceptional.
@@ -285,7 +284,7 @@ skim_notes: true
 
 ---
 
-# Conclusion
+## Conclusion
 
 The concepts covered in this book demonstrate that effective visual design does not require innate artistic talent or formal training. By approaching interfaces methodically, establishing constraints through systems for recurring elements, and learning to strategically apply principles like visual hierarchy, white space, and depth cues, anyone can create designs that appear polished and purposeful. While internalizing these fundamentals does take practice, the ideas presented remove much of the subjective, nuanced expertise needed for things like picking complementary colors or balancing composition in illustrations.
 

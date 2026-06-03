@@ -1,0 +1,52 @@
+{{- $destination := .Destination | safeURL -}}
+{{- $alt := .PlainText | default (.Text | plainify | htmlUnescape) | strings.TrimSpace -}}
+{{- $title := .Title -}}
+{{- $cleanDestination := .Destination | replaceRE "[?#].*$" "" -}}
+{{- $isRemote := or (hasPrefix .Destination "http://") (hasPrefix .Destination "https://") -}}
+{{- $width := 0 -}}
+{{- $height := 0 -}}
+{{- $webpURL := "" -}}
+
+{{- if not $isRemote -}}
+  {{- $relativePath := strings.TrimPrefix "/" $cleanDestination -}}
+  {{- if hasPrefix $cleanDestination "/" -}}
+    {{- $assetPath := path.Join "static" $relativePath -}}
+    {{- $extension := lower (path.Ext $cleanDestination) -}}
+    {{- if and (fileExists $assetPath) (in (slice ".png" ".jpg" ".jpeg" ".gif" ".webp") $extension) -}}
+      {{- $imageConfig := imageConfig $assetPath -}}
+      {{- $width = $imageConfig.Width -}}
+      {{- $height = $imageConfig.Height -}}
+    {{- end -}}
+    {{- if ne $extension ".webp" -}}
+      {{- $webpPath := path.Join "static" (printf "%s.webp" (strings.TrimSuffix $extension $relativePath)) -}}
+      {{- if fileExists $webpPath -}}
+        {{- $webpURL = printf "/%s.webp" (strings.TrimSuffix $extension $relativePath) | safeURL -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $webpURL -}}
+<picture>
+  <source srcset="{{ $webpURL }}" type="image/webp" />
+  <img
+    src="{{ $destination }}"
+    alt="{{ $alt }}"
+    loading="lazy"
+    decoding="async"
+    {{- with $title }} title="{{ . }}"{{ end -}}
+    {{- with $width }} width="{{ . }}"{{ end -}}
+    {{- with $height }} height="{{ . }}"{{ end -}}
+  />
+</picture>
+{{- else -}}
+<img
+  src="{{ $destination }}"
+  alt="{{ $alt }}"
+  loading="lazy"
+  decoding="async"
+  {{- with $title }} title="{{ . }}"{{ end -}}
+  {{- with $width }} width="{{ . }}"{{ end -}}
+  {{- with $height }} height="{{ . }}"{{ end -}}
+/>
+{{- end -}}

@@ -6,6 +6,7 @@ slug: using-dmenu-to-optimize-common-tasks
 author: Sébastien Lavoie
 summary: "If remembering dozens of keyboard shortcuts isn't your forte, let [dmenu](https://tools.suckless.org/dmenu) come to the rescue! With this awesome tool, you will be able to create menus from plain text files swiftly and effortlessly (almost)."
 description: "If remembering dozens of keyboard shortcuts isn't your forte, let dmenu come to the rescue! With this awesome tool, you will be able to create menus from plain text files swiftly and effortlessly (almost)."
+image: /images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_cheat_sheets.png
 tags:
   - bash
   - dmenu
@@ -16,17 +17,16 @@ tags:
 categories:
   - tips-and-tricks
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 [dmenu](https://tools.suckless.org/dmenu) is one of those tools that look a little unimpressive at first but can accomplish so much! It's a program that you can use to receive any output redirected from other programs (through pipes in the terminal, the symbol `|`) and treat that output so that it can pop up within a simple menu to make it available for execution. If you want to know more about other fantastic tools from [suckless.org](https://suckless.org), I [went over some of them before]({{< ref "/posts/using-dmenu-to-optimize-common-tasks" >}}), such as the `st` terminal and `slock`, a dead simple screen locker.
 
 ---
 
-# Any Simple Example?
+## Any Simple Example?
 
 You bet! Before diving in with how to install it and some more concrete examples, you could give `dmenu` a go with a simple command such as the following (assuming the program is installed on your machine).
 
@@ -90,7 +90,7 @@ Now that we got our feet wet with what `dmenu` does (_displays a menu_), we migh
 
 ---
 
-# How do You Install It?
+## How do You Install It?
 
 In Manjaro Linux, it comes with `i3` if you use that flavor of the distribution and can be opened by pressing the modifier key (either `Super/Windows` key or `Alt` key) along with the letter `d`, as in the shortcut `mod + d`, or by typing `dmenu_run` in a terminal, which will present a list of installed applications to launch. Otherwise:
 
@@ -110,7 +110,7 @@ You can also install it from your distribution's package manager if available or
 
 ---
 
-# Useful Real-World Examples
+## Useful Real-World Examples
 
 Here are a couple of ways I like to use `dmenu` to open a menu with a list of:
 
@@ -307,7 +307,7 @@ Here's what's happening:
 
 ---
 
-# Customize the Look of dmenu
+## Customize the Look of dmenu
 
 As they say, _"beauty is in the eye of the beholder"_. If you would rather make some changes to how dmenu look, you can. **dmenu** will be searching for the configuration file located at `~/.dmenurc`, which could contain something as put below (with this configuration, it will look like the screenshots shown previously):
 
@@ -340,7 +340,7 @@ DMENU_OPTIONS="-fn $DMENU_FN -nb $DMENU_NB -nf $DMENU_NF -sf $DMENU_SF -sb $DMEN
 
 ---
 
-# Conclusion
+## Conclusion
 
 Hopefully this introduction to what **dmenu** has to offer gave you some ideas. I hope you'll find many ways to adapt the examples so you can benefit from this amazing tool. You can find more configuration details in my [dotfiles on GitHub](https://github.com/sglavoie/dotfiles/) for anything related to **i3**, **dmenu**, **zathura**, **st**, **slock** and many more useful programs.
 

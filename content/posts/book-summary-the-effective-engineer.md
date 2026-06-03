@@ -16,17 +16,16 @@ categories:
   - learnings
 skim_notes: true
 ---
-[TOC]
 
 ---
 
-# Introduction
+## Introduction
 
 This wonderful, mostly non-technical book is a compilation of the best practices and lessons learned by the author, [Edmond Lau][edmond], during his impressive career as a software engineer. It is a must-read for anyone who wants to improve their skills and become more effective at what they do. The following are short excerpts from the condensed knowledge found in the book, sprinkled with some minor comments of my own along the way. These are extracted from the book’s takeaway sections and headings: I wholeheartedly recommend [reading the work][effective-website] in its entirety for an immersive exposure to the fantastic storytelling capabilities of Edmond!
 
 ---
 
-# Book summary
+## Book summary
 
 ## Part 1: Adopt the Right Mindset
 
@@ -213,7 +212,7 @@ This wonderful, mostly non-technical book is a compilation of the best practices
 
 ---
 
-# Conclusion
+## Conclusion
 
 Edmond opened my eyes to the importance of being an effective engineer, showing what that entails and how to concretely achieve it. His extraordinary technical journey and knowledge of the field are evident throughout the book, and I found myself nodding in agreement with many of his points. He made me think about how I could apply his advice to my own work. Notably, the key concept of **leverage** resonated deeply with me and ended up being the cornerstone of [the final project I built for my bachelor's degree][productivido]: _ProductiviDo - An efficient task planner focusing on high-leverage activities_.
 

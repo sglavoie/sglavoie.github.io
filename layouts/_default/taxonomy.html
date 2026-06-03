@@ -7,6 +7,11 @@
 {{ end }}
 
 {{ define "main" }}
+  <div class="article_title">
+    <h1>
+      {{ if eq .Data.Plural "categories" }}Category: {{ .Title }}{{ else }}Tag: {{ .Title }}{{ end }}
+    </h1>
+  </div>
   {{ $paginator := .Paginate .Pages }}
   {{ range $i, $page := $paginator.Pages }}
     {{ if $i }}<hr />{{ end }}

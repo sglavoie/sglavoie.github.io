@@ -2,8 +2,8 @@
   {{ if .Params.tags }}
   <meta name="keywords" content="{{ delimit .Params.tags ", " }}" />
   {{ end }}
-  {{ with .Params.description }}
-  <meta name="og:title" property="og:title" content="{{ . }}" />
+  {{ if eq .Section "posts" }}
+  {{ partial "seo/post-structured-data.html" . }}
   {{ end }}
 {{ end }}
 
