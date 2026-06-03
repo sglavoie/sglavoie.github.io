@@ -136,9 +136,9 @@
   --tone-800: hsl(211, 30%, 50%);
   --tone-900: hsl(211, 25%, 50%);
 
-  --transition-border: 1000ms;
-  --transition-color: 300ms;
-  --transition-logo: 1000ms;
+  --transition-border: 180ms;
+  --transition-color: 180ms;
+  --transition-logo: 500ms;
 
   --type-scale-11-lg-size: 48px;
   --type-scale-11-lg-margin-top: 86px;
@@ -453,9 +453,9 @@ div#paginator li a:where(:hover, :focus-visible) {
   background-size: 100% var(--bg-h);
   background-position-x: right;
   color: var(--tint-100);
-  -webkit-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  transform: scale(1.05);
+  -webkit-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  transform: scale(1.03);
   border-radius: 4px;
 }
 
@@ -464,9 +464,9 @@ aside#pageNavigation li a:where(:hover, :focus-visible) {
   background-size: 100% var(--bg-h);
   background-position-x: left;
   color: var(--tint-100);
-  -webkit-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  transform: scale(1.05);
+  -webkit-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  transform: scale(1.03);
   border-radius: 4px;
 }
 
@@ -612,6 +612,13 @@ main article.archives {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
@@ -1061,41 +1068,41 @@ ul.tagcloud li {
   padding: 0.15em;
 }
 li.tag-1 {
-  font-size: 250%;
+  font-size: 265%;
 }
 li.tag-2 {
-  font-size: 225%;
+  font-size: 240%;
 }
 li.tag-3 {
-  font-size: 200%;
+  font-size: 215%;
 }
 li.tag-4 {
-  font-size: 175%;
+  font-size: 190%;
 }
 li.tag-5 {
-  font-size: 150%;
+  font-size: 165%;
 }
 li.tag-6 {
-  font-size: 125%;
+  font-size: 140%;
 }
 li.tag-7 {
-  font-size: 100%;
+  font-size: 115%;
 }
 li.tag-8 {
-  font-size: 75%;
+  font-size: 90%;
 }
 span.badge {
   background-color: var(--shade-900);
   bottom: 0.7em;
-  -webkit-box-shadow: 0px 0px 2px 3px var(--shade-800);
-  box-shadow: 0px 0px 2px 3px var(--shade-800);
+  -webkit-box-shadow: 0px 0px 1px 1px var(--shade-800);
+  box-shadow: 0px 0px 1px 1px var(--shade-800);
   color: var(--tint-100);
   line-height: 1.5em;
   margin: 0.1em;
   padding: 0.04em;
   position: relative;
   right: 0.1em;
-  text-shadow: 0 0 3px var(--background-dark);
+  text-shadow: 0 0 1px var(--background-dark);
 }
 
 /* From https://github.com/kura/pelican_youtube/blob/main/youtube.css */
@@ -1208,11 +1215,14 @@ span.badge {
 .pagefind-ui__search-input {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transition: border-color 0.3s, -webkit-box-shadow 0.3s;
-  transition: border-color 0.3s, -webkit-box-shadow 0.3s;
-  -o-transition: border-color 0.3s, box-shadow 0.3s;
-  transition: border-color 0.3s, box-shadow 0.3s;
-  transition: border-color 0.3s, box-shadow 0.3s, -webkit-box-shadow 0.3s;
+  -webkit-transition: border-color var(--transition-color),
+    -webkit-box-shadow var(--transition-color);
+  transition: border-color var(--transition-color),
+    -webkit-box-shadow var(--transition-color);
+  -o-transition: border-color var(--transition-color), box-shadow var(--transition-color);
+  transition: border-color var(--transition-color), box-shadow var(--transition-color);
+  transition: border-color var(--transition-color),
+    box-shadow var(--transition-color), -webkit-box-shadow var(--transition-color);
   border: 1px solid #d9d9d9;
   border-radius: 0.1875em;
   background: #323234;
