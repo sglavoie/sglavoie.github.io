@@ -965,7 +965,7 @@ aside#sidebar .sidebar-category-icon {
     "pageNavigationArea"
     "sidebarArea"
     "mainArea";
-  grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
+  grid-template-columns: minmax(0, 1fr);
 }
 
 div#paginator {

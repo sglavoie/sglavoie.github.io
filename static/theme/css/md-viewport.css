@@ -59,6 +59,6 @@
       "pageNavigationArea"
       "sidebarArea"
       "mainArea";
-    grid-template-columns: repeat(auto-fit, minmax(20em, 52em));
+    grid-template-columns: minmax(20em, 52em);
   }
 }
