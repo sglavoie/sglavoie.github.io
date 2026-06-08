@@ -11,56 +11,62 @@
 
 {{ define "main" }}
 {{ if eq .Section "posts" }}
-<article data-pagefind-body>
-  <div class="article_title">
-    <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
-  </div>
-  <div class="meta_container_hrs">
-    <hr />
-    <div class="meta_container">
-      <div class="article_meta">
-        <div>
-          Posted on <strong>{{ .Date.Format "January 2, 2006" }}</strong> in
-          <span id="category-article">
-            {{ with index .Params.categories 0 }}
-              {{ with site.GetPage (printf "/categories/%s" (. | urlize)) }}
-              <a href="{{ .RelPermalink }}">{{ partial "icons/category.html" . }}{{ .Title }}</a>
-              {{ end }}
-            {{ end }}
-          </span>
-        </div>
-        {{ if not .Lastmod.IsZero }}
-        {{ if ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02") }}
-        <div>
-          <time class="modified" datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
-            Modified on <strong>{{ .Lastmod.Format "January 2, 2006" }}</strong>
-          </time>
-        </div>
-        {{ end }}
-        {{ end }}
-        <div class="article_tags">
-          {{ range .GetTerms "tags" }}
-          <a href="{{ .RelPermalink }}">{{ partial "icons/tag.html" . }}{{ .Title }}</a>
-          {{ end }}
-        </div>
-      </div>
-      {{ if .ReadingTime }}
-      <div class="article_readtime">
-        <span class="readtime_tilde">~</span><span class="readtime_minutes">{{ .ReadingTime }}</span>
-        minutes to read
-      </div>
-      {{ end }}
-      {{ if .Params.skim_notes }}
-      <div class="article_skim_notes">
-        <em><strong>Note:</strong> This article features skimming notes and is intentionally less fluffy.</em>
-      </div>
-      {{ end }}
+<article class="post-reading" data-pagefind-body>
+  <header class="post-reading__header">
+    <div class="article_title post-reading__title">
+      <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
     </div>
-    <hr />
-  </div>
+    <div class="meta_container_hrs post-reading__meta-rule">
+      <hr />
+      <div class="meta_container post-reading__meta">
+        <div class="article_meta post-reading__details">
+          <div class="post-reading__detail">
+            Posted on
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}"><strong>{{ .Date.Format "January 2, 2006" }}</strong></time>
+            in
+            <span id="category-article" class="post-reading__category">
+              {{ with index .Params.categories 0 }}
+                {{ with site.GetPage (printf "/categories/%s" (. | urlize)) }}
+                <a href="{{ .RelPermalink }}">{{ partial "icons/category.html" . }}{{ .Title }}</a>
+                {{ end }}
+              {{ end }}
+            </span>
+          </div>
+          {{ if not .Lastmod.IsZero }}
+          {{ if ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02") }}
+          <div class="post-reading__detail">
+            <time class="modified" datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+              Modified on <strong>{{ .Lastmod.Format "January 2, 2006" }}</strong>
+            </time>
+          </div>
+          {{ end }}
+          {{ end }}
+          <div class="article_tags post-reading__tags" aria-label="Tags">
+            {{ range .GetTerms "tags" }}
+            <a href="{{ .RelPermalink }}">{{ partial "icons/tag.html" . }}{{ .Title }}</a>
+            {{ end }}
+          </div>
+        </div>
+        {{ if .ReadingTime }}
+        <div class="article_readtime post-reading__readtime" aria-label="{{ .ReadingTime }} minutes to read">
+          <span class="readtime_tilde">~</span><span class="readtime_minutes">{{ .ReadingTime }}</span>
+          min read
+        </div>
+        {{ end }}
+        {{ if .Params.skim_notes }}
+        <div class="article_skim_notes post-reading__skim">
+          <em><strong>Note:</strong> This article features skimming notes and is intentionally less fluffy.</em>
+        </div>
+        {{ end }}
+      </div>
+      <hr />
+    </div>
+  </header>
   {{ if gt (len .TableOfContents) 25 }}
-  <h2 class="toc-title">Table of contents</h2>
-  <nav class="toc">{{ .TableOfContents }}</nav>
+  <section class="post-reading__toc" aria-labelledby="toc-title">
+    <h2 id="toc-title" class="toc-title">Table of contents</h2>
+    <nav class="toc" aria-labelledby="toc-title">{{ .TableOfContents }}</nav>
+  </section>
   {{ end }}
   <div class="article_text">{{ .Content }}</div>
 </article>

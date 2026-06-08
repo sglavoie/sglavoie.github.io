@@ -1,14 +1,33 @@
+{{- $currentRel := .RelPermalink -}}
+{{- $currentPlural := "" -}}
+{{- $currentTitle := .Title -}}
+{{- $currentCategories := slice -}}
+{{- with .Data }}{{- $currentPlural = .Plural -}}{{- end -}}
+{{- with .Params.categories }}{{- $currentCategories = . -}}{{- end -}}
+
 <aside id="sidebar">
-  <a id="websiteLogo" href="{{ "/" | relURL }}">
+  <a id="websiteLogo" href="{{ "/" | relURL }}" aria-label="{{ .Site.Title }} home">
     {{ partial "icons/logo.html" . }}
   </a>
 
-  <nav id="navCategories">
-    <ul>
+  <nav id="navCategories" class="category-nav" aria-label="Categories">
+    <ul class="category-nav__list">
       {{ range .Site.Taxonomies.categories.Alphabetical }}
-      <li>
-        <a href="{{ .Page.RelPermalink }}"
-          >{{ .Page.Title }}
+        {{- $categoryTitle := .Page.Title -}}
+        {{- $categorySlug := $categoryTitle | urlize -}}
+        {{- $isCurrentPage := or (eq $currentRel .Page.RelPermalink) (and (eq $currentPlural "categories") (eq $currentTitle $categoryTitle)) -}}
+        {{- $isActive := $isCurrentPage -}}
+        {{- range $currentCategories -}}
+          {{- if eq (. | urlize) $categorySlug -}}
+            {{- $isActive = true -}}
+          {{- end -}}
+        {{- end -}}
+      <li class="category-nav__item{{ if $isActive }} is-active{{ end }}">
+        <a
+          class="category-nav__link{{ if $isActive }} is-active{{ end }}"
+          href="{{ .Page.RelPermalink }}"
+          {{ if $isCurrentPage }}aria-current="page"{{ end }}
+        >{{ .Page.Title }}
           {{ partial "icons/sidebar-category.html" . }}
         </a>
       </li>

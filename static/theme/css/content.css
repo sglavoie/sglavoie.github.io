@@ -1,0 +1,97 @@
+main article,
+main article .article_text {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+main article .article_text {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+main article h1,
+main article h2,
+main article h3,
+main article h4,
+main article h5,
+main article h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+main article p,
+main article li,
+main article dd,
+main article dt,
+main article blockquote {
+  overflow-wrap: break-word;
+}
+
+main article p,
+main article ul,
+main article ol,
+main article dl,
+main article blockquote,
+main article nav.toc,
+main article .highlight,
+main article pre,
+.archives-article {
+  max-width: 100%;
+}
+
+main article pre,
+main article .highlight {
+  width: 100%;
+  min-width: 0;
+}
+
+main article pre {
+  margin-right: 0;
+  margin-left: 0;
+  padding-right: clamp(0.75rem, 4vw, 1.5rem);
+  padding-left: clamp(0.75rem, 4vw, 1.5rem);
+  overflow-x: auto;
+}
+
+main article code:not(pre > code),
+a code {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.table-wrapper {
+  max-width: 100%;
+  min-width: 0;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.table-wrapper table {
+  min-width: max-content;
+}
+
+img,
+iframe,
+video {
+  max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+  main article p,
+  main article ul,
+  main article ol,
+  main article dl,
+  main article blockquote,
+  main article nav.toc {
+    max-width: var(--layout-prose-max);
+  }
+}

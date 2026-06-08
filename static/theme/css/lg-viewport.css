@@ -176,9 +176,8 @@
     width: 100%;
   }
 
-  aside#pageNavigation .navigation-icon,
-  aside#sidebar .sidebar-category-icon {
-    top: 0.4em;
+  aside#pageNavigation .navigation-icon {
+    align-self: center;
   }
 
   h1 {

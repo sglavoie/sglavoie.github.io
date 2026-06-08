@@ -18,7 +18,7 @@
     url("./fonts/ubuntu-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 @font-face {
   font-family: "Ubuntu";
@@ -26,15 +26,15 @@
     url("./fonts/ubuntu-bold-webfont.woff") format("woff");
   font-weight: bold;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 @font-face {
   font-family: "Ubuntu";
   src: url("./fonts/ubuntu-regular-italic-webfont.woff2") format("woff2"),
-    url("./fonts/ubuntu-regular-italic-webfont.woff2") format("woff");
+    url("./fonts/ubuntu-regular-italic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: italic;
-  font-display: fallback;
+  font-display: swap;
 }
 @font-face {
   font-family: "Ubuntu";
@@ -42,7 +42,7 @@
     url("./fonts/ubuntu-bold-italic-webfont.woff") format("woff");
   font-weight: bold;
   font-style: italic;
-  font-display: fallback;
+  font-display: swap;
 }
 
 @font-face {
@@ -52,7 +52,7 @@
     url("./fonts/lato-regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 @font-face {
   font-family: "Lato";
@@ -61,7 +61,7 @@
     url("./fonts/lato-bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 
 @font-face {
@@ -70,7 +70,7 @@
     url("./fonts/SourceCodePro-Regular.ttf.woff") format("woff-variations");
   font-weight: normal;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 @font-face {
   font-family: "SourceCodePro";
@@ -78,7 +78,7 @@
     url("./fonts/SourceCodePro-Bold.ttf.woff") format("woff-variations");
   font-weight: bold;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 @font-face {
   font-family: "SourceCodePro";
@@ -86,7 +86,7 @@
     url("./fonts/SourceCodePro-It.ttf.woff") format("woff-variations");
   font-weight: normal;
   font-style: italic;
-  font-display: fallback;
+  font-display: swap;
 }
 @font-face {
   font-family: "SourceCodePro";
@@ -94,7 +94,7 @@
     url("./fonts/SourceCodePro-BoldIt.ttf.woff") format("woff-variations");
   font-weight: bold;
   font-style: italic;
-  font-display: fallback;
+  font-display: swap;
 }
 
 /* Color palette: https://colordesigner.io/ */
@@ -191,7 +191,6 @@ html {
     rgba(0, 25, 51, 1) 100%
   );
   color: var(--tint-200);
-  font-display: fallback;
   font-family: Ubuntu, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu,
     Cantarell, Helvetica Neue;
   font-size: 18px;
@@ -932,14 +931,12 @@ main article .article-category-icon {
 
 aside#pageNavigation .navigation-icon {
   margin-right: 0.3em;
-  position: relative;
-  top: 0.1em;
+  align-self: center;
 }
 
 aside#sidebar .sidebar-category-icon {
   margin-left: 0.3em;
-  position: relative;
-  top: 0.1em;
+  align-self: center;
 }
 
 #category-article {
@@ -1026,24 +1023,6 @@ div#paginator ul {
   transform: scale(1.5);
 }
 
-#search-icon {
-  top: 12px;
-  right: 24px;
-  line-height: 1em;
-  margin: 0;
-  position: absolute;
-  z-index: 1;
-  -webkit-transition: all var(--transition-color) ease-in-out;
-  -o-transition: all var(--transition-color) ease-in-out;
-  transition: all var(--transition-color) ease-in-out;
-}
-
-#search-icon:hover {
-  cursor: pointer;
-  -webkit-filter: invert(0.2) saturate(10) hue-rotate(0deg) brightness(1.1);
-  filter: invert(0.2) saturate(10) hue-rotate(0deg) brightness(1.1);
-}
-
 /* Styles for the tag cloud */
 ul.tagcloud {
   -webkit-box-align: center;
@@ -1066,7 +1045,9 @@ ul.tagcloud {
   text-align: center;
 }
 ul.tagcloud li {
+  flex: 0 0 auto;
   padding: 0.15em;
+  white-space: nowrap;
 }
 li.tag-1 {
   font-size: 265%;
@@ -1091,6 +1072,10 @@ li.tag-7 {
 }
 li.tag-8 {
   font-size: 90%;
+}
+
+ul.tagcloud a span {
+  white-space: nowrap;
 }
 span.badge {
   background-color: var(--shade-900);
@@ -1444,8 +1429,7 @@ span.badge {
   animation: fadeInLeft 0.2s forwards;
 }
 
-#pageNavigation,
-#search-icon {
+#pageNavigation {
   opacity: 0;
   -webkit-animation: fadeInRight 0.2s forwards;
   animation: fadeInRight 0.2s forwards;

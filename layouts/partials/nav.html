@@ -1,38 +1,57 @@
+{{- $currentRel := .RelPermalink -}}
+{{- $currentPlural := "" -}}
+{{- with .Data }}{{- $currentPlural = .Plural -}}{{- end -}}
+
 <aside id="pageNavigation">
-  <nav>
-    <ul>
-      <li>
-        <a href="{{ "/" | relURL }}"
-          >{{ partial "icons/home.html" . }}
-          Home</a
+  <nav class="site-nav" aria-label="Primary">
+    <ul class="site-nav__list">
+      {{- $items := slice
+        (dict "label" "Home" "url" ("/" | relURL) "icon" "icons/home.html" "match" "home")
+        (dict "label" "Archives" "url" ("/archives/" | relURL) "icon" "icons/archives.html" "match" "archives")
+        (dict "label" "Tags" "url" ("/tags/" | relURL) "icon" "icons/tags.html" "match" "tags")
+        (dict "label" "Contact" "url" ("/contact/" | relURL) "icon" "icons/contact.html" "match" "contact")
+      -}}
+      {{- range $items }}
+        {{- $isActive := eq $currentRel .url -}}
+        {{- if and (eq .match "tags") (eq $currentPlural "tags") -}}
+          {{- $isActive = true -}}
+        {{- end -}}
+        <li class="site-nav__item{{ if $isActive }} is-active{{ end }}">
+          <a
+            class="site-nav__link{{ if $isActive }} is-active{{ end }}"
+            href="{{ .url }}"
+            {{ if $isActive }}aria-current="page"{{ end }}
+          >
+            {{ partial .icon $ }}
+            <span class="site-nav__text">{{ .label }}</span>
+          </a>
+        </li>
+      {{- end }}
+      <li class="site-nav__item site-nav__item--search">
+        <button
+          id="search-trigger"
+          class="site-nav__button"
+          type="button"
+          aria-label="Search site"
+          aria-haspopup="dialog"
+          aria-expanded="false"
+          aria-keyshortcuts="F"
+          title="Search site"
         >
+          {{ partial "icons/search.html" . }}
+          <span class="site-nav__text">Search</span>
+        </button>
       </li>
-      <li>
-        <a href="{{ "/archives/" | relURL }}"
-          >{{ partial "icons/archives.html" . }}
-          Archives</a
-        >
-      </li>
-      <li>
-        <a href="{{ "/tags/" | relURL }}"
-          >{{ partial "icons/tags.html" . }}
-          Tags</a
-        >
-      </li>
-      <li>
-        <a href="{{ "/contact/" | relURL }}"
-          >{{ partial "icons/contact.html" . }}
-          Contact</a
-        >
-      </li>
-      <li>
+      <li class="site-nav__item">
         <a
-          href="{{ "/resume" | relURL }}"
+          class="site-nav__link"
+          href="{{ "/resume/" | relURL }}"
           target="_blank"
           rel="noopener noreferrer"
-          >{{ partial "icons/resume.html" . }}
-          Resume</a
         >
+          {{ partial "icons/resume.html" . }}
+          <span class="site-nav__text">Resume</span>
+        </a>
       </li>
     </ul>
   </nav>

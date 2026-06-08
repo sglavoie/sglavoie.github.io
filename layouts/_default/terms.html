@@ -8,22 +8,25 @@
 
 {{ define "main" }}
 {{ if eq .Data.Plural "tags" }}
-<article class="tags">
-  <div class="article_title">
+<article class="discovery-page discovery-page--tags tags">
+  <header class="article_title discovery-page__header">
     <h1>Tags</h1>
-  </div>
+    <p class="discovery-page__meta">{{ len .Data.Terms }} tags</p>
+  </header>
   {{ partial "tag-cloud.html" . }}
 </article>
 {{ else }}
-<article>
-  <div class="article_title">
+<article class="discovery-page discovery-page--categories">
+  <header class="article_title discovery-page__header">
     <h1>Categories</h1>
-  </div>
+    <p class="discovery-page__meta">{{ len .Data.Terms }} categories</p>
+  </header>
   <div class="article_text">
-    <ul>
+    <ul class="taxonomy-index">
       {{ range .Data.Terms.Alphabetical }}
-      <li>
-        <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a> ({{ .Count }})
+      <li class="taxonomy-index__item">
+        <a class="taxonomy-index__link" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+        <span class="taxonomy-index__count">{{ .Count }}</span>
       </li>
       {{ end }}
     </ul>

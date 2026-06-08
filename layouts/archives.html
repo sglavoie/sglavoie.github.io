@@ -1,12 +1,20 @@
 {{ define "title" }} &ndash; Archives{{ end }}
 
 {{ define "main" }}
-<article class="archives">
-  <dl class="sibling-fade">
-    {{ range where site.RegularPages "Section" "posts" }}
+{{ $posts := where site.RegularPages "Section" "posts" }}
+{{ $postsCount := len $posts }}
+<article class="archives discovery-page discovery-page--archives">
+  <header class="article_title discovery-page__header">
+    <h1>Archives</h1>
+    <p class="discovery-page__meta">{{ $postsCount }} {{ if eq $postsCount 1 }}post{{ else }}posts{{ end }}</p>
+  </header>
+  <dl class="archives__list sibling-fade">
+    {{ range $posts }}
     <div class="archives-article">
-      <dt>{{ .Date.Format "January 2, 2006" }}</dt>
-      <dd>
+      <dt class="archives-article__date">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+      </dt>
+      <dd class="archives-article__title">
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
       </dd>
     </div>

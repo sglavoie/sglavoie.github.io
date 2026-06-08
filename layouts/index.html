@@ -1,14 +1,9 @@
-{{ define "main" }}
-  {{ $pages := where site.RegularPages "Section" "posts" }}
-  {{ $paginator := .Paginate $pages }}
-  <div class="article_title">
-    <h1>Latest posts</h1>
-  </div>
-  {{ range $i, $page := $paginator.Pages }}
-    {{ if $i }}<hr />{{ end }}
-    {{ partial "article-card.html" $page }}
-  {{ end }}
-  <footer>
-    {{ partial "pagination.html" . }}
-  </footer>
+{{ define "main" }} {{ $pages := where site.RegularPages "Section" "posts" }} {{
+$paginator := .Paginate $pages }}
+<div class="article_title article_title--list">
+  <h2>Latest posts</h2>
+</div>
+{{ range $i, $page := $paginator.Pages }} {{ partial "article-card.html" $page
+}} {{ end }}
+<footer>{{ partial "pagination.html" . }}</footer>
 {{ end }}

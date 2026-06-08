@@ -1,11 +1,21 @@
-<article>
-  <div>
-    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-  </div>
-  {{ if .ReadingTime }}
-  <p class="article_readtime">
-    <span class="readtime_tilde">~</span><span class="readtime_minutes">{{ .ReadingTime }}</span> minutes to read
-  </p>
-  {{ end }}
-  <div class="article_text">{{ .Summary }}</div>
+<article class="article-card">
+  <header class="article-card__header">
+    <h2 class="article-card__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    <div class="article-card__meta" aria-label="Article metadata">
+      <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+        {{ .Date.Format "January 2, 2006" }}
+      </time>
+      {{ with index .Params.categories 0 }}
+        {{ with site.GetPage (printf "/categories/%s" (. | urlize)) }}
+          <a class="article-card__category" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{ end }}
+      {{ end }}
+      {{ if .ReadingTime }}
+        <span class="article-card__readtime">
+          <span class="readtime_tilde">~</span><span class="readtime_minutes">{{ .ReadingTime }}</span> min read
+        </span>
+      {{ end }}
+    </div>
+  </header>
+  <div class="article_text article-card__summary">{{ .Summary }}</div>
 </article>

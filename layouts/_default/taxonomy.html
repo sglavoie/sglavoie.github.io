@@ -7,17 +7,22 @@
 {{ end }}
 
 {{ define "main" }}
-  <div class="article_title">
-    <h1>
-      {{ if eq .Data.Plural "categories" }}Category: {{ .Title }}{{ else }}Tag: {{ .Title }}{{ end }}
-    </h1>
-  </div>
+{{ $postsCount := len .Pages }}
   {{ $paginator := .Paginate .Pages }}
-  {{ range $i, $page := $paginator.Pages }}
-    {{ if $i }}<hr />{{ end }}
-    {{ partial "article-card.html" $page }}
-  {{ end }}
-  <footer>
-    {{ partial "pagination.html" . }}
-  </footer>
+  <section class="taxonomy-listing" aria-labelledby="taxonomy-title">
+    <header class="article_title discovery-page__header">
+      <h1 id="taxonomy-title">
+        {{ if eq .Data.Plural "categories" }}Category: {{ .Title }}{{ else }}Tag: {{ .Title }}{{ end }}
+      </h1>
+      <p class="discovery-page__meta">{{ $postsCount }} {{ if eq $postsCount 1 }}post{{ else }}posts{{ end }}</p>
+    </header>
+    <div class="taxonomy-listing__posts">
+      {{ range $paginator.Pages }}
+        {{ partial "article-card.html" . }}
+      {{ end }}
+    </div>
+    <footer class="taxonomy-listing__pagination">
+      {{ partial "pagination.html" . }}
+    </footer>
+  </section>
 {{ end }}

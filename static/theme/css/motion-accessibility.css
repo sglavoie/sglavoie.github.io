@@ -1,0 +1,54 @@
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    -webkit-animation-duration: 1ms !important;
+    animation-duration: 1ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    -webkit-transition-duration: 1ms !important;
+    -o-transition-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
+
+  #sidebar,
+  #pageNavigation,
+  .article_title,
+  .meta_container,
+  .article_readtime,
+  .toc-title,
+  .toc,
+  .article_text,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  hr {
+    -webkit-animation: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+  }
+
+  .svgLogo,
+  .svgLogo:hover,
+  .footer-icon,
+  .footer-icon:hover,
+  #rss-feed,
+  #rss-feed:hover,
+  aside#sidebar li a:where(:hover, :focus-visible),
+  aside#pageNavigation li a:where(:hover, :focus-visible),
+  div#paginator li a:where(:hover, :focus-visible),
+  .sibling-fade:hover > *,
+  .sibling-fade > *:hover {
+    -webkit-transform: none !important;
+    -ms-transform: none !important;
+    transform: none !important;
+  }
+}

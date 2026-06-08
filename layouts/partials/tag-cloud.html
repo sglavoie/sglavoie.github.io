@@ -17,7 +17,7 @@
     {{- $max := (index $tags 0).Count -}}
     {{- $min := (index $tags (sub (len $tags) 1)).Count -}}
     {{- $spread := sub $max $min -}}
-    <ul class="tagcloud sibling-fade">
+    <ul class="tagcloud sibling-fade" aria-label="Tags">
     {{- range shuffle $tags }}
       {{- $bucket := 1 -}}
       {{- if gt $spread 0 -}}
