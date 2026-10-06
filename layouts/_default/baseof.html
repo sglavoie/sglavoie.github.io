@@ -150,6 +150,26 @@
         });
       }
 
+      // Copy buttons on code blocks (see render-codeblock.html).
+      if (navigator.clipboard) {
+        document.querySelectorAll(".code-block__copy").forEach(function (button) {
+          button.hidden = false;
+          button.addEventListener("click", function () {
+            // With line numbers, Chroma renders a table; the code is the last <code>.
+            const codes = button.closest(".code-block").querySelectorAll("pre code");
+            const code = codes[codes.length - 1];
+            navigator.clipboard.writeText(code.innerText.replace(/\n$/, "")).then(function () {
+              button.textContent = "Copied";
+              button.dataset.copied = "";
+              window.setTimeout(function () {
+                button.textContent = "Copy";
+                delete button.dataset.copied;
+              }, 1600);
+            });
+          });
+        });
+      }
+
       // Key press event for the 'F' key
       document.addEventListener("keydown", function (e) {
         if (
