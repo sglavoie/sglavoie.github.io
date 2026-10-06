@@ -11,65 +11,45 @@
 
 {{ define "main" }}
 {{ if eq .Section "posts" }}
-<article class="post-reading" data-pagefind-body>
+{{- $hasToc := gt (len .TableOfContents) 25 -}}
+<article class="post-reading{{ if $hasToc }} post-reading--with-toc{{ end }}" data-pagefind-body>
   <header class="post-reading__header">
-    <div class="article_title post-reading__title">
-      <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
-    </div>
-    <div class="meta_container_hrs post-reading__meta-rule">
-      <hr />
-      <div class="meta_container post-reading__meta">
-        <div class="article_meta post-reading__details">
-          <div class="post-reading__detail">
-            Posted on
-            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}"><strong>{{ .Date.Format "January 2, 2006" }}</strong></time>
-            in
-            <span id="category-article" class="post-reading__category">
-              {{ with index .Params.categories 0 }}
-                {{ with site.GetPage (printf "/categories/%s" (. | urlize)) }}
-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                {{ end }}
-              {{ end }}
-            </span>
-          </div>
-          {{ if not .Lastmod.IsZero }}
-          {{ if ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02") }}
-          <div class="post-reading__detail">
-            <time class="modified" datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
-              Modified on <strong>{{ .Lastmod.Format "January 2, 2006" }}</strong>
-            </time>
-          </div>
-          {{ end }}
-          {{ end }}
-          <div class="article_tags post-reading__tags" aria-label="Tags">
-            {{ range .GetTerms "tags" }}
-            <a href="{{ .RelPermalink }}">{{ partial "icons/tag.html" . }}{{ .Title }}</a>
-            {{ end }}
-          </div>
-        </div>
-        {{ if .ReadingTime }}
-        <div class="article_readtime post-reading__readtime" aria-label="{{ .ReadingTime }} minutes to read">
-          <span class="readtime_tilde">~</span><span class="readtime_minutes">{{ .ReadingTime }}</span>
-          min read
-        </div>
-        {{ end }}
-        {{ if .Params.skim_notes }}
-        <div class="article_skim_notes post-reading__skim">
-          <em><strong>Note:</strong> This article features skimming notes and is intentionally less fluffy.</em>
-        </div>
-        {{ end }}
-      </div>
-      <hr />
-    </div>
+    <h1 class="post-reading__title">{{ .Title }}</h1>
+    <p class="post-reading__meta">
+      <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+      {{- with index .Params.categories 0 }}
+        {{- with site.GetPage (printf "/categories/%s" (. | urlize)) }}
+      <a class="post-reading__category" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{- end }}
+      {{- end }}
+      {{- if .ReadingTime }}
+      <span>{{ .ReadingTime }} min read</span>
+      {{- end }}
+      {{- if and (not .Lastmod.IsZero) (ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }}
+      <span>Updated <time class="modified" datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Lastmod.Format "Jan 2, 2006" }}</time></span>
+      {{- end }}
+    </p>
+    {{- with .GetTerms "tags" }}
+    <ul class="post-reading__tags" aria-label="Tags">
+      {{- range . }}
+      <li><a href="{{ .RelPermalink }}">{{ partial "icons/tag.html" . }}{{ .Title }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
+    {{- if .Params.skim_notes }}
+    <p class="post-reading__skim">This article features skimming notes and is intentionally less fluffy.</p>
+    {{- end }}
   </header>
-  {{ if gt (len .TableOfContents) 25 }}
-  <section class="post-reading__toc" aria-labelledby="toc-title">
-    <h2 id="toc-title" class="toc-title">Table of contents</h2>
+  {{ if $hasToc }}
+  <aside class="post-reading__toc" aria-labelledby="toc-title">
+    <h2 id="toc-title" class="toc-title">On this page</h2>
     <nav class="toc" aria-labelledby="toc-title">{{ .TableOfContents }}</nav>
-  </section>
+  </aside>
   {{ end }}
   <div class="article_text">{{ .Content }}</div>
+  {{ partial "post-footer.html" . }}
 </article>
+{{ if $hasToc }}{{ partial "toc-scrollspy.html" . }}{{ end }}
 {{ else }}
 <article>
   <div class="article_title">

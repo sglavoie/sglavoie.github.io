@@ -1,0 +1,46 @@
+{{- /* Newer/older links plus related posts, shown at the end of every post. */ -}}
+{{- $newer := .NextInSection -}}
+{{- $older := .PrevInSection -}}
+{{- $exclude := slice . -}}
+{{- with $newer }}{{ $exclude = $exclude | append . }}{{ end -}}
+{{- with $older }}{{ $exclude = $exclude | append . }}{{ end -}}
+{{- $related := slice -}}
+{{- range site.RegularPages.Related . -}}
+  {{- if and (eq .Section "posts") (not (in $exclude .)) -}}
+    {{- $related = $related | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- $related = first 3 $related -}}
+
+<footer class="post-footer" data-pagefind-ignore>
+  {{- if or $newer $older }}
+  <nav class="post-footer__pager" aria-label="More posts">
+    {{- with $older }}
+    <a class="post-footer__pager-link post-footer__pager-link--older" href="{{ .RelPermalink }}" rel="prev">
+      <span class="post-footer__label">&larr; Older</span>
+      <span class="post-footer__title">{{ .Title }}</span>
+    </a>
+    {{- end }}
+    {{- with $newer }}
+    <a class="post-footer__pager-link post-footer__pager-link--newer" href="{{ .RelPermalink }}" rel="next">
+      <span class="post-footer__label">Newer &rarr;</span>
+      <span class="post-footer__title">{{ .Title }}</span>
+    </a>
+    {{- end }}
+  </nav>
+  {{- end }}
+
+  {{- with $related }}
+  <section class="post-footer__related" aria-labelledby="related-title">
+    <h2 id="related-title" class="section-label">Related posts</h2>
+    <ul class="post-footer__related-list">
+      {{- range . }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <span class="post-footer__related-meta">{{ .Date.Format "Jan 2006" }} &middot; {{ .ReadingTime }} min read</span>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+</footer>

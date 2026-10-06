@@ -599,17 +599,6 @@ main article.article-card .article-card__category:hover {
   }
 }
 
-/* Post header meta box: the dark fade is defined in visual-system.css. */
-:root[data-theme="light"] .meta_container {
-  background: var(--surface-raised);
-}
-
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) .meta_container {
-    background: var(--surface-raised);
-  }
-}
-
 /* ---------- Archives and tags ---------- */
 
 main .discovery-page__header,

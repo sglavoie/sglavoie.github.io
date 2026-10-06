@@ -1,0 +1,72 @@
+<script>
+  // Highlight the table-of-contents entry for the section being read.
+  (function () {
+    const links = Array.from(
+      document.querySelectorAll('.post-reading__toc a[href^="#"]'),
+    );
+    if (!links.length || !("IntersectionObserver" in window)) {
+      return;
+    }
+
+    const linkById = new Map();
+    const headings = [];
+    links.forEach(function (link) {
+      const id = decodeURIComponent(link.getAttribute("href").slice(1));
+      const heading = document.getElementById(id);
+      if (heading) {
+        linkById.set(id, link);
+        headings.push(heading);
+      }
+    });
+
+    const visible = new Set();
+    let current = null;
+
+    function setCurrent(link) {
+      if (link === current) {
+        return;
+      }
+      if (current) {
+        current.classList.remove("is-active");
+        current.removeAttribute("aria-current");
+      }
+      current = link;
+      if (current) {
+        current.classList.add("is-active");
+        current.setAttribute("aria-current", "location");
+      }
+    }
+
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            visible.add(entry.target);
+          } else {
+            visible.delete(entry.target);
+          }
+        });
+
+        // Prefer the first heading in view; otherwise keep the last one passed.
+        const inView = headings.find(function (h) {
+          return visible.has(h);
+        });
+        if (inView) {
+          setCurrent(linkById.get(inView.id));
+          return;
+        }
+        const passed = headings.filter(function (h) {
+          return h.getBoundingClientRect().top < 0;
+        });
+        setCurrent(
+          passed.length ? linkById.get(passed[passed.length - 1].id) : null,
+        );
+      },
+      { rootMargin: "-72px 0px -55% 0px" },
+    );
+
+    headings.forEach(function (h) {
+      observer.observe(h);
+    });
+  })();
+</script>

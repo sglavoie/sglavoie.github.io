@@ -228,24 +228,10 @@ main article pre:hover {
   background-color: hsl(70, 8%, 12%);
 }
 
-.article_meta,
-.article_readtime,
-.article_skim_notes {
+.article_meta {
   color: var(--ink-muted);
 }
 
-.meta_container {
-  background: linear-gradient(
-    90deg,
-    hsla(0, 0%, 0%, 0%) 0%,
-    hsla(211, 100%, 3%, 86%) 16%,
-    hsla(211, 100%, 2%, 92%) 50%,
-    hsla(211, 100%, 3%, 86%) 84%,
-    hsla(0, 0%, 0%, 0%) 100%
-  );
-}
-
-.meta_container_hrs hr,
 hr {
   border: 0;
   box-shadow: none;
