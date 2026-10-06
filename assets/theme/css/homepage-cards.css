@@ -147,34 +147,7 @@ main article.article-card + hr {
   }
 }
 
-/* ---------- Home intro links and featured posts ---------- */
-
-.home-intro__links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem 1.25rem;
-  margin: 1.1rem 0 0;
-  padding: 0;
-  list-style: none;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-}
-
-.home-intro__links li {
-  margin: 0;
-}
-
-main .home-intro__links a {
-  padding: 0;
-  color: var(--link-color);
-  text-decoration: none;
-}
-
-main .home-intro__links a:hover,
-main .home-intro__links a:focus-visible {
-  color: var(--link-hover);
-  text-decoration: underline;
-}
+/* ---------- Featured posts ---------- */
 
 .home-featured {
   max-width: var(--layout-prose-max);
