@@ -97,27 +97,29 @@
 
       const themeToggle = document.getElementById("theme-toggle");
 
-      function currentTheme() {
-        const explicit = document.documentElement.dataset.theme;
-        if (explicit) {
-          return explicit;
-        }
+      function systemTheme() {
         return window.matchMedia("(prefers-color-scheme: light)").matches
           ? "light"
           : "dark";
       }
 
+      function currentTheme() {
+        return document.documentElement.dataset.theme || systemTheme();
+      }
+
       const themeColors = { dark: "#090f15", light: "#fcfdfe" };
 
+      // With an explicit theme, both theme-color tags use its colour; otherwise
+      // each tag goes back to the colour matching its own media query.
       function syncThemeColor() {
-        if (!document.documentElement.dataset.theme) {
-          return;
-        }
-        const color = themeColors[currentTheme()];
+        const explicit = document.documentElement.dataset.theme;
         document
           .querySelectorAll('meta[name="theme-color"]')
           .forEach(function (meta) {
-            meta.setAttribute("content", color);
+            const own = (meta.getAttribute("media") || "").includes("light")
+              ? "light"
+              : "dark";
+            meta.setAttribute("content", themeColors[explicit || own]);
           });
       }
 
@@ -126,10 +128,21 @@
       if (themeToggle) {
         themeToggle.addEventListener("click", function () {
           const next = currentTheme() === "dark" ? "light" : "dark";
-          document.documentElement.dataset.theme = next;
+          // Landing on the system theme drops the override, so the site
+          // follows the system appearance again.
+          const followSystem = next === systemTheme();
+          if (followSystem) {
+            delete document.documentElement.dataset.theme;
+          } else {
+            document.documentElement.dataset.theme = next;
+          }
           syncThemeColor();
           try {
-            localStorage.setItem("theme", next);
+            if (followSystem) {
+              localStorage.removeItem("theme");
+            } else {
+              localStorage.setItem("theme", next);
+            }
           } catch (e) {}
         });
       }
