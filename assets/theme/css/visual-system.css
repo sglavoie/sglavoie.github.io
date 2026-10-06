@@ -27,9 +27,13 @@
     0 14px 40px hsla(211, 100%, 2%, 58%);
   --shadow-hairline: 0 0 0 1px hsla(211, 100%, 78%, 14%);
 
-  --transition-border: 160ms;
-  --transition-color: 160ms;
-  --transition-logo: 320ms;
+  /* Motion: short colour fades, slightly longer movement, all easing out. */
+  --motion-fast: 180ms;
+  --motion-medium: 260ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-border: var(--motion-fast);
+  --transition-color: var(--motion-fast);
+  --transition-logo: var(--motion-medium);
 
   --layout-prose-max: 42rem;
   --type-scale-11-lg-size: 2.35rem;
@@ -58,11 +62,11 @@ a {
   color: var(--link-color);
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.2em;
-  transition: color var(--transition-color) ease-in-out,
-    background-color var(--transition-color) ease-in-out,
-    border-color var(--transition-border) ease-in-out,
-    box-shadow var(--transition-color) ease-in-out,
-    transform var(--transition-color) ease-in-out;
+  transition: color var(--motion-fast) var(--ease-out),
+    background-color var(--motion-fast) var(--ease-out),
+    border-color var(--motion-fast) var(--ease-out),
+    box-shadow var(--motion-fast) var(--ease-out),
+    text-decoration-color var(--motion-fast) var(--ease-out);
 }
 
 a:hover {
@@ -229,10 +233,6 @@ hr {
   border: 0;
   box-shadow: none;
   opacity: 0.9;
-}
-
-.footer-icon:hover {
-  transform: scale(1.12) rotate(0.08turn);
 }
 
 :where(a, button, input, textarea, select, summary, [tabindex]:not([tabindex="-1"])):focus-visible {

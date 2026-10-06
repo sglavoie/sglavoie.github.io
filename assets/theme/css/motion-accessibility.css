@@ -18,8 +18,6 @@
 
   .svgLogo,
   .svgLogo:hover,
-  .footer-icon,
-  .footer-icon:hover,
   .sibling-fade:hover > *,
   .sibling-fade > *:hover {
     transform: none !important;

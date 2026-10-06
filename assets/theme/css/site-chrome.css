@@ -195,7 +195,8 @@ body {
   background-color: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform var(--transition-color) ease-in-out;
+  transition: transform var(--motion-medium) var(--ease-out),
+    opacity var(--motion-medium) var(--ease-out);
 }
 
 .site-nav__link:hover,
@@ -236,8 +237,8 @@ body {
   background: none;
   color: var(--ink-secondary);
   cursor: pointer;
-  transition: background-color var(--transition-color) ease-in-out,
-    color var(--transition-color) ease-in-out;
+  transition: background-color var(--motion-fast) var(--ease-out),
+    color var(--motion-fast) var(--ease-out);
 }
 
 .icon-button:hover {
@@ -305,7 +306,7 @@ body {
 }
 
 .topics-menu__chevron {
-  transition: transform var(--transition-color) ease-in-out;
+  transition: transform var(--motion-medium) var(--ease-out);
 }
 
 .topics-menu[open] .topics-menu__chevron {
@@ -327,6 +328,18 @@ body {
   background-color: var(--surface-menu);
   box-shadow: var(--shadow-soft);
   list-style: none;
+}
+
+/* Runs each time <details> opens, since the list goes from hidden to shown. */
+.topics-menu[open] .topics-menu__list {
+  animation: menu-fade-in var(--motion-medium) var(--ease-out);
+}
+
+@keyframes menu-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
 }
 
 .topics-menu__link,

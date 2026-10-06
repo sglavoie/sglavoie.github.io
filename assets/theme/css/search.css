@@ -20,11 +20,29 @@
 .search-dialog[open] {
   display: flex;
   flex-direction: column;
+  animation: dialog-fade-in var(--motion-medium) var(--ease-out);
 }
 
 .search-dialog::backdrop {
   background-color: hsla(211, 60%, 2%, 60%);
   backdrop-filter: blur(3px);
+}
+
+.search-dialog[open]::backdrop {
+  animation: backdrop-fade-in var(--motion-medium) var(--ease-out);
+}
+
+@keyframes dialog-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.99);
+  }
+}
+
+@keyframes backdrop-fade-in {
+  from {
+    opacity: 0;
+  }
 }
 
 .search-dialog__header {

@@ -164,7 +164,6 @@ html {
 a {
   text-decoration: none;
   color: var(--square-1);
-  transition: all var(--transition-color) ease-in-out;
 }
 
 a:visited:hover {
@@ -212,7 +211,6 @@ hr {
   border: none;
   height: 1px;
   margin: 4rem auto;
-  transition: all var(--transition-color) ease-in-out;
 }
 
 footer hr {
@@ -225,7 +223,6 @@ footer hr {
   border: none;
   height: 1px;
   margin: 4rem auto;
-  transition: all var(--transition-color) ease-in-out;
 }
 
 figure,
@@ -296,7 +293,7 @@ main article pre {
   overflow-x: auto;
   box-shadow: 0px 0px 4px 2px var(--background-dark);
   background-color: var(--background-color-monokai);
-  transition: all var(--transition-color) ease-in-out;
+  transition: background-color var(--motion-fast) var(--ease-out);
   position: relative;
 }
 
@@ -336,7 +333,9 @@ a code {
   text-underline-offset: 0.2rem;
   text-decoration-color: var(--square-2);
   box-shadow: 0px 0 3px 2px var(--background-dark);
-  transition: all var(--transition-color) ease-in-out;
+  transition: color var(--motion-fast) var(--ease-out),
+    background-color var(--motion-fast) var(--ease-out),
+    border-color var(--motion-fast) var(--ease-out);
   border-bottom: 1px dashed transparent;
 }
 
@@ -483,7 +482,7 @@ main article li {
 .article_meta a {
   color: var(--square-1);
   font-family: var(--font-mono);
-  transition: all var(--transition-color) ease-in-out;
+  transition: color var(--motion-fast) var(--ease-out);
 }
 
 .article_meta a:hover {
@@ -501,7 +500,7 @@ main article li {
 }
 
 .svgLogo {
-  transition: all var(--transition-logo);
+  transition: filter var(--motion-medium) var(--ease-out);
 }
 
 .svgLogo:hover {
@@ -645,15 +644,6 @@ main {
   animation: page-fade-in 450ms cubic-bezier(0.22, 1, 0.36, 1) 60ms backwards;
 }
 
-.footer-icon {
-  transition: transform 0.2s ease-in-out;
-  transform: scale(1) rotate(0);
-}
-
-.footer-icon:hover {
-  transform: scale(1.25) rotate(1turn);
-}
-
 /*
 SIBLING FADE: fade out siblings around a hovered item
 Seen at https://www.sliderrevolution.com/resources/css-hover-effects/
@@ -670,13 +660,14 @@ Seen at https://www.sliderrevolution.com/resources/css-hover-effects/
 /* Brings the child items back in, even though the parent is `hidden` */
 
 .sibling-fade > * {
-  transition: opacity 150ms linear 100ms, transform 150ms ease-in-out 100ms;
+  transition: opacity var(--motion-medium) var(--ease-out) 60ms,
+    transform var(--motion-medium) var(--ease-out) 60ms;
 }
 /* Makes the fades smooth with a slight delay to prevent jumps as the mouse moves between items */
 
 .sibling-fade:hover > * {
-  opacity: 0.8;
-  transform: scale(0.9);
+  opacity: 0.75;
+  transform: scale(0.97);
 }
 /* Fade out all items when the parent is hovered */
 
