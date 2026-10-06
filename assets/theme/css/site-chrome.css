@@ -154,9 +154,9 @@ body {
   border: 0;
   background: none;
   color: var(--ink-secondary);
-  font-family: Lato, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-sans);
   font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.01em;
   text-decoration: none;
   cursor: pointer;
@@ -320,7 +320,7 @@ body {
 
 .topics-menu__count {
   color: var(--ink-muted);
-  font-family: SourceCodePro, "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.8rem;
 }
 
@@ -352,7 +352,7 @@ main article .article_text > blockquote {
 .home-intro p {
   margin: 0;
   color: var(--ink-primary);
-  font-family: Lato, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-sans);
   font-size: clamp(1.2rem, 3.2vw, 1.5rem);
   line-height: 1.5;
   text-wrap: pretty;
@@ -368,7 +368,7 @@ main article .article_text > blockquote {
   margin: 0;
   background: none;
   color: var(--ink-muted);
-  font-family: SourceCodePro, "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -473,7 +473,7 @@ main article.article-card .article-card__category:hover {
 .pagination__status {
   margin: 0;
   color: var(--ink-muted);
-  font-family: SourceCodePro, "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.8rem;
 }
 

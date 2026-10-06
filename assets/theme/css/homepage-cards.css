@@ -66,8 +66,7 @@ main article.article-card .article-card__title a:focus-visible {
   justify-content: center;
   text-align: center;
   color: var(--ink-muted);
-  font-family:
-    SourceCodePro, "JetBrains Mono", "Courier New", Courier, monospace;
+  font-family: var(--font-mono);
   font-size: 0.82rem;
   line-height: 1.55;
 }

@@ -3,20 +3,6 @@
   <meta charset="utf-8" />
   <link
     rel="preload"
-    href="{{ "/theme/css/fonts/lato-regular.woff2" | relURL }}"
-    as="font"
-    type="font/woff2"
-    crossorigin
-  />
-  <link
-    rel="preload"
-    href="{{ "/theme/css/fonts/lato-bold.woff2" | relURL }}"
-    as="font"
-    type="font/woff2"
-    crossorigin
-  />
-  <link
-    rel="preload"
     href="{{ "/theme/css/fonts/ubuntu-regular-webfont.woff2" | relURL }}"
     as="font"
     type="font/woff2"
@@ -24,49 +10,7 @@
   />
   <link
     rel="preload"
-    href="{{ "/theme/css/fonts/ubuntu-bold-webfont.woff2" | relURL }}"
-    as="font"
-    type="font/woff2"
-    crossorigin
-  />
-  <link
-    rel="preload"
-    href="{{ "/theme/css/fonts/ubuntu-regular-italic-webfont.woff2" | relURL }}"
-    as="font"
-    type="font/woff2"
-    crossorigin
-  />
-  <link
-    rel="preload"
-    href="{{ "/theme/css/fonts/ubuntu-bold-italic-webfont.woff2" | relURL }}"
-    as="font"
-    type="font/woff2"
-    crossorigin
-  />
-  <link
-    rel="preload"
-    href="{{ "/theme/css/fonts/SourceCodePro-Regular.ttf.woff2" | relURL }}"
-    as="font"
-    type="font/woff2"
-    crossorigin
-  />
-  <link
-    rel="preload"
-    href="{{ "/theme/css/fonts/SourceCodePro-Bold.ttf.woff2" | relURL }}"
-    as="font"
-    type="font/woff2"
-    crossorigin
-  />
-  <link
-    rel="preload"
-    href="{{ "/theme/css/fonts/SourceCodePro-It.ttf.woff2" | relURL }}"
-    as="font"
-    type="font/woff2"
-    crossorigin
-  />
-  <link
-    rel="preload"
-    href="{{ "/theme/css/fonts/SourceCodePro-BoldIt.ttf.woff2" | relURL }}"
+    href="{{ "/theme/css/fonts/ubuntu-medium-webfont.woff2" | relURL }}"
     as="font"
     type="font/woff2"
     crossorigin
@@ -144,10 +88,10 @@
   <link
     rel="mask-icon"
     href="{{ "/theme/favicon/safari-pinned-tab.svg" | relURL }}"
-    color="#5bbad5"
+    color="#66b0ff"
   />
   <link rel="shortcut icon" href="{{ "/theme/favicon/favicon.ico" | relURL }}" />
-  <meta name="msapplication-TileColor" content="#2d89ef" />
+  <meta name="msapplication-TileColor" content="#00070f" />
   <meta
     name="msapplication-TileImage"
     content="{{ "/theme/favicon/mstile-144x144.png" | relURL }}"
@@ -156,4 +100,6 @@
     name="msapplication-config"
     content="{{ "/theme/favicon/browserconfig.xml" | relURL }}"
   />
-  <meta name="theme-color" content="#232323" />
+  {{- /* Header surfaces; baseof.html keeps these in sync with the theme toggle. */ -}}
+  <meta name="theme-color" content="#00070f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#fcfdfe" media="(prefers-color-scheme: light)" />

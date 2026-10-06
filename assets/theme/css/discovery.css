@@ -26,8 +26,7 @@
 .discovery-page__meta {
   margin: 0.45rem 0 0;
   color: var(--ink-muted);
-  font-family: SourceCodePro, "JetBrains Mono", "Courier New", Courier,
-    monospace;
+  font-family: var(--font-mono);
   font-size: 0.84rem;
   line-height: 1.45;
 }
@@ -71,8 +70,7 @@ span.badge {
   border-radius: 999px;
   background-color: var(--surface-raised);
   color: var(--ink-secondary);
-  font-family: SourceCodePro, "JetBrains Mono", "Courier New", Courier,
-    monospace;
+  font-family: var(--font-mono);
   font-size: 0.78em;
   line-height: 1;
 }
@@ -186,8 +184,7 @@ li.tag-8 {
 
 .archives-article__date {
   color: var(--ink-muted);
-  font-family: SourceCodePro, "JetBrains Mono", "Courier New", Courier,
-    monospace;
+  font-family: var(--font-mono);
   font-size: 0.82rem;
   line-height: 1.5;
 }

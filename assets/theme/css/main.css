@@ -1,16 +1,8 @@
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
-
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
+:root {
+  --font-sans: Ubuntu, -apple-system, "Segoe UI", Roboto, "Noto Sans",
+    Cantarell, "Helvetica Neue", sans-serif;
+  --font-mono: SourceCodePro, "JetBrains Mono", Menlo, Consolas, monospace;
+}
 
 @font-face {
   font-family: "Ubuntu";
@@ -46,20 +38,10 @@
 }
 
 @font-face {
-  font-family: "Lato";
-  font-stretch: 110%;
-  src: url("./fonts/lato-regular.woff2") format("woff2"),
-    url("./fonts/lato-regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Lato";
-  font-stretch: 110%;
-  src: url("./fonts/lato-bold.woff2") format("woff2"),
-    url("./fonts/lato-bold.woff") format("woff");
-  font-weight: bold;
+  font-family: "Ubuntu";
+  src: url("./fonts/ubuntu-medium-webfont.woff2") format("woff2"),
+    url("./fonts/ubuntu-medium-webfont.woff") format("woff");
+  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
@@ -177,8 +159,7 @@ html {
     rgba(0, 25, 51, 1) 100%
   );
   color: var(--tint-200);
-  font-family: Ubuntu, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu,
-    Cantarell, Helvetica Neue;
+  font-family: var(--font-sans);
   font-size: 18px;
   line-height: 1.75rem;
   margin: 0;
@@ -205,8 +186,7 @@ a:hover {
 }
 
 code {
-  font-family: SourceCodePro, "JetBrains Mono", "Courier New", Courier,
-    monospace;
+  font-family: var(--font-mono);
 }
 
 dd {
@@ -297,8 +277,8 @@ main article h3,
 main article h4,
 main article h5,
 main article h6 {
-  font-family: Lato, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu,
-    Cantarell, Helvetica Neue;
+  font-family: var(--font-sans);
+  font-weight: 500;
   text-align: center;
   background-clip: text;
   -webkit-background-clip: text;
@@ -318,8 +298,7 @@ main article pre {
   margin: 40px 8px;
   padding: 24px 12px;
   color: var(--tint-300);
-  font-family: SourceCodePro, "JetBrains Mono", "Courier New", Courier,
-    monospace;
+  font-family: var(--font-mono);
   font-size: 1rem;
   line-height: 1.25em;
   overflow-x: auto;
@@ -520,8 +499,7 @@ main article li {
 
 .article_meta a {
   color: var(--square-1);
-  font-family: SourceCodePro, "JetBrains Mono", "Courier New", Courier,
-    monospace;
+  font-family: var(--font-mono);
   transition: all var(--transition-color) ease-in-out;
 }
 
@@ -566,8 +544,7 @@ main article li {
   flex-direction: column;
   align-items: center;
   row-gap: 1em;
-  font-family: SourceCodePro, "JetBrains Mono", "Courier New", Courier,
-    monospace;
+  font-family: var(--font-mono);
   background: rgb(0, 0, 0);
   background: linear-gradient(
     90deg,
