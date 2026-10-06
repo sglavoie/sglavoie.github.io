@@ -139,6 +139,7 @@ main article h3,
 main article h4,
 main article h5,
 main article h6 {
+  background: linear-gradient(45deg, var(--tint-800), var(--tint-500));
   background-clip: text;
   -webkit-background-clip: text;
   filter: none;
