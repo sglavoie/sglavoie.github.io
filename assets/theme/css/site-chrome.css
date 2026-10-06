@@ -8,6 +8,8 @@
   --header-height: 4.5rem;
   --surface-header: hsla(213, 40%, 6%, 85%);
   --surface-menu: hsl(211, 60%, 7%);
+  --logo-bar-from: white;
+  --logo-bar-to: grey;
   color-scheme: dark;
 }
 
@@ -26,6 +28,8 @@
   --surface-link: hsla(211, 60%, 90%, 70%);
   --surface-header: hsla(210, 33%, 99%, 86%);
   --surface-menu: hsl(0, 0%, 100%);
+  --logo-bar-from: hsl(0, 0%, 30%);
+  --logo-bar-to: hsl(0, 0%, 65%);
   --border-soft: hsla(211, 40%, 30%, 16%);
   --border-strong: hsla(211, 100%, 38%, 45%);
   --ink-primary: hsl(211, 40%, 14%);
@@ -64,6 +68,8 @@
     --surface-link: hsla(211, 60%, 90%, 70%);
     --surface-header: hsla(210, 33%, 99%, 86%);
     --surface-menu: hsl(0, 0%, 100%);
+    --logo-bar-from: hsl(0, 0%, 30%);
+    --logo-bar-to: hsl(0, 0%, 65%);
     --border-soft: hsla(211, 40%, 30%, 16%);
     --border-strong: hsla(211, 100%, 38%, 45%);
     --ink-primary: hsl(211, 40%, 14%);
@@ -125,6 +131,24 @@ body {
 .site-header__logo .svgLogo {
   width: 2.75rem;
   height: 2.75rem;
+}
+
+/* The logo's bottom bar pulses between two theme-dependent shades. */
+.svgLogo__bar {
+  /* Static colour when animations are reduced. */
+  fill: var(--logo-bar-from);
+  animation: logo-bar-pulse 2s linear infinite;
+}
+
+@keyframes logo-bar-pulse {
+  0%,
+  100% {
+    fill: var(--logo-bar-from);
+  }
+
+  50% {
+    fill: var(--logo-bar-to);
+  }
 }
 
 .site-nav {
