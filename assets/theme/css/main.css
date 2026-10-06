@@ -627,93 +627,22 @@ span.badge {
 }
 
 
-@keyframes fadeInLeft {
+/* Page load: one gentle fade for the main column; header and footer stay put.
+   `backwards` keeps the start state during the delay without leaving a
+   transform behind (which would affect sticky/fixed descendants). */
+@keyframes page-fade-in {
   from {
     opacity: 0;
-    transform: translateX(-500px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: none;
   }
 }
 
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(500px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInTop {
-  from {
-    opacity: 0;
-    transform: translateY(-500px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInBottom {
-  from {
-    opacity: 0;
-    transform: translateY(500px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeZoomIn {
-  from {
-    opacity: 0;
-    transform: scale(0.25);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes fadeInOpacity {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.article_title {
-  opacity: 0;
-  animation: fadeInTop 0.2s forwards;
-}
-
-.toc-title,
-.toc,
-.article_text {
-  opacity: 0;
-  animation: fadeInBottom 0.2s forwards;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-hr {
-  opacity: 0;
-  animation: fadeInOpacity 0.2s forwards;
+main {
+  animation: page-fade-in 450ms cubic-bezier(0.22, 1, 0.36, 1) 60ms backwards;
 }
 
 .footer-icon {

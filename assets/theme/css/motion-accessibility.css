@@ -12,19 +12,8 @@
     transition-duration: 1ms !important;
   }
 
-  .article_title,
-  .toc-title,
-  .toc,
-  .article_text,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  hr {
+  main {
     animation: none !important;
-    opacity: 1 !important;
   }
 
   .svgLogo,
