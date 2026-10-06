@@ -254,6 +254,18 @@ body {
   }
 }
 
+/* The default logo hover brightens toward cyan, which washes out on light
+   backgrounds; darken the blue instead. */
+:root[data-theme="light"] .svgLogo:hover {
+  filter: saturate(1.4) brightness(0.72);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .svgLogo:hover {
+    filter: saturate(1.4) brightness(0.72);
+  }
+}
+
 /* Topics dropdown */
 
 .topics-menu {
