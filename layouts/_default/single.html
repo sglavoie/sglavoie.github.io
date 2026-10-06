@@ -27,7 +27,7 @@
             <span id="category-article" class="post-reading__category">
               {{ with index .Params.categories 0 }}
                 {{ with site.GetPage (printf "/categories/%s" (. | urlize)) }}
-                <a href="{{ .RelPermalink }}">{{ partial "icons/category.html" . }}{{ .Title }}</a>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                 {{ end }}
               {{ end }}
             </span>

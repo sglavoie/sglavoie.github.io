@@ -222,12 +222,6 @@ a:hover {
   text-shadow: 0 0 16px transparent;
 }
 
-aside ul {
-  gap: 1rem;
-  padding-left: 0;
-  list-style-type: none;
-}
-
 code {
   font-family: SourceCodePro, "JetBrains Mono", "Courier New", Courier,
     monospace;
@@ -312,165 +306,6 @@ footer hr {
   -webkit-transition: all var(--transition-color) ease-in-out;
   -o-transition: all var(--transition-color) ease-in-out;
   transition: all var(--transition-color) ease-in-out;
-}
-
-aside#pageNavigation {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  -ms-flex-line-pack: distribute;
-  align-content: space-around;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  grid-area: pageNavigationArea;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  margin-top: 2rem;
-}
-
-aside#sidebar {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  grid-area: sidebarArea;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  margin-bottom: 4rem;
-}
-
-aside div {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin: 2rem auto;
-}
-
-aside ul,
-aside + nav {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  row-gap: normal;
-}
-
-aside a:visited {
-  color: var(--square-2);
-}
-
-aside li,
-div#paginator li {
-  background-color: var(--background-dark);
-  -webkit-box-shadow: 0px 0px 10px 2px var(--background-dark);
-  box-shadow: 0px 0px 10px 2px var(--background-dark);
-  margin: 0.4rem 0;
-  -webkit-transition: all var(--transition-color) ease-in-out;
-  -o-transition: all var(--transition-color) ease-in-out;
-  transition: all var(--transition-color) ease-in-out;
-}
-
-aside li:hover,
-div#paginator li:hover {
-  background-color: transparent;
-  -webkit-box-shadow: 0px 0px 10px 6px transparent;
-  box-shadow: 0px 0px 10px 6px transparent;
-}
-
-aside + nav {
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  margin: 1rem;
-}
-
-aside li a,
-div#paginator li a {
-  border: 2px solid var(--shade-100);
-  color: var(--square-2);
-  padding: 4px 8px 4px 8px;
-  font-weight: bold;
-  -webkit-transition: background-size var(--transition-color),
-    border var(--transition-border), color var(--transition-color);
-  -o-transition: background-size var(--transition-color),
-    border var(--transition-border), color var(--transition-color);
-  transition: background-size var(--transition-color),
-    border var(--transition-border), color var(--transition-color);
-  --bg-h: 100%;
-}
-
-aside#sidebar li a,
-aside#pageNavigation li a,
-div#paginator li a {
-  -webkit-transition: all var(--transition-color) ease-in-out;
-  -o-transition: all var(--transition-color) ease-in-out;
-  transition: all var(--transition-color) ease-in-out;
-}
-
-aside#sidebar li {
-  text-wrap: nowrap;
-}
-
-aside#sidebar li a:where(:hover, :focus-visible),
-div#paginator li a:where(:hover, :focus-visible) {
-  border: 2px solid var(--tint-100);
-  background-size: 100% var(--bg-h);
-  background-position-x: right;
-  color: var(--tint-100);
-  -webkit-transform: scale(1.03);
-  -ms-transform: scale(1.03);
-  transform: scale(1.03);
-  border-radius: 4px;
-}
-
-aside#pageNavigation li a:where(:hover, :focus-visible) {
-  border: 2px solid var(--tint-100);
-  background-size: 100% var(--bg-h);
-  background-position-x: left;
-  color: var(--tint-100);
-  -webkit-transform: scale(1.03);
-  -ms-transform: scale(1.03);
-  transform: scale(1.03);
-  border-radius: 4px;
-}
-
-aside#pageNavigation ul {
-  text-transform: lowercase;
 }
 
 figure,
@@ -929,16 +764,6 @@ main article .article-category-icon {
   margin-right: 0.5em;
 }
 
-aside#pageNavigation .navigation-icon {
-  margin-right: 0.3em;
-  align-self: center;
-}
-
-aside#sidebar .sidebar-category-icon {
-  margin-left: 0.3em;
-  align-self: center;
-}
-
 #category-article {
   white-space: nowrap;
 }
@@ -950,77 +775,6 @@ aside#sidebar .sidebar-category-icon {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-#pageContainer {
-  display: -ms-grid;
-  display: grid;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  grid-template-areas:
-    "pageNavigationArea"
-    "sidebarArea"
-    "mainArea";
-  grid-template-columns: minmax(0, 1fr);
-}
-
-div#paginator {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-div#paginator li a {
-  background: none;
-}
-
-div#paginator ul {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  gap: 2rem;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  list-style-type: none;
-  padding-left: 0;
-}
-
-#rss-feed {
-  bottom: 0;
-  left: 0;
-  line-height: 1em;
-  margin-left: 0.5rem;
-  margin-bottom: 0.5rem;
-  position: absolute;
-  z-index: 1;
-  -webkit-transition: all var(--transition-color) ease-in-out;
-  -o-transition: all var(--transition-color) ease-in-out;
-  transition: all var(--transition-color) ease-in-out;
-}
-
-#rss-feed:hover {
-  cursor: pointer;
-  -webkit-filter: invert(0.2) saturate(10) hue-rotate(0deg) brightness(1.1);
-  filter: invert(0.2) saturate(10) hue-rotate(0deg) brightness(1.1);
-  -webkit-transform: scale(1.5);
-  -ms-transform: scale(1.5);
-  transform: scale(1.5);
 }
 
 /* Styles for the tag cloud */
@@ -1421,18 +1175,6 @@ span.badge {
     -webkit-transform: translateY(0);
     transform: translateY(0);
   }
-}
-
-#sidebar {
-  opacity: 0;
-  -webkit-animation: fadeInLeft 0.2s forwards;
-  animation: fadeInLeft 0.2s forwards;
-}
-
-#pageNavigation {
-  opacity: 0;
-  -webkit-animation: fadeInRight 0.2s forwards;
-  animation: fadeInRight 0.2s forwards;
 }
 
 .article_title {

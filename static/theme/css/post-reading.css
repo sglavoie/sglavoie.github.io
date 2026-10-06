@@ -220,7 +220,6 @@ main article.post-reading .post-reading__tags a:focus-visible {
   font-size: 1rem;
   line-height: 1.25;
   text-align: left;
-  text-transform: lowercase;
   -webkit-text-fill-color: currentColor;
 }
 

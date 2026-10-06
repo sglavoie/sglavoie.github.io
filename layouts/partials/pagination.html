@@ -1,17 +1,16 @@
 {{ $paginator := .Paginator }}
 {{ if gt $paginator.TotalPages 1 }}
-<div id="paginator">
-  <ul>
-    {{ if $paginator.HasNext }}
-    <li>
-      <a href="{{ $paginator.Next.URL }}">&larr; Older Posts</a>
-    </li>
-    {{ end }}
+<nav class="pagination" aria-label="Pagination">
+  <div class="pagination__prev">
     {{ if $paginator.HasPrev }}
-    <li>
-      <a href="{{ $paginator.Prev.URL }}">Newer Posts &rarr;</a>
-    </li>
+    <a href="{{ $paginator.Prev.URL }}" rel="prev">&larr; Newer posts</a>
     {{ end }}
-  </ul>
-</div>
+  </div>
+  <p class="pagination__status">Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</p>
+  <div class="pagination__next">
+    {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}" rel="next">Older posts &rarr;</a>
+    {{ end }}
+  </div>
+</nav>
 {{ end }}

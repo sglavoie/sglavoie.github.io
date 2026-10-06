@@ -1,9 +1,16 @@
-{{ define "main" }} {{ $pages := where site.RegularPages "Section" "posts" }} {{
-$paginator := .Paginate $pages }}
+{{ define "main" }}
+{{ $pages := where site.RegularPages "Section" "posts" }}
+{{ $paginator := .Paginate $pages }}
+{{ if eq $paginator.PageNumber 1 }}
+{{ with .Site.Params.intro }}
+<section class="home-intro">
+  <p>{{ . | markdownify }}</p>
+</section>
+{{ end }}
+{{ end }}
 <div class="article_title article_title--list">
-  <h2>Latest posts</h2>
+  <h1 class="section-label">{{ if eq $paginator.PageNumber 1 }}Latest posts{{ else }}Posts &middot; page {{ $paginator.PageNumber }}{{ end }}</h1>
 </div>
-{{ range $i, $page := $paginator.Pages }} {{ partial "article-card.html" $page
-}} {{ end }}
-<footer>{{ partial "pagination.html" . }}</footer>
+{{ range $paginator.Pages }}{{ partial "article-card.html" . }}{{ end }}
+{{ partial "pagination.html" . }}
 {{ end }}

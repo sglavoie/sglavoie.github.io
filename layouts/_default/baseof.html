@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}">
   <head>
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem("theme");
+          if (theme === "light" || theme === "dark") {
+            document.documentElement.dataset.theme = theme;
+          }
+        } catch (e) {}
+      })();
+    </script>
     {{ partial "head.html" . }}
     {{ block "head" . }}{{ end }}
     <title>{{ .Site.Title }}{{ block "title" . }}{{ end }}</title>
   </head>
 
   <body>
-    <div id="pageContainer">
-      {{ partial "sidebar.html" . }}
-      {{ partial "nav.html" . }}
+    {{ partial "header.html" . }}
 
-      <!-- Content area -->
-      <main>
-        {{ block "main" . }}{{ end }}
-      </main>
-    </div>
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
 
     {{ partial "footer.html" . }}
 
@@ -103,6 +109,44 @@
         searchTrigger.setAttribute("aria-expanded", "false");
         searchTrigger.addEventListener("click", function () {
           openSearchModal();
+        });
+      }
+
+      const themeToggle = document.getElementById("theme-toggle");
+
+      function currentTheme() {
+        const explicit = document.documentElement.dataset.theme;
+        if (explicit) {
+          return explicit;
+        }
+        return window.matchMedia("(prefers-color-scheme: light)").matches
+          ? "light"
+          : "dark";
+      }
+
+      if (themeToggle) {
+        themeToggle.addEventListener("click", function () {
+          const next = currentTheme() === "dark" ? "light" : "dark";
+          document.documentElement.dataset.theme = next;
+          try {
+            localStorage.setItem("theme", next);
+          } catch (e) {}
+        });
+      }
+
+      // Close the Topics menu on outside click or Escape
+      const topicsMenu = document.querySelector(".topics-menu");
+      if (topicsMenu) {
+        document.addEventListener("click", function (e) {
+          if (topicsMenu.open && !topicsMenu.contains(e.target)) {
+            topicsMenu.open = false;
+          }
+        });
+        topicsMenu.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && topicsMenu.open) {
+            topicsMenu.open = false;
+            topicsMenu.querySelector("summary").focus();
+          }
         });
       }
 

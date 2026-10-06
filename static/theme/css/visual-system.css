@@ -1,21 +1,25 @@
 :root {
-  --square-1: hsl(45, 100%, 56%);
-  --square-2: hsl(291, 47%, 66%);
-  --tint-100-shadow: hsla(291, 47%, 60%, 24%);
+  /* Single accent: everything interactive uses the logo blue. */
+  --accent: hsl(211, 100%, 70%);
+  --accent-strong: hsl(211, 100%, 80%);
+  --accent-soft: hsla(211, 100%, 70%, 16%);
+  --square-1: var(--accent);
+  --square-2: var(--accent);
+  --tint-100-shadow: hsla(211, 100%, 60%, 24%);
 
   --surface-page-edge: hsl(211, 100%, 5%);
   --surface-page-center: hsl(211, 100%, 1%);
   --surface-raised: hsla(211, 100%, 8%, 55%);
   --surface-link: hsla(211, 100%, 14%, 42%);
-  --surface-link-hover: hsla(291, 47%, 22%, 34%);
+  --surface-link-hover: var(--accent-soft);
   --border-soft: hsla(211, 100%, 72%, 20%);
-  --border-strong: hsla(45, 100%, 56%, 58%);
+  --border-strong: hsla(211, 100%, 65%, 55%);
   --ink-primary: hsl(211, 100%, 92%);
   --ink-secondary: hsl(211, 50%, 78%);
-  --ink-muted: hsl(211, 34%, 66%);
-  --link-color: hsl(45, 100%, 62%);
-  --link-visited: hsl(291, 55%, 74%);
-  --link-hover: hsl(291, 70%, 78%);
+  --ink-muted: hsl(211, 30%, 74%);
+  --link-color: var(--accent);
+  --link-visited: hsl(211, 70%, 76%);
+  --link-hover: var(--accent-strong);
   --focus-color: hsl(190, 100%, 68%);
   --focus-ring: 0 0 0 2px var(--background-dark),
     0 0 0 4px var(--focus-color), 0 0 18px rgba(92, 228, 255, 0.32);
@@ -27,7 +31,7 @@
   --transition-color: 160ms;
   --transition-logo: 320ms;
 
-  --layout-prose-max: 48rem;
+  --layout-prose-max: 42rem;
   --type-scale-11-lg-size: 2.35rem;
   --type-scale-11-lg-margin-top: 4.75rem;
   --type-scale-10-lg-size: 2rem;
@@ -271,32 +275,6 @@ main article pre:hover {
   background-color: hsl(70, 8%, 12%);
 }
 
-aside li,
-div#paginator li {
-  background-color: var(--surface-raised);
-  -webkit-box-shadow: var(--shadow-hairline);
-  box-shadow: var(--shadow-hairline);
-}
-
-aside li:hover,
-div#paginator li:hover {
-  background-color: hsla(211, 100%, 10%, 28%);
-  -webkit-box-shadow: 0 0 0 1px hsla(291, 47%, 66%, 24%);
-  box-shadow: 0 0 0 1px hsla(291, 47%, 66%, 24%);
-}
-
-aside li a,
-div#paginator li a {
-  border-color: var(--shade-300);
-}
-
-aside#sidebar li a:where(:hover, :focus-visible),
-aside#pageNavigation li a:where(:hover, :focus-visible),
-div#paginator li a:where(:hover, :focus-visible) {
-  border-color: var(--border-strong);
-  color: var(--ink-primary);
-}
-
 .article_meta,
 .article_readtime,
 .article_skim_notes {
@@ -340,32 +318,17 @@ hr {
   opacity: 0.9;
 }
 
-#rss-feed:hover {
-  -webkit-transform: scale(1.12);
-  -ms-transform: scale(1.12);
-  transform: scale(1.12);
-}
-
 .footer-icon:hover {
   -webkit-transform: scale(1.12) rotate(0.08turn);
   -ms-transform: scale(1.12) rotate(0.08turn);
   transform: scale(1.12) rotate(0.08turn);
 }
 
-a:focus,
-button:focus,
-input:focus,
-textarea:focus,
-select:focus,
-summary:focus,
-[tabindex]:not([tabindex="-1"]):focus,
 :where(a, button, input, textarea, select, summary, [tabindex]:not([tabindex="-1"])):focus-visible {
-  outline: 2px solid rgb(92, 228, 255) !important;
+  outline: 2px solid var(--focus-color) !important;
   outline-offset: 4px !important;
-  -webkit-box-shadow: 0 0 0 2px rgb(0, 0, 0),
-    0 0 0 4px rgb(92, 228, 255), 0 0 18px rgba(92, 228, 255, 0.32) !important;
-  box-shadow: 0 0 0 2px rgb(0, 0, 0), 0 0 0 4px rgb(92, 228, 255),
-    0 0 18px rgba(92, 228, 255, 0.32) !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
   border-radius: 4px;
 }
 
@@ -395,17 +358,3 @@ summary:focus,
   }
 }
 
-@media (min-width: 1280px) {
-  aside#sidebar li,
-  aside#pageNavigation li {
-    text-wrap: nowrap;
-  }
-
-  aside#sidebar li a,
-  aside#pageNavigation li a,
-  div#paginator li a {
-    max-width: none;
-    overflow-wrap: normal;
-    white-space: nowrap;
-  }
-}

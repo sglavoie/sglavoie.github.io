@@ -5,11 +5,8 @@
   <div class="article_title">
     <h1>{{ .Title }}</h1>
   </div>
-  {{ range $i, $page := $paginator.Pages }}
-    {{ if $i }}<hr />{{ end }}
-    {{ partial "article-card.html" $page }}
+  {{ range $paginator.Pages }}
+    {{ partial "article-card.html" . }}
   {{ end }}
-  <footer>
-    {{ partial "pagination.html" . }}
-  </footer>
+  {{ partial "pagination.html" . }}
 {{ end }}

@@ -16,8 +16,6 @@
     transition-duration: 1ms !important;
   }
 
-  #sidebar,
-  #pageNavigation,
   .article_title,
   .meta_container,
   .article_readtime,
@@ -40,11 +38,6 @@
   .svgLogo:hover,
   .footer-icon,
   .footer-icon:hover,
-  #rss-feed,
-  #rss-feed:hover,
-  aside#sidebar li a:where(:hover, :focus-visible),
-  aside#pageNavigation li a:where(:hover, :focus-visible),
-  div#paginator li a:where(:hover, :focus-visible),
   .sibling-fade:hover > *,
   .sibling-fade > *:hover {
     -webkit-transform: none !important;

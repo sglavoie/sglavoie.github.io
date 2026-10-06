@@ -1,23 +1,15 @@
-<footer>
-  <hr />
-  <p>
-    Built with
-    <a
-      href="https://gohugo.io/"
-      target="_blank"
-      rel="noopener noreferrer"
-      >Hugo</a
-    >, by {{ .Site.Params.author }}.
-    <a
-      href="https://github.com/sglavoie/sglavoie.github.io/blob/main/LICENSE"
-      >MIT Licensed</a
-    >.
-  </p>
-  <p id="rss-feed">
-    <a
-      href="{{ "/feeds/sglavoie.rss.xml" | absURL }}"
-      aria-label="RSS feed"
-      >{{ partial "icons/rss.html" . }}
-    </a>
-  </p>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <p>
+      Built with
+      <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+      by {{ .Site.Params.author }} &middot;
+      <a href="https://github.com/sglavoie/sglavoie.github.io/blob/main/LICENSE">MIT Licensed</a>
+    </p>
+    <p>
+      <a class="site-footer__rss" href="{{ "/feeds/sglavoie.rss.xml" | absURL }}">
+        {{ partial "icons/rss.html" . }}<span>RSS feed</span>
+      </a>
+    </p>
+  </div>
 </footer>

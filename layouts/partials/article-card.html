@@ -3,7 +3,7 @@
     <h2 class="article-card__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
     <div class="article-card__meta" aria-label="Article metadata">
       <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-        {{ .Date.Format "January 2, 2006" }}
+        {{ .Date.Format "Jan 2, 2006" }}
       </time>
       {{ with index .Params.categories 0 }}
         {{ with site.GetPage (printf "/categories/%s" (. | urlize)) }}
@@ -11,11 +11,10 @@
         {{ end }}
       {{ end }}
       {{ if .ReadingTime }}
-        <span class="article-card__readtime">
-          <span class="readtime_tilde">~</span><span class="readtime_minutes">{{ .ReadingTime }}</span> min read
-        </span>
+        <span class="article-card__readtime">{{ .ReadingTime }} min read</span>
+        {{ if ge .ReadingTime 30 }}<span class="article-card__badge">Deep dive</span>{{ end }}
       {{ end }}
     </div>
   </header>
-  <div class="article_text article-card__summary">{{ .Summary }}</div>
+  <p class="article-card__summary">{{ .Summary | plainify | htmlUnescape }}</p>
 </article>

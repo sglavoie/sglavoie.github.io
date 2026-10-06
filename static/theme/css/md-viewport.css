@@ -48,17 +48,4 @@
     word-wrap: break-word;
     text-align: right;
   }
-
-  #pageContainer {
-    display: -ms-grid;
-    display: grid;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    grid-template-areas:
-      "pageNavigationArea"
-      "sidebarArea"
-      "mainArea";
-    grid-template-columns: minmax(20em, 52em);
-  }
 }
