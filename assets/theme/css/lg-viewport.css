@@ -57,8 +57,7 @@
   main article p,
   ol,
   ul,
-  dl,
-  #search {
+  dl {
     max-width: 52em;
   }
 

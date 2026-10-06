@@ -19,7 +19,7 @@
   {{- $cssFiles := slice
     "main" "md-viewport" "lg-viewport" "pygments" "layout" "content"
     "discovery" "visual-system" "homepage-cards" "post-reading"
-    "site-chrome" "motion-accessibility"
+    "site-chrome" "search" "motion-accessibility"
   -}}
   {{- $cssResources := slice -}}
   {{- range $cssFiles -}}
@@ -34,7 +34,6 @@
     href="{{ $styles.RelPermalink }}"
     {{ with $styles.Data.Integrity }}integrity="{{ . }}"{{ end }}
   />
-  <link href="{{ "/theme/css/sweetalert2.css" | relURL }}" rel="stylesheet" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="{{ .Site.Params.author }}" />

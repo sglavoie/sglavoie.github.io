@@ -25,25 +25,27 @@
 
     {{ partial "footer.html" . }}
 
+    <dialog id="search-dialog" class="search-dialog" aria-labelledby="search-dialog-title">
+      <div class="search-dialog__header">
+        <h2 id="search-dialog-title" class="search-dialog__title">Search</h2>
+        <button type="button" class="search-dialog__close" data-close-search aria-label="Close search">
+          <kbd>Esc</kbd>
+        </button>
+      </div>
+      <div id="search" class="search-dialog__body"></div>
+    </dialog>
+
     <script src="{{ "/pagefind/pagefind-ui.js" | relURL }}"></script>
-    <script src="{{ "/theme/scripts/sweetalert2.min.js" | relURL }}"></script>
     <script>
       const searchTrigger = document.getElementById("search-trigger");
+      const searchDialog = document.getElementById("search-dialog");
+      let pagefindUI = null;
 
       function focusSearchInput() {
-        const searchInput = document.querySelector("#search input");
+        const searchInput = searchDialog.querySelector("input");
         if (searchInput) {
           searchInput.focus();
-        }
-      }
-
-      function bindSearchClearButton() {
-        const clearButton = document.querySelector(
-          ".pagefind-ui__search-clear",
-        );
-        if (clearButton && !clearButton.dataset.focusBound) {
-          clearButton.dataset.focusBound = "true";
-          clearButton.addEventListener("click", focusSearchInput);
+          searchInput.select();
         }
       }
 
@@ -57,59 +59,40 @@
       }
 
       function openSearchModal() {
-        if (typeof Swal === "undefined" || typeof PagefindUI === "undefined") {
+        if (searchDialog.open || typeof PagefindUI === "undefined") {
           return;
         }
-
-        if (searchTrigger) {
-          searchTrigger.setAttribute("aria-expanded", "true");
+        if (!pagefindUI) {
+          pagefindUI = new PagefindUI({
+            element: "#search",
+            showSubResults: true,
+            showImages: false,
+            debounceTimeoutMs: 100,
+          });
         }
-
-        Swal.fire({
-          title: "<strong>Search</strong>",
-          html: `
-    <div id="searchWrapper">
-      <div id="search"></div>
-    </div>`,
-          showCancelButton: false,
-          focusConfirm: false,
-          didOpen: () => {
-            new PagefindUI({
-              element: "#search",
-              showSubResults: true,
-              showImages: false,
-              debounceTimeoutMs: 100,
-            });
-            focusSearchInput();
-            window.setTimeout(focusSearchInput, 50);
-            window.setTimeout(focusSearchInput, 150);
-
-            // Re-focus on search input when clear button is clicked
-            bindSearchClearButton();
-            window.setTimeout(bindSearchClearButton, 150);
-          },
-          width: "100%",
-          confirmButtonText: "Close",
-          confirmButtonAriaLabel: "Close search dialog",
-          position: "top-start",
-          willClose: () => {
-            if (searchTrigger) {
-              searchTrigger.setAttribute("aria-expanded", "false");
-            }
-          },
-          didClose: () => {
-            if (searchTrigger) {
-              searchTrigger.setAttribute("aria-expanded", "false");
-            }
-          },
-        });
+        searchDialog.showModal();
+        searchTrigger?.setAttribute("aria-expanded", "true");
+        // Pagefind renders its input asynchronously on first open.
+        requestAnimationFrame(focusSearchInput);
       }
+
+      searchDialog.addEventListener("close", function () {
+        searchTrigger?.setAttribute("aria-expanded", "false");
+      });
+
+      searchDialog.addEventListener("click", function (e) {
+        // Clicks on the backdrop target the dialog element itself.
+        if (e.target === searchDialog || e.target.closest("[data-close-search]")) {
+          searchDialog.close();
+        }
+        if (e.target.closest(".pagefind-ui__search-clear")) {
+          focusSearchInput();
+        }
+      });
 
       if (searchTrigger) {
         searchTrigger.setAttribute("aria-expanded", "false");
-        searchTrigger.addEventListener("click", function () {
-          openSearchModal();
-        });
+        searchTrigger.addEventListener("click", openSearchModal);
       }
 
       const themeToggle = document.getElementById("theme-toggle");
@@ -169,10 +152,9 @@
 
       // Key press event for the 'F' key
       document.addEventListener("keydown", function (e) {
-        const modalIsVisible = typeof Swal !== "undefined" && Swal.isVisible();
         if (
           e.key.toLowerCase() === "f" &&
-          !modalIsVisible &&
+          !searchDialog.open &&
           !e.metaKey &&
           !e.ctrlKey &&
           !e.altKey &&
