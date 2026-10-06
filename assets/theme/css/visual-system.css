@@ -7,8 +7,8 @@
   --square-2: var(--accent);
   --tint-100-shadow: hsla(211, 100%, 60%, 24%);
 
-  --surface-page-edge: hsl(211, 100%, 5%);
-  --surface-page-center: hsl(211, 100%, 1%);
+  /* Keep in sync with the theme-color meta tags in head.html. */
+  --surface-page: hsl(213, 40%, 6%);
   --surface-raised: hsla(211, 100%, 8%, 55%);
   --surface-link: hsla(211, 100%, 14%, 42%);
   --surface-link-hover: var(--accent-soft);
@@ -50,14 +50,6 @@
 
 html,
 body {
-  background: linear-gradient(
-    90deg,
-    var(--surface-page-edge) 0%,
-    var(--surface-page-center) 34%,
-    var(--background-dark) 50%,
-    var(--surface-page-center) 66%,
-    var(--surface-page-edge) 100%
-  );
   color: var(--ink-primary);
   text-rendering: optimizeLegibility;
 }

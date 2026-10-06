@@ -146,18 +146,10 @@
   --type-scale-1-lg-margin-top: 14px;
   --type-scale-lg-spacing: 0.01em;
   --type-scale-lg-height: 1.3em;
-
-  background-color: black;
 }
 
 body,
 html {
-  background: linear-gradient(
-    90deg,
-    rgba(0, 25, 51, 1) 0%,
-    rgba(0, 0, 0, 1) 50%,
-    rgba(0, 25, 51, 1) 100%
-  );
   color: var(--tint-200);
   font-family: var(--font-sans);
   font-size: 18px;
@@ -167,7 +159,6 @@ html {
   padding: 0;
   scroll-behavior: smooth;
   position: relative;
-  transition: background var(--transition-color) ease-in-out;
 }
 
 a {

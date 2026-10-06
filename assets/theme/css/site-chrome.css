@@ -6,7 +6,7 @@
 :root {
   --header-max: calc(var(--layout-prose-max) + 8rem);
   --header-height: 4.5rem;
-  --surface-header: hsla(211, 100%, 3%, 82%);
+  --surface-header: hsla(213, 40%, 6%, 85%);
   --surface-menu: hsl(211, 60%, 7%);
   color-scheme: dark;
 }
@@ -21,8 +21,7 @@
   --accent-soft: hsla(211, 100%, 45%, 10%);
 
   --background-dark: hsl(210, 33%, 99%);
-  --surface-page-edge: hsl(211, 40%, 95%);
-  --surface-page-center: hsl(210, 33%, 99%);
+  --surface-page: hsl(210, 33%, 99%);
   --surface-raised: hsla(211, 60%, 92%, 60%);
   --surface-link: hsla(211, 60%, 90%, 70%);
   --surface-header: hsla(210, 33%, 99%, 86%);
@@ -60,8 +59,7 @@
     --accent-soft: hsla(211, 100%, 45%, 10%);
 
     --background-dark: hsl(210, 33%, 99%);
-    --surface-page-edge: hsl(211, 40%, 95%);
-    --surface-page-center: hsl(210, 33%, 99%);
+    --surface-page: hsl(210, 33%, 99%);
     --surface-raised: hsla(211, 60%, 92%, 60%);
     --surface-link: hsla(211, 60%, 90%, 70%);
     --surface-header: hsla(210, 33%, 99%, 86%);
@@ -93,7 +91,7 @@
 
 html,
 body {
-  background-color: var(--background-dark);
+  background: var(--surface-page);
 }
 
 /* ---------- Header ---------- */
