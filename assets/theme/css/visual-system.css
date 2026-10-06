@@ -50,24 +50,6 @@
 
 html,
 body {
-  background: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(var(--surface-page-edge)),
-    color-stop(34%, var(--surface-page-center)),
-    color-stop(50%, var(--background-dark)),
-    color-stop(66%, var(--surface-page-center)),
-    to(var(--surface-page-edge))
-  );
-  background: -o-linear-gradient(
-    left,
-    var(--surface-page-edge) 0%,
-    var(--surface-page-center) 34%,
-    var(--background-dark) 50%,
-    var(--surface-page-center) 66%,
-    var(--surface-page-edge) 100%
-  );
   background: linear-gradient(
     90deg,
     var(--surface-page-edge) 0%,
@@ -84,33 +66,11 @@ a {
   color: var(--link-color);
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.2em;
-  -webkit-transition: color var(--transition-color) ease-in-out,
-    background-color var(--transition-color) ease-in-out,
-    border-color var(--transition-border) ease-in-out,
-    -webkit-box-shadow var(--transition-color) ease-in-out,
-    -webkit-transform var(--transition-color) ease-in-out;
-  transition: color var(--transition-color) ease-in-out,
-    background-color var(--transition-color) ease-in-out,
-    border-color var(--transition-border) ease-in-out,
-    -webkit-box-shadow var(--transition-color) ease-in-out,
-    -webkit-transform var(--transition-color) ease-in-out;
-  -o-transition: color var(--transition-color) ease-in-out,
-    background-color var(--transition-color) ease-in-out,
-    border-color var(--transition-border) ease-in-out,
-    box-shadow var(--transition-color) ease-in-out,
-    transform var(--transition-color) ease-in-out;
   transition: color var(--transition-color) ease-in-out,
     background-color var(--transition-color) ease-in-out,
     border-color var(--transition-border) ease-in-out,
     box-shadow var(--transition-color) ease-in-out,
     transform var(--transition-color) ease-in-out;
-  transition: color var(--transition-color) ease-in-out,
-    background-color var(--transition-color) ease-in-out,
-    border-color var(--transition-border) ease-in-out,
-    box-shadow var(--transition-color) ease-in-out,
-    transform var(--transition-color) ease-in-out,
-    -webkit-box-shadow var(--transition-color) ease-in-out,
-    -webkit-transform var(--transition-color) ease-in-out;
 }
 
 a:hover {
@@ -187,10 +147,8 @@ main article h3,
 main article h4,
 main article h5,
 main article h6 {
-  background: -webkit-linear-gradient(45deg, var(--tint-800), var(--tint-500));
   background-clip: text;
   -webkit-background-clip: text;
-  -webkit-filter: none;
   filter: none;
   margin-right: auto;
   margin-left: auto;
@@ -218,12 +176,10 @@ a code {
   background-color: transparent;
   border-bottom: 0;
   border-radius: 3px;
-  -webkit-box-shadow: none;
   box-shadow: none;
   color: var(--link-color);
   padding: 0 0.08em;
   text-decoration: underline;
-  -webkit-text-decoration-color: var(--link-hover);
   text-decoration-color: var(--link-hover);
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.18em;
@@ -245,11 +201,9 @@ main article.archives a:focus-visible,
 a:hover code,
 a:focus-visible code {
   background-color: var(--surface-link-hover);
-  -webkit-box-shadow: var(--shadow-hairline);
   box-shadow: var(--shadow-hairline);
   color: var(--link-hover);
   text-decoration: underline;
-  -webkit-text-decoration-color: var(--link-hover);
   text-decoration-color: var(--link-hover);
   text-underline-offset: 0.28em;
 }
@@ -267,7 +221,6 @@ main article pre {
   background-color: hsl(70, 8%, 13%);
   border: 1px solid var(--border-soft);
   border-radius: 6px;
-  -webkit-box-shadow: var(--shadow-soft);
   box-shadow: var(--shadow-soft);
 }
 
@@ -282,24 +235,6 @@ main article pre:hover {
 }
 
 .meta_container {
-  background: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(hsla(0, 0%, 0%, 0%)),
-    color-stop(16%, hsla(211, 100%, 3%, 86%)),
-    color-stop(50%, hsla(211, 100%, 2%, 92%)),
-    color-stop(84%, hsla(211, 100%, 3%, 86%)),
-    to(hsla(0, 0%, 0%, 0%))
-  );
-  background: -o-linear-gradient(
-    left,
-    hsla(0, 0%, 0%, 0%) 0%,
-    hsla(211, 100%, 3%, 86%) 16%,
-    hsla(211, 100%, 2%, 92%) 50%,
-    hsla(211, 100%, 3%, 86%) 84%,
-    hsla(0, 0%, 0%, 0%) 100%
-  );
   background: linear-gradient(
     90deg,
     hsla(0, 0%, 0%, 0%) 0%,
@@ -313,21 +248,17 @@ main article pre:hover {
 .meta_container_hrs hr,
 hr {
   border: 0;
-  -webkit-box-shadow: none;
   box-shadow: none;
   opacity: 0.9;
 }
 
 .footer-icon:hover {
-  -webkit-transform: scale(1.12) rotate(0.08turn);
-  -ms-transform: scale(1.12) rotate(0.08turn);
   transform: scale(1.12) rotate(0.08turn);
 }
 
 :where(a, button, input, textarea, select, summary, [tabindex]:not([tabindex="-1"])):focus-visible {
   outline: 2px solid var(--focus-color) !important;
   outline-offset: 4px !important;
-  -webkit-box-shadow: none !important;
   box-shadow: none !important;
   border-radius: 4px;
 }

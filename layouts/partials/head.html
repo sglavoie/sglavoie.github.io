@@ -71,11 +71,24 @@
     type="font/woff2"
     crossorigin
   />
-  <link rel="preload" as="style" href="{{ "/theme/css/styles.css" | relURL }}" />
+  {{- /* Order matters: later files refine earlier ones. Fonts resolve relative to theme/css/. */ -}}
+  {{- $cssFiles := slice
+    "main" "md-viewport" "lg-viewport" "pygments" "layout" "content"
+    "discovery" "visual-system" "homepage-cards" "post-reading"
+    "site-chrome" "motion-accessibility"
+  -}}
+  {{- $cssResources := slice -}}
+  {{- range $cssFiles -}}
+    {{- $cssResources = $cssResources | append (resources.Get (printf "theme/css/%s.css" .)) -}}
+  {{- end -}}
+  {{- $styles := $cssResources | resources.Concat "theme/css/styles.css" -}}
+  {{- if hugo.IsProduction -}}
+    {{- $styles = $styles | minify | fingerprint -}}
+  {{- end -}}
   <link
     rel="stylesheet"
-    type="text/css"
-    href="{{ "/theme/css/styles.css" | relURL }}"
+    href="{{ $styles.RelPermalink }}"
+    {{ with $styles.Data.Integrity }}integrity="{{ . }}"{{ end }}
   />
   <link href="{{ "/theme/css/sweetalert2.css" | relURL }}" rel="stylesheet" />
 

@@ -33,7 +33,6 @@
 }
 
 .taxonomy-index {
-  display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
   gap: 0.65rem;
@@ -45,14 +44,8 @@
 }
 
 main article .taxonomy-index__item {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   gap: 0.75rem;
   min-height: 44px;
@@ -73,7 +66,6 @@ main article .taxonomy-index__link {
 
 .taxonomy-index__count,
 span.badge {
-  -ms-flex-negative: 0;
   flex-shrink: 0;
   border: 1px solid var(--border-soft);
   border-radius: 999px;
@@ -93,8 +85,6 @@ ul.tagcloud {
   width: 100%;
   max-width: 100%;
   min-width: 0;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
   gap: 0.65rem;
   row-gap: 0.8rem;
@@ -102,11 +92,7 @@ ul.tagcloud {
 }
 
 ul.tagcloud li {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   flex: 0 0 auto;
   max-width: min(100%, 18rem);
@@ -118,8 +104,6 @@ ul.tagcloud li {
 }
 
 ul.tagcloud a {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
   min-width: 0;
   max-width: 100%;
@@ -172,7 +156,6 @@ li.tag-8 {
 }
 
 .archives__list {
-  display: -ms-grid;
   display: grid;
   max-width: var(--layout-prose-max);
   min-width: 0;
@@ -181,12 +164,8 @@ li.tag-8 {
 }
 
 .archives-article {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: minmax(6.8rem, 8.4rem) minmax(0, 1fr);
   grid-template-columns: minmax(6.8rem, 8.4rem) minmax(0, 1fr);
-  -webkit-box-align: start;
-  -ms-flex-align: start;
   align-items: start;
   gap: 0.35rem 1rem;
   width: 100%;
@@ -224,7 +203,6 @@ li.tag-8 {
 }
 
 .taxonomy-listing__posts {
-  display: -ms-grid;
   display: grid;
   min-width: 0;
 }
@@ -249,17 +227,11 @@ li.tag-8 {
 }
 
 #search {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
 .pagefind-ui__form {
-  display: -ms-grid;
   display: grid;
   justify-items: center;
   gap: 0.75rem;
@@ -284,7 +256,6 @@ li.tag-8 {
 
 @media (max-width: 560px) {
   .archives-article {
-    -ms-grid-columns: minmax(0, 1fr);
     grid-template-columns: minmax(0, 1fr);
   }
 

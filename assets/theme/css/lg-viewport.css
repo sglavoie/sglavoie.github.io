@@ -47,7 +47,6 @@
   }
 
   img {
-    -webkit-box-shadow: 0px 0px 30px 4px var(--shade-600);
     box-shadow: 0px 0px 12px 4px var(--shade-600);
   }
 
@@ -83,7 +82,6 @@
   main article h4,
   main article h5,
   main article h6 {
-    -webkit-filter: drop-shadow(0px 1px 1px var(--tint-100-shadow));
     filter: drop-shadow(0px 1px 1px var(--tint-100-shadow));
   }
 }

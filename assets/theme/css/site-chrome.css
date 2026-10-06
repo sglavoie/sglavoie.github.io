@@ -104,7 +104,6 @@ body {
   z-index: 50;
   border-bottom: 1px solid var(--border-soft);
   background-color: var(--surface-header);
-  -webkit-backdrop-filter: saturate(140%) blur(10px);
   backdrop-filter: saturate(140%) blur(10px);
 }
 
