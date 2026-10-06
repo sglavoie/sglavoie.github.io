@@ -89,6 +89,12 @@ ul.tagcloud {
   padding: 1.25rem 0 0;
 }
 
+/* Unlike the Archives list, the whole cloud (gaps included) triggers the
+   sibling-fade zoom, so it doesn't flicker as the cursor crosses gaps. */
+ul.tagcloud.sibling-fade {
+  visibility: visible;
+}
+
 ul.tagcloud li {
   display: inline-flex;
   align-items: center;
