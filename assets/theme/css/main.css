@@ -305,16 +305,6 @@ main article code:not(pre > code) {
   color: var(--tint-600);
 }
 
-main article code:not(pre > code)::before {
-  content: "`";
-  color: var(--tint-900);
-}
-
-main article code:not(pre > code)::after {
-  content: "`";
-  color: var(--tint-900);
-}
-
 main article .article_text {
   display: block;
 }
@@ -627,11 +617,13 @@ span.badge {
 
 
 /* Page load: one gentle fade for the main column; header and footer stay put.
+   It starts partly visible so the page never renders blank (e.g. for preview
+   generators that capture before the animation runs).
    `backwards` keeps the start state during the delay without leaving a
    transform behind (which would affect sticky/fixed descendants). */
 @keyframes page-fade-in {
   from {
-    opacity: 0;
+    opacity: 0.4;
     transform: translateY(8px);
   }
   to {

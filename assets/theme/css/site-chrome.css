@@ -4,7 +4,7 @@
 */
 
 :root {
-  --header-max: calc(var(--layout-prose-max) + 8rem);
+  --header-max: calc(var(--layout-prose-max) + (var(--layout-gutter) * 2));
   --header-height: 4.5rem;
   --surface-header: hsla(213, 40%, 6%, 85%);
   --surface-menu: hsl(211, 60%, 7%);
@@ -451,19 +451,8 @@ main .section-label {
   margin-right: 0.75rem;
 }
 
-.article-card__meta > .article-card__badge::before {
-  content: none;
-}
-
 .article-card__badge {
-  margin-left: -0.25rem;
-  padding: 0.05rem 0.5rem;
-  border: 1px solid var(--border-strong);
-  border-radius: 999px;
-  color: var(--accent);
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  color: var(--ink-muted);
 }
 
 main article.article-card .article-card__category,
@@ -477,10 +466,15 @@ main article.article-card .article-card__category:hover {
 }
 
 .article-card__summary {
+  display: -webkit-box;
   max-width: 70ch;
   margin: 0.85rem 0 0;
+  overflow: hidden;
   color: var(--ink-secondary);
-  line-height: 1.72;
+  line-height: 1.65;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
 }
 
 @media (min-width: 768px) {
@@ -617,23 +611,43 @@ main article.article-card .article-card__category:hover {
   }
 
   .site-header__inner {
+    /* Anchors the Topics menu, which must escape the scrolling nav row. */
+    position: relative;
     flex-wrap: wrap;
-    gap: 0.5rem 1rem;
+    gap: 0.25rem 1rem;
     padding-top: 0.75rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
   }
 
+  /* The row bleeds to the screen edges so a cut-off link hints at scrolling. */
   .site-nav {
     order: 3;
     flex-basis: 100%;
+    margin: 0 calc(var(--layout-gutter) * -1);
   }
 
   .site-nav__list {
-    gap: 0.15rem 1.1rem;
+    flex-wrap: nowrap;
+    gap: 1.1rem;
+    padding: 0.25rem var(--layout-gutter);
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+
+  .site-nav__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .topics-menu {
+    position: static;
   }
 
   .topics-menu__list {
-    left: 0;
+    top: calc(100% + 0.25rem);
+    right: var(--layout-gutter);
+    left: var(--layout-gutter);
+    min-width: 0;
   }
 
   .pagination {

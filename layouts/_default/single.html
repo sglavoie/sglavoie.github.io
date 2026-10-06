@@ -42,8 +42,26 @@
   </header>
   {{ if $hasToc }}
   <aside class="post-reading__toc" aria-labelledby="toc-title" data-pagefind-ignore>
-    <h2 id="toc-title" class="toc-title">On this page</h2>
-    <nav class="toc" aria-labelledby="toc-title">{{ .TableOfContents }}</nav>
+    {{- /* Collapsed above the article on narrow screens; the script below keeps
+         it open where it becomes the sticky sidebar. */ -}}
+    <details class="toc-details">
+      <summary id="toc-title" class="toc-title">
+        On this page
+        <svg class="toc-details__chevron" aria-hidden="true" focusable="false" width="0.9em" height="0.9em" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <nav class="toc" aria-labelledby="toc-title">{{ .TableOfContents }}</nav>
+    </details>
+    <script>
+      (function () {
+        const details = document.currentScript.previousElementSibling;
+        const sidebar = window.matchMedia("(min-width: 1280px)");
+        function sync() {
+          details.open = sidebar.matches;
+        }
+        sync();
+        sidebar.addEventListener("change", sync);
+      })();
+    </script>
   </aside>
   {{ end }}
   <div class="article_text">{{ .Content }}</div>

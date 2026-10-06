@@ -96,7 +96,7 @@ main article li,
 main article dd,
 main article dt,
 main article blockquote {
-  line-height: 1.82;
+  line-height: 1.7;
 }
 
 main article li {
@@ -163,7 +163,7 @@ main article h6 a {
 
 strong,
 em {
-  color: var(--ink-secondary);
+  color: inherit;
 }
 
 main article .article_text a,
@@ -212,6 +212,14 @@ a code {
   border-radius: 4px;
   color: var(--tint-700);
   padding: 0 0.2em;
+  /* A chip that wraps keeps its padding and border on both lines. */
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Monospace runs wide; keep code from outweighing the words in a heading. */
+main article :is(h1, h2, h3, h4, h5, h6) code {
+  font-size: 0.85em;
 }
 
 main article pre {
