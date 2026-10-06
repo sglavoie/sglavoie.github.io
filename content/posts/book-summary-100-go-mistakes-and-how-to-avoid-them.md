@@ -10,6 +10,7 @@ tags:
   - books
   - go
   - skimming-notes
+featured: true
 categories:
   - learnings
 skim_notes: true

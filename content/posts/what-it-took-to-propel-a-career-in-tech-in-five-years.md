@@ -8,6 +8,7 @@ summary: "Learning is an eternal path. I have been sharing my own adventure prim
 description: "Learning is an eternal path. I have been sharing my own adventure primarily for the following practical reasons: to help me remember what I have been working on technology-wise and to help me practice a technique known as spaced repetition. This has been a summary to motivate myself to keep on track, to practice consistent self-reflection and to be reminded as often as possible to stay a bit more humble. In the process, I hope you may found some inspiration too."
 tags:
   - career
+featured: true
 categories:
   - learnings
 ---

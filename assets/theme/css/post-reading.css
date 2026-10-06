@@ -322,15 +322,6 @@ main article.post-reading .post-footer__pager-link:focus-visible {
 
 main article .post-footer__related .section-label {
   margin: 0 0 1rem;
-  background: none;
-  color: var(--ink-muted);
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-align: left;
-  text-transform: uppercase;
-  -webkit-text-fill-color: currentColor;
 }
 
 .post-footer__related-list {

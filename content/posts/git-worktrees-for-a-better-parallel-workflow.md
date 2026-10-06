@@ -8,6 +8,7 @@ description: "Git leads to a wealth of discoveries. Once SSH and GPG are set up,
 tags:
   - git
   - terminal
+featured: true
 categories:
   - tips-and-tricks
 ---

@@ -15,6 +15,10 @@ author = "Sébastien Lavoie"
 intro = "Hi, I'm Sébastien — a software developer writing about Go, software design, and the tools and workflows that make programming more enjoyable."
 description = "Posts and writings by Sébastien Lavoie. Customization setups and articles on productivity for developers who like minimalism."
 
+[params.social]
+github = "https://github.com/sglavoie"
+linkedin = "https://www.linkedin.com/in/sglavoie/"
+
 [permalinks]
   posts = "/posts/:slug/"
 

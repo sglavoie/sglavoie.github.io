@@ -5,6 +5,37 @@
 {{ with .Site.Params.intro }}
 <section class="home-intro">
   <p>{{ . | markdownify }}</p>
+  <ul class="home-intro__links" aria-label="Elsewhere">
+    <li><a href="{{ "/resume/" | relURL }}">Resume</a></li>
+    {{- with site.Params.social.github }}
+    <li><a href="{{ . }}" rel="me noopener noreferrer">GitHub</a></li>
+    {{- end }}
+    {{- with site.Params.social.linkedin }}
+    <li><a href="{{ . }}" rel="me noopener noreferrer">LinkedIn</a></li>
+    {{- end }}
+    <li><a href="{{ "/feeds/sglavoie.rss.xml" | absURL }}">RSS</a></li>
+  </ul>
+</section>
+{{ end }}
+{{- /* Hand-picked posts: set `featured: true` in a post's front matter. */ -}}
+{{ with first 3 (where $pages "Params.featured" true) }}
+<section class="home-featured" aria-labelledby="featured-title">
+  <h2 id="featured-title" class="section-label">Start here</h2>
+  <ul class="home-featured__list">
+    {{- range . }}
+    <li>
+      <a class="home-featured__card" href="{{ .RelPermalink }}">
+        {{- with index .Params.categories 0 }}
+          {{- with site.GetPage (printf "/categories/%s" (. | urlize)) }}
+        <span class="home-featured__category">{{ .Title }}</span>
+          {{- end }}
+        {{- end }}
+        <span class="home-featured__title">{{ .Title }}</span>
+        <span class="home-featured__meta">{{ .ReadingTime }} min read</span>
+      </a>
+    </li>
+    {{- end }}
+  </ul>
 </section>
 {{ end }}
 {{ end }}
