@@ -35,12 +35,14 @@ article > .article_title h1 a:visited {
   font-size: 0.85rem;
 }
 
+.post-reading__category,
 .post-reading__category:visited {
-  color: var(--link-color);
+  color: var(--ink-secondary);
 }
 
 .post-reading__category:hover,
 .post-reading__category:focus-visible {
+  color: var(--link-hover);
   text-decoration: underline;
 }
 

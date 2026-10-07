@@ -97,7 +97,8 @@
     Cantarell, "Helvetica Neue", sans-serif;
   --font-mono: SourceCodePro, "JetBrains Mono", Menlo, Consolas, monospace;
 
-  /* Single accent: everything interactive uses the logo blue. */
+  /* Single accent: the logo blue marks what is clickable or current.
+     Labels and metadata stay neutral until hovered. */
   --accent: light-dark(hsl(211, 100%, 38%), hsl(211, 100%, 70%));
   --accent-strong: light-dark(hsl(211, 100%, 28%), hsl(211, 100%, 80%));
   --accent-soft: light-dark(hsla(211, 100%, 45%, 10%), hsla(211, 100%, 70%, 16%));
@@ -108,7 +109,8 @@
   --surface-header: light-dark(hsla(210, 33%, 99%, 86%), hsla(213, 40%, 6%, 85%));
   --surface-menu: light-dark(hsl(0, 0%, 100%), hsl(211, 60%, 7%));
   --surface-raised: light-dark(hsla(211, 60%, 92%, 60%), hsla(211, 100%, 8%, 55%));
-  --surface-code-inline: light-dark(hsla(211, 60%, 90%, 70%), hsla(211, 100%, 14%, 42%));
+  /* Neutral, so inline code never reads as a link. */
+  --surface-code-inline: light-dark(hsla(215, 16%, 50%, 10%), hsla(215, 20%, 60%, 14%));
 
   --border-soft: light-dark(hsla(211, 40%, 30%, 16%), hsla(211, 100%, 72%, 20%));
   --border-strong: light-dark(hsla(211, 100%, 38%, 45%), hsla(211, 100%, 65%, 55%));
@@ -116,7 +118,7 @@
   --ink-primary: light-dark(hsl(211, 40%, 14%), hsl(211, 100%, 92%));
   --ink-secondary: light-dark(hsl(211, 22%, 28%), hsl(211, 50%, 78%));
   --ink-muted: light-dark(hsl(211, 14%, 40%), hsl(211, 30%, 74%));
-  --ink-code-inline: light-dark(hsl(211, 90%, 36%), hsl(211, 100%, 65%));
+  --ink-code-inline: light-dark(hsl(220, 14%, 22%), hsl(215, 25%, 86%));
 
   --link-color: var(--accent);
   --link-hover: var(--accent-strong);
