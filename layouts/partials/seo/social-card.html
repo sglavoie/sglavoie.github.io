@@ -1,0 +1,41 @@
+{{- /* A 1200x630 preview image for a post: its title, topic and reading time
+     drawn over assets/images/social-card-base.png, which is rendered from
+     scripts/social-card-base.html (see that file to change it). */ -}}
+{{- $base := resources.Get "images/social-card-base.png" -}}
+{{- $titleFont := resources.Get "fonts/Ubuntu-Medium.ttf" -}}
+{{- $metaFont := resources.Get "fonts/UbuntuMono-Regular.ttf" -}}
+
+{{- $meta := slice -}}
+{{- with index .Params.categories 0 -}}
+  {{- with site.GetPage (printf "/categories/%s" (. | urlize)) -}}
+    {{- $meta = $meta | append .Title -}}
+  {{- end -}}
+{{- end -}}
+{{- if .ReadingTime -}}
+  {{- $meta = $meta | append (partial "reading-time.html" .) -}}
+{{- end -}}
+
+{{- /* Three lines fit above the meta line; longer titles step down a size. */ -}}
+{{- $titleSize := cond (gt (len .Title) 85) 48 60 -}}
+{{- $filters := slice
+  (images.Text .Title (dict
+    "font" $titleFont
+    "color" "#e6f0ff"
+    "size" $titleSize
+    "linespacing" 12
+    "x" 80
+    "y" 196
+  ))
+-}}
+{{- with $meta -}}
+  {{- $filters = $filters | append (images.Text (delimit . "  ·  ") (dict
+    "font" $metaFont
+    "color" "#9fb3c8"
+    "size" 28
+    "x" 80
+    "y" 490
+  )) -}}
+{{- end -}}
+
+{{- $card := $base | images.Filter $filters -}}
+{{- return $card.Permalink -}}

@@ -68,8 +68,11 @@
 {{- with .Params.image -}}
   {{- $imageCandidates = $imageCandidates | append . -}}
 {{- end -}}
+{{- /* Posts without an image in front matter get a generated card rather
+     than their first inline image, which is often a cropped screenshot. */ -}}
+{{- $useCard := and .IsPage (eq .Section "posts") (not $imageCandidates) -}}
 {{- $rawContent := "" -}}
-{{- if .IsPage -}}
+{{- if and .IsPage (not $useCard) -}}
   {{- $rawContent = .RawContent -}}
 {{- end -}}
 {{- range findRESubmatch `!\[[^\]]*\]\(([^)\s]+)` $rawContent -}}
@@ -94,6 +97,11 @@
       {{- $contentImage = $resolvedImage -}}
     {{- end -}}
   {{- end -}}
+{{- end -}}
+
+{{- if $useCard -}}
+  {{- $socialImage = partial "seo/social-card.html" . -}}
+  {{- $contentImage = $socialImage -}}
 {{- end -}}
 
 {{- return (dict
