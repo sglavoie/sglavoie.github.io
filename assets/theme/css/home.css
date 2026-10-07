@@ -18,22 +18,17 @@
   text-wrap: pretty;
 }
 
-/* A blinking cursor, like the bar under the logo. */
+/* A cursor: the bar under the logo, same proportions (about 3.85:1) and
+   the same fade between greys. */
 .home-intro p::after {
   content: "";
   display: inline-block;
-  width: 0.5em;
-  height: 0.12em;
+  width: 0.55em;
+  height: 0.143em;
   margin-left: 0.2em;
-  border-radius: 1px;
-  background-color: var(--accent);
-  animation: cursor-blink 1.2s steps(1) infinite;
-}
-
-@keyframes cursor-blink {
-  50% {
-    opacity: 0;
-  }
+  /* Static colour when animations are reduced. */
+  background-color: var(--logo-bar-from);
+  animation: cursor-pulse 2s linear infinite;
 }
 
 /* ---------- Featured posts ---------- */

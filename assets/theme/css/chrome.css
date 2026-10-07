@@ -43,22 +43,11 @@
   fill: var(--logo-mark-hover);
 }
 
-/* The logo's bottom bar pulses like a terminal cursor. */
+/* The logo's bottom bar pulses like a terminal cursor (see base.css). */
 .svgLogo__bar {
   /* Static colour when animations are reduced. */
   fill: var(--logo-bar-from);
-  animation: logo-bar-pulse 2s linear infinite;
-}
-
-@keyframes logo-bar-pulse {
-  0%,
-  100% {
-    fill: var(--logo-bar-from);
-  }
-
-  50% {
-    fill: var(--logo-bar-to);
-  }
+  animation: cursor-pulse 2s linear infinite;
 }
 
 /* ---------- Navigation ---------- */

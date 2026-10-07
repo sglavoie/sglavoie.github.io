@@ -239,6 +239,24 @@ img {
   transition-delay: 0ms, 0ms;
 }
 
+/* ---------- Cursor ---------- */
+
+/* The fade of the bar under the logo, shared by the cursor after the home
+   intro. Each sets only the property it paints: fill for the SVG bar,
+   background-color for the block. */
+@keyframes cursor-pulse {
+  0%,
+  100% {
+    fill: var(--logo-bar-from);
+    background-color: var(--logo-bar-from);
+  }
+
+  50% {
+    fill: var(--logo-bar-to);
+    background-color: var(--logo-bar-to);
+  }
+}
+
 /* ---------- Page load ---------- */
 
 /* One gentle fade for the main column; header and footer stay put. It starts
