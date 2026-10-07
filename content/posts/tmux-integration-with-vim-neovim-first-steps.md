@@ -25,11 +25,9 @@ local setup! Here is how I currently like to set it up.
 
 ---
 
-### Configuration file:
+### Configuration file
 
-##### `~/.tmux.conf`
-
-```bash
+```bash {title="~/.tmux.conf"}
 # split panes using | and -
 bind | split-window -h
 bind - split-window -v
@@ -54,15 +52,13 @@ here](https://github.com/jimeh/tmux-themepack).
 
 ---
 
-### Automating the launch of a default session:
-
-##### `~/.tmux_default_session.sh`
+### Automating the launch of a default session
 
 This is a small Bash script that I like to have for automatic set up
 of a development environment with tmux and Vim/Neovim. As my current
 workflow, I enjoy the following:
 
-```bash
+```bash {title="~/.tmux_default_session.sh"}
 #!bash
 # var for session name (to avoid repeated occurences)
 sn=dev
@@ -102,14 +98,12 @@ tmux -2 attach-session -t "$sn"
 
 ---
 
-### Aliases to make use of:
-
-##### `.tmux_default_session.sh`
+### Aliases to make use of
 
 I add the following aliases in `~/.bash_aliases` to automate a chunk of
 the workflow:
 
-```bash
+```bash {title="~/.bash_aliases"}
 # This will launch tmux with the desired configuration
 alias dev='bash ~/.tmux_default_session.sh'
 
@@ -134,5 +128,4 @@ alias adev='tmux attach-session -t dev'
 ---
 
 The content of this post can be found on
-[GitHub](https://github.com/sglavoie/better-vim-experience#tmux-integrat
-ion).
+[GitHub](https://github.com/sglavoie/better-vim-experience#tmux-integration).
