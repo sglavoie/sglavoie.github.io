@@ -125,7 +125,7 @@
   --surface-page: light-dark(hsl(210, 33%, 99%), hsl(213, 40%, 6%));
   --surface-header: light-dark(hsla(210, 33%, 99%, 86%), hsla(213, 40%, 6%, 85%));
   --surface-menu: light-dark(hsl(0, 0%, 100%), hsl(211, 60%, 7%));
-  --surface-raised: light-dark(hsla(211, 60%, 92%, 60%), hsla(211, 100%, 8%, 55%));
+  --surface-raised: light-dark(hsla(211, 60%, 92%, 60%), hsl(213, 36%, 10.5%));
   /* Neutral, so inline code never reads as a link. */
   --surface-code-inline: light-dark(hsla(215, 16%, 50%, 10%), hsla(215, 20%, 60%, 14%));
 
