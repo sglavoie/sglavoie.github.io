@@ -12,7 +12,8 @@ html {
   background: var(--surface-page);
   color: var(--ink-primary);
   font-family: var(--font-sans);
-  font-size: 18px;
+  /* 18px by default, scaled by the reader's browser font size. */
+  font-size: 112.5%;
   line-height: 1.6;
   scroll-behavior: smooth;
   scrollbar-color: var(--border-strong) transparent;
