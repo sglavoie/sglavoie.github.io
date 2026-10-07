@@ -16,5 +16,5 @@
       {{ end }}
     </div>
   </header>
-  <p class="article-card__summary">{{ .Summary | plainify | htmlUnescape }}</p>
+  <p class="article-card__summary">{{ .Description | default .Summary | plainify | htmlUnescape }}</p>
 </article>
