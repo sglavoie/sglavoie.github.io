@@ -1,0 +1,10 @@
+{{- /* The home page's posts, shared by index.html and seo/page-meta.html.
+     Whichever calls .Paginate first fixes the list for the page, so both
+     must paginate the same collection.
+
+     Hand-picked posts: set `featured: true` in a post's front matter, and
+     optionally a short `teaser` (defaults to the description). They are
+     left out of `listed` so the home page never shows a post twice. */ -}}
+{{- $pages := where site.RegularPages "Section" "posts" -}}
+{{- $featured := first 3 (where $pages "Params.featured" true) -}}
+{{- return dict "featured" $featured "listed" (complement $featured $pages) -}}

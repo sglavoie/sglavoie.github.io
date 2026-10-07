@@ -1,15 +1,14 @@
 {{ define "main" }}
-{{ $pages := where site.RegularPages "Section" "posts" }}
-{{ $paginator := .Paginate $pages }}
+{{ $posts := partial "home-posts.html" . }}
+{{ $featured := $posts.featured }}
+{{ $paginator := .Paginate $posts.listed }}
 {{ if eq $paginator.PageNumber 1 }}
 {{ with .Site.Params.intro }}
 <section class="home-intro">
   <p>{{ . | markdownify }}</p>
 </section>
 {{ end }}
-{{- /* Hand-picked posts: set `featured: true` in a post's front matter, and
-     optionally a short `teaser` (defaults to the description). */ -}}
-{{ with first 3 (where $pages "Params.featured" true) }}
+{{ with $featured }}
 <section class="home-featured" aria-labelledby="featured-title">
   <h2 id="featured-title" class="section-label">Start here</h2>
   <ul class="home-featured__list">

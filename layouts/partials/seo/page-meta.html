@@ -21,7 +21,7 @@
 {{- $robots := "" -}}
 {{- $pageNumberSuffix := "" -}}
 {{- if .IsHome -}}
-  {{- $paginator := .Paginate (where site.RegularPages "Section" "posts") -}}
+  {{- $paginator := .Paginate (partial "home-posts.html" .).listed -}}
   {{- $canonicalURL = $paginator.URL | absURL -}}
   {{- $url = $canonicalURL -}}
   {{- if gt $paginator.PageNumber 1 -}}
