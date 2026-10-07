@@ -5,7 +5,6 @@ slug: dispose-of-spam-with-disposable-emails-and-more
 author: Sébastien Lavoie
 summary: Have you ever received spam to your email address? Unless you are extremely lucky or are actually disconnected from the Internet and thus most probably not reading this, chances are you might have had an offer or two to receive gold from a Nigerian prince in the past. Before those princes and princesses generously start giving away their cryptocurrency in the near future in exchange for a trip to Western Union, get prepared and hide away your precious address!
 description: Have you ever received spam to your email address? Unless you are extremely lucky or are actually disconnected from the Internet and thus most probably not reading this, chances are you might have had an offer or two to receive gold from a Nigerian prince in the past. Before those princes and princesses generously start giving away their cryptocurrency in the near future in exchange for a trip to Western Union, get prepared and hide away your precious address!
-image: /images/posts/0012_dispose-of-spam/spamgourmet_getting_through.png
 tags:
   - productivity
   - web

@@ -5,7 +5,6 @@ slug: building-task-planner-react-native
 author: Sébastien Lavoie
 summary: "After having [built a somewhat original habit tracker](/posts/reviewing-the-process-of-building-a-first-React-Native-application/), I was keen on coming up with a solution to a much more common problem: task management. This is the story of how I built a task planner with React Native, explored from an academic perspective first and foremost."
 description: "After having built a somewhat original habit tracker, I was keen on coming up with a solution to a much more common problem: task management. This is the story of how I built a task planner with React Native, explored from an academic perspective first and foremost."
-image: /images/posts/0039_productivido/focus.png
 tags:
   - bsc
   - lessons

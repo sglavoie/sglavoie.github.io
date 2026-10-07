@@ -5,7 +5,6 @@ slug: uncovering-some-of-the-merits-of-text-based-diagrams
 author: Sébastien Lavoie
 summary: Every once in a short while, new digital technology comes out to iterate on existing products. Software targeting technical design (e.g., flowcharts) is no exception. Yet, there is still room to enjoy older tools that work simply... and simply work!
 description: Every once in a short while, new digital technology comes out to iterate on existing products. Software targeting technical design (e.g., flowcharts) is no exception. Yet, there is still room to enjoy older tools that work simply... and simply work!
-image: /images/posts/0033_text_based_diagrams/mermaid_flowchart.png
 tags:
   - customization
   - markdown

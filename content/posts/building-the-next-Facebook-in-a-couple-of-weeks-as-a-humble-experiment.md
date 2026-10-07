@@ -5,7 +5,6 @@ slug: building-the-next-Facebook-in-a-couple-of-weeks-as-a-humble-experiment
 author: Sébastien Lavoie
 summary: To spice things up, I am posting a reformatted version of the report I wrote for a web development assignment done during the last year of a computer science degree at the undergraduate level. Facebook should remain a dominant social media platform for a little while longer...
 description: To spice things up, I am posting a reformatted version of the report I wrote for a web development assignment done during the last year of a computer science degree at the undergraduate level. Facebook should remain a dominant social media platform for a little while longer...
-image: /images/posts/0032_building_the_next_Facebook_in_a_couple_of_weeks_as_a_humble_experiment/demo1.png
 tags:
   - bsc
   - django

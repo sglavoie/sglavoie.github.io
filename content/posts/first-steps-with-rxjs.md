@@ -5,7 +5,6 @@ slug: first-steps-with-rxjs
 author: Sébastien Lavoie
 summary: "An introduction to [RxJS](https://rxjs.dev/), a library for reactive programming in JavaScript/TypeScript. We'll cover core concepts like observables, operators, testing, and tips for managing asynchronous data flows."
 description: "An introduction to RxJS, a library for reactive programming in JavaScript/TypeScript. We'll cover core concepts like observables, operators, testing, and tips for managing asynchronous data flows."
-image: /images/posts/0041_first_steps_with_rxjs/marble_diagram.svg
 tags:
   - functional-programming
   - reactive-programming

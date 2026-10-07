@@ -5,7 +5,6 @@ slug: reviewing-the-process-of-building-a-first-React-Native-application
 author: Sébastien Lavoie
 summary: Working with new technologies can be exciting and insightful at the same time! At least, this is what I would like to believe after having dedicated a couple of weeks to this project...
 description: Working with new technologies can be exciting and insightful at the same time! At least, this is what I would like to believe after having dedicated a couple of weeks to this project...
-image: /images/posts/0035_building_first_react_native_application/screens.png
 tags:
   - bsc
   - lessons

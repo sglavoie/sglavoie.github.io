@@ -6,7 +6,6 @@ slug: systematic-reviews
 author: Sébastien Lavoie
 summary: "I find learning about productivity fascinating, yet I'm aware that in the end, a simple set of rules and systems is what works best for me. These systems will continue to evolve over time, but I have found that the simpler they are, the more likely I am to stick with them. This post describes my current digital take on dealing with everyday life."
 description: "I find learning about productivity fascinating, yet I'm aware that in the end, a simple set of rules and systems is what works best for me. These systems will continue to evolve over time, but I have found that the simpler they are, the more likely I am to stick with them. This post describes my current digital take on dealing with everyday life."
-image: /images/posts/0037_systematic_reviews/apple_reminders_daily_focus.png
 tags:
   - processes
   - planning

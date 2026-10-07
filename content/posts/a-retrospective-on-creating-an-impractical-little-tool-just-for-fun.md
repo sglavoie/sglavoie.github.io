@@ -5,7 +5,6 @@ slug: a-retrospective-on-creating-an-impractical-little-tool-just-for-fun
 author: Sébastien Lavoie
 summary: "Sometimes, spending hundreds of hours on something that could easily have been achieved in a fraction of the time makes for a rewarding journey! While it's important to be selective about where our attention goes in the first place, it matters equally to realize when the end of the rope is in sight so we can jump off the boat with good enough timing..."
 description: "Sometimes, spending hundreds of hours on something that could easily have been achieved in a fraction of the time makes for a rewarding journey! While it's important to be selective about where our attention goes in the first place, it matters equally to realize when the end of the rope is in sight so we can jump off the boat with good enough timing..."
-image: /images/posts/0030_a_retrospective_on_creating_an_impractical_little_tool_just_for_fun/ugc-server.png
 tags:
   - lessons
   - open-source

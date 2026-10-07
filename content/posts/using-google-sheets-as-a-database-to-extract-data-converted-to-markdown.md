@@ -6,7 +6,6 @@ slug: using-google-sheets-as-a-database-to-extract-data-converted-to-markdown
 author: Sébastien Lavoie
 summary: "Using Google Sheets API, this little tool reads a spreadsheet, extract relevant data and converts it into Markdown so it can be repurposed, in the example given in this article to generate an HTML output for this website with [Pelican](https://docs.getpelican.com/), a powerful static site generator."
 description: Using Google Sheets API, this little tool reads a spreadsheet, extract relevant data and converts it into Markdown so it can be repurposed, in the example given to generate an HTML output for this website with Pelican, a powerful static site generator.
-image: /images/posts/0028_google_sheets_as_database_output_markdown/input_output.png
 tags:
   - google sheets
   - markdown

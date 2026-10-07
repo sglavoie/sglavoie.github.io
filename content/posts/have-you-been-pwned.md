@@ -5,7 +5,6 @@ slug: have-you-been-pwned
 author: Sébastien Lavoie
 summary: "Has your password been leaked in a major breach? You can find out thanks to [Have I Been Pwned?](https://haveibeenpwned.com/)... Or you can use their API and stop worrying about your password being sent through your Web browser!"
 description: Has your password been leaked in a major breach? You can find out thanks to Have I Been Pwned?... Or you can use their API and stop worrying about your password being sent through your Web browser!
-image: /images/posts/0011_have-i-been-pwned/have_i_been_pwned_script.png
 tags:
   - api
   - click

@@ -6,7 +6,6 @@ slug: ignoring-sync-of-local-files-to-dropbox-on-linux
 author: Sébastien Lavoie
 summary: "To make the most of Dropbox, it can make sense to backup the files you care the most about and skip the ones that simply take too long to upload and eat up all your space. Such candidates could be hidden `.git/` folders and `node_modules/`, but how do you exclude them locally? Let's find out."
 description: "To make the most of Dropbox, it can make sense to backup the files you care the most about and skip the ones that simply take too long to upload and eat up all your space. Such candidates could be hidden .git/ folders and node_modules/, but how do you exclude them locally? Let's find out."
-image: /images/posts/0019_ignoring-local-files-to-sync-with-dropbox-on-linux/dropbox_selective_sync.png
 tags:
   - aliases
   - macos

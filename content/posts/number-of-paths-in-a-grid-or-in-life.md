@@ -6,7 +6,6 @@ slug: number-of-paths-in-a-grid-or-in-life
 author: Sébastien Lavoie
 summary: "Finding one's way in life is not easy because there are so many paths we can take at any moment. Here is a way to look at it mathematically!"
 description: "Finding one's way in life is not easy because there are so many paths we can take at any moment. Here is a way to look at it mathematically!"
-image: /images/posts/0010_number-of-paths-in-a-grid/3x3_grid_paths_demo.png
 tags:
   - computer science
   - mathematics

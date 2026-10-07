@@ -6,7 +6,6 @@ slug: using-dmenu-to-optimize-common-tasks
 author: Sébastien Lavoie
 summary: "If remembering dozens of keyboard shortcuts isn't your forte, let [dmenu](https://tools.suckless.org/dmenu) come to the rescue! With this awesome tool, you will be able to create menus from plain text files swiftly and effortlessly (almost)."
 description: "If remembering dozens of keyboard shortcuts isn't your forte, let dmenu come to the rescue! With this awesome tool, you will be able to create menus from plain text files swiftly and effortlessly (almost)."
-image: /images/posts/0018_using-dmenu-to-optimize-common-tasks/dmenu_cheat_sheets.png
 tags:
   - bash
   - dmenu
