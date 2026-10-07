@@ -1,0 +1,465 @@
+/*
+* Site chrome: header, navigation, main column, pagination and footer.
+*/
+
+/* ---------- Header ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--border-soft);
+  background-color: var(--surface-header);
+  backdrop-filter: saturate(140%) blur(10px);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: var(--header-max);
+  min-height: var(--header-height);
+  margin: 0 auto;
+  padding: 0.5rem var(--layout-gutter);
+}
+
+.site-header__logo {
+  display: inline-flex;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.svgLogo {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.svgLogo__mark {
+  fill: var(--logo-mark);
+  transition: fill var(--motion-medium) var(--ease-out);
+}
+
+.site-header__logo:hover .svgLogo__mark {
+  fill: var(--logo-mark-hover);
+}
+
+/* The logo's bottom bar pulses like a terminal cursor. */
+.svgLogo__bar {
+  /* Static colour when animations are reduced. */
+  fill: var(--logo-bar-from);
+  animation: logo-bar-pulse 2s linear infinite;
+}
+
+@keyframes logo-bar-pulse {
+  0%,
+  100% {
+    fill: var(--logo-bar-from);
+  }
+
+  50% {
+    fill: var(--logo-bar-to);
+  }
+}
+
+/* ---------- Navigation ---------- */
+
+.site-nav {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.site-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav__link,
+.site-nav__link:visited {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.35rem 0;
+  border: 0;
+  background: none;
+  color: var(--ink-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.site-nav__link::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  border-radius: 2px;
+  background-color: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--motion-medium) var(--ease-out),
+    opacity var(--motion-medium) var(--ease-out);
+}
+
+.site-nav__link:hover,
+.site-nav__link:focus-visible {
+  color: var(--ink-primary);
+}
+
+.site-nav__link:hover::after {
+  transform: scaleX(1);
+  opacity: 0.5;
+}
+
+.site-nav__link.is-active {
+  color: var(--accent);
+}
+
+.site-nav__link.is-active::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.site-nav__external {
+  margin-left: -0.05em;
+  opacity: 0.6;
+}
+
+/* ---------- Header actions ---------- */
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-left: auto;
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--ink-secondary);
+  cursor: pointer;
+  transition: background-color var(--motion-fast) var(--ease-out),
+    color var(--motion-fast) var(--ease-out);
+}
+
+.icon-button:hover {
+  background-color: var(--accent-soft);
+  color: var(--ink-primary);
+}
+
+.icon-button svg {
+  display: block;
+}
+
+#search-icon {
+  pointer-events: none;
+}
+
+/* Show the icon of the theme you would switch to. */
+.icon-button .theme-toggle__moon {
+  display: none;
+}
+
+:root[data-theme="light"] .icon-button .theme-toggle__sun {
+  display: none;
+}
+
+:root[data-theme="light"] .icon-button .theme-toggle__moon {
+  display: block;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .icon-button .theme-toggle__sun {
+    display: none;
+  }
+
+  :root:not([data-theme="dark"]) .icon-button .theme-toggle__moon {
+    display: block;
+  }
+}
+
+/* ---------- Topics dropdown ---------- */
+
+.topics-menu {
+  position: relative;
+}
+
+.topics-menu > summary {
+  list-style: none;
+}
+
+.topics-menu > summary::-webkit-details-marker {
+  display: none;
+}
+
+.topics-menu__chevron {
+  transition: transform var(--motion-medium) var(--ease-out);
+}
+
+.topics-menu[open] .topics-menu__chevron {
+  transform: rotate(180deg);
+}
+
+.topics-menu__list {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  left: -0.75rem;
+  z-index: 60;
+  display: grid;
+  gap: 0.1rem;
+  min-width: 13rem;
+  margin: 0;
+  padding: 0.4rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  background-color: var(--surface-menu);
+  box-shadow: var(--shadow-soft);
+  list-style: none;
+}
+
+/* Runs each time <details> opens, since the list goes from hidden to shown. */
+.topics-menu[open] .topics-menu__list {
+  animation: menu-fade-in var(--motion-medium) var(--ease-out);
+}
+
+@keyframes menu-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+.topics-menu__link,
+.topics-menu__link:visited {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 6px;
+  color: var(--ink-primary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.topics-menu__link:hover,
+.topics-menu__link:focus-visible {
+  background-color: var(--accent-soft);
+  color: var(--ink-primary);
+}
+
+.topics-menu__link.is-active {
+  color: var(--accent);
+}
+
+.topics-menu__count {
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+/* ---------- Main column ---------- */
+
+main {
+  width: 100%;
+  max-width: calc(var(--layout-prose-max) + (var(--layout-gutter) * 2));
+  min-width: 0;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 3.5rem) var(--layout-gutter) 0;
+}
+
+/* ---------- Pagination ---------- */
+
+.pagination {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  max-width: var(--layout-prose-max);
+  margin: 0 auto;
+  padding: 2rem 0 0;
+  border-top: 1px solid var(--border-soft);
+}
+
+.pagination__next {
+  text-align: right;
+}
+
+.pagination__status {
+  margin: 0;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.pagination a,
+.pagination a:visited {
+  display: inline-block;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pagination a:hover,
+.pagination a:focus-visible {
+  background-color: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  margin-top: clamp(3rem, 8vw, 5rem);
+  border-top: 1px solid var(--border-soft);
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  max-width: var(--header-max);
+  margin: 0 auto;
+  padding: 1.5rem var(--layout-gutter) 2rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer a,
+.site-footer a:visited {
+  color: var(--ink-secondary);
+  text-decoration: underline;
+  text-decoration-color: var(--border-strong);
+  text-underline-offset: 0.2em;
+}
+
+.site-footer a:hover {
+  color: var(--accent);
+}
+
+.site-footer a.site-footer__rss {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 767px) {
+  /* Scrolls away instead of sticking, but stays above the page so the
+     Topics menu covers content (the backdrop filter makes it a stacking
+     context of its own). */
+  .site-header {
+    position: relative;
+  }
+
+  .site-header__inner {
+    /* Anchors the Topics menu, which must escape the scrolling nav row. */
+    position: relative;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.25rem;
+  }
+
+  /* The row bleeds to the screen edges and scrolls sideways. */
+  .site-nav {
+    order: 3;
+    flex-basis: 100%;
+    margin: 0 calc(var(--layout-gutter) * -1);
+  }
+
+  .site-nav__list {
+    flex-wrap: nowrap;
+    gap: 1.1rem;
+    padding: 0.25rem var(--layout-gutter);
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+
+  .site-nav__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Fades over whichever end of the row has more links to scroll to;
+     baseof.html sets data-more from the scroll position. Overlays rather
+     than a mask, which would also fade the Topics menu. */
+  .site-nav::before,
+  .site-nav::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 2.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--motion-fast) var(--ease-out);
+  }
+
+  .site-nav::before {
+    left: 0;
+    background: linear-gradient(to left, transparent, var(--surface-page));
+  }
+
+  .site-nav::after {
+    right: 0;
+    background: linear-gradient(to right, transparent, var(--surface-page));
+  }
+
+  .site-nav[data-more~="start"]::before,
+  .site-nav[data-more~="end"]::after {
+    opacity: 1;
+  }
+
+  .topics-menu {
+    position: static;
+  }
+
+  .topics-menu__list {
+    top: calc(100% + 0.25rem);
+    right: var(--layout-gutter);
+    left: var(--layout-gutter);
+    min-width: 0;
+  }
+
+  .pagination {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pagination__status {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    text-align: center;
+  }
+}

@@ -15,7 +15,7 @@
 <article class="post-reading{{ if $hasToc }} post-reading--with-toc{{ end }}" data-pagefind-body>
   <header class="post-reading__header">
     <h1 class="post-reading__title">{{ .Title }}</h1>
-    <p class="post-reading__meta" data-pagefind-ignore>
+    <p class="post-reading__meta meta-row" data-pagefind-ignore>
       <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
       {{- with index .Params.categories 0 }}
         {{- with site.GetPage (printf "/categories/%s" (. | urlize)) }}

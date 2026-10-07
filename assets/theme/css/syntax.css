@@ -1,0 +1,81 @@
+/*
+* Syntax highlighting for Hugo's Chroma output (markup.highlight.noClasses =
+* false). Colours come from the --syn-* tokens, which switch between One
+* Light and One Dark with the theme.
+*/
+
+/* Comments */
+.chroma :is(.c, .ch, .cm, .cp, .cpf, .c1, .cs) {
+  color: var(--syn-comment);
+  font-style: italic;
+}
+
+/* Keywords */
+.chroma :is(.k, .kd, .kn, .kp, .kr) {
+  color: var(--syn-keyword);
+}
+
+/* Names, variables, tags, attributes */
+.chroma :is(.n, .na, .no, .ni, .ne, .nl, .nn, .nx, .py, .nt, .nv, .vc, .vg, .vi, .vm) {
+  color: var(--syn-name);
+}
+
+/* Operators */
+.chroma :is(.o, .ow) {
+  color: var(--syn-operator);
+}
+
+/* Constants, types and builtins */
+.chroma :is(.kc, .kt, .nb, .nc, .bp) {
+  color: var(--syn-constant);
+}
+
+/* Numbers */
+.chroma :is(.m, .mb, .mf, .mh, .mi, .mo, .il) {
+  color: var(--syn-number);
+}
+
+/* Strings */
+.chroma :is(.s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss) {
+  color: var(--syn-string);
+}
+
+/* Functions and decorators */
+.chroma :is(.nf, .fm, .nd) {
+  color: var(--syn-function);
+}
+
+.chroma :is(.nf, .fm) {
+  font-weight: bold;
+}
+
+/* Diffs */
+.chroma .gd {
+  color: var(--syn-name);
+}
+
+.chroma .gi {
+  color: var(--syn-string);
+}
+
+.chroma .ge {
+  font-style: italic;
+}
+
+.chroma .gs {
+  font-weight: bold;
+}
+
+/* Highlighted lines ({hl_lines=...}) and line numbers */
+.chroma .hl {
+  display: block;
+  margin: 0 calc(clamp(0.75rem, 4vw, 1.5rem) * -1);
+  padding: 0 clamp(0.75rem, 4vw, 1.5rem);
+  background-color: var(--accent-soft);
+}
+
+.chroma :is(.ln, .lnt) {
+  margin-right: 1em;
+  color: var(--code-chrome);
+  user-select: none;
+}

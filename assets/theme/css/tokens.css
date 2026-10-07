@@ -1,0 +1,167 @@
+/*
+* Design tokens: fonts, colours, motion and layout.
+*
+* Every colour is written once as light-dark(LIGHT, DARK). The value follows
+* `color-scheme`, which tracks the OS preference unless the theme toggle pins
+* it with data-theme on <html>. Nothing else in the stylesheets needs to know
+* which theme is active.
+*/
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("./fonts/ubuntu-regular-webfont.woff2") format("woff2"),
+    url("./fonts/ubuntu-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url("./fonts/ubuntu-medium-webfont.woff2") format("woff2"),
+    url("./fonts/ubuntu-medium-webfont.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url("./fonts/ubuntu-bold-webfont.woff2") format("woff2"),
+    url("./fonts/ubuntu-bold-webfont.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url("./fonts/ubuntu-regular-italic-webfont.woff2") format("woff2"),
+    url("./fonts/ubuntu-regular-italic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url("./fonts/ubuntu-bold-italic-webfont.woff2") format("woff2"),
+    url("./fonts/ubuntu-bold-italic-webfont.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceCodePro";
+  src: url("./fonts/SourceCodePro-Regular.ttf.woff2") format("woff2-variations"),
+    url("./fonts/SourceCodePro-Regular.ttf.woff") format("woff-variations");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceCodePro";
+  src: url("./fonts/SourceCodePro-Bold.ttf.woff2") format("woff2-variations"),
+    url("./fonts/SourceCodePro-Bold.ttf.woff") format("woff-variations");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceCodePro";
+  src: url("./fonts/SourceCodePro-It.ttf.woff2") format("woff2-variations"),
+    url("./fonts/SourceCodePro-It.ttf.woff") format("woff-variations");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceCodePro";
+  src: url("./fonts/SourceCodePro-BoldIt.ttf.woff2") format("woff2-variations"),
+    url("./fonts/SourceCodePro-BoldIt.ttf.woff") format("woff-variations");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+:root {
+  --font-sans: Ubuntu, -apple-system, "Segoe UI", Roboto, "Noto Sans",
+    Cantarell, "Helvetica Neue", sans-serif;
+  --font-mono: SourceCodePro, "JetBrains Mono", Menlo, Consolas, monospace;
+
+  /* Single accent: everything interactive uses the logo blue. */
+  --accent: light-dark(hsl(211, 100%, 38%), hsl(211, 100%, 70%));
+  --accent-strong: light-dark(hsl(211, 100%, 28%), hsl(211, 100%, 80%));
+  --accent-soft: light-dark(hsla(211, 100%, 45%, 10%), hsla(211, 100%, 70%, 16%));
+
+  /* Keep the page colours in sync with the theme-color values in head.html
+     and baseof.html. */
+  --surface-page: light-dark(hsl(210, 33%, 99%), hsl(213, 40%, 6%));
+  --surface-header: light-dark(hsla(210, 33%, 99%, 86%), hsla(213, 40%, 6%, 85%));
+  --surface-menu: light-dark(hsl(0, 0%, 100%), hsl(211, 60%, 7%));
+  --surface-raised: light-dark(hsla(211, 60%, 92%, 60%), hsla(211, 100%, 8%, 55%));
+  --surface-code-inline: light-dark(hsla(211, 60%, 90%, 70%), hsla(211, 100%, 14%, 42%));
+
+  --border-soft: light-dark(hsla(211, 40%, 30%, 16%), hsla(211, 100%, 72%, 20%));
+  --border-strong: light-dark(hsla(211, 100%, 38%, 45%), hsla(211, 100%, 65%, 55%));
+
+  --ink-primary: light-dark(hsl(211, 40%, 14%), hsl(211, 100%, 92%));
+  --ink-secondary: light-dark(hsl(211, 22%, 28%), hsl(211, 50%, 78%));
+  --ink-muted: light-dark(hsl(211, 14%, 40%), hsl(211, 30%, 74%));
+  --ink-code-inline: light-dark(hsl(211, 90%, 36%), hsl(211, 100%, 65%));
+
+  --link-color: var(--accent);
+  --link-hover: var(--accent-strong);
+  --link-visited: light-dark(hsl(211, 60%, 32%), hsl(211, 70%, 76%));
+  --focus-color: light-dark(hsl(211, 100%, 45%), hsl(190, 100%, 68%));
+
+  --shadow-color: light-dark(hsla(211, 40%, 30%, 12%), hsla(211, 100%, 2%, 58%));
+  --shadow-soft: 0 0 0 1px var(--border-soft), 0 12px 36px var(--shadow-color);
+  --shadow-hairline: 0 0 0 1px var(--border-soft);
+
+  /* The logo: a blue mark beside a grey prompt with a pulsing cursor bar. */
+  --logo-mark: hsl(211, 100%, 50%);
+  --logo-mark-hover: light-dark(hsl(211, 100%, 36%), hsl(200, 100%, 62%));
+  --logo-bar-from: light-dark(hsl(0, 0%, 30%), white);
+  --logo-bar-to: light-dark(hsl(0, 0%, 65%), grey);
+
+  /* Images sit on a light card so dark line art stays visible in dark mode. */
+  --image-backdrop: light-dark(transparent, hsl(211, 60%, 95%));
+
+  /* Code blocks follow the theme: One Light / One Dark, blue-tinted. */
+  --code-bg: light-dark(hsl(212, 40%, 96.5%), hsl(214, 34%, 10%));
+  --code-ink: light-dark(hsl(220, 14%, 24%), hsl(215, 22%, 80%));
+  --code-chrome: light-dark(hsl(212, 14%, 42%), hsl(214, 14%, 62%));
+  --syn-comment: light-dark(#676b76, #7f848e);
+  --syn-keyword: light-dark(#a626a4, #c678dd);
+  --syn-name: light-dark(#c3392c, #e06c75);
+  --syn-operator: light-dark(#0b72a2, #56b6c2);
+  --syn-constant: light-dark(#8a6000, #e5c07b);
+  --syn-number: light-dark(#a3501d, #d19a66);
+  --syn-string: light-dark(#3a7d39, #98c379);
+  --syn-function: light-dark(#2d62d3, #61afef);
+
+  /* Motion: short colour fades, slightly longer movement, all easing out. */
+  --motion-fast: 180ms;
+  --motion-medium: 260ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Layout */
+  --layout-gutter: clamp(0.75rem, 4vw, 1.5rem);
+  --layout-prose-max: 42rem;
+  --header-max: calc(var(--layout-prose-max) + (var(--layout-gutter) * 2));
+  --header-height: 4.5rem;
+
+  /* Rhythm inside articles */
+  --space-block: clamp(1.75rem, 6vw, 2.75rem);
+  --space-section: clamp(3rem, 9vw, 4.5rem);
+  --space-rule: clamp(2rem, 5vw, 2.5rem);
+}

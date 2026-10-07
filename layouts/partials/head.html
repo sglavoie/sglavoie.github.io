@@ -15,11 +15,9 @@
     type="font/woff2"
     crossorigin
   />
-  {{- /* Order matters: later files refine earlier ones. Fonts resolve relative to theme/css/. */ -}}
+  {{- /* Tokens first; the rest are independent components. Fonts resolve relative to theme/css/. */ -}}
   {{- $cssFiles := slice
-    "main" "md-viewport" "lg-viewport" "pygments" "layout" "content"
-    "discovery" "visual-system" "homepage-cards" "post-reading"
-    "site-chrome" "search" "motion-accessibility"
+    "tokens" "base" "chrome" "home" "post" "pages" "syntax" "search" "motion"
   -}}
   {{- $cssResources := slice -}}
   {{- range $cssFiles -}}

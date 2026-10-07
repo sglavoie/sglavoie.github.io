@@ -16,8 +16,6 @@
     animation: none !important;
   }
 
-  .svgLogo,
-  .svgLogo:hover,
   .sibling-fade:hover > *,
   .sibling-fade > *:hover {
     transform: none !important;
