@@ -1,0 +1,11 @@
+{{- /* A page's reading time as "13 min read", or "1 h 17 min read" from an
+     hour up. */ -}}
+{{- $minutes := .ReadingTime -}}
+{{- $label := printf "%d min" $minutes -}}
+{{- if ge $minutes 60 -}}
+  {{- $hours := div $minutes 60 -}}
+  {{- $rest := mod $minutes 60 -}}
+  {{- $label = printf "%d h" $hours -}}
+  {{- with $rest }}{{ $label = printf "%s %d min" $label . }}{{ end -}}
+{{- end -}}
+{{- return printf "%s read" $label -}}

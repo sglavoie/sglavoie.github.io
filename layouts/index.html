@@ -32,7 +32,7 @@
           <span class="home-featured__category">{{ .Title }}</span>
             {{- end }}
           {{- end }}
-          <span>{{ .ReadingTime }} min read</span>
+          <span>{{ partial "reading-time.html" . }}</span>
         </span>
       </a>
     </li>

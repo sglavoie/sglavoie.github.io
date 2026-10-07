@@ -37,7 +37,7 @@
       {{- range . }}
       <li>
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        <span class="post-footer__related-meta">{{ .Date.Format "Jan 2006" }} &middot; {{ .ReadingTime }} min read</span>
+        <span class="post-footer__related-meta">{{ .Date.Format "Jan 2006" }} &middot; {{ partial "reading-time.html" . }}</span>
       </li>
       {{- end }}
     </ul>
