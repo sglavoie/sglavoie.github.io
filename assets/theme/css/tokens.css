@@ -47,6 +47,22 @@
   font-style: italic;
   font-display: swap;
 }
+/* Article body text. Variable weight; Latin subset only, other scripts
+   fall back to the next font in --font-serif. */
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("./fonts/SourceSerif4-latin-wght.woff2") format("woff2-variations");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("./fonts/SourceSerif4-latin-wght-italic.woff2") format("woff2-variations");
+  font-weight: 200 900;
+  font-style: italic;
+  font-display: swap;
+}
 @font-face {
   font-family: "SourceCodePro";
   src: url("./fonts/SourceCodePro-Regular.ttf.woff2") format("woff2-variations"),
@@ -95,6 +111,7 @@
 :root {
   --font-sans: Ubuntu, -apple-system, "Segoe UI", Roboto, "Noto Sans",
     Cantarell, "Helvetica Neue", sans-serif;
+  --font-serif: "Source Serif 4", Charter, "Iowan Old Style", Georgia, serif;
   --font-mono: SourceCodePro, "JetBrains Mono", Menlo, Consolas, monospace;
 
   /* Single accent: the logo blue marks what is clickable or current.

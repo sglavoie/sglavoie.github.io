@@ -278,9 +278,18 @@ article > .article_title h1 a:visited {
   max-width: 70ch;
 }
 
+/* Body copy is set in the serif; headings, tables, captions and the rest
+   of the site stay in the sans. */
 .article_text :is(p, li, dd, dt, blockquote) {
+  font-family: var(--font-serif);
+  font-size: 1.04rem;
   line-height: 1.7;
   overflow-wrap: break-word;
+}
+
+/* Nested lists and paragraphs inside list items would compound the size. */
+.article_text :is(li, dd, blockquote) :is(p, li) {
+  font-size: inherit;
 }
 
 .article_text p {
