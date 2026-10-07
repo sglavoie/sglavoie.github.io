@@ -15,7 +15,9 @@
 /* Listing titles stay at the regular h1 size; post titles are larger. */
 .article_title.discovery-page__header h1 {
   margin: 0;
+  font-family: var(--font-serif);
   font-size: 2rem;
+  font-weight: 600;
 }
 
 @media (min-width: 1024px) {

@@ -16,10 +16,14 @@
   margin-bottom: clamp(1.75rem, 5vw, 2.5rem);
 }
 
+/* Page titles and article headings share the body's serif (listing pages
+   too, see pages.css); Ubuntu stays for the site chrome and post cards. */
 .post-reading__title,
 article > .article_title h1 {
   margin: 0 0 1rem;
+  font-family: var(--font-serif);
   font-size: 2rem;
+  font-weight: 600;
   line-height: 1.1;
   overflow-wrap: anywhere;
 }
@@ -305,6 +309,8 @@ article > .article_title h1 {
 
 .article_text :is(h2, h3, h4, h5, h6) {
   margin-bottom: 0.6em;
+  font-family: var(--font-serif);
+  font-weight: 600;
   text-align: left;
 }
 

@@ -15,6 +15,14 @@
     type="font/woff2"
     crossorigin
   />
+  {{- /* Article text and every page title. */}}
+  <link
+    rel="preload"
+    href="{{ "/theme/css/fonts/SourceSerif4-latin-wght.woff2" | relURL }}"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  />
   {{- /* Tokens first; the rest are independent components. Fonts resolve relative to theme/css/. */ -}}
   {{- $cssFiles := slice
     "tokens" "base" "chrome" "home" "post" "pages" "syntax" "search" "motion"
