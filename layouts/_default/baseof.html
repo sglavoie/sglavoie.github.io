@@ -147,22 +147,6 @@
         });
       }
 
-      // Close the Topics menu on outside click or Escape
-      const topicsMenu = document.querySelector(".topics-menu");
-      if (topicsMenu) {
-        document.addEventListener("click", function (e) {
-          if (topicsMenu.open && !topicsMenu.contains(e.target)) {
-            topicsMenu.open = false;
-          }
-        });
-        topicsMenu.addEventListener("keydown", function (e) {
-          if (e.key === "Escape" && topicsMenu.open) {
-            topicsMenu.open = false;
-            topicsMenu.querySelector("summary").focus();
-          }
-        });
-      }
-
       // On small screens the nav row scrolls sideways; mark which ends have
       // links out of view so the CSS can fade them as a hint.
       const siteNav = document.querySelector(".site-nav");

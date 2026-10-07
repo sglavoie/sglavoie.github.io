@@ -23,6 +23,9 @@ description = "Posts and writings by Sébastien Lavoie. Customization setups and
   name = "LinkedIn"
   url = "https://www.linkedin.com/in/sglavoie/"
 [[params.intro_links]]
+  name = "Resume"
+  url = "/resume/"
+[[params.intro_links]]
   name = "RSS feed"
   url = "/feeds/sglavoie.rss.xml"
 

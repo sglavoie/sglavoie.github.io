@@ -1,0 +1,33 @@
+{{ define "title" }} &ndash; Topics{{ end }}
+
+{{ define "main" }}
+{{- $categories := site.Taxonomies.categories -}}
+{{- $tags := site.Taxonomies.tags -}}
+<article class="discovery-page discovery-page--topics">
+  <header class="article_title discovery-page__header">
+    <h1>Topics</h1>
+    <p class="discovery-page__meta">{{ len $categories }} categories &middot; {{ len $tags }} tags</p>
+  </header>
+
+  {{- with $categories }}
+  <section class="topics-section" aria-labelledby="topics-categories">
+    <h2 id="topics-categories" class="section-label">Categories</h2>
+    <ul class="taxonomy-index">
+      {{- range .Alphabetical }}
+      <li class="taxonomy-index__item">
+        <a class="taxonomy-index__link" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+        <span class="taxonomy-index__count">{{ .Count }}</span>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+
+  {{- with $tags }}
+  <section class="topics-section" aria-labelledby="topics-tags">
+    <h2 id="topics-tags" class="section-label">Tags</h2>
+    {{ partial "tag-cloud.html" $ }}
+  </section>
+  {{- end }}
+</article>
+{{ end }}

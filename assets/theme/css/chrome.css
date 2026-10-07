@@ -186,87 +186,6 @@
   }
 }
 
-/* ---------- Topics dropdown ---------- */
-
-.topics-menu {
-  position: relative;
-}
-
-.topics-menu > summary {
-  list-style: none;
-}
-
-.topics-menu > summary::-webkit-details-marker {
-  display: none;
-}
-
-.topics-menu__chevron {
-  transition: transform var(--motion-medium) var(--ease-out);
-}
-
-.topics-menu[open] .topics-menu__chevron {
-  transform: rotate(180deg);
-}
-
-.topics-menu__list {
-  position: absolute;
-  top: calc(100% + 0.6rem);
-  left: -0.75rem;
-  z-index: 60;
-  display: grid;
-  gap: 0.1rem;
-  min-width: 13rem;
-  margin: 0;
-  padding: 0.4rem;
-  border: 1px solid var(--border-soft);
-  border-radius: 10px;
-  background-color: var(--surface-menu);
-  box-shadow: var(--shadow-soft);
-  list-style: none;
-}
-
-/* Runs each time <details> opens, since the list goes from hidden to shown. */
-.topics-menu[open] .topics-menu__list {
-  animation: menu-fade-in var(--motion-medium) var(--ease-out);
-}
-
-@keyframes menu-fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(-4px);
-  }
-}
-
-.topics-menu__link,
-.topics-menu__link:visited {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.45rem 0.75rem;
-  border-radius: 6px;
-  color: var(--ink-primary);
-  font-size: 0.95rem;
-  line-height: 1.5;
-  text-decoration: none;
-}
-
-.topics-menu__link:hover,
-.topics-menu__link:focus-visible {
-  background-color: var(--accent-soft);
-  color: var(--ink-primary);
-}
-
-.topics-menu__link.is-active {
-  color: var(--accent);
-}
-
-.topics-menu__count {
-  color: var(--ink-muted);
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-}
-
 /* ---------- Main column ---------- */
 
 main {
@@ -364,23 +283,20 @@ main {
 /* ---------- Small screens ---------- */
 
 @media (max-width: 767px) {
-  /* Scrolls away instead of sticking, but stays above the page so the
-     Topics menu covers content (the backdrop filter makes it a stacking
-     context of its own). */
+  /* Scrolls away instead of sticking. */
   .site-header {
     position: relative;
   }
 
   .site-header__inner {
-    /* Anchors the Topics menu, which must escape the scrolling nav row. */
-    position: relative;
     flex-wrap: wrap;
     gap: 0.25rem 1rem;
     padding-top: 0.75rem;
     padding-bottom: 0.25rem;
   }
 
-  /* The row bleeds to the screen edges and scrolls sideways. */
+  /* The row bleeds to the screen edges and, on the narrowest screens,
+     scrolls sideways. */
   .site-nav {
     order: 3;
     flex-basis: 100%;
@@ -401,8 +317,7 @@ main {
   }
 
   /* Fades over whichever end of the row has more links to scroll to;
-     baseof.html sets data-more from the scroll position. Overlays rather
-     than a mask, which would also fade the Topics menu. */
+     baseof.html sets data-more from the scroll position. */
   .site-nav::before,
   .site-nav::after {
     content: "";
@@ -429,17 +344,6 @@ main {
   .site-nav[data-more~="start"]::before,
   .site-nav[data-more~="end"]::after {
     opacity: 1;
-  }
-
-  .topics-menu {
-    position: static;
-  }
-
-  .topics-menu__list {
-    top: calc(100% + 0.25rem);
-    right: var(--layout-gutter);
-    left: var(--layout-gutter);
-    min-width: 0;
   }
 
   .pagination {

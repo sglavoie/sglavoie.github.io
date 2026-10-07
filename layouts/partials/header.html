@@ -1,12 +1,7 @@
 {{- $currentRel := .RelPermalink -}}
 {{- $currentPlural := "" -}}
-{{- $currentTitle := .Title -}}
-{{- $currentCategories := slice -}}
 {{- with .Data }}{{- $currentPlural = .Plural -}}{{- end -}}
-{{- with .Params.categories }}{{- $currentCategories = . -}}{{- end -}}
-
-{{- $topicsActive := eq $currentPlural "categories" -}}
-{{- if $currentCategories }}{{- $topicsActive = true -}}{{- end -}}
+{{- $inTopics := in (slice "tags" "categories") $currentPlural -}}
 
 <header class="site-header">
   <div class="site-header__inner">
@@ -17,13 +12,15 @@
     <nav class="site-nav" aria-label="Primary">
       <ul class="site-nav__list">
         {{- $items := slice
-          (dict "label" "Home" "url" ("/" | relURL) "match" "home")
-          (dict "label" "Archives" "url" ("/archives/" | relURL) "match" "archives")
-          (dict "label" "Tags" "url" ("/tags/" | relURL) "match" "tags")
+          (dict "label" "Home" "url" ("/" | relURL))
+          (dict "label" "Archives" "url" ("/archives/" | relURL))
+          (dict "label" "Topics" "url" ("/topics/" | relURL))
+          (dict "label" "Contact" "url" ("/contact/" | relURL))
         -}}
         {{- range $items }}
           {{- $isActive := eq $currentRel .url -}}
-          {{- if and (eq .match "tags") (eq $currentPlural "tags") -}}
+          {{- /* Category and tag pages belong under Topics. */ -}}
+          {{- if and (eq .label "Topics") $inTopics -}}
             {{- $isActive = true -}}
           {{- end -}}
           <li>
@@ -34,41 +31,6 @@
             >{{ .label }}</a>
           </li>
         {{- end }}
-        <li class="site-nav__topics">
-          <details class="topics-menu">
-            <summary class="site-nav__link{{ if $topicsActive }} is-active{{ end }}">
-              Topics
-              <svg class="topics-menu__chevron" aria-hidden="true" focusable="false" width="0.7em" height="0.7em" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </summary>
-            <ul class="topics-menu__list">
-              {{ range .Site.Taxonomies.categories.Alphabetical }}
-                {{- $categoryTitle := .Page.Title -}}
-                {{- $isCurrentPage := or (eq $currentRel .Page.RelPermalink) (and (eq $currentPlural "categories") (eq $currentTitle $categoryTitle)) -}}
-                <li>
-                  <a
-                    class="topics-menu__link{{ if $isCurrentPage }} is-active{{ end }}"
-                    href="{{ .Page.RelPermalink }}"
-                    {{ if $isCurrentPage }}aria-current="page"{{ end }}
-                  >
-                    <span>{{ .Page.Title }}</span>
-                    <span class="topics-menu__count">{{ .Count }}</span>
-                  </a>
-                </li>
-              {{ end }}
-            </ul>
-          </details>
-        </li>
-        <li>
-          <a class="site-nav__link" href="{{ "/resume/" | relURL }}" target="_blank" rel="noopener noreferrer">Resume<svg class="site-nav__external" aria-hidden="true" focusable="false" width="0.6em" height="0.6em" viewBox="0 0 12 12"><path d="M4 2h6v6M10 2 3 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden"> (opens in a new tab)</span></a>
-        </li>
-        {{- $contactURL := "/contact/" | relURL -}}
-        <li>
-          <a
-            class="site-nav__link{{ if eq $currentRel $contactURL }} is-active{{ end }}"
-            href="{{ $contactURL }}"
-            {{ if eq $currentRel $contactURL }}aria-current="page"{{ end }}
-          >Contact</a>
-        </li>
       </ul>
     </nav>
 

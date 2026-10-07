@@ -220,6 +220,16 @@
   padding: 0.28em 0.45em;
 }
 
+/* ---------- Topics ---------- */
+
+.topics-section + .topics-section {
+  margin-top: var(--space-section);
+}
+
+.discovery-page--topics .taxonomy-index {
+  margin-top: 1rem;
+}
+
 /* ---------- Category and tag listings ---------- */
 
 .taxonomy-listing__pagination {
