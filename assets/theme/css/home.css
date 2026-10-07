@@ -115,10 +115,11 @@ main .home-featured__card:focus-visible {
 }
 
 .home-featured__title {
-  font-size: 1.05rem;
-  font-weight: 500;
-  line-height: 1.35;
-  text-wrap: balance;
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-wrap: pretty;
 }
 
 main .home-featured__card:hover .home-featured__title {
@@ -163,10 +164,15 @@ main .home-featured__card:hover .home-featured__title {
   gap: 0.5rem;
 }
 
+/* `pretty` rather than the headings' `balance`: balancing a two-line title
+   splits it near the middle and leaves a ragged gap on the first line. */
 .article-card__title {
   margin: 0;
-  font-size: 1.2rem;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 600;
   text-align: left;
+  text-wrap: pretty;
 }
 
 .article-card__title a {
@@ -210,6 +216,6 @@ main .home-featured__card:hover .home-featured__title {
 
 @media (min-width: 768px) {
   .article-card__title {
-    font-size: 1.38rem;
+    font-size: 1.5rem;
   }
 }

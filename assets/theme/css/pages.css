@@ -52,7 +52,9 @@
   margin: 0;
   padding: 0.5rem 0;
   background-color: var(--surface-page);
+  font-family: var(--font-serif);
   font-size: 1.4rem;
+  font-weight: 600;
 }
 
 .archives-year__count {
@@ -90,7 +92,11 @@
 .archives-article__title {
   min-width: 0;
   margin: 0;
-  line-height: 1.5;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.45;
+  text-wrap: pretty;
 }
 
 .archives-article__title a {
