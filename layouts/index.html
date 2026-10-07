@@ -7,7 +7,8 @@
   <p>{{ . | markdownify }}</p>
 </section>
 {{ end }}
-{{- /* Hand-picked posts: set `featured: true` in a post's front matter. */ -}}
+{{- /* Hand-picked posts: set `featured: true` in a post's front matter, and
+     optionally a short `teaser` (defaults to the description). */ -}}
 {{ with first 3 (where $pages "Params.featured" true) }}
 <section class="home-featured" aria-labelledby="featured-title">
   <h2 id="featured-title" class="section-label">Start here</h2>
@@ -15,13 +16,18 @@
     {{- range . }}
     <li>
       <a class="home-featured__card" href="{{ .RelPermalink }}">
-        {{- with index .Params.categories 0 }}
-          {{- with site.GetPage (printf "/categories/%s" (. | urlize)) }}
-        <span class="home-featured__category">{{ .Title }}</span>
-          {{- end }}
-        {{- end }}
         <span class="home-featured__title">{{ .Title }}</span>
-        <span class="home-featured__meta">{{ .ReadingTime }} min read</span>
+        {{- with .Params.teaser | default .Description }}
+        <span class="home-featured__teaser">{{ . | plainify }}</span>
+        {{- end }}
+        <span class="home-featured__meta meta-row">
+          {{- with index .Params.categories 0 }}
+            {{- with site.GetPage (printf "/categories/%s" (. | urlize)) }}
+          <span class="home-featured__category">{{ .Title }}</span>
+            {{- end }}
+          {{- end }}
+          <span>{{ .ReadingTime }} min read</span>
+        </span>
       </a>
     </li>
     {{- end }}
