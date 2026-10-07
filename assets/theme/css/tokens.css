@@ -163,7 +163,7 @@
   --header-height: 4.5rem;
 
   /* Rhythm inside articles */
-  --space-block: clamp(1.75rem, 6vw, 2.75rem);
-  --space-section: clamp(3rem, 9vw, 4.5rem);
-  --space-rule: clamp(2rem, 5vw, 2.5rem);
+  --space-block: clamp(1.5rem, 5vw, 2.25rem);
+  --space-section: clamp(2.5rem, 7vw, 3.5rem);
+  --space-rule: clamp(1.75rem, 4vw, 2.25rem);
 }

@@ -12,7 +12,7 @@
 }
 
 .post-reading__header {
-  margin-top: clamp(1.25rem, 5vw, 2.5rem);
+  margin-top: clamp(0.25rem, 2vw, 1rem);
   margin-bottom: clamp(1.75rem, 5vw, 2.5rem);
 }
 
@@ -309,11 +309,11 @@ article > .article_title h1 a:visited {
 }
 
 .article_text h3 {
-  margin-top: clamp(2.4rem, 7vw, 3.4rem);
+  margin-top: clamp(2rem, 6vw, 2.75rem);
 }
 
 .article_text :is(h4, h5, h6) {
-  margin-top: clamp(2rem, 6vw, 2.8rem);
+  margin-top: clamp(1.75rem, 5vw, 2.25rem);
 }
 
 /* Most posts put a rule before each section. The rule already separates
@@ -565,6 +565,24 @@ article > .article_title h1 a:visited {
   line-height: 1.55;
   text-align: center;
   text-wrap: balance;
+}
+
+/* Markdown puts a lone image (often wrapped in a link to itself) in a
+   paragraph. The paragraph sets the spacing, so the image's own margin
+   doesn't stack on top of it. */
+.article_text p:has(> :is(img, picture, a > img, a > picture):only-child) {
+  margin: var(--space-block) 0;
+}
+
+.article_text p:has(> :is(img, picture, a > img, a > picture):only-child) img {
+  margin-block: 0;
+}
+
+.article_text p > a:only-child:has(> :is(img, picture)) {
+  display: block;
+  padding: 0;
+  background: none;
+  box-shadow: none;
 }
 
 /* Legacy wrapper for centred images. */
