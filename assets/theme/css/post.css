@@ -389,9 +389,9 @@ article > .article_title h1 {
   text-underline-offset: 0.28em;
 }
 
+/* Background only: a border on every chip gets busy in code-heavy prose. */
 .article_text code {
-  padding: 0 0.2em;
-  border: 1px solid var(--border-soft);
+  padding: 0.05em 0.25em;
   border-radius: 4px;
   background-color: var(--surface-code-inline);
   color: var(--ink-code-inline);
