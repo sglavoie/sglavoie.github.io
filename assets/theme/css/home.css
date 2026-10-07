@@ -31,6 +31,26 @@
   animation: cursor-pulse 2s linear infinite;
 }
 
+.home-intro__links {
+  margin-top: 1.25rem;
+  padding: 0;
+  font-size: 0.85rem;
+  list-style: none;
+}
+
+.home-intro__links a,
+.home-intro__links a:visited {
+  color: var(--ink-secondary);
+  text-decoration: underline;
+  text-decoration-color: var(--border-strong);
+}
+
+.home-intro__links a:hover,
+.home-intro__links a:focus-visible {
+  color: var(--link-hover);
+  text-decoration-color: currentColor;
+}
+
 /* ---------- Featured posts ---------- */
 
 .home-featured {

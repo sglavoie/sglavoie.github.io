@@ -6,6 +6,13 @@
 {{ with .Site.Params.intro }}
 <section class="home-intro">
   <p>{{ . | markdownify }}</p>
+  {{- with site.Params.intro_links }}
+  <ul class="home-intro__links meta-row" aria-label="Elsewhere">
+    {{- range . }}
+    <li><a href="{{ .url | relURL }}">{{ .name }}</a></li>
+    {{- end }}
+  </ul>
+  {{- end }}
 </section>
 {{ end }}
 {{ with $featured }}
