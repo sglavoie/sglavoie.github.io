@@ -692,3 +692,56 @@ article > .article_title h1 a:visited {
     grid-column: 2;
   }
 }
+
+/* ---------- Reading progress ---------- */
+
+/* A bar along the bottom edge of the sticky header that fills as the
+   article body scrolls past, from its top reaching the top of the window
+   to its end reaching the bottom. Scroll-driven, so no script; browsers
+   without view timelines don't show it. */
+.reading-progress {
+  display: none;
+}
+
+@supports (animation-timeline: view()) {
+  .post-reading {
+    timeline-scope: --article;
+  }
+
+  .post-reading > .article_text {
+    view-timeline: --article block;
+  }
+
+  .reading-progress {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    z-index: 51;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent);
+    transform-origin: left;
+    animation: reading-progress linear both;
+    animation-timeline: --article;
+    animation-range: contain 0% contain 100%;
+    pointer-events: none;
+  }
+
+  /* The header scrolls away on small screens; pin the bar to the top. */
+  @media (max-width: 767px) {
+    .reading-progress {
+      top: 0;
+    }
+  }
+}
+
+@keyframes reading-progress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}

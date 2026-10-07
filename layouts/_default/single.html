@@ -13,6 +13,7 @@
 {{ if eq .Section "posts" }}
 {{- $hasToc := gt (len .TableOfContents) 25 -}}
 <article class="post-reading{{ if $hasToc }} post-reading--with-toc{{ end }}" data-pagefind-body>
+  <div class="reading-progress" aria-hidden="true"></div>
   <header class="post-reading__header">
     <h1 class="post-reading__title">{{ .Title }}</h1>
     <p class="post-reading__meta meta-row" data-pagefind-ignore>
