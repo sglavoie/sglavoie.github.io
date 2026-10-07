@@ -99,12 +99,19 @@
   text-wrap: pretty;
 }
 
+/* Neutral like the post cards: blue only on hover, read posts recede. */
 .archives-article__title a {
+  color: var(--ink-primary);
   overflow-wrap: anywhere;
+}
+
+.archives-article__title a:visited {
+  color: var(--ink-secondary);
 }
 
 .archives-article__title a:hover,
 .archives-article__title a:focus-visible {
+  color: var(--link-hover);
   text-decoration: underline;
 }
 
