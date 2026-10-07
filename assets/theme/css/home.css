@@ -165,7 +165,7 @@ main .home-featured__card:hover .home-featured__title {
 
 .article-card__title {
   margin: 0;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   text-align: left;
 }
 
@@ -210,6 +210,6 @@ main .home-featured__card:hover .home-featured__title {
 
 @media (min-width: 768px) {
   .article-card__title {
-    font-size: 1.55rem;
+    font-size: 1.38rem;
   }
 }
