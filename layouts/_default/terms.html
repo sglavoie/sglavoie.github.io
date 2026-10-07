@@ -13,7 +13,7 @@
     <h1>Tags</h1>
     <p class="discovery-page__meta">{{ len .Data.Terms }} tags</p>
   </header>
-  {{ partial "tag-cloud.html" . }}
+  {{ partial "tag-list.html" . }}
 </article>
 {{ else }}
 <article class="discovery-page discovery-page--categories">

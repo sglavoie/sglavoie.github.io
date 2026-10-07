@@ -122,44 +122,46 @@
   }
 }
 
-/* ---------- Tag cloud ---------- */
+/* ---------- Tag list ---------- */
 
-.tagcloud {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.8rem 0.65rem;
-  margin: 0;
-  padding: 1.25rem 0 0;
+/* An index in columns: name on the left, post count on the right. */
+.tag-list {
+  columns: 3 11rem;
+  column-gap: 2rem;
+  margin: 1rem 0 0;
+  padding: 0;
   list-style: none;
 }
 
-/* Unlike the Archives list, the whole cloud (gaps included) triggers the
-   sibling-fade zoom, so it doesn't flicker as the cursor crosses gaps. */
-.tagcloud.sibling-fade {
-  visibility: visible;
+.tag-list li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border-soft);
+  break-inside: avoid;
+  line-height: 1.35;
 }
 
-.tagcloud li {
-  display: inline-flex;
-  align-items: center;
-  max-width: min(100%, 18rem);
+.tag-list__link {
   min-width: 0;
-  padding: 0.08em 0.12em;
-  line-height: 1.2;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }
 
-.tagcloud a {
-  min-width: 0;
-}
-
-.tagcloud a:hover,
-.tagcloud a:focus-visible {
+.tag-list__link:hover,
+.tag-list__link:focus-visible {
   text-decoration: underline;
 }
 
-.badge,
+.tag-list__count {
+  flex-shrink: 0;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
 .taxonomy-index__count {
   flex-shrink: 0;
   border: 1px solid var(--border-soft);
@@ -169,35 +171,6 @@
   font-family: var(--font-mono);
   font-size: 0.78em;
   line-height: 1;
-}
-
-.badge {
-  margin-left: 0.28em;
-  padding: 0.22em 0.38em;
-}
-
-.tag-1 { font-size: 1.5rem; }
-.tag-2 { font-size: 1.42rem; }
-.tag-3 { font-size: 1.34rem; }
-.tag-4 { font-size: 1.26rem; }
-.tag-5 { font-size: 1.18rem; }
-.tag-6 { font-size: 1.1rem; }
-.tag-7 { font-size: 1.02rem; }
-.tag-8 { font-size: 0.95rem; }
-
-@media (min-width: 768px) {
-  .tagcloud {
-    gap: 1.1rem 1rem;
-  }
-
-  .tag-1 { font-size: 2.35rem; }
-  .tag-2 { font-size: 2.12rem; }
-  .tag-3 { font-size: 1.9rem; }
-  .tag-4 { font-size: 1.7rem; }
-  .tag-5 { font-size: 1.5rem; }
-  .tag-6 { font-size: 1.3rem; }
-  .tag-7 { font-size: 1.12rem; }
-  .tag-8 { font-size: 1rem; }
 }
 
 /* ---------- Categories index ---------- */

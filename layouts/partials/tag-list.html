@@ -1,0 +1,14 @@
+{{- /*
+  Every tag, alphabetically, each with its post count. All the same size, so
+  the list scans like an index rather than a cloud.
+*/ -}}
+{{- with site.Taxonomies.tags }}
+<ul class="tag-list" aria-label="Tags">
+  {{- range sort .ByCount "Page.Title" }}
+  <li>
+    <a class="tag-list__link" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+    <span class="tag-list__count">{{ .Count }}</span>
+  </li>
+  {{- end }}
+</ul>
+{{- end }}
