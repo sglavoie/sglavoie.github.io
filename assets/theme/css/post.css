@@ -720,6 +720,43 @@ article > .article_title h1 {
   white-space: nowrap;
 }
 
+.post-footer__about {
+  margin-top: 2.5rem;
+  padding: 1.25rem 1.4rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  background-color: var(--surface-raised);
+}
+
+.post-footer__about p {
+  margin: 0;
+  color: var(--ink-secondary);
+  font-family: var(--font-serif);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.post-footer__about p + p {
+  margin-top: 0.9rem;
+}
+
+.post-footer__subscribe,
+.post-footer__subscribe:visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--link-color);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.post-footer__subscribe:hover,
+.post-footer__subscribe:focus-visible {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
 @media (min-width: 768px) {
   .post-footer__pager {
     grid-template-columns: repeat(2, minmax(0, 1fr));

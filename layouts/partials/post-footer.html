@@ -43,4 +43,15 @@
     </ul>
   </section>
   {{- end }}
+
+  {{- with site.Params.signoff }}
+  <section class="post-footer__about" aria-label="About the author">
+    <p>{{ . | markdownify }}</p>
+    <p>
+      <a class="post-footer__subscribe" href="{{ "/feeds/sglavoie.rss.xml" | absURL }}">
+        {{ partial "icons/rss.html" $ }}<span>Subscribe via RSS</span>
+      </a>
+    </p>
+  </section>
+  {{- end }}
 </footer>
