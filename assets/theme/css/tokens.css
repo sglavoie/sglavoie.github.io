@@ -139,7 +139,8 @@
 
   --link-color: var(--accent);
   --link-hover: var(--accent-strong);
-  --link-visited: light-dark(hsl(211, 60%, 32%), hsl(211, 70%, 76%));
+  /* Violet rather than a darker blue, so read posts stand out in lists. */
+  --link-visited: light-dark(hsl(262, 40%, 45%), hsl(262, 65%, 80%));
   --focus-color: light-dark(hsl(211, 100%, 45%), hsl(190, 100%, 68%));
 
   --shadow-color: light-dark(hsla(211, 40%, 30%, 12%), hsla(211, 100%, 2%, 58%));

@@ -169,9 +169,13 @@ main .home-featured__card:hover .home-featured__title {
   text-align: left;
 }
 
-.article-card__title a,
-.article-card__title a:visited {
+.article-card__title a {
   color: var(--ink-primary);
+}
+
+/* Posts already read recede a little. */
+.article-card__title a:visited {
+  color: var(--ink-secondary);
 }
 
 .article-card__title a:hover,
