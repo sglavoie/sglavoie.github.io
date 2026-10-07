@@ -488,6 +488,29 @@ article > .article_title h1 a:visited {
   color: var(--accent);
 }
 
+/* Without a file name, the bar would cost a whole row: with a mouse, it
+   floats in the corner instead and shows while the block is hovered or
+   focused. Touch screens keep the row, since they have no hover. */
+@media (hover: hover) and (pointer: fine) {
+  .code-block:not(.code-block--titled) pre {
+    padding-top: 1.25rem;
+  }
+
+  .code-block:not(.code-block--titled) .code-block__bar {
+    left: auto;
+    padding-left: 0.6rem;
+    border-radius: 4px;
+    background-color: var(--code-bg);
+    opacity: 0;
+    transition: opacity var(--motion-fast) var(--ease-out);
+  }
+
+  .code-block:not(.code-block--titled):is(:hover, :focus-within) .code-block__bar,
+  .code-block__bar:has([data-copied]) {
+    opacity: 1;
+  }
+}
+
 /* ---------- Tables (render-table.html) ---------- */
 
 .table-wrapper {
