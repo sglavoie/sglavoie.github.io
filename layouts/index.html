@@ -5,6 +5,7 @@
 {{ if eq $paginator.PageNumber 1 }}
 {{ with .Site.Params.intro }}
 <section class="home-intro">
+  <h1 class="visually-hidden">{{ site.Params.author }}</h1>
   <p>{{ . | markdownify }}</p>
   {{- with site.Params.intro_links }}
   <ul class="home-intro__links meta-row" aria-label="Elsewhere">
@@ -42,7 +43,12 @@
 {{ end }}
 {{ end }}
 <div class="article_title article_title--list">
-  <h1 class="section-label">{{ if eq $paginator.PageNumber 1 }}Latest posts{{ else }}Posts &middot; page {{ $paginator.PageNumber }}{{ end }}</h1>
+  {{- /* Page 1 has its h1 in the intro; later pages lead with this one. */}}
+  {{- if eq $paginator.PageNumber 1 }}
+  <h2 class="section-label">Latest posts</h2>
+  {{- else }}
+  <h1 class="section-label">Posts &middot; page {{ $paginator.PageNumber }}</h1>
+  {{- end }}
 </div>
 {{ range $paginator.Pages }}{{ partial "article-card.html" . }}{{ end }}
 {{ partial "pagination.html" . }}
