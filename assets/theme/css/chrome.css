@@ -273,11 +273,11 @@ main {
   color: var(--accent);
 }
 
-.site-footer a.site-footer__rss {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  text-decoration: none;
+.site-footer__links {
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: inherit;
+  list-style: none;
 }
 
 /* ---------- Small screens ---------- */

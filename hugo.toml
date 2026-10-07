@@ -17,7 +17,7 @@ intro = "Hi, I'm Sébastien — a software developer writing about Go, software 
 signoff = "Thanks for reading! I'm Sébastien, a software developer writing about Go, software design, and the tools that make programming more enjoyable. New posts show up in the RSS feed."
 description = "Posts and writings by Sébastien Lavoie. Customization setups and articles on productivity for developers who like minimalism."
 
-# Shown under the home intro.
+# Shown under the home intro and in the footer.
 [[params.intro_links]]
   name = "GitHub"
   url = "https://github.com/sglavoie"
