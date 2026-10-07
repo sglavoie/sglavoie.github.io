@@ -34,14 +34,40 @@
 
 /* ---------- Archives ---------- */
 
+.archives-year + .archives-year {
+  margin-top: 2.25rem;
+}
+
+/* The year stays in view while its posts scroll past. */
+.archives-year__title {
+  position: sticky;
+  /* Just below the sticky header and its border. */
+  top: calc(var(--header-height) + 1px);
+  z-index: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0.5rem 0;
+  background-color: var(--surface-page);
+  font-size: 1.4rem;
+}
+
+.archives-year__count {
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+
 .archives__list {
   display: grid;
-  margin: 1.25rem 0 0;
+  margin: 0.5rem 0 0;
 }
 
 .archives-article {
   display: grid;
-  grid-template-columns: minmax(6.8rem, 8.4rem) minmax(0, 1fr);
+  grid-template-columns: 4.5rem minmax(0, 1fr);
   align-items: start;
   gap: 0.35rem 1rem;
   padding: 0.82rem 0;
@@ -74,9 +100,10 @@
   text-decoration: underline;
 }
 
-@media (max-width: 560px) {
-  .archives-article {
-    grid-template-columns: minmax(0, 1fr);
+/* The header scrolls away on small screens (see chrome.css). */
+@media (max-width: 767px) {
+  .archives-year__title {
+    top: 0;
   }
 }
 

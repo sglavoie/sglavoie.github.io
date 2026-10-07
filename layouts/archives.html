@@ -8,17 +8,25 @@
     <h1>Archives</h1>
     <p class="discovery-page__meta">{{ $postsCount }} {{ if eq $postsCount 1 }}post{{ else }}posts{{ end }}</p>
   </header>
-  <dl class="archives__list sibling-fade">
-    {{ range $posts }}
-    <div class="archives-article">
-      <dt class="archives-article__date">
-        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-      </dt>
-      <dd class="archives-article__title">
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      </dd>
-    </div>
-    {{ end }}
-  </dl>
+  {{ range $posts.GroupByDate "2006" }}
+  {{- $count := len .Pages }}
+  <section class="archives-year" aria-labelledby="archives-{{ .Key }}">
+    <h2 id="archives-{{ .Key }}" class="archives-year__title">
+      {{ .Key }} <span class="archives-year__count">{{ $count }} {{ if eq $count 1 }}post{{ else }}posts{{ end }}</span>
+    </h2>
+    <dl class="archives__list sibling-fade">
+      {{ range .Pages }}
+      <div class="archives-article">
+        <dt class="archives-article__date">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2" }}</time>
+        </dt>
+        <dd class="archives-article__title">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </dd>
+      </div>
+      {{ end }}
+    </dl>
+  </section>
+  {{ end }}
 </article>
 {{ end }}
