@@ -9,6 +9,7 @@ description: "Learning is an eternal path. I have been sharing my own adventure 
 tags:
   - career
 featured: true
+teaser: "Five years of logged learnings (articles, courses and projects) and what they taught me about building a career through steady practice."
 categories:
   - learnings
 ---

@@ -9,6 +9,7 @@ tags:
   - git
   - terminal
 featured: true
+teaser: "Why git stash falls short, and how worktrees let you switch context or run long tasks without disturbing the branch you are working on."
 categories:
   - tips-and-tricks
 ---
