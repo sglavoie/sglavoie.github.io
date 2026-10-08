@@ -16,8 +16,8 @@
   margin-bottom: clamp(1.75rem, 5vw, 2.5rem);
 }
 
-/* Every title (posts, pages, listings, post cards) is set in the body's
-   serif; Ubuntu stays for the site chrome, labels and summaries. */
+/* Every title and summary (posts, pages, listings, post cards) is set in
+   the body's serif; Ubuntu stays for the site chrome and labels. */
 .post-reading__title,
 article > .article_title h1 {
   margin: 0 0 1rem;

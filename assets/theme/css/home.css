@@ -160,7 +160,8 @@ main .home-featured__card:hover .home-featured__title {
   display: -webkit-box;
   overflow: hidden;
   color: var(--ink-secondary);
-  font-size: 0.9rem;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
   line-height: 1.55;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -246,7 +247,9 @@ main .home-featured__card:hover .home-featured__title {
   margin: 0.85rem 0 0;
   overflow: hidden;
   color: var(--ink-secondary);
-  line-height: 1.65;
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  line-height: 1.6;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   line-clamp: 3;
