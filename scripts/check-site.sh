@@ -16,6 +16,7 @@ else
   trap 'rm -rf "$destination"' EXIT
 fi
 
-hugo --minify --panicOnWarning --quiet --destination "$destination"
+# Warnings and errors go to stderr; the build summary on stdout is noise here.
+hugo --minify --panicOnWarning --destination "$destination" >/dev/null
 ./scripts/seo-validate.py "$destination"
 ./scripts/build-validate.py "$destination"
