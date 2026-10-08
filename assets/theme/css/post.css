@@ -44,6 +44,18 @@ article > .article_title h1 {
   font-size: 0.85rem;
 }
 
+.post-reading__history,
+.post-reading__history:visited {
+  color: inherit;
+  text-decoration: underline dotted;
+  text-underline-offset: 0.2em;
+}
+
+.post-reading__history:hover {
+  color: var(--ink-secondary);
+  text-decoration-style: solid;
+}
+
 .post-reading__tags {
   display: flex;
   flex-wrap: wrap;
