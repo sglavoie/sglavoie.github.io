@@ -55,4 +55,9 @@
 </div>
 {{ range $paginator.Pages }}{{ partial "article-card.html" . }}{{ end }}
 {{ partial "pagination.html" . }}
+{{- with site.GetPage "/archives" }}
+<p class="home-archives-link">
+  <a href="{{ .RelPermalink }}">Browse all {{ len (where site.RegularPages "Section" "posts") }} posts in the archives &rarr;</a>
+</p>
+{{- end }}
 {{ end }}
