@@ -103,7 +103,7 @@
   --surface-menu: light-dark(hsl(0, 0%, 100%), hsl(211, 60%, 7%));
   --surface-raised: light-dark(hsla(211, 60%, 92%, 60%), hsl(213, 36%, 10.5%));
   /* Neutral, so inline code never reads as a link. */
-  --surface-code-inline: light-dark(hsla(215, 16%, 50%, 10%), hsla(215, 20%, 62%, 20%));
+  --surface-code-inline: light-dark(hsla(215, 16%, 50%, 9%), hsla(215, 20%, 62%, 12%));
 
   --border-soft: light-dark(hsla(211, 40%, 30%, 16%), hsla(211, 100%, 72%, 20%));
   --border-strong: light-dark(hsla(211, 100%, 38%, 45%), hsla(211, 100%, 65%, 55%));
