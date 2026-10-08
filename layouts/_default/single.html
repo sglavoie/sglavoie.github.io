@@ -57,6 +57,8 @@
     {{- if .Params.skim_notes }}
     <p class="post-reading__skim" data-pagefind-ignore>This article features skimming notes and is intentionally less fluffy.</p>
     {{- end }}
+    {{- /* In the header, so the wide layout's grid keeps its rows. */}}
+    {{- partial "series.html" . }}
   </header>
   {{ if $hasToc }}
   <aside id="toc" class="post-reading__toc" aria-labelledby="toc-title" data-pagefind-ignore>

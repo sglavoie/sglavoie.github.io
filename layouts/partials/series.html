@@ -1,0 +1,27 @@
+{{- /* Posts sharing a `series` front matter value, oldest first, listed
+     above the article with the current one marked. */ -}}
+{{- with .Params.series -}}
+{{- $name := . -}}
+{{- $parts := (where (where site.RegularPages "Section" "posts") "Params.series" $name).ByDate -}}
+{{- if gt (len $parts) 1 -}}
+{{- $index := 0 -}}
+{{- range $i, $p := $parts }}{{ if eq $p $ }}{{ $index = add $i 1 }}{{ end }}{{ end -}}
+<nav class="series" aria-labelledby="series-title" data-pagefind-ignore>
+  <p id="series-title" class="series__title">
+    <span class="series__position">Part {{ $index }} of {{ len $parts }}</span>
+    {{ $name }}
+  </p>
+  <ol class="series__list">
+    {{- range $parts }}
+    <li>
+      {{- if eq . $ }}
+      <span aria-current="page">{{ .Title }}</span>
+      {{- else }}
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{- end }}
+    </li>
+    {{- end }}
+  </ol>
+</nav>
+{{- end -}}
+{{- end -}}

@@ -3,6 +3,7 @@ title: Using i3 as a Window Manager for Increased Productivity
 date: "2019-01-08T11:12:00"
 lastmod: "2019-02-12T11:51:00"
 slug: using-i3-as-a-window-manager-for-increased-productivity
+series: "The i3 window manager"
 author: Sébastien Lavoie
 summary: "I was striving to improve my productivity as one of my New Year's resolutions and finally found the courage to take the time to try out i3, a fantastic window manager."
 description: "I was striving to improve my productivity as one of my New Year's resolutions and finally found the courage to take the time to try out i3, a fantastic window manager."

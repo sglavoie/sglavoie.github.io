@@ -2,6 +2,7 @@
 title: Reviewing the process of building a first React Native application
 date: "2023-03-04T12:41:00"
 slug: reviewing-the-process-of-building-a-first-React-Native-application
+series: "Building apps with React Native"
 author: Sébastien Lavoie
 summary: Working with new technologies can be exciting and insightful at the same time! At least, this is what I would like to believe after having dedicated a couple of weeks to this project...
 description: Working with new technologies can be exciting and insightful at the same time! At least, this is what I would like to believe after having dedicated a couple of weeks to this project...

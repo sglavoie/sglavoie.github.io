@@ -3,6 +3,7 @@ title: A Guided Tour of an i3 Configuration
 date: "2020-08-15T10:51:00"
 lastmod: "2021-05-30T18:48:00"
 slug: a-guided-tour-of-an-i3-configuration
+series: "The i3 window manager"
 author: Sébastien Lavoie
 summary: This article will go over my dear i3 configuration file, which contains quite a few sections I hope I had stumbled upon right from the start when I got introduced to the tiling window manager world. It would probably have been less scary and intimidating. May you find the shortcut you needed!
 description: This article will go over my dear i3 configuration file, which contains quite a few sections I hope I had stumbled upon right from the start when I got introduced to the tiling window manager world. It would probably have been less scary and intimidating. May you find the shortcut you needed!
