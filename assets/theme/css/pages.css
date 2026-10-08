@@ -64,7 +64,65 @@
 
 /* ---------- Archives ---------- */
 
-.archives-year + .archives-year {
+/* Category chips above the years (archives.html). */
+.archives-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 2rem;
+}
+
+.archives-filter[hidden] {
+  display: none;
+}
+
+.archives-filter__chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4em;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  background: none;
+  color: var(--ink-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: border-color var(--motion-fast) var(--ease-out),
+    background-color var(--motion-fast) var(--ease-out),
+    color var(--motion-fast) var(--ease-out);
+}
+
+.archives-filter__chip:hover {
+  border-color: var(--border-strong);
+  color: var(--ink-primary);
+}
+
+.archives-filter__chip[aria-pressed="true"] {
+  border-color: var(--border-strong);
+  background-color: var(--accent-soft);
+  color: var(--accent);
+}
+
+.archives-filter__count {
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.78em;
+}
+
+.archives-filter__chip[aria-pressed="true"] .archives-filter__count {
+  color: inherit;
+}
+
+/* Rows and years the filter leaves out; their display rules would
+   otherwise beat the attribute. */
+.archives-year[hidden],
+.archives-article[hidden] {
+  display: none;
+}
+
+.archives-year:not([hidden]) ~ .archives-year:not([hidden]) {
   margin-top: 2.25rem;
 }
 
@@ -106,7 +164,7 @@
   border-top: 1px solid var(--border-soft);
 }
 
-.archives-article:first-child {
+.archives-article:nth-child(1 of :not([hidden])) {
   border-top-color: var(--border-strong);
 }
 

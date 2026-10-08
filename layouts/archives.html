@@ -6,8 +6,20 @@
 <article class="archives discovery-page discovery-page--archives">
   <header class="article_title discovery-page__header">
     <h1>Archives</h1>
-    <p class="discovery-page__meta">{{ $postsCount }} {{ if eq $postsCount 1 }}post{{ else }}posts{{ end }}</p>
+    <p class="discovery-page__meta"><span data-archives-total>{{ $postsCount }} {{ if eq $postsCount 1 }}post{{ else }}posts{{ end }}</span></p>
   </header>
+  {{- /* Category filter: hidden until the script below runs, so without
+       JavaScript the page is the plain list. ?category=<slug> preselects. */}}
+  {{- with site.Taxonomies.categories }}
+  <div class="archives-filter" role="group" aria-label="Filter by category" hidden>
+    <button type="button" class="archives-filter__chip" data-category="" aria-pressed="true">All</button>
+    {{- range .Alphabetical }}
+    <button type="button" class="archives-filter__chip" data-category="{{ .Page.Data.Term | urlize }}" aria-pressed="false">
+      {{- .Page.Title }} <span class="archives-filter__count">{{ .Count }}</span>
+    </button>
+    {{- end }}
+  </div>
+  {{- end }}
   {{ range $posts.GroupByDate "2006" }}
   {{- $count := len .Pages }}
   <section class="archives-year" aria-labelledby="archives-{{ .Key }}">
@@ -16,14 +28,15 @@
     </h2>
     <dl class="archives__list sibling-fade">
       {{ range .Pages }}
-      <div class="archives-article">
+      {{- $category := index .Params.categories 0 | default "" }}
+      <div class="archives-article" data-category="{{ $category | urlize }}">
         <dt class="archives-article__date">
           <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2" }}</time>
         </dt>
         <dd class="archives-article__title">
           <a href="{{ .RelPermalink }}">{{ .Title }}</a>
         </dd>
-        {{- with index .Params.categories 0 }}
+        {{- with $category }}
           {{- with site.GetPage (printf "/categories/%s" (. | urlize)) }}
         <dd class="archives-article__category"><a href="{{ .RelPermalink }}">{{ .Title }}</a></dd>
           {{- end }}
@@ -34,4 +47,61 @@
   </section>
   {{ end }}
 </article>
+<script>
+  // Category chips: hide the posts of other categories and the years left
+  // empty, keep the counts in step, and mirror the choice in ?category=.
+  (function () {
+    const filter = document.querySelector(".archives-filter");
+    if (!filter) {
+      return;
+    }
+    const chips = Array.from(filter.querySelectorAll(".archives-filter__chip"));
+    const years = Array.from(document.querySelectorAll(".archives-year"));
+    const total = document.querySelector("[data-archives-total]");
+    const plural = function (n) {
+      return n + (n === 1 ? " post" : " posts");
+    };
+
+    function apply(category) {
+      const known = chips.some(function (chip) {
+        return chip.dataset.category === category;
+      });
+      if (!known) {
+        category = "";
+      }
+      let shown = 0;
+      years.forEach(function (year) {
+        let inYear = 0;
+        year.querySelectorAll(".archives-article").forEach(function (row) {
+          const match = !category || row.dataset.category === category;
+          row.hidden = !match;
+          if (match) inYear++;
+        });
+        year.hidden = inYear === 0;
+        year.querySelector(".archives-year__count").textContent = plural(inYear);
+        shown += inYear;
+      });
+      total.textContent = plural(shown);
+      chips.forEach(function (chip) {
+        chip.setAttribute("aria-pressed", String(chip.dataset.category === category));
+      });
+      const url = new URL(window.location.href);
+      if (category) {
+        url.searchParams.set("category", category);
+      } else {
+        url.searchParams.delete("category");
+      }
+      history.replaceState(null, "", url);
+    }
+
+    filter.addEventListener("click", function (e) {
+      const chip = e.target.closest(".archives-filter__chip");
+      if (chip) {
+        apply(chip.dataset.category);
+      }
+    });
+    filter.hidden = false;
+    apply(new URLSearchParams(window.location.search).get("category") || "");
+  })();
+</script>
 {{ end }}
