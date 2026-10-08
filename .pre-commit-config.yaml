@@ -10,3 +10,11 @@ repos:
       - id: debug-statements
       - id: end-of-file-fixer
       - id: trailing-whitespace
+  - repo: local
+    hooks:
+      - id: check-site
+        name: build the site and check links and SEO
+        entry: scripts/check-site.sh
+        language: script
+        pass_filenames: false
+        files: ^(content|layouts|assets|static|archetypes|hugo\.toml)
