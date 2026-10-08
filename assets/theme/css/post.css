@@ -261,7 +261,9 @@ article > .article_title h1 {
 
   .post-reading--with-toc > .post-reading__toc {
     grid-column: 2;
-    grid-row: 2 / span 2;
+    /* From the title down, so the sidebar doesn't leave the top right of
+       the page empty. */
+    grid-row: 1 / span 3;
     position: sticky;
     top: calc(var(--header-height) + 1.5rem);
     align-self: start;
