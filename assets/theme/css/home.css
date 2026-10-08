@@ -277,12 +277,12 @@ main .home-featured__card:hover .home-featured__title {
   white-space: nowrap;
 }
 
-/* ---------- Post list ---------- */
-
-.article_title--list {
-  max-width: var(--layout-prose-max);
-  margin: 0 auto 0.25rem;
+/* The archives link follows straight on. */
+.home-more {
+  margin-bottom: 0;
 }
+
+/* ---------- Post list ---------- */
 
 .article-card {
   max-width: var(--layout-prose-max);

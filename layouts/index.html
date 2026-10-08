@@ -45,10 +45,19 @@
 {{ end }}
 {{ partial "home-topics.html" $posts.topics }}
 {{ with $posts.latest }}
-<div class="article_title article_title--list">
-  <h2 class="section-label">More posts</h2>
-</div>
-{{ range . }}{{ partial "article-card.html" . }}{{ end }}
+{{- /* Same rows as the topic groups: by this point the page is an index,
+       and full cards here would outweigh the picks above them. */}}
+<section class="home-topics home-more" aria-labelledby="more-title">
+  <h2 id="more-title" class="section-label">More posts</h2>
+  <ul class="home-topic__list">
+    {{- range . }}
+    <li>
+      <a class="home-topic__post" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <time class="home-topic__meta" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
+    </li>
+    {{- end }}
+  </ul>
+</section>
 {{ end }}
 {{- with site.GetPage "/archives" }}
 <p class="home-archives-link">
