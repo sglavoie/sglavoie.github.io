@@ -46,7 +46,7 @@ The built site is written to `public/`. Cloudflare Pages runs this exact command
 ./scripts/check-site.sh
 ```
 
-This builds the site into a throwaway directory with `--panicOnWarning`, then runs `./scripts/seo-validate.py` and `./scripts/build-validate.py` on it. `render-link.html` warns about Markdown links to site paths with no page or static file, fragments with no matching heading, and bare domains missing `https://`, so any of them fails the check. `build-validate.py` fails on an inline script the Content-Security-Policy would block, and on a `static/_redirects` rule that points at a page that isn't built or repeats an earlier source. Pass a directory to keep the build. The pre-commit hook runs it whenever content, layouts, assets, static files or `hugo.toml` change (`pre-commit install` once to enable the hooks).
+This builds the site into a throwaway directory with `--panicOnWarning`, then runs `./scripts/seo-validate.py` and `./scripts/build-validate.py` on it. `render-link.html` warns about Markdown links to site paths with no page or static file, fragments with no matching heading, and bare domains missing `https://`, so any of them fails the check. `render-codeblock.html` warns about a code block language written other than its usual name (`txt` for `text`, `sh` for `bash`...). `build-validate.py` fails on an inline script the Content-Security-Policy would block, on a `static/_redirects` rule that points at a page that isn't built or repeats an earlier source, and on a post heading that skips a level (an `h4` straight after an `h2`). Pass a directory to keep the build. The pre-commit hook runs it whenever content, layouts, assets, static files or `hugo.toml` change (`pre-commit install` once to enable the hooks). Another hook, `scripts/check-lastmod.py`, fails when a staged post's text changed but its `lastmod` didn't; commit with `SKIP=check-lastmod` for a fix too small to date.
 
 ### Check external links
 
@@ -66,11 +66,14 @@ Cloudflare's `_headers` file is generated from `layouts/index.headers`, so its C
 - **Series:** posts sharing a `series: "Name"` front matter value list each other, oldest first, under the post header.
 - **Feeds:** the home page publishes full-text RSS, Atom and JSON feeds under `/feeds/`, and every tag and category its own RSS feed at `feed.xml`.
 - **Images:** keep them in `static/images/posts/` and link them as Markdown or `<img>` tags. Hugo serves PNGs and JPEGs as WebP in widths sized for the column (`partials/responsive-images.html`), so there's no need to make WebP copies by hand. Images shown smaller than their size open full size on click.
-- **Code:** a fenced block takes `{title="file.go"}` for a file name, `{hl_lines="2-4"}` to highlight lines and `{wrap=true}` to wrap long lines.
+- **Code:** a fenced block takes `{title="file.go"}` for a file name, `{hl_lines="2-4"}` to highlight lines and `{wrap=true}` to wrap long lines. In shell blocks, a leading `$ ` is a prompt: readers can't select it, and the copy button copies only the commands, leaving out the prompts and the output.
 - **Offline:** a service worker (`static/sw.js`) keeps pages readers have opened, and `/offline/` lists them when there's no connection, with how far into each post the reader got. It isn't registered under `hugo server`.
 - **Older posts:** a post last updated more than `stale_after_years` (in `hugo.toml`) before the build opens with a note that details may have changed. Set `lastmod` in the front matter when revising a post; book summaries and posts with `evergreen: true` never get the note.
 - **Footnotes:** `[^1]` references show their note beside them on hover or focus.
-- **Reading position:** posts remember the section a reader left them at, in their browser, and offer to go back to it; finishing the post forgets it.
+- **Reading position:** posts remember the section a reader left them at, in their browser, and offer to go back to it; finishing the post forgets it. Lists of posts (home page, archives, tag and category pages, related posts) mark the ones read to the end as "Read" and the others started with how far the reader got. On narrow screens, the section bar shows the minutes left.
+- **Passage links:** with text selected in a post, the `c` shortcut and the share button give a link to that passage (`#:~:text=`), which browsers scroll to and highlight.
+- **Search:** results filter by category (chips) and by tag (a menu); posts carry both as Pagefind filters.
+- **Random post:** `g` then `r`, or `/random/`, opens a post at random.
 - **Archives:** `/archives/?category=<slug>` and `/archives/?tag=<slug>` filter the list; tag and category pages link to it as "By year".
 - **Fixing a post:** each post links to its file on GitHub to suggest an edit, and to a new issue to report a problem (`params.repo` in `hugo.toml`).
 
