@@ -46,7 +46,7 @@ The built site is written to `public/`. Cloudflare Pages runs this exact command
 ./scripts/check-site.sh
 ```
 
-This builds the site into a throwaway directory with `--panicOnWarning`, then runs `./scripts/seo-validate.py` and `./scripts/build-validate.py` on it. `render-link.html` warns about Markdown links to site paths with no page or static file, fragments with no matching heading, and bare domains missing `https://`, so any of them fails the check. `render-codeblock.html` warns about a code block language written other than its usual name (`txt` for `text`, `sh` for `bash`...). `build-validate.py` fails on an inline script the Content-Security-Policy would block, on a `static/_redirects` rule that points at a page that isn't built or repeats an earlier source, and on a post heading that skips a level (an `h4` straight after an `h2`). Pass a directory to keep the build. The pre-commit hook runs it whenever content, layouts, assets, static files or `hugo.toml` change (`pre-commit install` once to enable the hooks). Another hook, `scripts/check-lastmod.py`, fails when a staged post's text changed but its `lastmod` didn't; commit with `SKIP=check-lastmod` for a fix too small to date.
+This builds the site into a throwaway directory with `--panicOnWarning`, then runs `./scripts/seo-validate.py` and `./scripts/build-validate.py` on it. `render-link.html` warns about Markdown links to site paths with no page or static file, fragments with no matching heading, and bare domains missing `https://`, so any of them fails the check. `render-codeblock.html` warns about a code block language written other than its usual name (`txt` for `text`, `sh` for `bash`...). `build-validate.py` fails on an inline script the Content-Security-Policy would block, on a `static/_redirects` rule that points at a page that isn't built or repeats an earlier source, on a post heading that skips a level (an `h4` straight after an `h2`), on any link or image to the site (Markdown, raw HTML or a template) whose file or `#fragment` isn't in the build, on a file of `static/images/posts/` or `static/files/` that nothing links to, and on a post heading id listed in `scripts/heading-ids.txt` that's gone, since links from elsewhere may point at it. After renaming a heading, keep its old id with `<a id="old-id"></a>` in the section, or drop it from the list; `./scripts/build-validate.py --record-headings <built-site-dir>` rewrites the list from a build, which the check suggests when new headings aren't in it yet. Pass a directory to keep the build. The pre-commit hook runs it whenever content, layouts, assets, static files or `hugo.toml` change (`pre-commit install` once to enable the hooks). Another hook, `scripts/check-lastmod.py`, fails when a staged post's text changed but its `lastmod` didn't; commit with `SKIP=check-lastmod` for a fix too small to date.
 
 ### Check external links
 
@@ -66,8 +66,8 @@ Cloudflare's `_headers` file is generated from `layouts/index.headers`, so its C
 - **Series:** posts sharing a `series: "Name"` front matter value list each other, oldest first, under the post header.
 - **Feeds:** the home page publishes full-text RSS, Atom and JSON feeds under `/feeds/`, and every tag and category its own RSS feed at `feed.xml`.
 - **Images:** keep them in `static/images/posts/` and link them as Markdown or `<img>` tags. Hugo serves PNGs and JPEGs as WebP in widths sized for the column (`partials/responsive-images.html`), so there's no need to make WebP copies by hand. Images shown smaller than their size open full size on click.
-- **Code:** a fenced block takes `{title="file.go"}` for a file name, `{hl_lines="2-4"}` to highlight lines and `{wrap=true}` to wrap long lines. In shell blocks, a leading `$ ` is a prompt: readers can't select it, and the copy button copies only the commands, leaving out the prompts and the output.
-- **Offline:** a service worker (`static/sw.js`) keeps pages readers have opened, and `/offline/` lists them when there's no connection, with how far into each post the reader got. It isn't registered under `hugo server`.
+- **Code:** a fenced block takes `{title="file.go"}` for a file name, `{hl_lines="2-4"}` to highlight lines and `{wrap=true}` to wrap long lines. Readers can wrap any other block that scrolls sideways with its "Wrap" button. In shell blocks, a leading `$ ` is a prompt: readers can't select it, and the copy button copies only the commands, leaving out the prompts and the output.
+- **Offline:** a service worker (`static/sw.js`) keeps pages readers have opened, and `/offline/` lists them when there's no connection, with when each was saved and how far into each post the reader got. A saved page read offline opens with a note saying when it was saved. It isn't registered under `hugo server`.
 - **Older posts:** a post last updated more than `stale_after_years` (in `hugo.toml`) before the build opens with a note that details may have changed. Set `lastmod` in the front matter when revising a post; book summaries and posts with `evergreen: true` never get the note.
 - **Footnotes:** `[^1]` references show their note beside them on hover or focus.
 - **Reading position:** posts remember the section a reader left them at, in their browser, and offer to go back to it; finishing the post forgets it. Lists of posts (home page, archives, tag and category pages, related posts) mark the ones read to the end as "Read" and the others started with how far the reader got. On narrow screens, the section bar shows the minutes left.
@@ -75,6 +75,10 @@ Cloudflare's `_headers` file is generated from `layouts/index.headers`, so its C
 - **Search:** results filter by category (chips) and by tag (a menu); posts carry both as Pagefind filters.
 - **Random post:** `g` then `r`, or `/random/`, opens a post at random.
 - **Archives:** `/archives/?category=<slug>` and `/archives/?tag=<slug>` filter the list; tag and category pages link to it as "By year".
+- **Tables:** with three rows or more, a table's column headers sort it, ascending, descending, then back to the order of the post.
+- **Revisions:** a post's "Updated" date links to its history on GitHub, and the home page lists the three posts revised last ("Recently revised"), marking those a reader finished before the revision.
+- **Learning logs:** pages with `learning_log: true` (the yearly learning progress) open with links to the other years, a calendar with a square per day logged, shaded by its entries and linking to it, and a filter that keeps the matching entries (`?q=` fills it). They're read from the `## Month` and `### day` headings.
+- **By the numbers:** `/stats/` (linked from the archives) counts posts, words and reading time, per year, category and tag, and lists the longest posts, all at build time.
 - **Fixing a post:** each post links to its file on GitHub to suggest an edit, and to a new issue to report a problem (`params.repo` in `hugo.toml`).
 
 ### SEO baseline audit
@@ -85,7 +89,7 @@ hugo --minify --destination "$baseline_dir"
 ./scripts/seo-audit.sh "$baseline_dir"
 ```
 
-This audits rendered HTML plus `static/images/posts` and reports the current counts for duplicate descriptions, missing canonicals, literal `[TOC]` output, multi-`h1` article pages, missing JSON-LD, sitemap coverage, and large image assets. Override the large-image threshold with `SEO_IMAGE_LARGE_BYTES`.
+This audits rendered HTML plus `static/images/posts` and reports the current counts for duplicate descriptions, missing canonicals, literal `[TOC]` output, multi-`h1` article pages, missing JSON-LD, sitemap coverage, large image assets, and tags used by a single post (`single_post_tags`), whose page and search filter lead nowhere new. Override the large-image threshold with `SEO_IMAGE_LARGE_BYTES`.
 
 ### SEO regression validation
 
