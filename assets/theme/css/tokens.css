@@ -119,6 +119,8 @@
   --accent: light-dark(hsl(211, 100%, 38%), hsl(211, 100%, 70%));
   --accent-strong: light-dark(hsl(211, 100%, 28%), hsl(211, 100%, 80%));
   --accent-soft: light-dark(hsla(211, 100%, 45%, 10%), hsla(211, 100%, 70%, 16%));
+  /* Pills need a little more fill than hover washes to read on dark. */
+  --accent-pill: light-dark(hsla(211, 100%, 45%, 10%), hsla(211, 100%, 70%, 24%));
 
   /* Keep the page colours in sync with the theme-color values in head.html
      and baseof.html. */

@@ -10,9 +10,12 @@
           <a class="article-card__category" href="{{ .RelPermalink }}">{{ .Title }}</a>
         {{ end }}
       {{ end }}
-      {{ if .ReadingTime }}
-        <span class="article-card__readtime">{{ partial "reading-time.html" . }}</span>
-        {{ if ge .ReadingTime 30 }}<span class="article-card__badge">Deep dive</span>{{ end }}
+      {{ with .ReadingTime }}
+        {{- if ge . 30 }}
+        <span class="article-card__badge">Deep dive &middot; {{ partial "reading-time.html" $ }}</span>
+        {{- else }}
+        <span class="article-card__readtime">{{ partial "reading-time.html" $ }}</span>
+        {{- end }}
       {{ end }}
     </div>
   </header>

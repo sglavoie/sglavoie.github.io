@@ -232,12 +232,14 @@ main .home-featured__card:hover .home-featured__title {
   text-decoration: underline;
 }
 
-/* Long reads get a soft accent pill, the one tinted item in the row. */
+/* Long reads carry their reading time in a soft accent pill, the one
+   tinted item in the row. */
 .article-card__badge {
-  padding: 0.05em 0.5em;
+  padding: 0.05em 0.55em;
   border-radius: 999px;
-  background-color: var(--accent-soft);
+  background-color: var(--accent-pill);
   color: var(--accent-strong);
+  white-space: nowrap;
 }
 
 .article-card__summary {
