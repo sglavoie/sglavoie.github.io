@@ -102,6 +102,7 @@ const destinations = {
   h: "/",
   a: "/archives/",
   t: "/topics/",
+  r: "/random/",
 };
 let pendingGo = 0;
 

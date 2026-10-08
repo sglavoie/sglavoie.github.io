@@ -1,0 +1,23 @@
+{{ define "title" }} &ndash; {{ .Title }}{{ end }}
+
+{{ define "main" }}
+{{- /* "g" then "r" lands here (js/shortcuts.js); js/random.js opens one of
+     the posts listed, other than the one the reader came from. */ -}}
+<article class="post-reading post-reading--page not-found">
+  <div class="not-found__shell" aria-hidden="true">
+    <p class="prompt-line"><span class="prompt-line__sign">$</span>ls posts | shuf -n 1</p>
+  </div>
+  <header class="post-reading__header">
+    <h1 class="post-reading__title">{{ .Title }}</h1>
+    <div class="post-reading__standfirst">{{ .Content }}</div>
+  </header>
+  <section class="not-found__suggestions" aria-labelledby="random-title">
+    <h2 id="random-title" class="section-label">All posts</h2>
+    <ul class="post-footer__related-list" data-random-posts>
+      {{- range where site.RegularPages "Section" "posts" }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{- end }}
+    </ul>
+  </section>
+</article>
+{{ end }}

@@ -50,7 +50,8 @@ export async function initSavedPages() {
     const list = section.querySelector("ul");
     const progress = readProgress();
     pages
-      .filter((page) => page.url !== "/offline/")
+      // Pages that only lead elsewhere.
+      .filter((page) => page.url !== "/offline/" && page.url !== "/random/")
       .sort((a, b) => a.title.localeCompare(b.title))
       .forEach((page) => {
         const item = document.createElement("li");
