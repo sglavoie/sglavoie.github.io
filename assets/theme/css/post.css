@@ -17,7 +17,7 @@
 }
 
 /* Every title and summary (posts, pages, listings, post cards) is set in
-   the body's serif; Ubuntu stays for the site chrome and labels. */
+   the body's serif; the sans stays for the site chrome and labels. */
 .post-reading__title,
 article > .article_title h1 {
   margin: 0 0 1rem;
