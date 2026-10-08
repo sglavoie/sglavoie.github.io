@@ -1,0 +1,88 @@
+/*
+* Print and "Save as PDF": the article alone, in the light theme, with
+* every code block open and link targets written out.
+*/
+
+@media print {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    background: white;
+    font-size: 11pt;
+  }
+
+  /* Site chrome and anything that only works on screen. */
+  .site-header,
+  .site-footer,
+  .post-footer,
+  .post-reading__toc,
+  .section-bar,
+  .reading-progress,
+  .prompt-line,
+  .archives-filter,
+  .code-block__copy,
+  .code-block__toggle,
+  .heading-anchor,
+  dialog {
+    display: none !important;
+  }
+
+  main {
+    margin: 0;
+    padding: 0;
+  }
+
+  .post-reading,
+  .post-reading > * {
+    max-width: none;
+  }
+
+  /* Collapsed blocks print in full, wrapped rather than cut at the margin. */
+  .code-block.is-collapsed pre {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .code-block.is-collapsed::after {
+    display: none;
+  }
+
+  .code-block.is-expanded {
+    padding-bottom: 0;
+  }
+
+  .code-block pre,
+  .code-block code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  /* Paper has no hover: print where external links lead. */
+  .article_text a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    color: var(--ink-muted);
+    font-family: var(--font-sans);
+    font-size: 0.85em;
+    overflow-wrap: anywhere;
+  }
+
+  .article_text a {
+    background: none !important;
+    box-shadow: none !important;
+  }
+
+  .article_text :is(h2, h3, h4, h5, h6) {
+    break-after: avoid;
+  }
+
+  .article_text :is(pre, figure, img, table, blockquote, .callout) {
+    break-inside: avoid;
+  }
+
+  .article_text :is(p, li) {
+    orphans: 3;
+    widows: 3;
+  }
+}
