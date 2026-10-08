@@ -29,6 +29,9 @@
     {{- $robots = "noindex,follow" -}}
   {{- end -}}
 {{- end -}}
+{{- with .Params.robots -}}
+  {{- $robots = . -}}
+{{- end -}}
 {{- if ne $pageNumberSuffix "" -}}
   {{- $title = printf "%s%s" $title $pageNumberSuffix -}}
 {{- end -}}

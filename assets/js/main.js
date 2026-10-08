@@ -3,6 +3,7 @@
 import { initCodeBlocks } from "./code-blocks.js";
 import { initHeadingLinks } from "./headings.js";
 import { initNavFades } from "./nav.js";
+import { initOffline } from "./offline.js";
 import { initHighlight, initSearch } from "./search.js";
 import { initShare } from "./share.js";
 import { initShortcuts } from "./shortcuts.js";
@@ -18,3 +19,4 @@ initHeadingLinks();
 initShortcuts();
 initShare();
 initZoom();
+initOffline();

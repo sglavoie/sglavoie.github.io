@@ -6,3 +6,7 @@
 
 /.well-known/api-catalog
   Content-Type: application/linkset+json
+
+# Browsers check for a new service worker on each visit; never serve a stale one.
+/sw.js
+  Cache-Control: no-cache
