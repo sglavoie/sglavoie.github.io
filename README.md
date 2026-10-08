@@ -63,8 +63,8 @@ Cloudflare's `_headers` file is generated from `layouts/index.headers`, so its C
 ### Writing posts
 
 - **Callouts:** GitHub-style alerts, `> [!NOTE]`, `> [!TIP] Optional title`, `> [!IMPORTANT]`, `> [!WARNING]` or `> [!CAUTION]`, render as callouts.
-- **Series:** posts sharing a `series: "Name"` front matter value list each other, oldest first, under the post header.
-- **Feeds:** the home page publishes full-text RSS, Atom and JSON feeds under `/feeds/`, and every tag and category its own RSS feed at `feed.xml`.
+- **Series:** posts sharing a `series: "Name"` front matter value list each other, oldest first, under the post header. `series` is a taxonomy: the name links to the series' page at `/series/<slug>/`, which lists its posts oldest first and has its own RSS feed, and `/topics/` lists every series. Give a new series a `content/series/<slug>/_index.md` with its `title` (as written) and `description`.
+- **Feeds:** the home page publishes full-text RSS, Atom and JSON feeds under `/feeds/`, and every tag, category and series its own RSS feed at `feed.xml`.
 - **Images:** keep them in `static/images/posts/` and link them as Markdown or `<img>` tags. Hugo serves PNGs and JPEGs as WebP in widths sized for the column (`partials/responsive-images.html`), so there's no need to make WebP copies by hand. Images shown smaller than their size open full size on click.
 - **Code:** a fenced block takes `{title="file.go"}` for a file name, `{hl_lines="2-4"}` to highlight lines and `{wrap=true}` to wrap long lines. Readers can wrap any other block that scrolls sideways with its "Wrap" button. In shell blocks, a leading `$ ` is a prompt: readers can't select it, and the copy button copies only the commands, leaving out the prompts and the output.
 - **Offline:** a service worker (`static/sw.js`) keeps pages readers have opened, and `/offline/` lists them when there's no connection, with when each was saved and how far into each post the reader got. A saved page read offline opens with a note saying when it was saved. It isn't registered under `hugo server`.

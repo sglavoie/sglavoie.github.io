@@ -128,6 +128,18 @@ article > .article_title h1 {
   font-weight: 600;
 }
 
+/* The name leads to the series' page; it reads as the title, not a link,
+   until pointed at. */
+.series__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.series__title a:hover,
+.series__title a:focus-visible {
+  text-decoration: underline;
+}
+
 .series__position {
   margin-right: 0.5rem;
   color: var(--ink-muted);

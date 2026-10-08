@@ -1,7 +1,7 @@
 {{- $currentRel := .RelPermalink -}}
 {{- $currentPlural := "" -}}
 {{- with .Data }}{{- $currentPlural = .Plural -}}{{- end -}}
-{{- $inTopics := in (slice "tags" "categories") $currentPlural -}}
+{{- $inTopics := in (slice "tags" "categories" "series") $currentPlural -}}
 
 <header class="site-header">
   <div class="site-header__inner">

@@ -12,6 +12,8 @@
   punctuation or a plural (`design pattern`, `design-patterns`), which
   would split their posts over two pages.
 - An `image` for social cards is a file of static/.
+- Each series has a content/series/<slug>/_index.md, whose title keeps
+  the name as written (Hugo would otherwise title-case it).
 
 A series with a single post lists nothing yet (partials/series.html); it's
 reported as a note, not a failure, since its next part may be on the way.
@@ -164,6 +166,9 @@ def main() -> int:
             if len(variants) > 1:
                 failures.append(f"{key} spelled more than one way: {', '.join(sorted(variants))}")
     for series, posts in sorted(series_posts.items()):
+        slug = re.sub(r"[^a-z0-9-]", "", re.sub(r"\s+", "-", series.lower()))
+        if not (REPO / "content" / "series" / slug / "_index.md").is_file():
+            failures.append(f"series {series!r} has no content/series/{slug}/_index.md")
         if len(posts) == 1:
             notes.append(f"series {series!r} has a single post ({posts[0]}), so it lists nothing yet")
 

@@ -21,6 +21,12 @@ stale_after_years = 3
 intro = "A software developer writing about Go, software design, and the tools and workflows that make programming more enjoyable."
 description = "Posts and writings by Sébastien Lavoie. Customization setups and articles on productivity for developers who like minimalism."
 
+# What one term of each taxonomy is called, in page titles and feeds.
+[params.term_kinds]
+  categories = "Category"
+  tags = "Tag"
+  series = "Series"
+
 # Shown under the home intro and in the footer.
 [[params.intro_links]]
   name = "GitHub"
@@ -58,6 +64,9 @@ description = "Posts and writings by Sébastien Lavoie. Customization setups and
 [taxonomies]
   category = "categories"
   tag = "tags"
+  # Posts sharing a `series` list each other (partials/series.html) and
+  # have a page, oldest first, with its own feed.
+  series = "series"
 
 [markup]
   [markup.goldmark.renderer]

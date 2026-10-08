@@ -3,10 +3,11 @@
 {{ define "main" }}
 {{- $categories := site.Taxonomies.categories -}}
 {{- $tags := site.Taxonomies.tags -}}
+{{- $series := site.Taxonomies.series -}}
 <article class="discovery-page discovery-page--topics">
   <header class="article_title discovery-page__header">
     <h1>Topics</h1>
-    <p class="discovery-page__meta">{{ len $categories }} categories &middot; {{ len $tags }} tags</p>
+    <p class="discovery-page__meta">{{ len $categories }} categories &middot; {{ len $tags }} tags{{ with $series }} &middot; {{ len . }} series{{ end }}</p>
   </header>
 
   {{- with $categories }}
@@ -15,6 +16,20 @@
     {{- /* The same index rows as the tags below, so both lists read as one
          kind of link; the larger names keep categories the first level. */}}
     <ul class="tag-list tag-list--categories" aria-label="Categories">
+      {{- range .Alphabetical }}
+      <li>
+        <a class="tag-list__link" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+        <span class="tag-list__count">{{ .Count }}</span>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+
+  {{- with $series }}
+  <section class="topics-section" aria-labelledby="topics-series">
+    <h2 id="topics-series" class="section-label">Series</h2>
+    <ul class="tag-list tag-list--categories" aria-label="Series">
       {{- range .Alphabetical }}
       <li>
         <a class="tag-list__link" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>

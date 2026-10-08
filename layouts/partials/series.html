@@ -1,5 +1,6 @@
 {{- /* Posts sharing a `series` front matter value, oldest first, listed
-     above the article with the current one marked. */ -}}
+     above the article with the current one marked. The name leads to the
+     series' page (the series taxonomy). */ -}}
 {{- with .Params.series -}}
 {{- $name := . -}}
 {{- $parts := (where (where site.RegularPages "Section" "posts") "Params.series" $name).ByDate -}}
@@ -9,7 +10,7 @@
 <nav class="series" aria-labelledby="series-title" data-pagefind-ignore>
   <p id="series-title" class="series__title">
     <span class="series__position">Part {{ $index }} of {{ len $parts }}</span>
-    {{ $name }}
+    {{ with index ($.GetTerms "series") 0 }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ else }}{{ $name }}{{ end }}
   </p>
   <ol class="series__list">
     {{- range $parts }}

@@ -1,33 +1,31 @@
-{{ define "title" }}
-  {{- if eq .Data.Plural "categories" -}}
-    &ndash; Category: {{ .Title }}
-  {{- else -}}
-    &ndash; Tag: {{ .Title }}
-  {{- end -}}
-{{ end }}
+{{ define "title" }} &ndash; {{ index site.Params.term_kinds .Data.Plural }}: {{ .Title }}{{ end }}
 
 {{ define "main" }}
 {{ $postsCount := len .Pages }}
+  {{- $kind := index site.Params.term_kinds .Data.Plural }}
   {{ $paginator := .Paginate .Pages }}
+  {{- /* A series reads in order, from its first part. The paginator is
+       already made, newest first, by the page's meta tags. */}}
+  {{- $pages := cond (eq .Data.Plural "series") .Pages.ByDate $paginator.Pages }}
   <section class="taxonomy-listing" aria-labelledby="taxonomy-title">
     <header class="article_title discovery-page__header">
       {{ partial "topics-crumbs.html" . }}
       <h1 id="taxonomy-title">
-        {{ if eq .Data.Plural "categories" }}Category: {{ .Title }}{{ else }}Tag: {{ .Title }}{{ end }}
+        {{ $kind }}: {{ .Title }}
       </h1>
       <p class="discovery-page__meta">
         <span>{{ $postsCount }} {{ if eq $postsCount 1 }}post{{ else }}posts{{ end }}</span>
         {{- /* The same posts on one page, by year (archives.html). */}}
-        {{- with site.GetPage "/archives" }}
+        {{- with and (ne .Data.Plural "series") (site.GetPage "/archives") }}
         <a class="discovery-page__feed" href="{{ .RelPermalink }}?{{ if eq $.Data.Plural "categories" }}category{{ else }}tag{{ end }}={{ $.Data.Term | urlize }}">By year</a>
         {{- end }}
         {{- with .OutputFormats.Get "termfeed" }}
-        <a class="discovery-page__feed" href="{{ .RelPermalink }}">{{ partial "icons/rss.html" . | strings.TrimSpace | safeHTML }}Follow this {{ if eq $.Data.Plural "categories" }}category{{ else }}tag{{ end }}</a>
+        <a class="discovery-page__feed" href="{{ .RelPermalink }}">{{ partial "icons/rss.html" . | strings.TrimSpace | safeHTML }}Follow this {{ lower $kind }}</a>
         {{- end }}
       </p>
     </header>
     <div class="taxonomy-listing__posts">
-      {{ range $paginator.Pages }}
+      {{ range $pages }}
         {{ partial "article-card.html" . }}
       {{ end }}
     </div>

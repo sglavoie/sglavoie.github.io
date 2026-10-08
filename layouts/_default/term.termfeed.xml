@@ -1,4 +1,4 @@
-{{- $kind := cond (eq .Data.Plural "categories") "Category" "Tag" -}}
+{{- $kind := index site.Params.term_kinds .Data.Plural -}}
 {{- partial "feeds/rss.html" (dict
   "page" .
   "format" "termfeed"
