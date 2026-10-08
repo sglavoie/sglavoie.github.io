@@ -220,9 +220,12 @@ article > .article_title h1 {
    and the header and footer widen to match, so the logo lines up with the
    prose and the header icons with the sidebar's right edge. */
 @media (min-width: 1280px) {
+  /* The prose column narrows to 40rem here: body text stops at its 70ch
+     measure, and the full 42rem left a wide empty gap before the sidebar. */
   body:has(.post-reading--with-toc) {
+    --layout-prose-max: 40rem;
     --toc-width: 16rem;
-    --toc-gap: 3rem;
+    --toc-gap: 2.5rem;
     --header-max: calc(
       var(--layout-prose-max) + var(--toc-gap) + var(--toc-width) +
         2 * var(--layout-gutter)
@@ -271,6 +274,28 @@ article > .article_title h1 {
     background: none;
     font-size: 0.88rem;
     scrollbar-width: thin;
+  }
+
+  /* A rail ties the sidebar to the text, with the active marker on it;
+     nesting moves into the link padding so every level shares the rail. */
+  .post-reading--with-toc #TableOfContents > ul {
+    border-left: 1px solid var(--border-soft);
+  }
+
+  .post-reading--with-toc .toc a {
+    margin-left: -1px;
+  }
+
+  .post-reading--with-toc .toc ul ul {
+    padding-left: 0;
+  }
+
+  .post-reading--with-toc .toc ul ul a {
+    padding-left: 1.5rem;
+  }
+
+  .post-reading--with-toc .toc ul ul ul a {
+    padding-left: 2.4rem;
   }
 
   .post-reading--with-toc .toc-title {
