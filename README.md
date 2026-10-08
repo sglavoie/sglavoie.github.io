@@ -46,7 +46,19 @@ The built site is written to `public/`. Cloudflare Pages runs this exact command
 ./scripts/check-site.sh
 ```
 
-This builds the site into a throwaway directory with `--panicOnWarning`, then runs `./scripts/seo-validate.py` on it. `render-link.html` warns about Markdown links to site paths with no page or static file, fragments with no matching heading, and bare domains missing `https://`, so any of them fails the check. Pass a directory to keep the build. The pre-commit hook runs it whenever content, layouts, assets, static files or `hugo.toml` change (`pre-commit install` once to enable the hooks).
+This builds the site into a throwaway directory with `--panicOnWarning`, then runs `./scripts/seo-validate.py` and `./scripts/build-validate.py` on it. `render-link.html` warns about Markdown links to site paths with no page or static file, fragments with no matching heading, and bare domains missing `https://`, so any of them fails the check. `build-validate.py` fails on an inline script the Content-Security-Policy would block, and on a `static/_redirects` rule that points at a page that isn't built or repeats an earlier source. Pass a directory to keep the build. The pre-commit hook runs it whenever content, layouts, assets, static files or `hugo.toml` change (`pre-commit install` once to enable the hooks).
+
+### Check external links
+
+```bash
+./scripts/check-external-links.py [--redirects] [built-site-dir]
+```
+
+Checks every external link in a build (it builds one when no directory is given) and fails on the broken ones: 4xx and 5xx answers, hosts that no longer exist, timeouts. `--redirects` also lists links that moved permanently, with where they go now. Sites that refuse scripted requests (LinkedIn, rate limits, bot walls) are listed as unverified rather than broken. It goes over the network and takes a few minutes, so it isn't part of the pre-commit hook.
+
+### Response headers and scripts
+
+Cloudflare's `_headers` file is generated from `layouts/index.headers`, so its Content-Security-Policy can carry the hashes of the two scripts that must run inline (the saved theme, and the table of contents' open state), both in `assets/js/inline/` and written into pages by `partials/inline-script.html`. Everything else goes in the bundle under `assets/js/`, where `main.js` starts each part; page-specific parts return early on other pages.
 
 ### Writing posts
 
@@ -55,7 +67,12 @@ This builds the site into a throwaway directory with `--panicOnWarning`, then ru
 - **Feeds:** the home page publishes full-text RSS, Atom and JSON feeds under `/feeds/`, and every tag and category its own RSS feed at `feed.xml`.
 - **Images:** keep them in `static/images/posts/` and link them as Markdown or `<img>` tags. Hugo serves PNGs and JPEGs as WebP in widths sized for the column (`partials/responsive-images.html`), so there's no need to make WebP copies by hand. Images shown smaller than their size open full size on click.
 - **Code:** a fenced block takes `{title="file.go"}` for a file name, `{hl_lines="2-4"}` to highlight lines and `{wrap=true}` to wrap long lines.
-- **Offline:** a service worker (`static/sw.js`) keeps pages readers have opened, and `/offline/` lists them when there's no connection. It isn't registered under `hugo server`.
+- **Offline:** a service worker (`static/sw.js`) keeps pages readers have opened, and `/offline/` lists them when there's no connection, with how far into each post the reader got. It isn't registered under `hugo server`.
+- **Older posts:** a post last updated more than `stale_after_years` (in `hugo.toml`) before the build opens with a note that details may have changed. Set `lastmod` in the front matter when revising a post; book summaries and posts with `evergreen: true` never get the note.
+- **Footnotes:** `[^1]` references show their note beside them on hover or focus.
+- **Reading position:** posts remember the section a reader left them at, in their browser, and offer to go back to it; finishing the post forgets it.
+- **Archives:** `/archives/?category=<slug>` and `/archives/?tag=<slug>` filter the list; tag and category pages link to it as "By year".
+- **Fixing a post:** each post links to its file on GitHub to suggest an edit, and to a new issue to report a problem (`params.repo` in `hugo.toml`).
 
 ### SEO baseline audit
 
