@@ -47,6 +47,17 @@
       >
         {{ partial "icons/search.html" . }}
       </button>
+      {{- /* Opens the reading settings below; a popover, so it needs no
+           script to open, close or dismiss. */}}
+      <button
+        class="icon-button"
+        type="button"
+        popovertarget="reading-settings-panel"
+        aria-label="Reading settings"
+        title="Reading settings"
+      >
+        <svg aria-hidden="true" focusable="false" width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19l5-14 5 14M4.8 14h6.4"/><path d="M15 19l3.5-9 3.5 9M16 16.5h5"/></svg>
+      </button>
       <button
         id="theme-toggle"
         class="icon-button"
@@ -58,5 +69,32 @@
         <svg class="theme-toggle__moon" aria-hidden="true" focusable="false" width="1.15em" height="1.15em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
       </button>
     </div>
+  </div>
+  {{- /* js/reading-settings.js keeps the choices; checked marks the
+       defaults, which "Reset" goes back to. */}}
+  <div id="reading-settings-panel" class="reading-settings" popover aria-labelledby="reading-settings-title">
+    <form id="reading-settings">
+      <h2 id="reading-settings-title" class="reading-settings__title">Reading settings</h2>
+      <fieldset class="reading-settings__group">
+        <legend>Text size</legend>
+        <div class="reading-settings__options">
+          <label><input type="radio" name="size" value="small" /><span class="reading-settings__a reading-settings__a--small" aria-hidden="true">A</span><span class="visually-hidden">Small</span></label>
+          <label><input type="radio" name="size" value="default" checked /><span class="reading-settings__a reading-settings__a--default" aria-hidden="true">A</span><span class="visually-hidden">Default</span></label>
+          <label><input type="radio" name="size" value="large" /><span class="reading-settings__a reading-settings__a--large" aria-hidden="true">A</span><span class="visually-hidden">Large</span></label>
+          <label><input type="radio" name="size" value="larger" /><span class="reading-settings__a reading-settings__a--larger" aria-hidden="true">A</span><span class="visually-hidden">Larger</span></label>
+        </div>
+      </fieldset>
+      <fieldset class="reading-settings__group">
+        <legend>Font</legend>
+        <div class="reading-settings__options">
+          <label><input type="radio" name="font" value="serif" checked /><span class="reading-settings__serif">Serif</span></label>
+          <label><input type="radio" name="font" value="sans" /><span class="reading-settings__sans">Sans</span></label>
+        </div>
+      </fieldset>
+      <p class="reading-settings__footer">
+        <span class="reading-settings__hint"><kbd>+</kbd> <kbd>-</kbd> change the size</span>
+        <button type="reset" class="reading-settings__reset">Reset</button>
+      </p>
+    </form>
   </div>
 </header>

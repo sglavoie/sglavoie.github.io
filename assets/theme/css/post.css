@@ -450,8 +450,8 @@ article > .article_title h1 {
 /* Body copy is set in the serif; headings, tables, captions and the rest
    of the site stay in the sans. */
 .article_text :is(p, li, dd, dt, blockquote) {
-  font-family: var(--font-serif);
-  font-size: 1.04rem;
+  font-family: var(--font-reading);
+  font-size: calc(1.04rem * var(--reading-scale));
   line-height: 1.7;
   overflow-wrap: break-word;
 }
@@ -488,32 +488,32 @@ article > .article_title h1 {
    and the levels stay distinct when skimming. */
 .article_text h2 {
   margin-top: var(--space-section);
-  font-size: 1.45rem;
+  font-size: calc(1.45rem * var(--reading-scale));
 }
 
 .article_text h3 {
-  font-size: 1.22rem;
+  font-size: calc(1.22rem * var(--reading-scale));
 }
 
 .article_text h4 {
-  font-size: 1.08rem;
+  font-size: calc(1.08rem * var(--reading-scale));
 }
 
 .article_text :is(h5, h6) {
-  font-size: 1rem;
+  font-size: calc(1rem * var(--reading-scale));
 }
 
 @media (min-width: 1024px) {
   .article_text h2 {
-    font-size: 1.7rem;
+    font-size: calc(1.7rem * var(--reading-scale));
   }
 
   .article_text h3 {
-    font-size: 1.35rem;
+    font-size: calc(1.35rem * var(--reading-scale));
   }
 
   .article_text h4 {
-    font-size: 1.15rem;
+    font-size: calc(1.15rem * var(--reading-scale));
   }
 }
 
@@ -647,7 +647,7 @@ article > .article_title h1 {
   border-radius: 6px;
   background-color: var(--code-bg);
   color: var(--code-ink);
-  font-size: 0.9rem;
+  font-size: calc(0.9rem * var(--reading-scale));
   line-height: 1.5;
   tab-size: 4;
 }

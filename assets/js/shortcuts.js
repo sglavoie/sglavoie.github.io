@@ -1,5 +1,6 @@
 // Single-key shortcuts, plus "g" followed by a key to go to a page, listed in the dialog that "?" opens (baseof.html).
 import { selectionURL } from "./fragment.js";
+import { stepTextSize } from "./reading-settings.js";
 import { openSearch } from "./search.js";
 import { toggleTheme } from "./theme.js";
 import { announce } from "./toast.js";
@@ -96,6 +97,9 @@ const actions = {
     pendingGo = Date.now();
   },
   "?": openShortcuts,
+  "+": () => stepTextSize(1),
+  "=": () => stepTextSize(1),
+  "-": () => stepTextSize(-1),
 };
 
 // The second key after "g", pressed within a second.

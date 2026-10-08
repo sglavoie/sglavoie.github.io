@@ -586,3 +586,134 @@ kbd {
   background-color: var(--accent-soft);
   color: var(--ink-primary);
 }
+
+/* ---------- Reading settings (header.html, js/reading-settings.js) ---------- */
+
+/* A popover under the header's buttons, on the right. */
+.reading-settings {
+  inset: calc(var(--header-height) - 0.25rem) max(1rem, calc((100vw - var(--header-max)) / 2 + var(--layout-gutter))) auto auto;
+  width: min(18rem, calc(100vw - 2rem));
+  margin: 0;
+  padding: 1rem 1.1rem;
+  border: 0;
+  border-radius: 10px;
+  background: var(--surface-menu);
+  box-shadow: var(--shadow-soft);
+  color: var(--ink-primary);
+  font-family: var(--font-sans);
+}
+
+.reading-settings__title {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.reading-settings__group {
+  margin: 0 0 0.9rem;
+  padding: 0;
+  border: 0;
+}
+
+.reading-settings__group legend {
+  margin-bottom: 0.35rem;
+  padding: 0;
+  color: var(--ink-muted);
+  font-size: 0.8rem;
+}
+
+.reading-settings__options {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.reading-settings__options label {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.4rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  color: var(--ink-secondary);
+  cursor: pointer;
+  transition: border-color var(--motion-fast) var(--ease-out),
+    background-color var(--motion-fast) var(--ease-out);
+}
+
+.reading-settings__options label:hover {
+  border-color: var(--border-strong);
+  color: var(--ink-primary);
+}
+
+.reading-settings__options label:has(:checked) {
+  border-color: var(--border-strong);
+  background-color: var(--accent-soft);
+  color: var(--accent);
+}
+
+.reading-settings__options label:has(:focus-visible) {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+/* The radios themselves are the labels' boxes. */
+.reading-settings__options input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.reading-settings__a {
+  font-family: var(--font-serif);
+  line-height: 1;
+}
+
+.reading-settings__a--small {
+  font-size: 0.85rem;
+}
+
+.reading-settings__a--large {
+  font-size: 1.15rem;
+}
+
+.reading-settings__a--larger {
+  font-size: 1.3rem;
+}
+
+.reading-settings__serif {
+  font-family: var(--font-serif);
+}
+
+.reading-settings__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.8rem;
+}
+
+.reading-settings__reset {
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  background: none;
+  color: var(--ink-secondary);
+  font: inherit;
+  cursor: pointer;
+}
+
+.reading-settings__reset:hover {
+  border-color: var(--border-strong);
+  color: var(--ink-primary);
+}
+
+/* Phones have no keyboard to press + and -. */
+@media (pointer: coarse) {
+  .reading-settings__hint {
+    visibility: hidden;
+  }
+}

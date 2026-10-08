@@ -84,11 +84,32 @@
   color-scheme: dark;
 }
 
+:root[data-reading-font="sans"] {
+  --font-reading: var(--font-sans);
+}
+
+:root[data-text-size="small"] {
+  --reading-scale: 0.9;
+}
+
+:root[data-text-size="large"] {
+  --reading-scale: 1.12;
+}
+
+:root[data-text-size="larger"] {
+  --reading-scale: 1.25;
+}
+
 :root {
   --font-sans: "Source Sans 3", -apple-system, "Segoe UI", Roboto, "Noto Sans",
     Cantarell, "Helvetica Neue", sans-serif;
   --font-serif: "Source Serif 4", Charter, "Iowan Old Style", Georgia, serif;
   --font-mono: SourceCodePro, "JetBrains Mono", Menlo, Consolas, monospace;
+  /* Article body text, and how large it's set: the reader's choices in
+     the reading settings (js/reading-settings.js), applied to <html> by
+     js/inline/theme.js before the first paint. */
+  --font-reading: var(--font-serif);
+  --reading-scale: 1;
 
   /* Single accent: the logo blue marks what is clickable or current.
      Labels and metadata stay neutral until hovered. */
