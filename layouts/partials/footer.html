@@ -1,5 +1,8 @@
 <footer class="site-footer">
   <div class="site-footer__inner">
+    {{- /* The home intro shows the same avatar, name and links one scroll
+         up, so there the footer keeps only the colophon. */}}
+    {{- if not .IsHome }}
     <div class="site-footer__author">
       {{ partial "avatar.html" (dict "size" 40) }}
       <div>
@@ -13,6 +16,7 @@
         {{- end }}
       </div>
     </div>
+    {{- end }}
     <p class="site-footer__colophon">
       Built with
       <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
