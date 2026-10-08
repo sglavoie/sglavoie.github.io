@@ -40,6 +40,14 @@ hugo --minify && npx -y pagefind --site public
 
 The built site is written to `public/`. Cloudflare Pages runs this exact command (build command in dashboard) with output directory `public`.
 
+### Check links
+
+```bash
+hugo --minify --panicOnWarning --destination /tmp/sglavoie-links-public
+```
+
+`render-link.html` warns about Markdown links to site paths with no page or static file, fragments with no matching heading, and bare domains missing `https://`; `--panicOnWarning` makes any of them fail the build.
+
 ### SEO baseline audit
 
 ```bash

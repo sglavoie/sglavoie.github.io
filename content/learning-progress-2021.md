@@ -293,7 +293,7 @@ author: Sébastien Lavoie
   - [MD5 - A completely broken secure hash algorithm](https://www.youtube.com/watch?v=HWpaz5XsECc)
   - [React JS Course for Beginners - 2021 Tutorial](https://www.youtube.com/watch?v=nTeuhbP7wdE)
   - [Recursion in Programming](https://www.youtube.com/watch?v=IJDJ0kBx2LM)
-  - [Zac Hatfield-Dodds - Escape from auto-manual testing with Hypothesis! - PyCon 2019](youtube.com/watch?v=KcyGUVzL7HA)
+  - [Zac Hatfield-Dodds - Escape from auto-manual testing with Hypothesis! - PyCon 2019](https://www.youtube.com/watch?v=KcyGUVzL7HA)
 
 ## June
 
@@ -303,7 +303,7 @@ author: Sébastien Lavoie
   - **Software Design and Development**
     - Module coupling and cohesion, unit testing, secure programming.
 - Courses:
-  - [Object-Oriented Design](coursera.org/learn/object-oriented-design/): object-oriented analysis and design; object-oriented modelling; design principles; UML class diagrams.
+  - [Object-Oriented Design](https://www.coursera.org/learn/object-oriented-design/): object-oriented analysis and design; object-oriented modelling; design principles; UML class diagrams.
   - [Database Management Essentials](https://www.coursera.org/learn/database-management/): query formulation; set operators; ERD notation; relationship variations; diagram rules; conceptual data modeling; design transformations.
   - [Intermediate PostgreSQL](https://www.coursera.org/learn/intermediate-postgresql): concurrency and transactions; stored procedures; reading and parsing files; loading and normalizing csv data; text functions; character sets; hashing and cryptography; indexes and performance; regular expressions.
 - Articles:
@@ -353,7 +353,7 @@ author: Sébastien Lavoie
   - Don't Make Me Think, Revisited (by Steve Krug): Guiding Principles.
   - Practical LaTeX (by George Grätzer): Mission Impossible; text; text environments.
 - Courses:
-  - [Object-Oriented Design](coursera.org/learn/object-oriented-design/): software architect and design roles in industry.
+  - [Object-Oriented Design](https://www.coursera.org/learn/object-oriented-design/): software architect and design roles in industry.
   - [Database Design and Basic SQL in PostgreSQL](https://www.coursera.org/learn/database-design-postgresql): history of relational databases; SQL architecture; using PythonAnywhere and DBeaver with Postgres; data types in Postgres; database keys and indexes; relational database design; many-to-many relationships.
   - [Database Management Essentials](https://www.coursera.org/learn/database-management/): DB characteristics; organizational roles; DBMS overview and database definition; non-procedural access; transaction processing; data warehouse processing; DBMS technology evolution; basics of relational databases; integrity rules; integrity constraint syntax; SQL overview; `JOIN` with `SELECT`; `GROUP BY`.
   - [Intermediate PostgreSQL](https://www.coursera.org/learn/intermediate-postgresql): altering table schema; dates; `DISTINCT` / `GROUP BY`; `SELECT DISTINCT`; subqueries.

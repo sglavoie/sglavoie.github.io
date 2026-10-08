@@ -219,7 +219,7 @@ between windows is a breeze, so that's how I currently handle the
 situation.</sub>
 
 **Note**: With <code>Neovim</code>, [there is an embedded
-terminal](/posts/2019/01/16/using-embedded-terminals-inside-neovim/),
+terminal](/posts/using-embedded-terminals-inside-neovim/),
 which makes things very easy to handle by avoiding splits altogether.
 In that case, it is also possible to divide a workflow with tabs inside
 <code>Neovim</code> instead of physically splitting windows.

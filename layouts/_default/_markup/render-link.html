@@ -1,0 +1,29 @@
+{{- /* Renders links as Goldmark would, and warns at build time about the
+     ones that can't work: site paths with no page or static file behind
+     them, fragments with no matching heading, and bare domains missing
+     their scheme. `hugo --panicOnWarning` turns the warnings into errors. */ -}}
+{{- $dest := .Destination -}}
+{{- $u := urls.Parse $dest -}}
+{{- $where := .Page.File.Path -}}
+{{- if $u.Scheme -}}
+  {{- /* External, mailto: and the like: nothing to check. */ -}}
+{{- else if hasPrefix $dest "/" -}}
+  {{- $target := site.GetPage (strings.TrimSuffix "/" $u.Path) -}}
+  {{- if $target -}}
+    {{- with $u.Fragment -}}
+      {{- if not ($target.Fragments.Identifiers.Contains .) -}}
+        {{- warnf "%s: link to %q: no heading #%s on that page" $where $dest . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- else if not (fileExists (path.Join "static" $u.Path)) -}}
+    {{- warnf "%s: link to %q: no page or static file at that path" $where $dest -}}
+  {{- end -}}
+{{- else if hasPrefix $dest "#" -}}
+  {{- if not (.Page.Fragments.Identifiers.Contains $u.Fragment) -}}
+    {{- warnf "%s: link to %q: no heading with that id on this page" $where $dest -}}
+  {{- end -}}
+{{- else if findRE `^[\w-]+(\.[\w-]+)+(/|$)` $dest 1 -}}
+  {{- warnf "%s: link to %q looks like a domain missing its https://" $where $dest -}}
+{{- end -}}
+<a href="{{ $dest | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text }}</a>
+{{- /* Keep Goldmark's spacing: no trailing newline after the link. */ -}}

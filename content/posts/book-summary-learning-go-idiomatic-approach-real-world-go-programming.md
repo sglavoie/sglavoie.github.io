@@ -888,7 +888,7 @@ func main() {
 
 ## Declaring and calling them
 
-- Go has no classes, but it has methods (see [chapter 7](#chapter-7-types-methods-and-interfaces)).
+- Go has no classes, but it has methods (see [chapter 7](#types-methods-and-interfaces)).
 - Types are mandatory.
 - The `return` keyword is mandatory (except for `main`) if the function has a return type.
 - Nothing goes between the input parameters and the start of the block if there's no return type.
@@ -935,7 +935,7 @@ func divAndRemainder(numerator int, denominator int) (result int, remainder int,
 ## Functions are values
 
 - Functions can be defined as types, e.g., `type aFuncType func(int, int) int`.
-- Anonymous functions can be defined inside other functions and called immediately (IIFE). This comes in handy when using [`defer`](#defer) and [Goroutines](#chapter-10-concurrency-in-go).
+- Anonymous functions can be defined inside other functions and called immediately (IIFE). This comes in handy when using [`defer`](#defer) and [Goroutines](#concurrency-in-go).
 
 ### Closures
 
