@@ -23,7 +23,7 @@
           {{- if and (eq .label "Topics") $inTopics -}}
             {{- $isActive = true -}}
           {{- end -}}
-          <li>
+          <li{{ if eq .label "Home" }} class="site-nav__item--home"{{ end }}>
             <a
               class="site-nav__link{{ if $isActive }} is-active{{ end }}"
               href="{{ .url }}"
