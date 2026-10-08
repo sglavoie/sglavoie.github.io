@@ -187,6 +187,12 @@ article > .article_title h1 {
   color: var(--ink-secondary);
 }
 
+/* Same treatment as code in the headings these entries repeat. */
+.toc code {
+  font-size: 0.9em;
+  word-spacing: -0.25em;
+}
+
 .toc a:hover,
 .toc a:focus-visible {
   color: var(--link-hover);

@@ -127,9 +127,12 @@ h6 {
   }
 }
 
-/* Monospace runs wide; keep code from outweighing the words in a heading. */
+/* Monospace runs wide; keep code from outweighing the words in a heading.
+   Its space is a full character cell, about twice the serif's, so the
+   words inside close up to match the heading around them. */
 :is(h1, h2, h3, h4, h5, h6) code {
   font-size: 0.85em;
+  word-spacing: -0.25em;
 }
 
 /* ---------- Text ---------- */
