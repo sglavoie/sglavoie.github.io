@@ -19,6 +19,8 @@
       }
     });
 
+    // The sticky header's height: a heading under it counts as passed.
+    const headerOffset = 72;
     const visible = new Set();
     let current = null;
 
@@ -56,13 +58,13 @@
           return;
         }
         const passed = headings.filter(function (h) {
-          return h.getBoundingClientRect().top < 0;
+          return h.getBoundingClientRect().top <= headerOffset;
         });
         setCurrent(
           passed.length ? linkById.get(passed[passed.length - 1].id) : null,
         );
       },
-      { rootMargin: "-72px 0px -55% 0px" },
+      { rootMargin: "-" + headerOffset + "px 0px -55% 0px" },
     );
 
     headings.forEach(function (h) {
