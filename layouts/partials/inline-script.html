@@ -1,0 +1,5 @@
+{{- /* Writes assets/js/inline/<name>.js into the page as an inline script.
+       The Content-Security-Policy in _headers allows it by the hash of
+       the same minified resource (layouts/index.headers). */ -}}
+{{- $script := resources.Get (printf "js/inline/%s.js" .) | minify -}}
+<script>{{ $script.Content | safeJS }}</script>

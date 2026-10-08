@@ -1,0 +1,39 @@
+{{- /* Cloudflare Pages response headers, published as /_headers (see the
+       Headers output format in hugo.toml). Inline scripts are allowed by the
+       hash of the same minified resource that partials/inline-script.html
+       writes into the page; any other inline script is blocked.
+       'wasm-unsafe-eval' is for Pagefind's search, which runs WebAssembly. */ -}}
+{{- $hashes := slice -}}
+{{- range slice "theme" "toc" -}}
+  {{- $script := resources.Get (printf "js/inline/%s.js" .) | minify | fingerprint "sha256" -}}
+  {{- $hashes = $hashes | append (printf "'%s'" $script.Data.Integrity) -}}
+{{- end -}}
+{{- $csp := slice
+  "default-src 'self'"
+  (printf "script-src 'self' 'wasm-unsafe-eval' %s" (delimit $hashes " "))
+  "style-src 'self' 'unsafe-inline'"
+  "img-src 'self' data:"
+  "frame-src https://www.youtube.com https://www.youtube-nocookie.com"
+  "object-src 'none'"
+  "base-uri 'self'"
+  "form-action 'self'"
+  "frame-ancestors 'none'"
+  "upgrade-insecure-requests"
+-}}
+/*
+  Content-Security-Policy: {{ delimit $csp "; " }}
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Link: </.well-known/api-catalog>; rel="api-catalog"
+  Link: </sitemap.xml>; rel="describedby"; type="application/xml"
+  Link: </feeds/sglavoie.atom.xml>; rel="alternate"; type="application/atom+xml"
+  Link: </feeds/sglavoie.rss.xml>; rel="alternate"; type="application/rss+xml"
+  Link: </feeds/sglavoie.json>; rel="alternate"; type="application/feed+json"
+
+/.well-known/api-catalog
+  Content-Type: application/linkset+json
+
+# Browsers check for a new service worker on each visit; never serve a stale one.
+/sw.js
+  Cache-Control: no-cache

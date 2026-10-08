@@ -66,7 +66,7 @@ description = "Posts and writings by Sébastien Lavoie. Customization setups and
     endLevel = 4
 
 [outputs]
-  home = ["HTML", "RSS", "Atom", "JSONFeed"]
+  home = ["HTML", "RSS", "Atom", "JSONFeed", "Headers"]
   section = ["HTML"]
   taxonomy = ["HTML"]
   term = ["HTML", "TermFeed"]
@@ -97,6 +97,17 @@ description = "Posts and writings by Sébastien Lavoie. Customization setups and
   mediaType = "application/feed+json"
   rel = "alternate"
   isPlainText = true
+
+# Cloudflare Pages' _headers file, from layouts/index.headers, so the
+# Content-Security-Policy can carry the hashes of the inline scripts.
+[mediaTypes."text/headers"]
+  suffixes = [""]
+
+[outputFormats.Headers]
+  baseName = "_headers"
+  mediaType = "text/headers"
+  isPlainText = true
+  notAlternative = true
 
 # One RSS feed per tag and category, at /tags/<term>/feed.xml.
 [outputFormats.TermFeed]

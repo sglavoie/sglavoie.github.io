@@ -62,8 +62,8 @@
   </header>
   {{ if $hasToc }}
   <aside id="toc" class="post-reading__toc" aria-labelledby="toc-title" data-pagefind-ignore>
-    {{- /* Collapsed above the article on narrow screens; the script below keeps
-         it open where it becomes the sticky sidebar. */ -}}
+    {{- /* Collapsed above the article on narrow screens; js/inline/toc.js
+         keeps it open where it becomes the sticky sidebar. */ -}}
     <details class="toc-details">
       <summary id="toc-title" class="toc-title">
         On this page
@@ -72,17 +72,7 @@
       <nav class="toc" aria-labelledby="toc-title">{{ .TableOfContents }}</nav>
       <a class="toc-top" href="#top">&uarr; Back to top</a>
     </details>
-    <script>
-      (function () {
-        const details = document.currentScript.previousElementSibling;
-        const sidebar = window.matchMedia("(min-width: 1280px)");
-        function sync() {
-          details.open = sidebar.matches;
-        }
-        sync();
-        sidebar.addEventListener("change", sync);
-      })();
-    </script>
+    {{ partial "inline-script.html" "toc" }}
   </aside>
   {{ end }}
   {{- /* Reading notes quote the book in bullets of italics (_"..."_); whole
