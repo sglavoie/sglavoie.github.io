@@ -11,6 +11,7 @@
   {{ $paginator := .Paginate .Pages }}
   <section class="taxonomy-listing" aria-labelledby="taxonomy-title">
     <header class="article_title discovery-page__header">
+      {{ partial "topics-crumbs.html" . }}
       <h1 id="taxonomy-title">
         {{ if eq .Data.Plural "categories" }}Category: {{ .Title }}{{ else }}Tag: {{ .Title }}{{ end }}
       </h1>

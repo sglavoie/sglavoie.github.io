@@ -1,0 +1,15 @@
+{{- /* Tag and category pages sit under Topics in the nav; the trail says
+     where. Above the h1 on the tags and categories indexes (Topics) and on
+     each term's listing (Topics › Tags). */ -}}
+<nav class="crumbs" aria-label="Breadcrumb">
+  <ol>
+    {{- with site.GetPage "/topics" }}
+    <li><a href="{{ .RelPermalink }}">Topics</a></li>
+    {{- end }}
+    {{- if eq .Kind "term" }}
+      {{- with site.GetPage (printf "/%s" .Data.Plural) }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{- end }}
+    {{- end }}
+  </ol>
+</nav>

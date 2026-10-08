@@ -26,6 +26,34 @@
   }
 }
 
+/* Topics › Tags above a tag or category page's title. */
+.crumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.5em;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  font-size: 0.9rem;
+  list-style: none;
+}
+
+.crumbs li + li::before {
+  content: "\203A";
+  margin-right: 0.5em;
+  color: var(--ink-muted);
+}
+
+.crumbs a,
+.crumbs a:visited {
+  color: var(--ink-secondary);
+}
+
+.crumbs a:hover,
+.crumbs a:focus-visible {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
 .discovery-page__meta {
   margin: 0.45rem 0 0;
   color: var(--ink-muted);
