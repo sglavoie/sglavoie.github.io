@@ -15,4 +15,4 @@ You can also find me on the following websites:
 - [HackerRank](https://www.hackerrank.com/sglavoie)
 - [LinkedIn](https://www.linkedin.com/in/sglavoie/)
 - [Stack Overflow](https://stackoverflow.com/users/8787680/s%c3%a9bastien-lavoie)
-- [X](https://x.com/sgdlavoie)
+- <a href="https://x.com/sgdlavoie">X</a>
