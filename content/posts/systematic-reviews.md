@@ -36,6 +36,8 @@ In reality, I just stuck with the default offerings for maximum compatibility an
 <img src="/images/posts/0037_systematic_reviews/overviewReview.svg" alt="Overview of flow for systematic reviews" />
 </div>
 
+_[PlantUML source of this diagram](/files/posts/0037_systematic_reviews/systematic_reviews_overview.plantuml)_
+
 So the main idea here is very simple: twice a day, a daily review occurs and once a week, a more thorough weekly review is performed. Then, at the end of every month and every year, an even more thorough exploration happens both to reflect on the past and plan for the future.
 
 ---
@@ -45,6 +47,8 @@ So the main idea here is very simple: twice a day, a daily review occurs and onc
 <div class="image">
 <img style="max-width: 60%" src="/images/posts/0037_systematic_reviews/dailyReview.svg" alt="Flow for systematic daily reviews" />
 </div>
+
+_[PlantUML source of this diagram](/files/posts/0037_systematic_reviews/systematic_reviews_daily.plantuml)_
 
 The purpose behind the daily review is twofold:
 
@@ -80,6 +84,8 @@ The weekly review is a bit more involved, but it is still quite simple. The main
 <div class="image">
 <img src="/images/posts/0037_systematic_reviews/weeklyReview.svg" alt="Flow for systematic weekly reviews" />
 </div>
+
+_[PlantUML source of this diagram](/files/posts/0037_systematic_reviews/systematic_reviews_weekly.plantuml)_
 
 This probably looks more intimidating than it really is. I usually go through the whole process in under an hour. That may sound like a lot, but it really helps to declutter my mind while giving me the assurance I did my best to plan for the upcoming week. I also like to do this on Sunday mornings, so that I can start the week with clear focus. All in all, I find that this is a great investment and it becomes especially true if I adhere to doing it in the mornings right after I have a delicious cup of freshly ground coffee (but at least 90 to 120 minutes after waking up: again, see Huberman to get fantastic explanations on why this is ideal).
 

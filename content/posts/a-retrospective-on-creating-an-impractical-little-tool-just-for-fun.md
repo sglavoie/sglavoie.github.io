@@ -32,6 +32,8 @@ To put things in perspective, this tool was never really under active developmen
 <img src="/images/posts/0030_a_retrospective_on_creating_an_impractical_little_tool_just_for_fun/diagram.svg" alt="ugc's development timeline" class="max-size-img-post" style="min-width: 1800px" />
 </div>
 
+_[Mermaid source of this diagram](/files/posts/0030_a_retrospective_on_creating_an_impractical_little_tool_just_for_fun/diagram.txt)_
+
 ## Vim magic behind the scenes
 
 While the chart itself is neither the prettiest nor the most interesting, the _how_ of it has a possibly more entertaining story attached to it:
