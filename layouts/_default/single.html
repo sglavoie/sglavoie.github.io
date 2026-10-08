@@ -99,6 +99,9 @@
     </p>
     {{- end }}
   </header>
+  {{- if .Params.learning_log }}
+  {{ partial "learning-log.html" . }}
+  {{- end }}
   <div class="article_text">{{ partial "responsive-images.html" .Content | safeHTML }}</div>
 </article>
 {{ end }}

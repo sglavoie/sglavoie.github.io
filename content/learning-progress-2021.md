@@ -4,6 +4,7 @@ date: "2022-06-18T14:22:00"
 slug: learning-progress-2021
 url: /learning-progress-2021/
 author: Sébastien Lavoie
+learning_log: true
 ---
 > Learning is an eternal path. I wanted to share my own
 > adventure primarily for the following practical reasons: to

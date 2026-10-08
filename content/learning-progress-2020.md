@@ -4,6 +4,7 @@ date: "2020-12-30T16:25:00"
 slug: learning-progress-2020
 url: /learning-progress-2020/
 author: Sébastien Lavoie
+learning_log: true
 ---
 > Learning is an eternal path. I wanted to share my own adventure
 > primarily for the following practical reasons: to help me remember

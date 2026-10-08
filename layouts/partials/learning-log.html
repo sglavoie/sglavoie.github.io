@@ -1,0 +1,109 @@
+{{- /* Above a learning log (`learning_log: true`): links to the other years,
+     a calendar of the year with one square per day, shaded by how many
+     entries the day has and linking to it, and a filter that
+     js/learning-log.js shows and runs. The log itself is "## Month"
+     sections, newest first, of "### day" sections or, when a month isn't
+     split in days, of entries directly. All of it is read from the
+     rendered content, so the log stays plain Markdown. */ -}}
+{{- $year := int (index (findRE `\d{4}` .Title 1) 0) -}}
+{{- $monthNumbers := dict
+  "january" 1 "february" 2 "march" 3 "april" 4 "may" 5 "june" 6
+  "july" 7 "august" 8 "september" 9 "october" 10 "november" 11 "december" 12
+-}}
+{{- /* Months by number: heading id, name, entries (list items, nested ones
+     included), and the days logged, by "MM-DD", with their heading id and
+     entries. */ -}}
+{{- $months := dict -}}
+{{- $dayTotal := 0 -}}
+{{- range after 1 (split (string .Content) "<h2 ") -}}
+  {{- $section := . -}}
+  {{- with index (findRESubmatch `^id="([^"]+)"[^>]*>([^<]+)` $section 1) 0 -}}
+    {{- $id := index . 1 -}}
+    {{- $name := index . 2 | strings.TrimSpace -}}
+    {{- with index $monthNumbers (lower $name) -}}
+      {{- $number := . -}}
+      {{- $days := dict -}}
+      {{- range after 1 (split $section "<h3 ") -}}
+        {{- $entries := len (findRE `<li>` .) -}}
+        {{- with index (findRESubmatch `^id="([^"]+)"[^>]*>\s*(\d+)` . 1) 0 -}}
+          {{- $key := printf "%02d-%02d" $number (int (index . 2)) -}}
+          {{- $days = merge $days (dict $key (dict "id" (index . 1) "entries" $entries)) -}}
+        {{- end -}}
+      {{- end -}}
+      {{- $dayTotal = add $dayTotal (len $days) -}}
+      {{- $months = merge $months (dict (printf "%02d" $number) (dict
+        "id" $id
+        "name" $name
+        "number" $number
+        "entries" (len (findRE `<li>` $section))
+        "days" $days
+      )) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* A day's shade, 1 to 4: the least entries for each. */ -}}
+{{- $levels := slice 1 3 5 8 -}}
+
+<section class="learning-log" aria-label="Overview of the log" data-pagefind-ignore>
+  {{- $logs := where site.Pages "Params.learning_log" true }}
+  {{- if gt (len $logs) 1 }}
+  <nav class="learning-log__years meta-row" aria-label="Other years">
+    {{- range $logs.ByTitle }}
+    {{- $label := replaceRE `^Learning Progress ` "" .Title }}
+    {{- if eq .RelPermalink $.RelPermalink }}
+    <span aria-current="page">{{ $label }}</span>
+    {{- else }}
+    <a href="{{ .RelPermalink }}">{{ $label }}</a>
+    {{- end }}
+    {{- end }}
+  </nav>
+  {{- end }}
+
+  <p class="learning-log__summary">
+    {{- $monthCount := len $months }}
+    {{- $monthWord := cond (eq $monthCount 1) "month" "months" }}
+    {{- if $dayTotal }}
+    {{ $dayTotal }} days logged over {{ $monthCount }} {{ $monthWord }} of {{ $year }}.
+    {{- else }}
+    {{ $monthCount }} {{ $monthWord }} logged in {{ $year }}.
+    {{- end }}
+  </p>
+
+  {{- /* Months in order, each a grid of its days: a week per column, Sunday
+       on top, as most calendars of activity. */}}
+  <ol class="learning-log__calendar">
+    {{- range $months }}
+    {{- $month := . }}
+    {{- $first := time.AsTime (printf "%d-%02d-01T00:00:00" $year .number) }}
+    {{- $length := ($first.AddDate 0 1 -1).Day }}
+    <li class="learning-log__month">
+      <a class="learning-log__month-name" href="#{{ .id }}">{{ substr .name 0 3 }}<span class="visually-hidden">{{ substr .name 3 }}</span></a>
+      {{- if .days }}
+      <div class="learning-log__days" style="--first-weekday: {{ add (int $first.Weekday) 1 }}">
+        {{- range seq $length }}
+        {{- $date := $first.AddDate 0 0 (sub . 1) }}
+        {{- with index $month.days ($date.Format "01-02") }}
+        {{- $entries := .entries }}
+        {{- $level := 1 }}
+        {{- range $i, $least := $levels }}{{ if ge $entries $least }}{{ $level = add $i 1 }}{{ end }}{{ end }}
+        <a class="learning-log__day" href="#{{ .id }}" data-level="{{ $level }}" title="{{ $date.Format "January 2" }}: {{ $entries }} {{ cond (eq $entries 1) "entry" "entries" }}"><span class="visually-hidden">{{ $date.Format "January 2" }}</span></a>
+        {{- else }}
+        <span class="learning-log__day"></span>
+        {{- end }}
+        {{- end }}
+      </div>
+      {{- else }}
+      <span class="learning-log__month-entries">{{ .entries }} entries</span>
+      {{- end }}
+    </li>
+    {{- end }}
+  </ol>
+
+  {{- /* Shown by js/learning-log.js; ?q= fills it. */}}
+  <div class="learning-log__filter" hidden>
+    <label for="learning-log-filter">Filter the log</label>
+    <input id="learning-log-filter" type="search" placeholder="Django, Vim, a book…" autocomplete="off" spellcheck="false" />
+    <p class="learning-log__matches" aria-live="polite"></p>
+  </div>
+</section>

@@ -4,6 +4,7 @@ date: "2022-06-18T14:22:00"
 slug: learning-progress-2018-earlier
 url: /learning-progress-2018-earlier/
 author: Sébastien Lavoie
+learning_log: true
 ---
 ## December
 

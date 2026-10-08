@@ -508,3 +508,133 @@
 .not-found__suggestions .section-label {
   margin-bottom: 0.5rem;
 }
+
+/* ---------- Learning logs (partials/learning-log.html) ---------- */
+
+.learning-log {
+  margin: 0 0 var(--space-block);
+}
+
+.learning-log__years {
+  margin-bottom: 1rem;
+}
+
+.learning-log__years [aria-current] {
+  color: var(--ink-primary);
+  font-weight: 600;
+}
+
+.learning-log__summary {
+  margin: 0 0 1rem;
+  color: var(--ink-secondary);
+}
+
+.learning-log__calendar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.1rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.learning-log__month {
+  display: grid;
+  align-content: start;
+  gap: 0.35rem;
+}
+
+.learning-log__month-name,
+.learning-log__month-entries {
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.learning-log__month-name:hover,
+.learning-log__month-name:focus-visible {
+  color: var(--link-hover);
+}
+
+/* A week per column, Sunday on top; the first day starts on its weekday. */
+.learning-log__days {
+  --day-size: 0.62rem;
+  display: grid;
+  grid-auto-columns: var(--day-size);
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, var(--day-size));
+  gap: 2px;
+}
+
+.learning-log__day {
+  border-radius: 2px;
+  background-color: var(--surface-raised);
+}
+
+.learning-log__day:first-child {
+  grid-row-start: var(--first-weekday, 1);
+}
+
+.learning-log__day[data-level="1"] {
+  background-color: color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+.learning-log__day[data-level="2"] {
+  background-color: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.learning-log__day[data-level="3"] {
+  background-color: color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+.learning-log__day[data-level="4"] {
+  background-color: var(--accent);
+}
+
+a.learning-log__day:hover,
+a.learning-log__day:focus-visible {
+  outline: 2px solid var(--ink-primary);
+  outline-offset: 1px;
+}
+
+/* Days the filter leaves out fade, so the calendar shows where it matches. */
+.learning-log__day.is-filtered-out {
+  opacity: 0.2;
+}
+
+.learning-log__filter label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.learning-log__filter input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  background-color: var(--surface-page);
+  color: var(--ink-primary);
+  font: inherit;
+  appearance: none;
+}
+
+.learning-log__filter input::placeholder {
+  color: var(--ink-muted);
+  opacity: 1;
+}
+
+.learning-log__filter input:focus {
+  border-color: var(--border-strong);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.learning-log__matches {
+  min-height: 1.5em;
+  margin: 0.4rem 0 0;
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+}
