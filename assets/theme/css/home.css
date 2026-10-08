@@ -227,13 +227,10 @@ main .home-featured__card:hover .home-featured__title {
   text-decoration: underline;
 }
 
-/* Long reads carry their reading time in a soft accent pill, the one
-   tinted item in the row. */
+/* Long reads carry their reading time in the accent, the one tinted item
+   in the row; a filled pill outshone the title in dark mode. */
 .article-card__badge {
-  padding: 0.05em 0.55em;
-  border-radius: 999px;
-  background-color: var(--accent-pill);
-  color: var(--accent-strong);
+  color: var(--accent);
   white-space: nowrap;
 }
 
