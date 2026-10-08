@@ -2,9 +2,10 @@
 // note beside it, so reading it doesn't mean jumping to the end of the post
 // and back. A click still jumps there.
 
+import { placeCard } from "./hover-card.js";
+
 const showDelay = 150;
 const hideDelay = 250;
-const margin = 16;
 
 export function initFootnotes() {
   const refs = document.querySelectorAll(".article_text a.footnote-ref");
@@ -21,18 +22,6 @@ export function initFootnotes() {
   let timer = 0;
   let current = null;
 
-  function place(ref) {
-    const box = ref.getBoundingClientRect();
-    const width = preview.offsetWidth;
-    const height = preview.offsetHeight;
-    const left = Math.max(margin, Math.min(box.left + box.width / 2 - width / 2, window.innerWidth - width - margin));
-    // Below the reference, or above it when that's where the room is.
-    const below = box.bottom + 8;
-    const top = below + height > window.innerHeight - margin && box.top - height - 8 > margin ? box.top - height - 8 : below;
-    preview.style.left = left + window.scrollX + "px";
-    preview.style.top = top + window.scrollY + "px";
-  }
-
   function show(ref) {
     const note = document.getElementById(decodeURIComponent(ref.hash.slice(1)));
     if (!note) {
@@ -46,7 +35,7 @@ export function initFootnotes() {
     current?.removeAttribute("aria-describedby");
     current = ref;
     ref.setAttribute("aria-describedby", preview.id);
-    place(ref);
+    placeCard(preview, ref);
   }
 
   function hide() {

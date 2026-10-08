@@ -1577,6 +1577,45 @@ article > .article_title h1 {
   margin-bottom: 0;
 }
 
+/* Link previews (js/link-previews.js) share the footnote card. */
+.link-preview {
+  max-width: min(24rem, calc(100vw - 2rem));
+}
+
+.link-preview p {
+  margin: 0;
+}
+
+.link-preview__title {
+  color: var(--ink-primary);
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.link-preview__section:not(:empty) {
+  margin-top: 0.15rem;
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+
+.link-preview__description {
+  display: -webkit-box;
+  margin-top: 0.4rem;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+}
+
+.link-preview__meta {
+  margin-top: 0.5rem;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
 /* Saved: the button stays, marked, to remove the post again. */
 .post-footer__actions [data-save][aria-pressed="true"]::before {
   content: "✓ ";

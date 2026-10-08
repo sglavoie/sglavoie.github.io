@@ -1,0 +1,15 @@
+{{- /* /posts/previews.json: what a link to a post shows when pointed at
+     (js/link-previews.js), for every post, keyed by its path. */ -}}
+{{- $previews := dict -}}
+{{- range .RegularPages -}}
+  {{- $category := "" -}}
+  {{- with .GetTerms "categories" }}{{ $category = (index . 0).Title }}{{ end -}}
+  {{- $previews = merge $previews (dict .RelPermalink (dict
+    "title" (.Title | plainify | htmlUnescape)
+    "description" (.Description | plainify | htmlUnescape)
+    "date" (.Date.Format "Jan 2, 2006")
+    "minutes" .ReadingTime
+    "category" $category
+  )) -}}
+{{- end -}}
+{{- $previews | jsonify -}}

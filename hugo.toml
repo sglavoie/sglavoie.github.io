@@ -82,7 +82,8 @@ description = "Posts and writings by Sébastien Lavoie. Customization setups and
 
 [outputs]
   home = ["HTML", "RSS", "Atom", "JSONFeed", "Headers", "OpenSearch", "LLMS"]
-  section = ["HTML"]
+  # Only posts is a section; previews.json is what links to them preview.
+  section = ["HTML", "Previews"]
   taxonomy = ["HTML"]
   term = ["HTML", "TermFeed"]
 
@@ -124,6 +125,14 @@ description = "Posts and writings by Sébastien Lavoie. Customization setups and
 [outputFormats.LLMS]
   baseName = "llms"
   mediaType = "text/plain"
+  isPlainText = true
+  notAlternative = true
+
+# Titles, descriptions and reading times of the posts, for link previews
+# (_default/section.previews.json, js/link-previews.js).
+[outputFormats.Previews]
+  baseName = "previews"
+  mediaType = "application/json"
   isPlainText = true
   notAlternative = true
 
