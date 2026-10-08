@@ -1,0 +1,6 @@
+{{- /* Paragraphs of placeholder text, {{< filler 8 >}}, so the feature
+     fixture (content/posts/feature-fixture.md) reaches the reading time of
+     the long posts that get collapsible sections. */ -}}
+{{- range seq (.Get 0 | default 4) }}
+<p>Placeholder text stands in for the body of a long post. It carries no meaning of its own: its only job is to be long enough that the features meant for long posts turn on, so they can be looked at and checked in one place. Sections collapse once a post takes a quarter of an hour to read, the section bar names where the reader is on narrow screens, the table of contents dims what has been read, and the reading position is remembered on the way out. Each of those needs words to work with, and here they are, repeated as many times as it takes.</p>
+{{- end }}
