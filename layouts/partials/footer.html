@@ -1,17 +1,23 @@
 <footer class="site-footer">
   <div class="site-footer__inner">
-    <p>
+    <div class="site-footer__author">
+      {{ partial "avatar.html" (dict "size" 40) }}
+      <div>
+        <p class="site-footer__name">{{ .Site.Params.author }}</p>
+        {{- with site.Params.intro_links }}
+        <ul class="site-footer__links meta-row" aria-label="Elsewhere">
+          {{- range . }}
+          <li><a href="{{ .url | relURL }}">{{ .name }}</a></li>
+          {{- end }}
+        </ul>
+        {{- end }}
+      </div>
+    </div>
+    <p class="site-footer__colophon">
       Built with
       <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
-      by {{ .Site.Params.author }} &middot;
+      &middot;
       <a href="https://github.com/sglavoie/sglavoie.github.io/blob/main/LICENSE">MIT Licensed</a>
     </p>
-    {{- with site.Params.intro_links }}
-    <ul class="site-footer__links meta-row" aria-label="Elsewhere">
-      {{- range . }}
-      <li><a href="{{ .url | relURL }}">{{ .name }}</a></li>
-      {{- end }}
-    </ul>
-    {{- end }}
   </div>
 </footer>
