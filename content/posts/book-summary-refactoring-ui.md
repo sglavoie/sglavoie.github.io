@@ -4,6 +4,7 @@ date: "2023-09-09T17:56:00"
 lastmod: "2024-06-13T19:09:00"
 slug: book-summary-refactoring-ui
 author: Sébastien Lavoie
+book_author: "Adam Wathan & Steve Schoger"
 summary: "[Refactoring UI](https://www.refactoringui.com/) provides guidance for non-designers on how to create polished, professional visual interfaces without formal graphic design skills."
 description: Refactoring UI provides guidance for non-designers on how to create polished, professional visual interfaces without formal graphic design skills.
 tags:

@@ -3,6 +3,7 @@ title: "Book summary: Dive into Design Patterns"
 date: "2024-03-09T12:53:00"
 slug: book-summary-dive-into-design-patterns
 author: Sébastien Lavoie
+book_author: "Alexander Shvets"
 summary: "Dive into the essentials of software engineering with this excellent book by [Alexander Shvets](https://refactoring.guru). From the foundational _SOLID_ principles to _Creational_, _Structural_, and _Behavioral_ patterns, this book shines a light on the pathways to crafting robust, scalable, and maintainable software. It's ideal for both novice and seasoned developers, offering practical insights and examples to navigate the complexities of software design."
 description: A concise summary of Dive into Design Patterns, covering SOLID fundamentals and the design patterns most useful for building maintainable software.
 tags:

@@ -10,6 +10,7 @@
           <a class="article-card__category meta-row__term" href="{{ .RelPermalink }}">{{ .Title }}</a>
         {{ end }}
       {{ end }}
+      {{- partial "book-label.html" . }}
       {{ with .ReadingTime }}
         {{- if ge . 30 }}
         <span class="article-card__badge">Deep dive &middot; {{ partial "reading-time.html" $ }}</span>

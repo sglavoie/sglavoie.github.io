@@ -4,6 +4,7 @@ date: "2021-11-08T10:12:00"
 lastmod: "2023-04-16T15:04:00"
 slug: book-summary-letters-to-a-new-developer
 author: Sébastien Lavoie
+book_author: "Dan Moore"
 summary: "If you are still early in your career as a software developer (or not so much!), I think you might enjoy reading _Letters to a New Developer: What I Wish I Had Known When Starting My Development Career_ written by Dan Moore, who also features [a very insightful blog](https://letterstoanewdeveloper.com/)."
 description: "If you are still early in your career as a software developer (or not so much!), I think you might enjoy reading Letters to a New Developer: What I Wish I Had Known When Starting My Development Career written by Dan Moore, who also features a very insightful blog."
 tags:

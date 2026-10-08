@@ -4,6 +4,7 @@ date: "2023-04-16T14:49:00"
 lastmod: "2024-06-13T19:11:00"
 slug: book-summary-the-effective-engineer
 author: Sébastien Lavoie
+book_author: "Edmond Lau"
 summary: After reading [Letters to a New Developer](/posts/book-summary-letters-to-a-new-developer/), one of the next logical steps on this learning path was to read [The Effective Engineer][effective-website]. I hope you enjoy this simple yet effective book summary!
 description: After reading Letters to a New Developer, one of the next logical steps on this learning path was to read The Effective Engineer. I hope you enjoy this simple yet effective book summary!
 tags:

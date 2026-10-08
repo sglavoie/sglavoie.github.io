@@ -36,6 +36,7 @@
           <span class="home-featured__category meta-row__term">{{ .Title }}</span>
             {{- end }}
           {{- end }}
+          {{- partial "book-label.html" . }}
           <span>{{ partial "reading-time.html" . }}</span>
         </span>
       </a>

@@ -4,6 +4,7 @@ date: "2023-10-20T20:08:00"
 lastmod: "2024-05-28T20:11:00"
 slug: book-summary-learning-go-idiomatic-approach-real-world-go-programming
 author: Sébastien Lavoie
+book_author: "Jon Bodner"
 summary: "[Learning Go](https://www.oreilly.com/library/view/learning-go/9781492077206/) is a book that teaches idiomatic Go style and best practices through concrete examples. It covers fundamental features like types and control flow, as well as more advanced topics like concurrency and reflection. The goal is to help readers write clear, readable, robust Go code. I think it succeeded at that!"
 description: Learning Go is a book that teaches idiomatic Go style and best practices through concrete examples. It covers fundamental features like types and control flow, as well as more advanced topics like concurrency and reflection. The goal is to help readers write clear, readable, robust Go code. I think it succeeded at that!
 tags:

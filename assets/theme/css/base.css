@@ -226,6 +226,18 @@ img {
   line-height: 1.4;
 }
 
+.book-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  color: var(--ink-secondary);
+}
+
+.book-icon {
+  flex-shrink: 0;
+  opacity: 0.75;
+}
+
 .meta-row > * + *::before {
   content: "·";
   position: absolute;

@@ -3,6 +3,7 @@ title: "Book summary: 100 Go Mistakes and How to Avoid Them"
 date: "2024-08-24T14:55:00"
 slug: book-summary-100-go-mistakes-and-how-to-avoid-them
 author: Sébastien Lavoie
+book_author: "Teiva Harsanyi"
 summary: "_100 Go Mistakes and How to Avoid Them_ is a truly insightful book by [Teiva Harsanyi](https://teivah.dev/) that covers common mistakes made by Go developers. This summary provides a high-level overview of the book's content."
 description: Skimming notes from 100 Go Mistakes and How to Avoid Them, highlighting practical pitfalls, patterns, and lessons for Go developers.
 tags:

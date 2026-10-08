@@ -3,6 +3,7 @@ title: "Reading notes: A Philosophy of Software Design, 2nd Edition"
 date: "2025-03-30T11:18:00"
 slug: book-summary-philosophy-software-design-2nd-edition
 author: Sébastien Lavoie
+book_author: "John Ousterhout"
 summary: "_A Philosophy of Software Design, 2nd Edition_ by [John Osterhout](https://en.wikipedia.org/wiki/John_Ousterhout) beautifully covers the nature of complexity in software. It provides clear strategies to keep complexity as low as possible while giving real-world examples along the way from his own work (e.g., [RAMCloud](https://ramcloud.atlassian.net/wiki/spaces/RAM/overview) or the [Tcl](https://en.wikipedia.org/wiki/Tcl) programming language). He also gathered, for instance, interesting sources of various designs for a GUI text editor from his students, highlighting essential points to keep in mind while designing software."
 description: Reading notes from A Philosophy of Software Design, 2nd Edition, focused on reducing complexity, designing deeper modules, and writing clearer software.
 tags:

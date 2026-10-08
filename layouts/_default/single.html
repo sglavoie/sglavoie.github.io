@@ -23,6 +23,7 @@
       <a class="post-reading__category meta-row__term" href="{{ .RelPermalink }}">{{ .Title }}</a>
         {{- end }}
       {{- end }}
+      {{- partial "book-label.html" . }}
       {{- if .ReadingTime }}
       <span>{{ partial "reading-time.html" . }}</span>
       {{- end }}

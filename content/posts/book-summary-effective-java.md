@@ -3,6 +3,7 @@ title: "Book summary: Effective Java"
 date: "2023-06-11T18:15:00"
 slug: book-summary-effective-java
 author: Sébastien Lavoie
+book_author: "Joshua Bloch"
 summary: "The following are some notes I have taken while reading [Effective Java](https://www.oreilly.com/library/view/effective-java-3rd/9780134686097/) (Third Edition), written by Joshua Bloch. Each item is an actual heading taken verbatim from the book, while the bullet points are my rehash of the original content."
 description: The following are some notes I have taken while reading Effective Java (Third Edition), written by Joshua Bloch. Each item is an actual heading taken verbatim from the book, while the bullet points are my rehash of the original content.
 tags:
