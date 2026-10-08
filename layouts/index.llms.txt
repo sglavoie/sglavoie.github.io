@@ -1,0 +1,16 @@
+{{- /* /llms.txt (https://llmstxt.org/): what the site is, and every post
+     by category, linked to its Markdown copy (single.markdown.md). */ -}}
+# {{ site.Title }}
+
+> {{ site.Params.intro }}
+
+{{ site.Params.description }} Each post below links to a Markdown copy of its text; the web page is at the same address without `index.md`. Full-text feeds: {{ "feeds/sglavoie.atom.xml" | absURL }} (Atom), {{ "feeds/sglavoie.json" | absURL }} (JSON Feed).
+{{ range site.Taxonomies.categories.Alphabetical }}
+## {{ .Page.Title }}
+{{ range .Pages.ByDate.Reverse }}
+{{- $post := . }}
+{{- with .OutputFormats.Get "markdown" }}
+- [{{ $post.Title }}]({{ .Permalink }}){{ with $post.Description }}: {{ . | plainify | htmlUnescape }}{{ end }}
+{{- end }}
+{{- end }}
+{{ end }}

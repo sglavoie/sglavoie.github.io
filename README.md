@@ -83,6 +83,7 @@ Cloudflare's `_headers` file is generated from `layouts/index.headers`, so its C
 - **By the numbers:** `/stats/` (linked from the archives) counts posts, words and reading time, per year, category and tag, and lists the longest posts, all at build time.
 - **Linked from:** a post lists the pages whose text links to it, newest first, above its related posts, which leave those pages out.
 - **Skip link:** the first Tab on any page offers "Skip to content", which moves focus past the header to `<main id="main">`.
+- **Markdown copies:** every post is also published as Markdown at `index.md` beside its page (`_default/single.markdown.md`), with its shortcodes rendered and links to the site made absolute, and `/llms.txt` lists them by category, for tools that would rather read text than HTML. Pages link to theirs with `<link rel="alternate" type="text/markdown">`.
 - **Fixing a post:** each post links to its file on GitHub to suggest an edit, and to a new issue to report a problem (`params.repo` in `hugo.toml`).
 
 ### SEO baseline audit

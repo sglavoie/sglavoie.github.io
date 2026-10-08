@@ -81,7 +81,7 @@ description = "Posts and writings by Sébastien Lavoie. Customization setups and
     endLevel = 4
 
 [outputs]
-  home = ["HTML", "RSS", "Atom", "JSONFeed", "Headers", "OpenSearch"]
+  home = ["HTML", "RSS", "Atom", "JSONFeed", "Headers", "OpenSearch", "LLMS"]
   section = ["HTML"]
   taxonomy = ["HTML"]
   term = ["HTML", "TermFeed"]
@@ -112,6 +112,20 @@ description = "Posts and writings by Sébastien Lavoie. Customization setups and
   mediaType = "application/feed+json"
   rel = "alternate"
   isPlainText = true
+
+# Posts also as Markdown, at index.md beside their page
+# (_default/single.markdown.md).
+[[cascade]]
+  outputs = ["HTML", "Markdown"]
+  [cascade.target]
+    path = "{/posts/**}"
+
+# The site and its posts for language models (https://llmstxt.org/).
+[outputFormats.LLMS]
+  baseName = "llms"
+  mediaType = "text/plain"
+  isPlainText = true
+  notAlternative = true
 
 # Lets browsers search the site from the address bar (/opensearch.xml).
 [mediaTypes."application/opensearchdescription+xml"]

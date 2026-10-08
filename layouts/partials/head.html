@@ -84,6 +84,9 @@
     rel="alternate"
     title="{{ .Site.Title }} JSON Feed"
   />
+  {{- with .OutputFormats.Get "markdown" }}
+  <link href="{{ .Permalink }}" type="text/markdown" rel="alternate" title="{{ $.Title }} (Markdown)" />
+  {{- end }}
   {{- with .OutputFormats.Get "termfeed" }}
   <link href="{{ .Permalink }}" type="application/rss+xml" rel="alternate" title="{{ site.Title }}: {{ $.Title }} RSS" />
   {{- end }}
