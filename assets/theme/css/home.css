@@ -161,6 +161,19 @@ main .home-featured__card:hover .home-featured__title {
   line-height: 1.55;
 }
 
+/* On a phone the full teaser runs five lines under a three-line title, and
+   the three picks fill two screens; two lines is enough to say what each
+   one is about. */
+@media (max-width: 599px) {
+  .home-featured__teaser {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+}
+
 .home-featured__meta {
   font-size: 0.75rem;
 }
