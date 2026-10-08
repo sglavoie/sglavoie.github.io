@@ -1,5 +1,6 @@
 // Highlights the table-of-contents entry for the section being read, and
-// names it in the section bar on narrow screens (single.html).
+// names it in the section bar on narrow screens (single.html), with the
+// minutes left to read.
 export function initTocScrollspy() {
   const links = Array.from(
     document.querySelectorAll('.post-reading__toc a[href^="#"]'),
@@ -93,6 +94,31 @@ export function initTocScrollspy() {
     }
     sectionBar.hidden =
       !current || headings[0].getBoundingClientRect().top > headerOffset;
+  }
+
+  // The post's reading time, by how far down the article the reader is.
+  const article = document.querySelector(".article_text");
+  const sectionBarLeft = sectionBar && sectionBar.querySelector(".section-bar__left");
+  const minutes = sectionBar ? Number(sectionBar.dataset.readingMinutes) || 0 : 0;
+  let leftFrame = 0;
+  function updateTimeLeft() {
+    leftFrame = 0;
+    if (sectionBar.hidden) {
+      return;
+    }
+    const box = article.getBoundingClientRect();
+    const fraction = Math.min(1, Math.max(0, -box.top / Math.max(1, box.height - window.innerHeight)));
+    const left = Math.ceil(minutes * (1 - fraction));
+    sectionBarLeft.textContent = left > 0 ? left + " min left" : "";
+  }
+  if (sectionBarLeft && article && minutes) {
+    window.addEventListener(
+      "scroll",
+      function () {
+        leftFrame = leftFrame || requestAnimationFrame(updateTimeLeft);
+      },
+      { passive: true },
+    );
   }
 
   // The bar leads to the table of contents, opened.

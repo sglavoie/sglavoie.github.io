@@ -1153,6 +1153,15 @@ article > .article_title h1 {
     white-space: nowrap;
   }
 
+  .section-bar__left {
+    flex-shrink: 0;
+    margin-left: auto;
+    color: var(--ink-muted);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+
   .section-bar:hover .section-bar__current {
     color: var(--link-hover);
   }

@@ -16,11 +16,12 @@
   <div class="reading-progress" aria-hidden="true"></div>
   {{- if $hasToc }}
   {{- /* Narrow screens have no sidebar: once the reader is into the article,
-       this bar names the section they're in and leads back to the table of
-       contents. js/toc.js fills and shows it. */}}
-  <a class="section-bar" href="#toc" hidden data-pagefind-ignore>
+       this bar names the section they're in, with the minutes left, and
+       leads back to the table of contents. js/toc.js fills and shows it. */}}
+  <a class="section-bar" href="#toc" hidden data-pagefind-ignore data-reading-minutes="{{ .ReadingTime }}">
     <span class="section-bar__hint">On this page</span>
     <span class="section-bar__current"></span>
+    <span class="section-bar__left"></span>
   </a>
   {{- end }}
   <header class="post-reading__header">
