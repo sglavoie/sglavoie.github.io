@@ -1,3 +1,5 @@
+import { readProgress } from "./reading.js";
+
 // Registers the service worker that keeps pages for offline reading
 // (static/sw.js). Not under `hugo server`, whose files aren't fingerprinted
 // and change on every edit.
@@ -46,6 +48,7 @@ export async function initSavedPages() {
       }),
     );
     const list = section.querySelector("ul");
+    const progress = readProgress();
     pages
       .filter((page) => page.url !== "/offline/")
       .sort((a, b) => a.title.localeCompare(b.title))
@@ -55,6 +58,14 @@ export async function initSavedPages() {
         link.href = page.url;
         link.textContent = page.url === "/" ? "Home" : page.title.replace(/^sglavoie\.com – /, "");
         item.appendChild(link);
+        // Posts left part way (reading.js).
+        const read = progress[page.url];
+        if (read) {
+          const meta = document.createElement("span");
+          meta.className = "post-footer__related-meta";
+          meta.textContent = Math.round(read.fraction * 100) + "% read";
+          item.appendChild(meta);
+        }
         list.appendChild(item);
       });
     section.hidden = !list.children.length;

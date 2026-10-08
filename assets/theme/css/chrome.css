@@ -506,3 +506,57 @@ kbd {
   opacity: 1;
   transform: translate(-50%, 0);
 }
+
+/* Offers to go back to the section a post was left at (js/reading.js). */
+.resume-prompt {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: calc(100vw - 2rem);
+  padding: 0.35rem 0.4rem 0.35rem 0.9rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  background-color: var(--surface-menu);
+  box-shadow: var(--shadow-soft);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: translate(-50%, 0.5rem);
+  transition: opacity var(--motion-fast) var(--ease-out),
+    transform var(--motion-fast) var(--ease-out);
+}
+
+.resume-prompt[data-visible] {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.resume-prompt__jump {
+  overflow: hidden;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.resume-prompt__close {
+  flex: none;
+  padding: 0.1rem 0.45rem;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  color: var(--ink-muted);
+  font: inherit;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.resume-prompt__close:hover,
+.resume-prompt__close:focus-visible {
+  background-color: var(--accent-soft);
+  color: var(--ink-primary);
+}
