@@ -254,6 +254,19 @@ img {
   opacity: 1;
 }
 
+/* After a post's title in lists: read to the end, or how far (reading.js).
+   Inside the link, so it's read out with the title; inline-block keeps the
+   link's underline off it. */
+.read-mark {
+  display: inline-block;
+  margin-left: 0.5em;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: normal;
+  white-space: nowrap;
+}
+
 .meta-row > * + *::before {
   content: "·";
   position: absolute;

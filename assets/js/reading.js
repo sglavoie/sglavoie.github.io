@@ -1,10 +1,13 @@
 // Remembers how far into a post the reader got, in this browser only. Back
 // on a post left half read, a prompt offers to jump to the section they were
-// in; reaching the end of the post forgets it. The /offline/ page shows the
-// same progress beside the posts it lists (offline.js).
+// in; reaching the end of the post forgets it and records the post as
+// finished. The /offline/ page shows the same progress beside the posts it
+// lists (offline.js), and lists of posts mark the read ones (initReadMarks).
 
 const storageKey = "reading";
 const maxEntries = 30;
+const finishedKey = "finished";
+const maxFinished = 300;
 // Less than this is a glance, not a start.
 const minProgress = 0.05;
 const promptDuration = 12000;
@@ -24,6 +27,26 @@ function writeProgress(progress) {
     .slice(0, maxEntries);
   try {
     localStorage.setItem(storageKey, JSON.stringify(Object.fromEntries(kept)));
+  } catch (e) {}
+}
+
+// Posts read to the end, by path, with when.
+function readFinished() {
+  try {
+    return JSON.parse(localStorage.getItem(finishedKey)) || {};
+  } catch (e) {
+    return {};
+  }
+}
+
+function markFinished(page) {
+  const finished = readFinished();
+  finished[page] = Date.now();
+  const kept = Object.entries(finished)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, maxFinished);
+  try {
+    localStorage.setItem(finishedKey, JSON.stringify(Object.fromEntries(kept)));
   } catch (e) {}
 }
 
@@ -119,6 +142,7 @@ export function initReadingPosition() {
   new IntersectionObserver(function (entries) {
     if (entries.some((entry) => entry.isIntersecting)) {
       window.clearTimeout(timer);
+      markFinished(page);
       const progress = readProgress();
       if (progress[page]) {
         delete progress[page];
@@ -126,4 +150,34 @@ export function initReadingPosition() {
       }
     }
   }).observe(end);
+}
+
+// Beside post titles in lists (home page, archives, tag and category pages,
+// related posts): "Read" for a post read to the end, or how far the reader
+// got into one left part way.
+export function initReadMarks() {
+  const links = document.querySelectorAll(
+    ".article-card__title a, .archives-article__title a, .home-topic__post, .post-footer__related-list a",
+  );
+  if (!links.length) {
+    return;
+  }
+  const finished = readFinished();
+  const progress = readProgress();
+  links.forEach(function (link) {
+    const page = new URL(link.href).pathname;
+    let label = "";
+    if (finished[page]) {
+      label = "Read";
+    } else if (progress[page]) {
+      label = Math.round(progress[page].fraction * 100) + "% read";
+    }
+    if (!label) {
+      return;
+    }
+    const mark = document.createElement("span");
+    mark.className = "read-mark";
+    mark.textContent = label;
+    link.append(mark);
+  });
 }
