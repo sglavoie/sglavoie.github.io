@@ -51,7 +51,7 @@
       <li><a class="post-reading__category" href="{{ .RelPermalink }}" data-pagefind-filter="category:{{ .Title }}"><span class="visually-hidden">Category: </span>{{ .Title }}</a></li>
       {{- end }}
       {{- range $tags }}
-      <li><a href="{{ .RelPermalink }}">{{ partial "icons/tag.html" . }}{{ .Title }}</a></li>
+      <li><a href="{{ .RelPermalink }}" data-pagefind-filter="tag:{{ .Title }}">{{ partial "icons/tag.html" . }}{{ .Title }}</a></li>
       {{- end }}
     </ul>
     {{- end }}

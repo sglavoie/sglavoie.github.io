@@ -283,3 +283,22 @@ mark.pagefind-highlight {
   padding: 0.15rem 0.6rem;
   font-size: 0.82rem;
 }
+
+/* Shaped like the chips beside it. */
+.search-filters__tag {
+  max-width: 100%;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  background: var(--surface-page);
+  color: var(--ink-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.search-filters__tag:hover,
+.search-filters__tag:focus-visible {
+  border-color: var(--border-strong);
+}
