@@ -17,6 +17,10 @@
       </h1>
       <p class="discovery-page__meta">
         <span>{{ $postsCount }} {{ if eq $postsCount 1 }}post{{ else }}posts{{ end }}</span>
+        {{- /* The same posts on one page, by year (archives.html). */}}
+        {{- with site.GetPage "/archives" }}
+        <a class="discovery-page__feed" href="{{ .RelPermalink }}?{{ if eq $.Data.Plural "categories" }}category{{ else }}tag{{ end }}={{ $.Data.Term | urlize }}">By year</a>
+        {{- end }}
         {{- with .OutputFormats.Get "termfeed" }}
         <a class="discovery-page__feed" href="{{ .RelPermalink }}">{{ partial "icons/rss.html" . | strings.TrimSpace | safeHTML }}Follow this {{ if eq $.Data.Plural "categories" }}category{{ else }}tag{{ end }}</a>
         {{- end }}

@@ -9,15 +9,22 @@
     <p class="discovery-page__meta"><span data-archives-total>{{ $postsCount }} {{ if eq $postsCount 1 }}post{{ else }}posts{{ end }}</span></p>
   </header>
   {{- /* Category filter: hidden until js/archives.js runs, so without
-       JavaScript the page is the plain list. ?category=<slug> preselects. */}}
+       JavaScript the page is the plain list. ?category=<slug> preselects,
+       and ?tag=<slug> (linked from tag pages) narrows to one tag, shown as
+       a last chip that clears it. */}}
+  {{- $tagTitles := dict }}
+  {{- range site.Taxonomies.tags }}{{ $tagTitles = merge $tagTitles (dict (.Page.Data.Term | urlize) .Page.Title) }}{{ end }}
   {{- with site.Taxonomies.categories }}
-  <div class="archives-filter" role="group" aria-label="Filter by category" hidden>
+  <div class="archives-filter" role="group" aria-label="Filter by category" data-tag-titles="{{ $tagTitles | jsonify }}" hidden>
     <button type="button" class="archives-filter__chip" data-category="" aria-pressed="true">All</button>
     {{- range .Alphabetical }}
     <button type="button" class="archives-filter__chip" data-category="{{ .Page.Data.Term | urlize }}" aria-pressed="false">
       {{- .Page.Title }} <span class="archives-filter__count">{{ .Count }}</span>
     </button>
     {{- end }}
+    <button type="button" class="archives-filter__chip archives-filter__tag" aria-pressed="true" hidden>
+      {{- partial "icons/tag.html" . }}<span data-tag-title></span> <span aria-hidden="true">&times;</span>
+    </button>
   </div>
   {{- end }}
   {{ range $posts.GroupByDate "2006" }}
@@ -29,7 +36,8 @@
     <dl class="archives__list sibling-fade">
       {{ range .Pages }}
       {{- $category := index .Params.categories 0 | default "" }}
-      <div class="archives-article" data-category="{{ $category | urlize }}">
+      {{- $tags := slice }}{{ range .Params.tags }}{{ $tags = $tags | append (urlize .) }}{{ end }}
+      <div class="archives-article" data-category="{{ $category | urlize }}" data-tags="{{ delimit $tags " " }}">
         <dt class="archives-article__date">
           <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2" }}</time>
         </dt>

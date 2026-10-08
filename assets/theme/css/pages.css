@@ -137,6 +137,18 @@
   color: inherit;
 }
 
+/* The tag from ?tag=, which clears when clicked. */
+.archives-filter__tag[hidden] {
+  display: none;
+}
+
+.archives-filter__tag .tag-icon {
+  align-self: center;
+  width: 0.85em;
+  height: 0.85em;
+  margin-right: -0.2em;
+}
+
 /* Rows and years the filter leaves out; their display rules would
    otherwise beat the attribute. */
 .archives-year[hidden],
