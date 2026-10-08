@@ -1,6 +1,14 @@
 {
-  "name": "sglavoie",
+  "id": "/",
+  "name": "sglavoie.com",
   "short_name": "sglavoie",
+  "description": "Posts by Sébastien Lavoie on Go, software design, and the tools and workflows that make programming more enjoyable.",
+  "lang": "en-US",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#090f15",
+  "background_color": "#090f15",
   "icons": [
     {
       "src": "/theme/favicon/android-chrome-192x192.png",
@@ -13,7 +21,8 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#090f15",
-  "background_color": "#090f15",
-  "display": "standalone"
+  "shortcuts": [
+    { "name": "Archives", "url": "/archives/" },
+    { "name": "Topics", "url": "/topics/" }
+  ]
 }
