@@ -25,7 +25,7 @@
         </dd>
         {{- with index .Params.categories 0 }}
           {{- with site.GetPage (printf "/categories/%s" (. | urlize)) }}
-        <dd class="archives-article__category">{{ .Title }}</dd>
+        <dd class="archives-article__category"><a href="{{ .RelPermalink }}">{{ .Title }}</a></dd>
           {{- end }}
         {{- end }}
       </div>

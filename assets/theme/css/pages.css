@@ -124,6 +124,17 @@
   white-space: nowrap;
 }
 
+.archives-article__category a,
+.archives-article__category a:visited {
+  color: inherit;
+}
+
+.archives-article__category a:hover,
+.archives-article__category a:focus-visible {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
 @media (max-width: 559px) {
   .archives-article {
     grid-template-columns: 4.5rem minmax(0, 1fr);
