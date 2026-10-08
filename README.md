@@ -48,6 +48,12 @@ hugo --minify --panicOnWarning --destination /tmp/sglavoie-links-public
 
 `render-link.html` warns about Markdown links to site paths with no page or static file, fragments with no matching heading, and bare domains missing `https://`; `--panicOnWarning` makes any of them fail the build.
 
+### Writing posts
+
+- **Callouts:** GitHub-style alerts, `> [!NOTE]`, `> [!TIP] Optional title`, `> [!IMPORTANT]`, `> [!WARNING]` or `> [!CAUTION]`, render as callouts.
+- **Series:** posts sharing a `series: "Name"` front matter value list each other, oldest first, under the post header.
+- **Feeds:** the home page publishes full-text RSS and Atom feeds under `/feeds/`, and every tag and category its own RSS feed at `feed.xml`.
+
 ### SEO baseline audit
 
 ```bash
