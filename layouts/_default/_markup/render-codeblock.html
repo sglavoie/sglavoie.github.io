@@ -1,6 +1,7 @@
 {{- /* Fenced code blocks: highlighted code with an optional file name
      (```bash {title="~/.tmux.conf"}), a language label and a copy button.
-     Plain text wraps long lines; other blocks opt in with {wrap=true}.
+     Plain text wraps long lines; other blocks opt in with {wrap=true}, and
+     readers can wrap any block that scrolls sideways (code-blocks.js).
      In shell blocks, a leading "$ " is the prompt: it can't be selected,
      and the copy button copies only the lines that have one (code-blocks.js). */ -}}
 {{- $lang := .Type | default "" -}}
@@ -28,6 +29,7 @@
     {{- if $showLang }}
     <span class="code-block__lang">{{ $lang }}</span>
     {{- end }}
+    <button class="code-block__wrap" type="button" aria-pressed="false" hidden>Wrap</button>
     <button class="code-block__copy" type="button" aria-label="Copy code to clipboard" hidden>Copy</button>
   </div>
   {{ $code }}

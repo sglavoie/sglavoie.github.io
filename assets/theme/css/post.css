@@ -675,6 +675,7 @@ article > .article_title h1 {
   opacity: 0.8;
 }
 
+.code-block__wrap,
 .code-block__copy {
   margin-left: auto;
   padding: 0.15rem 0.5rem;
@@ -687,12 +688,20 @@ article > .article_title h1 {
   pointer-events: auto;
 }
 
+/* With both buttons, they sit together at the end of the bar. */
+.code-block__wrap:not([hidden]) ~ .code-block__copy {
+  margin-left: -0.4rem;
+}
+
+.code-block__wrap:hover,
+.code-block__wrap:focus-visible,
 .code-block__copy:hover,
 .code-block__copy:focus-visible {
   border-color: var(--border-strong);
   color: var(--code-ink);
 }
 
+.code-block__wrap[aria-pressed="true"],
 .code-block__copy[data-copied] {
   border-color: var(--accent);
   color: var(--accent);
@@ -729,13 +738,16 @@ article > .article_title h1 {
 
 /* Plain text and config listings wrap instead of scrolling sideways;
    languages keep their lines intact. */
-.code-block--wrap pre {
+.code-block--wrap pre,
+.code-block--wrapped pre {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
 
-/* A continuation sits indented under its line, so columns stay readable. */
-.code-block--wrap .line {
+/* A continuation sits indented under its line, so columns stay readable.
+   code-block--wrapped is the reader's choice (the "Wrap" button). */
+.code-block--wrap .line,
+.code-block--wrapped .line {
   display: block;
   padding-left: 4ch;
   text-indent: -4ch;

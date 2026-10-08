@@ -69,7 +69,7 @@
 /* Highlighted lines ({hl_lines=...}) and line numbers. Code that scrolls
    sideways is as wide as its longest line, so a highlight still spans the
    whole line once scrolled. */
-.code-block:not(.code-block--wrap) .chroma code {
+.code-block:not(.code-block--wrap, .code-block--wrapped) .chroma code {
   display: block;
   width: max-content;
   min-width: 100%;

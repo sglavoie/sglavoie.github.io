@@ -1,4 +1,4 @@
-// Copy buttons and collapsing on code blocks (see render-codeblock.html).
+// Copy buttons, wrapping and collapsing on code blocks (see render-codeblock.html).
 
 // With line numbers, Chroma renders a table; the code is the last <code>.
 function codeOf(block) {
@@ -50,6 +50,43 @@ function initCopy() {
   });
 }
 
+// A "Wrap" button on blocks whose lines run past their width: wrapped, they
+// read without scrolling sideways. Blocks that wrap from the start
+// (code-block--wrap) don't need it. Widths change with the window, so the
+// button comes and goes with the overflow, but stays on a wrapped block to
+// undo it.
+function initWrap() {
+  const buttons = Array.from(document.querySelectorAll(".code-block__wrap")).filter(function (button) {
+    if (button.closest(".code-block").classList.contains("code-block--wrap")) {
+      button.remove();
+      return false;
+    }
+    return true;
+  });
+  if (!buttons.length) {
+    return;
+  }
+  function update() {
+    buttons.forEach(function (button) {
+      const block = button.closest(".code-block");
+      const pre = block.querySelector("pre");
+      const wrapped = button.getAttribute("aria-pressed") === "true";
+      button.hidden = !wrapped && (!pre || pre.scrollWidth <= pre.clientWidth);
+    });
+  }
+  buttons.forEach(function (button) {
+    const block = button.closest(".code-block");
+    button.addEventListener("click", function () {
+      const wrapping = button.getAttribute("aria-pressed") !== "true";
+      block.classList.toggle("code-block--wrapped", wrapping);
+      button.setAttribute("aria-pressed", String(wrapping));
+      update();
+    });
+  });
+  update();
+  window.addEventListener("resize", update, { passive: true });
+}
+
 // Tall code blocks start collapsed (see post.css). Only blocks well past the
 // collapsed height qualify, so expanding is always worth a click.
 function initCollapse() {
@@ -85,5 +122,6 @@ function initCollapse() {
 
 export function initCodeBlocks() {
   initCopy();
+  initWrap();
   initCollapse();
 }
