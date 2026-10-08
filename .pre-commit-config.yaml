@@ -18,3 +18,8 @@ repos:
         language: script
         pass_filenames: false
         files: ^(content|layouts|assets|static|archetypes|hugo\.toml)
+      - id: check-lastmod
+        name: check that revised posts bump lastmod
+        entry: scripts/check-lastmod.py
+        language: script
+        files: ^content/posts/.*\.md$
