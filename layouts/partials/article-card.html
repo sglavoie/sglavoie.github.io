@@ -19,5 +19,7 @@
       {{ end }}
     </div>
   </header>
-  <p class="article-card__summary">{{ .Description | default .Summary | plainify | htmlUnescape | truncate 180 }}</p>
+  {{- /* About two lines at full card width, so ten cards scan as titles
+       rather than a wall of text. */}}
+  <p class="article-card__summary">{{ .Description | default .Summary | plainify | htmlUnescape | truncate 150 }}</p>
 </article>
