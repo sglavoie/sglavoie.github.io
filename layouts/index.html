@@ -59,6 +59,19 @@
   </ul>
 </section>
 {{ end }}
+{{ with $posts.revised }}
+<section class="home-topics home-more" aria-labelledby="revised-title">
+  <h2 id="revised-title" class="section-label">Recently revised</h2>
+  <ul class="home-topic__list">
+    {{- range . }}
+    <li>
+      <a class="home-topic__post" href="{{ .RelPermalink }}" data-revised="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ partial "book-mark.html" . }}{{ .Title }}</a>
+      <span class="home-topic__meta">Updated <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "Jan 2006" }}</time></span>
+    </li>
+    {{- end }}
+  </ul>
+</section>
+{{ end }}
 {{- /* Closes the page: the way on to every post, the feed, and the links
        from the intro, since the home footer keeps only the colophon. */}}
 <section class="home-end" aria-label="Keep reading">

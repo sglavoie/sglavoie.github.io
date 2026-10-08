@@ -7,7 +7,11 @@
      - topics: one group per [[params.home_topics]] in hugo.toml, each the
        newest posts of a taxonomy term not shown above it.
      - latest: the newest posts not shown above ("More posts"), a short feed that ends
-       with a link to the archives. */ -}}
+       with a link to the archives.
+
+     Apart from those, revised: the posts last revised (a `lastmod` on a
+     later day than `date`), newest revision first, which may also be
+     listed above: readers who read them before can't tell otherwise. */ -}}
 {{- $pages := where site.RegularPages "Section" "posts" -}}
 {{- $featured := first 3 (where $pages "Params.featured" true) -}}
 {{- $shown := $featured -}}
@@ -30,4 +34,11 @@
   {{- end -}}
 {{- end -}}
 {{- $latest := first 5 (complement $shown $pages.ByDate.Reverse) -}}
-{{- return dict "featured" $featured "topics" $topics "latest" $latest -}}
+{{- $revised := slice -}}
+{{- range $pages.ByLastmod.Reverse -}}
+  {{- if gt (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02") -}}
+    {{- $revised = $revised | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- $revised = first 3 $revised -}}
+{{- return dict "featured" $featured "topics" $topics "latest" $latest "revised" $revised -}}

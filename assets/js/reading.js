@@ -154,7 +154,8 @@ export function initReadingPosition() {
 
 // Beside post titles in lists (home page, archives, tag and category pages,
 // related posts): "Read" for a post read to the end, or how far the reader
-// got into one left part way.
+// got into one left part way. In "Recently revised" (data-revised), a post
+// finished before its last revision says so instead.
 export function initReadMarks() {
   const links = document.querySelectorAll(
     ".article-card__title a, .archives-article__title a, .home-topic__post, .post-footer__related-list a",
@@ -167,7 +168,10 @@ export function initReadMarks() {
   links.forEach(function (link) {
     const page = new URL(link.href).pathname;
     let label = "";
-    if (finished[page]) {
+    const revised = Date.parse(link.dataset.revised || "");
+    if (finished[page] && finished[page] < revised) {
+      label = "Revised since read";
+    } else if (finished[page]) {
       label = "Read";
     } else if (progress[page]) {
       label = Math.round(progress[page].fraction * 100) + "% read";

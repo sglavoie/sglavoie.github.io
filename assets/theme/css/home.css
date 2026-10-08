@@ -301,6 +301,11 @@ main .home-featured__card:hover .home-featured__title {
   margin-bottom: 0;
 }
 
+/* "Recently revised" after "More posts": the groups' usual gap. */
+.home-more + .home-more {
+  margin-top: clamp(2.5rem, 7vw, 3.5rem);
+}
+
 /* ---------- Post list ---------- */
 
 .article-card {
