@@ -216,27 +216,31 @@ article > .article_title h1 {
   color: var(--link-hover);
 }
 
-/* Wide screens: centred prose with a sticky table of contents on the right. */
+/* Wide screens: the prose and a sticky table of contents share one grid,
+   and the header and footer widen to match, so the logo lines up with the
+   prose and the header icons with the sidebar's right edge. */
 @media (min-width: 1280px) {
-  main:has(.post-reading--with-toc) {
-    --toc-width: 15rem;
-    --toc-gap: 2rem;
-    max-width: calc(
-      var(--layout-prose-max) + 2 * (var(--toc-width) + var(--toc-gap)) +
+  body:has(.post-reading--with-toc) {
+    --toc-width: 16rem;
+    --toc-gap: 3rem;
+    --header-max: calc(
+      var(--layout-prose-max) + var(--toc-gap) + var(--toc-width) +
         2 * var(--layout-gutter)
     );
   }
 
+  main:has(.post-reading--with-toc) {
+    max-width: var(--header-max);
+  }
+
   .post-reading--with-toc {
     display: grid;
-    grid-template-columns:
-      minmax(0, 1fr) minmax(0, var(--layout-prose-max))
-      minmax(0, 1fr);
+    grid-template-columns: minmax(0, var(--layout-prose-max)) var(--toc-width);
     column-gap: var(--toc-gap);
   }
 
   .post-reading--with-toc > * {
-    grid-column: 2;
+    grid-column: 1;
     width: 100%;
   }
 
@@ -253,7 +257,7 @@ article > .article_title h1 {
   }
 
   .post-reading--with-toc > .post-reading__toc {
-    grid-column: 3;
+    grid-column: 2;
     grid-row: 2 / span 2;
     position: sticky;
     top: calc(var(--header-height) + 1.5rem);
