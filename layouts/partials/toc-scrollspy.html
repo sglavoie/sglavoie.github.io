@@ -19,10 +19,37 @@
       }
     });
 
+    const sidebar = document.querySelector(".post-reading__toc");
     // The sticky header's height: a heading under it counts as passed.
     const headerOffset = 72;
     const visible = new Set();
     let current = null;
+
+    // Opens the branch holding the link (its own subsections included) and
+    // closes the rest; the sidebar CSS hides the subsections of closed ones.
+    function openBranch(link) {
+      sidebar.querySelectorAll(".toc li.is-open").forEach(function (li) {
+        li.classList.remove("is-open");
+      });
+      for (let li = link && link.closest("li"); li; li = li.parentElement.closest("li")) {
+        li.classList.add("is-open");
+      }
+    }
+
+    // Keeps the link in view inside the sidebar without scrolling the page.
+    function revealInSidebar(link) {
+      if (sidebar.scrollHeight <= sidebar.clientHeight) {
+        return;
+      }
+      const box = sidebar.getBoundingClientRect();
+      const rect = link.getBoundingClientRect();
+      const margin = 48;
+      if (rect.top < box.top + margin) {
+        sidebar.scrollTop -= box.top + margin - rect.top;
+      } else if (rect.bottom > box.bottom - margin) {
+        sidebar.scrollTop += rect.bottom - (box.bottom - margin);
+      }
+    }
 
     function setCurrent(link) {
       if (link === current) {
@@ -36,6 +63,10 @@
       if (current) {
         current.classList.add("is-active");
         current.setAttribute("aria-current", "location");
+      }
+      openBranch(current);
+      if (current) {
+        revealInSidebar(current);
       }
     }
 

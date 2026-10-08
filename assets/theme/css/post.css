@@ -278,6 +278,12 @@ article > .article_title h1 {
     display: none;
   }
 
+  /* Only the section being read shows its subsections (toc-scrollspy.html
+     marks its branch open), so long posts keep a short outline. */
+  .post-reading--with-toc .toc li:not(.is-open) > ul {
+    display: none;
+  }
+
   .toc-top {
     display: block;
   }
