@@ -66,7 +66,7 @@ description = "Posts and writings by Sébastien Lavoie. Customization setups and
     endLevel = 4
 
 [outputs]
-  home = ["HTML", "RSS"]
+  home = ["HTML", "RSS", "Atom"]
   section = ["HTML"]
   taxonomy = ["HTML"]
   term = ["HTML"]
@@ -78,3 +78,12 @@ description = "Posts and writings by Sébastien Lavoie. Customization setups and
   baseName = "sglavoie.rss"
   path = "feeds"
   mediaType = "application/rss+xml"
+
+[mediaTypes."application/atom+xml"]
+  suffixes = ["xml"]
+
+[outputFormats.Atom]
+  baseName = "sglavoie.atom"
+  path = "feeds"
+  mediaType = "application/atom+xml"
+  rel = "alternate"
