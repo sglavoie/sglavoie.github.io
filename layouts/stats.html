@@ -1,0 +1,98 @@
+{{ define "title" }} &ndash; {{ .Title }}{{ end }}
+
+{{ define "main" }}
+{{- /* Counted at build time from the posts; the bars only illustrate the
+     numbers beside them, so every row reads without them. */ -}}
+{{- $posts := where site.RegularPages "Section" "posts" -}}
+{{- $words := 0 -}}
+{{- $minutes := 0 -}}
+{{- range $posts }}{{ $words = add $words .WordCount }}{{ $minutes = add $minutes .ReadingTime }}{{ end -}}
+{{- $byYear := dict -}}
+{{- range $posts.GroupByDate "2006" -}}
+  {{- $yearWords := 0 -}}
+  {{- range .Pages }}{{ $yearWords = add $yearWords .WordCount }}{{ end -}}
+  {{- $byYear = merge $byYear (dict .Key (dict "posts" (len .Pages) "words" $yearWords)) -}}
+{{- end -}}
+{{- $first := (index $posts.ByDate 0).Date.Year -}}
+{{- $last := (index $posts.ByDate.Reverse 0).Date.Year -}}
+{{- $mostPosts := 1 -}}
+{{- range $byYear }}{{ if gt .posts $mostPosts }}{{ $mostPosts = .posts }}{{ end }}{{ end -}}
+<article class="stats discovery-page">
+  <header class="article_title discovery-page__header">
+    <h1>{{ .Title }}</h1>
+    <p class="discovery-page__meta">{{ .Description }}</p>
+  </header>
+
+  <dl class="stats__totals">
+    <div><dt>Posts</dt><dd>{{ len $posts }}</dd></div>
+    <div><dt>Words</dt><dd>{{ lang.FormatNumber 0 $words }}</dd></div>
+    <div><dt>Hours of reading</dt><dd>{{ math.Round (div (float $minutes) 60) }}</dd></div>
+    <div><dt>Years writing</dt><dd>{{ add (sub $last $first) 1 }}</dd></div>
+  </dl>
+
+  <section class="stats__section" aria-labelledby="stats-years">
+    <h2 id="stats-years" class="section-label">Posts per year</h2>
+    <ul class="stats__bars">
+      {{- range seq $last -1 $first }}
+      {{- $year := string . }}
+      {{- $entry := index $byYear $year | default (dict "posts" 0 "words" 0) }}
+      <li class="stats__row" title="{{ $year }}: {{ $entry.posts }} {{ cond (eq $entry.posts 1) "post" "posts" }}, {{ lang.FormatNumber 0 $entry.words }} words">
+        {{- if $entry.posts }}
+        <a class="stats__label" href="{{ "/archives/" | relURL }}#archives-{{ $year }}">{{ $year }}</a>
+        {{- else }}
+        <span class="stats__label">{{ $year }}</span>
+        {{- end }}
+        <span class="stats__bar" style="--share: {{ div (mul 100.0 $entry.posts) $mostPosts }}%"></span>
+        <span class="stats__value">{{ $entry.posts }}<span class="stats__detail"> &middot; {{ lang.FormatNumber 0 $entry.words }} words</span></span>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+
+  {{- with site.Taxonomies.categories }}
+  {{- $terms := .ByCount }}
+  {{- $most := (index $terms 0).Count }}
+  <section class="stats__section" aria-labelledby="stats-categories">
+    <h2 id="stats-categories" class="section-label">Categories</h2>
+    <ul class="stats__bars">
+      {{- range $terms }}
+      <li class="stats__row">
+        <a class="stats__label" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+        <span class="stats__bar" style="--share: {{ div (mul 100.0 .Count) $most }}%"></span>
+        <span class="stats__value">{{ .Count }}</span>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+
+  {{- with site.Taxonomies.tags }}
+  {{- $terms := first 10 .ByCount }}
+  {{- $most := (index $terms 0).Count }}
+  <section class="stats__section" aria-labelledby="stats-tags">
+    <h2 id="stats-tags" class="section-label">Most used tags</h2>
+    <ul class="stats__bars">
+      {{- range $terms }}
+      <li class="stats__row">
+        <a class="stats__label" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+        <span class="stats__bar" style="--share: {{ div (mul 100.0 .Count) $most }}%"></span>
+        <span class="stats__value">{{ .Count }}</span>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+
+  <section class="stats__section" aria-labelledby="stats-longest">
+    <h2 id="stats-longest" class="section-label">Longest posts</h2>
+    <ol class="post-footer__related-list">
+      {{- range first 5 (sort $posts "WordCount" "desc") }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <span class="post-footer__related-meta">{{ lang.FormatNumber 0 .WordCount }} words &middot; {{ partial "reading-time.html" . }}</span>
+      </li>
+      {{- end }}
+    </ol>
+  </section>
+</article>
+{{ end }}

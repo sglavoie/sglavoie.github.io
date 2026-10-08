@@ -638,3 +638,97 @@ a.learning-log__day:focus-visible {
   color: var(--ink-muted);
   font-size: 0.9rem;
 }
+
+/* ---------- By the numbers (layouts/stats.html) ---------- */
+
+.stats__totals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 1rem;
+  margin: 0 0 var(--space-section);
+}
+
+.stats__totals div {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+}
+
+.stats__totals dt {
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+}
+
+.stats__totals dd {
+  margin: 0.15rem 0 0;
+  color: var(--ink-primary);
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.stats__section {
+  margin-bottom: var(--space-section);
+}
+
+.stats__section .section-label {
+  margin-bottom: 1rem;
+}
+
+.stats__bars {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Label, bar, value: the bars share a baseline column and one scale. */
+.stats__row {
+  display: grid;
+  grid-template-columns: minmax(4rem, 10rem) 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.92rem;
+}
+
+.stats__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+span.stats__label {
+  color: var(--ink-muted);
+}
+
+.stats__bar {
+  height: 0.6rem;
+  min-width: 2px;
+  width: var(--share);
+  border-radius: 0 4px 4px 0;
+  background-color: var(--accent);
+}
+
+.stats__row:hover .stats__bar {
+  background-color: var(--accent-strong);
+}
+
+.stats__value {
+  color: var(--ink-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.stats__detail {
+  color: var(--ink-muted);
+}
+
+@media (max-width: 30rem) {
+  .stats__detail {
+    display: none;
+  }
+}

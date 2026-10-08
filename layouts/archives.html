@@ -6,7 +6,7 @@
 <article class="archives discovery-page discovery-page--archives">
   <header class="article_title discovery-page__header">
     <h1>Archives</h1>
-    <p class="discovery-page__meta"><span data-archives-total>{{ $postsCount }} {{ if eq $postsCount 1 }}post{{ else }}posts{{ end }}</span></p>
+    <p class="discovery-page__meta"><span data-archives-total>{{ $postsCount }} {{ if eq $postsCount 1 }}post{{ else }}posts{{ end }}</span>{{ with site.GetPage "/stats" }} &middot; <a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}</p>
   </header>
   {{- /* Category filter: hidden until js/archives.js runs, so without
        JavaScript the page is the plain list. ?category=<slug> preselects,
