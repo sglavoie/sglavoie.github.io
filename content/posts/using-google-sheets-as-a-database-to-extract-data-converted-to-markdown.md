@@ -147,7 +147,7 @@ To set up this project, you will have to:
 
 By now, the script is ready to be called. I just created an alias to execute it more easily by putting the following in `~/.bash_aliases` (you will have to adapt the paths of course):
 
-```sh
+```bash
 alias learning-logs='~/.local/share/virtualenvs/learning-logs-to-markdown-XJLvhmzn/bin/python3.9 \
   ~/dev/sglavoie/dev-helpers/learning-logs-to-markdown/get_learning_logs.py'
 ```

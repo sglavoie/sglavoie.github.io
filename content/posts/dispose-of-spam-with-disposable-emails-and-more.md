@@ -138,7 +138,7 @@ as to not exclude important emails. To create one filter for all of
 them, you can use the field `has words` and enter something like the
 following in the case of GDPR policy updates:
 
-```txt
+```text
 "Privacy Policy Update" OR "GDPR" OR "General Data protection regulation" OR "Updates to our terms of use" OR "Updates to our privacy" OR "updating our privacy" OR "updated our privacy"
 ```
 
@@ -146,7 +146,7 @@ If you know more specifically how the words you are looking for appear,
 you can check for turns of phrases such as `Updates to X's Privacy Policy` and manage them with the keyword `AROUND <number>`, where
 `<number>` is how many words can be around what you are searching:
 
-```txt
+```text
 "privacy policy" AROUND 3 update
 ```
 

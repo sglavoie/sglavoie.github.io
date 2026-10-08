@@ -4,6 +4,11 @@
      In shell blocks, a leading "$ " is the prompt: it can't be selected,
      and the copy button copies only the lines that have one (code-blocks.js). */ -}}
 {{- $lang := .Type | default "" -}}
+{{- /* One name per language, so the labels and the files agree. */ -}}
+{{- $preferred := dict "txt" "text" "plaintext" "text" "sh" "bash" "shell" "bash" "js" "javascript" "ts" "typescript" "py" "python" "golang" "go" -}}
+{{- with index $preferred $lang -}}
+  {{- warnf "%s: write ```%s rather than ```%s" $.Page.File.Path . $lang -}}
+{{- end -}}
 {{- $title := .Attributes.title | default "" -}}
 {{- $plain := in (slice "" "text" "txt" "plaintext") $lang -}}
 {{- $showLang := not $plain -}}

@@ -44,7 +44,7 @@ In this example, the structure from the current directory is printed
 when executing the code and it is later stored in a file. The output
 could look something like the following:
 
-```txt
+```text
 .
 ├── database_example
 │   ├── example.sqlite

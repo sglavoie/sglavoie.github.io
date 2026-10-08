@@ -2271,7 +2271,7 @@ func TestAdd(t *testing.T) {
 
 The output would look like this:
 
-```txt
+```text
 === RUN   TestAdd
 === RUN   TestAdd/Positive_integers
 --- PASS: TestAdd/Positive_integers (0.00s)

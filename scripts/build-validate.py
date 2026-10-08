@@ -5,6 +5,8 @@
   _headers (layouts/index.headers), or the browser blocks it.
 - Every internal destination in _redirects is a page or file of the build,
   and no source is listed twice (the first match wins, so a second is dead).
+- Headings in a post go down one level at a time from the title (h1), so
+  the table of contents and the outline screen readers give stay nested.
 
 Usage: build-validate.py SITE_DIR
 """
@@ -13,6 +15,7 @@ from __future__ import annotations
 
 import base64
 import hashlib
+import html
 import re
 import sys
 from pathlib import Path
@@ -22,6 +25,8 @@ INLINE_SCRIPT_RE = re.compile(r"<script(\s[^>]*)?>(.*?)</script>", re.IGNORECASE
 SRC_OR_DATA_RE = re.compile(r"\bsrc=|type=\"?application/(?:ld\+)?json", re.IGNORECASE)
 CSP_RE = re.compile(r"^\s*Content-Security-Policy:\s*(.+)$", re.MULTILINE)
 CSP_HASH_RE = re.compile(r"'(sha256-[A-Za-z0-9+/=]+)'")
+HEADING_RE = re.compile(r"<h([1-6])\b[^>]*>(.*?)</h\1>", re.IGNORECASE | re.DOTALL)
+TAG_RE = re.compile(r"<[^>]+>")
 
 
 def check_inline_scripts(site_dir: Path, failures: list[str]) -> None:
@@ -79,6 +84,24 @@ def check_redirects(site_dir: Path, failures: list[str]) -> None:
             failures.append(f"_redirects:{number}: {source} -> {destination}, which isn't in the build")
 
 
+def check_heading_levels(site_dir: Path, failures: list[str]) -> None:
+    for page in sorted((site_dir / "posts").glob("*/index.html")):
+        document = page.read_text(encoding="utf-8")
+        # The article text, between the post header and the post footer.
+        start = document.find("article_text")
+        end = document.find("post-footer", start)
+        if start == -1:
+            continue
+        previous = 1
+        for level, inner in HEADING_RE.findall(document[start:end]):
+            level = int(level)
+            if level > previous + 1:
+                where = page.relative_to(site_dir).as_posix()
+                text = html.unescape(TAG_RE.sub("", inner)).rstrip("#").strip()
+                failures.append(f"{where}: h{level} \"{text}\" follows an h{previous}")
+            previous = level
+
+
 def main() -> int:
     if len(sys.argv) != 2:
         print(__doc__.strip().splitlines()[-1], file=sys.stderr)
@@ -87,11 +110,15 @@ def main() -> int:
     failures: list[str] = []
     check_inline_scripts(site_dir, failures)
     check_redirects(site_dir, failures)
+    check_heading_levels(site_dir, failures)
     for failure in failures:
         print(f"FAIL {failure}", file=sys.stderr)
     if failures:
         return 1
-    print("Build validation passed: inline scripts match the CSP and redirects land on built pages.")
+    print(
+        "Build validation passed: inline scripts match the CSP, redirects land on built pages"
+        " and post headings are nested."
+    )
     return 0
 
 
