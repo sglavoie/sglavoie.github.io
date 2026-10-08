@@ -66,7 +66,7 @@ description = "Posts and writings by Sébastien Lavoie. Customization setups and
     endLevel = 4
 
 [outputs]
-  home = ["HTML", "RSS", "Atom"]
+  home = ["HTML", "RSS", "Atom", "JSONFeed"]
   section = ["HTML"]
   taxonomy = ["HTML"]
   term = ["HTML", "TermFeed"]
@@ -87,6 +87,16 @@ description = "Posts and writings by Sébastien Lavoie. Customization setups and
   path = "feeds"
   mediaType = "application/atom+xml"
   rel = "alternate"
+
+[mediaTypes."application/feed+json"]
+  suffixes = ["json"]
+
+[outputFormats.JSONFeed]
+  baseName = "sglavoie"
+  path = "feeds"
+  mediaType = "application/feed+json"
+  rel = "alternate"
+  isPlainText = true
 
 # One RSS feed per tag and category, at /tags/<term>/feed.xml.
 [outputFormats.TermFeed]

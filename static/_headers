@@ -3,6 +3,7 @@
   Link: </sitemap.xml>; rel="describedby"; type="application/xml"
   Link: </feeds/sglavoie.atom.xml>; rel="alternate"; type="application/atom+xml"
   Link: </feeds/sglavoie.rss.xml>; rel="alternate"; type="application/rss+xml"
+  Link: </feeds/sglavoie.json>; rel="alternate"; type="application/feed+json"
 
 /.well-known/api-catalog
   Content-Type: application/linkset+json

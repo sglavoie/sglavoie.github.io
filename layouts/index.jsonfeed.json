@@ -1,0 +1,31 @@
+{{- /* JSON Feed 1.1 of every post, with the same full content as the RSS
+     and Atom feeds (feeds/content.html). */ -}}
+{{- $items := slice -}}
+{{- range where site.RegularPages "Section" "posts" -}}
+  {{- $item := dict
+    "id" .Permalink
+    "url" .Permalink
+    "title" .Title
+    "content_html" (partial "feeds/content.html" .)
+    "summary" (.Summary | plainify | htmlUnescape)
+    "date_published" (.Date.Format "2006-01-02T15:04:05Z07:00")
+    "tags" (union (.Params.categories | default slice) (.Params.tags | default slice))
+  -}}
+  {{- if and (not .Lastmod.IsZero) (ne .Lastmod .Date) -}}
+    {{- $item = merge $item (dict "date_modified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")) -}}
+  {{- end -}}
+  {{- $items = $items | append $item -}}
+{{- end -}}
+{{- dict
+  "version" "https://jsonfeed.org/version/1.1"
+  "title" site.Title
+  "home_page_url" site.Home.Permalink
+  "feed_url" (.OutputFormats.Get "JSONFeed").Permalink
+  "description" site.Params.description
+  "language" site.Language.Lang
+  "authors" (slice (dict "name" site.Params.author "url" site.Home.Permalink))
+  "favicon" ("/theme/favicon/favicon-32x32.png" | absURL)
+  "icon" ("/theme/favicon/android-chrome-512x512.png" | absURL)
+  "items" $items
+  | jsonify (dict "indent" "  ")
+-}}

@@ -71,6 +71,12 @@
     rel="alternate"
     title="{{ .Site.Title }} Atom"
   />
+  <link
+    href="{{ "/feeds/sglavoie.json" | absURL }}"
+    type="application/feed+json"
+    rel="alternate"
+    title="{{ .Site.Title }} JSON Feed"
+  />
   {{- with .OutputFormats.Get "termfeed" }}
   <link href="{{ .Permalink }}" type="application/rss+xml" rel="alternate" title="{{ site.Title }}: {{ $.Title }} RSS" />
   {{- end }}
