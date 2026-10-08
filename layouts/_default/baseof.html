@@ -33,6 +33,14 @@
         </button>
       </div>
       <div class="search-dialog__body">
+        {{- /* Hidden until search.js wires them to Pagefind's filters. */}}
+        {{- with site.Taxonomies.categories }}
+        <div class="search-filters" role="group" aria-label="Filter results by category" hidden>
+          {{- range .Alphabetical }}
+          <button type="button" class="archives-filter__chip search-filters__chip" data-category="{{ .Page.Title }}" aria-pressed="false">{{ .Page.Title }}</button>
+          {{- end }}
+        </div>
+        {{- end }}
         <div id="search"></div>
       </div>
     </dialog>

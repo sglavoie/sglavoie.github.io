@@ -260,3 +260,25 @@
     border-radius: 0;
   }
 }
+
+/* ---------- Category filter ---------- */
+
+/* Chips in place of Pagefind's own filter panel (see search.js); they take
+   the archives chip style from pages.css. */
+.search-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.search-filters[hidden],
+.pagefind-ui__filter-panel,
+.pagefind-ui__filter-panel-label {
+  display: none;
+}
+
+.search-filters .search-filters__chip {
+  padding: 0.15rem 0.6rem;
+  font-size: 0.82rem;
+}

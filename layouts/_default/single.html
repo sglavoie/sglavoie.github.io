@@ -47,7 +47,7 @@
     {{- if or $category $tags }}
     <ul class="post-reading__tags" aria-label="Category and tags" data-pagefind-ignore>
       {{- with $category }}
-      <li><a class="post-reading__category" href="{{ .RelPermalink }}"><span class="visually-hidden">Category: </span>{{ .Title }}</a></li>
+      <li><a class="post-reading__category" href="{{ .RelPermalink }}" data-pagefind-filter="category:{{ .Title }}"><span class="visually-hidden">Category: </span>{{ .Title }}</a></li>
       {{- end }}
       {{- range $tags }}
       <li><a href="{{ .RelPermalink }}">{{ partial "icons/tag.html" . }}{{ .Title }}</a></li>
