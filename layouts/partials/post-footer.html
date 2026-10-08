@@ -1,9 +1,23 @@
-{{- /* Newer/older links plus related posts, shown at the end of every post. */ -}}
+{{- /* Newer/older links, the pages linking here, and related posts, shown at
+     the end of every post. */ -}}
 {{- $newer := .NextInSection -}}
 {{- $older := .PrevInSection -}}
 {{- $exclude := slice . -}}
 {{- with $newer }}{{ $exclude = $exclude | append . }}{{ end -}}
 {{- with $older }}{{ $exclude = $exclude | append . }}{{ end -}}
+{{- /* Pages whose text links here, by Markdown, ref or raw HTML, with or
+     without a fragment: newest first, left out of the related posts. */ -}}
+{{- $linkedFrom := slice -}}
+{{- $hrefs := slice (printf `href="%s` .RelPermalink) (printf `href="%s` .Permalink) -}}
+{{- range site.RegularPages.ByDate.Reverse -}}
+  {{- if ne . $ -}}
+    {{- $content := string .Content -}}
+    {{- if or (strings.Contains $content (index $hrefs 0)) (strings.Contains $content (index $hrefs 1)) -}}
+      {{- $linkedFrom = $linkedFrom | append . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $exclude = $exclude | append $linkedFrom -}}
 {{- $related := slice -}}
 {{- range site.RegularPages.Related . -}}
   {{- if and (eq .Section "posts") (not (in $exclude .)) -}}
@@ -39,6 +53,20 @@
     </a>
     {{- end }}
   </nav>
+  {{- end }}
+
+  {{- with $linkedFrom }}
+  <section class="post-footer__related" aria-labelledby="linked-from-title">
+    <h2 id="linked-from-title" class="section-label">Linked from</h2>
+    <ul class="post-footer__related-list">
+      {{- range . }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <span class="post-footer__related-meta">{{ .Date.Format "Jan 2006" }}{{ if eq .Section "posts" }} &middot; {{ partial "reading-time.html" . }}{{ end }}</span>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
   {{- end }}
 
   {{- with $related }}

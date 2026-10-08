@@ -17,6 +17,8 @@
   renaming a heading, keep its old id with an <a id="old-id"></a> in the
   section, or drop the id from the list if nothing links to it.
   --record-headings rewrites the list from the build, to add new headings.
+- Every image in the text of a post or page has alt text, so screen
+  readers and broken image links still say what it shows.
 
 Usage: build-validate.py [--record-headings] SITE_DIR
 """
@@ -132,6 +134,7 @@ class PageParser(HTMLParser):
         self.ids: set[str] = set()
         self.links: list[str] = []
         self.heading_ids: list[str] = []
+        self.images_without_alt: list[str] = []
         self.refresh = False
         self._in_article = False
 
@@ -143,10 +146,14 @@ class PageParser(HTMLParser):
             self.refresh = True
         if "article_text" in values.get("class", "").split():
             self._in_article = True
-        elif "post-footer" in values.get("class", "").split():
+        elif {"post-footer", "site-footer"} & set(values.get("class", "").split()):
+            # Pages other than posts have no post footer: the text ends
+            # at the site's.
             self._in_article = False
         if self._in_article and re.fullmatch(r"h[2-6]", tag) and values.get("id"):
             self.heading_ids.append(values["id"])
+        if self._in_article and tag == "img" and not values.get("alt", "").strip():
+            self.images_without_alt.append(values.get("src", ""))
         # <link rel=preconnect> and friends name origins, not files.
         if tag == "link" and values.get("rel") in {"preconnect", "dns-prefetch"}:
             return
@@ -229,6 +236,12 @@ def check_linked_static(site_dir: Path, failures: list[str]) -> None:
                 failures.append(f"static{path}: nothing in the build links to it (delete it, or link it)")
 
 
+def check_image_alt(pages: dict[str, PageParser], failures: list[str]) -> None:
+    for url, parser in pages.items():
+        for src in parser.images_without_alt:
+            failures.append(f"{url}: image {src} has no alt text (describe it in the ![...] of its Markdown)")
+
+
 def post_heading_ids(pages: dict[str, PageParser]) -> list[str]:
     return [
         url + "#" + heading_id
@@ -286,14 +299,15 @@ def main() -> int:
     check_internal_links(site_dir, pages, failures)
     check_linked_static(site_dir, failures)
     check_heading_ids(pages, failures)
+    check_image_alt(pages, failures)
     for failure in failures:
         print(f"FAIL {failure}", file=sys.stderr)
     if failures:
         return 1
     print(
         "Build validation passed: inline scripts match the CSP, redirects land on built pages,"
-        " post headings are nested, internal links resolve, linked static files are used"
-        " and recorded headings remain."
+        " post headings are nested, internal links resolve, linked static files are used,"
+        " recorded headings remain and images have alt text."
     )
     unrecorded = len(set(post_heading_ids(pages)) - recorded_heading_ids())
     if unrecorded:

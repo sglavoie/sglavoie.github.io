@@ -8,9 +8,12 @@
   </head>
 
   <body>
+    {{- /* First stop for the Tab key, so keyboard and screen reader users
+         can pass over the header on every page. */}}
+    <a class="skip-link" href="#main">Skip to content</a>
     {{ partial "header.html" . }}
 
-    <main>
+    <main id="main" tabindex="-1">
       {{ block "main" . }}{{ end }}
     </main>
 
