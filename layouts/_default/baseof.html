@@ -37,6 +37,22 @@
       </div>
     </dialog>
 
+    <dialog id="shortcuts-dialog" class="search-dialog shortcuts-dialog" aria-labelledby="shortcuts-dialog-title">
+      <div class="search-dialog__header">
+        <h2 id="shortcuts-dialog-title" class="search-dialog__title">Keyboard shortcuts</h2>
+        <button type="button" class="search-dialog__close" data-close-shortcuts aria-label="Close keyboard shortcuts">
+          <kbd>Esc</kbd>
+        </button>
+      </div>
+      <dl class="shortcuts-list">
+        <div><dt><kbd>F</kbd> <kbd>/</kbd></dt><dd>Search</dd></div>
+        <div><dt><kbd>T</kbd></dt><dd>Switch color theme</dd></div>
+        <div><dt><kbd>P</kbd></dt><dd>Older post</dd></div>
+        <div><dt><kbd>N</kbd></dt><dd>Newer post</dd></div>
+        <div><dt><kbd>?</kbd></dt><dd>Show these shortcuts</dd></div>
+      </dl>
+    </dialog>
+
     {{- $js := resources.Get "js/main.js" | js.Build (dict "target" "es2020" "minify" hugo.IsProduction) }}
     {{- if hugo.IsProduction }}{{ $js = $js | fingerprint }}{{ end }}
     <script defer src="{{ "/pagefind/pagefind-ui.js" | relURL }}"></script>
