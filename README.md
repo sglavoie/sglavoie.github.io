@@ -40,19 +40,22 @@ hugo --minify && npx -y pagefind --site public
 
 The built site is written to `public/`. Cloudflare Pages runs this exact command (build command in dashboard) with output directory `public`.
 
-### Check links
+### Check links and SEO
 
 ```bash
-hugo --minify --panicOnWarning --destination /tmp/sglavoie-links-public
+./scripts/check-site.sh
 ```
 
-`render-link.html` warns about Markdown links to site paths with no page or static file, fragments with no matching heading, and bare domains missing `https://`; `--panicOnWarning` makes any of them fail the build.
+This builds the site into a throwaway directory with `--panicOnWarning`, then runs `./scripts/seo-validate.py` on it. `render-link.html` warns about Markdown links to site paths with no page or static file, fragments with no matching heading, and bare domains missing `https://`, so any of them fails the check. Pass a directory to keep the build. The pre-commit hook runs it whenever content, layouts, assets, static files or `hugo.toml` change (`pre-commit install` once to enable the hooks).
 
 ### Writing posts
 
 - **Callouts:** GitHub-style alerts, `> [!NOTE]`, `> [!TIP] Optional title`, `> [!IMPORTANT]`, `> [!WARNING]` or `> [!CAUTION]`, render as callouts.
 - **Series:** posts sharing a `series: "Name"` front matter value list each other, oldest first, under the post header.
-- **Feeds:** the home page publishes full-text RSS and Atom feeds under `/feeds/`, and every tag and category its own RSS feed at `feed.xml`.
+- **Feeds:** the home page publishes full-text RSS, Atom and JSON feeds under `/feeds/`, and every tag and category its own RSS feed at `feed.xml`.
+- **Images:** keep them in `static/images/posts/` and link them as Markdown or `<img>` tags. Hugo serves PNGs and JPEGs as WebP in widths sized for the column (`partials/responsive-images.html`), so there's no need to make WebP copies by hand. Images shown smaller than their size open full size on click.
+- **Code:** a fenced block takes `{title="file.go"}` for a file name, `{hl_lines="2-4"}` to highlight lines and `{wrap=true}` to wrap long lines.
+- **Offline:** a service worker (`static/sw.js`) keeps pages readers have opened, and `/offline/` lists them when there's no connection. It isn't registered under `hugo server`.
 
 ### SEO baseline audit
 
