@@ -3,12 +3,13 @@
 import { initCodeBlocks } from "./code-blocks.js";
 import { initHeadingLinks } from "./headings.js";
 import { initNavFades } from "./nav.js";
-import { initSearch } from "./search.js";
+import { initHighlight, initSearch } from "./search.js";
 import { initShortcuts } from "./shortcuts.js";
 import { initTheme } from "./theme.js";
 import { initZoom } from "./zoom.js";
 
 initSearch();
+initHighlight();
 initTheme();
 initNavFades();
 initCodeBlocks();

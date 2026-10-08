@@ -4,6 +4,9 @@
 const searchTrigger = document.getElementById("search-trigger");
 const searchDialog = document.getElementById("search-dialog");
 let pagefindUI = null;
+// Result links carry the search terms in this parameter; the page they open
+// marks those terms (initHighlight).
+const highlightParam = "highlight";
 
 function focusSearchInput() {
   const searchInput = searchDialog.querySelector("input");
@@ -24,6 +27,7 @@ export function openSearch() {
       showImages: false,
       showEmptyFilters: false,
       debounceTimeoutMs: 100,
+      highlightParam: highlightParam,
     });
     initFilters();
   }
@@ -80,4 +84,21 @@ export function initSearch() {
     searchTrigger.setAttribute("aria-expanded", "false");
     searchTrigger.addEventListener("click", openSearch);
   }
+}
+
+// Marks the search terms on a page opened from a result. Pagefind's
+// highlighter is only fetched when there are terms to mark.
+export function initHighlight() {
+  if (!new URLSearchParams(location.search).has(highlightParam)) {
+    return;
+  }
+  const script = document.createElement("script");
+  script.type = "module";
+  script.src = "/pagefind/pagefind-highlight.js";
+  script.addEventListener("load", function () {
+    if (typeof PagefindHighlight !== "undefined") {
+      new PagefindHighlight({ highlightParam: highlightParam });
+    }
+  });
+  document.head.appendChild(script);
 }

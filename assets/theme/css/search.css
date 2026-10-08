@@ -204,7 +204,8 @@
   line-height: 1.6;
 }
 
-.pagefind-ui__result-excerpt mark {
+.pagefind-ui__result-excerpt mark,
+mark.pagefind-highlight {
   padding: 0 0.1em;
   border-radius: 2px;
   background-color: var(--accent-soft);
