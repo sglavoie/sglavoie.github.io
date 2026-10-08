@@ -197,11 +197,30 @@ article > .article_title h1 {
   color: var(--link-color);
 }
 
+/* Only shown in the sidebar, where the list stays in view. */
+.toc-top {
+  display: none;
+  margin-top: 1rem;
+  padding-left: calc(0.6rem + 2px);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.toc-top,
+.toc-top:visited {
+  color: var(--ink-muted);
+}
+
+.toc-top:hover,
+.toc-top:focus-visible {
+  color: var(--link-hover);
+}
+
 /* Wide screens: centred prose with a sticky table of contents on the right. */
 @media (min-width: 1280px) {
   main:has(.post-reading--with-toc) {
     --toc-width: 15rem;
-    --toc-gap: 3rem;
+    --toc-gap: 2rem;
     max-width: calc(
       var(--layout-prose-max) + 2 * (var(--toc-width) + var(--toc-gap)) +
         2 * var(--layout-gutter)
@@ -257,6 +276,10 @@ article > .article_title h1 {
 
   .post-reading--with-toc .toc-details__chevron {
     display: none;
+  }
+
+  .toc-top {
+    display: block;
   }
 }
 
@@ -326,8 +349,10 @@ article > .article_title h1 {
   margin-top: clamp(1.75rem, 5vw, 2.25rem);
 }
 
-/* Most posts put a rule before each section. The rule already separates
-   them, so the heading after it drops its own top margin. */
+/* Most posts put a rule before each section. A section heading already
+   marks the break, so a rule right before an h2 is hidden and the h2 keeps
+   its own spacing; before smaller headings the rule stays and the heading
+   drops its top margin instead. */
 .article_text hr {
   height: 1px;
   margin: var(--space-rule) 0;
@@ -344,7 +369,11 @@ article > .article_title h1 {
   display: none;
 }
 
-.article_text hr + :is(h2, h3, h4, h5, h6) {
+.article_text hr:has(+ h2) {
+  display: none;
+}
+
+.article_text hr + :is(h3, h4, h5, h6) {
   margin-top: 0;
 }
 
@@ -519,6 +548,70 @@ article > .article_title h1 {
   .code-block__bar:has([data-copied]) {
     opacity: 1;
   }
+}
+
+/* Plain text and config listings wrap instead of scrolling sideways;
+   languages keep their lines intact. */
+.code-block--wrap pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* A continuation sits indented under its line, so columns stay readable. */
+.code-block--wrap .line {
+  display: block;
+  padding-left: 4ch;
+  text-indent: -4ch;
+}
+
+/* Tall blocks start collapsed behind a fade (baseof.html adds the classes
+   and the toggle). */
+.code-block.is-collapsed pre {
+  max-height: var(--code-collapsed-height, 26rem);
+  overflow: hidden;
+}
+
+.code-block.is-collapsed::after {
+  content: "";
+  position: absolute;
+  right: 1px;
+  bottom: 1px;
+  left: 1px;
+  height: 6rem;
+  border-radius: 0 0 5px 5px;
+  background: linear-gradient(to bottom, transparent, var(--code-bg) 85%);
+  pointer-events: none;
+}
+
+.code-block__toggle {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  z-index: 1;
+  padding: 0.3rem 0.85rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background-color: var(--code-bg);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.code-block__toggle:hover,
+.code-block__toggle:focus-visible {
+  background-color: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+/* Once expanded, the toggle sits under the block to collapse it again. */
+.code-block.is-expanded {
+  padding-bottom: 2.75rem;
+}
+
+.code-block.is-expanded .code-block__toggle {
+  bottom: 0;
 }
 
 /* ---------- Tables (render-table.html) ---------- */

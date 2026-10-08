@@ -1,10 +1,13 @@
 {{- /* Fenced code blocks: highlighted code with an optional file name
-     (```bash {title="~/.tmux.conf"}), a language label and a copy button. */ -}}
+     (```bash {title="~/.tmux.conf"}), a language label and a copy button.
+     Plain text wraps long lines; other blocks opt in with {wrap=true}. */ -}}
 {{- $lang := .Type | default "" -}}
 {{- $title := .Attributes.title | default "" -}}
-{{- $showLang := not (in (slice "" "text" "txt" "plaintext") $lang) -}}
+{{- $plain := in (slice "" "text" "txt" "plaintext") $lang -}}
+{{- $showLang := not $plain -}}
+{{- $wrap := or $plain (eq (string .Attributes.wrap) "true") -}}
 {{- $result := transform.HighlightCodeBlock . -}}
-<div class="code-block{{ if $title }} code-block--titled{{ end }}">
+<div class="code-block{{ if $title }} code-block--titled{{ end }}{{ if $wrap }} code-block--wrap{{ end }}">
   <div class="code-block__bar" data-pagefind-ignore>
     {{- with $title }}
     <span class="code-block__title">{{ . }}</span>

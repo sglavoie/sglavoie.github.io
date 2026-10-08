@@ -28,7 +28,7 @@ To set keybindings, it _may_ be handy to know the keycodes and their respective 
 
 ## i3 config shortcuts
 
-```bash
+```bash {wrap=true}
 # Paths and names
 set $brightness-laptop-down      "light -U 1"
 set $brightness-laptop-up        "light -A 1"
