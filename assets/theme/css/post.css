@@ -439,6 +439,18 @@ article > .article_title h1 {
   margin-bottom: 0;
 }
 
+/* Reading notes: a list item that opens with an italic quotation is
+   rendered as <q> (see single.html). The author's words sit upright in
+   the secondary ink so my own comments after them read in full ink. */
+.article_text q.note-quote {
+  color: var(--ink-secondary);
+}
+
+.article_text q.note-quote::before,
+.article_text q.note-quote::after {
+  color: var(--accent);
+}
+
 /* Attribution under a blockquote. */
 .article_text .quote-author {
   margin: calc(var(--space-block) * -0.5) 0 var(--space-block);
