@@ -27,8 +27,7 @@
 .home-intro__avatar {
   width: 4rem;
   height: 4rem;
-  box-shadow: 0 0 0 1px var(--border-soft), 0 0 0 4px var(--surface-page),
-    0 0 0 5px var(--border-strong);
+  box-shadow: 0 0 0 3px var(--surface-page), 0 0 0 4px var(--border-strong);
 }
 
 .home-intro__name {
