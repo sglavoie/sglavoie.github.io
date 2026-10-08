@@ -69,7 +69,7 @@ description = "Posts and writings by Sébastien Lavoie. Customization setups and
   home = ["HTML", "RSS", "Atom"]
   section = ["HTML"]
   taxonomy = ["HTML"]
-  term = ["HTML"]
+  term = ["HTML", "TermFeed"]
 
 [services.rss]
   limit = -1
@@ -86,4 +86,10 @@ description = "Posts and writings by Sébastien Lavoie. Customization setups and
   baseName = "sglavoie.atom"
   path = "feeds"
   mediaType = "application/atom+xml"
+  rel = "alternate"
+
+# One RSS feed per tag and category, at /tags/<term>/feed.xml.
+[outputFormats.TermFeed]
+  baseName = "feed"
+  mediaType = "application/rss+xml"
   rel = "alternate"

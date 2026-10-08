@@ -15,7 +15,12 @@
       <h1 id="taxonomy-title">
         {{ if eq .Data.Plural "categories" }}Category: {{ .Title }}{{ else }}Tag: {{ .Title }}{{ end }}
       </h1>
-      <p class="discovery-page__meta">{{ $postsCount }} {{ if eq $postsCount 1 }}post{{ else }}posts{{ end }}</p>
+      <p class="discovery-page__meta">
+        <span>{{ $postsCount }} {{ if eq $postsCount 1 }}post{{ else }}posts{{ end }}</span>
+        {{- with .OutputFormats.Get "termfeed" }}
+        <a class="discovery-page__feed" href="{{ .RelPermalink }}">{{ partial "icons/rss.html" . | strings.TrimSpace | safeHTML }}Follow this {{ if eq $.Data.Plural "categories" }}category{{ else }}tag{{ end }}</a>
+        {{- end }}
+      </p>
     </header>
     <div class="taxonomy-listing__posts">
       {{ range $paginator.Pages }}

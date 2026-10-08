@@ -71,6 +71,9 @@
     rel="alternate"
     title="{{ .Site.Title }} Atom"
   />
+  {{- with .OutputFormats.Get "termfeed" }}
+  <link href="{{ .Permalink }}" type="application/rss+xml" rel="alternate" title="{{ site.Title }}: {{ $.Title }} RSS" />
+  {{- end }}
 
   <!-- Favicon -->
   <link

@@ -1,0 +1,7 @@
+{{- $kind := cond (eq .Data.Plural "categories") "Category" "Tag" -}}
+{{- partial "feeds/rss.html" (dict
+  "page" .
+  "format" "termfeed"
+  "pages" .Pages
+  "title" (printf "%s – %s: %s" site.Title $kind .Title)
+) -}}
