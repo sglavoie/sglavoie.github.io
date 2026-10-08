@@ -344,8 +344,17 @@ article > .article_title h1 {
      Set on the article, not the body, so main keeps its usual width. */
   .post-reading--with-toc {
     --layout-prose-max: 40rem;
-    --toc-width: 16rem;
     --toc-gap: 2.5rem;
+    /* As wide as the room right of the prose allows, up to 16rem: the
+       article starts at the main column's left edge (from --header-max,
+       set on :root for the 42rem column), and just past 1280px a full
+       16rem would run off the window. 2rem stays clear on the right, for
+       the margin and a scrollbar. */
+    --toc-width: clamp(
+      12rem,
+      calc((100vw + var(--header-max)) / 2 - var(--layout-gutter) - var(--layout-prose-max) - var(--toc-gap) - 2rem),
+      16rem
+    );
     width: calc(var(--layout-prose-max) + var(--toc-gap) + var(--toc-width));
     display: grid;
     grid-template-columns: minmax(0, var(--layout-prose-max)) var(--toc-width);
