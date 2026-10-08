@@ -150,6 +150,19 @@ else
   large_image_listing=""
 fi
 
+# Tags with a single post: their page and search filter lead nowhere new.
+# Each tag's feed (term.termfeed.xml) lists all of its posts.
+thin_tag_listing=$({
+  for feed in "$site_dir"/tags/*/feed.xml; do
+    [ -f "$feed" ] || continue
+    if [ "$(rg -o "<item>" "$feed" | wc -l | tr -d " ")" -le 1 ]; then
+      basename "$(dirname "$feed")"
+    fi
+  done
+  true
+} | sort)
+thin_tags=$(printf '%s' "$thin_tag_listing" | awk 'NF { count++ } END { print count + 0 }')
+
 printf 'html_total=%s\n' "$(count_lines "$html_manifest")"
 printf 'non_alias_html_total=%s\n' "$(count_lines "$non_alias_manifest")"
 printf 'article_pages_total=%s\n' "$(count_lines "$article_manifest")"
@@ -165,7 +178,13 @@ printf 'sitemap_has_404=%s\n' "$sitemap_has_404"
 printf 'large_image_threshold_bytes=%s\n' "$image_threshold_bytes"
 printf 'large_image_assets=%s\n' "$large_image_assets"
 
+printf 'single_post_tags=%s\n' "$thin_tags"
 printf 'top_large_images:\n'
 if [ -n "$large_image_listing" ]; then
   printf '%s\n' "$large_image_listing" | head -n 10
+fi
+
+printf 'single_post_tags_listing:\n'
+if [ -n "$thin_tag_listing" ]; then
+  printf '%s\n' "$thin_tag_listing" | paste -sd ' ' -
 fi
