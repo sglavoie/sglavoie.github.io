@@ -93,3 +93,18 @@ description = "Posts and writings by Sébastien Lavoie. Customization setups and
   baseName = "feed"
   mediaType = "application/rss+xml"
   rel = "alternate"
+
+# Post images stay in static/ (raw <img> tags and feeds link to them as-is)
+# and are also mounted as assets, so partials/responsive-images.html can
+# make WebP versions of them. Declaring any mount drops the defaults, hence
+# assets and static are listed too.
+[module]
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "static/images"
+    target = "assets/images"
+  [[module.mounts]]
+    source = "static"
+    target = "static"

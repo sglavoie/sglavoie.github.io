@@ -1,0 +1,37 @@
+{{- /* Wraps each local PNG or JPEG in rendered HTML in a <picture> whose
+     WebP source comes in widths for the prose column, keeping the original
+     as the fallback (and as the full-size image the zoom dialog opens).
+     Takes the HTML and returns it, so it covers images written as Markdown
+     and as raw <img> tags alike. Images missing a size get their intrinsic
+     one, so the page doesn't shift as they load. */ -}}
+{{- $html := . -}}
+{{- $seen := dict -}}
+{{- range findRESubmatch `<img\b[^>]*\bsrc="/(images/[^"]+\.(?:png|jpe?g))"[^>]*>` $html -}}
+  {{- $tag := index . 0 -}}
+  {{- if not (index $seen $tag) -}}
+    {{- $seen = merge $seen (dict $tag true) -}}
+    {{- with resources.Get (index . 1) -}}
+      {{- $img := . -}}
+      {{- $srcset := slice -}}
+      {{- range $w := slice 480 800 1200 1600 -}}
+        {{- if lt $w $img.Width -}}
+          {{- $srcset = $srcset | append (printf "%s %dw" ($img.Resize (printf "%dx webp q82" $w)).RelPermalink $w) -}}
+        {{- end -}}
+      {{- end -}}
+      {{- if le $img.Width 2000 -}}
+        {{- $srcset = $srcset | append (printf "%s %dw" ($img.Process "webp q82").RelPermalink $img.Width) -}}
+      {{- end -}}
+      {{- $attrs := "" -}}
+      {{- if not (findRE `\swidth=` $tag) -}}
+        {{- $attrs = printf ` width="%d" height="%d"` $img.Width $img.Height -}}
+      {{- end -}}
+      {{- if not (findRE `\sloading=` $tag) -}}
+        {{- $attrs = printf `%s loading="lazy" decoding="async"` $attrs -}}
+      {{- end -}}
+      {{- $newTag := replace $tag "<img" (printf "<img%s" $attrs) 1 -}}
+      {{- $picture := printf `<picture><source type="image/webp" srcset="%s" sizes="(min-width: 44rem) 42rem, 100vw" />%s</picture>` (delimit $srcset ", ") $newTag -}}
+      {{- $html = replace $html $tag $picture -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $html -}}

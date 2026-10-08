@@ -1,3 +1,5 @@
+{{- /* Markdown images, sized when the file is local. WebP versions are
+     added afterwards, by partials/responsive-images.html. */ -}}
 {{- $destination := .Destination | safeURL -}}
 {{- $alt := .PlainText | default (.Text | plainify | htmlUnescape) | strings.TrimSpace -}}
 {{- $title := .Title -}}
@@ -5,7 +7,6 @@
 {{- $isRemote := or (hasPrefix .Destination "http://") (hasPrefix .Destination "https://") -}}
 {{- $width := 0 -}}
 {{- $height := 0 -}}
-{{- $webpURL := "" -}}
 
 {{- if not $isRemote -}}
   {{- $relativePath := strings.TrimPrefix "/" $cleanDestination -}}
@@ -17,29 +18,9 @@
       {{- $width = $imageConfig.Width -}}
       {{- $height = $imageConfig.Height -}}
     {{- end -}}
-    {{- if ne $extension ".webp" -}}
-      {{- $webpPath := path.Join "static" (printf "%s.webp" (strings.TrimSuffix $extension $relativePath)) -}}
-      {{- if fileExists $webpPath -}}
-        {{- $webpURL = printf "/%s.webp" (strings.TrimSuffix $extension $relativePath) | safeURL -}}
-      {{- end -}}
-    {{- end -}}
   {{- end -}}
 {{- end -}}
 
-{{- if $webpURL -}}
-<picture>
-  <source srcset="{{ $webpURL }}" type="image/webp" />
-  <img
-    src="{{ $destination }}"
-    alt="{{ $alt }}"
-    loading="lazy"
-    decoding="async"
-    {{- with $title }} title="{{ . }}"{{ end -}}
-    {{- with $width }} width="{{ . }}"{{ end -}}
-    {{- with $height }} height="{{ . }}"{{ end -}}
-  />
-</picture>
-{{- else -}}
 <img
   src="{{ $destination }}"
   alt="{{ $alt }}"
@@ -49,4 +30,3 @@
   {{- with $width }} width="{{ . }}"{{ end -}}
   {{- with $height }} height="{{ . }}"{{ end -}}
 />
-{{- end -}}

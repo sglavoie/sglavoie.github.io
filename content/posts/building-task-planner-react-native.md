@@ -33,10 +33,7 @@ The world needs a new kind of task manager, just like **ProductiviDo**, which co
 
 <figure>
     <a href="/images/posts/0039_productivido/inspiration.png">
-        <picture>
-            <source srcset="/images/posts/0039_productivido/inspiration.webp" type="image/webp">
-            <img src="/images/posts/0039_productivido/inspiration.png" alt="Overview of the main task-management apps that inspired ProductiviDo" class="max-size-img-post" width="3377" height="1202" loading="lazy" decoding="async">
-        </picture>
+        <img src="/images/posts/0039_productivido/inspiration.png" alt="Overview of the main task-management apps that inspired ProductiviDo" class="max-size-img-post" width="3377" height="1202" loading="lazy" decoding="async">
     </a>
     <figcaption>Inspiration.</figcaption>
 </figure>
@@ -70,10 +67,7 @@ Finally, **Asana** shines mostly within a team setting and mainly works with the
 
 <figure>
     <a href="/images/posts/0039_productivido/drawbacks.png">
-        <picture>
-            <source srcset="/images/posts/0039_productivido/drawbacks.webp" type="image/webp">
-            <img src="/images/posts/0039_productivido/drawbacks.png" alt="Comparison chart summarizing the main drawbacks of competing task-management apps" class="max-size-img-post" width="3377" height="1202" loading="lazy" decoding="async">
-        </picture>
+        <img src="/images/posts/0039_productivido/drawbacks.png" alt="Comparison chart summarizing the main drawbacks of competing task-management apps" class="max-size-img-post" width="3377" height="1202" loading="lazy" decoding="async">
     </a>
     <figcaption>Drawbacks.</figcaption>
 </figure>
@@ -225,10 +219,7 @@ It is noteworthy that calendar integration will be optional and that the applica
 
 <figure>
     <a href="/images/posts/0039_productivido/prioritize-wireframes.png">
-        <picture>
-            <source srcset="/images/posts/0039_productivido/prioritize-wireframes.webp" type="image/webp">
-            <img src="/images/posts/0039_productivido/prioritize-wireframes.png" alt="Some of the original wireframes for the Prioritize screen" class="max-size-img-post" width="6193" height="4383" loading="lazy" decoding="async">
-        </picture>
+        <img src="/images/posts/0039_productivido/prioritize-wireframes.png" alt="Some of the original wireframes for the Prioritize screen" class="max-size-img-post" width="6193" height="4383" loading="lazy" decoding="async">
     </a>
     <figcaption>Some of the original wireframes for the <strong>Prioritize</strong> screen.</figcaption>
 </figure>
@@ -308,10 +299,7 @@ On the backend side, the application will make use mainly of the following servi
 
 <figure>
     <a href="/images/posts/0039_productivido/db_schema.png">
-        <picture>
-            <source srcset="/images/posts/0039_productivido/db_schema.webp" type="image/webp">
-            <img src="/images/posts/0039_productivido/db_schema.png" alt="Database schema behind ProductiviDo" class="max-size-img-post" width="2824" height="1196" loading="lazy" decoding="async">
-        </picture>
+        <img src="/images/posts/0039_productivido/db_schema.png" alt="Database schema behind ProductiviDo" class="max-size-img-post" width="2824" height="1196" loading="lazy" decoding="async">
     </a>
     <figcaption>Showing the database design behind ProductiviDo.</figcaption>
 </figure>

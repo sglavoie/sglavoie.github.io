@@ -88,7 +88,7 @@
   {{- /* Reading notes quote the book in bullets of italics (_"..."_); whole
        lists of them read poorly, so a list item that opens with one gets a
        <q> instead. Other tags may sit inside the quote, but not </em>. */}}
-  {{- $content := .Content | replaceRE `<li><em>&ldquo;((?:[^<]|<[^/e][^>]*>|</[^e][^>]*>)*?)&rdquo;</em>` `<li><q class="note-quote">$1</q>` }}
+  {{- $content := .Content | replaceRE `<li><em>&ldquo;((?:[^<]|<[^/e][^>]*>|</[^e][^>]*>)*?)&rdquo;</em>` `<li><q class="note-quote">$1</q>` | partial "responsive-images.html" }}
   <div class="article_text">{{ $content | safeHTML }}</div>
   {{ partial "post-footer.html" . }}
 </article>
@@ -104,7 +104,7 @@
     </p>
     {{- end }}
   </header>
-  <div class="article_text">{{ .Content }}</div>
+  <div class="article_text">{{ partial "responsive-images.html" .Content | safeHTML }}</div>
 </article>
 {{ end }}
 {{ end }}

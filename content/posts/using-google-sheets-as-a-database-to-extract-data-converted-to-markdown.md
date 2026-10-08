@@ -103,10 +103,7 @@ A Markdown output to the terminal in the following format:
 
 <figure>
     <a href="/images/posts/0028_google_sheets_as_database_output_markdown/input_output.png">
-        <picture>
-            <source srcset="/images/posts/0028_google_sheets_as_database_output_markdown/input_output.webp" type="image/webp">
-            <img src="/images/posts/0028_google_sheets_as_database_output_markdown/input_output.png" alt="Sample learning log input converted into markdown output" class="max-size-img-post" width="1915" height="941" loading="lazy" decoding="async">
-        </picture>
+        <img src="/images/posts/0028_google_sheets_as_database_output_markdown/input_output.png" alt="Sample learning log input converted into markdown output" class="max-size-img-post" width="1915" height="941" loading="lazy" decoding="async">
     </a>
     <figcaption>Input/Output example when using this tool.</figcaption>
 </figure>
