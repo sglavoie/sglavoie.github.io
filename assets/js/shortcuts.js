@@ -1,4 +1,5 @@
 // Single-key shortcuts, plus "g" followed by a key to go to a page, listed in the dialog that "?" opens (baseof.html).
+import { selectionURL } from "./fragment.js";
 import { openSearch } from "./search.js";
 import { toggleTheme } from "./theme.js";
 import { announce } from "./toast.js";
@@ -49,9 +50,17 @@ function previousSection() {
   goToSection(sections().findLast((s) => s.top < -2)?.heading);
 }
 
-// The address of the section being read, or of the page above the first.
+// The address of the passage selected, else of the section being read, or
+// of the page above the first.
 function copyLink() {
   if (!navigator.clipboard) {
+    return;
+  }
+  const passage = selectionURL(location.href);
+  if (passage) {
+    navigator.clipboard.writeText(passage).then(function () {
+      announce("Link to the selected text copied");
+    });
     return;
   }
   const current = sections().findLast((s) => s.top <= 2)?.heading;
