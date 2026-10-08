@@ -1,13 +1,17 @@
 // Site-wide behaviour, bundled by js.Build in baseof.html. Loaded with
-// defer, so the document is parsed and pagefind-ui.js has run.
+// defer, so the document is parsed and pagefind-ui.js has run. Page-specific
+// parts return early on pages without their elements.
+import { initArchivesFilter } from "./archives.js";
 import { initCodeBlocks } from "./code-blocks.js";
 import { initHeadingLinks } from "./headings.js";
 import { initNavFades } from "./nav.js";
-import { initOffline } from "./offline.js";
+import { initNotFound } from "./not-found.js";
+import { initOffline, initSavedPages } from "./offline.js";
 import { initHighlight, initSearch } from "./search.js";
 import { initShare } from "./share.js";
 import { initShortcuts } from "./shortcuts.js";
 import { initTheme } from "./theme.js";
+import { initTocScrollspy } from "./toc.js";
 import { initZoom } from "./zoom.js";
 
 initSearch();
@@ -20,3 +24,7 @@ initShortcuts();
 initShare();
 initZoom();
 initOffline();
+initTocScrollspy();
+initArchivesFilter();
+initNotFound();
+initSavedPages();

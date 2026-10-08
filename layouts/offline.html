@@ -2,7 +2,8 @@
 
 {{ define "main" }}
 {{- /* Shown by the service worker (static/sw.js) for a page that isn't
-     cached when there's no connection. Lists the pages that are. */ -}}
+     cached when there's no connection. js/offline.js lists the pages that
+     are. */ -}}
 <article class="post-reading post-reading--page not-found">
   <div class="not-found__shell" aria-hidden="true">
     <p class="prompt-line"><span class="prompt-line__sign">$</span>ping sglavoie.com</p>
@@ -13,36 +14,9 @@
     <h1 class="post-reading__title">{{ .Title }}</h1>
     <div class="post-reading__standfirst">{{ .Content }}</div>
   </header>
-  <section class="not-found__suggestions" aria-labelledby="saved-title" hidden>
+  <section class="not-found__suggestions" aria-labelledby="saved-title" data-saved-pages hidden>
     <h2 id="saved-title" class="section-label">Saved for offline reading</h2>
     <ul class="post-footer__related-list"></ul>
   </section>
 </article>
-<script type="module">
-  const section = document.querySelector(".not-found__suggestions");
-  try {
-    const cache = await caches.open("pages");
-    const requests = await cache.keys();
-    const pages = await Promise.all(
-      requests.map(async (request) => {
-        const html = await (await cache.match(request)).text();
-        const title = new DOMParser().parseFromString(html, "text/html").title;
-        return { url: new URL(request.url).pathname, title: title };
-      }),
-    );
-    const list = section.querySelector("ul");
-    pages
-      .filter((page) => page.url !== "/offline/")
-      .sort((a, b) => a.title.localeCompare(b.title))
-      .forEach((page) => {
-        const item = document.createElement("li");
-        const link = document.createElement("a");
-        link.href = page.url;
-        link.textContent = page.url === "/" ? "Home" : page.title.replace(/^sglavoie\.com – /, "");
-        item.appendChild(link);
-        list.appendChild(item);
-      });
-    section.hidden = !list.children.length;
-  } catch (e) {}
-</script>
 {{ end }}

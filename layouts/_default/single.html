@@ -17,7 +17,7 @@
   {{- if $hasToc }}
   {{- /* Narrow screens have no sidebar: once the reader is into the article,
        this bar names the section they're in and leads back to the table of
-       contents. toc-scrollspy.html fills and shows it. */}}
+       contents. js/toc.js fills and shows it. */}}
   <a class="section-bar" href="#toc" hidden data-pagefind-ignore>
     <span class="section-bar__hint">On this page</span>
     <span class="section-bar__current"></span>
@@ -92,7 +92,6 @@
   <div class="article_text">{{ $content | safeHTML }}</div>
   {{ partial "post-footer.html" . }}
 </article>
-{{ if $hasToc }}{{ partial "toc-scrollspy.html" . }}{{ end }}
 {{ else }}
 {{- /* Standalone pages (contact, learning progress...) share the post header. */ -}}
 <article class="post-reading post-reading--page">
