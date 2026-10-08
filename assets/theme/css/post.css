@@ -203,6 +203,17 @@ article > .article_title h1 {
   color: var(--link-color);
 }
 
+/* Sections already read step back (toc-scrollspy.html marks them), so the
+   outline doubles as a sense of how far along the post is. */
+.toc a.is-passed {
+  color: var(--ink-muted);
+}
+
+.toc a.is-passed:hover,
+.toc a.is-passed:focus-visible {
+  color: var(--link-hover);
+}
+
 /* Only shown in the sidebar, where the list stays in view. */
 .toc-top {
   display: none;

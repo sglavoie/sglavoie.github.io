@@ -70,11 +70,29 @@
       if (current) {
         revealInSidebar(current);
       }
-      if (sectionBar) {
-        // Before the first heading there is no section to name.
-        sectionBar.hidden = !current;
+      // Entries above the current one recede, so the outline shows how far
+      // along the post is.
+      let passed = Boolean(current);
+      links.forEach(function (link) {
+        if (link === current) {
+          passed = false;
+        }
+        link.classList.toggle("is-passed", passed);
+      });
+      if (sectionBarText) {
         sectionBarText.textContent = current ? current.textContent : "";
       }
+    }
+
+    // The bar names the section being read, so it waits until the first
+    // heading has gone under the header: above that, the title and the
+    // table of contents are still on screen and say the same thing.
+    function updateSectionBar() {
+      if (!sectionBar) {
+        return;
+      }
+      sectionBar.hidden =
+        !current || headings[0].getBoundingClientRect().top > headerOffset;
     }
 
     // The bar leads to the table of contents, opened.
@@ -103,14 +121,15 @@
         });
         if (inView) {
           setCurrent(linkById.get(inView.id));
-          return;
+        } else {
+          const passed = headings.filter(function (h) {
+            return h.getBoundingClientRect().top <= headerOffset;
+          });
+          setCurrent(
+            passed.length ? linkById.get(passed[passed.length - 1].id) : null,
+          );
         }
-        const passed = headings.filter(function (h) {
-          return h.getBoundingClientRect().top <= headerOffset;
-        });
-        setCurrent(
-          passed.length ? linkById.get(passed[passed.length - 1].id) : null,
-        );
+        updateSectionBar();
       },
       { rootMargin: "-" + headerOffset + "px 0px -55% 0px" },
     );
