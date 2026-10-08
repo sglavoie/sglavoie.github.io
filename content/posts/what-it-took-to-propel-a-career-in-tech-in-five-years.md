@@ -1,6 +1,7 @@
 ---
 title: What it took to propel a career in tech in five years
 date: "2022-06-18T14:22:00"
+evergreen: true
 lastmod: "2022-09-19T18:50:00"
 slug: what-it-took-to-propel-a-career-in-tech-in-five-years
 author: Sébastien Lavoie

@@ -15,6 +15,9 @@ author = "Sébastien Lavoie"
 # Source of the site: posts link to their file to suggest an edit or report
 # a problem.
 repo = "https://github.com/sglavoie/sglavoie.github.io"
+# Posts last updated longer ago than this open with a note that details may
+# have changed (partials/age-notice.html).
+stale_after_years = 3
 intro = "A software developer writing about Go, software design, and the tools and workflows that make programming more enjoyable."
 description = "Posts and writings by Sébastien Lavoie. Customization setups and articles on productivity for developers who like minimalism."
 

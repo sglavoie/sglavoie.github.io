@@ -1,6 +1,7 @@
 ---
 title: Exponentiation in Modular Arithmetic Made Easy
 date: "2019-04-27T19:52:00"
+evergreen: true
 slug: exponentiation-in-modular-arithmetic-made-easy
 author: Sébastien Lavoie
 summary: "While playing around in the Python interpreter to validate answers to mathematical questions, I quickly found out that very large exponents are dealt with very inefficiently by default as they are simply evaluated as is. That's where Python came to its own rescue."

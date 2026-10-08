@@ -1,0 +1,17 @@
+{{- /* A note above posts last touched more than params.stale_after_years
+       before the build, since tools and commands move on. Book summaries
+       and posts with `evergreen: true` in their front matter don't age that
+       way and never get one. The age counts from the build, so it shows
+       years rather than "N years ago", which would go stale between
+       deploys. */ -}}
+{{- $years := site.Params.stale_after_years | default 3 -}}
+{{- $updated := .Date -}}
+{{- if and (not .Lastmod.IsZero) (.Lastmod.After .Date) }}{{ $updated = .Lastmod }}{{ end -}}
+{{- if and (not .Params.evergreen) (not .Params.book_author) ($updated.Before (now.AddDate (int (mul -1 $years)) 0 0)) -}}
+<aside class="callout callout--note age-notice" aria-label="Note" data-pagefind-ignore>
+  <p class="callout__title">An older post</p>
+  {{- $when := printf "This post was written in %d" .Date.Year }}
+  {{- if ne $updated.Year .Date.Year }}{{ $when = printf "Written in %d and last updated in %d" .Date.Year $updated.Year }}{{ end }}
+  <p>{{ $when }}. Tools, commands and links in it may have changed since.</p>
+</aside>
+{{- end -}}

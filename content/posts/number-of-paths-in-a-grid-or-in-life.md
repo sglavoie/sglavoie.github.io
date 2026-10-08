@@ -1,6 +1,7 @@
 ---
 title: Number of Paths in a Grid… or in Life
 date: "2019-03-14T20:38:00"
+evergreen: true
 lastmod: "2019-03-22T10:05:00"
 slug: number-of-paths-in-a-grid-or-in-life
 author: Sébastien Lavoie
