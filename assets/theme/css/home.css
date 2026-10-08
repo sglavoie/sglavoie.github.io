@@ -91,11 +91,13 @@
   margin-bottom: 1rem;
 }
 
+/* The one framed block on the page, its outline tinted with the accent so
+   the hand-picked posts read as the way in. */
 .home-featured__list {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  border: 1px solid var(--border-soft);
+  border: 1px solid var(--border-strong);
   border-radius: 8px;
   list-style: none;
   counter-reset: featured;
