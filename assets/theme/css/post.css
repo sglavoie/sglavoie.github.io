@@ -835,6 +835,44 @@ article > .article_title h1 {
   white-space: nowrap;
 }
 
+/* Column headers become buttons that sort the rows (js/tables.js). */
+.table-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+.table-sort::after {
+  content: "↕";
+  color: var(--ink-muted);
+  font-size: 0.8em;
+  opacity: 0.6;
+}
+
+.table-sort:hover::after,
+.table-sort:focus-visible::after {
+  opacity: 1;
+}
+
+[aria-sort="ascending"] > .table-sort::after {
+  content: "↑";
+  color: var(--accent);
+  opacity: 1;
+}
+
+[aria-sort="descending"] > .table-sort::after {
+  content: "↓";
+  color: var(--accent);
+  opacity: 1;
+}
+
 .table-wrapper tbody tr:nth-child(even) {
   background-color: var(--surface-raised);
 }

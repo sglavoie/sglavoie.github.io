@@ -80,6 +80,11 @@
     break-after: avoid;
   }
 
+  /* Sort arrows are for the screen (js/tables.js). */
+  .table-sort::after {
+    content: none;
+  }
+
   .article_text :is(pre, figure, img, table, blockquote, .callout) {
     break-inside: avoid;
   }
