@@ -1,14 +1,34 @@
 {{- /*
   Every tag, alphabetically, each with its post count. All the same size, so
-  the list scans like an index rather than a cloud.
+  the list scans like an index rather than a cloud. Tags used by a single
+  post fold away under the main list, which keeps the index to the topics
+  with some depth.
 */ -}}
 {{- with site.Taxonomies.tags }}
+{{- $shared := slice -}}
+{{- $single := slice -}}
+{{- range sort .ByCount "Page.Title" -}}
+  {{- if gt .Count 1 }}{{ $shared = $shared | append . }}{{ else }}{{ $single = $single | append . }}{{ end -}}
+{{- end }}
 <ul class="tag-list" aria-label="Tags">
-  {{- range sort .ByCount "Page.Title" }}
+  {{- range $shared }}
   <li>
     <a class="tag-list__link" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
     <span class="tag-list__count">{{ .Count }}</span>
   </li>
   {{- end }}
 </ul>
+{{- with $single }}
+<details class="tag-list__more">
+  <summary>{{ len . }} more tags with one post each</summary>
+  <ul class="tag-list" aria-label="Tags with one post">
+    {{- range . }}
+    <li>
+      <a class="tag-list__link" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+      <span class="tag-list__count">{{ .Count }}</span>
+    </li>
+    {{- end }}
+  </ul>
+</details>
+{{- end }}
 {{- end }}
