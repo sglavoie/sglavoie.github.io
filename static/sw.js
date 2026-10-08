@@ -3,6 +3,8 @@
 // read, then to /offline/, which lists the saved ones. Fingerprinted CSS
 // and JS, fonts and images never change at a URL, so they come from the
 // cache first. Both caches keep only the most recently used entries.
+// Saved pages carry when they were saved, which the copy served offline
+// tells the page (js/offline.js) so it can say how old it is.
 
 const PAGES = "pages";
 const ASSETS = "assets";
@@ -51,6 +53,31 @@ async function save(name, max, key, response) {
   await trim(name, max);
 }
 
+const SAVED_AT = "X-Saved-At";
+
+// A page's response, stamped with when it was saved.
+async function stamped(response) {
+  const headers = new Headers(response.headers);
+  headers.set(SAVED_AT, new Date().toISOString());
+  return new Response(await response.blob(), {
+    status: response.status,
+    statusText: response.statusText,
+    headers: headers,
+  });
+}
+
+// A saved page served offline, with a <meta name="offline-copy"> naming
+// when it was saved. Pages saved before the stamp fall back to the date
+// the server sent them.
+async function offlineCopy(cached) {
+  const savedAt = cached.headers.get(SAVED_AT) || cached.headers.get("Date") || "";
+  const html = (await cached.text()).replace(
+    /<head[^>]*>/i,
+    (head) => head + '<meta name="offline-copy" content="' + savedAt.replace(/"/g, "") + '">',
+  );
+  return new Response(html, { status: cached.status, headers: cached.headers });
+}
+
 function isHTML(response) {
   return response.ok && (response.headers.get("content-type") || "").includes("text/html");
 }
@@ -60,11 +87,15 @@ async function page(event) {
   try {
     const response = await fetch(event.request);
     if (isHTML(response)) {
-      event.waitUntil(save(PAGES, MAX_PAGES, key, response.clone()));
+      event.waitUntil(stamped(response.clone()).then((copy) => save(PAGES, MAX_PAGES, key, copy)));
     }
     return response;
   } catch (error) {
-    return (await caches.match(key)) || (await caches.match(OFFLINE)) || Response.error();
+    const cached = await caches.match(key);
+    if (cached) {
+      return offlineCopy(cached);
+    }
+    return (await caches.match(OFFLINE)) || Response.error();
   }
 }
 
@@ -102,7 +133,7 @@ self.addEventListener("message", function (event) {
     (async function () {
       const response = await fetch(event.data.page);
       if (isHTML(response)) {
-        await save(PAGES, MAX_PAGES, pageKey(event.data.page), response);
+        await save(PAGES, MAX_PAGES, pageKey(event.data.page), await stamped(response));
       }
       await Promise.all(
         event.data.assets
