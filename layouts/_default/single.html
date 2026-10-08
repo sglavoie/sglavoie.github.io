@@ -14,6 +14,15 @@
 {{- $hasToc := gt (len .TableOfContents) 25 -}}
 <article class="post-reading{{ if $hasToc }} post-reading--with-toc{{ end }}" data-pagefind-body>
   <div class="reading-progress" aria-hidden="true"></div>
+  {{- if $hasToc }}
+  {{- /* Narrow screens have no sidebar: once the reader is into the article,
+       this bar names the section they're in and leads back to the table of
+       contents. toc-scrollspy.html fills and shows it. */}}
+  <a class="section-bar" href="#toc" hidden data-pagefind-ignore>
+    <span class="section-bar__hint">On this page</span>
+    <span class="section-bar__current"></span>
+  </a>
+  {{- end }}
   <header class="post-reading__header">
     <h1 class="post-reading__title">{{ .Title }}</h1>
     <p class="post-reading__meta meta-row" data-pagefind-ignore>
@@ -43,7 +52,7 @@
     {{- end }}
   </header>
   {{ if $hasToc }}
-  <aside class="post-reading__toc" aria-labelledby="toc-title" data-pagefind-ignore>
+  <aside id="toc" class="post-reading__toc" aria-labelledby="toc-title" data-pagefind-ignore>
     {{- /* Collapsed above the article on narrow screens; the script below keeps
          it open where it becomes the sticky sidebar. */ -}}
     <details class="toc-details">

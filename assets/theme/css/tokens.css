@@ -157,6 +157,7 @@
   --layout-prose-max: 42rem;
   --header-max: calc(var(--layout-prose-max) + (var(--layout-gutter) * 2));
   --header-height: 4.5rem;
+  --section-bar-height: 2.5rem;
 
   /* Rhythm inside articles */
   --space-block: clamp(1.5rem, 5vw, 2.25rem);

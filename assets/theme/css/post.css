@@ -974,6 +974,93 @@ article > .article_title h1 {
   }
 }
 
+/* ---------- Current section (narrow screens) ---------- */
+
+/* A slim bar under the header naming the section being read, below the
+   width where the table of contents becomes a sidebar. The header scrolls
+   away on phones, so there it pins to the top of the window. */
+.section-bar {
+  display: none;
+}
+
+@media (max-width: 1279px) {
+  .section-bar:not([hidden]) {
+    position: fixed;
+    top: var(--header-height);
+    right: 0;
+    left: 0;
+    z-index: 49;
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    height: var(--section-bar-height);
+    /* Lined up with the prose column and the logo above it. */
+    padding: 0 max(var(--layout-gutter), calc((100% - var(--layout-prose-max)) / 2));
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-soft);
+    background-color: var(--surface-header);
+    backdrop-filter: saturate(140%) blur(10px);
+    line-height: var(--section-bar-height);
+    text-decoration: none;
+    animation: section-bar-in var(--motion-medium) var(--ease-out);
+  }
+
+  .section-bar__hint {
+    flex-shrink: 0;
+    color: var(--ink-muted);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .section-bar__hint::before {
+    content: ">";
+    margin-right: 0.5em;
+    color: var(--accent);
+  }
+
+  .section-bar__current {
+    min-width: 0;
+    overflow: hidden;
+    color: var(--ink-primary);
+    font-size: 0.92rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .section-bar:hover .section-bar__current {
+    color: var(--link-hover);
+  }
+
+  /* Clear of the bar when it leads back to the table of contents. */
+  .post-reading__toc {
+    scroll-margin-top: calc(var(--header-height) + var(--section-bar-height) + 1rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .section-bar:not([hidden]) {
+    top: 0;
+  }
+
+  .section-bar__hint {
+    display: none;
+  }
+
+  .post-reading__toc {
+    scroll-margin-top: calc(var(--section-bar-height) + 1rem);
+  }
+}
+
+@keyframes section-bar-in {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
 /* ---------- Reading progress ---------- */
 
 /* A bar along the bottom edge of the sticky header that fills as the
@@ -1013,6 +1100,19 @@ article > .article_title h1 {
   @media (max-width: 767px) {
     .reading-progress {
       top: 0;
+    }
+  }
+
+  /* Under the section bar while it shows. */
+  @media (max-width: 1279px) {
+    .post-reading:has(.section-bar:not([hidden])) .reading-progress {
+      top: calc(var(--header-height) + var(--section-bar-height) - 2px);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .post-reading:has(.section-bar:not([hidden])) .reading-progress {
+      top: calc(var(--section-bar-height) - 2px);
     }
   }
 }

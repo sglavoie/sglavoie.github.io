@@ -20,6 +20,8 @@
     });
 
     const sidebar = document.querySelector(".post-reading__toc");
+    const sectionBar = document.querySelector(".section-bar");
+    const sectionBarText = sectionBar && sectionBar.querySelector(".section-bar__current");
     // The sticky header's height: a heading under it counts as passed.
     const headerOffset = 72;
     const visible = new Set();
@@ -68,6 +70,21 @@
       if (current) {
         revealInSidebar(current);
       }
+      if (sectionBar) {
+        // Before the first heading there is no section to name.
+        sectionBar.hidden = !current;
+        sectionBarText.textContent = current ? current.textContent : "";
+      }
+    }
+
+    // The bar leads to the table of contents, opened.
+    if (sectionBar) {
+      sectionBar.addEventListener("click", function () {
+        const details = sidebar.querySelector(".toc-details");
+        if (details) {
+          details.open = true;
+        }
+      });
     }
 
     const observer = new IntersectionObserver(
