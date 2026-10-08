@@ -1,13 +1,21 @@
 {{- /* Fenced code blocks: highlighted code with an optional file name
      (```bash {title="~/.tmux.conf"}), a language label and a copy button.
-     Plain text wraps long lines; other blocks opt in with {wrap=true}. */ -}}
+     Plain text wraps long lines; other blocks opt in with {wrap=true}.
+     In shell blocks, a leading "$ " is the prompt: it can't be selected,
+     and the copy button copies only the lines that have one (code-blocks.js). */ -}}
 {{- $lang := .Type | default "" -}}
 {{- $title := .Attributes.title | default "" -}}
 {{- $plain := in (slice "" "text" "txt" "plaintext") $lang -}}
 {{- $showLang := not $plain -}}
 {{- $wrap := or $plain (eq (string .Attributes.wrap) "true") -}}
 {{- $result := transform.HighlightCodeBlock . -}}
-<div class="code-block{{ if $title }} code-block--titled{{ end }}{{ if $wrap }} code-block--wrap{{ end }}">
+{{- $code := $result.Wrapped -}}
+{{- $prompted := false -}}
+{{- if in (slice "bash" "sh" "shell" "zsh" "console") $lang -}}
+  {{- $prompted = findRE `<span class="cl">\$ ` (string $code) 1 -}}
+  {{- $code = replaceRE `<span class="cl">\$ ` `<span class="cl"><span class="code-block__prompt">$$ </span>` $code | safeHTML -}}
+{{- end -}}
+<div class="code-block{{ if $title }} code-block--titled{{ end }}{{ if $wrap }} code-block--wrap{{ end }}"{{ if $prompted }} data-prompted{{ end }}>
   <div class="code-block__bar" data-pagefind-ignore>
     {{- with $title }}
     <span class="code-block__title">{{ . }}</span>
@@ -17,5 +25,5 @@
     {{- end }}
     <button class="code-block__copy" type="button" aria-label="Copy code to clipboard" hidden>Copy</button>
   </div>
-  {{ $result.Wrapped }}
+  {{ $code }}
 </div>

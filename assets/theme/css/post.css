@@ -686,6 +686,12 @@ article > .article_title h1 {
   color: var(--accent);
 }
 
+/* The "$ " before a shell command: shown, but left out of selections. */
+.code-block__prompt {
+  color: var(--code-chrome);
+  user-select: none;
+}
+
 /* Without a file name, the bar would cost a whole row: with a mouse, it
    floats in the corner instead and shows while the block is hovered or
    focused. Touch screens keep the row, since they have no hover. */

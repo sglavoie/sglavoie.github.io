@@ -6,6 +6,31 @@ function codeOf(block) {
   return codes[codes.length - 1];
 }
 
+// What the copy button copies. In a shell block with prompts, only the
+// commands: the lines after a "$ " prompt and the ones a trailing "\"
+// continues, without the prompt. Output lines are left out.
+function copiedText(block) {
+  const code = codeOf(block);
+  if (!block.hasAttribute("data-prompted")) {
+    return code.textContent.replace(/\n$/, "");
+  }
+  const commands = [];
+  let continued = false;
+  code.querySelectorAll(".line").forEach(function (line) {
+    const prompt = line.querySelector(".code-block__prompt");
+    const text = line.textContent.replace(/\n$/, "");
+    if (prompt) {
+      commands.push(text.slice(prompt.textContent.length));
+    } else if (continued) {
+      commands.push(text);
+    } else {
+      return;
+    }
+    continued = /\\$/.test(text);
+  });
+  return commands.join("\n");
+}
+
 function initCopy() {
   if (!navigator.clipboard) {
     return;
@@ -13,8 +38,7 @@ function initCopy() {
   document.querySelectorAll(".code-block__copy").forEach(function (button) {
     button.hidden = false;
     button.addEventListener("click", function () {
-      const code = codeOf(button.closest(".code-block"));
-      navigator.clipboard.writeText(code.textContent.replace(/\n$/, "")).then(function () {
+      navigator.clipboard.writeText(copiedText(button.closest(".code-block"))).then(function () {
         button.textContent = "Copied";
         button.dataset.copied = "";
         window.setTimeout(function () {
