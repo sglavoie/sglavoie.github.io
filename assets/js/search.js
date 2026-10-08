@@ -13,10 +13,6 @@ function focusSearchInput() {
   }
 }
 
-export function isSearchOpen() {
-  return Boolean(searchDialog?.open);
-}
-
 export function openSearch() {
   if (!searchDialog || searchDialog.open || typeof PagefindUI === "undefined") {
     return;

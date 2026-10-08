@@ -876,6 +876,76 @@ article > .article_title h1 {
   justify-content: center;
 }
 
+/* Images that open full size in the zoom dialog (zoom.js). */
+.article_text img.is-zoomable {
+  cursor: zoom-in;
+}
+
+.article_text img.is-zoomable:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.zoom-dialog {
+  width: 100vw;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: auto;
+  overscroll-behavior: contain;
+  cursor: zoom-out;
+}
+
+.zoom-dialog[open] {
+  display: grid;
+  place-items: center;
+  animation: backdrop-fade-in var(--motion-medium) var(--ease-out);
+}
+
+.zoom-dialog::backdrop {
+  background-color: hsla(211, 60%, 2%, 85%);
+  backdrop-filter: blur(3px);
+}
+
+.zoom-dialog__image {
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100dvh - 2rem);
+  border-radius: 6px;
+  background-color: var(--image-backdrop);
+}
+
+.zoom-dialog.is-larger .zoom-dialog__image {
+  cursor: zoom-in;
+}
+
+.zoom-dialog.is-actual {
+  place-items: start;
+}
+
+.zoom-dialog.is-actual .zoom-dialog__image {
+  max-width: none;
+  max-height: none;
+  margin: 1rem;
+  cursor: zoom-out;
+}
+
+.zoom-dialog__close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1;
+  /* On the dark backdrop in either theme. */
+  color: hsl(210, 20%, 88%);
+}
+
+.zoom-dialog__close kbd {
+  border-color: hsla(210, 20%, 88%, 40%);
+}
+
 .article_text .youtube {
   margin: var(--space-block) 0;
   overflow: hidden;

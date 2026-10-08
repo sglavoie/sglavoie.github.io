@@ -6,6 +6,7 @@ import { initNavFades } from "./nav.js";
 import { initSearch } from "./search.js";
 import { initShortcuts } from "./shortcuts.js";
 import { initTheme } from "./theme.js";
+import { initZoom } from "./zoom.js";
 
 initSearch();
 initTheme();
@@ -13,3 +14,4 @@ initNavFades();
 initCodeBlocks();
 initHeadingLinks();
 initShortcuts();
+initZoom();

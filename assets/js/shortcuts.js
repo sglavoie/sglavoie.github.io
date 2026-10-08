@@ -1,5 +1,5 @@
 // Single-key shortcuts, listed in the dialog that "?" opens (baseof.html).
-import { isSearchOpen, openSearch } from "./search.js";
+import { openSearch } from "./search.js";
 import { toggleTheme } from "./theme.js";
 
 const shortcutsDialog = document.getElementById("shortcuts-dialog");
@@ -45,8 +45,7 @@ export function initShortcuts() {
       e.metaKey ||
       e.ctrlKey ||
       e.altKey ||
-      isSearchOpen() ||
-      shortcutsDialog?.open ||
+      document.querySelector("dialog[open]") ||
       isEditableTarget(e.target)
     ) {
       return;
