@@ -1,0 +1,25 @@
+{{- /* Topic groups on the home page; home-posts.html picks their posts. */ -}}
+{{- with . }}
+<section class="home-topics" aria-labelledby="home-topics-title">
+  <h2 id="home-topics-title" class="section-label">Browse by topic</h2>
+  {{- range . }}
+  <div class="home-topic">
+    <div class="home-topic__header">
+      <h3 class="home-topic__title"><a href="{{ .page.RelPermalink }}">{{ .title }}</a></h3>
+      <a class="home-topic__all" href="{{ .page.RelPermalink }}">All {{ .count }}<span class="visually-hidden"> {{ .title }} posts</span> &rarr;</a>
+    </div>
+    {{- with .blurb }}
+    <p class="home-topic__blurb">{{ . }}</p>
+    {{- end }}
+    <ul class="home-topic__list">
+      {{- range .picks }}
+      <li>
+        <a class="home-topic__post" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <span class="home-topic__meta">{{ partial "reading-time.html" . }}</span>
+      </li>
+      {{- end }}
+    </ul>
+  </div>
+  {{- end }}
+</section>
+{{- end }}

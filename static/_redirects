@@ -14,6 +14,9 @@
 /twitter        https://twitter.com/sgdlavoie                                                    301
 /workflow       /categories/workflow/                                                            301
 
+# --- Home page pagination (removed: the home page ends with a short feed) ---
+/page/*        /archives/                                                                        301
+
 # --- Old article URL pattern (/posts/YYYY/MM/DD/<slug>/ → /posts/<slug>/) ---
 /posts/2018/12/23/bash-history-cleaner/                                                    /posts/bash-history-cleaner/                                                    301
 /posts/2019/02/18/binary-to-decimal-decimal-to-binary-converter/                           /posts/binary-to-decimal-decimal-to-binary-converter/                           301

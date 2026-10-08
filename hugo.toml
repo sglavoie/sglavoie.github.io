@@ -31,6 +31,23 @@ description = "Posts and writings by Sébastien Lavoie. Customization setups and
   name = "RSS feed"
   url = "/feeds/sglavoie.rss.xml"
 
+# Home page groups after "Start here", in this order. Each shows the newest
+# posts of a taxonomy term (taxonomy defaults to "tags") that the page
+# hasn't listed above it.
+[[params.home_topics]]
+  title = "Book summaries"
+  term = "books"
+  blurb = "Notes on books about Go, software design and engineering careers."
+[[params.home_topics]]
+  title = "Terminal & tools"
+  term = "terminal"
+  blurb = "The shell, Git, tmux and the small tools that make the command line pleasant."
+[[params.home_topics]]
+  title = "Workflow"
+  taxonomy = "categories"
+  term = "workflow"
+  blurb = "Editors, window managers and habits for getting work done with less friction."
+
 [permalinks]
   posts = "/posts/:slug/"
 

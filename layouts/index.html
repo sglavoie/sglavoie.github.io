@@ -1,8 +1,6 @@
 {{ define "main" }}
 {{ $posts := partial "home-posts.html" . }}
 {{ $featured := $posts.featured }}
-{{ $paginator := .Paginate $posts.listed }}
-{{ if eq $paginator.PageNumber 1 }}
 {{ with .Site.Params.intro }}
 <section class="home-intro">
   <div class="home-intro__identity">
@@ -45,17 +43,13 @@
   </ul>
 </section>
 {{ end }}
-{{ end }}
+{{ partial "home-topics.html" $posts.topics }}
+{{ with $posts.latest }}
 <div class="article_title article_title--list">
-  {{- /* Page 1 has its h1 in the intro; later pages lead with this one. */}}
-  {{- if eq $paginator.PageNumber 1 }}
-  <h2 class="section-label">Latest posts</h2>
-  {{- else }}
-  <h1 class="section-label">Posts &middot; page {{ $paginator.PageNumber }}</h1>
-  {{- end }}
+  <h2 class="section-label">More posts</h2>
 </div>
-{{ range $paginator.Pages }}{{ partial "article-card.html" . }}{{ end }}
-{{ partial "pagination.html" . }}
+{{ range . }}{{ partial "article-card.html" . }}{{ end }}
+{{ end }}
 {{- with site.GetPage "/archives" }}
 <p class="home-archives-link">
   <a href="{{ .RelPermalink }}">Browse all {{ len (where site.RegularPages "Section" "posts") }} posts in the archives &rarr;</a>

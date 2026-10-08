@@ -20,15 +20,7 @@
 {{- $url := .Permalink -}}
 {{- $robots := "" -}}
 {{- $pageNumberSuffix := "" -}}
-{{- if .IsHome -}}
-  {{- $paginator := .Paginate (partial "home-posts.html" .).listed -}}
-  {{- $canonicalURL = $paginator.URL | absURL -}}
-  {{- $url = $canonicalURL -}}
-  {{- if gt $paginator.PageNumber 1 -}}
-    {{- $pageNumberSuffix = printf " (Page %d)" $paginator.PageNumber -}}
-    {{- $robots = "noindex,follow" -}}
-  {{- end -}}
-{{- else if or (eq .Kind "section") (eq .Kind "term") -}}
+{{- if or (eq .Kind "section") (eq .Kind "term") -}}
   {{- $paginator := .Paginate .Pages -}}
   {{- $canonicalURL = $paginator.URL | absURL -}}
   {{- $url = $canonicalURL -}}

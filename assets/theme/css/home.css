@@ -169,6 +169,114 @@ main .home-featured__card:hover .home-featured__title {
   color: var(--ink-secondary);
 }
 
+/* ---------- Topic groups ---------- */
+
+/* A short index per topic: a heading with a link to the full list, one
+   line on what it covers, then a few titles. Lighter than the post cards,
+   so the page reads as a table of contents rather than a feed. */
+.home-topics {
+  max-width: var(--layout-prose-max);
+  margin: 0 auto clamp(2.5rem, 7vw, 3.5rem);
+}
+
+.home-topics .section-label {
+  margin-bottom: 1.25rem;
+}
+
+.home-topic + .home-topic {
+  margin-top: 2rem;
+}
+
+.home-topic__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+}
+
+.home-topic__title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.home-topic__title a,
+.home-topic__title a:visited {
+  color: var(--ink-primary);
+}
+
+.home-topic__title a:hover,
+.home-topic__title a:focus-visible {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+.home-topic__all,
+.home-topic__all:visited {
+  color: var(--ink-secondary);
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+.home-topic__all:hover,
+.home-topic__all:focus-visible {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+.home-topic__blurb {
+  margin: 0.25rem 0 0.6rem;
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.home-topic__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home-topic__list li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.55rem 0;
+  border-top: 1px solid var(--border-soft);
+}
+
+.home-topic__post,
+.home-topic__post:visited {
+  min-width: 0;
+  color: var(--ink-primary);
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+/* Posts already read recede, as in the post cards. */
+.home-topic__post:visited {
+  color: var(--ink-secondary);
+}
+
+.home-topic__post:hover,
+.home-topic__post:focus-visible {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+.home-topic__meta {
+  flex-shrink: 0;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
 /* ---------- Post list ---------- */
 
 .article_title--list {

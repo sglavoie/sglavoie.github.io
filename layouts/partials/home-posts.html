@@ -1,10 +1,33 @@
-{{- /* The home page's posts, shared by index.html and seo/page-meta.html.
-     Whichever calls .Paginate first fixes the list for the page, so both
-     must paginate the same collection.
+{{- /* The home page's posts, in the order the page shows them, each post at
+     most once:
 
-     Hand-picked posts: set `featured: true` in a post's front matter, and
-     optionally a short `teaser` (defaults to the description). They are
-     left out of `listed` so the home page never shows a post twice. */ -}}
+     - featured: hand-picked, `featured: true` in a post's front matter
+       (at most 3), with an optional short `teaser` (defaults to the
+       description).
+     - topics: one group per [[params.home_topics]] in hugo.toml, each the
+       newest posts of a taxonomy term not shown above it.
+     - latest: the newest posts not shown above ("More posts"), a short feed that ends
+       with a link to the archives. */ -}}
 {{- $pages := where site.RegularPages "Section" "posts" -}}
 {{- $featured := first 3 (where $pages "Params.featured" true) -}}
-{{- return dict "featured" $featured "listed" (complement $featured $pages) -}}
+{{- $shown := $featured -}}
+{{- $topics := slice -}}
+{{- range $topic := site.Params.home_topics -}}
+  {{- $taxonomy := $topic.taxonomy | default "tags" -}}
+  {{- with site.GetPage (printf "/%s/%s" $taxonomy ($topic.term | urlize)) -}}
+    {{- $all := .Pages.ByDate.Reverse -}}
+    {{- $picks := first ($topic.limit | default 3) (complement $shown $all) -}}
+    {{- if $picks -}}
+      {{- $shown = $shown | append $picks -}}
+      {{- $topics = $topics | append (dict
+        "title" ($topic.title | default .Title)
+        "blurb" $topic.blurb
+        "page" .
+        "count" (len $all)
+        "picks" $picks
+      ) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $latest := first 5 (complement $shown $pages.ByDate.Reverse) -}}
+{{- return dict "featured" $featured "topics" $topics "latest" $latest -}}
