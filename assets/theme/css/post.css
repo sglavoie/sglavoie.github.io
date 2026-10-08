@@ -893,6 +893,18 @@ article > .article_title h1 {
   cursor: pointer;
 }
 
+/* The whole header cell sorts, not just its text; the button keeps the
+   cell's alignment. */
+.article_text th:has(> .table-sort) {
+  position: relative;
+}
+
+.table-sort::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+}
+
 .table-sort::after {
   content: "↕";
   color: var(--ink-muted);
