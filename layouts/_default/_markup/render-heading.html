@@ -1,0 +1,6 @@
+{{- /* Article headings carry a link to their own section; headings.js also
+     copies its address on click. Hidden from search and feeds. */ -}}
+<h{{ .Level }} id="{{ .Anchor }}"{{ with .Attributes.class }} class="{{ . }}"{{ end }}>
+  {{- .Text -}}
+  {{- if and .Anchor (ge .Level 2) }}<a class="heading-anchor" href="#{{ .Anchor }}" aria-label="Link to this section" data-pagefind-ignore>#</a>{{ end -}}
+</h{{ .Level }}>

@@ -1106,3 +1106,79 @@ article > .article_title h1 {
     transform: scaleX(1);
   }
 }
+
+/* ---------- Section links ---------- */
+
+/* Clear of the sticky header and, below the sidebar breakpoint, the
+   section bar (render-heading.html links here). */
+.article_text :is(h2, h3, h4, h5, h6)[id] {
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+@media (max-width: 1279px) {
+  .post-reading--with-toc .article_text :is(h2, h3, h4, h5, h6)[id] {
+    scroll-margin-top: calc(var(--header-height) + var(--section-bar-height) + 1rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .article_text :is(h2, h3, h4, h5, h6)[id] {
+    scroll-margin-top: 1rem;
+  }
+
+  .post-reading--with-toc .article_text :is(h2, h3, h4, h5, h6)[id] {
+    scroll-margin-top: calc(var(--section-bar-height) + 1rem);
+  }
+}
+
+.article_text .heading-anchor,
+.article_text .heading-anchor:visited {
+  position: relative;
+  margin-left: 0.35em;
+  padding: 0 0.15em;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  font-weight: 400;
+  text-decoration: none;
+  opacity: 0.35;
+  transition: opacity var(--motion-fast) var(--ease-out),
+    color var(--motion-fast) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .article_text .heading-anchor {
+    opacity: 0;
+  }
+}
+
+.article_text :is(h2, h3, h4, h5, h6):hover .heading-anchor,
+.article_text .heading-anchor:focus-visible {
+  opacity: 1;
+}
+
+.article_text .heading-anchor:hover,
+.article_text .heading-anchor:focus-visible {
+  color: var(--link-hover);
+}
+
+.article_text .heading-anchor[data-copied] {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.article_text .heading-anchor[data-copied]::after {
+  content: "Link copied";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  background-color: var(--surface-menu);
+  box-shadow: var(--shadow-soft);
+  color: var(--ink-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
