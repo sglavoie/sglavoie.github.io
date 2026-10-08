@@ -12,11 +12,13 @@
   {{- with $categories }}
   <section class="topics-section" aria-labelledby="topics-categories">
     <h2 id="topics-categories" class="section-label">Categories</h2>
-    <ul class="taxonomy-index">
+    {{- /* The same index rows as the tags below, so both lists read as one
+         kind of link; the larger names keep categories the first level. */}}
+    <ul class="tag-list tag-list--categories" aria-label="Categories">
       {{- range .Alphabetical }}
-      <li class="taxonomy-index__item">
-        <a class="taxonomy-index__link" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
-        <span class="taxonomy-index__count">{{ .Count }}</span>
+      <li>
+        <a class="tag-list__link" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+        <span class="tag-list__count">{{ .Count }}</span>
       </li>
       {{- end }}
     </ul>

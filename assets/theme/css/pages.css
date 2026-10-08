@@ -368,8 +368,14 @@
   margin-top: var(--space-section);
 }
 
-.discovery-page--topics .taxonomy-index {
-  margin-top: 1rem;
+/* Categories head the page as the first level above the tags. */
+.tag-list--categories li {
+  padding: 0.55rem 0;
+}
+
+.tag-list--categories .tag-list__link {
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 /* ---------- Category and tag listings ---------- */
