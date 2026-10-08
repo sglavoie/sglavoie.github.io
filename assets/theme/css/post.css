@@ -979,21 +979,30 @@ article > .article_title h1 {
   border-bottom: 1px solid var(--border-soft);
 }
 
-.post-footer__share {
+.post-footer__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
   margin: -1rem 0 1.5rem;
+  padding: 0;
+  list-style: none;
 }
 
-.post-footer__share button {
+.post-footer__actions a,
+.post-footer__actions button {
   padding: 0;
   border: 0;
   background: none;
   color: var(--link-color);
   font: 600 1rem/1.4 var(--font-sans);
+  text-decoration: none;
   cursor: pointer;
 }
 
-.post-footer__share button:hover,
-.post-footer__share button:focus-visible {
+.post-footer__actions a:hover,
+.post-footer__actions a:focus-visible,
+.post-footer__actions button:hover,
+.post-footer__actions button:focus-visible {
   color: var(--link-hover);
   text-decoration: underline;
 }
