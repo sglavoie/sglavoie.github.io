@@ -1401,3 +1401,27 @@ article > .article_title h1 {
 .article_text .footnote-backref {
   text-decoration: none;
 }
+
+/* The note shown beside its reference (js/footnotes.js). */
+.footnote-preview {
+  position: absolute;
+  z-index: 30;
+  width: max-content;
+  max-width: min(26rem, calc(100vw - 2rem));
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  background: var(--surface-menu);
+  box-shadow: var(--shadow-soft);
+  color: var(--ink-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.footnote-preview > :first-child {
+  margin-top: 0;
+}
+
+.footnote-preview > :last-child {
+  margin-bottom: 0;
+}

@@ -3,6 +3,7 @@
 // parts return early on pages without their elements.
 import { initArchivesFilter } from "./archives.js";
 import { initCodeBlocks } from "./code-blocks.js";
+import { initFootnotes } from "./footnotes.js";
 import { initHeadingLinks } from "./headings.js";
 import { initNavFades } from "./nav.js";
 import { initNotFound } from "./not-found.js";
@@ -20,6 +21,7 @@ initTheme();
 initNavFades();
 initCodeBlocks();
 initHeadingLinks();
+initFootnotes();
 initShortcuts();
 initShare();
 initZoom();
