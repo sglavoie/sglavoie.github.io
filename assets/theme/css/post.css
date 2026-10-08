@@ -502,16 +502,26 @@ article > .article_title h1 {
   text-underline-offset: 0.28em;
 }
 
-/* Background only: a border on every chip gets busy in code-heavy prose. */
+/* Background only: a border on every chip gets busy in code-heavy prose.
+   Source Code Pro runs large beside Source Serif, so chips step down a size
+   and code-heavy paragraphs read as text rather than a row of boxes. */
 .article_text code {
-  padding: 0.05em 0.25em;
+  padding: 0.05em 0.2em;
   border-radius: 4px;
   background-color: var(--surface-code-inline);
   color: var(--ink-code-inline);
+  font-size: 0.88em;
   overflow-wrap: anywhere;
   /* A chip that wraps keeps its padding and border on both lines. */
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+}
+
+/* The link already marks the run; a chip inside it doubles the box. */
+.article_text a code {
+  padding: 0;
+  background: none;
+  color: inherit;
 }
 
 /* ---------- Code blocks (render-codeblock.html) ---------- */
