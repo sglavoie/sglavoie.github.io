@@ -487,3 +487,12 @@
   color: var(--ink-muted);
   font-size: 0.92rem;
 }
+
+.not-found__suggestions {
+  max-width: var(--layout-prose-max);
+  margin: 0 auto 2rem;
+}
+
+.not-found__suggestions .section-label {
+  margin-bottom: 0.5rem;
+}

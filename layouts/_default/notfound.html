@@ -14,6 +14,11 @@
     <h1 class="post-reading__title">Page not found</h1>
     <div class="post-reading__standfirst">{{ .Content }}</div>
   </header>
+  {{- /* Filled by the script below with posts matching the missing path. */}}
+  <section class="not-found__suggestions" aria-labelledby="suggestions-title" hidden>
+    <h2 id="suggestions-title" class="section-label">Perhaps one of these</h2>
+    <ul class="post-footer__related-list"></ul>
+  </section>
   <ul class="not-found__links">
     <li><a href="{{ "/" | relURL }}">Home</a><span>the newest posts and where to start</span></li>
     {{- with site.GetPage "/archives" }}
@@ -36,5 +41,47 @@
       document.getElementById("search-trigger")?.click();
     });
   })();
+</script>
+<script type="module">
+  // Posts whose words match the missing path, from the Pagefind index:
+  // /posts/tmux-sesions/ looks for "tmux sesions", then for each word alone
+  // when no post has them all.
+  const section = document.querySelector(".not-found__suggestions");
+  let words = [];
+  try {
+    words = decodeURI(location.pathname)
+      .toLowerCase()
+      .split(/[^a-z0-9]+/)
+      .filter((word) => word.length > 2 && !/^\d+$/.test(word))
+      .filter((word) => !["posts", "html", "index", "tags", "categories"].includes(word));
+  } catch (e) {}
+  if (section && words.length && location.pathname !== "/404.html") {
+    try {
+      const pagefind = await import("/pagefind/pagefind.js");
+      let results = (await pagefind.search(words.join(" "))).results;
+      if (!results.length) {
+        const searches = await Promise.all(words.map((word) => pagefind.search(word)));
+        const byURL = new Map();
+        searches.flatMap((search) => search.results).forEach((result) => {
+          const seen = byURL.get(result.id);
+          byURL.set(result.id, seen ? { ...result, score: seen.score + result.score } : result);
+        });
+        results = [...byURL.values()].sort((a, b) => b.score - a.score);
+      }
+      const pages = await Promise.all(results.slice(0, 5).map((result) => result.data()));
+      const list = section.querySelector("ul");
+      pages.forEach((page) => {
+        const item = document.createElement("li");
+        const link = document.createElement("a");
+        link.href = page.url;
+        link.textContent = page.meta.title;
+        item.appendChild(link);
+        list.appendChild(item);
+      });
+      section.hidden = !pages.length;
+    } catch (e) {
+      // No index (hugo server) or no network: the usual links remain.
+    }
+  }
 </script>
 {{ end }}
