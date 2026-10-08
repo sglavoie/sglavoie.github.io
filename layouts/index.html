@@ -5,7 +5,10 @@
 {{ if eq $paginator.PageNumber 1 }}
 {{ with .Site.Params.intro }}
 <section class="home-intro">
-  <h1 class="visually-hidden">{{ site.Params.author }}</h1>
+  <div class="home-intro__identity">
+    {{ partial "avatar.html" (dict "size" 72 "class" "home-intro__avatar") }}
+    <h1 class="home-intro__name">{{ site.Params.author }}</h1>
+  </div>
   <p>{{ . | markdownify }}</p>
   {{- with site.Params.intro_links }}
   <ul class="home-intro__links meta-row" aria-label="Elsewhere">

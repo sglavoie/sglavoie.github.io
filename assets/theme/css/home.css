@@ -10,25 +10,55 @@
   margin: 0 auto clamp(2rem, 6vw, 3rem);
 }
 
-.home-intro p {
-  margin: 0;
-  color: var(--ink-primary);
-  font-size: clamp(1.2rem, 3.2vw, 1.5rem);
-  line-height: 1.5;
-  text-wrap: pretty;
+.home-intro__identity {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
 }
 
-/* A cursor: the bar under the logo, same proportions (about 3.85:1) and
-   the same fade between greys. */
-.home-intro p::after {
+.avatar {
+  display: block;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.home-intro__avatar {
+  width: 4rem;
+  height: 4rem;
+  box-shadow: 0 0 0 1px var(--border-soft), 0 0 0 4px var(--surface-page),
+    0 0 0 5px var(--border-strong);
+}
+
+.home-intro__name {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 5vw, 2rem);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+/* A cursor after the name: the bar under the logo, same proportions
+   (about 3.85:1) and the same fade between greys. */
+.home-intro__name::after {
   content: "";
   display: inline-block;
-  width: 0.55em;
-  height: 0.143em;
-  margin-left: 0.2em;
+  width: 0.5em;
+  height: 0.13em;
+  margin-left: 0.15em;
   /* Static colour when animations are reduced. */
   background-color: var(--logo-bar-from);
   animation: cursor-pulse 2s linear infinite;
+}
+
+.home-intro p {
+  margin: 0;
+  color: var(--ink-secondary);
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 3vw, 1.35rem);
+  line-height: 1.55;
+  text-wrap: pretty;
 }
 
 .home-intro__links {

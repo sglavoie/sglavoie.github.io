@@ -46,6 +46,7 @@
 
   {{- with site.Params.signoff }}
   <section class="post-footer__about" aria-label="About the author">
+    {{ partial "avatar.html" (dict "size" 48) }}
     <p>{{ . | markdownify }}</p>
     <p>
       <a class="post-footer__subscribe" href="{{ "/feeds/sglavoie.rss.xml" | absURL }}">

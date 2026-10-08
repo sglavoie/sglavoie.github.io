@@ -729,6 +729,19 @@ article > .article_title h1 {
   background-color: var(--surface-raised);
 }
 
+.post-footer__about {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0 1rem;
+  align-items: start;
+}
+
+.post-footer__about .avatar {
+  grid-row: span 2;
+  width: 3rem;
+  height: 3rem;
+}
+
 .post-footer__about p {
   margin: 0;
   color: var(--ink-secondary);

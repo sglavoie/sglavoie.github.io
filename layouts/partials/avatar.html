@@ -1,0 +1,16 @@
+{{- /* The author's photo as a square WebP at 1x and 2x of `size` CSS pixels.
+     Decorative: the name always sits next to it. Takes (dict "size" N "class" "..."). */ -}}
+{{- $size := .size | default 64 -}}
+{{- with resources.Get "images/avatar.jpg" -}}
+  {{- $x1 := .Fill (printf "%dx%d Center webp q82" $size $size) -}}
+  {{- $x2 := .Fill (printf "%dx%d Center webp q82" (mul $size 2) (mul $size 2)) -}}
+  <img
+    class="avatar{{ with $.class }} {{ . }}{{ end }}"
+    src="{{ $x1.RelPermalink }}"
+    srcset="{{ $x1.RelPermalink }} 1x, {{ $x2.RelPermalink }} 2x"
+    width="{{ $size }}"
+    height="{{ $size }}"
+    alt=""
+    decoding="async"
+  />
+{{- end -}}
