@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Checks a built site for what the browser would block.
+"""Checks a built site for what the browser or Cloudflare Pages would break on.
 
 - Every inline <script> matches a hash in the Content-Security-Policy of
   _headers (layouts/index.headers), or the browser blocks it.
+- Every internal destination in _redirects is a page or file of the build,
+  and no source is listed twice (the first match wins, so a second is dead).
 
 Usage: build-validate.py SITE_DIR
 """
@@ -45,6 +47,38 @@ def check_inline_scripts(site_dir: Path, failures: list[str]) -> None:
                 )
 
 
+def exists_in_build(site_dir: Path, path: str) -> bool:
+    path = path.split("#", 1)[0].split("?", 1)[0]
+    target = site_dir / path.lstrip("/")
+    if path.endswith("/"):
+        return (target / "index.html").is_file()
+    return target.is_file() or (target / "index.html").is_file()
+
+
+def check_redirects(site_dir: Path, failures: list[str]) -> None:
+    redirects = site_dir / "_redirects"
+    if not redirects.is_file():
+        return
+    sources: dict[str, int] = {}
+    for number, line in enumerate(redirects.read_text(encoding="utf-8").splitlines(), start=1):
+        fields = line.split()
+        if not fields or fields[0].startswith("#"):
+            continue
+        if len(fields) < 2:
+            failures.append(f"_redirects:{number}: no destination")
+            continue
+        source, destination = fields[0], fields[1]
+        if source in sources:
+            failures.append(f"_redirects:{number}: {source} is already redirected on line {sources[source]}")
+        else:
+            sources[source] = number
+        # External, or filled in from the request (:splat, :placeholder).
+        if not destination.startswith("/") or ":" in destination:
+            continue
+        if not exists_in_build(site_dir, destination):
+            failures.append(f"_redirects:{number}: {source} -> {destination}, which isn't in the build")
+
+
 def main() -> int:
     if len(sys.argv) != 2:
         print(__doc__.strip().splitlines()[-1], file=sys.stderr)
@@ -52,11 +86,12 @@ def main() -> int:
     site_dir = Path(sys.argv[1])
     failures: list[str] = []
     check_inline_scripts(site_dir, failures)
+    check_redirects(site_dir, failures)
     for failure in failures:
         print(f"FAIL {failure}", file=sys.stderr)
     if failures:
         return 1
-    print("Build validation passed: inline scripts match the CSP.")
+    print("Build validation passed: inline scripts match the CSP and redirects land on built pages.")
     return 0
 
 
