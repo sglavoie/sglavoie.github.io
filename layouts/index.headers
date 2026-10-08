@@ -2,7 +2,10 @@
        Headers output format in hugo.toml). Inline scripts are allowed by the
        hash of the same minified resource that partials/inline-script.html
        writes into the page; any other inline script is blocked.
-       'wasm-unsafe-eval' is for Pagefind's search, which runs WebAssembly. */ -}}
+       'wasm-unsafe-eval' is for Pagefind's search, which runs WebAssembly.
+       Speculation-Rules has browsers fetch a page when a link to it is
+       pointed at or pressed (static/speculation-rules.json): only its HTML,
+       none of its scripts, so it doesn't count as a visit or a read. */ -}}
 {{- $hashes := slice -}}
 {{- range slice "theme" "toc" -}}
   {{- $script := resources.Get (printf "js/inline/%s.js" .) | minify | fingerprint "sha256" -}}
@@ -30,9 +33,13 @@
   Link: </feeds/sglavoie.atom.xml>; rel="alternate"; type="application/atom+xml"
   Link: </feeds/sglavoie.rss.xml>; rel="alternate"; type="application/rss+xml"
   Link: </feeds/sglavoie.json>; rel="alternate"; type="application/feed+json"
+  Speculation-Rules: "/speculation-rules.json"
 
 /.well-known/api-catalog
   Content-Type: application/linkset+json
+
+/speculation-rules.json
+  Content-Type: application/speculationrules+json
 
 /opensearch.xml
   Content-Type: application/opensearchdescription+xml

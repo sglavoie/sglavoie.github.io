@@ -1,0 +1,26 @@
+{
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          { "href_matches": "/*" },
+          {
+            "not": {
+              "href_matches": [
+                "/pagefind/*",
+                "/feeds/*",
+                "/files/*",
+                "/images/*",
+                "/random/",
+                "/*.xml",
+                "/*.json"
+              ]
+            }
+          },
+          { "not": { "selector_matches": "[download], [rel~=nofollow], [target=_blank]" } }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ]
+}

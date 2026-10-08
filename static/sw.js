@@ -82,11 +82,18 @@ function isHTML(response) {
   return response.ok && (response.headers.get("content-type") || "").includes("text/html");
 }
 
+// A page fetched ahead of a click (static/speculation-rules.json) may never
+// be read, so it isn't saved; if it's opened, the page asks for it to be
+// (js/offline.js).
+function isPrefetch(request) {
+  return /prefetch/.test(request.headers.get("Sec-Purpose") || "");
+}
+
 async function page(event) {
   const key = pageKey(event.request.url);
   try {
     const response = await fetch(event.request);
-    if (isHTML(response)) {
+    if (isHTML(response) && !isPrefetch(event.request)) {
       event.waitUntil(stamped(response.clone()).then((copy) => save(PAGES, MAX_PAGES, key, copy)));
     }
     return response;

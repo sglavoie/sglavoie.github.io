@@ -16,18 +16,22 @@ export function initOffline() {
   if (!("serviceWorker" in navigator) || location.port === "1313") {
     return;
   }
-  const firstVisit = !navigator.serviceWorker.controller;
+  // A page opened from a prefetch (static/speculation-rules.json) came
+  // without the worker saving it, as on a first visit.
+  const navigation = performance.getEntriesByType("navigation")[0];
+  const unsaved = !navigator.serviceWorker.controller || navigation?.deliveryType === "navigational-prefetch";
   navigator.serviceWorker
     .register("/sw.js")
     .then(function () {
       return navigator.serviceWorker.ready;
     })
     .then(function (registration) {
-      if (!firstVisit) {
+      if (!unsaved) {
         return;
       }
-      // This page loaded before the worker was in control: hand it the page
-      // and the files it used, to save as if it had fetched them.
+      // This page loaded before the worker was in control, or from a
+      // prefetch: hand it the page and the files it used, to save as if it
+      // had fetched them.
       registration.active?.postMessage({
         type: "save",
         page: location.href,

@@ -58,7 +58,7 @@ Checks every external link in a build (it builds one when no directory is given)
 
 ### Response headers and scripts
 
-Cloudflare's `_headers` file is generated from `layouts/index.headers`, so its Content-Security-Policy can carry the hashes of the two scripts that must run inline (the saved theme, and the table of contents' open state), both in `assets/js/inline/` and written into pages by `partials/inline-script.html`. Everything else goes in the bundle under `assets/js/`, where `main.js` starts each part; page-specific parts return early on other pages.
+Cloudflare's `_headers` file is generated from `layouts/index.headers`, so its Content-Security-Policy can carry the hashes of the two scripts that must run inline (the saved theme, and the table of contents' open state), both in `assets/js/inline/` and written into pages by `partials/inline-script.html`. Its `Speculation-Rules` header points browsers to `static/speculation-rules.json`, which has them fetch a page of the site when a link to it is pointed at or pressed, so it opens at once; feeds, files and `/random/` are left out. A fetched page isn't saved for offline reading unless it's opened. Everything else goes in the bundle under `assets/js/`, where `main.js` starts each part; page-specific parts return early on other pages.
 
 ### Writing posts
 
