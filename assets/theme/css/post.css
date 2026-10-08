@@ -294,6 +294,29 @@ article > .article_title h1 {
   color: var(--ink-muted);
 }
 
+/* "Collapse all sections" (js/sections.js), above "Back to top", shown on
+   every screen size. */
+.toc-collapse {
+  display: block;
+  margin-top: 1rem;
+  padding: 0 0 0 calc(0.6rem + 2px);
+  border: 0;
+  background: none;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.toc-collapse:hover,
+.toc-collapse:focus-visible {
+  color: var(--link-hover);
+}
+
+.toc-collapse + .toc-top {
+  margin-top: 0.4rem;
+}
+
 .toc-top:hover,
 .toc-top:focus-visible {
   color: var(--link-hover);
@@ -1363,6 +1386,45 @@ article > .article_title h1 {
 @media (hover: hover) and (pointer: fine) {
   .article_text .heading-anchor {
     opacity: 0;
+  }
+}
+
+/* Beside the ## headings of long posts (js/sections.js): collapses the
+   section, pointing right once it's collapsed. Always shown, as nothing
+   else says sections collapse. */
+.article_text .section-toggle {
+  margin-left: 0.25em;
+  padding: 0.1em 0.25em;
+  border: 0;
+  background: none;
+  color: var(--ink-muted);
+  vertical-align: middle;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity var(--motion-fast) var(--ease-out),
+    color var(--motion-fast) var(--ease-out);
+}
+
+.article_text .section-toggle svg {
+  display: block;
+  transition: transform var(--motion-medium) var(--ease-out);
+}
+
+.article_text .section-toggle[aria-expanded="false"] svg {
+  transform: rotate(-90deg);
+}
+
+.article_text .section-toggle:hover,
+.article_text .section-toggle:focus-visible {
+  color: var(--link-hover);
+  opacity: 1;
+}
+
+/* Screen only: a printout has every section. */
+@media screen {
+  .article_text [data-collapsed] {
+    display: none !important;
   }
 }
 

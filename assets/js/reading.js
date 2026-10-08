@@ -3,6 +3,8 @@
 // in; reaching the end of the post forgets it and records the post as
 // finished. The /offline/ page shows the same progress beside the posts it
 // lists (offline.js), and lists of posts mark the read ones (initReadMarks).
+import { isCollapsed } from "./sections.js";
+import { previousVisit } from "./visits.js";
 
 const storageKey = "reading";
 const maxEntries = 30;
@@ -57,6 +59,10 @@ function position(article, headings) {
   const fraction = Math.min(1, Math.max(0, -box.top / Math.max(1, box.height - window.innerHeight)));
   let heading = null;
   for (const candidate of headings) {
+    // In a collapsed section (sections.js): not on the page.
+    if (!candidate.getClientRects().length) {
+      continue;
+    }
     // Where a jump to the heading puts it, below the sticky header.
     const offset = parseFloat(getComputedStyle(candidate).scrollMarginTop) || 0;
     if (candidate.getBoundingClientRect().top > offset + 1) {
@@ -116,6 +122,11 @@ export function initReadingPosition() {
 
   let timer = 0;
   function save() {
+    // With sections collapsed, the article is shorter than the reader's
+    // place in it.
+    if (isCollapsed()) {
+      return;
+    }
     const progress = readProgress();
     const { fraction, heading } = position(article, headings);
     if (fraction < minProgress && !progress[page]) {
@@ -138,9 +149,10 @@ export function initReadingPosition() {
     { passive: true },
   );
 
-  // The end of the post: nothing left to come back to.
+  // The end of the post: nothing left to come back to, unless collapsed
+  // sections brought it into view.
   new IntersectionObserver(function (entries) {
-    if (entries.some((entry) => entry.isIntersecting)) {
+    if (entries.some((entry) => entry.isIntersecting) && !isCollapsed()) {
       window.clearTimeout(timer);
       markFinished(page);
       const progress = readProgress();
@@ -154,8 +166,10 @@ export function initReadingPosition() {
 
 // Beside post titles in lists (home page, archives, tag and category pages,
 // related posts): "Read" for a post read to the end, or how far the reader
-// got into one left part way. In "Recently revised" (data-revised), a post
-// finished before its last revision says so instead.
+// got into one left part way. Where the list gives a post's dates
+// (data-published, data-revised), a post finished before its last revision
+// says so instead, and one the reader hasn't opened is "New" or "Updated"
+// when published or revised since their previous visit (visits.js).
 export function initReadMarks() {
   const links = document.querySelectorAll(
     ".article-card__title a, .archives-article__title a, .home-topic__post, .post-footer__related-list a",
@@ -165,22 +179,36 @@ export function initReadMarks() {
   }
   const finished = readFinished();
   const progress = readProgress();
+  const visit = previousVisit();
   links.forEach(function (link) {
     const page = new URL(link.href).pathname;
     let label = "";
-    const revised = Date.parse(link.dataset.revised || "");
-    if (finished[page] && finished[page] < revised) {
+    const published = link.dataset.published || "";
+    const revised = link.dataset.revised || "";
+    if (finished[page] && finished[page] < Date.parse(revised)) {
       label = "Revised since read";
     } else if (finished[page]) {
       label = "Read";
     } else if (progress[page]) {
       label = Math.round(progress[page].fraction * 100) + "% read";
+    } else if (visit && Date.parse(published) > Date.parse(visit.post)) {
+      label = "New";
+    } else if (
+      visit &&
+      Date.parse(revised) > Date.parse(visit.revision) &&
+      // A revision, not the publication date standing in for one.
+      revised.slice(0, 10) > published.slice(0, 10)
+    ) {
+      label = "Updated";
     }
     if (!label) {
       return;
     }
     const mark = document.createElement("span");
     mark.className = "read-mark";
+    if (label === "New" || label === "Updated") {
+      mark.classList.add("read-mark--since-visit");
+    }
     mark.textContent = label;
     link.append(mark);
   });

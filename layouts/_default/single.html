@@ -12,7 +12,8 @@
 {{ define "main" }}
 {{ if eq .Section "posts" }}
 {{- $hasToc := gt (len .TableOfContents) 25 -}}
-<article class="post-reading{{ if $hasToc }} post-reading--with-toc{{ end }}" data-pagefind-body>
+{{- /* Long posts let readers collapse their sections (js/sections.js). */ -}}
+<article class="post-reading{{ if $hasToc }} post-reading--with-toc{{ end }}"{{ if and $hasToc (ge .ReadingTime 15) }} data-collapsible{{ end }} data-pagefind-body>
   <div class="reading-progress" aria-hidden="true"></div>
   {{- if $hasToc }}
   {{- /* Narrow screens have no sidebar: once the reader is into the article,

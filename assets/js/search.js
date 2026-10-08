@@ -97,6 +97,24 @@ export function initSearch() {
     }
   });
 
+  // The arrow keys move from the query down the results (sections of a
+  // page included) to "Load more", and back up; Enter opens the one
+  // focused, as with any link.
+  const stops = ".pagefind-ui__search-input, .pagefind-ui__result-link, .pagefind-ui__button";
+  searchDialog.addEventListener("keydown", function (e) {
+    if ((e.key !== "ArrowDown" && e.key !== "ArrowUp") || !e.target.matches(stops)) {
+      return;
+    }
+    const all = Array.from(searchDialog.querySelectorAll(stops)).filter(
+      (stop) => stop.getClientRects().length,
+    );
+    const next = all[all.indexOf(e.target) + (e.key === "ArrowDown" ? 1 : -1)];
+    if (next) {
+      e.preventDefault();
+      next.focus();
+    }
+  });
+
   if (searchTrigger) {
     searchTrigger.setAttribute("aria-expanded", "false");
     searchTrigger.addEventListener("click", openSearch);

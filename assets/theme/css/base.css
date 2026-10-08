@@ -267,6 +267,11 @@ img {
   white-space: nowrap;
 }
 
+/* "New" or "Updated" since the reader's previous visit (visits.js). */
+.read-mark--since-visit {
+  color: var(--accent);
+}
+
 .meta-row > * + *::before {
   content: "·";
   position: absolute;

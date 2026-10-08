@@ -1,0 +1,8 @@
+{{- /* The newest post date and revision date of the build, which visits.js
+     compares from one visit to the next. Cached: the same on every page. */ -}}
+{{- $posts := where site.RegularPages "Section" "posts" -}}
+{{- $post := "" -}}
+{{- $revision := "" -}}
+{{- with index $posts.ByDate.Reverse 0 }}{{ $post = .Date.Format "2006-01-02T15:04:05Z07:00" }}{{ end -}}
+{{- with index $posts.ByLastmod.Reverse 0 }}{{ $revision = .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}{{ end -}}
+{{- return dict "post" $post "revision" $revision -}}

@@ -23,14 +23,15 @@ function follow(rel) {
 }
 
 // Article sections: the h2 and h3 headings, measured against the offset
-// they scroll to (post.css keeps them clear of the sticky bars).
+// they scroll to (post.css keeps them clear of the sticky bars). Those in
+// collapsed sections (sections.js) are skipped.
 function sections() {
-  return Array.from(document.querySelectorAll(".article_text :is(h2, h3)[id]")).map(
-    function (heading) {
+  return Array.from(document.querySelectorAll(".article_text :is(h2, h3)[id]"))
+    .filter((heading) => heading.getClientRects().length)
+    .map(function (heading) {
       const margin = parseFloat(getComputedStyle(heading).scrollMarginTop) || 0;
       return { heading: heading, top: heading.getBoundingClientRect().top - margin };
-    },
-  );
+    });
 }
 
 function goToSection(heading) {

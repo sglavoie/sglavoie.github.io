@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}">
+{{- $newest := partialCached "newest-dates.html" . "newest-dates" }}
+<html lang="{{ .Site.Language.Lang }}" data-newest-post="{{ $newest.post }}" data-newest-revision="{{ $newest.revision }}">
   <head>
     {{ partial "inline-script.html" "theme" }}
     {{ partial "head.html" . }}
@@ -64,6 +65,7 @@
         <div><dt><kbd>G</kbd> <span class="shortcuts-list__then">then</span> <kbd>A</kbd></dt><dd>Go to the archives</dd></div>
         <div><dt><kbd>G</kbd> <span class="shortcuts-list__then">then</span> <kbd>T</kbd></dt><dd>Go to topics</dd></div>
         <div><dt><kbd>G</kbd> <span class="shortcuts-list__then">then</span> <kbd>R</kbd></dt><dd>Go to a random post</dd></div>
+        <div><dt><kbd>&uarr;</kbd> <kbd>&darr;</kbd></dt><dd>Move between search results</dd></div>
         <div><dt><kbd>?</kbd></dt><dd>Show these shortcuts</dd></div>
       </dl>
     </dialog>

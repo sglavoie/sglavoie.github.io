@@ -148,8 +148,9 @@ export function initTocScrollspy() {
       if (inView) {
         setCurrent(linkById.get(inView.id));
       } else {
+        // Headings in collapsed sections (sections.js) have no box.
         const passed = headings.filter(function (h) {
-          return h.getBoundingClientRect().top <= headerOffset;
+          return h.getClientRects().length && h.getBoundingClientRect().top <= headerOffset;
         });
         setCurrent(
           passed.length ? linkById.get(passed[passed.length - 1].id) : null,
