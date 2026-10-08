@@ -7,7 +7,7 @@
       </time>
       {{ with index .Params.categories 0 }}
         {{ with site.GetPage (printf "/categories/%s" (. | urlize)) }}
-          <a class="article-card__category" href="{{ .RelPermalink }}">{{ .Title }}</a>
+          <a class="article-card__category meta-row__term" href="{{ .RelPermalink }}">{{ .Title }}</a>
         {{ end }}
       {{ end }}
       {{ with .ReadingTime }}

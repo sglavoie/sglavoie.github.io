@@ -33,7 +33,7 @@
         <span class="home-featured__meta meta-row">
           {{- with index .Params.categories 0 }}
             {{- with site.GetPage (printf "/categories/%s" (. | urlize)) }}
-          <span class="home-featured__category">{{ .Title }}</span>
+          <span class="home-featured__category meta-row__term">{{ .Title }}</span>
             {{- end }}
           {{- end }}
           <span>{{ partial "reading-time.html" . }}</span>

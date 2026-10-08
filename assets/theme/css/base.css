@@ -217,6 +217,15 @@ img {
   min-width: 0;
 }
 
+/* Words in the row (category, book author) take the sans, so they read as
+   names rather than data; dates and counts stay in mono. The sans runs
+   smaller than the mono at the same size, hence the step up. */
+.meta-row__term {
+  font-family: var(--font-sans);
+  font-size: 1.1em;
+  line-height: 1.4;
+}
+
 .meta-row > * + *::before {
   content: "·";
   position: absolute;
