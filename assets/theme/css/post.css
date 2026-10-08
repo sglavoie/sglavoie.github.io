@@ -347,8 +347,45 @@ article > .article_title h1 {
   text-align: left;
 }
 
+/* Well below the post title, so a section never reads as a second title
+   and the levels stay distinct when skimming. */
 .article_text h2 {
   margin-top: var(--space-section);
+  font-size: 1.45rem;
+}
+
+.article_text h3 {
+  font-size: 1.22rem;
+}
+
+.article_text h4 {
+  font-size: 1.08rem;
+}
+
+.article_text :is(h5, h6) {
+  font-size: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .article_text h2 {
+    font-size: 1.7rem;
+  }
+
+  .article_text h3 {
+    font-size: 1.35rem;
+  }
+
+  .article_text h4 {
+    font-size: 1.15rem;
+  }
+}
+
+/* The heading's own font size and weight already set code apart; a chip
+   would outweigh the words around it. */
+.article_text :is(h2, h3, h4, h5, h6) code {
+  padding: 0;
+  background: none;
+  color: inherit;
 }
 
 .article_text h3 {
