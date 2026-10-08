@@ -1,6 +1,6 @@
 // Reading settings: the size of the article text and its font, chosen in
-// the popover beside the theme toggle (header.html) and kept in this
-// browser. js/inline/theme.js applies them before the first paint; the
+// the display settings popover (header.html), beside the theme (theme.js),
+// and kept in this browser. js/inline/theme.js applies them before the first paint; the
 // stylesheets read them as --reading-scale and --font-reading (tokens.css).
 
 import { announce } from "./toast.js";

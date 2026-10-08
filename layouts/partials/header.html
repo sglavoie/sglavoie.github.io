@@ -47,17 +47,19 @@
       >
         {{ partial "icons/search.html" . }}
       </button>
-      {{- /* Opens the reading settings below; a popover, so it needs no
+      {{- /* Opens the display settings below; a popover, so it needs no
            script to open, close or dismiss. */}}
       <button
         class="icon-button"
         type="button"
         popovertarget="reading-settings-panel"
-        aria-label="Reading settings"
-        title="Reading settings"
+        aria-label="Display settings"
+        title="Display settings"
       >
         <svg aria-hidden="true" focusable="false" width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19l5-14 5 14M4.8 14h6.4"/><path d="M15 19l3.5-9 3.5 9M16 16.5h5"/></svg>
       </button>
+      {{- /* Phones have no room for it in the header: the display settings
+           offer the theme there. */}}
       <button
         id="theme-toggle"
         class="icon-button"
@@ -70,11 +72,19 @@
       </button>
     </div>
   </div>
-  {{- /* js/reading-settings.js keeps the choices; checked marks the
-       defaults, which "Reset" goes back to. */}}
+  {{- /* js/reading-settings.js keeps the text choices and js/theme.js the
+       theme; checked marks the defaults, which "Reset" goes back to. */}}
   <div id="reading-settings-panel" class="reading-settings" popover aria-labelledby="reading-settings-title">
     <form id="reading-settings">
-      <h2 id="reading-settings-title" class="reading-settings__title">Reading settings</h2>
+      <h2 id="reading-settings-title" class="reading-settings__title">Display settings</h2>
+      <fieldset class="reading-settings__group">
+        <legend>Theme</legend>
+        <div class="reading-settings__options">
+          <label><input type="radio" name="theme" value="auto" checked /><span>Auto</span></label>
+          <label><input type="radio" name="theme" value="light" /><span>Light</span></label>
+          <label><input type="radio" name="theme" value="dark" /><span>Dark</span></label>
+        </div>
+      </fieldset>
       <fieldset class="reading-settings__group">
         <legend>Text size</legend>
         <div class="reading-settings__options">
@@ -92,7 +102,7 @@
         </div>
       </fieldset>
       <p class="reading-settings__footer">
-        <span class="reading-settings__hint"><kbd>+</kbd> <kbd>-</kbd> change the size</span>
+        <span class="reading-settings__hint"><kbd>+</kbd> <kbd>-</kbd> size, <kbd>T</kbd> theme</span>
         <button type="reset" class="reading-settings__reset">Reset</button>
       </p>
     </form>
