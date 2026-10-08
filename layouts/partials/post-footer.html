@@ -15,6 +15,10 @@
 <footer class="post-footer" data-pagefind-ignore>
   {{- /* End of the article: the prompt is back, waiting for the next command. */}}
   {{ partial "prompt-line.html" "" }}
+  {{- /* share.js shows it: the system share sheet, or else a copied link. */}}
+  <p class="post-footer__share" hidden>
+    <button type="button" data-share data-title="{{ .Title }}" data-url="{{ .Permalink }}">Share this post</button>
+  </p>
   {{- if or $newer $older }}
   <nav class="post-footer__pager" aria-label="More posts">
     {{- with $older }}
