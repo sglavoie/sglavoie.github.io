@@ -34,7 +34,7 @@
           <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2" }}</time>
         </dt>
         <dd class="archives-article__title">
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          <a href="{{ .RelPermalink }}">{{ partial "book-mark.html" . }}{{ .Title }}</a>
         </dd>
         {{- with $category }}
           {{- with site.GetPage (printf "/categories/%s" (. | urlize)) }}
@@ -56,6 +56,7 @@
       return;
     }
     const chips = Array.from(filter.querySelectorAll(".archives-filter__chip"));
+    const archives = document.querySelector(".archives");
     const years = Array.from(document.querySelectorAll(".archives-year"));
     const total = document.querySelector("[data-archives-total]");
     const plural = function (n) {
@@ -82,6 +83,8 @@
         shown += inYear;
       });
       total.textContent = plural(shown);
+      // One category shown: its name on every row says nothing new.
+      archives.toggleAttribute("data-filtered", Boolean(category));
       chips.forEach(function (chip) {
         chip.setAttribute("aria-pressed", String(chip.dataset.category === category));
       });

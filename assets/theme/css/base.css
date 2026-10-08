@@ -239,6 +239,21 @@ img {
   opacity: 0.75;
 }
 
+/* Before a book summary's title in lists: accent-tinted, sized to the
+   title's x-height so it reads as a marker rather than a word. */
+.book-mark {
+  display: inline-block;
+  margin-right: 0.4em;
+  color: var(--accent);
+  font-size: 0.85em;
+  vertical-align: -0.05em;
+}
+
+.book-mark .book-icon {
+  display: block;
+  opacity: 1;
+}
+
 .meta-row > * + *::before {
   content: "·";
   position: absolute;
@@ -288,6 +303,33 @@ img {
     fill: var(--logo-bar-to);
     background-color: var(--logo-bar-to);
   }
+}
+
+/* A shell prompt waiting at a cursor, the logo's motif in running text:
+   ends posts, the home page and the 404 page. */
+.prompt-line {
+  margin: 0;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.prompt-line__sign {
+  margin-right: 0.6em;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.prompt-line__cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 0.15em;
+  margin-left: 0.1em;
+  vertical-align: baseline;
+  /* Static colour when animations are reduced. */
+  background-color: var(--logo-bar-from);
+  animation: cursor-pulse 2s linear infinite;
 }
 
 /* ---------- Page load ---------- */

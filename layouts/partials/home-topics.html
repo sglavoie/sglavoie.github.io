@@ -14,8 +14,8 @@
     <ul class="home-topic__list">
       {{- range .picks }}
       <li>
-        <a class="home-topic__post" href="{{ .RelPermalink }}">{{ .Title }}</a>
-        <span class="home-topic__meta">{{ partial "reading-time.html" . }}</span>
+        <a class="home-topic__post" href="{{ .RelPermalink }}">{{ partial "book-mark.html" . }}{{ .Title }}</a>
+        <time class="home-topic__meta" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
       </li>
       {{- end }}
     </ul>

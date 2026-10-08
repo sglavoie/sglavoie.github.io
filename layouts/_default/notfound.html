@@ -1,0 +1,40 @@
+{{ define "title" }} &ndash; {{ .Title }}{{ end }}
+
+{{ define "main" }}
+{{- /* The 404 page (content/404.md) as a shell session: the missing path
+     fails like a `cd` would, then the usual ways back. The script fills in
+     the path that was asked for. */ -}}
+<article class="post-reading post-reading--page not-found">
+  <div class="not-found__shell" aria-hidden="true">
+    <p class="prompt-line"><span class="prompt-line__sign">$</span>cd <span data-not-found-path>/this/page</span></p>
+    <p class="not-found__error">cd: no such file or directory</p>
+    {{ partial "prompt-line.html" "" }}
+  </div>
+  <header class="post-reading__header">
+    <h1 class="post-reading__title">Page not found</h1>
+    <div class="post-reading__standfirst">{{ .Content }}</div>
+  </header>
+  <ul class="not-found__links">
+    <li><a href="{{ "/" | relURL }}">Home</a><span>the newest posts and where to start</span></li>
+    {{- with site.GetPage "/archives" }}
+    <li><a href="{{ .RelPermalink }}">Archives</a><span>every post, by year</span></li>
+    {{- end }}
+    <li><button type="button" class="not-found__search" data-open-search>Search</button><span>or press <kbd>F</kbd> anywhere</span></li>
+  </ul>
+</article>
+<script>
+  (function () {
+    const path = document.querySelector("[data-not-found-path]");
+    if (path && location.pathname !== "/404.html") {
+      try {
+        path.textContent = decodeURI(location.pathname);
+      } catch (e) {
+        path.textContent = location.pathname;
+      }
+    }
+    document.querySelector("[data-open-search]")?.addEventListener("click", function () {
+      document.getElementById("search-trigger")?.click();
+    });
+  })();
+</script>
+{{ end }}

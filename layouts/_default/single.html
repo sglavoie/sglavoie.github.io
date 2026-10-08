@@ -25,13 +25,11 @@
   {{- end }}
   <header class="post-reading__header">
     <h1 class="post-reading__title">{{ .Title }}</h1>
+    {{- with .Params.teaser | default .Description }}
+    <p class="post-reading__standfirst">{{ . | plainify | htmlUnescape }}</p>
+    {{- end }}
     <p class="post-reading__meta meta-row" data-pagefind-ignore>
       <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-      {{- with index .Params.categories 0 }}
-        {{- with site.GetPage (printf "/categories/%s" (. | urlize)) }}
-      <a class="post-reading__category meta-row__term" href="{{ .RelPermalink }}">{{ .Title }}</a>
-        {{- end }}
-      {{- end }}
       {{- partial "book-label.html" . }}
       {{- if .ReadingTime }}
       <span>{{ partial "reading-time.html" . }}</span>
@@ -40,9 +38,18 @@
       <span>Updated <time class="modified" datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Lastmod.Format "Jan 2, 2006" }}</time></span>
       {{- end }}
     </p>
-    {{- with .GetTerms "tags" }}
-    <ul class="post-reading__tags" aria-label="Tags" data-pagefind-ignore>
-      {{- range . }}
+    {{- /* One row of terms: the category first, filled, then the tags. */}}
+    {{- $category := "" }}
+    {{- with index .Params.categories 0 }}
+      {{- $category = site.GetPage (printf "/categories/%s" (. | urlize)) }}
+    {{- end }}
+    {{- $tags := .GetTerms "tags" }}
+    {{- if or $category $tags }}
+    <ul class="post-reading__tags" aria-label="Category and tags" data-pagefind-ignore>
+      {{- with $category }}
+      <li><a class="post-reading__category" href="{{ .RelPermalink }}"><span class="visually-hidden">Category: </span>{{ .Title }}</a></li>
+      {{- end }}
+      {{- range $tags }}
       <li><a href="{{ .RelPermalink }}">{{ partial "icons/tag.html" . }}{{ .Title }}</a></li>
       {{- end }}
     </ul>

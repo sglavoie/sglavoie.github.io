@@ -221,6 +221,16 @@
   text-decoration: underline;
 }
 
+/* Filtered to one category (archives.html sets the flag), the category
+   column would repeat that one name on every row. */
+.archives[data-filtered] .archives-article {
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+}
+
+.archives[data-filtered] .archives-article__category {
+  display: none;
+}
+
 @media (max-width: 559px) {
   .archives-article {
     grid-template-columns: 4.5rem minmax(0, 1fr);
@@ -382,4 +392,76 @@
 
 .taxonomy-listing__pagination {
   margin-top: 1rem;
+}
+
+/* ---------- Not found ---------- */
+
+.not-found__shell {
+  max-width: var(--layout-prose-max);
+  margin: 0 auto 2rem;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  background-color: var(--code-bg);
+}
+
+.not-found__shell .prompt-line {
+  color: var(--code-ink);
+  overflow-wrap: anywhere;
+}
+
+.not-found__error {
+  margin: 0;
+  color: var(--syn-name);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.not-found .post-reading__standfirst p {
+  margin: 0;
+}
+
+.not-found__links {
+  max-width: var(--layout-prose-max);
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.not-found__links li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--border-soft);
+}
+
+.not-found__links li:last-child {
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.not-found__links a,
+.not-found__search {
+  min-width: 6rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--link-color);
+  font: 600 1.1rem/1.4 var(--font-serif);
+  text-align: left;
+  cursor: pointer;
+}
+
+.not-found__links a:hover,
+.not-found__links a:focus-visible,
+.not-found__search:hover,
+.not-found__search:focus-visible {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+.not-found__links span {
+  color: var(--ink-muted);
+  font-size: 0.92rem;
 }

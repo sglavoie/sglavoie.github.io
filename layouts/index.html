@@ -52,16 +52,33 @@
   <ul class="home-topic__list">
     {{- range . }}
     <li>
-      <a class="home-topic__post" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <a class="home-topic__post" href="{{ .RelPermalink }}">{{ partial "book-mark.html" . }}{{ .Title }}</a>
       <time class="home-topic__meta" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
     </li>
     {{- end }}
   </ul>
 </section>
 {{ end }}
-{{- with site.GetPage "/archives" }}
-<p class="home-archives-link">
-  <a href="{{ .RelPermalink }}">Browse all {{ len (where site.RegularPages "Section" "posts") }} posts in the archives &rarr;</a>
-</p>
-{{- end }}
+{{- /* Closes the page: the way on to every post, the feed, and the links
+       from the intro, since the home footer keeps only the colophon. */}}
+<section class="home-end" aria-label="Keep reading">
+  {{ partial "prompt-line.html" "" }}
+  {{- with site.GetPage "/archives" }}
+  <p class="home-end__archives">
+    <a href="{{ .RelPermalink }}">Browse all {{ len (where site.RegularPages "Section" "posts") }} posts in the archives &rarr;</a>
+  </p>
+  {{- end }}
+  <p class="home-end__feed">
+    New posts show up in the <a class="home-end__rss" href="{{ "/feeds/sglavoie.rss.xml" | absURL }}">{{ partial "icons/rss.html" . | strings.TrimSpace | safeHTML }}RSS feed</a>.
+  </p>
+  {{- with site.Params.intro_links }}
+  <ul class="home-end__links meta-row" aria-label="Elsewhere">
+    {{- range . }}
+    {{- if ne .name "RSS feed" }}
+    <li><a href="{{ .url | relURL }}">{{ .name }}</a></li>
+    {{- end }}
+    {{- end }}
+  </ul>
+  {{- end }}
+</section>
 {{ end }}

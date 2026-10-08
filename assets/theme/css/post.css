@@ -28,19 +28,20 @@ article > .article_title h1 {
   overflow-wrap: anywhere;
 }
 
+/* The post's description, set like the home intro: a lede between the
+   title and the metadata. */
+.post-reading__standfirst {
+  max-width: 70ch;
+  margin: -0.25rem 0 1.1rem;
+  color: var(--ink-secondary);
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
 .post-reading__meta {
   font-size: 0.85rem;
-}
-
-.post-reading__category,
-.post-reading__category:visited {
-  color: var(--ink-secondary);
-}
-
-.post-reading__category:hover,
-.post-reading__category:focus-visible {
-  color: var(--link-hover);
-  text-decoration: underline;
 }
 
 .post-reading__tags {
@@ -69,6 +70,20 @@ article > .article_title h1 {
   border-color: var(--border-strong);
   background-color: var(--accent-soft);
   color: var(--link-hover);
+}
+
+/* The category leads the row, filled where the tags are outlined. */
+.post-reading__tags .post-reading__category,
+.post-reading__tags .post-reading__category:visited {
+  border-color: transparent;
+  background-color: var(--accent-soft);
+  color: var(--accent-strong);
+  font-weight: 600;
+}
+
+.post-reading__tags .post-reading__category:hover,
+.post-reading__tags .post-reading__category:focus-visible {
+  border-color: var(--border-strong);
 }
 
 .post-reading__tags .tag-icon {
@@ -233,27 +248,19 @@ article > .article_title h1 {
   color: var(--link-hover);
 }
 
-/* Wide screens: the prose and a sticky table of contents share one grid,
-   and the header and footer widen to match, so the logo lines up with the
-   prose and the header icons with the sidebar's right edge. */
+/* Wide screens: the prose and a sticky table of contents share one grid.
+   The main column keeps the width it has on every other page, so the
+   header, footer and prose start at the same left edge site-wide, and the
+   sidebar hangs out into the right margin. */
 @media (min-width: 1280px) {
   /* The prose column narrows to 40rem here: body text stops at its 70ch
-     measure, and the full 42rem left a wide empty gap before the sidebar. */
-  body:has(.post-reading--with-toc) {
+     measure, and the full 42rem left a wide empty gap before the sidebar.
+     Set on the article, not the body, so main keeps its usual width. */
+  .post-reading--with-toc {
     --layout-prose-max: 40rem;
     --toc-width: 16rem;
     --toc-gap: 2.5rem;
-    --header-max: calc(
-      var(--layout-prose-max) + var(--toc-gap) + var(--toc-width) +
-        2 * var(--layout-gutter)
-    );
-  }
-
-  main:has(.post-reading--with-toc) {
-    max-width: var(--header-max);
-  }
-
-  .post-reading--with-toc {
+    width: calc(var(--layout-prose-max) + var(--toc-gap) + var(--toc-width));
     display: grid;
     grid-template-columns: minmax(0, var(--layout-prose-max)) var(--toc-width);
     column-gap: var(--toc-gap);
@@ -853,8 +860,14 @@ article > .article_title h1 {
 .post-footer {
   max-width: var(--layout-prose-max);
   margin: clamp(3rem, 9vw, 5rem) auto 0;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border-soft);
+}
+
+/* The prompt closes the article, just above the rule that starts the
+   footer. */
+.post-footer > .prompt-line {
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-soft);
 }
 
 .post-footer__pager {
@@ -925,56 +938,6 @@ article > .article_title h1 {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   white-space: nowrap;
-}
-
-.post-footer__about {
-  margin-top: 2.5rem;
-  padding: 1.25rem 1.4rem;
-  border: 1px solid var(--border-soft);
-  border-radius: 8px;
-  background-color: var(--surface-raised);
-}
-
-.post-footer__about {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 0 1rem;
-  align-items: start;
-}
-
-.post-footer__about .avatar {
-  grid-row: span 2;
-  width: 3rem;
-  height: 3rem;
-}
-
-.post-footer__about p {
-  margin: 0;
-  color: var(--ink-secondary);
-  font-family: var(--font-serif);
-  line-height: 1.6;
-  text-wrap: pretty;
-}
-
-.post-footer__about p + p {
-  margin-top: 0.9rem;
-}
-
-.post-footer__subscribe,
-.post-footer__subscribe:visited {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  color: var(--link-color);
-  font-family: var(--font-sans);
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-.post-footer__subscribe:hover,
-.post-footer__subscribe:focus-visible {
-  color: var(--link-hover);
-  text-decoration: underline;
 }
 
 @media (min-width: 768px) {

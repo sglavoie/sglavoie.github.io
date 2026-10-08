@@ -1,0 +1,5 @@
+{{- /* Marks a book summary in a list of titles: the book icon before the
+     title, so the summaries stand out when scanning. Pass the page. */ -}}
+{{- if .Params.book_author -}}
+<span class="book-mark" title="On a book by {{ .Params.book_author }}">{{ partial "book-icon.html" . }}</span>
+{{- end -}}

@@ -1,0 +1,3 @@
+{{- /* A `$ _` prompt with the pulsing cursor; pass text to show it typed
+     after the prompt. Decorative, so hidden from screen readers. */ -}}
+<p class="prompt-line" aria-hidden="true"><span class="prompt-line__sign">$</span>{{ with . }}{{ . }}{{ end }}<span class="prompt-line__cursor"></span></p>
