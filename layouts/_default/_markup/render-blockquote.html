@@ -1,0 +1,19 @@
+{{- /* GitHub-style alerts become callouts:
+
+       > [!TIP] Optional title
+       > Body text.
+
+     Types: NOTE, TIP, IMPORTANT, WARNING, CAUTION. Other blockquotes are
+     left as they are. */ -}}
+{{- if eq .Type "alert" -}}
+{{- $type := lower .AlertType -}}
+{{- $labels := dict "note" "Note" "tip" "Tip" "important" "Important" "warning" "Warning" "caution" "Caution" -}}
+<aside class="callout callout--{{ $type }}" aria-label="{{ index $labels $type | default "Note" }}">
+  <p class="callout__title">{{ with .AlertTitle }}{{ . }}{{ else }}{{ index $labels $type | default (title $type) }}{{ end }}</p>
+  {{ .Text }}
+</aside>
+{{- else -}}
+<blockquote>
+  {{ .Text }}
+</blockquote>
+{{- end -}}

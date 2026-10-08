@@ -1182,3 +1182,49 @@ article > .article_title h1 {
   white-space: nowrap;
   transform: translateX(-50%);
 }
+
+/* ---------- Callouts ---------- */
+
+/* GitHub-style alerts (render-blockquote.html). One accent per kind, on
+   the rule and the title only, so the body reads as ordinary text. */
+.article_text .callout {
+  --callout-color: var(--accent);
+  margin: var(--space-block) 0;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--callout-color);
+  border-radius: 0 6px 6px 0;
+  background-color: var(--surface-raised);
+}
+
+.article_text .callout--tip {
+  --callout-color: light-dark(hsl(145, 55%, 30%), hsl(145, 45%, 62%));
+}
+
+.article_text .callout--important {
+  --callout-color: light-dark(hsl(262, 45%, 45%), hsl(262, 65%, 78%));
+}
+
+.article_text .callout--warning {
+  --callout-color: light-dark(hsl(35, 90%, 32%), hsl(40, 85%, 62%));
+}
+
+.article_text .callout--caution {
+  --callout-color: light-dark(hsl(355, 65%, 42%), hsl(355, 75%, 72%));
+}
+
+.article_text .callout__title {
+  margin: 0 0 0.35rem;
+  color: var(--callout-color);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.article_text .callout__title + * {
+  margin-top: 0;
+}
+
+.article_text .callout > :last-child {
+  margin-bottom: 0;
+}
