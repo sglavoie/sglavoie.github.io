@@ -1576,3 +1576,8 @@ article > .article_title h1 {
 .footnote-preview > :last-child {
   margin-bottom: 0;
 }
+
+/* Saved: the button stays, marked, to remove the post again. */
+.post-footer__actions [data-save][aria-pressed="true"]::before {
+  content: "✓ ";
+}

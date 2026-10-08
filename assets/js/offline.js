@@ -77,22 +77,32 @@ export async function initSavedPages() {
     return;
   }
   try {
-    const cache = await caches.open("pages");
-    const requests = await cache.keys();
+    // Pages kept from reading, and posts saved for later (saved.js), which
+    // may be in both: the saved copy wins.
+    const responses = new Map();
+    for (const name of ["pages", "saved"]) {
+      const cache = await caches.open(name);
+      for (const request of await cache.keys()) {
+        const url = new URL(request.url);
+        if (name === "pages" || !/\.[a-z0-9]+$/.test(url.pathname)) {
+          responses.set(url.pathname, { request: request, cache: cache, kept: name === "saved" });
+        }
+      }
+    }
     const pages = await Promise.all(
-      requests.map(async (request) => {
+      Array.from(responses.values()).map(async ({ request, cache, kept }) => {
         const response = await cache.match(request);
         const html = await response.text();
         const title = new DOMParser().parseFromString(html, "text/html").title;
         const saved = formatSaved(response.headers.get("X-Saved-At") || response.headers.get("Date"));
-        return { url: new URL(request.url).pathname, title: title, saved: saved };
+        return { url: new URL(request.url).pathname, title: title, saved: saved, kept: kept };
       }),
     );
     const list = section.querySelector("ul");
     const progress = readProgress();
     pages
       // Pages that only lead elsewhere.
-      .filter((page) => page.url !== "/offline/" && page.url !== "/random/")
+      .filter((page) => !["/offline/", "/random/", "/saved/"].includes(page.url))
       .sort((a, b) => a.title.localeCompare(b.title))
       .forEach((page) => {
         const item = document.createElement("li");
@@ -103,6 +113,9 @@ export async function initSavedPages() {
         // When it was saved, and how far into it the reader got (reading.js).
         const read = progress[page.url];
         const details = [];
+        if (page.kept) {
+          details.push("saved for later");
+        }
         if (page.saved) {
           details.push("saved " + page.saved);
         }

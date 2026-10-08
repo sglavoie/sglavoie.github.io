@@ -1,6 +1,7 @@
 // Single-key shortcuts, plus "g" followed by a key to go to a page, listed in the dialog that "?" opens (baseof.html).
 import { selectionURL } from "./fragment.js";
 import { stepTextSize } from "./reading-settings.js";
+import { toggleSaved } from "./saved.js";
 import { openSearch } from "./search.js";
 import { toggleTheme } from "./theme.js";
 import { announce } from "./toast.js";
@@ -93,6 +94,7 @@ const actions = {
   "[": previousSection,
   "]": nextSection,
   c: copyLink,
+  s: toggleSaved,
   g: function () {
     pendingGo = Date.now();
   },
@@ -108,6 +110,7 @@ const destinations = {
   a: "/archives/",
   t: "/topics/",
   r: "/random/",
+  s: "/saved/",
 };
 let pendingGo = 0;
 

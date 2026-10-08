@@ -5,9 +5,12 @@
 // cache first. Both caches keep only the most recently used entries.
 // Saved pages carry when they were saved, which the copy served offline
 // tells the page (js/offline.js) so it can say how old it is.
+// Posts a reader saves for later (js/saved.js) are kept apart, with the
+// files they use, and never trimmed until the reader removes them.
 
 const PAGES = "pages";
 const ASSETS = "assets";
+const SAVED = "saved";
 const OFFLINE = "/offline/";
 const MAX_PAGES = 60;
 const MAX_ASSETS = 200;
@@ -95,6 +98,7 @@ async function page(event) {
     const response = await fetch(event.request);
     if (isHTML(response) && !isPrefetch(event.request)) {
       event.waitUntil(stamped(response.clone()).then((copy) => save(PAGES, MAX_PAGES, key, copy)));
+      event.waitUntil(refreshKept(key, response.clone()));
     }
     return response;
   } catch (error) {
@@ -130,9 +134,68 @@ self.addEventListener("fetch", function (event) {
   }
 });
 
+// A post saved for later is kept up to date whenever it's read online.
+async function refreshKept(key, response) {
+  const cache = await caches.open(SAVED);
+  if (await cache.match(key)) {
+    await cache.put(key, await stamped(response));
+  }
+}
+
+// Saves a post for later, with the files it uses (fingerprinted CSS and
+// JS, fonts, images) so it reads the same offline.
+async function keep(page, assets) {
+  const cache = await caches.open(SAVED);
+  const response = await fetch(page);
+  if (!isHTML(response)) {
+    return;
+  }
+  await cache.put(pageKey(page), await stamped(response));
+  await Promise.all(
+    assets
+      .filter((url) => isAsset(new URL(url)))
+      .map(async (url) => {
+        if (!(await cache.match(url))) {
+          const asset = await fetch(url);
+          if (asset.ok) {
+            await cache.put(url, asset);
+          }
+        }
+      }),
+  );
+}
+
+// Removes a saved post, and the files no other saved post uses. Fonts are
+// kept while any post is: stylesheets load them, so no page names them.
+async function forget(page) {
+  const cache = await caches.open(SAVED);
+  await cache.delete(pageKey(page));
+  const keys = await cache.keys();
+  const pages = await Promise.all(
+    keys
+      .filter((request) => !isAsset(new URL(request.url)))
+      .map(async (request) => (await cache.match(request)).text()),
+  );
+  await Promise.all(
+    keys
+      .filter((request) => isAsset(new URL(request.url)) && (!pages.length || !request.url.endsWith(".woff2")))
+      .filter((request) => !pages.some((html) => html.includes(new URL(request.url).pathname)))
+      .map((request) => cache.delete(request)),
+  );
+}
+
 // The first page a reader opens loads before the worker is in control, so
-// that page sends its own address and files to be saved.
+// that page sends its own address and files to be saved. Saving a post for
+// later, or removing it, comes as a message too.
 self.addEventListener("message", function (event) {
+  if (event.data?.type === "keep") {
+    event.waitUntil(keep(event.data.page, event.data.assets).catch(() => {}));
+    return;
+  }
+  if (event.data?.type === "forget") {
+    event.waitUntil(forget(event.data.page).catch(() => {}));
+    return;
+  }
   if (event.data?.type !== "save") {
     return;
   }

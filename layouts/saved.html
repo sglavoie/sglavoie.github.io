@@ -1,0 +1,19 @@
+{{ define "title" }} &ndash; {{ .Title }}{{ end }}
+
+{{ define "main" }}
+{{- /* js/saved.js lists the posts saved in this browser. */ -}}
+<article class="post-reading post-reading--page not-found">
+  <div class="not-found__shell" aria-hidden="true">
+    <p class="prompt-line"><span class="prompt-line__sign">$</span>cat ~/.reading-list</p>
+  </div>
+  <header class="post-reading__header">
+    <h1 class="post-reading__title">{{ .Title }}</h1>
+    <div class="post-reading__standfirst">{{ .Content }}</div>
+  </header>
+  <section class="not-found__suggestions saved-posts" aria-labelledby="saved-posts-title" data-saved-posts>
+    <h2 id="saved-posts-title" class="section-label" tabindex="-1">Your saved posts</h2>
+    <ul class="post-footer__related-list saved-posts__list" hidden></ul>
+    <p data-saved-empty>Nothing saved yet. {{ with site.GetPage "/archives" }}<a href="{{ .RelPermalink }}">Browse the archives</a> for something to read.{{ end }}</p>
+  </section>
+</article>
+{{ end }}

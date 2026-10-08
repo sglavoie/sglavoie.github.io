@@ -31,6 +31,9 @@
   {{ partial "prompt-line.html" "" }}
   <ul class="post-footer__actions">
     {{- /* share.js shows it: the system share sheet, or else a copied link. */}}
+    {{- /* saved.js shows it: keeps the post in a list in this browser, and
+         offline. */}}
+    <li hidden><button type="button" data-save data-title="{{ .Title }}" aria-pressed="false">Save for later</button></li>
     <li hidden><button type="button" data-share data-title="{{ .Title }}" data-url="{{ .Permalink }}">Share this post</button></li>
     {{- with site.Params.repo }}
     {{- $file := path.Join "content" $.File.Path }}

@@ -732,3 +732,28 @@ span.stats__label {
     display: none;
   }
 }
+
+/* ---------- Saved for later (saved.html, js/saved.js) ---------- */
+
+.saved-posts__list li {
+  align-items: baseline;
+}
+
+.saved-posts__list a {
+  flex: 1 1 16rem;
+}
+
+.saved-posts__remove {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink-muted);
+  font: 0.85rem/1.4 var(--font-sans);
+  cursor: pointer;
+}
+
+.saved-posts__remove:hover,
+.saved-posts__remove:focus-visible {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
