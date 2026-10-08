@@ -87,17 +87,19 @@ article > .article_title h1 {
   line-height: 1.6;
 }
 
+/* Capped well short of display size: long book titles otherwise fill the
+   first screen before the article starts. */
 @media (min-width: 768px) {
   .post-reading__title,
   article > .article_title h1 {
-    font-size: 2.55rem;
+    font-size: 2.35rem;
   }
 }
 
 @media (min-width: 1024px) {
   .post-reading__title,
   article > .article_title h1 {
-    font-size: 3.05rem;
+    font-size: 2.6rem;
   }
 }
 
