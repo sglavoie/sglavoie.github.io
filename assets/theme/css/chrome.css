@@ -464,12 +464,45 @@ kbd {
 
 .shortcuts-list dt {
   display: flex;
-  flex: 0 0 5rem;
+  flex: 0 0 6.5rem;
+  align-items: baseline;
   gap: 0.3rem;
+}
+
+.shortcuts-list__then {
+  color: var(--ink-muted);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
 }
 
 .shortcuts-list dd {
   margin: 0;
   color: var(--ink-secondary);
   font-family: var(--font-sans);
+}
+
+/* Confirms what a shortcut did out of sight, like copying a link. */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  z-index: 50;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  background-color: var(--surface-menu);
+  box-shadow: var(--shadow-soft);
+  color: var(--ink-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 0.5rem);
+  transition: opacity var(--motion-fast) var(--ease-out),
+    transform var(--motion-fast) var(--ease-out);
+}
+
+.toast[data-visible] {
+  opacity: 1;
+  transform: translate(-50%, 0);
 }

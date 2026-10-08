@@ -1,6 +1,7 @@
-// Single-key shortcuts, listed in the dialog that "?" opens (baseof.html).
+// Single-key shortcuts, plus "g" followed by a key to go to a page, listed in the dialog that "?" opens (baseof.html).
 import { openSearch } from "./search.js";
 import { toggleTheme } from "./theme.js";
+import { announce } from "./toast.js";
 
 const shortcutsDialog = document.getElementById("shortcuts-dialog");
 
@@ -20,6 +21,48 @@ function follow(rel) {
   }
 }
 
+// Article sections: the h2 and h3 headings, measured against the offset
+// they scroll to (post.css keeps them clear of the sticky bars).
+function sections() {
+  return Array.from(document.querySelectorAll(".article_text :is(h2, h3)[id]")).map(
+    function (heading) {
+      const margin = parseFloat(getComputedStyle(heading).scrollMarginTop) || 0;
+      return { heading: heading, top: heading.getBoundingClientRect().top - margin };
+    },
+  );
+}
+
+function goToSection(heading) {
+  if (heading) {
+    heading.scrollIntoView({ block: "start" });
+    history.replaceState(null, "", "#" + heading.id);
+  }
+}
+
+// "]" goes to the next section; "[" back to the start of this one, or to
+// the one before when already there.
+function nextSection() {
+  goToSection(sections().find((s) => s.top > 2)?.heading);
+}
+
+function previousSection() {
+  goToSection(sections().findLast((s) => s.top < -2)?.heading);
+}
+
+// The address of the section being read, or of the page above the first.
+function copyLink() {
+  if (!navigator.clipboard) {
+    return;
+  }
+  const current = sections().findLast((s) => s.top <= 2)?.heading;
+  const url = new URL(location.href);
+  url.search = "";
+  url.hash = current ? current.id : "";
+  navigator.clipboard.writeText(url.href).then(function () {
+    announce(current ? "Link to this section copied" : "Link to this page copied");
+  });
+}
+
 function openShortcuts() {
   if (shortcutsDialog && !shortcutsDialog.open) {
     shortcutsDialog.showModal();
@@ -36,8 +79,22 @@ const actions = {
   n: function () {
     follow("next");
   },
+  "[": previousSection,
+  "]": nextSection,
+  c: copyLink,
+  g: function () {
+    pendingGo = Date.now();
+  },
   "?": openShortcuts,
 };
+
+// The second key after "g", pressed within a second.
+const destinations = {
+  h: "/",
+  a: "/archives/",
+  t: "/topics/",
+};
+let pendingGo = 0;
 
 export function initShortcuts() {
   document.addEventListener("keydown", function (e) {
@@ -50,7 +107,15 @@ export function initShortcuts() {
     ) {
       return;
     }
-    const action = actions[e.key.length === 1 ? e.key.toLowerCase() : ""];
+    const key = e.key.length === 1 ? e.key.toLowerCase() : "";
+    const going = Date.now() - pendingGo < 1000;
+    pendingGo = 0;
+    if (going && destinations[key]) {
+      e.preventDefault();
+      window.location.href = destinations[key];
+      return;
+    }
+    const action = actions[key];
     if (action) {
       e.preventDefault();
       action();
