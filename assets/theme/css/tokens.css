@@ -127,6 +127,8 @@
 
   /* The logo: a blue mark beside a grey prompt with a pulsing cursor bar. */
   --logo-mark: hsl(211, 100%, 50%);
+  /* Pale grey vanishes on the light page, so light mode takes a darker one. */
+  --logo-prompt: light-dark(hsl(0, 0%, 42%), hsl(0, 0%, 75%));
   --logo-mark-hover: light-dark(hsl(211, 100%, 36%), hsl(200, 100%, 62%));
   --logo-bar-from: light-dark(hsl(0, 0%, 30%), white);
   --logo-bar-to: light-dark(hsl(0, 0%, 65%), grey);

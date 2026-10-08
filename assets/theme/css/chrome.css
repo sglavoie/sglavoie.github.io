@@ -43,6 +43,10 @@
   fill: var(--logo-mark-hover);
 }
 
+.svgLogo__prompt {
+  fill: var(--logo-prompt);
+}
+
 /* The logo's bottom bar pulses like a terminal cursor (see base.css). */
 .svgLogo__bar {
   /* Static colour when animations are reduced. */
