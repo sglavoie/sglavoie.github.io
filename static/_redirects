@@ -11,7 +11,8 @@
 /stackoverflow  https://stackoverflow.com/users/8787680/s%c3%a9bastien-lavoie                    301
 /tips           /categories/tips-and-tricks/                                                     301
 /tools          /categories/tools/                                                               301
-/twitter        https://twitter.com/sgdlavoie                                                    301
+/twitter        https://x.com/sgdlavoie                                                          301
+/x              https://x.com/sgdlavoie                                                          301
 /workflow       /categories/workflow/                                                            301
 
 # --- Home page pagination (removed: the home page ends with a short feed) ---
@@ -87,7 +88,8 @@
 /feeds/workflow.atom.xml        /feeds/sglavoie.rss.xml  301
 
 # --- Pages with custom Pelican URL/save_as (Pelican `*.html` → Hugo `/<slug>/`) ---
-/contact.html                        /contact/                           301
+/contact.html                        /find-me/                           301
+/contact/                            /find-me/                           301
 /learning-progress-2018-earlier.html /learning-progress-2018-earlier/    301
 /learning-progress-2019.html         /learning-progress-2019/            301
 /learning-progress-2020.html         /learning-progress-2020/            301
