@@ -156,15 +156,10 @@ main .home-featured__card:hover .home-featured__title {
 }
 
 .home-featured__teaser {
-  display: -webkit-box;
-  overflow: hidden;
   color: var(--ink-secondary);
   font-family: var(--font-serif);
   font-size: 0.95rem;
   line-height: 1.55;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
 }
 
 .home-featured__meta {
@@ -243,17 +238,12 @@ main .home-featured__card:hover .home-featured__title {
 }
 
 .article-card__summary {
-  display: -webkit-box;
   max-width: 70ch;
   margin: 0.85rem 0 0;
-  overflow: hidden;
   color: var(--ink-secondary);
   font-family: var(--font-serif);
   font-size: 1.02rem;
   line-height: 1.6;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
 }
 
 @media (min-width: 768px) {

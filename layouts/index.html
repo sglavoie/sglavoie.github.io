@@ -28,7 +28,7 @@
       <a class="home-featured__card" href="{{ .RelPermalink }}">
         <span class="home-featured__title">{{ .Title }}</span>
         {{- with .Params.teaser | default .Description }}
-        <span class="home-featured__teaser">{{ . | plainify }}</span>
+        <span class="home-featured__teaser">{{ . | plainify | htmlUnescape | truncate 170 }}</span>
         {{- end }}
         <span class="home-featured__meta meta-row">
           {{- with index .Params.categories 0 }}
