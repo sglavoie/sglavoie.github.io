@@ -71,7 +71,7 @@
 
 .archives-article {
   display: grid;
-  grid-template-columns: 4.5rem minmax(0, 1fr);
+  grid-template-columns: 4.5rem minmax(0, 1fr) auto;
   align-items: start;
   gap: 0.35rem 1rem;
   padding: 0.82rem 0;
@@ -113,6 +113,25 @@
 .archives-article__title a:focus-visible {
   color: var(--link-hover);
   text-decoration: underline;
+}
+
+.archives-article__category {
+  margin: 0;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.95;
+  white-space: nowrap;
+}
+
+@media (max-width: 559px) {
+  .archives-article {
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+  }
+
+  .archives-article__category {
+    display: none;
+  }
 }
 
 /* The header scrolls away on small screens (see chrome.css). */

@@ -23,6 +23,11 @@
         <dd class="archives-article__title">
           <a href="{{ .RelPermalink }}">{{ .Title }}</a>
         </dd>
+        {{- with index .Params.categories 0 }}
+          {{- with site.GetPage (printf "/categories/%s" (. | urlize)) }}
+        <dd class="archives-article__category">{{ .Title }}</dd>
+          {{- end }}
+        {{- end }}
       </div>
       {{ end }}
     </dl>
