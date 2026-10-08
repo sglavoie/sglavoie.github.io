@@ -1,0 +1,42 @@
+{{- /* An RSS 2.0 feed of posts. Takes the page publishing the feed as
+     "page", its output format's name as "format", the posts as "pages"
+     and the channel title as "title". */ -}}
+{{- $page := .page -}}
+{{- $pages := .pages -}}
+{{- $limit := site.Config.Services.RSS.Limit -}}
+{{- if and (gt $limit 0) (gt (len $pages) $limit) -}}
+  {{- $pages = first $limit $pages -}}
+{{- end -}}
+{{- $author := site.Params.author | default "" -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>{{ .title }}</title>
+    <link>{{ $page.Permalink }}</link>
+    <description>{{ site.Params.description }}</description>
+    <language>{{ site.Language.Lang }}</language>
+    <atom:link href="{{ with $page.OutputFormats.Get .format }}{{ .Permalink }}{{ end }}" rel="self" type="application/rss+xml" />
+    {{- with (index $pages 0) }}
+    <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
+    {{- end }}
+    {{- range $pages }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <description>{{ .Summary | plainify | htmlUnescape | transform.XMLEscape | safeHTML }}</description>
+      <content:encoded>{{ partial "feeds/content.html" . | transform.XMLEscape | safeHTML }}</content:encoded>
+      {{- if $author }}
+      <dc:creator>{{ $author }}</dc:creator>
+      {{- end }}
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+      <guid isPermaLink="false">{{ .Permalink }}</guid>
+      {{- with .Params.categories }}{{- range . }}
+      <category>{{ . }}</category>
+      {{- end }}{{- end }}
+      {{- with .Params.tags }}{{- range . }}
+      <category>{{ . }}</category>
+      {{- end }}{{- end }}
+    </item>
+    {{- end }}
+  </channel>
+</rss>

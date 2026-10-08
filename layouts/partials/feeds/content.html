@@ -1,0 +1,7 @@
+{{- /* A post's full HTML for feed readers: root-relative links and images
+     made absolute, and the copy buttons (inert outside the site) dropped. */ -}}
+{{- $base := strings.TrimSuffix "/" site.BaseURL -}}
+{{- $html := .Content -}}
+{{- $html = $html | replaceRE `<button class="code-block__copy"[^>]*>[^<]*</button>` "" -}}
+{{- $html = $html | replaceRE `(src|href|srcset)="/([^/])` (printf `$1="%s/$2` $base) -}}
+{{- return $html -}}
