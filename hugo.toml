@@ -1,4 +1,4 @@
-# HUGO_VERSION=0.158.0 (extended) — must match Cloudflare Pages build env
+# HUGO_VERSION=0.166.0 (extended) — must match Cloudflare Pages build env
 
 baseURL = "https://www.sglavoie.com/"
 locale = "en-US"
