@@ -208,10 +208,10 @@ img {
 }
 
 .meta-row > * + *::before {
-  content: var(--meta-separator, "·");
+  content: "·";
   position: absolute;
   left: calc(var(--meta-gap) / -2);
-  color: var(--meta-separator-color, var(--ink-muted));
+  color: var(--ink-muted);
   transform: translateX(-50%);
 }
 

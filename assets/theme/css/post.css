@@ -29,8 +29,6 @@ article > .article_title h1 {
 }
 
 .post-reading__meta {
-  --meta-separator: "/";
-  --meta-separator-color: var(--border-strong);
   font-size: 0.85rem;
 }
 
