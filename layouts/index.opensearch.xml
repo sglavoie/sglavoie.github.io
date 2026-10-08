@@ -1,0 +1,14 @@
+{{- /* OpenSearch description, so browsers can search the site from the
+     address bar. The query opens the search dialog on the home page
+     (js/search.js, initSearch). */ -}}
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>{{ site.Title }}</ShortName>
+  <Description>Search the posts of {{ site.Title }}</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="16" height="16" type="image/x-icon">{{ "theme/favicon/favicon.ico" | absURL }}</Image>
+  <Image width="32" height="32" type="image/png">{{ "theme/favicon/favicon-32x32.png" | absURL }}</Image>
+  <Url type="text/html" method="get" template="{{ "/" | absURL }}?q={searchTerms}" />
+  <Url type="application/opensearchdescription+xml" rel="self" template="{{ "opensearch.xml" | absURL }}" />
+  <moz:SearchForm>{{ "/" | absURL }}</moz:SearchForm>
+</OpenSearchDescription>

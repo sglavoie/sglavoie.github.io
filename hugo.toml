@@ -81,7 +81,7 @@ description = "Posts and writings by Sébastien Lavoie. Customization setups and
     endLevel = 4
 
 [outputs]
-  home = ["HTML", "RSS", "Atom", "JSONFeed", "Headers"]
+  home = ["HTML", "RSS", "Atom", "JSONFeed", "Headers", "OpenSearch"]
   section = ["HTML"]
   taxonomy = ["HTML"]
   term = ["HTML", "TermFeed"]
@@ -112,6 +112,17 @@ description = "Posts and writings by Sébastien Lavoie. Customization setups and
   mediaType = "application/feed+json"
   rel = "alternate"
   isPlainText = true
+
+# Lets browsers search the site from the address bar (/opensearch.xml).
+[mediaTypes."application/opensearchdescription+xml"]
+  suffixes = ["xml"]
+
+[outputFormats.OpenSearch]
+  baseName = "opensearch"
+  mediaType = "application/opensearchdescription+xml"
+  rel = "search"
+  isPlainText = true
+  notAlternative = true
 
 # Cloudflare Pages' _headers file, from layouts/index.headers, so the
 # Content-Security-Policy can carry the hashes of the inline scripts.

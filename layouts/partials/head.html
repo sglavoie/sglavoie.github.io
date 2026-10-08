@@ -60,6 +60,13 @@
   <link rel="describedby" href="{{ "/sitemap.xml" | absURL }}" type="application/xml" />
 
   <link
+    rel="search"
+    type="application/opensearchdescription+xml"
+    href="{{ "/opensearch.xml" | absURL }}"
+    title="{{ .Site.Title }}"
+  />
+
+  <link
     href="{{ "/feeds/sglavoie.rss.xml" | absURL }}"
     type="application/rss+xml"
     rel="alternate"

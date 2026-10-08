@@ -17,7 +17,8 @@ function focusSearchInput() {
   }
 }
 
-export function openSearch() {
+// Opens the dialog, and runs a search for `query` when given one.
+export function openSearch(query) {
   if (!searchDialog || searchDialog.open || typeof PagefindUI === "undefined") {
     return;
   }
@@ -34,8 +35,26 @@ export function openSearch() {
   }
   searchDialog.showModal();
   searchTrigger?.setAttribute("aria-expanded", "true");
+  if (typeof query === "string" && query) {
+    pagefindUI.triggerSearch(query);
+  }
   // Pagefind renders its input asynchronously on first open.
   requestAnimationFrame(focusSearchInput);
+}
+
+// A search from the browser's address bar (layouts/index.opensearch.xml)
+// lands on the home page with ?q=, which opens the dialog with its results.
+// The parameter is dropped, so reloading or going back doesn't search again.
+function searchFromAddressBar() {
+  const params = new URLSearchParams(location.search);
+  const query = params.get("q")?.trim();
+  if (location.pathname !== "/" || !query) {
+    return;
+  }
+  params.delete("q");
+  const rest = params.toString();
+  history.replaceState(history.state, "", location.pathname + (rest ? "?" + rest : "") + location.hash);
+  openSearch(query);
 }
 
 // The chips and the menu stand in for Pagefind's own filter panel (hidden in
@@ -117,8 +136,9 @@ export function initSearch() {
 
   if (searchTrigger) {
     searchTrigger.setAttribute("aria-expanded", "false");
-    searchTrigger.addEventListener("click", openSearch);
+    searchTrigger.addEventListener("click", () => openSearch());
   }
+  searchFromAddressBar();
 }
 
 // Marks the search terms on a page opened from a result. Pagefind's

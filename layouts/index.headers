@@ -34,6 +34,9 @@
 /.well-known/api-catalog
   Content-Type: application/linkset+json
 
+/opensearch.xml
+  Content-Type: application/opensearchdescription+xml
+
 # Browsers check for a new service worker on each visit; never serve a stale one.
 /sw.js
   Cache-Control: no-cache
