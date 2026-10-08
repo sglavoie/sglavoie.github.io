@@ -1228,3 +1228,39 @@ article > .article_title h1 {
 .article_text .callout > :last-child {
   margin-bottom: 0;
 }
+
+/* ---------- Footnotes ---------- */
+
+/* Goldmark's footnotes: a small reference in the text and the notes in a
+   smaller sans after the article, each clear of the sticky header. */
+.article_text .footnote-ref {
+  padding: 0 0.15em;
+  font-family: var(--font-sans);
+  font-size: 0.75em;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.article_text :is([id^="fn:"], [id^="fnref:"]) {
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+.article_text .footnotes {
+  margin-top: var(--space-section);
+  color: var(--ink-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+}
+
+.article_text .footnotes ol {
+  padding-left: 1.4rem;
+}
+
+.article_text .footnotes li:target {
+  border-radius: 4px;
+  background-color: var(--accent-soft);
+}
+
+.article_text .footnote-backref {
+  text-decoration: none;
+}
