@@ -5,6 +5,7 @@ lastmod: "2020-06-01T12:00:00"
 slug: feature-fixture
 draft: true
 author: Sébastien Lavoie
+ai_assistance: drafted
 summary: A draft that uses every feature of a post, to look at after changing the templates, styles or scripts.
 description: A draft that uses every feature of a post, to look at after changing the templates, styles or scripts. Never published.
 tags:
@@ -13,7 +14,7 @@ categories:
   - tools
 ---
 
-This draft is never published. It puts every feature of a post on one page, so a change to the templates, styles or scripts can be checked in one place: run `hugo server -D` and open `/posts/feature-fixture/`. `scripts/check-fixture.py` checks that each feature's markup is still on the page, in the drafts build of `scripts/check-site.sh`. It's dated in 2020, so the note on older posts shows too.
+This draft is never published. It puts every feature of a post on one page, so a change to the templates, styles or scripts can be checked in one place: run `hugo server -D` and open `/posts/feature-fixture/`. `scripts/check-fixture.py` checks that each feature's markup is still on the page, in the drafts build of `scripts/check-site.sh`. It's dated in 2020, so the note on older posts shows too, and it's marked `ai_assistance: drafted`, so the note and label on AI assistance show as well.
 
 ## Text and links
 

@@ -37,6 +37,7 @@ ITEM = re.compile(r"^\s+-\s+(.*)$")
 
 REQUIRED = ("title", "date", "slug", "summary", "description")
 KNOWN = set(REQUIRED) | {
+    "ai_assistance",
     "author",
     "book_author",
     "categories",
@@ -61,6 +62,8 @@ KNOWN = set(REQUIRED) | {
     "weight",
 }
 TERMS = ("tags", "categories", "series")
+# How much an AI assistant wrote; layouts/partials/ai-assistance.html has the words for each.
+AI_ASSISTANCE = ("drafted", "assisted")
 
 
 def unquote(value: str) -> str:
@@ -129,6 +132,8 @@ def main() -> int:
                 failures.append(f"{name}: no {key}")
         for key in sorted(set(fields) - KNOWN):
             failures.append(f"{name}: unknown key {key!r} (misspelled? add it to KNOWN if it's new)")
+        if "ai_assistance" in fields and fields["ai_assistance"] not in AI_ASSISTANCE:
+            failures.append(f"{name}: ai_assistance {fields['ai_assistance']!r} isn't one of {', '.join(AI_ASSISTANCE)}")
         if len(terms(fields, "categories")) != 1:
             failures.append(f"{name}: needs exactly one category, has {len(terms(fields, 'categories'))}")
         if not terms(fields, "tags"):
@@ -178,7 +183,7 @@ def main() -> int:
         print(f"Note: {note}")
     if failures:
         return 1
-    print("Front matter check passed: required fields, known keys, dates, unique titles and slugs, one spelling per term.")
+    print("Front matter check passed: required fields, known keys, AI assistance levels, dates, unique titles and slugs, one spelling per term.")
     return 0
 
 

@@ -14,6 +14,9 @@
 
 {{ end -}}
 - Author: {{ .Params.author | default site.Params.author }}
+{{- with partial "ai-assistance.html" . }}
+- {{ .label }}: {{ .notice }}
+{{- end }}
 - Published: {{ .Date.Format "2006-01-02" }}
 {{- if and (not .Lastmod.IsZero) (ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }}
 - Updated: {{ .Lastmod.Format "2006-01-02" }}

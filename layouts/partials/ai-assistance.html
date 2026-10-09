@@ -1,0 +1,17 @@
+{{- /* How much of a post an AI assistant wrote, from `ai_assistance` in its
+       front matter: `drafted` (the AI wrote most of the text, which I then
+       reviewed and edited) or `assisted` (I wrote it, with help on research,
+       outlining or editing). Returns the words every surface shows — the
+       label in rows of metadata (ai-label.html), the note above the post
+       (ai-notice.html), the Markdown copy and the feeds — so they can't
+       drift apart, or nothing for posts written without one.
+       scripts/check-front-matter.py rejects any other value. */ -}}
+{{- $levels := dict
+  "drafted" (dict
+    "label" "Written with AI"
+    "notice" "This post was drafted with an AI assistant, working from my notes, code and tools, then reviewed and edited by me. The experiences and opinions are mine, and so are any mistakes.")
+  "assisted" (dict
+    "label" "AI-assisted"
+    "notice" "I wrote this post with help from an AI assistant for research, outlining or editing. The words, experiences and opinions are mine.")
+-}}
+{{- return index $levels (.Params.ai_assistance | default "") -}}

@@ -1,0 +1,9 @@
+{{- /* A note above a post that an AI assistant wrote or helped write
+       (ai-assistance.html), so readers know before they start rather than
+       only from the label. Out of the search index, like the age notice. */ -}}
+{{- with partial "ai-assistance.html" . -}}
+<aside class="callout callout--note ai-notice" aria-label="Note" data-pagefind-ignore>
+  <p class="callout__title">{{ .label }}</p>
+  <p>{{ .notice }}</p>
+</aside>
+{{- end -}}

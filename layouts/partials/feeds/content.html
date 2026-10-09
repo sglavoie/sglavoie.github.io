@@ -1,9 +1,11 @@
 {{- /* A post's full HTML for feed readers: root-relative links and images
-     made absolute, and the copy buttons and heading links (site chrome)
-     dropped. */ -}}
+     made absolute, the copy buttons and heading links (site chrome)
+     dropped, and the note on AI assistance (ai-assistance.html) put first, since
+     the page's own note isn't part of .Content. */ -}}
 {{- $base := strings.TrimSuffix "/" site.BaseURL -}}
 {{- $html := .Content -}}
 {{- $html = $html | replaceRE `<button class="code-block__copy"[^>]*>[^<]*</button>` "" -}}
 {{- $html = $html | replaceRE `<a class="heading-anchor"[^>]*>#</a>` "" -}}
+{{- with partial "ai-assistance.html" . }}{{ $html = printf "<p><em>%s: %s</em></p>\n%s" .label .notice $html }}{{ end -}}
 {{- $html = $html | replaceRE `(src|href|srcset)="/([^/])` (printf `$1="%s/$2` $base) -}}
 {{- return $html -}}

@@ -33,6 +33,7 @@
     <p class="post-reading__meta meta-row" data-pagefind-ignore>
       <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
       {{- partial "book-label.html" . }}
+      {{- partial "ai-label.html" . }}
       {{- if .ReadingTime }}
       <span>{{ partial "reading-time.html" . }}</span>
       {{- end }}
@@ -84,6 +85,7 @@
        <q> instead. Other tags may sit inside the quote, but not </em>. */}}
   {{- $content := .Content | replaceRE `<li><em>&ldquo;((?:[^<]|<[^/e][^>]*>|</[^e][^>]*>)*?)&rdquo;</em>` `<li><q class="note-quote">$1</q>` | partial "responsive-images.html" }}
   <div class="article_text">
+    {{- partial "ai-notice.html" . }}
     {{- partial "age-notice.html" . }}
     {{ $content | safeHTML }}
   </div>

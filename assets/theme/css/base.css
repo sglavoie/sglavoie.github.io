@@ -234,6 +234,11 @@ img {
   color: var(--ink-secondary);
 }
 
+/* Written with AI, or AI-assisted: a plain word, like the book author. */
+.ai-label {
+  color: var(--ink-secondary);
+}
+
 .book-icon {
   flex-shrink: 0;
   opacity: 0.75;

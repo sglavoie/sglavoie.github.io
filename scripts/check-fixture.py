@@ -26,6 +26,8 @@ EXPECTED = {
     "collapsible sections (15 min or more)": r"\bdata-collapsible\b",
     "section bar": r"class=\"?section-bar\b",
     "note on older posts": r"\bage-notice\b",
+    "note on AI assistance": r"\bai-notice\b",
+    "AI assistance label": r"class=\"?ai-label\b",
     "heading links": r"class=\"?heading-anchor\b",
     "note callout": r"callout--note\b",
     "tip callout with a title": r"callout--tip\b[\s\S]*?callout__title[^>]*>A tip with its own title<",

@@ -1,0 +1,5 @@
+{{- /* Says in a post's row of metadata that an AI assistant wrote or helped
+       write it (ai-assistance.html). Renders nothing for other posts. */ -}}
+{{- with partial "ai-assistance.html" . }}
+<span class="ai-label meta-row__term" title="{{ .notice }}">{{ .label }}</span>
+{{- end }}

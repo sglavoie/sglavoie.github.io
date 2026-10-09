@@ -11,6 +11,7 @@
         {{ end }}
       {{ end }}
       {{- partial "book-label.html" . }}
+      {{- partial "ai-label.html" . }}
       {{ with .ReadingTime }}
         {{- if ge . 30 }}
         <span class="article-card__badge">Deep dive &middot; {{ partial "reading-time.html" $ }}</span>
