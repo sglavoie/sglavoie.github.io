@@ -1,0 +1,24 @@
+flowchart TD
+    plan["PLAN.md"] --> iterate["plan-iterate --ideal<br/>refine the plan with Q&A"]
+    iterate --> prepare
+
+    subgraph prepare ["asl prepare PLAN.md"]
+        direction TB
+        split["session-split<br/>session-*.md + manifest.md"] --> expand["session-expand<br/>check every claim against the codebase"]
+        expand --> baseline["asl baseline<br/>record what the checks report before any change"]
+        baseline --> preflight{"asl preflight<br/>loop-ready?"}
+    end
+
+    preflight -- "red or yellow findings" --> fix["plan-preflight-iterate<br/>guided Q&A repair"]
+    fix --> preflight
+    preflight -- "all green" --> run["asl run<br/>next pending session, one fresh agent turn"]
+
+    run --> verify{"Python runs<br/>the Verify checks"}
+    verify -- "fail" --> repair["repair turn<br/>with the failing evidence"]
+    repair --> verify
+    verify -- "pass" --> more{"sessions<br/>pending?"}
+    more -- "yes" --> run
+    more -- "no" --> done(["all-complete"])
+
+    run -. "blocked, unsafe, guard violation" .-> paused(["paused, with a named reason"])
+    repair -. "repair budget exhausted" .-> paused
